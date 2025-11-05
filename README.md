@@ -47,7 +47,7 @@ It builds and serves the PHP manual locally in any translation
 php-doc/
 ├─ doc-base/ ← common build files, scripts, entities, configure.php
 ├─ doc-en/ ← English manual (contains this Docker setup)
-└─ doc-fr/ ← French manual or you official language repository (doc-es, doc-ja...)
+└─ doc-fr/ ← French manual or your official language repository (doc-es, doc-ja...)
 ```
 
 #### Usage
