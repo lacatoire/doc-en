@@ -51,6 +51,7 @@ php-doc/
 ```
 
 #### Usage
+
 From inside `php-doc/doc-en/`:
 
 ```bash
