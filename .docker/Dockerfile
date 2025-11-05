@@ -46,4 +46,3 @@ RUN sed -i 's/\r$//' /usr/local/bin/entrypoint.sh && chmod +x /usr/local/bin/ent
 EXPOSE 8000
 RUN chmod -R 777 /var/www
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-
