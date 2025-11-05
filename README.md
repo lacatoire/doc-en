@@ -40,16 +40,18 @@ It builds and serves the PHP manual locally in any translation
 (English by default, or another language via `LANGUAGE`).
 
 #### Prerequisites
+
 - Docker ≥ 24 and Docker Compose ([install guide](https://docs.docker.com/get-docker/))
 - Local clone structure:
 ```
 php-doc/
 ├─ doc-base/ ← common build files, scripts, entities, configure.php
 ├─ doc-en/ ← English manual (contains this Docker setup)
-└─ doc-fr/ ← French manual or you official language repository (doc-es, doc-ja...)
+└─ doc-fr/ ← French manual or your official language repository (doc-es, doc-ja...)
 ```
 
 #### Usage
+
 From inside `php-doc/doc-en/`:
 
 ```bash
@@ -65,13 +67,13 @@ LANGUAGE=fr docker compose up --build
 ```bash
 $env:LANGUAGE="fr"; docker compose up --build
 
-Remove-Item Env:LANGUAGE # To remove the variable:
+Remove-Item Env:LANGUAGE # Revert back to English
 ```
 The process will:
 
-1. Build a minimal PHP 8.2 environment with PhD
+1. Build a minimal PHP 8.2 environment with PhD.
 2. Generate `.manual.xml` and render the manual in HTML (php-chunked-xhtml).
-3. Start a local PHP web server on http://localhost:8000
+3. Start a local PHP web server on http://localhost:8000 where you can view the documentation.
 
 ## Translations
 
