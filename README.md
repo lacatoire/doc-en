@@ -40,6 +40,7 @@ It builds and serves the PHP manual locally in any translation
 (English by default, or another language via `LANGUAGE`).
 
 #### Prerequisites
+
 - Docker ≥ 24 and Docker Compose ([install guide](https://docs.docker.com/get-docker/))
 - Local clone structure:
 ```
