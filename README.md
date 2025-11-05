@@ -71,9 +71,9 @@ Remove-Item Env:LANGUAGE # To remove the variable:
 ```
 The process will:
 
-1. Build a minimal PHP 8.2 environment with PhD
+1. Build a minimal PHP 8.2 environment with PhD.
 2. Generate `.manual.xml` and render the manual in HTML (php-chunked-xhtml).
-3. Start a local PHP web server on http://localhost:8000
+3. Start a local PHP web server on http://localhost:8000 where you can view the documentation.
 
 ## Translations
 
