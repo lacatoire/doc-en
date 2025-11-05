@@ -75,6 +75,7 @@ done
 
 if [ -d "$OUTDIR" ]; then
   echo "✅ Build complete: $OUTDIR"
+  echo "View the documentation on http://localhost:8000"
 else
   echo "❌ No output directory found in /var/www/$LANGUAGE/output/"
   ls -R "/var/www/$LANGUAGE/output" || true
