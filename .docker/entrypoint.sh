@@ -1,5 +1,4 @@
 #!/bin/sh
-
 # POSIX-compliant entrypoint for building PHP documentation
 # Fully compatible with Linux, Alpine, and macOS environments
 
@@ -9,6 +8,26 @@ LANGUAGE=${1:-en}
 FORMAT=${2:-xhtml}
 PACKAGE=${PACKAGE:-PHP}
 MANUAL_PATH="/var/www/$LANGUAGE/.manual.xml"
+
+# 🧩 Step 1. Verify prerequisites (avoid silent empty mounts)
+
+REQUIRED_DIRS="/var/www/doc-base /var/www/$LANGUAGE"
+
+echo "🔍 Checking required documentation directories..."
+for DIR in $REQUIRED_DIRS; do
+  if [ ! -d "$DIR" ]; then
+    echo "❌ Missing required directory: $DIR"
+    echo "👉 Please clone the required repositories before running Docker:"
+    echo "   git clone https://github.com/php/doc-base ../doc-base"
+    echo "   git clone https://github.com/php/doc-${LANGUAGE} ../doc-${LANGUAGE}"
+    echo ""
+    echo "💡 Tip: remove any empty folders and recreate containers with:"
+    echo "   docker compose down --volumes && docker compose up --force-recreate"
+    exit 1
+  fi
+done
+echo "✅ All prerequisites found."
+echo ""
 
 echo "🧩 Building PHP documentation..."
 echo "Language: $LANGUAGE"
