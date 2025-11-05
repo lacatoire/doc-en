@@ -67,7 +67,7 @@ LANGUAGE=fr docker compose up --build
 ```bash
 $env:LANGUAGE="fr"; docker compose up --build
 
-Remove-Item Env:LANGUAGE # To remove the variable:
+Remove-Item Env:LANGUAGE # Revert back to English
 ```
 The process will:
 
