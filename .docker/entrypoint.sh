@@ -11,21 +11,27 @@ PACKAGE=${PACKAGE:-PHP}
 MANUAL_PATH="/var/www/$LANGUAGE/.manual.xml"
 
 # 🧩 Step 1. Verify prerequisites (avoid silent empty mounts)
+echo "🔍 Checking required documentation repositories..."
 
-REQUIRED_DIRS="/var/www/doc-base /var/www/$LANGUAGE"
+# Check doc-base presence (must contain configure.php)
+if [ ! -f /var/www/doc-base/configure.php ]; then
+  echo "❌ doc-base is missing or incomplete!"
+  echo "👉 Please clone it before running Docker:"
+  echo "   git clone https://github.com/php/doc-base ../doc-base"
+  echo ""
+  exit 1
+fi
 
-echo "🔍 Checking required documentation directories..."
-for DIR in $REQUIRED_DIRS; do
-  if [ ! -d "$DIR" ]; then
-    echo "❌ Missing required directory: $DIR"
-    echo "👉 Please clone the required repositories before running Docker:"
-    echo "   git clone https://github.com/php/doc-base ../doc-base"
-    echo "   git clone https://github.com/php/doc-${LANGUAGE} ../doc-${LANGUAGE}"
-    echo ""
-    echo "💡 Tip: remove any empty folders and recreate containers with:"
-    echo "   docker compose down --volumes && docker compose up --force-recreate"
-    exit 1
-  fi
+# Check language documentation presence (must contain entities/)
+if [ ! -d /var/www/$LANGUAGE/entities ]; then
+  echo "❌ doc-${LANGUAGE} is missing or incomplete!"
+  echo "👉 Please clone it before running Docker:"
+  echo "   git clone https://github.com/php/doc-${LANGUAGE} ../doc-${LANGUAGE}"
+  echo ""
+  echo "💡 Tip: remove any empty folders and recreate containers with:"
+  echo "   docker compose down --volumes && docker compose up --force-recreate"
+  exit 1
+fi
 done
 echo "✅ All prerequisites found."
 echo ""
