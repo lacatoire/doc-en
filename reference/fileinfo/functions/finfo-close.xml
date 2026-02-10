@@ -51,6 +51,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       This function has been deprecated,
+       as <classname>finfo</classname> objects are freed automatically.
+      </entry>
+     </row>
      &fileinfo.changelog.finfo-object;
     </tbody>
    </tgroup>

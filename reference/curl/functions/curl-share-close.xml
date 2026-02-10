@@ -49,6 +49,14 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       This function has been deprecated,
+       as <classname>CurlShareHandle</classname> objects are freed
+       automatically.
+      </entry>
+     </row>
      &curl.changelog.share-handle-param;
     </tbody>
    </tgroup>
