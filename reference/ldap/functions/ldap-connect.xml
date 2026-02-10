@@ -104,6 +104,14 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.4.0</entry>
+      <entry>
+       Calling <function>ldap_connect</function> with more than
+       two arguments is now deprecated.
+       Use <function>ldap_connect_wallet</function> instead.
+      </entry>
+     </row>
+     <row>
       <entry>8.3.0</entry>
       <entry>
        Calling <function>ldap_connect</function> with separate
