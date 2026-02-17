@@ -33,9 +33,7 @@
      
      <methodsynopsis xmlns="http://docbook.org/ns/docbook">
       <type>bool</type>
-      <methodname>
-       <replaceable>callback</replaceable>
-      </methodname>
+      <methodname><replaceable>callback</replaceable></methodname>
       <methodparam>
        <type>mixed</type><parameter>offset</parameter>
       </methodparam>
