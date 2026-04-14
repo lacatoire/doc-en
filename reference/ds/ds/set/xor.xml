@@ -13,10 +13,10 @@
    <modifier>public</modifier> <type>Ds\Set</type><methodname>Ds\Set::xor</methodname>
    <methodparam><type>Ds\Set</type><parameter>set</parameter></methodparam>
   </methodsynopsis>
-  <para>
-    Creates a new set containing values in the current instance as well as another <parameter>set</parameter>,
+  <simpara>
+    Creates a new set containing values in either the current instance or another <parameter>set</parameter>,
     but not in both.
-  </para>
+  </simpara>
   <para>
     <code>A ⊖ B = {x : x ∈ (A \ B) ∪ (B \ A)}</code>
   </para>
@@ -38,19 +38,20 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-    <para>
-        A new set containing values in the current instance as well as another <parameter>set</parameter>,
+    <simpara>
+        A new set containing values in either the current instance or another <parameter>set</parameter>,
         but not in both.
-    </para>
+    </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><link xlink:href="&url.wiki.symmetric.difference;">Symmetric Difference</link> on Wikipedia</member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><link xlink:href="&url.wiki.symmetric.difference;">Symmetric Difference</link> on Wikipedia</member>
+   <member><methodname>Ds\Set::diff</methodname></member>
+   <member><methodname>Ds\Set::intersect</methodname></member>
+   <member><methodname>Ds\Set::union</methodname></member>
+  </simplelist>
  </refsect1>
 
  <refsect1 role="examples">

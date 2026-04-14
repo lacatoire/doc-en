@@ -19,38 +19,34 @@
 
 <section xml:id="ds-set.strengths">
     <title xmlns="http://docbook.org/ns/docbook">Strengths</title>
-    <para>
-        <simplelist>
-            <member>Values can be any type, including objects.</member>
-            <member>Supports array syntax (square brackets).</member>
-            <member>Insertion order is preserved.</member>
-            <member>Automatically frees allocated memory when its size drops low enough.</member>
-            <member>
-                <function>add</function>,
-                <function>remove</function> and
-                <function>contains</function> are all O(1).
-            </member>
-        </simplelist>
-   </para>
+    <simplelist>
+        <member>Values can be any type, including objects.</member>
+        <member>Supports array syntax (square brackets).</member>
+        <member>Insertion order is preserved.</member>
+        <member>Automatically frees allocated memory when its size drops low enough.</member>
+        <member>
+            <methodname>Ds\Set::add</methodname>,
+            <methodname>Ds\Set::remove</methodname> and
+            <methodname>Ds\Set::contains</methodname> are all O(1).
+        </member>
+    </simplelist>
 </section>
 
 <section xml:id="ds-set.weaknesses">
     <title xmlns="http://docbook.org/ns/docbook">Weaknesses</title>
-    <para>
-        <simplelist>
-            <member>Doesn’t support
-                <function>push</function>,
-                <function>pop</function>,
-                <function>insert</function>,
-                <function>shift</function>, or
-                <function>unshift</function>.
-            </member>
-            <member>
-                <function>get</function> is O(n) if there are deleted values
-                in the buffer before the accessed index, O(1) otherwise.
-            </member>
-        </simplelist>
-   </para>
+    <simplelist>
+        <member>Doesn’t support
+            <methodname>Ds\Set::push</methodname>,
+            <methodname>Ds\Set::pop</methodname>,
+            <methodname>Ds\Set::insert</methodname>,
+            <methodname>Ds\Set::shift</methodname>, or
+            <methodname>Ds\Set::unshift</methodname>.
+        </member>
+        <member>
+            <methodname>Ds\Set::get</methodname> is O(n) if there are deleted values
+            in the buffer before the accessed index, O(1) otherwise.
+        </member>
+    </simplelist>
 </section>
 
   <section xml:id="ds-set.synopsis">
@@ -61,11 +57,18 @@
 
     <classsynopsisinfo>
      <ooclass>
+      <modifier>final</modifier>
       <classname>Ds\Set</classname>
      </ooclass>
 
      <oointerface>
-      <interfacename>Ds\Collection</interfacename>
+      <interfacename>Countable</interfacename>
+     </oointerface>
+     <oointerface>
+      <interfacename>IteratorAggregate</interfacename>
+     </oointerface>
+     <oointerface>
+      <interfacename>JsonSerializable</interfacename>
      </oointerface>
      <oointerface>
       <interfacename>ArrayAccess</interfacename>
@@ -81,6 +84,7 @@
     </fieldsynopsis>
 
     <classsynopsisinfo role="comment">&Methods;</classsynopsisinfo>
+    <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-set')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis)" />
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-set')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[not(@role='procedural')])" />
    </classsynopsis>
 
@@ -93,7 +97,7 @@
     <varlistentry xml:id="ds-set.constants.min-capacity">
      <term><constant>Ds\Set::MIN_CAPACITY</constant></term>
      <listitem>
-      <para></para>
+      <simpara>The minimum capacity of a <classname>Ds\Set</classname>.</simpara>
      </listitem>
     </varlistentry>
 
@@ -112,6 +116,19 @@
        </row>
       </thead>
       <tbody>
+       <row>
+        <entry>PECL ds 2.0.0</entry>
+        <entry>
+         The class no longer implements <literal>Ds\Collection</literal>.
+        </entry>
+       </row>
+       <row>
+        <entry>PECL ds 2.0.0</entry>
+        <entry>
+         <methodname>Ds\Set::copy</methodname> is now O(1), the contents being
+         copied only when either the original or the copy is modified.
+        </entry>
+       </row>
        <row>
         <entry>PECL ds 1.3.0</entry>
         <entry>

@@ -46,11 +46,12 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><link xlink:href="&url.wiki.complement;">Complement</link> on Wikipedia</member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><link xlink:href="&url.wiki.complement;">Complement</link> on Wikipedia</member>
+   <member><methodname>Ds\Map::intersect</methodname></member>
+   <member><methodname>Ds\Map::union</methodname></member>
+   <member><methodname>Ds\Map::xor</methodname></member>
+  </simplelist>
  </refsect1>
 
  <refsect1 role="examples">

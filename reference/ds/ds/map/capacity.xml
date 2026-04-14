@@ -45,7 +45,7 @@ var_dump($map->capacity());
    &example.outputs.similar;
    <screen>
 <![CDATA[
-int(16)
+int(8)
 ]]>
    </screen>
   </example>

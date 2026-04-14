@@ -6,9 +6,9 @@
 
  <section xml:id="ds.requirements">
   &reftitle.required;
-  <para>
-    PHP 7 is required by both the extension and the compatibility polyfill.
-  </para>
+  <simpara>
+   PHP 8.2 or later is required by both the extension and the compatibility polyfill.
+  </simpara>
  </section>
 
  <section xml:id="ds.installation">
@@ -23,14 +23,14 @@ pecl install ds
 </para>
 
    <para>
-     You can also build directly from source:
+     The extension can also be built directly from source:
 
     <screen>
 <![CDATA[
 # Dependencies you might need to install
-# sudo apt-get install git build-essential php7.0-dev
+# sudo apt-get install git build-essential php-dev
 
-git clone https://github.com/php-ds/extension "php-ds"
+git clone https://github.com/php-ds/ext-ds "php-ds"
 cd php-ds
 
 # Build and install the extension
@@ -48,15 +48,14 @@ phpize --clean
   </para>
 
   <note>
-    <para>
-        If you're using Composer, it's highly recommended that you include
+    <simpara>
+        When using Composer, it is highly recommended to require
         <link xlink:href="&url.packagist.package;php-ds/php-ds">php-ds/php-ds</link>
-        in your project so that your code is still functional in an environment where the
-        extension is not installed. The extension will take priority if installed.
-    </para>
+        so that the code still works in an environment where the extension is
+        not installed. The extension takes priority when it is installed.
+    </simpara>
   </note>
  </section>
-
 
 </chapter>
 

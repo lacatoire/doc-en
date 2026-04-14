@@ -66,9 +66,9 @@
    <varlistentry>
     <term><parameter>initial</parameter></term>
     <listitem>
-     <para>
-        The initial value of the carry value. Can be &null;.
-     </para>
+     <simpara>
+        The initial value of <parameter>carry</parameter>. Can be &null;.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

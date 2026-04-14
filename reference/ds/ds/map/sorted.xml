@@ -11,7 +11,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>Ds\Map</type><methodname>Ds\Map::sorted</methodname>
-   <methodparam choice="opt"><type>callable</type><parameter>comparator</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>callable</type><type>null</type></type><parameter>comparator</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
     Returns a copy, sorted by value using an optional <parameter>comparator</parameter> function.
@@ -41,7 +41,7 @@
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
-   <title><function>Ds\Map::sort</function> example</title>
+   <title><function>Ds\Map::sorted</function> example</title>
    <programlisting role="php">
 <![CDATA[
 <?php
@@ -79,7 +79,7 @@ Ds\Map Object
    </screen>
   </example>
   <example>
-   <title><function>Ds\Map::sort</function> example using a comparator</title>
+   <title><function>Ds\Map::sorted</function> example using a comparator</title>
    <programlisting role="php">
 <![CDATA[
 <?php
@@ -122,6 +122,13 @@ Ds\Map Object
    </screen>
   </example>
 
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><methodname>Ds\Map::sort</methodname></member>
+  </simplelist>
  </refsect1>
 
 </refentry>

@@ -45,18 +45,19 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-    <para>
-    A new map containing all the pairs of the current instance as well as another <parameter>map</parameter>.
-    </para>
+    <simpara>
+    A new map containing all the pairs of the current instance as well as those of another <parameter>map</parameter>.
+    </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><link xlink:href="&url.wiki.union.set;">Union</link> on Wikipedia</member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><link xlink:href="&url.wiki.union.set;">Union</link> on Wikipedia</member>
+   <member><methodname>Ds\Map::diff</methodname></member>
+   <member><methodname>Ds\Map::intersect</methodname></member>
+   <member><methodname>Ds\Map::xor</methodname></member>
+  </simplelist>
  </refsect1>
 
  <refsect1 role="examples">

@@ -14,27 +14,29 @@
    <methodparam><type>mixed</type><parameter>key</parameter></methodparam>
    <methodparam choice="opt"><type>mixed</type><parameter>default</parameter></methodparam>
   </methodsynopsis>
-  <para>
-    Removes and returns a value by key, or return an optional default value if the key
+  <simpara>
+    Removes and returns a value by key, or returns an optional default value if the key
     could not be found.
-  </para>
+  </simpara>
 
   <note>
-    <para>
+    <simpara>
         Keys of type <type>object</type> are supported.
 
-        If an object implements <classname>Ds\Hashable</classname>,
-        equality will be determined by the object's <code>equals</code> function.
+        If an object implements <classname>Ds\Key</classname>,
+        equality will be determined by the object's <methodname>Ds\Key::equals</methodname> function.
 
-        If an object does not implement <classname>Ds\Hashable</classname>,
+        If an object does not implement <classname>Ds\Key</classname>,
         objects must be references to the same instance to be considered equal.
-    </para>
+    </simpara>
   </note>
 
   <note>
-    <para>
-        You can also use array syntax to access values by key, eg. <code>$map["key"]</code>.
-    </para>
+    <simpara>
+        Array syntax removes a value by key as well, e.g.
+        <code>unset($map["key"])</code>, but returns nothing and does not throw
+        when the key is missing.
+    </simpara>
   </note>
 
   <caution>
@@ -83,10 +85,10 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   <classname>OutOfBoundsException</classname> if the key could not be found
+  <simpara>
+   <exceptionname>OutOfBoundsException</exceptionname> if the key could not be found
    and a default value was not provided.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

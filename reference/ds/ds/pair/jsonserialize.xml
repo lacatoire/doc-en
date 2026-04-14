@@ -9,13 +9,17 @@
 
  <refsect1 role="description">
   &reftitle.description;
-  <para>
-   See <function>JsonSerializable::jsonSerialize</function>
-  </para>
+  <methodsynopsis>
+   <modifier>public</modifier> <type>mixed</type><methodname>Ds\Pair::jsonSerialize</methodname>
+   <void />
+  </methodsynopsis>
+  <simpara>
+   See <methodname>JsonSerializable::jsonSerialize</methodname>
+  </simpara>
   <note>
-   <para>
-    You should never need to call this directly.
-   </para>
+   <simpara>
+    This method is not intended to be called directly.
+   </simpara>
   </note>
  </refsect1>
 

@@ -11,22 +11,22 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>void</type><methodname>Ds\Map::putAll</methodname>
-   <methodparam><type>mixed</type><parameter>pairs</parameter></methodparam>
+   <methodparam><type>mixed</type><parameter>values</parameter></methodparam>
   </methodsynopsis>
-  <para>
-    Associates all key-value <parameter>pairs</parameter> of a <classname>traversable</classname> object or &array;.
-  </para>
+  <simpara>
+    Associates all key-value <parameter>values</parameter> of a <classname>Traversable</classname> object or &array;.
+  </simpara>
 
   <note>
-    <para>
+    <simpara>
         Keys of type <type>object</type> are supported.
 
-        If an object implements <classname>Ds\Hashable</classname>,
-        equality will be determined by the object's <code>equals</code> function.
+        If an object implements <classname>Ds\Key</classname>,
+        equality will be determined by the object's <methodname>Ds\Key::equals</methodname> function.
 
-        If an object does not implement <classname>Ds\Hashable</classname>,
+        If an object does not implement <classname>Ds\Key</classname>,
         objects must be references to the same instance to be considered equal.
-    </para>
+    </simpara>
   </note>
 
  </refsect1>
@@ -35,11 +35,11 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>pairs</parameter></term>
+    <term><parameter>values</parameter></term>
     <listitem>
-     <para>
-        <classname>traversable</classname> object or &array;.
-     </para>
+     <simpara>
+        <classname>Traversable</classname> object or &array;.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -50,6 +50,15 @@
   <para>
     &return.void;
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>InvalidArgumentException</exceptionname> if
+   <parameter>values</parameter> is neither an array nor a
+   <classname>Traversable</classname> object.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

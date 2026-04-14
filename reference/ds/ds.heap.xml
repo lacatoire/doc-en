@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+
+<reference xml:id="class.ds-heap" role="class" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+ <title>The Heap class</title>
+ <titleabbrev>Ds\Heap</titleabbrev>
+
+ <partintro>
+
+  <section xml:id="ds-heap.intro">
+   &reftitle.intro;
+   <simpara>
+    A Heap is a tree-based data structure in which the value at the top of the
+    heap is determined by a configurable comparator. By default, when no comparator
+    is provided, the heap behaves as a max-heap using standard comparison.
+   </simpara>
+   <simpara>
+    Replaces <literal>Ds\PriorityQueue</literal> from v1, providing more
+    flexibility through an optional callable comparator that can be passed to
+    the constructor.
+   </simpara>
+   <note>
+    <simpara>
+     Iterating over a <classname>Ds\Heap</classname> yields the values in the
+     order in which they would be popped. The iterator operates on an internal
+     copy, so the heap itself is not modified by
+     <literal>foreach</literal>.
+    </simpara>
+   </note>
+
+  </section>
+
+  <section xml:id="ds-heap.strengths">
+   <title>Strengths</title>
+   <simplelist>
+    <member>
+     <methodname>Ds\Heap::push</methodname> and
+     <methodname>Ds\Heap::pop</methodname> are O(log n).
+    </member>
+    <member>
+     <methodname>Ds\Heap::peek</methodname> is O(1).
+    </member>
+    <member>
+     <methodname>Ds\Heap::copy</methodname> is O(1) due to copy-on-write.
+    </member>
+   </simplelist>
+  </section>
+
+  <section xml:id="ds-heap.weaknesses">
+   <title>Weaknesses</title>
+   <simplelist>
+    <member>Random access is not supported.</member>
+    <member>Values are only ordered relative to the top of the heap.</member>
+   </simplelist>
+  </section>
+
+  <section xml:id="ds-heap.synopsis">
+   &reftitle.classsynopsis;
+
+   <classsynopsis>
+    <ooclass><classname>Ds\Heap</classname></ooclass>
+
+    <classsynopsisinfo>
+     <ooclass>
+      <modifier>final</modifier>
+      <classname>Ds\Heap</classname>
+     </ooclass>
+
+     <oointerface>
+      <interfacename>Countable</interfacename>
+     </oointerface>
+     <oointerface>
+      <interfacename>IteratorAggregate</interfacename>
+     </oointerface>
+     <oointerface>
+      <interfacename>JsonSerializable</interfacename>
+     </oointerface>
+    </classsynopsisinfo>
+    <classsynopsisinfo role="comment">&Constants;</classsynopsisinfo>
+    <fieldsynopsis>
+     <modifier>const</modifier>
+     <type>int</type>
+     <varname linkend="ds-heap.constants.min-capacity">Ds\Heap::MIN_CAPACITY</varname>
+     <initializer>8</initializer>
+    </fieldsynopsis>
+
+    <classsynopsisinfo role="comment">&Methods;</classsynopsisinfo>
+    <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-heap')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis[not(@role='procedural')])" />
+    <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-heap')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[not(@role='procedural')])" />
+   </classsynopsis>
+
+  </section>
+
+  <section xml:id="ds-heap.constants">
+   &reftitle.constants;
+   <variablelist>
+
+    <varlistentry xml:id="ds-heap.constants.min-capacity">
+     <term><constant>Ds\Heap::MIN_CAPACITY</constant></term>
+     <listitem>
+      <simpara>The minimum capacity of a <classname>Ds\Heap</classname>.</simpara>
+     </listitem>
+    </varlistentry>
+
+   </variablelist>
+  </section>
+
+ </partintro>
+
+ &reference.ds.ds.entities.heap;
+
+</reference>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:"~/.phpdoc/manual.ced"
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim600: syn=xml fen fdm=syntax fdl=2 si
+vim: et tw=78 syn=sgml
+vi: ts=1 sw=1
+-->

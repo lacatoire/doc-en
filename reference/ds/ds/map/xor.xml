@@ -13,10 +13,10 @@
    <modifier>public</modifier> <type>Ds\Map</type><methodname>Ds\Map::xor</methodname>
    <methodparam><type>Ds\Map</type><parameter>map</parameter></methodparam>
   </methodsynopsis>
-  <para>
-    Creates a new map containing keys of the current instance as well as another <parameter>map</parameter>,
+  <simpara>
+    Creates a new map containing keys in either the current instance or another <parameter>map</parameter>,
     but not of both.
-  </para>
+  </simpara>
   <para>
     <code>A ⊖ B = {x : x ∈ (A \ B) ∪ (B \ A)}</code>
   </para>
@@ -38,19 +38,20 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-    <para>
-        A new map containing keys in the current instance as well as another <parameter>map</parameter>,
+    <simpara>
+        A new map containing keys in either the current instance or another <parameter>map</parameter>,
         but not in both.
-    </para>
+    </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><link xlink:href="&url.wiki.symmetric.difference;">Symmetric Difference</link> on Wikipedia</member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><link xlink:href="&url.wiki.symmetric.difference;">Symmetric Difference</link> on Wikipedia</member>
+   <member><methodname>Ds\Map::diff</methodname></member>
+   <member><methodname>Ds\Map::intersect</methodname></member>
+   <member><methodname>Ds\Map::union</methodname></member>
+  </simplelist>
  </refsect1>
 
  <refsect1 role="examples">

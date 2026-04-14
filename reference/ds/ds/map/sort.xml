@@ -13,7 +13,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>void</type><methodname>Ds\Map::sort</methodname>
-   <methodparam choice="opt"><type>callable</type><parameter>comparator</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>callable</type><type>null</type></type><parameter>comparator</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
     Sorts the map in-place by value, using an optional <parameter>comparator</parameter> function.
@@ -126,6 +126,13 @@ Ds\Map Object
 
  </refsect1>
 
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><methodname>Ds\Map::sorted</methodname></member>
+  </simplelist>
+ </refsect1>
 
 </refentry>
 

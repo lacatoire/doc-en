@@ -14,7 +14,7 @@
   <methodsynopsis>
    <modifier>public</modifier> <type>Ds\Map</type><methodname>Ds\Map::slice</methodname>
    <methodparam><type>int</type><parameter>index</parameter></methodparam>
-   <methodparam choice="opt"><type>int</type><parameter>length</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>int</type><type>null</type></type><parameter>length</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
     Returns a subset of the map defined by a starting <parameter>index</parameter> and <parameter>length</parameter>.

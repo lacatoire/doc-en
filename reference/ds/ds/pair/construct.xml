@@ -11,8 +11,8 @@
   &reftitle.description;
   <constructorsynopsis>
    <modifier>public</modifier> <methodname>Ds\Pair::__construct</methodname>
-   <methodparam choice="opt"><type>mixed</type><parameter>key</parameter></methodparam>
-   <methodparam choice="opt"><type>mixed</type><parameter>value</parameter></methodparam>
+   <methodparam><type>mixed</type><parameter>key</parameter></methodparam>
+   <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
   </constructorsynopsis>
   <para>
     Creates a new instance using a given <parameter>key</parameter> and <parameter>value</parameter>.
@@ -42,16 +42,6 @@
   </variablelist>
  </refsect1>
 
- <!-- Return values commented out, as constructors generally don't return a
-      value. Uncomment this if you do need a return values section (for
-      example, because there's also a procedural version of the method).
- <refsect1 role="returnvalues">
-  &reftitle.returnvalues;
-  <para>
-
-  </para>
- </refsect1>
- -->
 
 
 </refentry>

@@ -26,15 +26,14 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     A reversed copy of the set.
-
-    <note>
-        <para>
-            The current instance is not affected.
-        </para>
-    </note>
-  </para>
+  </simpara>
+  <note>
+    <simpara>
+        The current instance is not affected.
+    </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="examples">
@@ -71,6 +70,13 @@ Ds\Set Object
   </example>
  </refsect1>
 
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><methodname>Ds\Set::reverse</methodname></member>
+  </simplelist>
+ </refsect1>
 
 </refentry>
 

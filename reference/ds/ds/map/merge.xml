@@ -13,10 +13,10 @@
    <modifier>public</modifier> <type>Ds\Map</type><methodname>Ds\Map::merge</methodname>
    <methodparam><type>mixed</type><parameter>values</parameter></methodparam>
   </methodsynopsis>
-  <para>
-    Returns the result of associating all keys of a given <classname>traversable</classname>
+  <simpara>
+    Returns the result of associating all keys of a given <classname>Traversable</classname>
     object or &array; with their corresponding values, combined with the current instance.
-  </para>
+  </simpara>
 
   <note>
     <para>
@@ -32,9 +32,9 @@
    <varlistentry>
     <term><parameter>values</parameter></term>
     <listitem>
-     <para>
-        A <classname>traversable</classname> object or an &array;.
-     </para>
+     <simpara>
+        A <classname>Traversable</classname> object or an &array;.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -42,15 +42,24 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-    The result of associating all keys of a given <classname>traversable</classname>
+  <simpara>
+    The result of associating all keys of a given <classname>Traversable</classname>
     object or &array; with their corresponding values, combined with the current instance.
-  </para>
+  </simpara>
   <note>
     <para>
         The current instance won't be affected.
     </para>
   </note>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>InvalidArgumentException</exceptionname> if
+   <parameter>values</parameter> is neither an array nor a
+   <classname>Traversable</classname> object.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
