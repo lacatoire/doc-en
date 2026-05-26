@@ -2,7 +2,7 @@
 <refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="function.rnp-list-keys">
  <refnamediv>
   <refname>rnp_list_keys</refname>
-  <refpurpose>Enumerate all keys present in a keyring by specified identifer type</refpurpose>
+  <refpurpose>Enumerate all keys present in a keyring by specified identifier type</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">

@@ -42,7 +42,7 @@
       <term><parameter>country</parameter></term>
         <listitem>
           <simpara>
-            Country id identified by Gender class constant. If ommited ANY_COUNTRY is used.
+            Country id identified by Gender class constant. If omitted ANY_COUNTRY is used.
           </simpara>
        </listitem>
      </varlistentry>

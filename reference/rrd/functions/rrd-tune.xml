@@ -14,7 +14,7 @@
    <methodparam><type>array</type><parameter>options</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   Change some options in the RRD dabase header file. E.g. renames the source for
+   Change some options in the RRD database header file. E.g. renames the source for
    the data etc.
   </simpara>
  </refsect1>

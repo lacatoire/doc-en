@@ -65,7 +65,7 @@
     <varlistentry xml:id="solrdismaxquery.constants.order-asc">
      <term><constant>SolrDisMaxQuery::ORDER_ASC</constant></term>
      <listitem>
-      <para>Used to specify that the sorting should be in acending order (Duplicated for easier migration)</para>
+      <para>Used to specify that the sorting should be in ascending order (Duplicated for easier migration)</para>
      </listitem>
     </varlistentry>
 

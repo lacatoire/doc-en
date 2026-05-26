@@ -101,7 +101,7 @@
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
-   <title>Sort Criterias</title>
+   <title>Sort Criteria</title>
    <para>
     To sort on Bib1 attribute title, case insensitive, and ascending you
     would use the following sort criteria:

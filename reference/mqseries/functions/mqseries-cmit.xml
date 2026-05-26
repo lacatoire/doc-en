@@ -86,7 +86,7 @@
   <note>
    <simpara>
     <function>mqseries_back</function>
-    will not function when using MQSeries Client to connect to a Queueu Manager.
+    will not function when using MQSeries Client to connect to a Queue Manager.
    </simpara>
   </note>
  </refsect1>

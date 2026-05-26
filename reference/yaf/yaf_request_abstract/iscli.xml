@@ -25,9 +25,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   bolean
-  </para>
+  <simpara>
+   boolean
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">

@@ -109,7 +109,7 @@
     mqseries_conn('WMQ1', $conn, $comp_code, $reason);
 // $conn now hold the reference to the connection to the queue manager.
 
-// open the connectio to the testq queueu
+// open the connectio to the testq queue
     mqseries_open(
                 $conn,
                 array('ObjectName' => 'TESTQ'),
@@ -132,7 +132,7 @@
 // setup the put message options.
     $pmo = array('Options' => MQSERIES_MQPMO_NEW_MSG_ID|MQSERIES_MQPMO_SYNCPOINT);
 
-// put the message 'Ping' on the queueu.
+// put the message 'Ping' on the queue.
     mqseries_put($conn, $obj, $md, $pmo, 'Ping', $comp_code, $reason);
 
     if ($comp_code !== MQSERIES_MQCC_OK) {

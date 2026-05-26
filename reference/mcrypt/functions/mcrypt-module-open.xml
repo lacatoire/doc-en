@@ -115,7 +115,7 @@
     /* Create key (example only: MD5 is not a good hash algorithm for this) */
     $key = substr(hash('md5', 'very secret key'), 0, $ks);
 
-    /* Intialize encryption */
+    /* Initialize encryption */
     mcrypt_generic_init($td, $key, $iv);
 
     /* Encrypt data */

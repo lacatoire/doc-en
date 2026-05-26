@@ -14,12 +14,12 @@
    <methodparam><type class="union"><type>string</type><type>array</type></type><parameter>namespaces</parameter></methodparam>
    <methodparam choice="opt"><type>string</type><parameter>path</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Register a namespace with searching path, <classname>Yaf_Loader</classname>
-   searchs classes under this namespace in path, the one is also could be 
+   searches classes under this namespace in path, the one is also could be
    configureded via <link linkend="configuration.yaf.library.namespace">
    application.library.directory.namespace</link>(in application.ini);
-  </para>
+  </simpara>
   <para>
    <note>
     <para>

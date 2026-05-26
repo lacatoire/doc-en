@@ -32,7 +32,7 @@
     <term><parameter>brightness</parameter></term>
     <listitem>
      <simpara>
-      The percent change in brighness (-100 thru +100).
+      The percent change in brightness (-100 thru +100).
      </simpara>
     </listitem>
    </varlistentry>
