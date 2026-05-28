@@ -65,7 +65,7 @@ class IndexController extends Yaf_Controller_Abstract {
      public function init() {
          if ($this->getRequest()->isXmlHttpRequest()) {
              //do not call render for ajax request
-             //we will outpu a json string
+             //we will output a json string
              Yaf_Dispatcher::getInstance()->autoRender(FALSE);
          }
      } 

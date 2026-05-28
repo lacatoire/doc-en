@@ -4,7 +4,7 @@
 <refentry xml:id="solrquery.getmltmindocfrequency" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>SolrQuery::getMltMinDocFrequency</refname>
-  <refpurpose>Returns the treshold frequency at which words will be ignored which do not occur in at least this many docs</refpurpose>
+  <refpurpose>Returns the threshold frequency at which words will be ignored which do not occur in at least this many docs</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -13,9 +13,9 @@
    <modifier>public</modifier> <type>int</type><methodname>SolrQuery::getMltMinDocFrequency</methodname>
    <void />
   </methodsynopsis>
-  <para>
-   Returns the treshold frequency at which words will be ignored which do not occur in at least this many docs
-  </para>
+  <simpara>
+   Returns the threshold frequency at which words will be ignored which do not occur in at least this many docs
+  </simpara>
 
 </refsect1>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="rar.examples">
+<chapter xml:id="rar.examples" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  &reftitle.examples;
 
  <simpara>
@@ -38,7 +38,7 @@ $filesize = $entries[$index]->getUnpackedSize();
 
 $fp = $entries[$index]->getStream();
 if ($fp === FALSE)
-    die("Cannot open file with index $index insided the archive.");
+    die("Cannot open file with index $index inside the archive.");
 
 $arch->close(); //no longer needed; stream is independent
 
@@ -93,7 +93,7 @@ switch (detectUserAgent()) {
 header(sprintf($format, $orfilename));
 //cannot send error messages from now on (headers already sent)
 
-//replace by real content type, perhaps infering from the file extension
+//replace by real content type, perhaps inferring from the file extension
 $contentType = "application/octet-stream";
 header("Content-Type: $contentType");
 

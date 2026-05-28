@@ -104,7 +104,7 @@
     <varlistentry xml:id="solrquery.constants.order-asc">
      <term><constant>SolrQuery::ORDER_ASC</constant></term>
      <listitem>
-      <para>Used to specify that the sorting should be in acending order</para>
+      <simpara>Used to specify that the sorting should be in ascending order</simpara>
      </listitem>
     </varlistentry>
 

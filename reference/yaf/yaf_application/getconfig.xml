@@ -4,7 +4,7 @@
 <refentry xml:id="yaf-application.getconfig" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>Yaf_Application::getConfig</refname>
-  <refpurpose>Retrive the config instance</refpurpose>
+  <refpurpose>Retrieve the config instance</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">

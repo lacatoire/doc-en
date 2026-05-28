@@ -236,9 +236,9 @@
         <varlistentry>
          <term><parameter>recovery_reset_period</parameter></term>
          <listitem>
-          <para>
-           The failure count will be reset after the delay defined in the parameter. The delay is expirement in seconds.
-          </para>
+          <simpara>
+           The failure count will be reset after the delay defined in the parameter. The delay is expressed in seconds.
+          </simpara>
           <para>
            The default value is <literal>86400</literal>.
           </para>
@@ -466,7 +466,7 @@ $x = win32_create_service(array(
     'params'                => '"' . __FILE__ . '"  run',                            // path to the script and parameters
     'recovery_delay'        => 120000,                                               // Recovery action is executed after 2 minutes
     'recovery_action_1'     => WIN32_SC_ACTION_RESTART,                              // On first failure, restart the service
-    'recovery_action_2'     => WIN32_SC_ACTION_RUN_COMMAND,                          // On second failure, execute the commmand
+    'recovery_action_2'     => WIN32_SC_ACTION_RUN_COMMAND,                          // On second failure, execute the command
     'recovery_action_3'     => WIN32_SC_ACTION_NONE,                                 // On other failure, do nothing
     'recovery_reset_period' => 86400,                                                // Reset the fail counter after 1 day
     'recovery_enabled'      => true,                                                 // Enable the recovery parameter
