@@ -28,6 +28,7 @@
  <function name="inflate_get_read_len" from="PHP 7 &gt;= 7.2.0, PHP 8"/>
  <function name="inflate_get_status" from="PHP 7 &gt;= 7.2.0, PHP 8"/>
  <function name="inflate_init" from="PHP 7, PHP 8"/>
+ <function name="ob_gzhandler" from="PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8"/>
  <function name="readgzfile" from="PHP 4, PHP 5, PHP 7, PHP 8"/>
  <function name="zlib_get_coding_type" from="PHP 4 &gt;= 4.3.2, PHP 5, PHP 7, PHP 8"/>
  <function name="zlib_encode" from="PHP 5 &gt;= 5.4.0, PHP 7, PHP 8"/>
