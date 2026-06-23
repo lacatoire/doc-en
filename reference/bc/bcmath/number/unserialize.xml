@@ -33,7 +33,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   This method throws a <exceptionname>ValueError</exceptionname> if invalid serialized data is passed.
+   This method throws an <exceptionname>Exception</exceptionname> if invalid serialized data is passed.
   </simpara>
  </refsect1>
 
@@ -41,7 +41,7 @@
   &reftitle.seealso;
   <simplelist>
    <member><methodname>BcMath\Number::__construct</methodname></member>
-   <member><methodname>BcMath\Number::serialize</methodname></member>
+   <member><methodname>BcMath\Number::__serialize</methodname></member>
   </simplelist>
  </refsect1>
 
