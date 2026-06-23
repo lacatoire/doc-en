@@ -11,18 +11,18 @@
    <modifier>public</modifier> <type>bool</type><methodname>XSLTProcessor::setParameter</methodname>
    <methodparam><type>string</type><parameter>namespace</parameter></methodparam>
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam><type>string</type><parameter>value</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>value</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <methodsynopsis role="XSLTProcessor">
    <modifier>public</modifier> <type>bool</type><methodname>XSLTProcessor::setParameter</methodname>
    <methodparam><type>string</type><parameter>namespace</parameter></methodparam>
-   <methodparam><type>array</type><parameter>options</parameter></methodparam>
+   <methodparam><type>array</type><parameter>name</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   Sets the value of one or more parameters to be used in subsequent 
-   transformations with <classname>XSLTProcessor</classname>. If the 
+  <simpara>
+   Sets the value of one or more parameters to be used in subsequent
+   transformations with <classname>XSLTProcessor</classname>. If the
    parameter doesn't exist in the stylesheet it will be ignored.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
@@ -31,33 +31,28 @@
     <varlistentry>
      <term><parameter>namespace</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The namespace URI of the XSLT parameter.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>name</parameter></term>
      <listitem>
-      <para>
-       The local name of the XSLT parameter.
-      </para>
+      <simpara>
+       The local name of the XSLT parameter, or an array of
+       <literal>local name =&gt; value</literal> pairs to set several
+       parameters at once.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>value</parameter></term>
      <listitem>
-      <para>
-       The new value of the XSLT parameter.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>options</parameter></term>
-     <listitem>
-      <para>
-       An array of  <literal>name =&gt; value</literal> pairs.
-      </para>
+      <simpara>
+       The new value of the XSLT parameter. Has no effect, and may be omitted,
+       when <parameter>name</parameter> is an array.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -65,9 +60,9 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
