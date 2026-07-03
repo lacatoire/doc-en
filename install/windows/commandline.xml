@@ -178,7 +178,7 @@ Windows Registry Editor Version 5.00
 ]]>
    </screen>
    Further information regarding this issue can be found in Microsoft
-   Knowledgebase Article 321788.
+   Knowledge Base article 321788.
    As of Windows 10, this setting seems to be reversed, making the default install of
    Windows 10 support inherited console handles automatically.
   </para>

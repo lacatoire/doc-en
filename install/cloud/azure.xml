@@ -2,6 +2,14 @@
 <!-- $Revision$ -->
 <sect1 xml:id="install.cloud.azure" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>Azure App Services</title>
+  <note>
+   <simpara>
+    Microsoft no longer supports PHP on Azure App Service for Windows (PHP 7.4
+    was the last supported version there, and it has reached end of life). PHP
+    is now offered only on Azure App Service for Linux. The Windows/IIS
+    instructions below are retained for historical reference only.
+   </simpara>
+  </note>
   <para>
     PHP is frequently used on Azure App Services (aka Microsoft Azure, Windows Azure, Azure Web Apps).
   </para>
