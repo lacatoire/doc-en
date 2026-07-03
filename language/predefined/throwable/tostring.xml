@@ -9,7 +9,7 @@
 
  <refsect1 role="description">
   &reftitle.description;
-  <methodsynopsis role="Throwable">
+  <methodsynopsis role="Stringable">
    <modifier>public</modifier> <type>string</type><methodname>Throwable::__toString</methodname>
    <void/>
   </methodsynopsis>
