@@ -640,7 +640,7 @@ static MY_CONN_PROPERTIES** get_conn_properties(const MYSQLND *conn TSRMLS_DC) {
       <entry>Network (MYSQLND_NET)</entry>
       <entry>MINIT or later</entry>
       <entry>Yes</entry>
-      <entry>mysqlnd_net_get_methods() or object method function table manipulation</entry>
+      <entry>mysqlnd_pfc_get_methods() / mysqlnd_vio_get_methods() or object method function table manipulation</entry>
      </row>
      <row>
       <entry>Wire protocol (MYSQLND_PROTOCOL)</entry>
@@ -883,7 +883,12 @@ static MY_CONN_PROPERTIES** get_conn_properties(const MYSQLND *conn TSRMLS_DC) {
    </listitem>
    <listitem>
     <simpara>
-     mysqlnd_plugin_get_plugin_net_data()
+     mysqlnd_plugin_get_plugin_pfc_data()
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     mysqlnd_plugin_get_plugin_vio_data()
     </simpara>
    </listitem>
    <listitem>
@@ -903,7 +908,7 @@ static MY_CONN_PROPERTIES** get_conn_properties(const MYSQLND *conn TSRMLS_DC) {
    </listitem>
    <listitem>
     <simpara>
-     mysqlnd_result_meta_get_methods()
+     mysqlnd_result_metadata_get_methods()
     </simpara>
    </listitem>
    <listitem>
@@ -913,7 +918,12 @@ static MY_CONN_PROPERTIES** get_conn_properties(const MYSQLND *conn TSRMLS_DC) {
    </listitem>
    <listitem>
     <simpara>
-     mysqlnd_net_get_methods()
+     mysqlnd_pfc_get_methods()
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     mysqlnd_vio_get_methods()
     </simpara>
    </listitem>
    <listitem>
