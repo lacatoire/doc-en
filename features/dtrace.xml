@@ -221,11 +221,11 @@
     the process id of the currently running PHP process.
    </para>
 
-   <para>
+   <simpara>
     If the Apache web server is running, the module name might be, for
-    example, <filename>libphp5.so</filename>, and there would be
+    example, <filename>libphp.so</filename>, and there would be
     multiple blocks of listings, one per running Apache process.
-   </para>
+   </simpara>
 
    <para>
     The Function column refers to PHP's internal C implementation
@@ -516,8 +516,8 @@ probe process("sapi/cli/php").provider("php").mark("function__entry") {
     printf("  scope %s\n", user_string($arg5));
 }
 probe process("sapi/cli/php").provider("php").mark("function__return") {
-    printf("Probe function__return: %s\n", user_string($arg1));
-    printf(" function_name %s\n", user_string($arg1));
+    printf("Probe function__return\n");
+    printf("  function_name %s\n", user_string($arg1));
     printf("  request_file %s\n", user_string($arg2));
     printf("  lineno %d\n", $arg3);
     printf("  classname %s\n", user_string($arg4));
