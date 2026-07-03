@@ -127,6 +127,12 @@
    </table>
    The function returns &false; on failure.
   </para>
+  <simpara>
+   When a specific <constant>POSIX_RLIMIT_<replaceable>*</replaceable></constant>
+   constant is passed as <parameter>resource</parameter>, the returned array is
+   instead indexed numerically: element <literal>0</literal> holds the soft limit
+   and element <literal>1</literal> the hard limit.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">

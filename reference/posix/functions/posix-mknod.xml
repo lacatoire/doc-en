@@ -48,10 +48,10 @@
     <varlistentry>
      <term><parameter>major</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The major device kernel identifier (required to pass when using
-       <constant>S_IFCHR</constant> or <constant>S_IFBLK</constant>).
-      </para>
+       <constant>POSIX_S_IFCHR</constant> or <constant>POSIX_S_IFBLK</constant>).
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
