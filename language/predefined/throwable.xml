@@ -18,7 +18,7 @@
     <simpara>
      PHP classes cannot implement the <exceptionname>Throwable</exceptionname>
      interface directly, and must instead extend
-     <exceptionname>Exception</exceptionname>.
+     <exceptionname>Exception</exceptionname> or <exceptionname>Error</exceptionname>.
     </simpara>
    </note>
   </section>
@@ -79,8 +79,8 @@
  &language.predefined.throwable.getfile;
  &language.predefined.throwable.getline;
  &language.predefined.throwable.gettrace;
- &language.predefined.throwable.gettraceasstring;
  &language.predefined.throwable.getprevious;
+ &language.predefined.throwable.gettraceasstring;
  &language.predefined.throwable.tostring;
 </reference>
 <!-- Keep this comment at the end of the file
