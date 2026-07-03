@@ -12,16 +12,11 @@
    <type class="union"><type>int</type><type>false</type></type><methodname>ip2long</methodname>
    <methodparam><type>string</type><parameter>ip</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    The function <function>ip2long</function> generates a long integer
    representation of IPv4 Internet network address from its Internet
-   standard format (dotted string) representation. 
-  </para>
-  <para>
-   <function>ip2long</function> will also work with non-complete IP
-   addresses. Read <link xlink:href="&url.ip2long.tech;">&url.ip2long.tech;</link>
-   for more info.
-  </para>
+   standard format (dotted string) representation.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
