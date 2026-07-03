@@ -31,7 +31,7 @@
      <simpara>
       The location of the <literal>php.ini</literal> file
       can be set for different versions of PHP. The root of the registry keys depends on 32- or 64-bitness of the installed OS and PHP.
-      For 32-bit PHP on a 32-bit OS or a 64-bit PHP on a 64-bit OS use <literal>[(HKEY_LOCAL_MACHINE\SOFTWARE\PHP]</literal> for 32-bit version of PHP on a 64-bit OS use <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP]</literal>] instead.
+      For 32-bit PHP on a 32-bit OS or a 64-bit PHP on a 64-bit OS use <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\PHP]</literal> for 32-bit version of PHP on a 64-bit OS use <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP]</literal> instead.
       For same bitness installation the following registry keys
       are examined in order:
       <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\PHP\x.y.z]</literal>,
@@ -39,9 +39,9 @@
       <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\PHP\x]</literal>, where
       x, y and z mean the PHP major, minor and release versions.
       For 32 bit versions of PHP on a 64 bit OS the following registry keys are examined in order:
-      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6421Node\PHP\x.y.z]</literal>,
-      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6421Node\PHP\x.y]</literal> and
-      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6421Node\PHP\x]</literal>, where
+      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP\x.y.z]</literal>,
+      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP\x.y]</literal> and
+      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP\x]</literal>, where
       x, y and z mean the PHP major, minor and release versions.
       If there is a
       value for <literal>IniFilePath</literal> in any of these keys, the first
@@ -125,8 +125,8 @@ max_execution_time = ${PHP_MAX_EXECUTION_TIME:-30}
 ; Boolean values can be set to either:
 ;    true, on, yes
 ; or false, off, no, none
-register_globals = off
-track_errors = yes
+display_errors = off
+log_errors = yes
 
 ; you can enclose strings in double-quotes
 include_path = ".:/usr/local/lib/php"
@@ -419,11 +419,7 @@ but needs all top-level xml:id's removed (see XInclude 1.1 set-xml-id).
      <title>Apache configuration example</title>
      <programlisting role="ini">
 <![CDATA[
-<IfModule mod_php5.c>
-  php_value include_path ".:/usr/local/lib/php"
-  php_admin_flag engine on
-</IfModule>
-<IfModule mod_php4.c>
+<IfModule mod_php.c>
   php_value include_path ".:/usr/local/lib/php"
   php_admin_flag engine on
 </IfModule>
