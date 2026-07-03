@@ -47,10 +47,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns <literal>0</literal> on success, <literal>-1</literal> otherwise.
+  <simpara>
+   Returns &true; on success or &false; on failure.
    On failure it sets an error code, that can be retrieved with <function>pcntl_get_last_error</function>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
