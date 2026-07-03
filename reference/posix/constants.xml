@@ -495,18 +495,6 @@
      </simpara>
     </listitem>
    </varlistentry>
-   <varlistentry xml:id="constant.posix-pc-alloc-symlink-max">
-    <term>
-     <constant>POSIX_PC_ALLOC_SYMLINK_MAX</constant>
-     (<type>int</type>)
-    </term>
-    <listitem>
-     <simpara>
-      The maximum number of symbolic links a given file or directory can have.
-      Available as of PHP 8.3.0.
-     </simpara>
-    </listitem>
-   </varlistentry>
    <varlistentry xml:id="constant.posix-pc-symlink-max">
     <term>
      <constant>POSIX_PC_SYMLINK_MAX</constant>
