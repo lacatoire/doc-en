@@ -15,13 +15,13 @@
    <type>bool</type><methodname>ob_end_flush</methodname>
    <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    This function calls the output handler
    (with the <constant>PHP_OUTPUT_HANDLER_FINAL</constant> flag),
-   flushes (sends) it's return value,
+   flushes (sends) its return value,
    discards the contents of the active output buffer
    and turns off the active output buffer.
-  </para>
+  </simpara>
   <para>
    <function>ob_end_flush</function> will fail
    without an active output buffer started with the
