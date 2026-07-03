@@ -90,7 +90,7 @@
     </para>
     <itemizedlist>
      <listitem><para><link linkend="object.get">__get()</link></para></listitem>
-     <listitem><para><function>__autoload</function></para></listitem>
+     <listitem><simpara><link linkend="object.invoke">__invoke()</link></simpara></listitem>
     </itemizedlist>
    </listitem>
   </itemizedlist>
