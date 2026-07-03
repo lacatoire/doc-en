@@ -71,6 +71,16 @@ $array[] = $var;
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   Throws an <exceptionname>Error</exceptionname> if the next integer key to assign is
+   already occupied, that is when the array contains an element with key
+   <constant>PHP_INT_MAX</constant>, in the same way as
+   <code>$array[] = $value</code>.
+  </para>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <para>
