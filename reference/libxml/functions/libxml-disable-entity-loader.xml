@@ -23,9 +23,8 @@
    with loading XML documents.
   </simpara>
   <simpara>
-   As of libxml 2.9.0 entity substitution
-   is disabled by default, so there is no need to disable the loading of external
-   entities,
+   As of libxml 2.9.0 the loading of external entities
+   is disabled by default, so there is generally no need to call this function,
    unless there is the need to resolve internal entity references with <constant>LIBXML_NOENT</constant>,
    <constant>LIBXML_DTDVALID</constant>, or <constant>LIBXML_DTDLOAD</constant>.
    Generally, it is preferable to use <function>libxml_set_external_entity_loader</function>
