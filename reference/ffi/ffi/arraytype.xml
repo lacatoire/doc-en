@@ -37,8 +37,7 @@ $t2 = FFI::arrayType(FFI::type("int"), [2, 3]);
     <term><parameter>type</parameter></term>
     <listitem>
      <simpara>
-      A valid C declaration as <type>string</type>, or an instance of <classname>FFI\CType</classname>
-      which has already been created.
+      An instance of <classname>FFI\CType</classname> which has already been created.
      </simpara>
     </listitem>
    </varlistentry>
