@@ -12,8 +12,9 @@
    <modifier>public</modifier> <type>string</type><methodname>Stringable::__toString</methodname>
    <void/>
   </methodsynopsis>
-  <para>
-  </para>
+  <simpara>
+   Gets the string representation of the object.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -23,9 +24,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the &string; representation of the object.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
