@@ -781,9 +781,9 @@ var_dump("${(foo)}");
        &example.outputs.82;
        <screen>
 <![CDATA[
-Deprecated: Using ${var} in strings is deprecated, use {$var} instead in file on line 6
+Deprecated: Using ${var} in strings is deprecated, use {$var} instead in file on line 5
 
-Deprecated: Using ${expr} (variable variables) in strings is deprecated, use {${expr}} instead in file on line 9
+Deprecated: Using ${expr} (variable variables) in strings is deprecated, use {${expr}} instead in file on line 6
 string(3) "foo"
 string(3) "bar"
 ]]>
@@ -1134,18 +1134,18 @@ string(1) "b"
    </example>
 
    <note>
-    <para>
+    <simpara>
      Accessing variables of other types (not including arrays or objects
-     implementing the appropriate interfaces) using <literal>[]</literal> or
-     <literal>{}</literal> silently returns &null;.
-    </para>
+     implementing the appropriate interfaces) using <literal>[]</literal>
+     silently returns &null;.
+    </simpara>
    </note>
 
    <note>
-    <para>
+    <simpara>
      Characters within string literals can be accessed
-     using <literal>[]</literal> or <literal>{}</literal>.
-    </para>
+     using <literal>[]</literal>.
+    </simpara>
    </note>
 
    <note>

@@ -876,18 +876,18 @@ for ($i = 0; $i < $count; $i++) {
     <screen>
 <![CDATA[
 Checking 0:
-Notice: Undefined index:  $i in /path/to/script.html on line 9
+Warning: Undefined array key "$i" in /path/to/script.html on line 12
 Bad:
 Good: 1
-Notice: Undefined index:  $i in /path/to/script.html on line 11
+Warning: Undefined array key "$i" in /path/to/script.html on line 14
 Bad:
 Good: 1
 
 Checking 1:
-Notice: Undefined index:  $i in /path/to/script.html on line 9
+Warning: Undefined array key "$i" in /path/to/script.html on line 12
 Bad:
 Good: 2
-Notice: Undefined index:  $i in /path/to/script.html on line 11
+Warning: Undefined array key "$i" in /path/to/script.html on line 14
 Bad:
 Good: 2
 ]]>
@@ -1070,6 +1070,7 @@ $error_descriptions[8] = "This is just an informal notice";
     <![CDATA[
 <?php
 
+#[AllowDynamicProperties]
 class A {
     private $B;
     protected $C;
