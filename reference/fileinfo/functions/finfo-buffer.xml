@@ -60,6 +60,9 @@
     <term><parameter>context</parameter></term>
     <listitem>
      <simpara>
+      For a description of <literal>contexts</literal>, refer to
+      <xref linkend="ref.stream"/>. It has no effect on
+      <function>finfo_buffer</function>, which operates on the provided string.
      </simpara>
     </listitem>
    </varlistentry>
