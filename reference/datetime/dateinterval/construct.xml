@@ -121,7 +121,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <para>
-   Throws an <classname>DateMalformedIntervalStringException</classname> when
+   Throws a <exceptionname>DateMalformedIntervalStringException</exceptionname> when
    the <parameter>duration</parameter> cannot be parsed as an interval. Prior
    to PHP 8.3, this was <exceptionname>Exception</exceptionname>.
   </para>

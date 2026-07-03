@@ -247,9 +247,10 @@ echo $period->recurrences, "\n";
     <varlistentry xml:id="dateperiod.props.interval">
      <term><varname>interval</varname></term>
      <listitem>
-      <para>
-       An ISO 8601 repeating interval specification.
-      </para>
+      <simpara>
+       A <classname>DateInterval</classname> object representing the interval
+       between the recurrences within the period.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
