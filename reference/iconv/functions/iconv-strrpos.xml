@@ -50,19 +50,14 @@
     <varlistentry>
      <term><parameter>encoding</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If <parameter>encoding</parameter> parameter is omitted or &null;,
-       <parameter>string</parameter> are assumed to be encoded in
+       <parameter>haystack</parameter> is assumed to be encoded in
        <link linkend="iconv.configuration">iconv.internal_encoding</link>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
-  <para>
-   If <parameter>haystack</parameter> or <parameter>needle</parameter> is
-   not a string, it is converted to a string and applied as the ordinal
-   value of a character.
   </para>
  </refsect1>
 
