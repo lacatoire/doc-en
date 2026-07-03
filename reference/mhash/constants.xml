@@ -337,7 +337,9 @@
      (<type>int</type>)
     </term>
     <listitem>
-     <simpara></simpara>
+     <simpara>
+      Available as of PHP 8.1.0.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry xml:id="constant.mhash-xxh64">
@@ -346,7 +348,9 @@
      (<type>int</type>)
     </term>
     <listitem>
-     <simpara></simpara>
+     <simpara>
+      Available as of PHP 8.1.0.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry xml:id="constant.mhash-xxh3">
@@ -355,7 +359,9 @@
      (<type>int</type>)
     </term>
     <listitem>
-     <simpara></simpara>
+     <simpara>
+      Available as of PHP 8.1.0.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry xml:id="constant.mhash-xxh128">
@@ -364,7 +370,9 @@
      (<type>int</type>)
     </term>
     <listitem>
-     <simpara></simpara>
+     <simpara>
+      Available as of PHP 8.1.0.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
