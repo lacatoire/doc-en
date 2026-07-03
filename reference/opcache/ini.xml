@@ -305,6 +305,12 @@
       <entry>Available as of PHP 8.0.0</entry>
      </row>
      <row>
+      <entry><link linkend="ini.opcache.jit-max-trace-length">opcache.jit_max_trace_length</link></entry>
+      <entry>1024</entry>
+      <entry><constant>INI_ALL</constant></entry>
+      <entry>Available as of PHP 8.0.0</entry>
+     </row>
+     <row>
       <entry><link linkend="ini.opcache.jit-hot-loop">opcache.jit_hot_loop</link></entry>
       <entry>61</entry>
       <entry><constant>INI_SYSTEM</constant></entry>
@@ -325,7 +331,7 @@
      <row>
       <entry><link linkend="ini.opcache.jit-hot-side-exit">opcache.jit_hot_side_exit</link></entry>
       <entry>8</entry>
-      <entry><constant>INI_SYSTEM</constant></entry>
+      <entry><constant>INI_ALL</constant></entry>
       <entry>Available as of PHP 8.0.0</entry>
      </row>
      <row>
@@ -957,7 +963,7 @@ function getA() { return A; }
   <varlistentry xml:id="ini.opcache.file_update_protection">
    <term>
     <parameter>opcache.file_update_protection</parameter>
-    <type>string</type>
+    <type>int</type>
    </term>
    <listitem>
     <simpara>
@@ -995,7 +1001,7 @@ function getA() { return A; }
   <varlistentry xml:id="ini.opcache.opt_debug_level">
    <term>
     <parameter>opcache.opt_debug_level</parameter>
-    <type>string</type>
+    <type>int</type>
    </term>
    <listitem>
     <simpara>
@@ -1130,11 +1136,11 @@ function getA() { return A; }
     <type>string</type>
    </term>
    <listitem>
-    <para>
+    <simpara>
      On Windows, all processes running the same <acronym>PHP</acronym> <acronym>SAPI</acronym>
      under the same user account having the same cache ID share a single OPcache instance.
      The value of the cache ID can be freely chosen.
-    </para>
+    </simpara>
     <tip>
      <simpara>
       For IIS, different application pools can have their own OPcache instance
@@ -1310,6 +1316,18 @@ function getA() { return A; }
     <simpara>
      Maximum number of side trace exit counters. This limits the total number of side traces
      there may be, across all root traces.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="ini.opcache.jit-max-trace-length">
+   <term>
+    <parameter>opcache.jit_max_trace_length</parameter>
+    <type>int</type>
+   </term>
+   <listitem>
+    <simpara>
+     Maximum length of a single trace, in number of instructions. JIT stops
+     recording a trace once it reaches this limit.
     </simpara>
    </listitem>
   </varlistentry>
