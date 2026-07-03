@@ -18,18 +18,18 @@
      </para>
     </question>
     <answer>
-     <para>
+     <simpara>
       You have to have the GNU autoconf package installed so you can
-      generate the configure script from <filename>configure.in</filename>. Just run
+      generate the configure script from <filename>configure.ac</filename>. Just run
       <command>./buildconf</command> in the top-level directory after getting
       the sources from the Git server. (Also, unless you run <command>configure</command>
       with the <literal>--enable-maintainer-mode</literal> option, the
       configure script will not automatically get rebuilt when the
-      <filename>configure.in</filename> file is updated, so you should make sure to do that
-      manually when you notice <filename>configure.in</filename> has changed. One symptom
+      <filename>configure.ac</filename> file is updated, so you should make sure to do that
+      manually when you notice <filename>configure.ac</filename> has changed. One symptom
       of this is finding things like @VARIABLE@ in your Makefile after
       configure or <filename>config.status</filename> is run.)
-     </para>
+     </simpara>
     </answer>
    </qandaentry>
 
