@@ -542,7 +542,6 @@
      <member><methodname>ReflectionProperty::getValue</methodname></member>
      <member><methodname>ReflectionProperty::getRawValue</methodname></member>
      <member><methodname>ReflectionProperty::isInitialized</methodname></member>
-     <member><methodname>ReflectionProperty::isInitialized</methodname></member>
      <member><methodname>ReflectionProperty::setValue</methodname></member>
      <member><methodname>ReflectionProperty::setRawValue</methodname></member>
     </simplelist>
