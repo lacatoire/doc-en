@@ -456,6 +456,10 @@
      found, the embedded session id will be marked as invalid.
      Defaults to the empty string.
     </simpara>
+    <simpara>
+     Using <literal>session.referer_check</literal> with a non-empty value is
+     deprecated as of PHP 8.4.0.
+    </simpara>
    </listitem>
   </varlistentry>
 
@@ -569,6 +573,10 @@
      Enabling this setting prevents attacks that involve passing session
      IDs in URLs.
      Defaults to <literal>1</literal> (enabled).
+    </simpara>
+    <simpara>
+     Disabling <literal>session.use_only_cookies</literal> is deprecated as of
+     PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -745,6 +753,10 @@
       linkend="ini.session.trans-sid-hosts">session.trans_sid_hosts</link>.
      </simpara>
     </note>
+    <simpara>
+     Enabling <literal>session.use_trans_sid</literal> is deprecated as of
+     PHP 8.4.0.
+    </simpara>
    </listitem>
   </varlistentry>
 
@@ -758,7 +770,7 @@
      <literal>session.trans_sid_tags</literal> specifies which HTML tags
      are rewritten to include session id when transparent sid support
      is enabled. Defaults to
-     <literal>a=href,area=href,frame=src,input=src,form=</literal>
+     <literal>a=href,area=href,frame=src,form=</literal>
     </simpara>
     <simpara>
      <literal>form</literal> is special tag. <literal>&lt;input hidden="session_id" name="session_name"&gt;</literal>
@@ -771,6 +783,10 @@
       is no longer considered as special tag.
      </simpara>
     </note>
+    <simpara>
+     Using <literal>session.trans_sid_tags</literal> is deprecated as of
+     PHP 8.4.0.
+    </simpara>
    </listitem>
   </varlistentry>
 
@@ -786,6 +802,10 @@
      is enabled. Defaults to <literal>$_SERVER['HTTP_HOST']</literal>
      Multiple hosts can be specified by ",", no space is allowed
      between hosts. e.g. <literal>php.net,wiki.php.net,bugs.php.net</literal>
+    </simpara>
+    <simpara>
+     Using <literal>session.trans_sid_hosts</literal> is deprecated as of
+     PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -825,7 +845,7 @@
     </tip> 
     <note>
      <simpara>
-      This setting is introduced in PHP 7.1.0.
+      This setting was introduced in PHP 7.1.0, and is deprecated as of PHP 8.4.0.
      </simpara>
     </note>
    </listitem>
@@ -850,7 +870,7 @@
     </para>
     <note>
      <simpara>
-      This setting is introduced in PHP 7.1.0.
+      This setting was introduced in PHP 7.1.0, and is deprecated as of PHP 8.4.0.
      </simpara>
     </note>
    </listitem>
