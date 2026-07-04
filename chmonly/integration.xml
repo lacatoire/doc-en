@@ -17,15 +17,12 @@
    but you may need to know a few things about what the CHM contains
    to successfully integrate the manual into your environment.
   </para>
-  <para>
-   The CHM is built using XSL style sheets from XML sources. This is
-   unique currently in the PHP Manual family, as all other versions are
-   generated using DSSSL style sheets. This also means, that
-   non-intentional rendering differences may come up. A special
+  <simpara>
+   The CHM is built using XSL style sheets from XML sources. A special
    conversion script is run on the XSLT output, adding several cute
    features, and packing up the manual with the preferences files
    and skin examples.
-  </para>
+  </simpara>
   <para>
    If you never worked with CHMs, you can think of them as compressed
    files with OS supported access for files inside and some added search
@@ -75,7 +72,7 @@
    simple process of showing a manual page for a function. The
    <literal>quickRef()</literal> function defined therein does the job.
   </para>
-  <para>
+  <simpara>
    If you would like to integrate the manual into an IDE without direct
    support for the PHP manual (actually the underscore to hyphen conversion),
    you can use the included <filename>_function.html</filename> file to access
@@ -85,8 +82,8 @@
    (<filename>function.mysql-close.html</filename>) automatically. You can
    provide the full path of this file if your IDE supports context sensitive
    help, and provide the IDE specified string as the parameter. An example
-   for this is the UltraEdit 9 integration (see the edition's website).
-  </para>
+   for this is UltraEdit integration.
+  </simpara>
   <para>
    The index of the manual (accessible via the index tab on the navigation
    pane) can also be used for integrational purposes. All the HTML pages
