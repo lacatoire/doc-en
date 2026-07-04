@@ -11,7 +11,7 @@
   <methodsynopsis>
    <type>void</type><methodname>win32_start_service_ctrl_dispatcher</methodname>
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam choice="opt"><type>bool</type><parameter>gracefulMode</parameter><initializer>true</initializer></methodparam>
+   <methodparam choice="opt"><type>bool</type><parameter>gracefulExit</parameter><initializer>true</initializer></methodparam>
   </methodsynopsis>
 
   <para>
@@ -56,7 +56,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><parameter>gracefulMode</parameter></term>
+     <term><parameter>gracefulExit</parameter></term>
      <listitem>
       <para>
        &true; for exit graceful. &false; for exit with error. See 
@@ -128,7 +128,7 @@
       <row>
        <entry>PECL win32service 0.4.0</entry>
        <entry>
-        The parameter <parameter>gracefulMode</parameter> has been added.
+        The parameter <parameter>gracefulExit</parameter> has been added.
        </entry>
       </row>
       <row>

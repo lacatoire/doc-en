@@ -11,7 +11,7 @@
   &reftitle.description;
   <methodsynopsis role="procedural">
    <type>int</type><methodname>win32_set_service_exit_code</methodname>
-   <methodparam choice="opt"><type>int</type><parameter>exitCode</parameter><initializer>1</initializer></methodparam>
+   <methodparam choice="opt"><type>int</type><parameter>exitCode</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
   <para>
    Change or return the exit code. The exit code is used only if the exit mode is not graceful. 

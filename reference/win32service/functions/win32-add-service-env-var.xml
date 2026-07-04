@@ -12,13 +12,13 @@
   <methodsynopsis>
    <type>void</type><methodname>win32_add_service_env_var</methodname>
    <methodparam><type>string</type><parameter>servicename</parameter></methodparam>
-   <methodparam><type>string</type><parameter>varname</parameter></methodparam>
-   <methodparam><type>string</type><parameter>value</parameter></methodparam>
+   <methodparam><type>string</type><parameter>varName</parameter></methodparam>
+   <methodparam><type>string</type><parameter>varValue</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   Add a custom environment variables <parameter>varname</parameter> on <parameter>servicename</parameter>
+  <simpara>
+   Add a custom environment variables <parameter>varName</parameter> on <parameter>servicename</parameter>
    service. This function work only for the local computer. Administrative privileges are required for this to succeed.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -34,7 +34,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><parameter>varname</parameter></term>
+     <term><parameter>varName</parameter></term>
      <listitem>
       <para>
        The environment variable name.
@@ -42,7 +42,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><parameter>value</parameter></term>
+     <term><parameter>varValue</parameter></term>
      <listitem>
       <para>
        The environment variable value.
@@ -66,10 +66,10 @@
    A <classname>ValueError</classname> is thrown if the
    value of <parameter>service</parameter> parameter is empty.
   </para>
-  <para>
+  <simpara>
    A <classname>ValueError</classname> is thrown if the
-   value of <parameter>varname</parameter> parameter is empty.
-  </para>
+   value of <parameter>varName</parameter> parameter is empty.
+  </simpara>
   <para>
    A <classname>Win32ServiceException</classname> is thrown on error.
   </para>
