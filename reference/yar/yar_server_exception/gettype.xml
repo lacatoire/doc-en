@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>string</type><methodname>Yar_Server_Exception::getType</methodname>
+   <modifier>public</modifier> <type class="union"><type>string</type><type>int</type></type><methodname>Yar_Server_Exception::getType</methodname>
    <void />
   </methodsynopsis>
   <para>
@@ -25,9 +25,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   string
-  </para>
+  <simpara>
+   Returns the exception type as a <type>string</type>, or as an
+   <type>int</type> for the built-in error codes.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
