@@ -31,11 +31,6 @@
       <classname>Yaf_Route_Regex</classname>
      </ooclass>
      
-     <ooclass>
-      <modifier>extends</modifier>
-      <classname>Yaf_Route_Interface</classname>
-     </ooclass>
-     
      <oointerface>
       <interfacename>Yaf_Route_Interface</interfacename>
      </oointerface>
