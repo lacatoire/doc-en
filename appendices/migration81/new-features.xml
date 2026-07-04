@@ -334,7 +334,7 @@ echo $h, "\n";
      <programlisting role="php">
       <![CDATA[
 <?php
-$h = hash("xxh3", $data, options: ["secret" => "at least 136 bytes long secret here"]);
+$h = hash("xxh3", $data, options: ["secret" => str_repeat("secret bytes ", 12)]);
 echo $h, "\n";
 ?>
 ]]>
