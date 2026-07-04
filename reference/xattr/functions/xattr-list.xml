@@ -11,8 +11,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <type>array</type><methodname>xattr_list</methodname>
-   <methodparam><type>string</type><parameter>filename</parameter></methodparam>
+   <type class="union"><type>array</type><type>false</type></type><methodname>xattr_list</methodname>
+   <methodparam><type>string</type><parameter>path</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>flags</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
   <para>
@@ -25,7 +25,7 @@
   <para>
    <variablelist>
     <varlistentry>
-     <term><parameter>filename</parameter></term>
+     <term><parameter>path</parameter></term>
      <listitem>
       <para>
        The path of the file.

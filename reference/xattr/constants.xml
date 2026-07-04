@@ -48,6 +48,61 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.xattr-user">
+   <term>
+    <constant>XATTR_USER</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Operate in the <literal>user</literal> extended attribute namespace.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.xattr-trusted">
+   <term>
+    <constant>XATTR_TRUSTED</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Operate in the <literal>trusted</literal> extended attribute namespace.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.xattr-system">
+   <term>
+    <constant>XATTR_SYSTEM</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Operate in the <literal>system</literal> extended attribute namespace.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.xattr-security">
+   <term>
+    <constant>XATTR_SECURITY</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Operate in the <literal>security</literal> extended attribute namespace.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.xattr-all">
+   <term>
+    <constant>XATTR_ALL</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Operate across all of the extended attribute namespaces.
+    </simpara>
+   </listitem>
+  </varlistentry>
  </variablelist>
 </appendix>
 
