@@ -1384,7 +1384,7 @@ $func();
       &example.outputs;
       <screen>
 <![CDATA[
-Warning: Cannot bind an instance to a static closure, this will be an error in PHP 9 in script on line 5
+Warning: Cannot bind an instance to a static closure in script on line 5
 
 Fatal error: Uncaught Error: Value of type null is not callable in script:6
 Stack trace:
