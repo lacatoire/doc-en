@@ -8,7 +8,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <type>string</type><methodname>xmlrpc_encode</methodname>
+   <type class="union"><type>string</type><type>null</type></type><methodname>xmlrpc_encode</methodname>
    <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
   </methodsynopsis>
   &warn.experimental.func;

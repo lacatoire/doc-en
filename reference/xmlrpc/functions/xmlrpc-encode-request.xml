@@ -8,8 +8,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <type>string</type><methodname>xmlrpc_encode_request</methodname>
-   <methodparam><type>string</type><parameter>method</parameter></methodparam>
+   <type class="union"><type>string</type><type>null</type></type><methodname>xmlrpc_encode_request</methodname>
+   <methodparam><type class="union"><type>string</type><type>null</type></type><parameter>method</parameter></methodparam>
    <methodparam><type>mixed</type><parameter>params</parameter></methodparam>
    <methodparam choice="opt"><type>array</type><parameter>output_options</parameter></methodparam>
   </methodsynopsis>
