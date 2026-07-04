@@ -186,8 +186,8 @@ $expressionResult = match ($condition) {
   </informalexample>
   <note>
    <simpara>
-    Multiple default patterns will raise a
-    <constant>E_FATAL_ERROR</constant> error.
+    Multiple default patterns will raise an
+    <constant>E_COMPILE_ERROR</constant> error.
    </simpara>
   </note>
  </para>
