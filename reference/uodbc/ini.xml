@@ -68,49 +68,7 @@
  
  <para>
  <variablelist>
-   <varlistentry xml:id="ini.uodbc.default-db">
-   <term>
-    <parameter>odbc.default_db</parameter>
-    <type>string</type>
-   </term>
-   <listitem>
-    <para>
-     ODBC data source to use if none is specified in
-     <function>odbc_connect</function> or
-     <function>odbc_pconnect</function>.
-    </para>
-   </listitem>
-  </varlistentry>
-  
-  <varlistentry xml:id="ini.uodbc.default-user">
-   <term>
-    <parameter>odbc.default_user</parameter>
-    <type>string</type>
-   </term>
-   <listitem>
-    <para>
-     User name to use if none is specified in
-     <function>odbc_connect</function> or
-     <function>odbc_pconnect</function>.
-    </para>
-   </listitem>
-  </varlistentry>
-  
-  <varlistentry xml:id="ini.uodbc.default-pw">
-   <term>
-    <parameter>odbc.default_pw</parameter>
-    <type>string</type>
-   </term>
-   <listitem>
-    <para>
-     Password to use if none is specified in
-     <function>odbc_connect</function> or
-     <function>odbc_pconnect</function>.
-    </para>
-   </listitem>
-  </varlistentry>
-  
-  <varlistentry xml:id="ini.uodbc.allow-persistent">
+   <varlistentry xml:id="ini.uodbc.allow-persistent">
    <term>
     <parameter>odbc.allow_persistent</parameter>
     <type>bool</type>
