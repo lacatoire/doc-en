@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <type>string</type><methodname>yaml_emit</methodname>
+   <type class="union"><type>string</type><type>false</type></type><methodname>yaml_emit</methodname>
    <methodparam><type>mixed</type><parameter>data</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>encoding</parameter><initializer>YAML_ANY_ENCODING</initializer></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>linebreak</parameter><initializer>YAML_ANY_BREAK</initializer></methodparam>
@@ -75,9 +75,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns a YAML encoded <type>string</type> on success.
-  </para>
+  <simpara>
+   Returns a YAML encoded <type>string</type> on success,
+   or &false; on failure.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
