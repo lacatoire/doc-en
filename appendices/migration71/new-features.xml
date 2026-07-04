@@ -89,7 +89,7 @@ var_dump(swap($a, $b), $a, $b);
    &example.outputs;
    <screen>
 <![CDATA[
-null
+NULL
 int(2)
 int(1)
 ]]>
@@ -194,7 +194,7 @@ function iterator(iterable $iter)
   </informalexample>
  </sect2>
 
- <sect2 xml:id="migration71.new-features.mulit-catch-exception-handling">
+ <sect2 xml:id="migration71.new-features.multi-catch-exception-handling">
   <title>Multi catch exception handling</title>
 
   <para>
@@ -278,7 +278,7 @@ var_dump(strpos("aabbcc", "b", -3));
    &example.outputs;
    <screen>
 <![CDATA[
-string (1) "e"
+string(1) "e"
 int(3)
 ]]>
    </screen>
