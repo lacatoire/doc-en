@@ -17,6 +17,11 @@
   <para>
    Makes <parameter>class</parameter> extend <parameter>parent</parameter>
   </para>
+  <warning>
+   <simpara>
+    This function has been removed as of uopz 7.1.0.
+   </simpara>
+  </warning>
  </refsect1>
 
  <refsect1 role="parameters">

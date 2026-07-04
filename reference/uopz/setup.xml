@@ -6,9 +6,10 @@
 
  <section xml:id="uopz.requirements">
   &reftitle.required;
-  <para>
+  <simpara>
    As of uopz 5.0 PHP 7.0 is required. As of uopz 5.1, PHP 7.1+ is required.
-  </para>
+   As of uopz 7, PHP 8.0+ is required.
+  </simpara>
  </section>
 
  <section xml:id="uopz.installation">
