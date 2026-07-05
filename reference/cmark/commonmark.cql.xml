@@ -111,6 +111,7 @@
 
   &reference.cmark.commonmark.cql.construct;
   &reference.cmark.commonmark.cql.invoke;
+  &reference.cmark.commonmark.cql.print;
 
 </reference>
 <!-- Keep this comment at the end of the file
