@@ -4,64 +4,81 @@
  &reftitle.constants;
  &pdo.driver-constants;
  <variablelist>
-  
+
   <varlistentry xml:id="pdo.constants.oci-attr-action">
    <term>
     <constant>PDO::OCI_ATTR_ACTION</constant>
      (<type>int</type>)
    </term>
    <listitem>
-    <para>
+    <simpara>
      Provides a way to specify the action on the database session.
-    </para>
-    <para>
+    </simpara>
+    <simpara>
      &version.exists.asof; 7.2.16 and 7.3.3
-    </para>
+    </simpara>
    </listitem>
   </varlistentry>
-  
+
   <varlistentry xml:id="pdo.constants.oci-attr-client-info">
    <term>
     <constant>PDO::OCI_ATTR_CLIENT_INFO</constant>
      (<type>int</type>)
    </term>
    <listitem>
-    <para>
+    <simpara>
      Provides a way to specify the client info on the database session.
-    </para>
-    <para>
+    </simpara>
+    <simpara>
      &version.exists.asof; 7.2.16 and 7.3.3
-    </para>
+    </simpara>
    </listitem>
   </varlistentry>
-  
+
   <varlistentry xml:id="pdo.constants.oci-attr-client-identifier">
    <term>
     <constant>PDO::OCI_ATTR_CLIENT_IDENTIFIER</constant>
      (<type>int</type>)
    </term>
    <listitem>
-    <para>
+    <simpara>
      Provides a way to specify the client identifier on the database session.
-    </para>
-    <para>
+    </simpara>
+    <simpara>
      &version.exists.asof; 7.2.16 and 7.3.3
-    </para>
+    </simpara>
    </listitem>
   </varlistentry>
-  
+
   <varlistentry xml:id="pdo.constants.oci-attr-module">
    <term>
     <constant>PDO::OCI_ATTR_MODULE</constant>
      (<type>int</type>)
    </term>
    <listitem>
-    <para>
+    <simpara>
      Provides a way to specify the module on the database session.
-    </para>
-    <para>
+    </simpara>
+    <simpara>
      &version.exists.asof; 7.2.16 and 7.3.3
-    </para>
+    </simpara>
+   </listitem>
+  </varlistentry>
+
+  <varlistentry xml:id="pdo.constants.oci-attr-call-timeout">
+   <term>
+    <constant>PDO::OCI_ATTR_CALL_TIMEOUT</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Sets a timeout, in milliseconds, for each round-trip that OCI makes to
+     the database server. When a round-trip exceeds the timeout, the call is
+     interrupted and an error is returned.
+    </simpara>
+    <simpara>
+     &version.exists.asof; 8.0.0
+    </simpara>
    </listitem>
   </varlistentry>
 
