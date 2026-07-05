@@ -278,6 +278,116 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.gnupg-pk-rsa">
+   <term>
+    <constant>GNUPG_PK_RSA</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     RSA public-key algorithm.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.gnupg-pk-rsa-e">
+   <term>
+    <constant>GNUPG_PK_RSA_E</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     RSA encrypt-only public-key algorithm (deprecated).
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.gnupg-pk-rsa-s">
+   <term>
+    <constant>GNUPG_PK_RSA_S</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     RSA sign-only public-key algorithm (deprecated).
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.gnupg-pk-dsa">
+   <term>
+    <constant>GNUPG_PK_DSA</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     DSA public-key algorithm.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.gnupg-pk-elg">
+   <term>
+    <constant>GNUPG_PK_ELG</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     ElGamal public-key algorithm.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.gnupg-pk-elg-e">
+   <term>
+    <constant>GNUPG_PK_ELG_E</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     ElGamal encrypt-only public-key algorithm.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.gnupg-pk-ecc">
+   <term>
+    <constant>GNUPG_PK_ECC</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Generic elliptic-curve public-key algorithm. Registered when the extension is built against GPGME 1.5.0 or later.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.gnupg-pk-ecdsa">
+   <term>
+    <constant>GNUPG_PK_ECDSA</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     ECDSA public-key algorithm.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.gnupg-pk-ecdh">
+   <term>
+    <constant>GNUPG_PK_ECDH</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     ECDH public-key algorithm.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.gnupg-pk-eddsa">
+   <term>
+    <constant>GNUPG_PK_EDDSA</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     EdDSA public-key algorithm. Registered when the extension is built against GPGME 1.7.0 or later.
+    </simpara>
+   </listitem>
+  </varlistentry>
  </variablelist>
 </appendix>
 <!-- Keep this comment at the end of the file
