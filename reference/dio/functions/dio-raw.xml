@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+<refentry xml:id="function.dio-raw" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <refnamediv>
+  <refname>dio_raw</refname>
+  <refpurpose>Opens a raw direct I/O stream</refpurpose>
+ </refnamediv>
+ <refsect1 role="description">
+  &reftitle.description;
+  <methodsynopsis>
+   <type class="union"><type>resource</type><type>false</type></type><methodname>dio_raw</methodname>
+   <methodparam><type>string</type><parameter>filename</parameter></methodparam>
+   <methodparam><type>string</type><parameter>mode</parameter></methodparam>
+   <methodparam choice="opt"><type>array</type><parameter>options</parameter><initializer>&null;</initializer></methodparam>
+  </methodsynopsis>
+  <simpara>
+   <function>dio_raw</function> opens a file and returns a stream, in the manner
+   of <function>fopen</function>, but gives lower-level control over the
+   underlying descriptor through the <parameter>options</parameter> array.
+  </simpara>
+ </refsect1>
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>filename</parameter></term>
+    <listitem>
+     <simpara>
+      The pathname of the file to open.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>mode</parameter></term>
+    <listitem>
+     <simpara>
+      The access mode, as used by <function>fopen</function> (for example
+      <literal>r</literal>, <literal>w</literal> or <literal>r+</literal>).
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>options</parameter></term>
+    <listitem>
+     <simpara>
+      An associative array which may contain the following keys:
+     </simpara>
+     <itemizedlist>
+      <listitem>
+       <simpara>
+        <literal>perms</literal> (<type>int</type>) - the permission mode used
+        when the file is created, as passed to <literal>open()</literal>.
+       </simpara>
+      </listitem>
+      <listitem>
+       <simpara>
+        <literal>is_blocking</literal> (<type>int</type>) - if set to
+        <literal>0</literal> the stream is opened in non-blocking mode.
+       </simpara>
+      </listitem>
+      <listitem>
+       <simpara>
+        <literal>timeout_secs</literal> (<type>int</type>) - the read timeout in
+        seconds.
+       </simpara>
+      </listitem>
+      <listitem>
+       <simpara>
+        <literal>timeout_usecs</literal> (<type>int</type>) - the read timeout in
+        microseconds.
+       </simpara>
+      </listitem>
+     </itemizedlist>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </refsect1>
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   Returns a stream resource on success, or &false; on failure.
+  </simpara>
+ </refsect1>
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>dio_serial</function></member>
+   <member><function>dio_open</function></member>
+  </simplelist>
+ </refsect1>
+</refentry>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:"~/.phpdoc/manual.ced"
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim600: syn=xml fen fdm=syntax fdl=2 si
+vim: et tw=78 syn=sgml
+vi: ts=1 sw=1
+-->
