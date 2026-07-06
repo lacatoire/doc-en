@@ -336,7 +336,6 @@
  <function name='Imagick::sparsecolorimage' from='PECL imagick 2 &gt;= 2.3.0, PECL imagick 3'/>
  <function name='Imagick::spliceimage' from='PECL imagick 2, PECL imagick 3'/>
  <function name='Imagick::spreadimage' from='PECL imagick 2, PECL imagick 3'/>
- <function name='Imagick::spreadimage' from='PECL imagick 2, PECL imagick 3'/>
  <function name='Imagick::steganoimage' from='PECL imagick 2, PECL imagick 3'/>
  <function name='Imagick::stereoimage' from='PECL imagick 2, PECL imagick 3'/>
  <function name='Imagick::statisticimage' from='PECL imagick 3 &gt;= 3.3.0'/>
@@ -537,6 +536,13 @@
  <function name='ImagickKernel::separate' from='PECL imagick &gt;= 3.3.0'/>
  <function name='ImagickKernel::scale' from='PECL imagick &gt;= 3.3.0'/>
  <function name='ImagickKernel::addUnityKernel' from='PECL imagick &gt;= 3.3.0'/>
+
+ <function name='Imagick::getinterpolatemethod' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::setinterpolatemethod' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::getorientation' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::setorientation' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::getimagekurtosis' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::getimagemean' from='PECL imagick 3.7.0'/>
 </versions>
 
 <!-- Keep this comment at the end of the file
