@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+<refentry xml:id="function.fbird-get-client-version" xmlns="http://docbook.org/ns/docbook">
+ <refnamediv>
+  <refname>fbird_get_client_version</refname>
+  <refpurpose>&Alias; <function>ibase_get_client_version</function></refpurpose>
+ </refnamediv>
+
+ <refsect1 role="description">
+  &reftitle.description;
+  <simpara>
+   &info.function.alias;
+   <function>ibase_get_client_version</function>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>ibase_get_client_version</function></member>
+  </simplelist>
+ </refsect1>
+
+</refentry>
