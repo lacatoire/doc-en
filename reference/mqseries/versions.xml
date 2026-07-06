@@ -6,6 +6,7 @@
 <versions>
  <function name='mqseries_back' from='PECL mqseries &gt;= 0.10.0'/>
  <function name='mqseries_begin' from='PECL mqseries &gt;= 0.10.0'/>
+ <function name='mqseries_bytes_val' from='PECL mqseries &gt;= 0.14.0'/>
  <function name='mqseries_close' from='PECL mqseries &gt;= 0.10.0'/>
  <function name='mqseries_cmit' from='PECL mqseries &gt;= 0.10.0'/>
  <function name='mqseries_conn' from='PECL mqseries &gt;= 0.10.0'/>
@@ -18,7 +19,9 @@
  <function name='mqseries_put' from='PECL mqseries &gt;= 0.10.0'/>
  <function name='mqseries_put1' from='PECL mqseries &gt;= 0.10.0'/>
  <function name='mqseries_set' from='PECL mqseries &gt;= 0.10.0'/>
+ <function name='mqseries_stat' from='PECL mqseries &gt;= 0.14.0'/>
  <function name='mqseries_strerror' from='PECL mqseries &gt;= 0.10.0'/>
+ <function name='mqseries_sub' from='PECL mqseries &gt;= 0.14.0'/>
 </versions>
 
 <!-- Keep this comment at the end of the file
