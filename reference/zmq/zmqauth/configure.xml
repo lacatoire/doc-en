@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+
+<refentry xml:id="zmqauth.configure" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <refnamediv>
+  <refname>ZMQAuth::configure</refname>
+  <refpurpose>Configure an authentication method</refpurpose>
+ </refnamediv>
+ <refsect1 role="description">
+  &reftitle.description;
+  <methodsynopsis>
+   <modifier>public</modifier> <type>ZMQAuth</type><methodname>ZMQAuth::configure</methodname>
+   <methodparam><type>int</type><parameter>type</parameter></methodparam>
+   <methodparam><type>string</type><parameter>domain</parameter></methodparam>
+   <methodparam><type>string</type><parameter>filename</parameter></methodparam>
+  </methodsynopsis>
+  <simpara>
+   Configures an authentication method for the given domain. The
+   <parameter>type</parameter> selects the mechanism (PLAIN or CURVE) and
+   <parameter>filename</parameter> points to the credentials location.
+   Added in ZMQ extension version 1.1.3.
+  </simpara>
+ </refsect1>
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>type</parameter></term>
+    <listitem>
+     <simpara>
+      One of the <classname>ZMQAuth</classname> authentication type constants,
+      selecting either the PLAIN or the CURVE mechanism.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>domain</parameter></term>
+    <listitem>
+     <simpara>
+      The authentication domain to configure.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>filename</parameter></term>
+    <listitem>
+     <simpara>
+      Path to the file holding the credentials for the selected mechanism.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </refsect1>
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   Returns the current object.
+  </simpara>
+ </refsect1>
+</refentry>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:"~/.phpdoc/manual.ced"
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim600: syn=xml fen fdm=syntax fdl=2 si
+vim: et tw=78 syn=sgml
+vi: ts=1 sw=1
+-->

@@ -25,6 +25,8 @@
  &reference.zmq.zmqsocket;
  &reference.zmq.zmqpoll;
  &reference.zmq.zmqdevice;
+ &reference.zmq.zmqcert;
+ &reference.zmq.zmqauth;
 
 </book>
 
