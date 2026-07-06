@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+<refentry xml:id="gmagickdraw.pushpattern" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <refnamediv>
+  <refname>GmagickDraw::pushpattern</refname>
+  <refpurpose>Starts a pattern definition</refpurpose>
+ </refnamediv>
+ <refsect1 role="description">
+  &reftitle.description;
+  <methodsynopsis>
+   <modifier>public</modifier> <type>GmagickDraw</type><methodname>GmagickDraw::pushpattern</methodname>
+   <methodparam><type>string</type><parameter>pattern_id</parameter></methodparam>
+   <methodparam><type>float</type><parameter>x</parameter></methodparam>
+   <methodparam><type>float</type><parameter>y</parameter></methodparam>
+   <methodparam><type>float</type><parameter>width</parameter></methodparam>
+   <methodparam><type>float</type><parameter>height</parameter></methodparam>
+  </methodsynopsis>
+  <simpara>
+   Starts a pattern definition which is comprised of the drawing commands
+   issued until a matching <methodname>GmagickDraw::poppattern</methodname>.
+   The pattern is registered under the given identifier and bounded by the
+   supplied tile rectangle.
+  </simpara>
+ </refsect1>
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>pattern_id</parameter></term>
+    <listitem>
+     <simpara>The pattern identification for later reference.</simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>x</parameter></term>
+    <listitem>
+     <simpara>The x coordinate of the top left corner of the pattern tile.</simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>y</parameter></term>
+    <listitem>
+     <simpara>The y coordinate of the top left corner of the pattern tile.</simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>width</parameter></term>
+    <listitem>
+     <simpara>The width of the pattern tile.</simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>height</parameter></term>
+    <listitem>
+     <simpara>The height of the pattern tile.</simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </refsect1>
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>The GmagickDraw object.</simpara>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>GmagickDrawException</exceptionname> on error.
+  </simpara>
+ </refsect1>
+</refentry>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:"~/.phpdoc/manual.ced"
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim600: syn=xml fen fdm=syntax fdl=2 si
+vim: et tw=78 syn=sgml
+vi: ts=1 sw=1
+-->
