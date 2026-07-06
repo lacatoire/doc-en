@@ -18,6 +18,9 @@
 
  &reference.v8js.v8js;
  &reference.v8js.v8jsexception;
+ &reference.v8js.v8jsscriptexception;
+ &reference.v8js.v8jstimelimitexception;
+ &reference.v8js.v8jsmemorylimitexception;
 
 </book>
 
