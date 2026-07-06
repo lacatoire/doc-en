@@ -2377,6 +2377,9 @@ The <classname>XMLWriter</classname> instance that is being modified. This objec
 <!-- Imagick generic return types -->
 <!ENTITY imagick.return.success 'Returns &true; on success.'>
 <!ENTITY imagick.imagick.throws 'Throws ImagickException on error.'>
+<!ENTITY imagick.imagickdraw.throws 'Throws ImagickDrawException on error.'>
+<!ENTITY imagick.imagickpixel.throws 'Throws ImagickPixelException on error.'>
+<!ENTITY imagick.imagickpixeliterator.throws 'Throws ImagickPixelIteratorException on error.'>
 
 <!-- Imagick version infos -->
 <!ENTITY imagick.method.available.0x629 'This method is available if Imagick has been compiled against ImageMagick version 6.2.9 or newer.'>
