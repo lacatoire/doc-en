@@ -6,6 +6,8 @@
  <function name='yaz_ccl_conf' from='PHP 4 &gt;= 4.0.5, PECL yaz &gt;= 0.9.0'/>
  <function name='yaz_ccl_parse' from='PHP 4 &gt;= 4.0.5, PECL yaz &gt;= 0.9.0'/>
  <function name='yaz_close' from='PHP 4 &gt;= 4.0.1, PECL yaz &gt;= 0.9.0'/>
+ <function name='yaz_cql_conf' from='PECL yaz &gt;= 1.2.0'/>
+ <function name='yaz_cql_parse' from='PECL yaz &gt;= 1.2.0'/>
  <function name='yaz_connect' from='PHP 4 &gt;= 4.0.1, PECL yaz &gt;= 0.9.0'/>
  <function name='yaz_database' from='PHP 4 &gt;= 4.0.6, PECL yaz &gt;= 0.9.0'/>
  <function name='yaz_element' from='PHP 4 &gt;= 4.0.1, PECL yaz &gt;= 0.9.0'/>
