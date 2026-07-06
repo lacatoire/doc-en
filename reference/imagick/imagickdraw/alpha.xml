@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+<refentry xml:id="imagickdraw.alpha" xmlns="http://docbook.org/ns/docbook">
+ <refnamediv>
+  <refname>ImagickDraw::alpha</refname>
+  <refpurpose>Paints on the image's alpha channel</refpurpose>
+ </refnamediv>
+ <refsect1 role="description">
+  &reftitle.description;
+  <methodsynopsis>
+   <modifier>public</modifier> <type>bool</type> <methodname>ImagickDraw::alpha</methodname>
+   <methodparam><type>float</type><parameter>x</parameter></methodparam>
+   <methodparam><type>float</type><parameter>y</parameter></methodparam>
+   <methodparam><type>int</type><parameter>paint</parameter></methodparam>
+  </methodsynopsis>
+  <simpara>
+   Alters the alpha (transparency) channel of the image within the currently
+   drawn shapes, starting at the given coordinate and spreading according to
+   the selected paint method. This method replaces the deprecated
+   <function>ImagickDraw::matte</function>.
+  </simpara>
+ </refsect1>
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>x</parameter></term>
+    <listitem>
+     <simpara>
+      The x coordinate of the starting point.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>y</parameter></term>
+    <listitem>
+     <simpara>
+      The y coordinate of the starting point.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>paint</parameter></term>
+    <listitem>
+     <simpara>
+      One of the <constant>Imagick::PAINT_*</constant> paint method constants,
+      controlling which pixels are affected relative to the starting point.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </refsect1>
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   Returns &true; on success.
+  </simpara>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   &imagick.imagickdraw.throws;
+  </simpara>
+ </refsect1>
+</refentry>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:"~/.phpdoc/manual.ced"
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim600: syn=xml fen fdm=syntax fdl=2 si
+vim: et tw=78 syn=sgml
+vi: ts=1 sw=1
+-->
