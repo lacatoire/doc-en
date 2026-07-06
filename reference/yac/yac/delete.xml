@@ -10,9 +10,9 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>bool</type><methodname>Yac::delete</methodname>
-   <methodparam><type class="union"><type>string</type><type>array</type></type><parameter>keys</parameter></methodparam>
-   <methodparam choice="opt"><type>int</type><parameter>ttl</parameter></methodparam>
+   <modifier>public</modifier> <type class="union"><type>bool</type><type>null</type></type><methodname>Yac::delete</methodname>
+   <methodparam><type class="union"><type>string</type><type>array</type></type><parameter>key</parameter></methodparam>
+   <methodparam choice="opt"><type>int</type><parameter>delay</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
   <para>
    remove items from cache
@@ -23,7 +23,7 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>keys</parameter></term>
+    <term><parameter>key</parameter></term>
     <listitem>
      <para>
       string key, or array of multiple keys to be removed
@@ -31,11 +31,11 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><parameter>ttl</parameter></term>
+    <term><parameter>delay</parameter></term>
     <listitem>
-     <para>
-      if delay is set, delete will mark the items to be invalid in ttl second.
-     </para>
+     <simpara>
+      If set, the items are marked invalid after this many seconds instead of being removed immediately.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -43,9 +43,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   
-  </para>
+  <simpara>
+   Returns &true; on success or &false; on failure.
+  </simpara>
  </refsect1>
 
 

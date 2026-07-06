@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>mixed</type><methodname>Yac::dump</methodname>
-   <methodparam><type>int</type><parameter>num</parameter></methodparam>
+   <modifier>public</modifier> <type class="union"><type>array</type><type>null</type></type><methodname>Yac::dump</methodname>
+   <methodparam choice="opt"><type>int</type><parameter>limit</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
   <para>
    Dump values stored in cache
@@ -22,7 +22,7 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>num</parameter></term>
+    <term><parameter>limit</parameter></term>
     <listitem>
      <para>
        Maximum number of items should be returned
@@ -34,9 +34,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   mixed
-  </para>
+  <simpara>
+   Returns an &array; of the cached items, or &null; on failure.
+  </simpara>
  </refsect1>
 
 
