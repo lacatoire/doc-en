@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+<refentry xml:id="function.svn-revprop-get" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <refnamediv>
+  <refname>svn_revprop_get</refname>
+  <refpurpose>Gets the value of a revision property</refpurpose>
+ </refnamediv>
+ <refsect1 role="description">
+  &reftitle.description;
+  <methodsynopsis>
+   <type class="union"><type>string</type><type>false</type></type><methodname>svn_revprop_get</methodname>
+   <methodparam><type>string</type><parameter>url</parameter></methodparam>
+   <methodparam><type>int</type><parameter>revision</parameter></methodparam>
+   <methodparam><type>string</type><parameter>property_name</parameter></methodparam>
+  </methodsynopsis>
+  <simpara>
+   Retrieves the value of the unversioned revision property named
+   <parameter>property_name</parameter> for the given
+   <parameter>revision</parameter> in the repository at
+   <parameter>url</parameter>.
+  </simpara>
+ </refsect1>
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>url</parameter></term>
+    <listitem>
+     <simpara>
+      URL pointing to the repository.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>revision</parameter></term>
+    <listitem>
+     <simpara>
+      The revision whose property is requested.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>property_name</parameter></term>
+    <listitem>
+     <simpara>
+      Name of the revision property to retrieve.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </refsect1>
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   Returns the property value as a string, or an empty string if the
+   property is not set. On failure &false; is returned.
+  </simpara>
+ </refsect1>
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>svn_revprop_set</function></member>
+   <member><function>svn_propget</function></member>
+  </simplelist>
+ </refsect1>
+</refentry>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:"~/.phpdoc/manual.ced"
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim600: syn=xml fen fdm=syntax fdl=2 si
+vim: et tw=78 syn=sgml
+vi: ts=1 sw=1
+-->
