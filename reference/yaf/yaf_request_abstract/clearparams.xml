@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>bool</type><methodname>Yaf_Request_Abstract::clearParams</methodname>
+   <modifier>public</modifier> <type class="union"><type>object</type><type>null</type></type><methodname>Yaf_Request_Abstract::clearParams</methodname>
    <void />
   </methodsynopsis>
   <para>
@@ -25,9 +25,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   &boolean;
-  </para>
+  <simpara>
+   Returns the current request instance, or &null; on failure.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">

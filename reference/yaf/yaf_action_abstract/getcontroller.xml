@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier><type linkend="class.yaf-controller-abstract">Yaf_Controller_Abstract</type><methodname>Yaf_Action_Abstract::getController</methodname>
+   <modifier>public</modifier> <type class="union"><type>object</type><type>null</type></type><methodname>Yaf_Action_Abstract::getController</methodname>
    <void />
   </methodsynopsis>
   <para>

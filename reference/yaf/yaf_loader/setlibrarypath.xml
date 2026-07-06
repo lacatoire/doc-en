@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>Yaf_Loader</type><methodname>Yaf_Loader::setLibraryPath</methodname>
-   <methodparam><type>string</type><parameter>directory</parameter></methodparam>
+   <modifier>public</modifier> <type class="union"><type>object</type><type>null</type></type><methodname>Yaf_Loader::setLibraryPath</methodname>
+   <methodparam><type>string</type><parameter>library_path</parameter></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>is_global</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
   <para>

@@ -11,8 +11,8 @@
   &reftitle.description;
   <constructorsynopsis>
    <modifier>public</modifier> <methodname>Yaf_Request_Http::__construct</methodname>
-   <methodparam choice="opt"><type>string</type><parameter>request_uri</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>base_uri</parameter></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>requestUri</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>baseUri</parameter><initializer>&null;</initializer></methodparam>
   </constructorsynopsis>
   <para>
 

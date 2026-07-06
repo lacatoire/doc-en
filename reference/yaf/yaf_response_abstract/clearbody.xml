@@ -10,19 +10,19 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>bool</type><methodname>Yaf_Response_Abstract::clearBody</methodname>
-   <methodparam choice="opt"><type>string</type><parameter>key</parameter></methodparam>
+   <modifier>public</modifier> <type>object</type><methodname>Yaf_Response_Abstract::clearBody</methodname>
+   <methodparam choice="opt"><type>string</type><parameter>name</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   Clear existsed content
-  </para>
+  <simpara>
+   Clear existing content
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>key</parameter></term>
+    <term><parameter>name</parameter></term>
     <listitem>
      <para>
       the content key, if you don't specific, then all contents will be

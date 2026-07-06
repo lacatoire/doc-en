@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Loader::autoload</methodname>
-   <void />
+   <modifier>public</modifier> <type>bool</type><methodname>Yaf_Loader::autoload</methodname>
+   <methodparam><type>string</type><parameter>class_name</parameter></methodparam>
   </methodsynopsis>
   <para>
 

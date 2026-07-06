@@ -53,10 +53,12 @@
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>bool</type>
      <varname linkend="yaf-route-map.props.ctl-router">_ctl_router</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>string</type>
      <varname linkend="yaf-route-map.props.delimiter">_delimiter</varname>
     </fieldsynopsis>
 

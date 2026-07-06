@@ -10,12 +10,12 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Response_Abstract::response</methodname>
-   <void />
+   <modifier>public</modifier> <type class="union"><type>bool</type><type>null</type></type><methodname>Yaf_Response_Abstract::response</methodname>
+   <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    send response
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">

@@ -31,6 +31,8 @@
  <function name='yaf_dispatcher::getapplication' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_dispatcher::getrouter' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_dispatcher::getrequest' from='Yaf &gt;=1.0.0'/>
+ <function name='yaf_dispatcher::setresponse' from='Yaf &gt;=3.2.2'/>
+ <function name='yaf_dispatcher::getresponse' from='Yaf &gt;=3.2.1'/>
  <function name='yaf_dispatcher::seterrorhandler' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_dispatcher::setappdirectory' from='Yaf &lt;=2.1.4'/>
  <function name='yaf_dispatcher::setdefaultmodule' from='Yaf &gt;=1.0.0'/>
@@ -67,6 +69,8 @@
  <function name='yaf_request_abstract::isget' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_request_abstract::ispost' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_request_abstract::isput' from='Yaf &gt;=1.0.0'/>
+ <function name='yaf_request_abstract::isdelete' from='Yaf &gt;=3.0.5'/>
+ <function name='yaf_request_abstract::ispatch' from='Yaf &gt;=3.0.5'/>
  <function name='yaf_request_abstract::ishead' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_request_abstract::isoptions' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_request_abstract::iscli' from='Yaf &gt;=1.0.0'/>
@@ -362,11 +366,13 @@
  <function name='yaf_route_rewrite' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_route_rewrite::__construct' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_route_rewrite::route' from='Yaf &gt;=1.0.0'/>
+ <function name='yaf_route_rewrite::match' from='Yaf &gt;=2.3.0'/>
  <function name='yaf_route_rewrite::assemble' from='Yaf &gt;=2.3.0'/>
 
  <function name='yaf_route_regex' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_route_regex::__construct' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_route_regex::route' from='Yaf &gt;=1.0.0'/>
+ <function name='yaf_route_regex::match' from='Yaf &gt;=3.2.0'/>
  <function name='yaf_route_regex::assemble' from='Yaf &gt;=2.3.0'/>
 
  <function name='yaf_route_map' from='Yaf &gt;=1.0.0'/>
@@ -398,6 +404,7 @@
  <function name='yaf_session::has' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_session::set' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_session::del' from='Yaf &gt;=1.0.0'/>
+ <function name='yaf_session::clear' from='Yaf &gt;=2.3.0'/>
  <function name='yaf_session::count' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_session::rewind' from='Yaf &gt;=1.0.0'/>
  <function name='yaf_session::next' from='Yaf &gt;=1.0.0'/>

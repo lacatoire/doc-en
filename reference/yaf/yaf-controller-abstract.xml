@@ -11,11 +11,11 @@
 <!-- {{{ Yaf_Controller_Abstract intro -->
   <section xml:id="yaf-controller-abstract.intro">
    &reftitle.intro;
-   <para>
-    <classname>Yaf_Controller_Abstract</classname> is the heart of Yaf's 
-    system. MVC stands for Model-View-Controller and is a design pattern 
+   <simpara>
+    <classname>Yaf_Controller_Abstract</classname> is the heart of Yaf's
+    system. MVC stands for Model-View-Controller and is a design pattern
     targeted at separating application logic from display logic.
-   </para>
+   </simpara>
    <para>
     Every custom controller shall inherit
     <classname>Yaf_Controller_Abstract</classname>.
@@ -32,14 +32,14 @@
    <para>
     Action may have arguments, when a request coming, if there are the same
     name variable in the request parameters(see
-    <methodname>Yaf_Request_Abstract::getParam</methodname>) after routed, 
+    <methodname>Yaf_Request_Abstract::getParam</methodname>) after routed,
     Yaf will pass them to the action method
     (see <methodname>Yaf_Action_Abstract::execute</methodname>).
     <note>
-     <para>
-      These arguments are directly fetched without filtering, it should be 
+     <simpara>
+      These arguments are directly fetched without filtering, it should be
       carefully processed before use them.
-     </para>
+     </simpara>
     </note>
    </para>
   </section>
@@ -62,35 +62,42 @@
 <!-- }}} -->
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
-     <modifier>public</modifier>
+     <modifier>protected</modifier>
+     <type class="union"><type>array</type><type>null</type></type>
      <varname linkend="yaf-controller-abstract.props.actions">actions</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type class="union"><type>string</type><type>null</type></type>
      <varname linkend="yaf-controller-abstract.props.module">_module</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type class="union"><type>string</type><type>null</type></type>
      <varname linkend="yaf-controller-abstract.props.name">_name</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type class="union"><type>object</type><type>null</type></type>
      <varname linkend="yaf-controller-abstract.props.request">_request</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type class="union"><type>object</type><type>null</type></type>
      <varname linkend="yaf-controller-abstract.props.response">_response</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type class="union"><type>array</type><type>null</type></type>
      <varname linkend="yaf-controller-abstract.props.invoke-args">_invoke_args</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type class="union"><type>object</type><type>null</type></type>
      <varname linkend="yaf-controller-abstract.props.view">_view</varname>
     </fieldsynopsis>
 
-    
+
     <classsynopsisinfo role="comment">&Methods;</classsynopsisinfo>
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.yaf-controller-abstract')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis[not(@role='procedural')])" />
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.yaf-controller-abstract')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[1])" />
@@ -99,7 +106,7 @@
 
   </section>
 
-  
+
 <!-- {{{ Yaf_Controller_Abstract properties -->
   <section xml:id="yaf-controller-abstract.props">
    &reftitle.properties;

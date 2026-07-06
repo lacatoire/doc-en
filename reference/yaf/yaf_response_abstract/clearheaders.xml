@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Response_Abstract::clearHeaders</methodname>
-   <void />
+   <modifier>public</modifier> <type class="union"><type>object</type><type>null</type><type>false</type></type><methodname>Yaf_Response_Abstract::clearHeaders</methodname>
+   <void/>
   </methodsynopsis>
   <para>
 

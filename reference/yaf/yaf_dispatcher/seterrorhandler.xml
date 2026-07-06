@@ -10,18 +10,18 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>Yaf_Dispatcher</type><methodname>Yaf_Dispatcher::setErrorHandler</methodname>
-   <methodparam><type>call</type><parameter>callback</parameter></methodparam>
-   <methodparam><type>int</type><parameter>error_types</parameter></methodparam>
+   <modifier>public</modifier> <type class="union"><type>Yaf_Dispatcher</type><type>null</type><type>false</type></type><methodname>Yaf_Dispatcher::setErrorHandler</methodname>
+   <methodparam><type>mixed</type><parameter>callback</parameter></methodparam>
+   <methodparam choice="opt"><type>int</type><parameter>error_types</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
     Set error handler for Yaf. when <link
      linkend="configuration.yaf.dispatcher.throwexception">application.dispatcher.throwException</link>
     is off, Yaf will trigger catchable error while unexpected errors occurred.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    Thus, this error handler will be called while the error raise.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -30,17 +30,17 @@
    <varlistentry>
     <term><parameter>callback</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       A callable callback
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>error_types</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

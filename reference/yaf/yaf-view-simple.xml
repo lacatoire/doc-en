@@ -40,11 +40,18 @@
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type class="union"><type>array</type><type>null</type></type>
      <varname linkend="yaf-view-simple.props.tpl-vars">_tpl_vars</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type class="union"><type>string</type><type>null</type></type>
      <varname linkend="yaf-view-simple.props.tpl-dir">_tpl_dir</varname>
+    </fieldsynopsis>
+    <fieldsynopsis>
+     <modifier>protected</modifier>
+     <type class="union"><type>array</type><type>null</type></type>
+     <varname linkend="yaf-view-simple.props.options">_options</varname>
     </fieldsynopsis>
 
     
@@ -71,6 +78,12 @@
      <term><varname>_tpl_dir</varname></term>
      <listitem>
       <para></para>
+     </listitem>
+    </varlistentry>
+    <varlistentry xml:id="yaf-view-simple.props.options">
+     <term><varname>_options</varname></term>
+     <listitem>
+      <simpara></simpara>
      </listitem>
     </varlistentry>
    </variablelist>

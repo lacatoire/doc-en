@@ -10,9 +10,9 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>bool</type><methodname>Yaf_View_Simple::assign</methodname>
-   <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam choice="opt"><type>mixed</type><parameter>value</parameter></methodparam>
+   <modifier>public</modifier> <type class="union"><type>object</type><type>null</type><type>false</type></type><methodname>Yaf_View_Simple::assign</methodname>
+   <methodparam choice="opt"><type>mixed</type><parameter>name</parameter></methodparam>
+   <methodparam choice="opt"><type>mixed</type><parameter>default</parameter></methodparam>
   </methodsynopsis>
   <para>
    assign variable to view engine
@@ -28,13 +28,13 @@
      <para>
        A string or an array.
      </para>
-     <para>
-       if is string, then the next argument $value is required. 
-     </para>
+     <simpara>
+       if is string, then the next argument $default is required.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><parameter>value</parameter></term>
+    <term><parameter>default</parameter></term>
     <listitem>
      <para>
        mixed value

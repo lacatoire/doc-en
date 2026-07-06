@@ -11,8 +11,8 @@
   &reftitle.description;
   <constructorsynopsis>
    <modifier>public</modifier> <methodname>Yaf_Config_Ini::__construct</methodname>
-   <methodparam><type>string</type><parameter>config_file</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>section</parameter></methodparam>
+   <methodparam><type class="union"><type>array</type><type>string</type></type><parameter>config_file</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>section</parameter><initializer>&null;</initializer></methodparam>
   </constructorsynopsis>
   <para>
     <classname>Yaf_Config_Ini</classname> constructor

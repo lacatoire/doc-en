@@ -35,10 +35,12 @@
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type class="union"><type>array</type><type>null</type></type>
      <varname linkend="yaf-config-abstract.props.config">_config</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>bool</type>
      <varname linkend="yaf-config-abstract.props.readonly">_readonly</varname>
     </fieldsynopsis>
 
