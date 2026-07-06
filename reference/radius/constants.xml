@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<appendix xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="radius.constants">
+<appendix xml:id="radius.constants" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  &reftitle.constants;
  &extension.constants;
 
@@ -27,6 +27,17 @@
   </simpara>
 
   <variablelist>
+   <varlistentry xml:id="constant.radius-option-none">
+    <term>
+     <constant>RADIUS_OPTION_NONE</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      No option flags are set. This is the default.
+     </simpara>
+    </listitem>
+   </varlistentry>
    <varlistentry xml:id="constant.radius-option-salt">
     <term>
      <constant>RADIUS_OPTION_SALT</constant>
@@ -498,10 +509,6 @@ radius_put_attr($radh, RADIUS_CHAP_CHALLENGE, $challenge);
        <member><constant>RADIUS_COMP_NONE</constant>: No compression</member>
        <member><constant>RADIUS_COMP_VJ</constant>: VJ TCP/IP header compression</member>
        <member><constant>RADIUS_COMP_IPXHDR</constant>: IPX header compression</member>
-       <member>
-        <constant>RADIUS_COMP_STAC_LZS</constant>:
-        Stac-LZS compression (added in PECL radius 1.3.0b2)
-       </member>
       </simplelist>
      </para>
     </listitem>
@@ -1045,6 +1052,84 @@ radius_put_attr($radh, RADIUS_CHAP_CHALLENGE, $challenge);
      </simpara>
     </listitem>
    </varlistentry>
+   <varlistentry xml:id="constant.radius-nas-ipv6-address">
+    <term>
+     <constant>RADIUS_NAS_IPV6_ADDRESS</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      The NAS-IPv6-Address attribute (RFC 3162).
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-framed-interface-id">
+    <term>
+     <constant>RADIUS_FRAMED_INTERFACE_ID</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      The Framed-Interface-Id attribute (RFC 3162).
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-framed-ipv6-prefix">
+    <term>
+     <constant>RADIUS_FRAMED_IPV6_PREFIX</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      The Framed-IPv6-Prefix attribute (RFC 3162).
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-login-ipv6-host">
+    <term>
+     <constant>RADIUS_LOGIN_IPV6_HOST</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      The Login-IPv6-Host attribute (RFC 3162).
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-framed-ipv6-route">
+    <term>
+     <constant>RADIUS_FRAMED_IPV6_ROUTE</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      The Framed-IPv6-Route attribute (RFC 3162).
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-framed-ipv6-pool">
+    <term>
+     <constant>RADIUS_FRAMED_IPV6_POOL</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      The Framed-IPv6-Pool attribute (RFC 3162).
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      The Error-Cause attribute (RFC 3576). Its value is one of the
+      Error-Cause constants listed below.
+     </simpara>
+    </listitem>
+   </varlistentry>
   </variablelist>
   <variablelist>
    <title>Service-Type Constants</title>
@@ -1203,15 +1288,6 @@ radius_put_attr($radh, RADIUS_CHAP_CHALLENGE, $challenge);
    <varlistentry xml:id="constant.radius-comp-ipxhdr">
     <term>
      <constant>RADIUS_COMP_IPXHDR</constant>
-    </term>
-    <listitem>
-     <simpara>
-     </simpara>
-    </listitem>
-   </varlistentry>
-   <varlistentry xml:id="constant.radius-comp-stac-lzs">
-    <term>
-     <constant>RADIUS_COMP_STAC_LZS</constant>
     </term>
     <listitem>
      <simpara>
@@ -1633,6 +1709,144 @@ radius_put_attr($radh, RADIUS_CHAP_CHALLENGE, $challenge);
    <varlistentry xml:id="constant.radius-term-host-request">
     <term>
      <constant>RADIUS_TERM_HOST_REQUEST</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+  <variablelist>
+   <title>Error-Cause Constants</title>
+   <varlistentry xml:id="constant.radius-error-cause-residual-session-context-removed">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_RESIDUAL_SESSION_CONTEXT_REMOVED</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-invalid-eap-packet">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_INVALID_EAP_PACKET</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-unsupported-attribute">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_UNSUPPORTED_ATTRIBUTE</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-missing-attribute">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_MISSING_ATTRIBUTE</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-nas-identification-mismatch">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_NAS_IDENTIFICATION_MISMATCH</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-invalid-request">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_INVALID_REQUEST</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-unsupported-service">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_UNSUPPORTED_SERVICE</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-unsupported-exception">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_UNSUPPORTED_EXCEPTION</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-administratively-prohibited">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_ADMINISTRATIVELY_PROHIBITED</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-request-not-routable">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_REQUEST_NOT_ROUTABLE</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-session-context-not-found">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_SESSION_CONTEXT_NOT_FOUND</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-session-context-not-removable">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_SESSION_CONTEXT_NOT_REMOVABLE</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-other-proxy-processing-error">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_OTHER_PROXY_PROCESSING_ERROR</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-resources-unavailable">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_RESOURCES_UNAVAILABLE</constant>
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.radius-error-cause-request-initiated">
+    <term>
+     <constant>RADIUS_ERROR_CAUSE_REQUEST_INITIATED</constant>
     </term>
     <listitem>
      <simpara>
