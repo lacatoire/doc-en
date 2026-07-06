@@ -29,7 +29,7 @@
  <function name="pdo::pgsqllobcreate" from="PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql &gt;= 1.0.2"/>
  <function name="pdo::pgsqllobopen" from="PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql &gt;= 1.0.2"/>
  <function name="pdo::pgsqllobunlink" from="PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql &gt;= 1.0.2"/>
- <function name="pdo::prepare" from="PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PHP 8,PECL pdo &gt;= 0.1.0"/>
+ <function name="pdo::prepare" from="PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.1.0"/>
  <function name="pdo::query" from="PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.2.0"/>
  <function name="pdo::quote" from="PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.2.1"/>
  <function name="pdo::rollback" from="PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.1.0"/>
