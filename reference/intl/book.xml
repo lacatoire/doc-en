@@ -133,6 +133,7 @@
  &reference.intl.intlrulebasedbreakiterator;
  &reference.intl.intlcodepointbreakiterator;
  &reference.intl.intldatepatterngenerator;
+ &reference.intl.intllistformatter;
  &reference.intl.intlpartsiterator;
  &reference.intl.uconverter;
 
