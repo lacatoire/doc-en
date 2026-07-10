@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="function.sodium-crypto-aead-aes256gcm-is-available">
+<refentry xml:id="function.sodium-crypto-aead-aes256gcm-is-available" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>sodium_crypto_aead_aes256gcm_is_available</refname>
   <refpurpose>Check if hardware supports AES256-GCM</refpurpose>
@@ -28,6 +28,31 @@
   <simpara>
    Returns &true; if it is safe to encrypt with AES-256-GCM, and &false; otherwise.
   </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       This function may now return &true; on aarch64 CPUs that provide the
+       ARM cryptographic extensions (the ARMv8 AES instructions). Previously,
+       hardware-accelerated AES-256-GCM was only detected on x86 and x86-64
+       hardware, and this function always returned &false; on aarch64.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
 
