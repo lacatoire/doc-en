@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?do-not-translate?>
-
-<versions>
+<!-- $Revision$ -->
+<!--
+  Do NOT translate this file
+-->
+<versions> 
  <function name='gnupg_adddecryptkey' from='PECL gnupg &gt;= 0.5'/>
  <function name='gnupg_addencryptkey' from='PECL gnupg &gt;= 0.5'/>
  <function name='gnupg_addsignkey' from='PECL gnupg &gt;= 0.5'/>

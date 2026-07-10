@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?do-not-translate?>
+<!-- $Revision$ -->
+<!--
+  Do NOT translate this file
+-->
 
 <versions>
  <!-- Functions -->
  <function name='stomp_version' from='PECL stomp &gt;= 0.1.0'/>
  <function name='stomp_connect_error' from='PECL stomp &gt;= 0.3.0'/>
-
  <!-- Methods -->
+
  <function name='stomp' from='PECL stomp &gt;= 0.1.0'/>
  <function name='stomp::__construct' from='PECL stomp &gt;= 0.1.0'/>
  <function name='stomp::getsessionid' from='PECL stomp &gt;= 0.1.0'/>

@@ -1732,7 +1732,7 @@ php >
    number of desired workers before starting the server.
   </simpara>
   <note>
-   <simpara>Multiple workers are not supported on Windows.</simpara>
+   <simpara>This feature is not supported on Windows.</simpara>
   </note>
   <note>
    <simpara>

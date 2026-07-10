@@ -9,26 +9,26 @@
  <!-- {{{ Preface -->
  <preface xml:id="intro.intl">
   &reftitle.intro;
-  <simpara>
+  <para>
    Internationalization extension (further is referred as Intl) is a wrapper
    for <link xlink:href="&url.icu.home;">ICU</link>
    library, enabling PHP programmers to perform various locale-aware operations including
    but not limited to formatting, transliteration, encoding conversion, calendar operations,
    <link xlink:href="&url.icu.uca;">UCA</link>-conformant collation, locating
    text boundaries and working with locale identifiers, timezones and graphemes.
-  </simpara>
+  </para>
 
-  <simpara>
+  <para>
    It tends to closely follow ICU APIs, so that people having experience
    working with ICU in either C/C++ or Java could easily use the PHP API.
    Also, this way ICU documentation would be useful to understand various ICU
    functions.
-  </simpara>
+  </para>
 
-  <simpara>
+  <para>
    Intl consists of several modules, each of them exposes the corresponding
    ICU API:
-  </simpara>
+  </para>
 
   <itemizedlist>
    <listitem>
@@ -98,13 +98,13 @@
    <title>Links</title>
    <itemizedlist>
     <listitem>
-     <simpara><link xlink:href="&url.icu.docs;">Miscellaneous ICU docs</link></simpara>
+     <para><link xlink:href="&url.icu.docs;">Miscellaneous ICU docs</link></para>
     </listitem>
     <listitem>
-     <simpara><link xlink:href="&url.icu.userguide;">ICU User Guide</link></simpara>
+     <para><link xlink:href="&url.icu.userguide;">ICU User Guide</link></para>
     </listitem>
     <listitem>
-     <simpara><link xlink:href="&url.icu.uca;">Unicode Collation Algorithm</link></simpara>
+     <para><link xlink:href="&url.icu.uca;">Unicode Collation Algorithm</link></para>
     </listitem>
    </itemizedlist>
   </section>
@@ -133,7 +133,6 @@
  &reference.intl.intlrulebasedbreakiterator;
  &reference.intl.intlcodepointbreakiterator;
  &reference.intl.intldatepatterngenerator;
- &reference.intl.intllistformatter;
  &reference.intl.intlpartsiterator;
  &reference.intl.uconverter;
 

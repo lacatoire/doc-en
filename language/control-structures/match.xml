@@ -18,13 +18,14 @@
 
  <example>
   <title>Structure of a <literal>match</literal> expression</title>
-  <programlisting role="php" annotations="non-interactive">
+  <programlisting role="php">
 <![CDATA[
 <?php
 $return_value = match (subject_expression) {
     single_conditional_expression => return_expression,
     conditional_expression1, conditional_expression2 => return_expression,
 };
+?>
 ]]>
   </programlisting>
   
@@ -42,6 +43,7 @@ $return_value = match ($food) {
 };
 
 var_dump($return_value);
+?>
 ]]>
   </programlisting>
   &example.outputs;
@@ -68,6 +70,7 @@ $output = match (true) {
 };
 
 var_dump($output);
+?>
 ]]>
   </programlisting>
   &example.outputs;
@@ -132,7 +135,7 @@ string(8) "Teenager"
   expression will be evaluated.
   For example:
   <informalexample>
-   <programlisting role="php" annotations="non-interactive">
+   <programlisting role="php">
 <![CDATA[
 <?php
 $result = match ($x) {
@@ -141,6 +144,7 @@ $result = match ($x) {
     $this->baz => beep(), // beep() isn't called unless $x === $this->baz
     // etc.
 };
+?>
 ]]>
    </programlisting>
   </informalexample>
@@ -153,7 +157,7 @@ $result = match ($x) {
  </para>
  <para>
   <informalexample>
-   <programlisting role="php" annotations="non-interactive">
+   <programlisting role="php">
 <![CDATA[
 <?php
 $result = match ($x) {
@@ -164,6 +168,7 @@ $result = match ($x) {
     $b => 5,
     $c => 5,
 };
+?>
 ]]>
    </programlisting>
   </informalexample>
@@ -173,7 +178,7 @@ $result = match ($x) {
   This pattern matches anything that wasn't previously matched.
   For example:
   <informalexample>
-   <programlisting role="php" annotations="non-interactive">
+   <programlisting role="php">
 <![CDATA[
 <?php
 $expressionResult = match ($condition) {
@@ -181,6 +186,7 @@ $expressionResult = match ($condition) {
     3, 4 => bar(),
     default => baz(),
 };
+?>
 ]]>
    </programlisting>
   </informalexample>
@@ -213,6 +219,7 @@ try {
 } catch (\UnhandledMatchError $e) {
     var_dump($e);
 }
+?>
 ]]>
   </programlisting>
   &example.outputs;
@@ -220,13 +227,13 @@ try {
 <![CDATA[
 object(UnhandledMatchError)#1 (7) {
   ["message":protected]=>
-  string(22) "Unhandled match case 5"
+  string(33) "Unhandled match value of type int"
   ["string":"Error":private]=>
   string(0) ""
   ["code":protected]=>
   int(0)
   ["file":protected]=>
-  string(6) "script"
+  string(9) "/in/ICgGK"
   ["line":protected]=>
   int(6)
   ["trace":"Error":private]=>
@@ -252,6 +259,7 @@ object(UnhandledMatchError)#1 (7) {
    <programlisting role="php">
 <![CDATA[
 <?php
+
 $age = 23;
 
 $result = match (true) {
@@ -262,6 +270,7 @@ $result = match (true) {
 };
 
 var_dump($result);
+?>
 ]]>
    </programlisting>
    &example.outputs;
@@ -287,6 +296,7 @@ $result = match (true) {
 };
 
 var_dump($result);
+?>
 ]]>
    </programlisting>
    &example.outputs;

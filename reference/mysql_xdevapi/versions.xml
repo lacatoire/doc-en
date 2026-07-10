@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?do-not-translate?>
+<!-- $Revision$ -->
+<!--
+  Do NOT translate this file
+-->
 
 <versions>
  <!-- Functions -->
  <function name='mysql_xdevapi\getsession' from='PECL mysql-xdevapi &gt;= 8.0.11'/>
  <function name='mysql_xdevapi\expression' from='PECL mysql-xdevapi &gt;= 8.0.11'/>
-
  <!-- Classes and Methods -->
+
  <function name='mysql_xdevapi\databaseobject' from='PECL mysql-xdevapi &gt;= 8.0.11'/>
  <function name='mysql_xdevapi\databaseobject::getsession' from='PECL mysql-xdevapi &gt;= 8.0.11'/>
  <function name='mysql_xdevapi\databaseobject::getname' from='PECL mysql-xdevapi &gt;= 8.0.11'/>

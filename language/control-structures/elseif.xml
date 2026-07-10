@@ -21,8 +21,6 @@
    <programlisting role="php">
 <![CDATA[
 <?php
-$a = 1;
-$b = 1;
 if ($a > $b) {
     echo "a is bigger than b";
 } elseif ($a == $b) {
@@ -30,14 +28,9 @@ if ($a > $b) {
 } else {
     echo "a is smaller than b";
 }
+?>
 ]]>
    </programlisting>
-   &example.outputs;
-   <screen>
-<![CDATA[
-a is equal to b
-]]>
-   </screen>
   </informalexample>
  </para>
  <simpara>
@@ -74,8 +67,6 @@ a is equal to b
    <programlisting role="php">
 <![CDATA[
 <?php
-$a = 3;
-$b = 1;
 
 /* Incorrect Method: */
 if ($a > $b):
@@ -85,21 +76,12 @@ else if ($a == $b): // Will not compile.
 endif;
 ]]>
    </programlisting>
-   &example.outputs;
-   <screen>
-<![CDATA[
-Parse error: syntax error, unexpected token "if", expecting ":" in script on line 8
-]]>
-   </screen>
   </informalexample>
 
   <informalexample>
    <programlisting role="php">
 <![CDATA[
 <?php
-$a = 3;
-$b = 1;
-
 /* Correct Method: */
 if ($a > $b):
     echo $a." is greater than ".$b;
@@ -108,14 +90,10 @@ elseif ($a == $b): // Note the combination of the words.
 else:
     echo $a." is neither greater than or equal to ".$b;
 endif;
+
+?>
 ]]>
    </programlisting>
-   &example.outputs;
-   <screen>
-<![CDATA[
-3 is greater than 1
-]]>
-   </screen>
   </informalexample>
  </para>
 </sect1>

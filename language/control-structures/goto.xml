@@ -35,11 +35,14 @@
    <programlisting role="php">
 <![CDATA[
 <?php
+
 goto a;
 echo 'Foo';
 
 a:
 echo 'Bar';
+
+?>
 ]]>
    </programlisting>
    &example.outputs;
@@ -56,6 +59,7 @@ Bar
    <programlisting role="php">
 <![CDATA[
 <?php
+
 for ($i = 0, $j = 50; $i < 100; $i++) {
     while ($j--) {
         if ($j == 17) {
@@ -66,6 +70,8 @@ for ($i = 0, $j = 50; $i < 100; $i++) {
 echo "i = $i";
 end:
 echo 'j hit 17';
+
+?>
 ]]>
    </programlisting>
    &example.outputs;
@@ -82,6 +88,7 @@ j hit 17
    <programlisting role="php">
 <![CDATA[
 <?php
+
 goto loop;
 for ($i = 0, $j = 50; $i < 100; $i++) {
     while ($j--) {
@@ -89,12 +96,15 @@ for ($i = 0, $j = 50; $i < 100; $i++) {
     }
 }
 echo "$i = $i";
+
+?>
 ]]>
    </programlisting>
    &example.outputs;
    <screen>
 <![CDATA[
-Fatal error: 'goto' into loop or switch statement is disallowed in script on line 2
+Fatal error: 'goto' into loop or switch statement is disallowed in
+script on line 2
 ]]>
    </screen>
   </example>

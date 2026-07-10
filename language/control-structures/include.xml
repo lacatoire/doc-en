@@ -54,7 +54,7 @@
  <para>
   <example>
    <title>Basic <literal>include</literal> example</title>
-   <programlisting role="php" annotations="non-interactive">
+   <programlisting role="php">
 <![CDATA[
 vars.php
 <?php
@@ -90,7 +90,7 @@ echo "A $color $fruit"; // A green apple
  <para>
   <example>
    <title>Including within functions</title>
-   <programlisting role="php" annotations="non-interactive">
+   <programlisting role="php">
 <![CDATA[
 <?php
 
@@ -110,6 +110,8 @@ function foo()
 
 foo();                    // A green apple
 echo "A $color $fruit";   // A green
+
+?>
 ]]>
    </programlisting>
   </example>
@@ -138,7 +140,7 @@ echo "A $color $fruit";   // A green
  <para>
   <example>
    <title><literal>include</literal> through HTTP</title>
-   <programlisting role="php" annotations="non-interactive">
+   <programlisting role="php">
 <![CDATA[
 <?php
 
@@ -155,6 +157,7 @@ include 'file.php?foo=1&bar=2';
 
 // Works.
 include 'http://www.example.com/file.php?foo=1&bar=2';
+?>
 ]]>
    </programlisting>
   </example>
@@ -197,7 +200,7 @@ include 'http://www.example.com/file.php?foo=1&bar=2';
   return value.
   <example>
    <title>Comparing return value of include</title>
-   <programlisting role="php" annotations="non-interactive">
+   <programlisting role="php">
 <![CDATA[
 <?php
 // won't work, evaluated as include(('vars.php') == TRUE), i.e. include('1')
@@ -209,6 +212,7 @@ if (include('vars.php') == TRUE) {
 if ((include 'vars.php') == TRUE) {
     echo 'OK';
 }
+?>
 ]]>
    </programlisting>
   </example>
@@ -216,7 +220,7 @@ if ((include 'vars.php') == TRUE) {
  <para>
   <example>
    <title><literal>include</literal> and the <function>return</function> statement</title>
-   <programlisting role="php" annotations="non-interactive">
+   <programlisting role="php">
 <![CDATA[
 return.php
 <?php
@@ -274,7 +278,7 @@ echo $bar; // prints 1
  <para>
   <example>
    <title>Using output buffering to include a PHP file into a string</title>
-   <programlisting role="php" annotations="non-interactive">
+   <programlisting role="php">
 <![CDATA[
 <?php
 $string = get_include_contents('somefile.php');
@@ -287,6 +291,8 @@ function get_include_contents($filename) {
     }
     return false;
 }
+
+?>
 ]]>
    </programlisting>
   </example>

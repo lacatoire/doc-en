@@ -19,21 +19,14 @@
    <programlisting role="php">
 <![CDATA[
 <?php
-$a = 3;
-$b = 5;
 if ($a > $b) {
-  echo "a is greater than b\n";
+  echo "a is greater than b";
 } else {
-  echo "a is NOT greater than b\n";
+  echo "a is NOT greater than b";
 }
+?>
 ]]>
    </programlisting>
-   &example.outputs;
-   <screen>
-<![CDATA[
-a is NOT greater than b
-]]>
-   </screen>
   </informalexample>
 
   The <literal>else</literal> statement is only executed if the
@@ -60,14 +53,9 @@ if ($a)
         echo "b";
 else
     echo "c";
+?>
 ]]>
     </programlisting>
-   &example.outputs;
-   <screen>
-<![CDATA[
-
-]]>
-   </screen>
    </informalexample>
    Despite the indentation (which does not matter for PHP), the <literal>else</literal>
    is associated with the <literal>if ($b)</literal>, so the example does not produce
