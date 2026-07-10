@@ -157,7 +157,8 @@
       <simpara>
        An associative <type>array</type> which may have any of the keys
        <literal>expires</literal>, <literal>path</literal>, <literal>domain</literal>,
-       <literal>secure</literal>, <literal>httponly</literal> and <literal>samesite</literal>.
+       <literal>secure</literal>, <literal>httponly</literal>, <literal>samesite</literal>
+       and <literal>partitioned</literal>.
       </simpara>
       <simpara>
        The values have the same meaning as described for the
@@ -168,6 +169,8 @@
        same as the default values of the explicit parameters. If the
        <literal>samesite</literal> element is omitted, no SameSite cookie
        attribute is set.
+       Setting <literal>partitioned</literal> to &true; marks the cookie as
+       partitioned (CHIPS), meaning it is isolated per top-level site.
       </simpara>
 
       <note>
@@ -229,6 +232,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       The <literal>partitioned</literal> key was added to the
+       <parameter>options</parameter> array.
+      </entry>
+     </row>
      <row>
       <entry>8.2.0</entry>
       <entry>
