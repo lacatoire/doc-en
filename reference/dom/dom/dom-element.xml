@@ -128,6 +128,12 @@
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>public</modifier>
+     <modifier>readonly</modifier>
+     <type>string</type>
+     <varname linkend="dom-element.props.outerhtml">outerHTML</varname>
+    </fieldsynopsis>
+    <fieldsynopsis>
+     <modifier>public</modifier>
      <type>string</type>
      <varname linkend="dom-element.props.substitutednodevalue">substitutedNodeValue</varname>
     </fieldsynopsis>
@@ -235,6 +241,15 @@
      <term><varname>innerHTML</varname></term>
      <listitem>
       <simpara>The inner HTML (or XML for XML documents) of the element.</simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry xml:id="dom-element.props.outerhtml">
+     <term><varname>outerHTML</varname></term>
+     <listitem>
+      <simpara>
+       The outer HTML (or XML for XML documents) of the element, including the
+       element itself. Read-only. Available as of PHP 8.5.0.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="dom-element.props.substitutednodevalue">
