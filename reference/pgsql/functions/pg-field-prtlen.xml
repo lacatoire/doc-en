@@ -15,6 +15,11 @@
    <methodparam><type class="union"><type>string</type><type>false</type><type>null</type></type><parameter>row</parameter></methodparam>
    <methodparam><type>mixed</type><parameter>field_name_or_number</parameter></methodparam>
   </methodsynopsis>
+  <simpara>
+   The following alternative signature is deprecated as of PHP 8.4.0.
+   Pass an explicit &null; value for the <parameter>row</parameter>
+   parameter of the primary signature instead.
+  </simpara>
   <methodsynopsis>
    <type>int</type><methodname>pg_field_prtlen</methodname>
    <methodparam><type>PgSql\Result</type><parameter>result</parameter></methodparam>
@@ -84,6 +89,14 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.4.0</entry>
+      <entry>
+       Calling <function>pg_field_prtlen</function> with 2 arguments,
+       omitting the <parameter>row</parameter> parameter, is now deprecated.
+       Pass an explicit &null; value for <parameter>row</parameter> instead.
+      </entry>
+     </row>
+     <row>
       <entry>8.3.0</entry>
       <entry>
        <parameter>row</parameter> is now nullable.
@@ -111,7 +124,7 @@
       echo "column $j\n";
       $fieldname = pg_field_name($res, $j);
       echo "fieldname: $fieldname\n";
-      echo "printed length: " . pg_field_prtlen($res, $fieldname) . " characters\n";
+      echo "printed length: " . pg_field_prtlen($res, null, $fieldname) . " characters\n";
       echo "storage length: " . pg_field_size($res, $j) . " bytes\n";
       echo "field type: " . pg_field_type($res, $j) . " \n\n";
   }

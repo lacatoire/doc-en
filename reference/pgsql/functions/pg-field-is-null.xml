@@ -15,6 +15,11 @@
    <methodparam><type class="union"><type>string</type><type>false</type><type>null</type></type><parameter>row</parameter></methodparam>
    <methodparam><type>mixed</type><parameter>field</parameter></methodparam>
   </methodsynopsis>
+  <simpara>
+   The following alternative signature is deprecated as of PHP 8.4.0.
+   Pass an explicit &null; value for the <parameter>row</parameter>
+   parameter of the primary signature instead.
+  </simpara>
   <methodsynopsis>
    <type>int</type><methodname>pg_field_is_null</methodname>
    <methodparam><type>PgSql\Result</type><parameter>result</parameter></methodparam>
@@ -82,6 +87,14 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       Calling <function>pg_field_is_null</function> with 2 arguments,
+       omitting the <parameter>row</parameter> parameter, is now deprecated.
+       Pass an explicit &null; value for <parameter>row</parameter> instead.
+      </entry>
+     </row>
      <row>
       <entry>8.3.0</entry>
       <entry>
