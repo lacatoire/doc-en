@@ -17,6 +17,13 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.5.0</entry>
+      <entry>
+       Changed: <link linkend="language.oop5.traits">Traits</link> are now bound
+       to a class before its parent class.
+      </entry>
+     </row>
+     <row>
       <entry>8.4.0</entry>
       <entry>
        Added: Support for <link linkend="language.oop5.property-hooks">Property Hooks</link>.
