@@ -14,9 +14,9 @@
    <methodparam choice="opt"><type>int</type><parameter>type</parameter><initializer><constant>IntlListFormatter::TYPE_AND</constant></initializer></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>width</parameter><initializer><constant>IntlListFormatter::WIDTH_WIDE</constant></initializer></methodparam>
   </constructorsynopsis>
-  <para>
+  <simpara>
    Creates a new <classname>IntlListFormatter</classname> instance for the given locale.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -25,31 +25,31 @@
    <varlistentry>
     <term><parameter>locale</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The locale to use for formatting.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>type</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The list type. One of the <constant>IntlListFormatter::TYPE_<replaceable>*</replaceable></constant> constants:
       <constant>IntlListFormatter::TYPE_AND</constant>,
       <constant>IntlListFormatter::TYPE_OR</constant>, or
       <constant>IntlListFormatter::TYPE_UNITS</constant>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>width</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The list width. One of the <constant>IntlListFormatter::WIDTH_<replaceable>*</replaceable></constant> constants:
       <constant>IntlListFormatter::WIDTH_WIDE</constant>,
       <constant>IntlListFormatter::WIDTH_SHORT</constant>, or
       <constant>IntlListFormatter::WIDTH_NARROW</constant>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -57,10 +57,10 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Throws an <classname>IntlException</classname> if the formatter cannot be created
+  <simpara>
+   Throws an <exceptionname>IntlException</exceptionname> if the formatter cannot be created
    (e.g. invalid locale or ICU version is below 67).
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">

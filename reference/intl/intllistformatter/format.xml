@@ -12,9 +12,9 @@
    <modifier>public</modifier> <type class="union"><type>string</type><type>false</type></type><methodname>IntlListFormatter::format</methodname>
    <methodparam><type>array</type><parameter>list</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Formats a list of items as a locale-appropriate string.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -23,9 +23,9 @@
    <varlistentry>
     <term><parameter>list</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       An array of strings to format as a list.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -33,9 +33,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    The formatted list as a string, or &false; on failure.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
