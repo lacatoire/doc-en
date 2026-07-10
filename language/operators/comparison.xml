@@ -330,6 +330,15 @@ function standard_array_compare($op1, $op2)
   </simpara>
  </note>
 
+ <note>
+  <simpara>
+   Comparing mutually recursive data structures (for example, arrays or
+   objects that refer to themselves) may exceed the maximum nesting level.
+   As of PHP 8.4.0, this throws an <exceptionname>Error</exceptionname>;
+   prior to PHP 8.4.0, it resulted in a fatal error.
+  </simpara>
+ </note>
+
  <sect2 xml:id="language.operators.comparison.incomparable">
   <title>Incomparable Values</title>
   <simpara>
