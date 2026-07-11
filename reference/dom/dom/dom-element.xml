@@ -128,7 +128,6 @@
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>public</modifier>
-     <modifier>readonly</modifier>
      <type>string</type>
      <varname linkend="dom-element.props.outerhtml">outerHTML</varname>
     </fieldsynopsis>
@@ -248,7 +247,7 @@
      <listitem>
       <simpara>
        The outer HTML (or XML for XML documents) of the element, including the
-       element itself. Read-only. Available as of PHP 8.5.0.
+       element itself. Available as of PHP 8.5.0.
       </simpara>
      </listitem>
     </varlistentry>
