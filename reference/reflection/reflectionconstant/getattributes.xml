@@ -57,6 +57,46 @@
   </para>
  </refsect1>
 
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <para>
+   <example>
+    <title>Basic usage</title>
+    <programlisting role="php">
+<![CDATA[
+<?php
+#[Attribute]
+class Fruit {
+}
+
+#[Attribute]
+class Red {
+}
+
+#[Fruit]
+#[Red]
+const APPLE = 'apple';
+
+$constant = new ReflectionConstant('APPLE');
+$attributes = $constant->getAttributes();
+print_r(array_map(fn($attribute) => $attribute->getName(), $attributes));
+?>
+]]>
+    </programlisting>
+    &example.outputs;
+    <screen>
+<![CDATA[
+Array
+(
+    [0] => Fruit
+    [1] => Red
+)
+]]>
+    </screen>
+   </example>
+  </para>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
