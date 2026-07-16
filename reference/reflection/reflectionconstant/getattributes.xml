@@ -59,14 +59,12 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><methodname>ReflectionClass::getAttributes</methodname></member>
-    <member><methodname>ReflectionClassConstant::getAttributes</methodname></member>
-    <member><methodname>ReflectionFunctionAbstract::getAttributes</methodname></member>
-    <member><methodname>ReflectionProperty::getAttributes</methodname></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><methodname>ReflectionClass::getAttributes</methodname></member>
+   <member><methodname>ReflectionClassConstant::getAttributes</methodname></member>
+   <member><methodname>ReflectionFunctionAbstract::getAttributes</methodname></member>
+   <member><methodname>ReflectionProperty::getAttributes</methodname></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
