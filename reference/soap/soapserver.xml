@@ -49,13 +49,6 @@
   <section xml:id="soapserver.props">
    &reftitle.properties;
    <variablelist>
-    <varlistentry xml:id="soapserver.props.service">
-     <term><varname>service</varname></term>
-     <listitem>
-      <para>
-      </para>
-     </listitem>
-    </varlistentry>
     <varlistentry xml:id="soapserver.props.soap-fault">
      <term><varname>__soap_fault</varname></term>
      <listitem>

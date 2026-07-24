@@ -72,7 +72,7 @@
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>private</modifier>
-     <type class="union"><type>resource</type><type>null</type></type>
+     <type class="union"><type>array</type><type>null</type></type>
      <varname linkend="soapclient.props.typemap">typemap</varname>
      <initializer>null</initializer>
     </fieldsynopsis>

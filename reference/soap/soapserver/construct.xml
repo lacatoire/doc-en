@@ -71,6 +71,11 @@
        generic error message ("Internal error") instead of the specific error
        message sent otherwise.
       </para>
+      <para>
+       The <literal>trace</literal> option can be set to &true; to enable tracing
+       of the last response, so that <methodname>SoapServer::__getLastResponse</methodname>
+       returns the response instead of &null;.
+      </para>
      </listitem>
     </varlistentry>
    </variablelist>

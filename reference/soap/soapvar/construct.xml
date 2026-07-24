@@ -43,7 +43,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><parameter>type_name</parameter></term>
+     <term><parameter>typeName</parameter></term>
      <listitem>
       <para>
        The type name.
@@ -51,7 +51,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><parameter>type_namespace</parameter></term>
+     <term><parameter>typeNamespace</parameter></term>
      <listitem>
       <para>
        The type namespace.
@@ -59,7 +59,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><parameter>node_name</parameter></term>
+     <term><parameter>nodeName</parameter></term>
      <listitem>
       <para>
        The XML node name.
@@ -67,7 +67,7 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><parameter>node_namespace</parameter></term>
+     <term><parameter>nodeNamespace</parameter></term>
      <listitem>
       <para>
        The XML node namespace.
