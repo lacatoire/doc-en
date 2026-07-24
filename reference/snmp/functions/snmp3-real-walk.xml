@@ -71,7 +71,8 @@
     </term>
     <listitem>
      <simpara>
-      the authentication protocol (MD5 or SHA)
+      the authentication protocol (<literal>"MD5"</literal>, <literal>"SHA"</literal>,
+      <literal>"SHA256"</literal>, or <literal>"SHA512"</literal>)
      </simpara>
     </listitem>
    </varlistentry>
@@ -91,8 +92,7 @@
     </term>
     <listitem>
      <simpara>
-      the authentication protocol (<literal>"MD5"</literal>, <literal>"SHA"</literal>,
-      <literal>"SHA256"</literal>, or <literal>"SHA512"</literal>)
+      the privacy protocol (DES, AES128, or AES)
      </simpara>
     </listitem>
    </varlistentry>

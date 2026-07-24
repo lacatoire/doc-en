@@ -260,7 +260,7 @@
      <term><varname>info</varname></term>
      <listitem>
       <simpara>Read-only property with remote agent configuration: hostname,
-      port, default timeout, default retries count</simpara>
+      default timeout, default retries count</simpara>
      </listitem>
     </varlistentry>
    </variablelist>
