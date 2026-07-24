@@ -106,6 +106,15 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.5.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if the
+       <parameter>config</parameter> array contains an invalid or read-only
+       configuration entry, and a <exceptionname>TypeError</exceptionname> if the
+       <parameter>config</parameter> array contains a non-string key.
+      </entry>
+     </row>
+     <row>
       <entry>8.0.0</entry>
       <entry>
        <parameter>config</parameter> and <parameter>encoding</parameter> are nullable now.
