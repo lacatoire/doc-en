@@ -186,6 +186,15 @@ $text = str_replace("\n.", "\n..", $text);
      </thead>
      <tbody>
       <row>
+       <entry>8.5.0</entry>
+       <entry>
+        The function now detects sendmail errors and unexpected termination of
+        the sendmail process. In such cases, a warning is emitted and &false;
+        is returned. Previously, these errors were silently ignored.
+        This change affects only the sendmail transport.
+       </entry>
+      </row>
+      <row>
        <entry>7.2.0</entry>
        <entry>
         The <parameter>additional_headers</parameter> parameter now also accepts
