@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="fileinfo.installation">
+<section xml:id="fileinfo.installation" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  &reftitle.install;
  <simpara>
   This extension is enabled by default.
@@ -13,6 +13,9 @@
   The libmagic library is bundled with PHP, but includes PHP specific changes.
   A patch against libmagic named <filename>libmagic.patch</filename> is maintained
   and may be found within the PHP fileinfo extensions source.
+ </simpara>
+ <simpara>
+  As of PHP 8.5.0, the bundled libmagic version has been upgraded to file 5.46.
  </simpara>
 </section>
 <!-- Keep this comment at the end of the file
