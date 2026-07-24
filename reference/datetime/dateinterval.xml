@@ -86,7 +86,7 @@
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>public</modifier>
-     <type>mixed</type>
+     <type class="union"><type>int</type><type>false</type></type>
      <varname linkend="dateinterval.props.days">days</varname>
     </fieldsynopsis>
     <fieldsynopsis>
