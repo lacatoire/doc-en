@@ -59,7 +59,6 @@
  &language.predefined.generator.send;
  &language.predefined.generator.throw;
  &language.predefined.generator.valid;
- &language.predefined.generator.wakeup;
 
 </reference>
 <!-- Keep this comment at the end of the file
