@@ -190,6 +190,8 @@
        <entry><literal>TXT</literal></entry>
        <entry>
         <literal>txt</literal>: Arbitrary string data associated with this record.
+        <literal>entries</literal>: An array of the individual text chunks that
+        make up the record.
        </entry>
       </row>
       <row>
