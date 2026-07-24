@@ -14,25 +14,25 @@
    <methodparam choice="opt"><type>int</type><parameter>chunk_size</parameter><initializer>0</initializer></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>flags</parameter><initializer><constant>PHP_OUTPUT_HANDLER_STDFLAGS</constant></initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    This function will turn output buffering on.
    While output buffering is active no output is sent from the script,
    instead the output is stored in an internal buffer.
    See <xref linkend="outcontrol.what-output-is-buffered"/>
    on exactly what output is affected.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    Output buffers are stackable, that is,
    <function>ob_start</function> may be called while another buffer is active.
    If multiple output buffers are active,
    output is being filtered sequentially
    through each of them in nesting order.
    See <xref linkend="outcontrol.nesting-output-buffers"/> for more details.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    See <xref linkend="outcontrol.user-level-output-buffers"/>
    for a detailed description of output buffers.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -42,18 +42,18 @@
     <varlistentry>
      <term><parameter>callback</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        An optional <parameter>callback</parameter> <type>callable</type> may be
        specified. It can also be bypassed by passing &null;.
-      </para>
-      <para>
+      </simpara>
+      <simpara>
        <parameter>callback</parameter> is invoked when the output buffer is
        flushed (sent), cleaned, or when the output buffer is flushed
        at the end of the script.
-      </para>
-      <para>
+      </simpara>
+      <simpara>
        The signature of the <parameter>callback</parameter> is as follows:
-      </para>
+      </simpara>
       <para>
        <methodsynopsis>
         <type>string</type><methodname><replaceable>handler</replaceable></methodname>
@@ -85,12 +85,12 @@
         </varlistentry>
        </variablelist>
       </para>
-      <para>
+      <simpara>
        If <parameter>callback</parameter> returns &false;
        the contents of the buffer are returned.
        See <xref linkend="outcontrol.output-handler-return-values"/>
        for more details.
-      </para>
+      </simpara>
       <warning>
        <simpara>
         Calling any of the following functions from within an output handler
@@ -101,17 +101,17 @@
         <function>ob_start</function>.
        </simpara>
       </warning>
-      <para>
+      <simpara>
        See <xref linkend="outcontrol.output-handlers"/>
        and <xref linkend="outcontrol.working-with-output-handlers"/>
        for more details on <parameter>callback</parameter>s (output handlers).
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>chunk_size</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If the optional parameter <parameter>chunk_size</parameter> is passed,
        the buffer will be flushed after any block of code resulting in output
        that causes the buffer's length to equal
@@ -119,13 +119,13 @@
        The default value <literal>0</literal> means
        that all output is buffered until the buffer is turned off.
        See <xref linkend="outcontrol.buffer-size"/> for more details.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>flags</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The <parameter>flags</parameter> parameter is a bitmask that controls
        the operations that can be performed on the output buffer. The default
        is to allow output buffers to be cleaned, flushed and removed, which
@@ -135,7 +135,7 @@
        </link>.
        See <xref linkend="outcontrol.operations-on-buffers"/>
        for more details.
-      </para>
+      </simpara>
       <para>
        Each flag controls access to a set of functions, as described below:
        <informaltable>
@@ -186,9 +186,33 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       Trying to produce output (e.g. with <function>echo</function>) within
+       the user output handler callback is now deprecated. The deprecation
+       warning bypasses the handler and is output directly.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="examples">

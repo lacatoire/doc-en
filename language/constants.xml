@@ -13,24 +13,30 @@
   </simpara>
 
   <note>
-   <para>
+   <simpara>
     Prior to PHP 8.0.0, constants defined using the <function>define</function>
     function may be case-insensitive.
-   </para>
+   </simpara>
   </note>
 
-  <para>
+  <note>
+   <simpara>
+    As of PHP 8.5.0, redeclaring an already-defined constant is deprecated.
+   </simpara>
+  </note>
+
+  <simpara>
    The name of a constant follows the same rules as any label in PHP. A 
    valid constant name starts with a letter or underscore, followed
    by any number of letters, numbers, or underscores. As a regular
    expression, it would be expressed thusly:
    <code>^[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*$</code>
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    It is possible to <function>define</function> constants with reserved or even
    invalid names, whose value can only be retrieved with the
    <function>constant</function> function. However, doing so is not recommended.
-  </para>
+  </simpara>
   &tip.userlandnaming;
   <para>
 <!-- TODO Move into syntax section? -->
@@ -116,7 +122,7 @@ define("__FOO__", "something");
    </note>
 
    <simpara>
-    If an undefined constant is used an <classname>Error</classname> is thrown.
+    If an undefined constant is used an <exceptionname>Error</exceptionname> is thrown.
     Prior to PHP 8.0.0, undefined constants would be interpreted as a bare
     word <type>string</type>, i.e. (CONSTANT vs "CONSTANT"). 
     This fallback is deprecated as of PHP 7.2.0, and an error of level
@@ -128,7 +134,7 @@ define("__FOO__", "something");
     wrong (unless <literal>bar</literal> is a constant).
     This does not apply to <link
     linkend="language.namespaces.rules">(fully) qualified constants</link>,
-    which will always raise a <classname>Error</classname> if undefined.
+    which will always raise a <exceptionname>Error</exceptionname> if undefined.
    </simpara>
 
    <note>
@@ -212,14 +218,14 @@ echo ANIMALS_DEF[1] . "\n"; // outputs "cat"
    </para>
 
    <note>
-    <para>
+    <simpara>
      As opposed to defining constants using <function>define</function>,
      constants defined using the <literal>const</literal> keyword must be
      declared at the top-level scope because they are defined at compile-time.
      This means that they cannot be declared inside functions, loops,
      <literal>if</literal> statements or
      <literal>try</literal>/<literal>catch</literal> blocks.
-    </para>
+    </simpara>
    </note>
 
    <sect2 role="seealso">
@@ -247,14 +253,14 @@ echo ANIMALS_DEF[1] . "\n"; // outputs "cat"
 
   <sect1 xml:id="language.constants.magic">
    <title>Magic constants</title>
-   <para>
+   <simpara>
     There are a few magical constants that change depending on
     where they are used. For example, the value of
     <constant>__LINE__</constant> depends on the line that it's
     used on in a script. All these "magical" constants are resolved
     at compile time, unlike regular constants, which are resolved at runtime. 
     These special constants are case-insensitive and are as follows:
-   </para>
+   </simpara>
    <para>
     <table>
      <title>PHP's magic constants</title>
