@@ -5,11 +5,14 @@
  <function name='memcache' from='PECL memcache &gt;= 0.2.0'/>
  <function name='memcache::add' from='PECL memcache &gt;= 0.2.0'/>
  <function name='Memcache::addServer' from='PECL memcache &gt;= 2.0.0'/>
+ <function name='Memcache::append' from='PECL memcache &gt;= 3.0.0'/>
+ <function name='Memcache::cas' from='PECL memcache &gt;= 3.0.0'/>
  <function name='Memcache::close' from='PECL memcache &gt;= 0.4.0'/>
  <function name='Memcache::connect' from='PECL memcache &gt;= 0.2.0'/>
  <function name='Memcache::debug' from='PECL memcache &gt;= 0.2.0'/>
  <function name='Memcache::decrement' from='PECL memcache &gt;= 0.2.0'/>
  <function name='Memcache::delete' from='PECL memcache &gt;= 0.2.0'/>
+ <function name='Memcache::findserver' from='PECL memcache &gt;= 3.0.5'/>
  <function name='Memcache::flush' from='PECL memcache &gt;= 1.0.0'/>
  <function name='Memcache::get' from='PECL memcache &gt;= 0.2.0'/>
  <function name='Memcache::getExtendedStats' from='PECL memcache &gt;= 2.0.0'/>
@@ -18,9 +21,12 @@
  <function name='Memcache::getVersion' from='PECL memcache &gt;= 0.2.0'/>
  <function name='Memcache::increment' from='PECL memcache &gt;= 0.2.0'/>
  <function name='Memcache::pconnect' from='PECL memcache &gt;= 0.4.0'/>
+ <function name='Memcache::prepend' from='PECL memcache &gt;= 3.0.0'/>
  <function name='Memcache::replace' from='PECL memcache &gt;= 0.2.0'/>
  <function name='Memcache::set' from='PECL memcache &gt;= 0.2.0'/>
  <function name='Memcache::setCompressThreshold' from='PECL memcache &gt;= 2.0.0'/>
+ <function name='Memcache::setFailureCallback' from='PECL memcache &gt;= 3.0.0'/>
+ <function name='Memcache::setSaslAuthData' from='PECL memcache &gt;= 4.0.0'/>
  <function name='Memcache::setServerParams' from='PECL memcache &gt;= 2.1.0'/>
 </versions>
 
