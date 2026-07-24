@@ -13,6 +13,11 @@
    <modifier>public</modifier> <modifier>static</modifier> <type>array</type><methodname>V8Js::getExtensions</methodname>
    <void />
   </methodsynopsis>
+  <warning>
+   <simpara>
+    This method does not exist in current versions of the extension.
+   </simpara>
+  </warning>
   <para>
    This function returns array of Javascript extensions registered using <function>V8Js::registerExtension</function>.
   </para>

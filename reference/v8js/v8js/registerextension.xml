@@ -16,6 +16,11 @@
    <methodparam choice="opt"><type>array</type><parameter>dependencies</parameter><initializer>array()</initializer></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>auto_enable</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
+  <warning>
+   <simpara>
+    This method does not exist in current versions of the extension.
+   </simpara>
+  </warning>
   <para>
    Registers passed Javascript <parameter>script</parameter> as extension to
    be used in <classname>V8Js</classname> contexts.
