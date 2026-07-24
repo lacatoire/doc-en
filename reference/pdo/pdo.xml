@@ -497,6 +497,16 @@
      </thead>
      <tbody>
       <row>
+       <entry>8.5.0</entry>
+       <entry>
+        The values of the constants <constant>PDO::FETCH_GROUP</constant>,
+        <constant>PDO::FETCH_UNIQUE</constant>,
+        <constant>PDO::FETCH_CLASSTYPE</constant>,
+        <constant>PDO::FETCH_PROPS_LATE</constant>, and
+        <constant>PDO::FETCH_SERIALIZE</constant> have changed.
+       </entry>
+      </row>
+      <row>
        <entry>8.4.0</entry>
        <entry>
         The class constants are now typed.
