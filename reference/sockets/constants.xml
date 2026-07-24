@@ -3185,6 +3185,87 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.tcp-function-blk">
+   <term>
+    <constant>TCP_FUNCTION_BLK</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Sets the TCP function block (stack implementation) to use for the socket.
+     Available on FreeBSD only.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.tcp-function-alias">
+   <term>
+    <constant>TCP_FUNCTION_ALIAS</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Sets an alias name for the TCP function block used by the socket.
+     Available on FreeBSD only.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.tcp-reusport-lb-numa">
+   <term>
+    <constant>TCP_REUSPORT_LB_NUMA</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Controls NUMA domain affinity for load-balanced port reuse.
+     Available on FreeBSD only.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.tcp-reusport-lb-numa-nodom">
+   <term>
+    <constant>TCP_REUSPORT_LB_NUMA_NODOM</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Constant value for <constant>TCP_REUSPORT_LB_NUMA</constant> indicating
+     no NUMA domain affinity.
+     Available on FreeBSD only.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.tcp-reusport-lb-numa-curdom">
+   <term>
+    <constant>TCP_REUSPORT_LB_NUMA_CURDOM</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Constant value for <constant>TCP_REUSPORT_LB_NUMA</constant> indicating
+     affinity for the current NUMA domain.
+     Available on FreeBSD only.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.tcp-bbr-algorithm">
+   <term>
+    <constant>TCP_BBR_ALGORITHM</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Selects the BBR (Bottleneck Bandwidth and RTT) congestion control
+     algorithm for the TCP socket.
+     Available on FreeBSD only.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
  </variablelist>
 
 </appendix>
