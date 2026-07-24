@@ -196,7 +196,7 @@ print implode(' ', $new_numbers);
 
   <example>
    <title>
-    Calling various types of callables with <function>call_user_function</function>
+    Calling various types of callables with <function>call_user_func</function>
    </title>
    <programlisting role="php">
 <![CDATA[
