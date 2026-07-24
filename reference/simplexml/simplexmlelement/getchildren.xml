@@ -33,10 +33,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a <classname>SimpleXMLElement</classname> object containing
-   the sub-elements of the current element.
-  </para>
+   the sub-elements of the current element,
+   or &null; if the current element has no sub-elements.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

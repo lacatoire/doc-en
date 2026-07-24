@@ -56,8 +56,14 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>TypeError</classname> when passed a
-   non-XML or non-HTML <parameter>node</parameter>.
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>node</parameter>
+   is not a <classname>DOMNode</classname> instance.
+  </simpara>
+  <simpara>
+   If <parameter>node</parameter> is a <classname>DOMNode</classname> of an
+   unsupported type (such as <classname>DOMText</classname> or
+   <classname>DOMAttr</classname>), an <constant>E_WARNING</constant> is
+   emitted and &null; is returned.
   </simpara>
  </refsect1>
 
@@ -81,8 +87,8 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       This function now throws a <classname>TypeError</classname> instead of
-       a <classname>ValueError</classname> when passed a
+       This function now throws a <exceptionname>TypeError</exceptionname> instead of
+       a <exceptionname>ValueError</exceptionname> when passed a
        non-XML or non-HTML <parameter>node</parameter>.
       </entry>
      </row>
