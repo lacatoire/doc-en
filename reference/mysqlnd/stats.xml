@@ -440,6 +440,28 @@ $res->close();
     </listitem>
    </varlistentry>
 
+   <varlistentry xml:id="mysqlnd.stats.statistics.rows-affected-normal">
+    <term><literal>rows_affected_normal</literal></term>
+    <listitem>
+     <simpara>
+      Total number of rows affected by <literal>INSERT</literal>,
+      <literal>UPDATE</literal>, or <literal>DELETE</literal> statements
+      executed as a normal query (MySQL text protocol).
+     </simpara>
+    </listitem>
+   </varlistentry>
+
+   <varlistentry xml:id="mysqlnd.stats.statistics.rows-affected-ps">
+    <term><literal>rows_affected_ps</literal></term>
+    <listitem>
+     <simpara>
+      Total number of rows affected by <literal>INSERT</literal>,
+      <literal>UPDATE</literal>, or <literal>DELETE</literal> statements
+      executed as a prepared statement (MySQL binary protocol).
+     </simpara>
+    </listitem>
+   </varlistentry>
+
    <varlistentry xml:id="mysqlnd.stats.statistics.no-index-used">
     <term><literal>no_index_used</literal></term>
     <listitem>
@@ -1209,6 +1231,17 @@ $res->close();
     </listitem>
    </varlistentry>
 
+   <varlistentry xml:id="mysqlnd.stats.statistics.proto-binary-fetched-json">
+    <term><literal>proto_binary_fetched_json</literal></term>
+    <listitem>
+     <simpara>
+      Total number of columns of type
+      <literal>MYSQL_TYPE_JSON</literal>
+      fetched from a prepared statement (MySQL binary protocol).
+     </simpara>
+    </listitem>
+   </varlistentry>
+
    <varlistentry xml:id="mysqlnd.stats.statistics.proto-text-fetched-other">
     <term><literal>proto_text_fetched_other</literal></term>
     <listitem>
@@ -1487,7 +1520,7 @@ $link->real_connect(/* ... */);
     <term><literal>com_stmt_reset</literal></term>
     <term><literal>com_stmt_set_option</literal></term>
     <term><literal>com_stmt_fetch</literal></term>
-    <term><literal>com_daemon</literal></term>
+    <term><literal>com_deamon</literal></term>
     <listitem>
      <simpara>
       Total number of attempts to send a certain <literal>COM_*</literal>
@@ -1563,19 +1596,27 @@ $link->real_connect(/* ... */);
 
    <varlistentry xml:id="mysqlnd.stats.statistics.memory-management">
     <term><literal>mem_emalloc_count</literal></term>
-    <term><literal>mem_emalloc_ammount</literal></term>
+    <term><literal>mem_emalloc_amount</literal></term>
     <term><literal>mem_ecalloc_count</literal></term>
-    <term><literal>mem_ecalloc_ammount</literal></term>
+    <term><literal>mem_ecalloc_amount</literal></term>
     <term><literal>mem_realloc_count</literal></term>
-    <term><literal>mem_realloc_ammount</literal></term>
+    <term><literal>mem_realloc_amount</literal></term>
     <term><literal>mem_efree_count</literal></term>
+    <term><literal>mem_efree_amount</literal></term>
     <term><literal>mem_malloc_count</literal></term>
-    <term><literal>mem_malloc_ammount</literal></term>
+    <term><literal>mem_malloc_amount</literal></term>
     <term><literal>mem_calloc_count</literal></term>
-    <term><literal>mem_calloc_ammount</literal></term>
-    <term><literal>mem_ealloc_count</literal></term>
-    <term><literal>mem_ealloc_ammount</literal></term>
+    <term><literal>mem_calloc_amount</literal></term>
+    <term><literal>mem_erealloc_count</literal></term>
+    <term><literal>mem_erealloc_amount</literal></term>
     <term><literal>mem_free_count</literal></term>
+    <term><literal>mem_free_amount</literal></term>
+    <term><literal>mem_estrndup_count</literal></term>
+    <term><literal>mem_strndup_count</literal></term>
+    <term><literal>mem_estrdup_count</literal></term>
+    <term><literal>mem_strdup_count</literal></term>
+    <term><literal>mem_edupl_count</literal></term>
+    <term><literal>mem_dupl_count</literal></term>
     <listitem>
      <simpara>
       This is a process level scope statistic.
