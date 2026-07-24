@@ -16,6 +16,17 @@
      </simpara>
     </listitem>
    </varlistentry>
+   <varlistentry xml:id="constant.yar-has-msgpack">
+    <term>
+     <constant>YAR_HAS_MSGPACK</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      Whether the extension was built with MessagePack support.
+     </simpara>
+    </listitem>
+   </varlistentry>
    <varlistentry xml:id="constant.yar-client-protocol-http">
     <term>
      <constant>YAR_CLIENT_PROTOCOL_HTTP</constant>
@@ -23,6 +34,28 @@
     </term>
     <listitem>
      <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.yar-client-protocol-tcp">
+    <term>
+     <constant>YAR_CLIENT_PROTOCOL_TCP</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      Use the raw TCP transport.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.yar-client-protocol-unix">
+    <term>
+     <constant>YAR_CLIENT_PROTOCOL_UNIX</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      Use a Unix domain socket transport.
      </simpara>
     </listitem>
    </varlistentry>
@@ -59,11 +92,33 @@
    <varlistentry xml:id="constant.yar-opt-header">
     <term>
      <constant>YAR_OPT_HEADER</constant>
-     (<type>array</type>)
+     (<type>int</type>)
     </term>
     <listitem>
      <simpara>
       Since 2.0.4
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.yar-opt-persistent">
+    <term>
+     <constant>YAR_OPT_PERSISTENT</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      Keep the connection persistent (needs server support).
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.yar-opt-proxy">
+    <term>
+     <constant>YAR_OPT_PROXY</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      Route requests through an HTTP proxy (as of 2.2.0).
      </simpara>
     </listitem>
    </varlistentry>
@@ -84,6 +139,17 @@
     </term>
     <listitem>
      <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.yar-packager-msgpack">
+    <term>
+     <constant>YAR_PACKAGER_MSGPACK</constant>
+     (<type>string</type>)
+    </term>
+    <listitem>
+     <simpara>
+      The MessagePack packager, available when built with MessagePack support.
      </simpara>
     </listitem>
    </varlistentry>

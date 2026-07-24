@@ -13,15 +13,15 @@
    <type>bool</type><methodname>uopz_add_function</methodname>
    <methodparam><type>string</type><parameter>function</parameter></methodparam>
    <methodparam><type>Closure</type><parameter>handler</parameter></methodparam>
-   <methodparam choice="opt"><type>int</type><parameter role="reference">flags</parameter><initializer>ZEND_ACC_PUBLIC</initializer></methodparam>
+   <methodparam choice="opt"><type>int</type><parameter>flags</parameter><initializer>ZEND_ACC_PUBLIC</initializer></methodparam>
   </methodsynopsis>
   <methodsynopsis role="procedural">
    <type>bool</type><methodname>uopz_add_function</methodname>
    <methodparam><type>string</type><parameter>class</parameter></methodparam>
    <methodparam><type>string</type><parameter>function</parameter></methodparam>
    <methodparam><type>Closure</type><parameter>handler</parameter></methodparam>
-   <methodparam choice="opt"><type>int</type><parameter role="reference">flags</parameter><initializer>ZEND_ACC_PUBLIC</initializer></methodparam>
-   <methodparam choice="opt"><type>int</type><parameter role="reference">all</parameter><initializer>&true;</initializer></methodparam>
+   <methodparam choice="opt"><type>int</type><parameter>flags</parameter><initializer>ZEND_ACC_PUBLIC</initializer></methodparam>
+   <methodparam choice="opt"><type>bool</type><parameter>all</parameter><initializer>&true;</initializer></methodparam>
   </methodsynopsis>
   <para>
    Adds a non-existent function or method.

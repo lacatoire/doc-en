@@ -211,6 +211,17 @@
      </simpara>
     </listitem>
    </varlistentry>
+   <varlistentry xml:id="constant.zend-acc-ppp-mask">
+    <term>
+     <constant>ZEND_ACC_PPP_MASK</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      Mask of the public, protected and private access flags
+     </simpara>
+    </listitem>
+   </varlistentry>
    <varlistentry xml:id="constant.zend-acc-static">
     <term>
      <constant>ZEND_ACC_STATIC</constant>

@@ -11,7 +11,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>void</type><methodname>Yaf_Application::bootstrap</methodname>
-   <methodparam choice="opt"><type>Yaf_Bootstrap_Abstract</type><parameter>bootstrap</parameter></methodparam>
+   <void />
   </methodsynopsis>
   <para>
     Run a Bootstrap, all the methods defined in the Bootstrap and named with
