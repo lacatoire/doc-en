@@ -10,7 +10,9 @@
    &reftitle.intro;
    <para>
     <ooclass><classname>DivisionByZeroError</classname></ooclass> is thrown
-    when an attempt is made to divide a number by zero.
+    when an attempt is made to divide a number by zero, whether using the
+    <literal>/</literal> operator, the modulo operator <literal>%</literal>,
+    or <function>intdiv</function>.
    </para>
   </section>
 
