@@ -42,8 +42,7 @@
   <simpara>
    Returns a directory entry resource for later use with the
    <literal>zip_entry_...</literal> functions, or &false; if
-   there are no more entries to read, or an error code if an error
-   occurred.
+   there are no more entries to read.
   </simpara>
  </refsect1>
 
