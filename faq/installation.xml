@@ -108,11 +108,6 @@
        </listitem>
        <listitem>
         <para>
-         Stop your httpd processes
-        </para>
-       </listitem>
-       <listitem>
-        <para>
          &gt; run -X -f /path/to/httpd.conf
         </para>
        </listitem>
@@ -120,12 +115,7 @@
         <para>
          Then fetch the URL causing the problem with your browser
         </para>
-       </listitem>      
-       <listitem>
-        <para>
-         &gt; run -X -f /path/to/httpd.conf
-        </para>
-       </listitem>      
+       </listitem>
        <listitem>
         <para>
          If you are getting a core dump, gdb should inform you of this now
@@ -169,12 +159,7 @@
       <programlisting role="apache-conf">
 <![CDATA[
 # Extra Modules
-AddModule mod_php.c
-AddModule mod_perl.c
-
-# Extra Modules
-LoadModule php_module         modules/mod_php.so
-LoadModule php5_module        modules/libphp5.so
+LoadModule php_module         modules/libphp.so
 LoadModule perl_module        modules/libperl.so
 ]]>
       </programlisting>
@@ -311,10 +296,10 @@ cgi error:
       <listitem>
        <simpara>
         File permissions on your PHP script,
-        <filename>php.exe</filename>, <filename>php5ts.dll</filename>,
+        <filename>php.exe</filename>, <filename>php8ts.dll</filename>,
         &php.ini; or any PHP extensions you are trying to load are such
         that the anonymous internet user
-        <literal>ISUR_&lt;machinename&gt;</literal> cannot access them.
+        <literal>IUSR_&lt;machinename&gt;</literal> cannot access them.
        </simpara>
       </listitem>
       <listitem>
@@ -515,7 +500,7 @@ cgi error:
       .php</literal> with:
       <programlisting role="apache-conf">
 <![CDATA[
-AddHandler php5-script php
+AddHandler php-script php
 AddType text/html php
 ]]>
      </programlisting>

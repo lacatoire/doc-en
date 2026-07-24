@@ -91,15 +91,15 @@ if (empty($empty)) {
      </para>
     </question>
     <answer>
-     <para>
+     <simpara>
       Assuming this is for a database, use the escaping mechanism that
       comes with the database. For example, use 
-      <function>mysql_real_escape_string</function> with MySQL and
+      <function>mysqli_real_escape_string</function> with MySQL and
       <function>pg_escape_string</function> with PostgreSQL. There is
       also the generic <function>addslashes</function> and
       <function>stripslashes</function> functions, that are more
       common with older PHP code.
-     </para>
+     </simpara>
      <para>
       Manually escaping values is error-prone and depends on context.
       Prefer using database APIs that support prepared statements and
@@ -201,8 +201,8 @@ echo "myfunc($variable) = " . myfunc($variable);
     </question>
     <answer>
      <para>
-      The <function>getallheaders</function> function will do this if 
-      you are running PHP as an Apache module. So, the following bit
+      The <function>getallheaders</function> function will do this if
+      you are running PHP as an Apache module or under FastCGI. So, the following bit
       of code will show you all the request headers:
       <programlisting role="php">
 <![CDATA[
@@ -278,16 +278,16 @@ foreach ($headers as $name => $content) {
      </para>
     </question>
     <answer>
-     <para>
+     <simpara>
       In order to embed &lt;?xml straight into your PHP code, you'll have to turn off
       short tags by having the PHP directive 
-      <link linkend="ini.short-open-tag">short_open_tags</link> set to 
+      <link linkend="ini.short-open-tag">short_open_tag</link> set to
       <literal>0</literal>.  You cannot set this directive with 
       <function>ini_set</function>.  Regardless of 
-      <link linkend="ini.short-open-tag">short_open_tags</link> being on or 
+      <link linkend="ini.short-open-tag">short_open_tag</link> being on or
       off, you can do something like: <literal>&lt;?php echo '&lt;?xml'; ?&gt;</literal>.  
       The default for this directive is <literal>On</literal>.
-     </para>
+     </simpara>
     </answer>
    </qandaentry>
 
