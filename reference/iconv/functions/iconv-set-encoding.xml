@@ -17,6 +17,17 @@
    Changes the value of the internal configuration variable specified by
    <parameter>type</parameter> to <parameter>encoding</parameter>.
   </para>
+  <note>
+   <simpara>
+    The <literal>iconv.input_encoding</literal>,
+    <literal>iconv.output_encoding</literal> and
+    <literal>iconv.internal_encoding</literal> settings are deprecated as of
+    PHP 5.6.0; changing them with this function emits an
+    <constant>E_DEPRECATED</constant>. Use the <literal>input_encoding</literal>,
+    <literal>output_encoding</literal> and <literal>default_charset</literal> INI
+    directives instead.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="parameters">
