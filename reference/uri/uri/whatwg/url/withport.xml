@@ -50,7 +50,7 @@
 <![CDATA[
 <?php
 $url = new \Uri\WhatWg\Url("https://example.com:8080");
-$url = $url->withPort(443);
+$url = $url->withPort(9090);
 
 echo $url->getPort();
 ?>
@@ -59,7 +59,7 @@ echo $url->getPort();
    &example.outputs;
    <screen>
 <![CDATA[
-443
+9090
 ]]>
    </screen>
   </example>

@@ -35,7 +35,7 @@
    <programlisting role="php">
 <![CDATA[
 <?php
-$url = new \Uri\WhatWg\Url("https://example.com:443");
+$url = new \Uri\WhatWg\Url("https://example.com:8080");
 
 echo $url->getPort();
 ?>
@@ -44,7 +44,7 @@ echo $url->getPort();
    &example.outputs;
    <screen>
 <![CDATA[
-443
+8080
 ]]>
    </screen>
   </example>
