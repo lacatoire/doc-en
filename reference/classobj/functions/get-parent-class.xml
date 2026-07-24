@@ -32,14 +32,14 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the name of the parent class of the class of which
-   <parameter>object_or_class</parameter> is an instance or the name.
-  </para>
-  <para>
-   If the object does not have a parent or the given class does not exist,
-   &false; will be returned.
-  </para>
+   <parameter>object_or_class</parameter> is an instance, or of the class
+   named by <parameter>object_or_class</parameter>.
+  </simpara>
+  <simpara>
+   If the class does not have a parent, &false; is returned.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
