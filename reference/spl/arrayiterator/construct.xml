@@ -13,9 +13,9 @@
    <methodparam choice="opt"><type class="union"><type>array</type><type>object</type></type><parameter>array</parameter><initializer>[]</initializer></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>flags</parameter><initializer>0</initializer></methodparam>
   </constructorsynopsis>
-  <para>
+  <simpara>
    Constructs an <classname>ArrayIterator</classname> <type>object</type>.
-  </para>
+  </simpara>
 
   &warn.undocumented.func;
 
@@ -28,22 +28,45 @@
     <varlistentry>
      <term><parameter>array</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The array or object to be iterated on.
-      </para>
+       Passing an <type>object</type> is deprecated as of PHP 8.5.0.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>flags</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Flags to control the behaviour of the <classname>ArrayIterator</classname> object.
        See <methodname>ArrayIterator::setFlags</methodname>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
   </para>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       Passing an <type>object</type> as <parameter>array</parameter> is deprecated.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="seealso">
