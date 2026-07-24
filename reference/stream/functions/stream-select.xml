@@ -142,6 +142,17 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.5.0</entry>
+      <entry>
+       On Windows, when <parameter>read</parameter> contains only pipe
+       streams and <parameter>write</parameter> and
+       <parameter>except</parameter> are empty,
+       <function>stream_select</function> now waits until at least one pipe is
+       ready to be read or the timeout expires, consistent with POSIX systems.
+       Previously it returned immediately, reporting all streams as ready.
+      </entry>
+     </row>
+     <row>
       <entry>8.1.0</entry>
       <entry>
        <parameter>microseconds</parameter> is now nullable.
@@ -243,6 +254,13 @@ if (false === stream_select($r, $w, $e, 0)) {
     <constant>STDIN</constant> from a console changes status as soon as <emphasis>any</emphasis>
     input events are available, but reading from the stream may still block.
    </para>
+   <simpara>
+    As of PHP 8.5.0, when <parameter>read</parameter> contains only pipe
+    streams and <parameter>write</parameter> and <parameter>except</parameter>
+    are empty, <function>stream_select</function> honors the timeout and only
+    returns once at least one pipe is ready to be read, as it does on POSIX
+    systems.
+   </simpara>
   </note>
  </refsect1>
 
