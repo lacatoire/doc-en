@@ -337,7 +337,7 @@ $suit = Suit::tryFrom('A') ?? Suit::Spades;
 print $suit->value . "\n";
 
 $suit =  Suit::from('X');
-// Invalid data throws a ValueError: "X" is not a valid backing scalar value for enum Suit
+// Invalid data throws a ValueError: "X" is not a valid backing value for enum Suit
 print $suit->value . "\n";
 ]]>
    </programlisting>
@@ -725,7 +725,7 @@ $foo = new Foo();
    <member>
     Enums and cases may have <link linkend="language.attributes">attributes</link> attached
     to them. The <constant>TARGET_CLASS</constant> target
-    filter includes Enums themselves. The <constant>TARGET_CLASS_CONST</constant> target filter
+    filter includes Enums themselves. The <constant>TARGET_CLASS_CONSTANT</constant> target filter
     includes Enum Cases.
    </member>
    <member>
@@ -872,13 +872,15 @@ print_r(Baz::Beep);
 
 /* Produces
 
-Foo Enum (
+Foo Enum
+(
     [name] => Bar
 )
-Baz Enum:int {
+Baz Enum:int
+(
     [name] => Beep
     [value] => 5
-}
+)
 */
 ]]>
    </programlisting>
