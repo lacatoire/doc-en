@@ -28,7 +28,7 @@
       <entry><link linkend="ini.intl.error-level">intl.error_level</link></entry>
       <entry>0</entry>
       <entry><constant>INI_ALL</constant></entry>
-      <entry></entry>
+      <entry>Deprecated as of PHP 8.5.0.</entry>
      </row>
      <row>
       <entry><link linkend="ini.intl.use-exceptions">intl.use_exceptions</link></entry>

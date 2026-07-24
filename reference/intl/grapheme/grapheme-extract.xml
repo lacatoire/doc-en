@@ -107,6 +107,14 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.5.0</entry>
+      <entry>
+       The <parameter>next</parameter> value is now properly assigned when
+       skipping over invalid starting bytes. Previously, it could point to the
+       start of the grapheme boundary instead of the end.
+      </entry>
+     </row>
+     <row>
       <entry>7.1.0</entry>
       <entry>
        Support for negative <parameter>offset</parameter>s has been added.
