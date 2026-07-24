@@ -3185,6 +3185,20 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.udp-segment">
+   <term>
+    <constant>UDP_SEGMENT</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Sets the maximum size of UDP Generic Segmentation Offload (GSO) segments,
+     allowing multiple datagrams to be sent in a single system call.
+     Available on Linux only.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
  </variablelist>
 
 </appendix>
