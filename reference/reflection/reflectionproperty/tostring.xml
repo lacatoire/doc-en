@@ -42,6 +42,13 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.5.0</entry>
+      <entry>
+       The output for properties with hooks has changed to better indicate
+       which hooks are defined (get and/or set).
+      </entry>
+     </row>
+     <row>
       <entry>8.4.0</entry>
       <entry>
        The attached doc comment is now included.
