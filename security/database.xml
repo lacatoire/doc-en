@@ -301,7 +301,7 @@ $query = "UPDATE usertable SET pwd='hehehe', trusted=100, admin='yes' WHERE
 <?php
 
 $query  = "SELECT * FROM products WHERE id LIKE '%$prod%'";
-$result = mssql_query($query);
+$result = sqlsrv_query($conn, $query);
 
 ?>
 ]]>
@@ -318,7 +318,7 @@ $result = mssql_query($query);
 $query  = "SELECT * FROM products
            WHERE id LIKE '%a%'
            exec master..xp_cmdshell 'net user test testpass /ADD' --%'";
-$result = mssql_query($query);
+$result = sqlsrv_query($conn, $query);
 
 ?>
 ]]>
@@ -436,8 +436,8 @@ $stmt->execute(["%{$productId}%"]);
          If the database layer doesn't support binding variables then
          quote each non-numeric user-supplied value that is passed to the
          database with the database-specific string escape function (e.g.
-         <function>mysql_real_escape_string</function>,
-         <function>sqlite_escape_string</function>, etc.).
+         <function>mysqli_real_escape_string</function>,
+         <methodname>PDO::quote</methodname>, etc.).
          Generic functions like <function>addslashes</function> are useful only
          in a very specific environment (e.g. MySQL in a single-byte character
          set with disabled <varname>NO_BACKSLASH_ESCAPES</varname>), so it is
