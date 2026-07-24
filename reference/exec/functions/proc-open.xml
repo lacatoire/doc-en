@@ -98,6 +98,20 @@
          element is the file mode, same as <function>fopen</function>).
          Note that anything else than <literal>w</literal> is treated like <literal>r</literal>.
         </member>
+        <member>An array of the form <literal>['socket']</literal>, which creates a
+         socket pair; PHP receives one end and the child process the other.
+        </member>
+        <member>An array of the form <literal>['null']</literal>, which makes the
+         descriptor a black hole: data the process writes to it is discarded, and
+         reads return end-of-file (like <literal>/dev/null</literal> or
+         <literal>NUL</literal>).
+        </member>
+        <member>An array of the form
+         <literal>['redirect', <replaceable>descriptor</replaceable>]</literal>, which
+         makes the descriptor a duplicate of another descriptor of the child process.
+         For example, <literal>[2 =&gt; ['redirect', 1]]</literal> sends
+         <literal>stderr</literal> to <literal>stdout</literal>.
+        </member>
         <member>
          A stream resource representing a real file descriptor (e.g. opened file,
          a socket, <constant>STDIN</constant>).
