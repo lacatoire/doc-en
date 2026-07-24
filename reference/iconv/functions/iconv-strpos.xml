@@ -5,7 +5,7 @@
   <refname>iconv_strpos</refname>
   <refpurpose>Finds position of first occurrence of a needle within a haystack</refpurpose>
  </refnamediv>
- 
+
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
@@ -69,11 +69,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
-  <para>
-   If <parameter>haystack</parameter> or <parameter>needle</parameter> is
-   not a string, it is converted to a string and applied as the ordinal
-   value of a character.
   </para>
  </refsect1>
 
