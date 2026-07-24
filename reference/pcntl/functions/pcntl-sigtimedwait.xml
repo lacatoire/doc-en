@@ -87,6 +87,13 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
+       On failure, &false; is now returned; previously
+       <literal>-1</literal> was returned in some cases.
+      </entry>
+     </row>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
        A <classname>ValueError</classname> is thrown if <parameter>signal</parameter>
        is empty.
       </entry>
