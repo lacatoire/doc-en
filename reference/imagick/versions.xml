@@ -336,7 +336,6 @@
  <function name='Imagick::sparsecolorimage' from='PECL imagick 2 &gt;= 2.3.0, PECL imagick 3'/>
  <function name='Imagick::spliceimage' from='PECL imagick 2, PECL imagick 3'/>
  <function name='Imagick::spreadimage' from='PECL imagick 2, PECL imagick 3'/>
- <function name='Imagick::spreadimage' from='PECL imagick 2, PECL imagick 3'/>
  <function name='Imagick::steganoimage' from='PECL imagick 2, PECL imagick 3'/>
  <function name='Imagick::stereoimage' from='PECL imagick 2, PECL imagick 3'/>
  <function name='Imagick::statisticimage' from='PECL imagick 3 &gt;= 3.3.0'/>
@@ -537,6 +536,84 @@
  <function name='ImagickKernel::separate' from='PECL imagick &gt;= 3.3.0'/>
  <function name='ImagickKernel::scale' from='PECL imagick &gt;= 3.3.0'/>
  <function name='ImagickKernel::addUnityKernel' from='PECL imagick &gt;= 3.3.0'/>
+
+ <function name='Imagick::waveimagewithmethod' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::roundcornersimage' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::setimagealpha' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::polaroidwithtextandmethod' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::clutimagewithinterpolate' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::houghlineimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::resetiterator' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::oilpaintimagewithsigma' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::setimagechannelmask' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::setimageprogressmonitor' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::spreadimagewithmethod' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::swirlimagewithmethod' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::addnoiseimagewithattenuate' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::borderimagewithcomposite' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::evaluateimages' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::frameimagewithcomposite' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::setimagepixelcolor' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::implodeimagewithmethod' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::key' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::next' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::rewind' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::similarityimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::setantialias' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::getantialias' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::colordecisionlistimage' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::optimizeimagetransparency' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::autogammaimage' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::autoorient' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::autoorientate' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::compositeimagegravity' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::localcontrastimage' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::identifyimagetype' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='Imagick::getimagemask' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::setimagemask' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::cannyedgeimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::waveletdenoiseimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::meanshiftimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::kmeansimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::rangethresholdimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::autothresholdimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::bilateralblurimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::claheimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::channelfximage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::colorthresholdimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::compleximages' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::interpolativeresizeimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::levelimagecolors' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::levelizeimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::orderedditherimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::whitebalanceimage' from='PECL imagick 3.6.0'/>
+ <function name='Imagick::deleteoption' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::getbackgroundcolor' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::getimageartifacts' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::getimagerange' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::getoptions' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::getresolution' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::gettype' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::polynomialimage' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::setdepth' from='PECL imagick 3.7.0'/>
+ <function name='Imagick::setextract' from='PECL imagick 3.7.0'/>
+ <function name='ImagickDraw::alpha' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickDraw::getopacity' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickDraw::setopacity' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickDraw::getfontresolution' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickDraw::setfontresolution' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickDraw::getbordercolor' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickDraw::setbordercolor' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickDraw::setdensity' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickDraw::getdensity' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickDraw::gettextdirection' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickDraw::settextdirection' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickPixel::setcolorfrompixel' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickPixelIterator::key' from='PECL imagick 3.6.0'/>
+ <function name='ImagickPixelIterator::next' from='PECL imagick 3.6.0'/>
+ <function name='ImagickPixelIterator::rewind' from='PECL imagick 3.6.0'/>
+ <function name='ImagickPixelIterator::current' from='PECL imagick 2, PECL imagick 3'/>
+ <function name='ImagickPixelIterator::valid' from='PECL imagick 2, PECL imagick 3'/>
 </versions>
 
 <!-- Keep this comment at the end of the file
