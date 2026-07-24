@@ -229,7 +229,7 @@
          </row>
          <row xml:id="wkhtmltox-pdf-object.construct..settings.load.username">
           <entry>load.username</entry>
-          <entry>user name to use when loging into a website</entry>
+          <entry>user name to use when logging into a website</entry>
           <entry>bart</entry>
           <entry>&gt;= 0.1.0</entry>
          </row>
@@ -303,7 +303,7 @@
               <tbody>
                <row>
                <entry>abort</entry>
-               <entry>abort the convertion process</entry>
+               <entry>abort the conversion process</entry>
                </row>
                <row>
                <entry>skip</entry>

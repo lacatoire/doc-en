@@ -51,7 +51,7 @@
        <programlisting role="ini" xml:id="yaf.application.ini">
 <![CDATA[
 [product]
-;this one should alway be defined, and have no default value
+;this one should always be defined, and have no default value
 application.directory=APPLICATION_PATH
 
 ;following configs have default value, you may no need to define them

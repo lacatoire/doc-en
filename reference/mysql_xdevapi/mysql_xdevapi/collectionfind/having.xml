@@ -25,9 +25,9 @@
    <varlistentry>
     <term><parameter>sort_expr</parameter></term>
     <listitem>
-     <para>
-      This must be a valid SQL expression, the use of aggreate functions is allowed
-     </para>
+     <simpara>
+      This must be a valid SQL expression, the use of aggregate functions is allowed
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -50,7 +50,7 @@
 
 //Assuming $coll is a valid Collection object
 
-//Find all the documents for which the 'age' is greather than 40,
+//Find all the documents for which the 'age' is greater than 40,
 //Only the columns 'name' and 'age' are returned in the Result object
 $res = $coll->find()->fields(['name','age'])->having('age > 40')->execute();
 

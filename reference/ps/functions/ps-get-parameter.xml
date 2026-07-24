@@ -116,11 +116,11 @@
     <varlistentry>
      <term><literal>hyphenation</literal></term>
      <listitem>
-      <para>
+      <simpara>
        Only used if text is output with <function>ps_show_boxed</function>.
        If set to &true; the paragraph will be hyphenated
-       if a hypen dictionary is set and exists.
-      </para>
+       if a hyphen dictionary is set and exists.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>

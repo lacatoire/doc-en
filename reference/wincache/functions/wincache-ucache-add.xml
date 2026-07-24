@@ -34,13 +34,13 @@
     <varlistentry>
      <term><parameter>key</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Store the variable using this <parameter>key</parameter> name. If a variable with same key is already present the function
        will fail and return &false;. <parameter>key</parameter> is case sensitive. To override the value even if 
-       <parameter>key</parameter> is present use <function>wincache_ucache_set</function> function instad. 
+       <parameter>key</parameter> is present use <function>wincache_ucache_set</function> function instead.
        <parameter>key</parameter> can also take array of name => value pairs where names will be used as keys. 
        This can be used to add multiple values in the cache in one operation, thus avoiding race condition.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>

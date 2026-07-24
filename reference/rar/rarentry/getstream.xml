@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="rarentry.getstream">
+<refentry xml:id="rarentry.getstream" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>RarEntry::getStream</refname>
   <refpurpose>Get file handler for entry</refpurpose>
@@ -23,7 +23,7 @@
   </simpara>
   <warning>
    <simpara>The resulting stream has no integrity verification. In particular, file corruption and
-   decryption with a wrong a key will not be detected. It is the programmer's responsability to use the entry's CRC
+   decryption with a wrong a key will not be detected. It is the programmer's responsibility to use the entry's CRC
    to check for integrity, if he so wishes.</simpara>
   </warning>
  </refsect1>

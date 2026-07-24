@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.mqseries-begin">
+<refentry xml:id="function.mqseries-begin" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>mqseries_begin</refname>
   <refpurpose>MQseries MQBEGIN</refpurpose>
@@ -100,7 +100,7 @@
   <note>
    <simpara>
     <function>mqseries_begin</function>
-    will not function when using MQSeries Client to connect to a Queueu Manager.
+    will not function when using MQSeries Client to connect to a Queue Manager.
    </simpara>
   </note>
  </refsect1>

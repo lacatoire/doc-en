@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="function.rrd-tune">
+<refentry xml:id="function.rrd-tune" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>rrd_tune</refname>
   <refpurpose>Tunes some RRD database file header options</refpurpose>
@@ -14,7 +14,7 @@
    <methodparam><type>array</type><parameter>options</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   Change some options in the RRD dabase header file. E.g. renames the source for
+   Change some options in the RRD database header file. E.g. renames the source for
    the data etc.
   </simpara>
  </refsect1>
