@@ -149,7 +149,7 @@ var_dump(count(false));
 <![CDATA[
 int(3)
 
-Fatal error: Uncaught TypeError: count(): Argument #1 ($var) must be of type Countable .. on line 12
+Fatal error: Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in %s on line 12
 ]]>
     </screen>
    </example>
