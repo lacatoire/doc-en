@@ -102,6 +102,10 @@
  <function name='gearmanclient::setoptions' from='PECL gearman &gt;= 0.5.0'/>
  <function name='gearmanclient::addoptions' from='PECL gearman &gt;= 0.6.0'/>
  <function name='gearmanclient::removeoptions' from='PECL gearman &gt;= 0.6.0'/>
+ <function name='gearmanclient::options' from='PECL gearman &gt;= 0.6.0'/>
+ <function name='gearmanclient::jobstatusbyuniquekey' from='PECL gearman &gt;= 1.1.1'/>
+ <function name='gearmanclient::enableexceptionhandler' from='PECL gearman &gt;= 2.1.0'/>
+ <function name='gearmanclient::setssl' from='PECL gearman &gt;= 2.2.0'/>
  <function name='gearmanclient::addserver' from='PECL gearman &gt;= 0.5.0'/>
  <function name='gearmanclient::addservers' from='PECL gearman &gt;= 0.5.0'/>
  <function name='gearmanclient::do' from='PECL gearman &gt;= 0.5.0'/>
@@ -147,6 +151,9 @@
  <function name='gearmanworker::options' from='PECL gearman &gt;= 0.6.0'/>
  <function name='gearmanworker::setoptions' from='PECL gearman &gt;= 0.5.0'/>
  <function name='gearmanworker::addoptions' from='PECL gearman &gt;= 0.6.0'/>
+ <function name='gearmanworker::ping' from='PECL gearman &gt;= 2.1.0'/>
+ <function name='gearmanworker::enableexceptionhandler' from='PECL gearman &gt;= 2.1.0'/>
+ <function name='gearmanworker::setssl' from='PECL gearman &gt;= 2.2.0'/>
  <function name='gearmanworker::removeoptions' from='PECL gearman &gt;= 0.6.0'/>
  <function name='gearmanworker::addserver' from='PECL gearman &gt;= 0.5.0'/>
  <function name='gearmanworker::addservers' from='PECL gearman &gt;= 0.5.0'/>
