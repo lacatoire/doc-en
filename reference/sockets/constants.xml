@@ -3185,6 +3185,19 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.ip-bindany">
+   <term>
+    <constant>IP_BINDANY</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Allows binding a socket to any address, even if it is not local.
+     Available on FreeBSD, NetBSD, and OpenBSD only.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
  </variablelist>
 
 </appendix>
