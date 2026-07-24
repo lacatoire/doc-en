@@ -144,7 +144,7 @@ var_dump($val);
 
 // If both an array and non-array are given, the array is never returned
 // as comparisons treat arrays as greater than any other value
-$val = min('string', array(2, 5, 7), 42);   // string
+$val = min('string', array(2, 5, 7), 42);   // 42
 var_dump($val);
 
 // If one argument is NULL or a boolean, it will be compared against
