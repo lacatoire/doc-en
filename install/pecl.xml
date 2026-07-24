@@ -92,23 +92,6 @@
    </listitem>
    <listitem>
     <simpara>
-     <acronym>SVN</acronym>
-    </simpara>
-    <simpara>
-     Some PECL extensions also reside in <acronym>SVN</acronym>.
-     A web-based view may be seen at
-     <link xlink:href="&url.php.svn;pecl/">&url.php.svn;pecl/</link>.
-     To download straight from <acronym>SVN</acronym>,
-     the following sequence of commands may be used:
-    </simpara>
-    <screen>
-<![CDATA[
-$ svn checkout https://svn.php.net/repository/pecl/extname/trunk extname
-]]>
-    </screen>
-   </listitem>
-   <listitem>
-    <simpara>
      Windows downloads
     </simpara>
     <simpara>

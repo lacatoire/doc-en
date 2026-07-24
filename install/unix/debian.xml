@@ -18,7 +18,7 @@
   <title>Using APT</title>
    <simpara>
     First, note that other related packages may be desired like
-    <literal>libapache-mod-php</literal> to integrate with Apache 2, and
+    <literal>libapache2-mod-php</literal> to integrate with Apache 2, and
     <literal>php-pear</literal> for PEAR.
    </simpara>
    <simpara>
