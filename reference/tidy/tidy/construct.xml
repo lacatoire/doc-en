@@ -93,6 +93,15 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.5.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if the
+       <parameter>config</parameter> array contains an invalid or read-only
+       configuration entry, and a <exceptionname>TypeError</exceptionname> if the
+       <parameter>config</parameter> array contains a non-string key.
+      </entry>
+     </row>
+     <row>
       <entry>8.4.0</entry>
       <entry>
        Failures when executing the constructor now throw instead of silently
