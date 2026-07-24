@@ -410,9 +410,10 @@
      Create default/fixed value nodes during XSD schema validation
     </simpara>
     <note>
-     <para>
-      Only available in Libxml &gt;= 2.6.14 (as of PHP &gt;= 5.5.2)
-     </para>
+     <simpara>
+      Only available in Libxml &gt;= 2.6.14 (as of PHP &gt;= 5.5.2), and only when
+      libxml was built with schema support.
+     </simpara>
     </note>
    </listitem>
   </varlistentry>

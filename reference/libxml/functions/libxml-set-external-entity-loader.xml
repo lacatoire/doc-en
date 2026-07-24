@@ -61,8 +61,9 @@
         </listitem>
        </varlistentry>
       </variablelist>
-      This callable should return a &resource;, a &string; from which a resource can be
-      opened. If &null; is returned, the entity reference resolution will fail.
+      This callable should return a stream &resource;, or a &string; from which a
+      resource can be opened. If &null; is returned, the entity reference resolution
+      will fail. Any other scalar value is coerced to a &string;.
      </para>
     </listitem>
    </varlistentry>
@@ -74,6 +75,15 @@
   <para>
    &return.true.always;
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>resolver_function</parameter> returns a &resource; that is not a
+   stream.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -140,10 +150,14 @@ var_dump($dd->validate());
 string(10) "-//FOO/BAR"
 string(25) "http://example.com/foobar"
 array(4) {
-    ["directory"]    => NULL
-    ["intSubName"]   => NULL
-    ["extSubURI"]    => NULL
-    ["extSubSystem"] => NULL
+  ["directory"]=>
+  NULL
+  ["intSubName"]=>
+  NULL
+  ["extSubURI"]=>
+  NULL
+  ["extSubSystem"]=>
+  NULL
 }
 bool(true)
 ]]>
