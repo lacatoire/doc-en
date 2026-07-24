@@ -789,10 +789,29 @@
        <type>string</type>
       </term>
       <listitem>
-       <para>
+       <simpara>
         The access log file.
-        Default value: not set
-       </para>
+        Default value: not set.
+       </simpara>
+       <simpara>
+        As of PHP 8.5.0, the access log line length limit respects the
+        global <link linkend="log-limit">log_limit</link> setting.
+       </simpara>
+      </listitem>
+     </varlistentry>
+     <varlistentry xml:id="ini.fastcgi.script-path-encoded">
+      <term>
+       <parameter>fastcgi.script_path_encoded</parameter>
+       <type>bool</type>
+      </term>
+      <listitem>
+       <simpara>
+        When set to <literal>0</literal> (the default), FPM with httpd
+        <literal>ProxyPass</literal> decodes the full script path, which is
+        the new behavior as of PHP 8.5.0. Set to <literal>1</literal> to
+        restore the previous behavior and prevent path decoding.
+        Available as of PHP 8.5.0.
+       </simpara>
       </listitem>
      </varlistentry>
      <varlistentry xml:id="access-format">
