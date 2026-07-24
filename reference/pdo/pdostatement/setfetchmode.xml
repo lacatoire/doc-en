@@ -92,6 +92,16 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   As of PHP 8.5.0, an <exceptionname>Error</exceptionname> is thrown if this method
+   is called during a call to <methodname>PDOStatement::fetch</methodname>,
+   <methodname>PDOStatement::fetchObject</methodname>, or
+   <methodname>PDOStatement::fetchAll</methodname>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -103,6 +113,16 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       Calling this method during a call to
+       <methodname>PDOStatement::fetch</methodname>,
+       <methodname>PDOStatement::fetchObject</methodname>, or
+       <methodname>PDOStatement::fetchAll</methodname> now throws an
+       <exceptionname>Error</exceptionname>.
+      </entry>
+     </row>
      &return.type.true.84;
     </tbody>
    </tgroup>
