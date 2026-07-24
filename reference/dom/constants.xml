@@ -195,7 +195,7 @@
        <constant>XML_ATTRIBUTE_ENTITY</constant>
        (<type>int</type>)
       </entry>
-      <entry>5</entry>
+      <entry>6</entry>
       <entry/>
      </row>
      <row xml:id="constant.xml-attribute-nmtoken">
@@ -235,7 +235,7 @@
        <constant>XML_LOCAL_NAMESPACE</constant>
        (<type>int</type>)
       </entry>
-      <entry></entry>
+      <entry>18</entry>
       <entry>A namespace declaration node.</entry>
      </row>
     </tbody>
@@ -438,7 +438,7 @@
      </row>
      <row xml:id="constant.dom-invalid-access-err">
       <entry>
-       <constant>DOM_INVALID_ACCESS_ERR</constant> / <constant>Dom\INVALID_ACCESS_ERR</constant>
+       <constant>DOM_INVALID_ACCESS_ERR</constant>
        (<type>int</type>)
       </entry>
       <entry>15</entry>
