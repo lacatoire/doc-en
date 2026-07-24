@@ -171,6 +171,13 @@ if ($size && $fp) {
    per pixel, but the number of bits per pixel cannot be calculated for an
    animated <acronym>GIF</acronym> with a global color table.
   </para>
+  <simpara>
+   As of PHP 8.5.0, <literal>width_unit</literal> and <literal>height_unit</literal>
+   indicate the unit in which the dimensions are expressed. The default is
+   <literal>"px"</literal>. These two units are not necessarily the same
+   (for example, one may be <literal>"cm"</literal> and the other
+   <literal>"px"</literal>).
+  </simpara>
   <para>
    On failure, &false; is returned.
   </para>
@@ -203,6 +210,13 @@ if ($size && $fp) {
       </row>
      </thead>
      <tbody>
+      <row>
+       <entry>8.5.0</entry>
+       <entry>
+        The returned array now contains <literal>width_unit</literal> and
+        <literal>height_unit</literal> entries indicating the unit of the dimensions.
+       </entry>
+      </row>
       <row>
        <entry>8.2.0</entry>
        <entry>
