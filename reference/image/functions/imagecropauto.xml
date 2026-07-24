@@ -161,7 +161,7 @@
       <entry>7.4.0</entry>
       <entry>
        The default value of <parameter>mode</parameter> has been changed to
-       <constant>IMG_CROP_AUTO</constant>. Formerly, the default value has been
+       <constant>IMG_CROP_DEFAULT</constant>. Formerly, the default value has been
        <literal>-1</literal> which corresponds to <constant>IMG_CROP_DEFAULT</constant>,
        but passing <literal>-1</literal> is now deprecated.
       </entry>
