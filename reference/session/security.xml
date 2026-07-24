@@ -660,6 +660,10 @@
        Session ID may leak from bookmarked URLs, e-mailed URLs, saved HTML source, etc.
       </para>
      </note>
+     <simpara>
+      Enabling <link linkend="ini.session.use-trans-sid">session.use_trans_sid</link>
+      is deprecated as of PHP 8.4.0.
+     </simpara>
     </listitem>
 
     <listitem>
@@ -672,6 +676,9 @@
       Older PHP versions use
       <link linkend="ini.url-rewriter.tags">url_rewriter.tags</link> instead.
      </para>
+     <simpara>
+      Using this setting is deprecated as of PHP 8.4.0.
+     </simpara>
     </listitem>
 
     <listitem>
@@ -684,13 +691,16 @@
       Session module only allows <literal>$_SERVER['HTTP_HOST']</literal>
       when this setting is empty.
      </para>
+     <simpara>
+      Using this setting is deprecated as of PHP 8.4.0.
+     </simpara>
     </listitem>
 
     <listitem>
-     <para>
+     <simpara>
       <link linkend="ini.session.referer-check">session.referer_check</link>=[originating URL]
-     </para>
-     <para>
+     </simpara>
+     <simpara>
       When <link
       linkend="ini.session.use-trans-sid">session.use_trans_sid</link>
       is enabled.
@@ -700,8 +710,9 @@
       Note that with HTTPS browsers will not send the referrer header.
       Browsers may not send the referrer header by configuration.
       Therefore, this setting is not a reliable security measure.
-      Use of this setting is recommended.
-     </para>
+      Using <link linkend="ini.session.referer-check">session.referer_check</link>
+      is deprecated as of PHP 8.4.0.
+     </simpara>
     </listitem>
 
     <listitem>
@@ -718,20 +729,6 @@
       cached by shared clients.
       <literal>"public"</literal> must only be used when HTTP content does
       not contain any private data at all.
-     </para>
-    </listitem>
-
-    <listitem>
-     <para>
-      <link linkend="ini.session.hash-function">session.hash_function</link>="sha256"
-     </para>
-     <para>
-      (PHP 7.1.0 &lt;) A stronger hash function will generate a stronger session ID.
-      Although hash collision is unlikely even with the MD5 hashing algorithm,
-      developers should use SHA-2 or a stronger hashing algorithm like sha384 and sha512.
-      Developers must ensure they feed a long enough
-      <link linkend="ini.session.entropy-length">entropy</link>
-      for the hashing function used.
      </para>
     </listitem>
 
