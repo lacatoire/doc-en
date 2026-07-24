@@ -11,7 +11,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type class="union"><type>Yar_Client</type><type>false</type></type><methodname>Yar_Client::setOpt</methodname>
-   <methodparam><type>int</type><parameter>name</parameter></methodparam>
+   <methodparam><type>int</type><parameter>type</parameter></methodparam>
    <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
   </methodsynopsis>
   <para>
@@ -23,7 +23,7 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>name</parameter></term>
+    <term><parameter>type</parameter></term>
     <listitem>
      <para>
       it can be:
@@ -62,7 +62,7 @@
 <![CDATA[
 <?php
 
-$cient = new Yar_Client("http://host/api/");
+$client = new Yar_Client("http://host/api/");
 
 //Set timeout to 1s
 $client->SetOpt(YAR_OPT_CONNECT_TIMEOUT, 1000);
