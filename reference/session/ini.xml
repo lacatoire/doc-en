@@ -116,13 +116,13 @@
      <entry><link linkend="ini.session.use-only-cookies">session.use_only_cookies</link></entry>
      <entry>"1"</entry>
      <entry><constant>INI_ALL</constant></entry>
-     <entry></entry>
+     <entry>Deprecated as of PHP 8.4.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.referer-check">session.referer_check</link></entry>
      <entry>""</entry>
      <entry><constant>INI_ALL</constant></entry>
-     <entry></entry>
+     <entry>Deprecated as of PHP 8.4.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.cache-limiter">session.cache_limiter</link></entry>
@@ -140,19 +140,19 @@
      <entry><link linkend="ini.session.use-trans-sid">session.use_trans_sid</link></entry>
      <entry>"0"</entry>
      <entry><constant>INI_ALL</constant></entry>
-     <entry></entry>
+     <entry>Deprecated as of PHP 8.4.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.trans-sid-tags">session.trans_sid_tags</link></entry>
      <entry>"a=href,area=href,frame=src,form="</entry>
      <entry><constant>INI_ALL</constant></entry>
-     <entry>Available as of PHP 7.1.0.</entry>
+     <entry>Available as of PHP 7.1.0. Deprecated as of PHP 8.4.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.trans-sid-hosts">session.trans_sid_hosts</link></entry>
      <entry><literal>$_SERVER['HTTP_HOST']</literal></entry>
      <entry><constant>INI_ALL</constant></entry>
-     <entry>Available as of PHP 7.1.0.</entry>
+     <entry>Available as of PHP 7.1.0. Deprecated as of PHP 8.4.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.sid-length">session.sid_length</link></entry>
