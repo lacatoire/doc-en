@@ -10,14 +10,10 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>bool</type><methodname>Yac::add</methodname>
-   <methodparam><type>string</type><parameter>keys</parameter></methodparam>
+   <modifier>public</modifier> <type class="union"><type>bool</type><type>null</type></type><methodname>Yac::add</methodname>
+   <methodparam><type class="union"><type>string</type><type>array</type></type><parameter>key</parameter></methodparam>
    <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>ttl</parameter><initializer>0</initializer></methodparam>
-  </methodsynopsis>
-  <methodsynopsis>
-   <modifier>public</modifier> <type>bool</type><methodname>Yac::add</methodname>
-   <methodparam><type>array</type><parameter>key_vals</parameter></methodparam>
   </methodsynopsis>
   <para>
     Added a item into cache.
@@ -28,7 +24,7 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>keys</parameter></term>
+    <term><parameter>key</parameter></term>
     <listitem>
      <para>
        &string; key

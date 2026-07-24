@@ -94,7 +94,7 @@
    <varlistentry xml:id="constant.yac-serializer">
     <term>
      <constant>YAC_SERIALIZER</constant>
-     (<type>string</type>)
+     (<type>int</type>)
     </term>
     <listitem>
      <simpara>
