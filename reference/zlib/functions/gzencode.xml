@@ -41,11 +41,13 @@
     <varlistentry>
      <term><parameter>level</parameter></term>
      <listitem>
-      <para>
-       The level of compression. Can be given as 0 for no compression up to 9
-       for maximum compression. If not given, the default compression level will
-       be the default compression level of the zlib library.
-      </para>
+      <simpara>
+       The level of compression. Can be given as a value between
+       <literal>-1</literal> and <literal>9</literal>: <literal>0</literal> for
+       no compression up to <literal>9</literal> for maximum compression.
+       <literal>-1</literal> (the default) requests the default compression level
+       of the zlib library.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -71,6 +73,17 @@
   <para>
    The encoded string, or &false; if an error occurred.
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>level</parameter> is
+   not between <literal>-1</literal> and <literal>9</literal>, or if
+   <parameter>encoding</parameter> is not one of
+   <constant>ZLIB_ENCODING_RAW</constant>, <constant>ZLIB_ENCODING_GZIP</constant>
+   or <constant>ZLIB_ENCODING_DEFLATE</constant>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

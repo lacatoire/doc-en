@@ -71,6 +71,16 @@
    The compressed string or &false; if an error occurred.
   </para>
  </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>level</parameter> is
+   not between <literal>-1</literal> and <literal>9</literal>, or if
+   <parameter>encoding</parameter> is not one of
+   <constant>ZLIB_ENCODING_RAW</constant>, <constant>ZLIB_ENCODING_GZIP</constant>
+   or <constant>ZLIB_ENCODING_DEFLATE</constant>.
+  </simpara>
+ </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
