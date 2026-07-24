@@ -11,8 +11,8 @@
    </term>
    <listitem>
     <simpara>
-     This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation. 
-     This constant sets the transaction isolation level for the connection to 
+     This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation.
+     This constant sets the transaction isolation level for the connection to
      Read Uncommitted.
     </simpara>
    </listitem>
@@ -24,8 +24,8 @@
    </term>
    <listitem>
     <simpara>
-     This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation. 
-     This constant sets the transaction isolation level for the connection to 
+     This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation.
+     This constant sets the transaction isolation level for the connection to
      Read Committed.
     </simpara>
    </listitem>
@@ -37,8 +37,8 @@
    </term>
    <listitem>
     <simpara>
-     This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation. 
-     This constant sets the transaction isolation level for the connection to 
+     This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation.
+     This constant sets the transaction isolation level for the connection to
      Repeateable Read.
     </simpara>
    </listitem>
@@ -50,7 +50,7 @@
    </term>
    <listitem>
     <simpara>
-     This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation. 
+     This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation.
      This constant sets the transaction isolation level for the connection to Snapshot.
     </simpara>
    </listitem>
@@ -62,8 +62,8 @@
    </term>
    <listitem>
     <simpara>
-     This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation. 
-     This constant sets the transaction isolation level for the connection to 
+     This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation.
+     This constant sets the transaction isolation level for the connection to
      Serializable.
     </simpara>
    </listitem>
@@ -75,9 +75,9 @@
    </term>
    <listitem>
     <simpara>
-     Specifies that data is sent/retrieved as a raw byte stream to/from the server 
-     without performing encoding or translation. This constant can be passed to 
-     PDOStatement::setAttribute, PDO::prepare, PDOStatement::bindColumn, and 
+     Specifies that data is sent/retrieved as a raw byte stream to/from the server
+     without performing encoding or translation. This constant can be passed to
+     PDOStatement::setAttribute, PDO::prepare, PDOStatement::bindColumn, and
      PDOStatement::bindParam.
     </simpara>
    </listitem>
@@ -89,11 +89,11 @@
    </term>
    <listitem>
     <simpara>
-     Specifies that data is sent/retrieved to/from the server as 8-bit characters 
-     as specified in the code page of the Windows locale that is set on the system. 
-     Any multi-byte characters or characters that do not map into this code page 
-     are substituted with a single byte question mark (?) character. This constant 
-     can be passed to PDOStatement::setAttribute, PDO::setAttribute, PDO::prepare, 
+     Specifies that data is sent/retrieved to/from the server as 8-bit characters
+     as specified in the code page of the Windows locale that is set on the system.
+     Any multi-byte characters or characters that do not map into this code page
+     are substituted with a single byte question mark (?) character. This constant
+     can be passed to PDOStatement::setAttribute, PDO::setAttribute, PDO::prepare,
      PDOStatement::bindColumn, and PDOStatement::bindParam.
     </simpara>
    </listitem>
@@ -105,9 +105,9 @@
    </term>
    <listitem>
     <simpara>
-     Specifies that data is sent/retrieved to/from the server in UTF-8 encoding. 
-     This is the default encoding. This constant can be passed to 
-     PDOStatement::setAttribute, PDO::setAttribute, PDO::prepare, 
+     Specifies that data is sent/retrieved to/from the server in UTF-8 encoding.
+     This is the default encoding. This constant can be passed to
+     PDOStatement::setAttribute, PDO::setAttribute, PDO::prepare,
      PDOStatement::bindColumn, and PDOStatement::bindParam.
     </simpara>
    </listitem>
@@ -119,10 +119,10 @@
    </term>
    <listitem>
     <simpara>
-     Specifies that data is sent/retrieved to/from the server according to 
-     PDO::SQLSRV_ENCODING_SYSTEM if specified during connection. The connection's 
-     encoding is used if specified in a prepare statement. This constant can be 
-     passed to PDOStatement::setAttribute, PDO::setAttribute, PDO::prepare, 
+     Specifies that data is sent/retrieved to/from the server according to
+     PDO::SQLSRV_ENCODING_SYSTEM if specified during connection. The connection's
+     encoding is used if specified in a prepare statement. This constant can be
+     passed to PDOStatement::setAttribute, PDO::setAttribute, PDO::prepare,
      PDOStatement::bindColumn, and PDOStatement::bindParam.
     </simpara>
    </listitem>
@@ -134,8 +134,8 @@
    </term>
    <listitem>
     <simpara>
-     A non-negative integer representing the timeout period, in seconds. Zero (0) 
-     is the default and means no timeout. This constant can be passed to 
+     A non-negative integer representing the timeout period, in seconds. Zero (0)
+     is the default and means no timeout. This constant can be passed to
      PDOStatement::setAttribute, PDO::setAttribute, and PDO::prepare.
     </simpara>
    </listitem>
@@ -147,10 +147,153 @@
    </term>
    <listitem>
     <simpara>
-     Indicates that a query should be executed directly, without being prepared. 
-     This constant can be passed to PDO::setAttribute, and PDO::prepare. For more 
-     information, see 
+     Indicates that a query should be executed directly, without being prepared.
+     This constant can be passed to PDO::setAttribute, and PDO::prepare. For more
+     information, see
      <link xlink:href="&url.sqlsrv.direct.execution;">Direct and Prepared Statement Execution</link>.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-attr-encoding">
+   <term>
+    <constant>PDO::SQLSRV_ATTR_ENCODING</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Sets the character set encoding used to send data to and receive data from the server. Accepts one of the SQLSRV_ENCODING_* constants.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-attr-cursor-scroll-type">
+   <term>
+    <constant>PDO::SQLSRV_ATTR_CURSOR_SCROLL_TYPE</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Sets the type of scrollable cursor used for a statement when PDO::ATTR_CURSOR is PDO::CURSOR_SCROLL. Accepts one of the SQLSRV_CURSOR_* constants.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-attr-client-buffer-max-kb-size">
+   <term>
+    <constant>PDO::SQLSRV_ATTR_CLIENT_BUFFER_MAX_KB_SIZE</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Sets the maximum size, in kilobytes, of the memory buffer used for client-side (buffered) cursors.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-attr-fetches-numeric-type">
+   <term>
+    <constant>PDO::SQLSRV_ATTR_FETCHES_NUMERIC_TYPE</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Controls whether numeric columns are returned as PHP int and float values instead of strings when fetching.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-attr-fetches-datetime-type">
+   <term>
+    <constant>PDO::SQLSRV_ATTR_FETCHES_DATETIME_TYPE</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Controls whether date and time columns are returned as PHP DateTime objects instead of strings when fetching.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-attr-format-decimals">
+   <term>
+    <constant>PDO::SQLSRV_ATTR_FORMAT_DECIMALS</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Controls whether the formatting of decimal and numeric values (adding a leading zero and applying the configured number of decimal places) is applied when fetching.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-attr-decimal-places">
+   <term>
+    <constant>PDO::SQLSRV_ATTR_DECIMAL_PLACES</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Sets the number of decimal places shown when fetching money values. Only takes effect when PDO::SQLSRV_ATTR_FORMAT_DECIMALS is enabled.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-attr-data-classification">
+   <term>
+    <constant>PDO::SQLSRV_ATTR_DATA_CLASSIFICATION</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Controls whether Data Classification (sensitivity) metadata is retrieved for the columns of a result set.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-param-out-default-size">
+   <term>
+    <constant>PDO::SQLSRV_PARAM_OUT_DEFAULT_SIZE</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Used as the length of an output parameter to indicate that the driver should use the default size for the bound PHP type.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-cursor-static">
+   <term>
+    <constant>PDO::SQLSRV_CURSOR_STATIC</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Indicates a static, server-side cursor, allowing rows to be accessed in any order.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-cursor-dynamic">
+   <term>
+    <constant>PDO::SQLSRV_CURSOR_DYNAMIC</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Indicates a dynamic, server-side cursor, which reflects changes made to the underlying data.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-cursor-keyset">
+   <term>
+    <constant>PDO::SQLSRV_CURSOR_KEYSET</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Indicates a keyset-driven, server-side cursor.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="pdo.constants.sqlsrv-cursor-buffered">
+   <term>
+    <constant>PDO::SQLSRV_CURSOR_BUFFERED</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Indicates a client-side cursor that buffers the entire result set in memory, allowing rows to be accessed in any order.
     </simpara>
    </listitem>
   </varlistentry>
