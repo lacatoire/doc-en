@@ -3185,6 +3185,20 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.so-busy-poll">
+   <term>
+    <constant>SO_BUSY_POLL</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Sets the approximate time in microseconds to busy poll on a blocking
+     receive when there is no data. This reduces latency at the cost of CPU.
+     Available on Linux only.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
  </variablelist>
 
 </appendix>
