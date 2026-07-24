@@ -19,8 +19,8 @@
   <para>
    Calendar information is returned as an array containing the
    elements <literal>calname</literal>, <literal>calsymbol</literal>,
-   <literal>month</literal>, <literal>abbrevmonth</literal> and
-   <literal>maxdaysinmonth</literal>. The names of the different calendars 
+   <literal>months</literal>, <literal>abbrevmonths</literal> and
+   <literal>maxdaysinmonth</literal>. The names of the different calendars
    which can be used as <parameter>calendar</parameter> are as follows:
    <itemizedlist>
     <listitem>
@@ -71,7 +71,26 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
+   Returns an array of calendar information. The array contains the following
+   keys:
+   <simplelist>
+    <member><literal>months</literal>: an array of the full month names.</member>
+    <member><literal>abbrevmonths</literal>: an array of the abbreviated month names.</member>
+    <member><literal>maxdaysinmonth</literal>: the maximum number of days in any month of the calendar.</member>
+    <member><literal>calname</literal>: the calendar name.</member>
+    <member><literal>calsymbol</literal>: the internal calendar symbol.</member>
+   </simplelist>
+   When <parameter>calendar</parameter> is <literal>-1</literal>, an array with
+   the information for all supported calendars is returned instead.
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>calendar</parameter>
+   is not a valid calendar ID.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
