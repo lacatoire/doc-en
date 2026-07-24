@@ -53,6 +53,12 @@
      <varname linkend="v8js.constants.flag-force-array">V8Js::FLAG_FORCE_ARRAY</varname>
      <initializer>2</initializer>
     </fieldsynopsis>
+    <fieldsynopsis>
+     <modifier>const</modifier>
+     <type>int</type>
+     <varname linkend="v8js.constants.flag-propagate-php-exceptions">V8Js::FLAG_PROPAGATE_PHP_EXCEPTIONS</varname>
+     <initializer>4</initializer>
+    </fieldsynopsis>
 
     <classsynopsisinfo role="comment">&Methods;</classsynopsisinfo>
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.v8js')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis[not(@role='procedural')])">
@@ -89,6 +95,13 @@
      <term><constant>V8Js::FLAG_FORCE_ARRAY</constant></term>
      <listitem>
       <para>Forces all JS objects to be associative arrays in PHP.</para>
+     </listitem>
+    </varlistentry>
+
+    <varlistentry xml:id="v8js.constants.flag-propagate-php-exceptions">
+     <term><constant>V8Js::FLAG_PROPAGATE_PHP_EXCEPTIONS</constant></term>
+     <listitem>
+      <simpara>Propagates PHP exceptions raised in PHP code called from JS back to JS.</simpara>
      </listitem>
     </varlistentry>
 

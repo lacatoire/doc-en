@@ -11,7 +11,7 @@
   &reftitle.description;
   <methodsynopsis>
    <type>bool</type><methodname>wincache_refresh_if_changed</methodname>
-   <methodparam choice="opt"><type>array</type><parameter>files</parameter><initializer>NULL</initializer></methodparam>
+   <methodparam choice="opt"><type>array</type><parameter>file_list</parameter><initializer>NULL</initializer></methodparam>
   </methodsynopsis>
   <para>
    Refreshes the cache entries for the files, whose names were passed in the input argument. 
@@ -23,7 +23,7 @@
   <para>
    <variablelist>
     <varlistentry>
-     <term><parameter>files</parameter></term>
+     <term><parameter>file_list</parameter></term>
      <listitem>
       <para>
        An array of file names for files that need to be refreshed. 

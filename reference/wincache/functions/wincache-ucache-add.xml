@@ -11,7 +11,7 @@
   &reftitle.description;
   <methodsynopsis>
    <type>bool</type><methodname>wincache_ucache_add</methodname>
-   <methodparam><type>string</type><parameter>key</parameter></methodparam>
+   <methodparam><type>mixed</type><parameter>key</parameter></methodparam>
    <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>ttl</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
