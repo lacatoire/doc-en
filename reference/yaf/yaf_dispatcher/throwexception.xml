@@ -10,19 +10,19 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>Yaf_Dispatcher</type><methodname>Yaf_Dispatcher::throwException</methodname>
-   <methodparam choice="opt"><type>bool</type><parameter>flag</parameter></methodparam>
+   <modifier>public</modifier> <type class="union"><type>Yaf_Dispatcher</type><type>null</type><type>bool</type></type><methodname>Yaf_Dispatcher::throwException</methodname>
+   <methodparam choice="opt"><type class="union"><type>bool</type><type>null</type></type><parameter>flag</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Switch on/off exception throwing while unexpected error occurring.
    When this is on, Yaf will throwing exceptions instead of triggering
-   catchable errors. 
-  </para>
-  <para>
+   catchable errors.
+  </simpara>
+  <simpara>
    You can also use <link linkend="configuration.yaf.dispatcher.throwexception">
-    application.dispatcher.throwException</link> to achieve the 
+    application.dispatcher.throwException</link> to achieve the
    same purpose.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -31,9 +31,9 @@
    <varlistentry>
     <term><parameter>flag</parameter></term>
     <listitem>
-     <para>
-       bool   
-     </para>
+     <simpara>
+       bool
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

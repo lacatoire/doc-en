@@ -10,19 +10,53 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>bool</type><methodname>Yaf_Response_Abstract::setHeader</methodname>
+   <modifier>public</modifier> <type class="union"><type>bool</type><type>null</type></type><methodname>Yaf_Response_Abstract::setHeader</methodname>
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
    <methodparam><type>string</type><parameter>value</parameter></methodparam>
-   <methodparam choice="opt"><type>bool</type><parameter>replace</parameter></methodparam>
+   <methodparam choice="opt"><type>bool</type><parameter>replace</parameter><initializer>0</initializer></methodparam>
+   <methodparam choice="opt"><type>int</type><parameter>response_code</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   Used to send a HTTP header
-  </para>
+  <simpara>
+   Used to send an HTTP header
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  &no.function.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>name</parameter></term>
+    <listitem>
+     <simpara>
+      The header name.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>value</parameter></term>
+    <listitem>
+     <simpara>
+      The header value.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>replace</parameter></term>
+    <listitem>
+     <simpara>
+      Whether to replace a previous similar header. Defaults to &false;.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>response_code</parameter></term>
+    <listitem>
+     <simpara>
+      Forces the HTTP response code to the specified value.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -36,7 +70,7 @@
   &reftitle.seealso;
   <simplelist>
    <member><methodname>Yaf_Response_Abstract::getHeader</methodname></member>
-   <member><methodname>Yaf_Response_Abstract::cleanHeaders</methodname></member>
+   <member><methodname>Yaf_Response_Abstract::clearHeaders</methodname></member>
   </simplelist>
  </refsect1>
 

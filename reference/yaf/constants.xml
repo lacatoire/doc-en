@@ -126,6 +126,16 @@
      </simpara>
     </listitem>
    </varlistentry>
+   <varlistentry xml:id="constant.yaf-err-access-error">
+    <term>
+     <constant>YAF_ERR_ACCESS_ERROR</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+     </simpara>
+    </listitem>
+   </varlistentry>
   </variablelist>
  </para>
 </appendix>

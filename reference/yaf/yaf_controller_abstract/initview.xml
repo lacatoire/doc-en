@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Controller_Abstract::initView</methodname>
-   <methodparam choice="opt"><type>array</type><parameter>options</parameter></methodparam>
+   <modifier>public</modifier> <type class="union"><type>object</type><type>null</type></type><methodname>Yaf_Controller_Abstract::initView</methodname>
+   <methodparam choice="opt"><type>array</type><parameter>options</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
 
@@ -25,7 +25,6 @@
     <term><parameter>options</parameter></term>
     <listitem>
      <para>
-      
      </para>
     </listitem>
    </varlistentry>

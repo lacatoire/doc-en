@@ -49,14 +49,17 @@
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>string</type>
      <varname linkend="yaf-route-simple.props.controller">controller</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>string</type>
      <varname linkend="yaf-route-simple.props.module">module</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>string</type>
      <varname linkend="yaf-route-simple.props.action">action</varname>
     </fieldsynopsis>
 

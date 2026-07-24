@@ -10,8 +10,9 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Request_Simple::getFiles</methodname>
-   <void />
+   <modifier>public</modifier> <type>mixed</type><methodname>Yaf_Request_Simple::getFiles</methodname>
+   <methodparam choice="opt"><type>string</type><parameter>name</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type>mixed</type><parameter>default</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
 
@@ -23,7 +24,25 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  &no.function.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>name</parameter></term>
+    <listitem>
+     <simpara>
+      The name of the uploaded file entry to retrieve.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>default</parameter></term>
+    <listitem>
+     <simpara>
+      If this parameter is provided, it will be returned when the entry can
+      not be found.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">

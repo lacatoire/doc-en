@@ -30,12 +30,7 @@
      <ooclass>
       <classname>Yaf_Route_Rewrite</classname>
      </ooclass>
-     
-     <ooclass>
-      <modifier>extends</modifier>
-      <classname>Yaf_Route_Interface</classname>
-     </ooclass>
-     
+
      <oointerface>
       <interfacename>Yaf_Route_Interface</interfacename>
      </oointerface>
@@ -44,14 +39,12 @@
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>array</type>
      <varname linkend="yaf-route-rewrite.props.route">_route</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
-     <varname linkend="yaf-route-rewrite.props.default">_default</varname>
-    </fieldsynopsis>
-    <fieldsynopsis>
-     <modifier>protected</modifier>
+     <type>array</type>
      <varname linkend="yaf-route-rewrite.props.verify">_verify</varname>
     </fieldsynopsis>
 
@@ -59,10 +52,6 @@
     <classsynopsisinfo role="comment">&Methods;</classsynopsisinfo>
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.yaf-route-rewrite')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis[not(@role='procedural')])" />
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.yaf-route-rewrite')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[1])" />
-    
-    <classsynopsisinfo role="comment">&InheritedMethods;</classsynopsisinfo>
-    <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.yaf-route-interface')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[1])" />
-
    </classsynopsis>
 <!-- }}} -->
 
@@ -75,12 +64,6 @@
    <variablelist>
     <varlistentry xml:id="yaf-route-rewrite.props.route">
      <term><varname>_route</varname></term>
-     <listitem>
-      <para></para>
-     </listitem>
-    </varlistentry>
-    <varlistentry xml:id="yaf-route-rewrite.props.default">
-     <term><varname>_default</varname></term>
      <listitem>
       <para></para>
      </listitem>

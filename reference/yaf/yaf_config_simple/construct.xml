@@ -11,8 +11,8 @@
   &reftitle.description;
   <constructorsynopsis>
    <modifier>public</modifier> <methodname>Yaf_Config_Simple::__construct</methodname>
-   <methodparam><type>array</type><parameter>configs</parameter></methodparam>
-   <methodparam choice="opt"><type>bool</type><parameter>readonly</parameter><initializer>false</initializer></methodparam>
+   <methodparam><type class="union"><type>array</type><type>string</type></type><parameter>config_file</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>section</parameter><initializer>&null;</initializer></methodparam>
   </constructorsynopsis>
   <para>
     
@@ -26,19 +26,19 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>configs</parameter></term>
+    <term><parameter>config_file</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+      An array of configuration data, or the path to a configuration file.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><parameter>readonly</parameter></term>
+    <term><parameter>section</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+      Which section in the configuration should be parsed.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

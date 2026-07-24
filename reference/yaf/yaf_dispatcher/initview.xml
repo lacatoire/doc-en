@@ -10,9 +10,9 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>Yaf_View_Interface</type><methodname>Yaf_Dispatcher::initView</methodname>
+   <modifier>public</modifier> <type class="union"><type>Yaf_View_Interface</type><type>null</type><type>false</type></type><methodname>Yaf_Dispatcher::initView</methodname>
    <methodparam><type>string</type><parameter>templates_dir</parameter></methodparam>
-   <methodparam choice="opt"><type>array</type><parameter>options</parameter></methodparam>
+   <methodparam choice="opt"><type>array</type><parameter>options</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
 
@@ -28,17 +28,17 @@
    <varlistentry>
     <term><parameter>templates_dir</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>options</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

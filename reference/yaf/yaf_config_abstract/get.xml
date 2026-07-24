@@ -11,8 +11,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>abstract</modifier> <modifier>public</modifier> <type>mixed</type><methodname>Yaf_Config_Abstract::get</methodname>
-   <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>name</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
 
@@ -24,7 +23,16 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  &no.function.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>name</parameter></term>
+    <listitem>
+     <simpara>
+      The name of the configuration entry to retrieve.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">

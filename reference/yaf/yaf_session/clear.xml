@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 
-<refentry xml:id="yaf-application.destruct" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+<refentry xml:id="yaf-session.clear" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
-  <refname>Yaf_Application::__destruct</refname>
-  <refpurpose>The __destruct purpose</refpurpose>
+  <refname>Yaf_Session::clear</refname>
+  <refpurpose>Clear all session data</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
-  <destructorsynopsis>
-   <modifier>public</modifier> <methodname>Yaf_Application::__destruct</methodname>
+  <methodsynopsis>
+   <modifier>public</modifier> <type class="union"><type>object</type><type>null</type><type>false</type></type><methodname>Yaf_Session::clear</methodname>
    <void />
-  </destructorsynopsis>
+  </methodsynopsis>
   <para>
 
   </para>
 
-
+  &warn.undocumented.func;
 
  </refsect1>
 

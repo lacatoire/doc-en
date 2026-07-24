@@ -10,9 +10,9 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>protected</modifier> <type>string</type><methodname>Yaf_Controller_Abstract::render</methodname>
+   <modifier>protected</modifier> <type class="union"><type>string</type><type>null</type><type>bool</type></type><methodname>Yaf_Controller_Abstract::render</methodname>
    <methodparam><type>string</type><parameter>tpl</parameter></methodparam>
-   <methodparam choice="opt"><type>array</type><parameter>parameters</parameter></methodparam>
+   <methodparam choice="opt"><type>array</type><parameter>parameters</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
 
@@ -26,7 +26,6 @@
     <term><parameter>tpl</parameter></term>
     <listitem>
      <para>
-      
      </para>
     </listitem>
    </varlistentry>
@@ -34,7 +33,6 @@
     <term><parameter>parameters</parameter></term>
     <listitem>
      <para>
-      
      </para>
     </listitem>
    </varlistentry>

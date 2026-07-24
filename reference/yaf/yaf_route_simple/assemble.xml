@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>string</type><methodname>Yaf_Route_Simple::assemble</methodname>
+   <modifier>public</modifier> <type class="union"><type>string</type><type>null</type><type>false</type></type><methodname>Yaf_Route_Simple::assemble</methodname>
    <methodparam><type>array</type><parameter>info</parameter></methodparam>
    <methodparam choice="opt"><type>array</type><parameter>query</parameter></methodparam>
   </methodsynopsis>

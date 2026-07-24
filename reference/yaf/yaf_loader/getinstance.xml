@@ -10,8 +10,9 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <modifier>static</modifier> <type>void</type><methodname>Yaf_Loader::getInstance</methodname>
-   <void />
+   <modifier>public</modifier> <modifier>static</modifier> <type>object</type><methodname>Yaf_Loader::getInstance</methodname>
+   <methodparam choice="opt"><type>string</type><parameter>local_path</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>global_path</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
 

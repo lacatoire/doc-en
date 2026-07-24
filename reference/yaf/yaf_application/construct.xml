@@ -11,12 +11,12 @@
   &reftitle.description;
   <constructorsynopsis>
    <modifier>public</modifier> <methodname>Yaf_Application::__construct</methodname>
-   <methodparam><type>mixed</type><parameter>config</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>environ</parameter></methodparam>
+   <methodparam><type class="union"><type>string</type><type>array</type></type><parameter>config</parameter></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>environ</parameter><initializer>&null;</initializer></methodparam>
   </constructorsynopsis>
-  <para>
+  <simpara>
    Instance a <classname>Yaf_Application</classname>.
-  </para>
+  </simpara>
 
 
 
@@ -35,14 +35,6 @@
        If is a ini config file, there should be a section named as the one
        defined by <link linkend="ini.yaf.environ">yaf.environ</link>, which
        is "product" by default.
-      <note>
-       <para>
-        If you use a ini configuration file as your applicatioin's config
-        container. you would open the <link
-         linkend="ini.yaf.cache-config">yaf.cache_config</link> to improve
-        performance.
-       </para>
-      </note>
      </para>
      <para>
        And the config entry(and there default value) list blow:
@@ -82,9 +74,9 @@ ap.modules=Index
    <varlistentry>
     <term><parameter>environ</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       Which section will be loaded as the final config
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

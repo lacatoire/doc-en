@@ -11,8 +11,8 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>void</type><methodname>Yaf_Session::offsetSet</methodname>
-   <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam><type>string</type><parameter>value</parameter></methodparam>
+   <methodparam><type>mixed</type><parameter>name</parameter></methodparam>
+   <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
   </methodsynopsis>
   <para>
 
@@ -28,17 +28,17 @@
    <varlistentry>
     <term><parameter>name</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>value</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

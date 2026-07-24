@@ -51,6 +51,7 @@
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>bool</type>
      <varname linkend="yaf-config-simple.props.readonly">_readonly</varname>
     </fieldsynopsis>
 

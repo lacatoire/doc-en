@@ -168,10 +168,12 @@ http://example/blog/archive/list/sort/alpha/date/desc
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>array</type>
      <varname linkend="yaf-router.props.routes">_routes</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>string</type>
      <varname linkend="yaf-router.props.current">_current</varname>
     </fieldsynopsis>
 

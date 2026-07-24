@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>Yaf_Dispatcher</type><methodname>Yaf_Dispatcher::flushInstantly</methodname>
-   <methodparam choice="opt"><type>bool</type><parameter>flag</parameter></methodparam>
+   <modifier>public</modifier> <type class="union"><type>Yaf_Dispatcher</type><type>null</type><type>bool</type></type><methodname>Yaf_Dispatcher::flushInstantly</methodname>
+   <methodparam choice="opt"><type class="union"><type>bool</type><type>null</type></type><parameter>flag</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
 
@@ -34,7 +34,7 @@
         since 2.2.0, if this parameter is not given, then the current state
         will be returned
        </para>
-      </note>     
+      </note>
      </para>
     </listitem>
    </varlistentry>

@@ -60,12 +60,6 @@
       <entry><!-- leave empty, this will be filled by an automatic script --></entry>
      </row>
      <row>
-      <entry><link linkend="ini.yaf.cache-config">yaf.cache_config</link></entry>
-      <entry>0</entry>
-      <entry><constant>INI_SYSTEM</constant></entry>
-      <entry><!-- leave empty, this will be filled by an automatic script --></entry>
-     </row>
-     <row>
       <entry><link linkend="ini.yaf.environ">yaf.environ</link></entry>
       <entry>product</entry>
       <entry><constant>INI_SYSTEM</constant></entry>
@@ -74,7 +68,7 @@
      <row>
       <entry><link linkend="ini.yaf.use-namespace">yaf.use_namespace</link></entry>
       <entry>0</entry>
-      <entry><constant>INI_SYSTEM</constant></entry>
+      <entry><constant>INI_ALL</constant></entry>
       <entry><!-- leave empty, this will be filled by an automatic script --></entry>
      </row>
     </tbody>
@@ -92,10 +86,10 @@
       <type>string</type>
      </term>
      <listitem>
-      <para>
+      <simpara>
         The global library path, Yaf_loader will search global library in this
-        directory.      
-      </para>
+        directory.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="ini.yaf.action-prefer">
@@ -130,11 +124,11 @@
       <type>int</type>
      </term>
      <listitem>
-      <para>
+      <simpara>
         When this value is On, if <classname>Yaf_Loader</classname> can not
         find a class, it will return &false;, then give chance to other auto
-        load function to be called.      
-      </para>
+        load function to be called.
+      </simpara>
       <para>
         When this value is Off, if <classname>Yaf_Loader</classname> can not
         find a class, it will return &true;, and make the class autoloading
@@ -142,7 +136,7 @@
       </para>
       <note>
        <para>
-        Yaf will register its loader during a instantiation of  
+        Yaf will register its loader during a instantiation of
         <classname>Yaf_Application</classname>, so any other auto loaders
         which is register before the instantiation will be called before
         <methodname>Yaf_Loader::autoload</methodname>.
@@ -199,34 +193,6 @@
       <para>
        For example, when this value is "_", Yaf_Loader will take Index_Controller as
        a Controller Class, IndexController as a normal class.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry xml:id="ini.yaf.cache-config">
-     <term>
-      <parameter>yaf.cache_config</parameter>
-      <type>int</type>
-     </term>
-     <listitem>
-      <para>
-        If this is On, and in the meantime you are using ini config file as the
-        parameter of <methodname>Yaf_Application</methodname>, the
-        compiling result of the ini config file will be cached in the PHP
-        process.
-        <note>
-         <para>
-          Yaf examine the mtime of the ini file, if it was changed since
-          last compiling, Yaf will reload it.
-         </para>
-        </note>
-        <warning>
-         <para>
-          Yaf use the ini file path as the cache entry key, so do use the
-          absolute path in ini file path, otherwise there might be some
-          conflicts if two application use the same relative path of ini
-          config.
-         </para>
-        </warning>
       </para>
      </listitem>
     </varlistentry>

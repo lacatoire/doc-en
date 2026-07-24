@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>bool</type><methodname>Yaf_Response_Abstract::setRedirect</methodname>
+   <modifier>public</modifier> <type class="union"><type>bool</type><type>null</type></type><methodname>Yaf_Response_Abstract::setRedirect</methodname>
    <methodparam><type>string</type><parameter>url</parameter></methodparam>
   </methodsynopsis>
   <para>
@@ -25,9 +25,9 @@
    <varlistentry>
     <term><parameter>url</parameter></term>
     <listitem>
-     <para>
-      address redircted to
-     </para>
+     <simpara>
+      address redirected to
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Controller_Abstract::getInvokeArg</methodname>
+   <modifier>public</modifier> <type class="union"><type>string</type><type>null</type></type><methodname>Yaf_Controller_Abstract::getInvokeArg</methodname>
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
   </methodsynopsis>
   <para>
@@ -25,7 +25,6 @@
     <term><parameter>name</parameter></term>
     <listitem>
      <para>
-      
      </para>
     </listitem>
    </varlistentry>

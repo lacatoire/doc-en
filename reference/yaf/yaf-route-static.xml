@@ -42,7 +42,7 @@
      </ooclass>
      
      <oointerface>
-      <interfacename>Yaf_Router</interfacename>
+      <interfacename>Yaf_Route_Interface</interfacename>
      </oointerface>
     </classsynopsisinfo>
 <!-- }}} -->

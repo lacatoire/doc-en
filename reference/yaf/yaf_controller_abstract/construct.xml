@@ -10,15 +10,14 @@
  <refsect1 role="description">
   &reftitle.description;
   <constructorsynopsis>
-   <modifier>final</modifier> <modifier>private</modifier> <methodname>Yaf_Controller_Abstract::__construct</methodname>
+   <modifier>public</modifier> <methodname>Yaf_Controller_Abstract::__construct</methodname>
    <void />
   </constructorsynopsis>
-  <para>
-    <methodname>Yaf_Controller_Abstract::__construct</methodname> is final,
-    which means it can not be overridden.
-    You may want to see
-    <methodname>Yaf_Controller_Abstract::init</methodname> instead.
-  </para>
+  <simpara>
+   <classname>Yaf_Controller_Abstract</classname> instances are constructed
+   by Yaf. Custom controllers should not override the constructor; define
+   <methodname>Yaf_Controller_Abstract::init</methodname> instead.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">

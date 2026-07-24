@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Controller_Abstract::setViewpath</methodname>
+   <modifier>public</modifier> <type class="union"><type>bool</type><type>null</type></type><methodname>Yaf_Controller_Abstract::setViewpath</methodname>
    <methodparam><type>string</type><parameter>view_directory</parameter></methodparam>
   </methodsynopsis>
   <para>
@@ -25,7 +25,6 @@
     <term><parameter>view_directory</parameter></term>
     <listitem>
      <para>
-      
      </para>
     </listitem>
    </varlistentry>
