@@ -3,7 +3,7 @@
  <sect1 xml:id="language.oop5.cloning" xmlns="http://docbook.org/ns/docbook">
   <title>Object Cloning</title>
   
-  <para>
+  <simpara>
    Creating a copy of an object with fully replicated properties is not
    always the wanted behavior. A good example of the need for copy
    constructors, is if you have an object which represents a GTK window and the
@@ -13,13 +13,13 @@
    object holds a reference to another object which it uses and when you
    replicate the parent object you want to create a new instance of this other
    object so that the replica has its own separate copy.
-  </para>
+  </simpara>
 
-  <para>
+  <simpara>
    An object copy is created by using the <literal>clone</literal> keyword
    (which calls the object's <link linkend="object.clone">__clone()</link>
    method if possible).
-  </para>
+  </simpara>
 
   <informalexample>
    <programlisting>
@@ -29,22 +29,22 @@ $copy_of_object = clone $object;
    </programlisting>
   </informalexample>
 
-  <para>
+  <simpara>
    When an object is cloned, PHP will perform a shallow copy of all of the
    object's properties. Any properties that are references to other variables
    will remain references.
-  </para>
+  </simpara>
 
   <methodsynopsis xml:id="object.clone">
    <type>void</type><methodname>__clone</methodname>
    <void/>
   </methodsynopsis>
 
-  <para>
+  <simpara>
    Once the cloning is complete, if a <link linkend="object.clone">__clone()</link> method is defined, then
    the newly created object's <link linkend="object.clone">__clone()</link> method will be called, to allow any
    necessary properties that need to be changed.
-  </para>
+  </simpara>
 
   <example>
    <title>Cloning an object</title>
@@ -132,10 +132,10 @@ MyCloneable Object
 
   </example>
 
-  <para>
+  <simpara>
    It is possible to access a member of a freshly cloned
    object in a single expression:
-  </para>
+  </simpara>
   <example>
    <title>Access member of freshly cloned object</title>
    <programlisting role="php">
@@ -153,6 +153,63 @@ echo (clone $dateTime)->format('Y');
 ]]>
    </screen>
   </example>
+
+  <sect2 xml:id="language.oop5.cloning.with-properties">
+   <title>Cloning with property overrides</title>
+
+   <simpara>
+    As of PHP 8.5.0, <literal>clone</literal> is a function that accepts an
+    optional <parameter>withProperties</parameter> parameter. This allows
+    overriding (including <link linkend="language.oop5.properties.readonly-properties">readonly</link>)
+    properties in a single expression without requiring a custom
+    <link linkend="object.clone">__clone()</link> method.
+   </simpara>
+
+   <simpara>
+    Overriding a property is subject to the usual write visibility of that
+    property. In particular, a <link linkend="language.oop5.properties.readonly-properties">readonly</link>
+    property may only be overridden from a scope that is allowed to write it,
+    so the example below performs the clone from within the declaring class.
+   </simpara>
+
+   <example>
+    <title>Cloning an object with property overrides</title>
+    <programlisting role="php">
+<![CDATA[
+<?php
+class Point {
+    public function __construct(
+        public readonly int $x,
+        public readonly int $y,
+        public readonly int $z = 0,
+    ) {}
+
+    public function withPosition(int $x, int $z): static
+    {
+        return clone($this, withProperties: ['x' => $x, 'z' => $z]);
+    }
+}
+
+$p = new Point(1, 2, 3);
+$q = $p->withPosition(10, 30);
+
+echo $q->x; // 10
+echo $q->y; // 2
+echo $q->z; // 30
+?>
+]]>
+    </programlisting>
+   </example>
+
+   <simpara>
+    The <parameter>withProperties</parameter> argument is an array of property
+    names to values. Only the specified properties are overridden; all other
+    properties retain their cloned values. The
+    <link linkend="object.clone">__clone()</link> method, if defined, is called
+    as part of the clone operation, before the property overrides are applied.
+   </simpara>
+
+  </sect2>
 
  </sect1>
  
