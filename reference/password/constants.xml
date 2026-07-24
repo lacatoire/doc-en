@@ -56,10 +56,12 @@
      (<type>int</type>)
     </term>
     <listitem>
-     <para>
-     </para>
-     <para>
-     </para>
+     <simpara>
+      Default cost used by the bcrypt algorithm.
+     </simpara>
+     <simpara>
+      Available as of PHP 8.4.0.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry xml:id="constant.password-argon2i">
@@ -123,10 +125,10 @@
      (<type>int</type>)
     </term>
     <listitem>
-     <para>
-      Default amount of memory in bytes that will be used while trying to
+     <simpara>
+      Default amount of memory in kibibytes that will be used while trying to
       compute a hash.
-     </para>
+     </simpara>
      <para>
       Available as of PHP 7.2.0.
      </para>
@@ -167,8 +169,11 @@
      (<type>string</type>)
     </term>
     <listitem>
-     <para>
-     </para>
+     <simpara>
+      Name of the Argon2 implementation in use:
+      <literal>standard</literal> when built against libargon2, or
+      <literal>sodium</literal> when built against libsodium.
+     </simpara>
      <para>
       Available as of PHP 7.4.0.
      </para>
