@@ -11,12 +11,12 @@
   &reftitle.description;
   <methodsynopsis role="procedural">
    <type>bool</type><methodname>win32_set_service_pause_resume_state</methodname>
-   <methodparam choice="opt"><type>bool</type><parameter>state</parameter><initializer>true</initializer></methodparam>
+   <methodparam choice="opt"><type>bool</type><parameter>enable</parameter><initializer>true</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   If <parameter>state</parameter> parameter is provided, the pause/resume capability
+  <simpara>
+   If <parameter>enable</parameter> parameter is provided, the pause/resume capability
 is changed.
-  </para>
+  </simpara>
 
   <caution>
    <para>
@@ -30,7 +30,7 @@ is changed.
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>state</parameter></term>
+    <term><parameter>enable</parameter></term>
     <listitem>
      <para>
       &true; for enable the service pause/resume capability. &false; for disable the service pause/resume capability.

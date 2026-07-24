@@ -2,7 +2,7 @@
 <!-- $Revision$ -->
 
 <reference xml:id="class.win32service-rightinfo"
- role="exception"
+ role="class"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns="http://docbook.org/ns/docbook">
@@ -11,7 +11,7 @@
 
  <partintro>
 
-<!-- {{{ win32serviceexception intro -->
+<!-- {{{ win32service-rightinfo intro -->
   <section xml:id="win32service-rightinfo.intro">
    &reftitle.intro;
    <para>
@@ -27,7 +27,7 @@
    <classsynopsis>
     <ooclass><classname>Win32Service\RightInfo</classname></ooclass>
 
-<!-- {{{ Exception synopsis -->
+<!-- {{{ Class synopsis -->
     <classsynopsisinfo>
      <modifier>final</modifier>
      <ooclass>
