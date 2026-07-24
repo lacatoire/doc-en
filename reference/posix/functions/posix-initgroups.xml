@@ -13,9 +13,10 @@
    <methodparam><type>string</type><parameter>username</parameter></methodparam>
    <methodparam><type>int</type><parameter>group_id</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   Calculates the group access list for the user specified in name.
-  </para>
+  <simpara>
+   Calculates the group access list for the user specified in
+   <parameter>username</parameter>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">

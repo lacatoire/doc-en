@@ -49,10 +49,10 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Throws a <classname>ValueError</classname>
-   when <parameter>resource</parameter> is invalid.
-  </para>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname>
+   when <parameter>file_descriptor</parameter> is invalid.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
