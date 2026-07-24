@@ -11,7 +11,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <type>int</type><methodname>lzf_optimized_for</methodname>
+   <type class="union"><type>int</type><type>false</type></type><methodname>lzf_optimized_for</methodname>
    <void/>
   </methodsynopsis>
   <simpara>
