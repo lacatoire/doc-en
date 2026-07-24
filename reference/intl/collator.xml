@@ -211,6 +211,14 @@
      </thead>
      <tbody>
       <row>
+       <entry>8.5.0</entry>
+       <entry>
+        The behaviour of <constant>Collator::SORT_REGULAR</constant> with
+        respect to handling numeric strings is now aligned with the behaviour
+        of <constant>SORT_REGULAR</constant> in ext/standard.
+       </entry>
+      </row>
+      <row>
        <entry>8.4.0</entry>
        <entry>
         The class constants are now typed.
