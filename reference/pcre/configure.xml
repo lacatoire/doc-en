@@ -2,15 +2,13 @@
 <!-- $Revision$ -->
 <section xml:id="pcre.installation" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  &reftitle.install;
- <para>
+ <simpara>
   The PCRE extension is a core PHP extension, so it is always enabled.
   By default, this extension is compiled using the bundled PCRE
   library. Alternatively, an external PCRE library can be used by
-  passing in the <option role="configure">--with-pcre-regex=DIR</option>
-  configuration option where <literal>DIR</literal> is the location of
-  PCRE's include and library files. It is recommended to use PCRE 8.10 or newer;
-  as of PHP 7.3.0, PCRE2 is required.
- </para>
+  passing in the <option role="configure">--with-external-pcre</option>
+  configuration option. As of PHP 7.3.0, PCRE2 is required.
+ </simpara>
  <para>
   PCRE's just-in-time compilation is supported by default, which
   can be disabled with the <option role="configure">--without-pcre-jit</option>

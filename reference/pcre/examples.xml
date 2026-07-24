@@ -24,11 +24,6 @@
     </listitem>
     <listitem>
      <simpara>
-      <literal>/\w+\s*\w+/J</literal> - unknown modifier 'J'
-     </simpara>
-    </listitem>
-    <listitem>
-     <simpara>
       <literal>1-\d3-\d3-\d4|</literal> - missing starting delimiter
      </simpara>
     </listitem>
