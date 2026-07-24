@@ -234,6 +234,7 @@
  <function name='commonmark\cql' from='cmark &gt;= 1.1.0'/>
  <function name='commonmark\cql::__construct' from='cmark &gt;= 1.1.0'/>
  <function name='commonmark\cql::__invoke' from='cmark &gt;= 1.1.0'/>
+ <function name='commonmark\cql::print' from='cmark &gt;= 1.1.0'/>
 </versions>
 
 <!-- Keep this comment at the end of the file
