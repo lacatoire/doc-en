@@ -1,39 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 
-<refentry xml:id="v8jsexception.getjstrace" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+<refentry xml:id="v8js.wakeup" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
-  <refname>V8JsException::getJsTrace</refname>
-  <refpurpose>The getJsTrace purpose</refpurpose>
+  <refname>V8Js::__wakeup</refname>
+  <refpurpose>Prevent unserialization of a V8Js instance</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>final</modifier> <modifier>public</modifier> <type>string</type><methodname>V8JsException::getJsTrace</methodname>
-   <void />
+   <modifier>public</modifier> <modifier>final</modifier> <type>void</type><methodname>V8Js::__wakeup</methodname>
+   <void/>
   </methodsynopsis>
   <para>
-
+   V8Js instances cannot be unserialized. This method always throws a
+   <exceptionname>V8JsException</exceptionname>.
   </para>
-
-  &warn.undocumented.func;
-
- </refsect1>
-
- <refsect1 role="parameters">
-  &reftitle.parameters;
-  &no.function.parameters;
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-
+   No value is returned; a <exceptionname>V8JsException</exceptionname> is
+   thrown.
   </para>
  </refsect1>
-
-
 </refentry>
 
 <!-- Keep this comment at the end of the file

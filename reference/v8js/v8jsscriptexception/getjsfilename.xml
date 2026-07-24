@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 
-<refentry xml:id="v8js.getextensions" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+<refentry xml:id="v8jsscriptexception.getjsfilename" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
-  <refname>V8Js::getExtensions</refname>
-  <refpurpose>Return an array of registered extensions</refpurpose>
+  <refname>V8JsScriptException::getJsFileName</refname>
+  <refpurpose>The getJsFileName purpose</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <modifier>static</modifier> <type>array</type><methodname>V8Js::getExtensions</methodname>
+   <modifier>final</modifier> <modifier>public</modifier> <type>string</type><methodname>V8JsScriptException::getJsFileName</methodname>
    <void />
   </methodsynopsis>
-  <para>
-   This function returns array of Javascript extensions registered using <function>V8Js::registerExtension</function>.
-  </para>
+  <simpara>
+
+  </simpara>
+
+  &warn.undocumented.func;
+
  </refsect1>
 
  <refsect1 role="parameters">
@@ -25,10 +28,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns an array of registered extensions or an empty array if there are none.
-  </para>
+  <simpara>
+
+  </simpara>
  </refsect1>
+
 
 </refentry>
 

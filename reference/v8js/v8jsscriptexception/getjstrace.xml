@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 
-<refentry xml:id="v8jsexception.getjssourceline" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+<refentry xml:id="v8jsscriptexception.getjstrace" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
-  <refname>V8JsException::getJsSourceLine</refname>
-  <refpurpose>The getJsSourceLine purpose</refpurpose>
+  <refname>V8JsScriptException::getJsTrace</refname>
+  <refpurpose>The getJsTrace purpose</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>final</modifier> <modifier>public</modifier> <type>string</type><methodname>V8JsException::getJsSourceLine</methodname>
+   <modifier>final</modifier> <modifier>public</modifier> <type>string</type><methodname>V8JsScriptException::getJsTrace</methodname>
    <void />
   </methodsynopsis>
-  <para>
+  <simpara>
 
-  </para>
+  </simpara>
 
   &warn.undocumented.func;
 
@@ -28,9 +28,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
 
-  </para>
+  </simpara>
  </refsect1>
 
 

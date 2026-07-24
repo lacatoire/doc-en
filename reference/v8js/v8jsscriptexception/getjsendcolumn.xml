@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 
-<refentry xml:id="v8jsexception.getjsfilename" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+<refentry xml:id="v8jsscriptexception.getjsendcolumn" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
-  <refname>V8JsException::getJsFileName</refname>
-  <refpurpose>The getJsFileName purpose</refpurpose>
+  <refname>V8JsScriptException::getJsEndColumn</refname>
+  <refpurpose>The getJsEndColumn purpose</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>final</modifier> <modifier>public</modifier> <type>string</type><methodname>V8JsException::getJsFileName</methodname>
+   <modifier>final</modifier> <modifier>public</modifier> <type>int</type><methodname>V8JsScriptException::getJsEndColumn</methodname>
    <void />
   </methodsynopsis>
-  <para>
+  <simpara>
 
-  </para>
+  </simpara>
 
   &warn.undocumented.func;
 
@@ -28,9 +28,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
 
-  </para>
+  </simpara>
  </refsect1>
 
 
