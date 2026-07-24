@@ -204,6 +204,12 @@ if ($size && $fp) {
      </thead>
      <tbody>
       <row>
+       <entry>8.5.0</entry>
+       <entry>
+        Added SVG support when ext-libxml is loaded.
+       </entry>
+      </row>
+      <row>
        <entry>8.2.0</entry>
        <entry>
         Now returns the actual image dimensions, bits and channels of AVIF images;
