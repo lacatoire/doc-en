@@ -3185,6 +3185,32 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.ipproto-icmp">
+   <term>
+    <constant>IPPROTO_ICMP</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Internet Control Message Protocol (ICMP) protocol number,
+     used when creating raw sockets.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.ipproto-icmpv6">
+   <term>
+    <constant>IPPROTO_ICMPV6</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Internet Control Message Protocol version 6 (ICMPv6) protocol number,
+     used when creating raw IPv6 sockets.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
  </variablelist>
 
 </appendix>
