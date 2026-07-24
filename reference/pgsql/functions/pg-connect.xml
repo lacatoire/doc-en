@@ -14,23 +14,23 @@
    <methodparam><type>string</type><parameter>connection_string</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>flags</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>pg_connect</function> opens a connection to a
    PostgreSQL database specified by the
    <parameter>connection_string</parameter>.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    If a second call is made to <function>pg_connect</function> with
    the same <parameter>connection_string</parameter> as an existing connection, the
    existing connection will be returned unless you pass
    <constant>PGSQL_CONNECT_FORCE_NEW</constant> as
    <parameter>flags</parameter>.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    The old syntax with multiple parameters
    <command>$conn = pg_connect("host", "port", "options", "tty", "dbname")
    </command> has been deprecated.
-  </para>
+  </simpara>
  </refsect1>
 
 <refsect1 role="parameters">
@@ -40,7 +40,7 @@
     <varlistentry>
      <term><parameter>connection_string</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The <parameter>connection_string</parameter> can be empty to use all default parameters, or it 
        can contain one or more parameter settings separated by whitespace. 
        Each parameter setting is in the form <literal>keyword = value</literal>. Spaces around 
@@ -48,8 +48,8 @@
        containing spaces, surround it with single quotes, e.g., <literal>keyword = 
        'a value'</literal>. Single quotes and backslashes within the value must be 
        escaped with a backslash, i.e., \' and \\.  
-      </para>
-      <para>
+      </simpara>
+      <simpara>
        The currently recognized parameter keywords are:
        <parameter>host</parameter>, <parameter>hostaddr</parameter>, <parameter>port</parameter>,
        <parameter>dbname</parameter> (defaults to value of <parameter>user</parameter>),
@@ -59,27 +59,27 @@
        <parameter>requiressl</parameter> (deprecated in favor of <parameter>sslmode</parameter>), and
        <parameter>service</parameter>.  Which of these arguments exist depends
        on your PostgreSQL version.
-      </para>
-      <para>
+      </simpara>
+      <simpara>
        The <parameter>options</parameter> parameter can be used to set command line parameters 
        to be invoked by the server.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>flags</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If <constant>PGSQL_CONNECT_FORCE_NEW</constant> is passed, then a new connection
        is created, even if the <parameter>connection_string</parameter> is identical to
        an existing connection.
-      </para>
-      <para>
+      </simpara>
+      <simpara>
        If <constant>PGSQL_CONNECT_ASYNC</constant> is given, then the
        connection is established asynchronously. The state of the connection
        can then be checked via <function>pg_connect_poll</function> or
        <function>pg_connection_status</function>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -88,9 +88,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns an <classname>PgSql\Connection</classname> instance on success, &return.falseforfailure;.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -104,6 +104,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       A <exceptionname>ValueError</exceptionname> is now thrown if
+       <parameter>connection_string</parameter> contains null bytes.
+      </entry>
+     </row>
      <row>
       <entry>8.1.0</entry>
       <entry>
