@@ -253,14 +253,17 @@
     operator (<literal>?-></literal>)</link>, a new optimizing JIT compiler,
     and improvements in the type system, error handling, and consistency.
    </para>
-   <para>
+   <simpara>
     Later releases of the PHP 8 series introduced new language features
     including <link linkend="language.enumerations">enumerations</link> (8.1),
     <link linkend="language.fibers">fibers</link> (8.1),
     <link linkend="language.oop5.basic.class.readonly">readonly classes</link> (8.2),
-    Disjunctive Normal Form (DNF) Types (8.2), and typed class
-    constants (8.3).
-   </para>
+    Disjunctive Normal Form (DNF) Types (8.2), typed class
+    constants (8.3), <link linkend="language.oop5.property-hooks">property
+    hooks</link> and <link linkend="language.oop5.visibility-members-aviz">asymmetric
+    visibility</link> (8.4), and the <link linkend="class.nodiscard">NoDiscard</link>
+    attribute and pipe operator (8.5).
+   </simpara>
   </sect2>
  </sect1>
  
