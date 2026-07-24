@@ -17,6 +17,8 @@
    &reference.pdo-ibm.configure;
    <!-- Information found in ini.xml -->
    &reference.pdo-ibm.ini;
+   <!-- Information found in constants.xml -->
+   &reference.pdo-ibm.constants;
 
   </partintro>
 
