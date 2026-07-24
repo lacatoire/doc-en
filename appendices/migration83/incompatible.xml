@@ -117,7 +117,7 @@
 
   <para>
    <methodname>DOMDocument::createAttributeNS</methodname> would previously
-   incorrectly throw a <constant>DOM_NAMESPACE_ERRNAMESPACE_ERR</constant>
+   incorrectly throw a <constant>DOM_NAMESPACE_ERR</constant>
    <classname>DOMException</classname> when the prefix was already used for a
    different URI. It now correctly chooses a different prefix when there's a
    prefix name conflict.
