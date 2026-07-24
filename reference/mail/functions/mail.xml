@@ -275,7 +275,7 @@ mail($to, $subject, $message, $headers);
     <programlisting role="php">
 <![CDATA[
 <?php
-mail('nobody@example.com', 'the subject', 'the message', null,
+mail('nobody@example.com', 'the subject', 'the message', [],
    '-fwebmaster@example.com');
 ?>
 ]]>
