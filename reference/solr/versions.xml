@@ -80,11 +80,11 @@
  <function name='solrinputdocument::deletefield' from='PECL solr &gt;= 0.9.2'/>
  <function name='solrinputdocument::sort' from='PECL solr &gt;= 0.9.2'/>
  <function name='solrinputdocument::merge' from='PECL solr &gt;= 0.9.2'/>
+ <function name='solrinputdocument::updatefield' from='PECL solr &gt;= 2.5.0'/>
+ <function name='solrinputdocument::getversion' from='PECL solr &gt;= 2.5.0'/>
+ <function name='solrinputdocument::setversion' from='PECL solr &gt;= 2.5.0'/>
  <function name='solrinputdocument::addchilddocument' from='PECL solr &gt;= 2.3.0'/>
  <function name='solrinputdocument::addchilddocuments' from='PECL solr &gt;= 2.3.0'/>
- <function name='solrinputdocument::getchilddocuments' from='PECL solr &gt;= 2.3.0'/>
- <function name='solrinputdocument::haschilddocuments' from='PECL solr &gt;= 2.3.0'/>
- <function name='solrinputdocument::getchilddocumentscount' from='PECL solr &gt;= 2.3.0'/>
 
  <function name='solrclient' from='PECL solr &gt;= 0.9.2'/>
  <function name='solrclient::__construct' from='PECL solr &gt;= 0.9.2'/>
@@ -325,6 +325,7 @@
  <function name='solrresponse::getdigestedresponse' from='PECL solr &gt;= 0.9.2'/>
  <function name='solrresponse::setparsemode' from='PECL solr &gt;= 0.9.2'/>
  <function name='solrresponse::getresponse' from='PECL solr &gt;= 0.9.2'/>
+ <function name='solrresponse::getarrayresponse' from='PECL solr &gt;= 2.1.0'/>
 
  <function name='solrqueryresponse' from='PECL solr &gt;= 0.9.2'/>
  <function name='solrqueryresponse::__construct' from='PECL solr &gt;= 0.9.2'/>
@@ -390,6 +391,8 @@
  <function name='solrutils::escapequerychars' from='PECL solr &gt;= 0.9.2'/>
  <function name='solrutils::queryphrase' from='PECL solr &gt;= 0.9.2'/>
  <function name='solrutils::digestxmlresponse' from='PECL solr &gt;= 0.9.2'/>
+ <function name='solrutils::digestjsonresponse' from='PECL solr &gt;= 1.1.0'/>
+ <function name='solrutils::getsolrstats' from='PECL solr &gt;= 2.4.0'/>
  <function name='solrutils::getsolrversion' from='PECL solr &gt;= 0.9.2'/>
 
  <function name='solrexception' from='PECL solr &gt;= 0.9.2'/>
@@ -503,6 +506,7 @@
  <function name='solrquery::removeexpandsortfield' from='PECL solr &gt;= 2.2.0'/>
  <function name='solrquery::setexpandquery' from='PECL solr &gt;= 2.2.0'/>
  <function name='solrquery::setexpandrows' from='PECL solr &gt;= 2.2.0'/>
+
 
 </versions>
 
