@@ -3185,6 +3185,45 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.shut-rd">
+   <term>
+    <constant>SHUT_RD</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Disables further receive operations on the socket.
+     Used with <function>socket_shutdown</function>.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.shut-wr">
+   <term>
+    <constant>SHUT_WR</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Disables further send operations on the socket.
+     Used with <function>socket_shutdown</function>.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.shut-rdwr">
+   <term>
+    <constant>SHUT_RDWR</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Disables further send and receive operations on the socket.
+     Used with <function>socket_shutdown</function>.
+     Available as of PHP 8.5.0.
+    </simpara>
+   </listitem>
+  </varlistentry>
  </variablelist>
 
 </appendix>
