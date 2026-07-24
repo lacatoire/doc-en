@@ -2,10 +2,10 @@
 <!-- $Revision$ -->
  <sect1 xml:id="language.oop5.magic" xmlns="http://docbook.org/ns/docbook">
   <title>Magic Methods</title>
-  <para>
+  <simpara>
    Magic methods are special methods which override PHP's default's action
    when certain actions are performed on an object.
-  </para>
+  </simpara>
   <caution>
    <simpara>
     All methods names starting with <literal>__</literal> are reserved by PHP.
@@ -13,7 +13,7 @@
     PHP's behavior.
    </simpara>
   </caution>
-  <para>
+  <simpara>
    The following method names are considered magical:
    <!-- Should be an itemized list ? -->
    <link linkend="object.construct">__construct()</link>,
@@ -33,7 +33,7 @@
    <link linkend="object.set-state">__set_state()</link>,
    <link linkend="object.clone">__clone()</link>, and
    <link linkend="object.debuginfo">__debugInfo()</link>.
-  </para>
+  </simpara>
 
   <warning>
    <!-- See for a code example of this behaviour: https://3v4l.org/Bov34 -->
@@ -53,7 +53,7 @@
    </simpara>
   </warning>
   <warning>
-   <para>
+   <simpara>
     If type declarations are used in the definition of a magic method, they
     must be identical to the signature described in this document.
     Otherwise, a fatal error is emitted.
@@ -61,7 +61,7 @@
     However, <link linkend="object.construct">__construct()</link> and
     <link linkend="object.destruct">__destruct()</link> must not declare a return type;
     otherwise a fatal error is emitted.
-   </para>
+   </simpara>
   </warning>
 
   <sect2 xml:id="language.oop5.magic.serialize">
@@ -79,45 +79,45 @@
     <methodparam><type>array</type><parameter>data</parameter></methodparam>
    </methodsynopsis>
 
-   <para>
+   <simpara>
     <function>serialize</function> checks if the class has a function with
     the magic name <link linkend="object.serialize">__serialize()</link>. If so, that function is
     executed prior to any serialization. It must construct and return an associative array of key/value pairs
-    that represent the serialized form of the object. If no array is returned a <classname>TypeError</classname>
+    that represent the serialized form of the object. If no array is returned a <exceptionname>TypeError</exceptionname>
     will be thrown.
-   </para>
+   </simpara>
    <note>
-    <para>
+    <simpara>
      If both <link linkend="object.serialize">__serialize()</link> and <link linkend="object.sleep">__sleep()</link>
      are defined in the same object, only <link linkend="object.serialize">__serialize()</link> will be called.
      <link linkend="object.sleep">__sleep()</link> will be ignored. If the object implements the <link linkend="class.serializable">Serializable</link>
      interface, the interface's <literal>serialize()</literal> method will be ignored and <link linkend="object.serialize">__serialize()</link>
      used instead.
-    </para>
+    </simpara>
    </note>
-   <para>
+   <simpara>
     The intended use of <link linkend="object.serialize">__serialize()</link> is to define a serialization-friendly
     arbitrary representation of the object. Elements of the array may correspond to properties of the object but
     that is not required.
-   </para>
-   <para>
+   </simpara>
+   <simpara>
     Conversely, <function>unserialize</function> checks for the
     presence of a function with the magic name
     <link linkend="object.unserialize">__unserialize()</link>. If present, this function will be passed the
     restored array that was returned from <link linkend="object.serialize">__serialize()</link>.  It may
     then restore the properties of the object from that array as appropriate.
-   </para>
+   </simpara>
    <note>
-    <para>
+    <simpara>
      If both <link linkend="object.unserialize">__unserialize()</link> and <link linkend="object.wakeup">__wakeup()</link>
      are defined in the same object, only <link linkend="object.unserialize">__unserialize()</link> will be called.
      <link linkend="object.wakeup">__wakeup()</link> will be ignored.
-    </para>
+    </simpara>
    </note>
    <note>
-    <para>
+    <simpara>
      This feature is available as of PHP 7.4.0.
-    </para>
+    </simpara>
    </note>
    <example>
     <title>Serialize and unserialize</title>
@@ -191,7 +191,7 @@ class Connection
    <void/>
   </methodsynopsis>
 
-  <para>
+  <simpara>
    <function>serialize</function> checks if the class has a function with
    the magic name <link linkend="object.sleep">__sleep()</link>. If so, that function is
    executed prior to any serialization. It can clean up the object
@@ -199,37 +199,37 @@ class Connection
    of that object that should be serialized.
    If the method doesn't return anything then &null; is serialized and
    <constant>E_NOTICE</constant> is issued.
-  </para>
+  </simpara>
   <note>
-   <para>
+   <simpara>
     It is not possible for <link linkend="object.sleep">__sleep()</link> to return names of
     private properties in parent classes. Doing this will result in an
     <constant>E_NOTICE</constant> level error.
     Use <link linkend="object.serialize">__serialize()</link> instead.
-   </para>
+   </simpara>
   </note>
   <note>
-   <para>
+   <simpara>
     As of PHP 8.0.0, returning a value which is not an array from <link linkend="object.sleep">__sleep()</link> generates a warning. Previously, it generated a notice.
-   </para>
+   </simpara>
   </note>
-  <para>
+  <simpara>
    The intended use of <link linkend="object.sleep">__sleep()</link> is to commit pending
    data or perform similar cleanup tasks. Also, the function is
    useful if a very large object doesn't need to be saved completely.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    Conversely, <function>unserialize</function> checks for the
    presence of a function with the magic name
    <link linkend="object.wakeup">__wakeup()</link>. If present, this function can
    reconstruct any resources that the object may have.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    The intended use of <link linkend="object.wakeup">__wakeup()</link> is to
    reestablish any database connections that may have been lost
    during serialization and perform other reinitialization
    tasks.
-  </para>
+  </simpara>
   <example>
    <title>Sleep and wakeup</title>
    <programlisting role="php">
@@ -274,40 +274,40 @@ class Connection
     <modifier>public</modifier> <type>string</type><methodname>__toString</methodname>
     <void/>
    </methodsynopsis>
-   <para>
+   <simpara>
     The <link linkend="object.tostring">__toString()</link> method allows a class to decide
     how it will react when it is treated like a string. For example,
     what <literal>echo $obj;</literal> will print.
-   </para>
+   </simpara>
    <warning>
-    <para>
+    <simpara>
      As of PHP 8.0.0, the return value follows standard PHP type semantics,
      meaning it will be coerced into a <type>string</type> if possible and if
      <link linkend="language.types.declarations.strict">strict typing</link>
      is disabled.
-    </para>
-    <para>
+    </simpara>
+    <simpara>
      A <interfacename>Stringable</interfacename> object will
      <emphasis>not</emphasis> be accepted by a <type>string</type> type declaration if
      <link linkend="language.types.declarations.strict">strict typing</link>
      is enabled. If such behaviour is wanted the type declaration must accept
      <interfacename>Stringable</interfacename> and <type>string</type> via a union type.
-    </para>
-    <para>
+    </simpara>
+    <simpara>
      As of PHP 8.0.0, any class that contains a <link linkend="object.tostring">__toString()</link>
      method will also implicitly implement the <interfacename>Stringable</interfacename> interface, and will
      thus pass type checks for that interface.  Explicitly implementing the interface anyway is
      recommended.
-    </para>
-    <para>
+    </simpara>
+    <simpara>
      In PHP 7.4, the returned value <emphasis>must</emphasis> be a
-     <type>string</type>, otherwise an <classname>Error</classname> is thrown.
-    </para>
-    <para>
+     <type>string</type>, otherwise an <exceptionname>Error</exceptionname> is thrown.
+    </simpara>
+    <simpara>
      Prior to PHP 7.4.0, the returned value <emphasis>must</emphasis> be a
      <type>string</type>, otherwise a fatal <constant>E_RECOVERABLE_ERROR</constant>
      is emitted.
-    </para>
+    </simpara>
    </warning>
    <warning>
     <simpara>
@@ -357,10 +357,10 @@ Hello
     <type>mixed</type><methodname>__invoke</methodname>
     <methodparam rep="repeat"><parameter>values</parameter></methodparam>
    </methodsynopsis>
-   <para>
+   <simpara>
     The <link linkend="object.invoke">__invoke()</link> method is called when a script tries to
     call an object as a function.
-   </para>
+   </simpara>
    <example>
     <title>Using <link linkend="object.invoke">__invoke()</link></title>
     <programlisting role="php">
@@ -485,14 +485,14 @@ Array
     <modifier>static</modifier> <type>object</type><methodname>__set_state</methodname>
     <methodparam><type>array</type><parameter>properties</parameter></methodparam>
    </methodsynopsis>
-   <para>
+   <simpara>
     This <link linkend="language.oop5.static">static</link> method is called
     for classes exported by <function>var_export</function>.
-   </para>
-   <para>
+   </simpara>
+   <simpara>
     The only parameter of this method is an array containing exported
     properties in the form <literal>['property' => value, ...]</literal>.
-   </para>
+   </simpara>
    <example>
     <title>Using <link linkend="object.set-state">__set_state()</link></title>
     <programlisting role="php">
@@ -544,7 +544,7 @@ object(A)#2 (2) {
     <simpara>
      When exporting an object, <function>var_export</function> does not check
      whether <link linkend="object.set-state">__set_state()</link> is
-     implemented by the object's class, so re-importing objects will result in an <classname>Error</classname> exception,
+     implemented by the object's class, so re-importing objects will result in an <exceptionname>Error</exceptionname> exception,
      if __set_state() is not implemented. Particularly, this affects some
      internal classes.
     </simpara>
@@ -561,12 +561,16 @@ object(A)#2 (2) {
     <type>array</type><methodname>__debugInfo</methodname>
     <void/>
    </methodsynopsis>
-   <para>
+   <simpara>
     This method is called by <function>var_dump</function> when dumping an
     object to get the properties that should be shown. If the method isn't
     defined on an object, then all public, protected and private properties
     will be shown.
-   </para>
+   </simpara>
+   <simpara>
+    As of PHP 8.5.0, returning &null; from <link linkend="object.debuginfo">__debugInfo()</link>
+    is deprecated. Return an empty <type>array</type> instead.
+   </simpara>
    <example>
     <title>Using <link linkend="object.debuginfo">__debugInfo()</link></title>
     <programlisting role="php">
