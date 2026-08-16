@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 
-<reference xml:id="class.v8jsexception" role="class" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
+<reference xml:id="class.v8jsmemorylimitexception" role="class" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
 
- <title>The <classname>V8JsException</classname> class</title>
- <titleabbrev>V8JsException</titleabbrev>
+ <title>The <exceptionname>V8JsMemoryLimitException</exceptionname> class</title>
+ <titleabbrev>V8JsMemoryLimitException</titleabbrev>
 
  <partintro>
 
-<!-- {{{ V8JsException intro -->
-  <section xml:id="v8jsexception.intro">
+<!-- {{{ V8JsMemoryLimitException intro -->
+  <section xml:id="v8jsmemorylimitexception.intro">
    &reftitle.intro;
-   <para>
-
-   </para>
+   <simpara>
+    This exception is thrown when a script exceeds the configured memory limit.
+   </simpara>
   </section>
 <!-- }}} -->
 
-  <section xml:id="v8jsexception.synopsis">
+  <section xml:id="v8jsmemorylimitexception.synopsis">
    &reftitle.classsynopsis;
 
 <!-- {{{ Synopsis -->
    <classsynopsis>
-    <ooclass><classname>V8JsException</classname></ooclass>
+    <ooclass><classname>V8JsMemoryLimitException</classname></ooclass>
 
 <!-- {{{ Class synopsis -->
     <classsynopsisinfo>
      <ooclass>
-      <classname>V8JsException</classname>
+      <classname>V8JsMemoryLimitException</classname>
      </ooclass>
 
      <ooclass>
       <modifier>extends</modifier>
-      <classname>RuntimeException</classname>
+      <classname>V8JsException</classname>
      </ooclass>
     </classsynopsisinfo>
 <!-- }}} -->
