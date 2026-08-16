@@ -12,6 +12,8 @@
    <void/>
   </methodsynopsis>
   <simpara>
+   Returns the value returned by the fiber's callable after it has
+   terminated.
   </simpara>
  </refsect1>
 

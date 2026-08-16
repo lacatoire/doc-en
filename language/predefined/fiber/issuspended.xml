@@ -12,6 +12,7 @@
    <void/>
   </methodsynopsis>
   <simpara>
+   Determines whether the fiber is currently suspended.
   </simpara>
  </refsect1>
 

@@ -12,6 +12,8 @@
    <void/>
   </methodsynopsis>
   <simpara>
+   Determines whether the fiber has been started. A fiber that has
+   terminated is still considered started.
   </simpara>
  </refsect1>
 
