@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?do-not-translate?>
 
+<!-- $Revision$ -->
+<!--
+  Do NOT translate this file
+-->
 <versions>
  <function name='db2_autocommit' from='PECL ibm_db2 &gt;= 1.0.0'/>
  <function name='db2_bind_param' from='PECL ibm_db2 &gt;= 1.0.0'/>
@@ -17,6 +21,7 @@
  <function name='db2_escape_string' from='PECL ibm_db2 &gt;= 1.6.0'/>
  <function name='db2_exec' from='PECL ibm_db2 &gt;= 1.0.0'/>
  <function name='db2_execute' from='PECL ibm_db2 &gt;= 1.0.0'/>
+ <function name='db2_execute_many' from='PECL ibm_db2 &gt;= 1.9.2'/>
  <function name='db2_fetch_array' from='PECL ibm_db2 &gt;= 1.0.1'/>
  <function name='db2_fetch_assoc' from='PECL ibm_db2 &gt;= 1.0.0'/>
  <function name='db2_fetch_both' from='PECL ibm_db2 &gt;= 1.0.0'/>
