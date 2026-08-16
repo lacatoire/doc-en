@@ -1143,7 +1143,7 @@ Usage: php [options] [-f] <file> [args...]
 $ php -r 'var_dump($argv);' -- -h
 array(2) {
   [0]=>
-  string(1) "-"
+  string(19) "Standard input code"
   [1]=>
   string(2) "-h"
 }
@@ -1655,6 +1655,15 @@ php >
     it is returned and $_SERVER['PATH_INFO'] is set to the trailing part of
     the URI. Otherwise a 404 response code is returned.
   </para>
+
+  <note>
+   <simpara>
+    As of PHP 8.4.0, this index file lookup is performed even when the
+    requested path looks like a file, i.e. its last path component contains a
+    period, but cannot be located. Previously, such requests skipped the
+    lookup and immediately returned a 404 response.
+   </simpara>
+  </note>
 
   <para>
     If a PHP file is given on the command line when the web server is
