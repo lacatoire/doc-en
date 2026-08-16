@@ -10,7 +10,7 @@
    </term>
    <listitem>
     <simpara>
-
+     Backslash on Windows, forward slash otherwise.
     </simpara>
    </listitem>
   </varlistentry>
@@ -32,7 +32,9 @@
    </term>
    <listitem>
     <simpara>
-
+     Passed as the <parameter>sorting_order</parameter> of
+     <function>scandir</function> to sort the returned entries
+     alphabetically in ascending order. This is the default.
     </simpara>
    </listitem>
   </varlistentry>
@@ -43,7 +45,9 @@
    </term>
    <listitem>
     <simpara>
-
+     Passed as the <parameter>sorting_order</parameter> of
+     <function>scandir</function> to sort the returned entries
+     alphabetically in descending order.
     </simpara>
    </listitem>
   </varlistentry>
@@ -54,7 +58,8 @@
    </term>
    <listitem>
     <simpara>
-
+     Passed as the <parameter>sorting_order</parameter> of
+     <function>scandir</function> to leave the returned entries unsorted.
     </simpara>
    </listitem>
   </varlistentry>
