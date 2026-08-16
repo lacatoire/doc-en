@@ -11,7 +11,7 @@
   &reftitle.description;
   <constructorsynopsis>
    <modifier>public</modifier> <methodname>wkhtmltox\PDF\Object::__construct</methodname>
-   <methodparam><type>string</type><parameter>buffer</parameter></methodparam>
+   <methodparam><type>string</type><parameter>data</parameter></methodparam>
    <methodparam choice="opt"><type>array</type><parameter>settings</parameter></methodparam>
   </constructorsynopsis>
   <para>
@@ -24,7 +24,7 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>buffer</parameter></term>
+    <term><parameter>data</parameter></term>
     <listitem>
      <para>
       HTML

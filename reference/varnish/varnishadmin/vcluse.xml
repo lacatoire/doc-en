@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 
-<refentry xml:id="varnishlog.construct" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+<refentry xml:id="varnishadmin.vcluse" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
-  <refname>VarnishLog::__construct</refname>
-  <refpurpose>Varnishlog constructor</refpurpose>
+  <refname>VarnishAdmin::vclUse</refname>
+  <refpurpose>Switch to the named VCL</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <methodname>VarnishLog::__construct</methodname>
-   <methodparam choice="opt"><type>array</type><parameter>opt</parameter></methodparam>
+   <modifier>public</modifier> <type>bool</type><methodname>VarnishAdmin::vclUse</methodname>
+   <methodparam><type>string</type><parameter>name</parameter></methodparam>
   </methodsynopsis>
-  <para>
-
-  </para>
+  <simpara>
+   Makes the named VCL the active configuration of the running varnish instance.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>opt</parameter></term>
+    <term><parameter>name</parameter></term>
     <listitem>
-     <para>
-       Configuration arguments. The possible keys are:
-<![CDATA[
-VARNISH_CONFIG_IDENT - local varnish instance ident path
-]]>
-     </para>
+     <simpara>
+      The name of the VCL to activate.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -37,11 +34,17 @@ VARNISH_CONFIG_IDENT - local varnish instance ident path
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-
-  </para>
+  <simpara>
+   Returns &true; on success or &false; on failure.
+  </simpara>
  </refsect1>
 
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><methodname>VarnishAdmin::getVclList</methodname></member>
+  </simplelist>
+ </refsect1>
 
 </refentry>
 

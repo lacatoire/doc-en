@@ -12,7 +12,7 @@
   <methodsynopsis>
    <type>array</type><methodname>win32_read_all_rights_access_service</methodname>
    <methodparam><type>string</type><parameter>servicename</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>machine</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>machine</parameter><initializer>""</initializer></methodparam>
   </methodsynopsis>
   <para>
    Read all rights access on <parameter>servicename</parameter>
@@ -67,7 +67,7 @@
   &reftitle.seealso;
   <para>
    <simplelist>
-    <member><function>win32_read_rights_access_service</function></member>
+    <member><function>win32_read_right_access_service</function></member>
     <member><function>win32_add_right_access_service</function></member>
     <member><function>win32_remove_right_access_service</function></member>
     <member><link linkend="win32service.constants.rights">Win32 Rights constants</link></member>
