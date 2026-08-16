@@ -78,9 +78,9 @@
  <function name='ps_setdash' from='PECL ps &gt;= 1.1.0'/>
  <function name='ps_setflat' from='PECL ps &gt;= 1.1.0'/>
  <function name='ps_setfont' from='PECL ps &gt;= 1.1.0'/>
- <function name='ps_setgray' from='PECL ps &gt;= 1.1.0'/>
- <function name='ps_setgray_fill' from='PECL ps &gt;= 1.1.0'/>
- <function name='ps_setgray_stroke' from='PECL ps &gt;= 1.1.0'/>
+ <function name='ps_setgray' from='PECL ps &gt;= 1.1.0' to='PECL ps &lt; 1.2.0'/>
+ <function name='ps_setgray_fill' from='PECL ps &gt;= 1.1.0' to='PECL ps &lt; 1.2.0'/>
+ <function name='ps_setgray_stroke' from='PECL ps &gt;= 1.1.0' to='PECL ps &lt; 1.2.0'/>
  <function name='ps_setlinecap' from='PECL ps &gt;= 1.1.0'/>
  <function name='ps_setlinejoin' from='PECL ps &gt;= 1.1.0'/>
  <function name='ps_setlinewidth' from='PECL ps &gt;= 1.1.0'/>
