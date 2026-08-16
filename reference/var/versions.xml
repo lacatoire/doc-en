@@ -26,7 +26,7 @@
  <function name='is_null' from='PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8'/>
  <function name='is_numeric' from='PHP 4, PHP 5, PHP 7, PHP 8'/>
  <function name='is_object' from='PHP 4, PHP 5, PHP 7, PHP 8'/>
- <function name='is_real' from='PHP 4, PHP 5, PHP 7, PHP 8'/>
+ <function name='is_real' from='PHP 4, PHP 5, PHP 7'/>
  <function name='is_resource' from='PHP 4, PHP 5, PHP 7, PHP 8'/>
  <function name='is_scalar' from='PHP 4 &gt;= 4.0.5, PHP 5, PHP 7, PHP 8'/>
  <function name='is_string' from='PHP 4, PHP 5, PHP 7, PHP 8'/>
