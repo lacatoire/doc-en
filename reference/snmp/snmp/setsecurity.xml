@@ -39,7 +39,8 @@
     <term><parameter>authProtocol</parameter></term>
     <listitem>
      <simpara>
-      the authentication protocol (MD5 or SHA)
+      the authentication protocol (<literal>"MD5"</literal>, <literal>"SHA"</literal>,
+      <literal>"SHA256"</literal>, or <literal>"SHA512"</literal>)
      </simpara>
     </listitem>
    </varlistentry>
@@ -55,7 +56,7 @@
     <term><parameter>privacyProtocol</parameter></term>
     <listitem>
      <simpara>
-      the privacy protocol (DES or AES)
+      the privacy protocol (DES, AES128, or AES)
      </simpara>
     </listitem>
    </varlistentry>
