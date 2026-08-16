@@ -46,8 +46,9 @@
     <varlistentry>
      <term><parameter>attribute</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The name of the attribute whose values are to be retrieved.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>

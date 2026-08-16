@@ -18,10 +18,9 @@
    <methodparam><type>CurlHandle</type><parameter>handle</parameter></methodparam>
   </methodsynopsis>
   &note.resource-migration-8.0-dead-function;
-  <para>
-   Closes a cURL session and frees all resources.  The cURL handle,
-   <parameter>handle</parameter>, is also deleted.
-  </para>
+  <simpara>
+   Closes a cURL session.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
