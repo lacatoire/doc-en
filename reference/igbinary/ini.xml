@@ -37,8 +37,8 @@
     </thead>
     <tbody xml:id="igbinary.ini.list.extra">
      <row>
-      <entry><link linkend="ini.igbinary.save-handler">session.save_handler</link></entry>
-      <entry>"files"</entry>
+      <entry><link linkend="ini.igbinary.serialize-handler">session.serialize_handler</link></entry>
+      <entry>"php"</entry>
       <entry><constant>INI_ALL</constant></entry>
       <entry/>
      </row>
@@ -64,14 +64,14 @@
   </listitem>
  </varlistentry>
 
- <varlistentry xml:id="ini.igbinary.save-handler">
+ <varlistentry xml:id="ini.igbinary.serialize-handler">
   <term>
-   <parameter>session.save_handler</parameter>
+   <parameter>session.serialize_handler</parameter>
    <type>string</type>
   </term>
   <listitem>
    <simpara>
-    Igbinary is used as session handler by setting this value to <literal>igbinary</literal>.
+    Igbinary is used as the session serializer by setting this value to <literal>igbinary</literal>.
    </simpara>
   </listitem>
  </varlistentry>
