@@ -99,14 +99,14 @@
    <parameter>headers</parameter> on success, or &false;
    if an error occurs during the decoding.
   </para>
-  <para>
+  <simpara>
    Each key of the return value represents an individual
    field name and the corresponding element represents a field value.
    If more than one field of the same name are present,
    <function>iconv_mime_decode_headers</function> automatically incorporates
    them into a numerically indexed array in the order of occurrence.
-   Note that header names are not <emphasis>case-insensitive</emphasis>.
-  </para>
+   Note that header names are <emphasis>case-sensitive</emphasis>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
