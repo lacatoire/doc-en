@@ -21,6 +21,7 @@
  <function name='oauth::setRequestEngine' from='PECL OAuth &gt;= 1.0.0'/>
  <function name='oauth::setRsaCertificate' from='PECL OAuth &gt;= 1.0.0'/>
  <function name='oauth::setTimestamp' from='PECL OAuth &gt;= 1.0.0'/>
+ <function name='oauth::setTimeout' from='PECL OAuth &gt;= 1.0.0'/>
  <function name='oauth::fetch' from='PECL OAuth &gt;= 0.99.1'/>
  <function name='oauth::enableDebug' from='PECL OAuth &gt;= 0.99.3'/>
  <function name='oauth::disableDebug' from='PECL OAuth &gt;= 0.99.3'/>
