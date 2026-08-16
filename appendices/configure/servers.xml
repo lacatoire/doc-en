@@ -7,40 +7,6 @@
    Application Programming Interface</literal>) for PHP.
   </para>
   <variablelist>
-   <varlistentry xml:id="configure.with-apxs">
-    <term>
-     <option role="configure">--with-apxs[=FILE]</option>
-    </term>
-    <listitem>
-     <para>
-      Build shared Apache module. FILE is the optional pathname to the Apache
-      apxs tool; defaults to apxs. Make sure you specify the version of apxs that
-      is actually installed on your system and NOT the one that is in the apache
-      source tarball.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry xml:id="configure.with-apache">
-    <term>
-     <option role="configure">--with-apache[=DIR]</option>
-    </term>
-    <listitem>
-     <para>
-      Build a static Apache module. DIR is the top-level Apache build directory,
-      defaults to <filename>/usr/local/apache</filename>.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry xml:id="configure.with-mod-charset">
-    <term>
-     <option role="configure">--with-mod_charset</option>
-    </term>
-    <listitem>
-     <para>
-      Enable transfer tables for mod_charset (Russian Apache).
-     </para>
-    </listitem>
-   </varlistentry>
    <varlistentry xml:id="configure.with-apxs2">
     <term>
      <option role="configure">--with-apxs2[=FILE]</option>
@@ -91,17 +57,6 @@
     </listitem>
    </varlistentry>
 
-   <varlistentry xml:id="configure.with-servlet">
-    <term>
-     <option role="configure">--with-servlet[=DIR]</option>
-    </term>
-    <listitem>
-     <para>
-      Include servlet support. DIR is the base install directory for the JSDK.
-      This SAPI requires the java extension must be built as a shared dl.
-     </para>
-    </listitem>
-   </varlistentry>
 
    <varlistentry xml:id="configure.disable-cgi">
     <term>
