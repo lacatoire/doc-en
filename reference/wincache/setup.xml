@@ -268,20 +268,12 @@ session.save_path = C:\inetpub\temp\session\
     </simpara>
    </listitem>
   </itemizedlist>
-  <para>
-   To configure WinCache to use the functions reroutes use the file <filename>reroute.ini</filename> that is included in
-   WinCache installation package. Copy this file into the same directory where <filename>php.ini</filename>
-   file is located. After that add the wincache.rerouteini setting in <filename>php.ini</filename>
-   and specify an absolute or relative path to the <filename>reroute.ini</filename> file.
-   <example>
-    <title>Enabling WinCache functions reroutes</title>
-    <programlisting role="php.ini">
-<![CDATA[
-wincache.rerouteini = C:\PHP\reroute.ini
-]]>
-    </programlisting>
-   </example>
-  </para>
+  <simpara>
+   As of WinCache 1.3.7.0 the function reroutes are applied automatically and are
+   controlled by the <link linkend="ini.wincache.reroute_enabled">wincache.reroute_enabled</link>
+   directive, which is enabled by default. The earlier <filename>reroute.ini</filename>
+   file and the <literal>wincache.rerouteini</literal> directive are no longer used.
+  </simpara>
   <note>
    <simpara>
     If WinCache functions reroutes are enabled it is recommended to increase the WinCache file cache size. This
