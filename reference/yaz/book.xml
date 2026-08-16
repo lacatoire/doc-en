@@ -41,6 +41,7 @@
  &reference.yaz.setup;
  &reference.yaz.examples;
  &reference.yaz.reference;
+ &reference.yaz.constants;
 
 </book>
 

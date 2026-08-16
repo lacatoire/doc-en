@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+<appendix xml:id="yaz.constants" xmlns="http://docbook.org/ns/docbook">
+ &reftitle.constants;
+ &extension.constants;
+ <para>
+  The following constants identify the ZOOM event types reported by the
+  underlying YAZ ZOOM layer.
+  <variablelist>
+   <varlistentry xml:id="constant.zoom-event-none">
+    <term>
+     <constant>ZOOM_EVENT_NONE</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      No event.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.zoom-event-connect">
+    <term>
+     <constant>ZOOM_EVENT_CONNECT</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      A connection has been established.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.zoom-event-send-data">
+    <term>
+     <constant>ZOOM_EVENT_SEND_DATA</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      Data is being sent.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.zoom-event-recv-data">
+    <term>
+     <constant>ZOOM_EVENT_RECV_DATA</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      Data is being received.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.zoom-event-timeout">
+    <term>
+     <constant>ZOOM_EVENT_TIMEOUT</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      A timeout occurred.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.zoom-event-unknown">
+    <term>
+     <constant>ZOOM_EVENT_UNKNOWN</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      An unknown event.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.zoom-event-send-apdu">
+    <term>
+     <constant>ZOOM_EVENT_SEND_APDU</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      A protocol packet (APDU) is being sent.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.zoom-event-recv-apdu">
+    <term>
+     <constant>ZOOM_EVENT_RECV_APDU</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      A protocol packet (APDU) is being received.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.zoom-event-recv-record">
+    <term>
+     <constant>ZOOM_EVENT_RECV_RECORD</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      A record has been received.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.zoom-event-recv-search">
+    <term>
+     <constant>ZOOM_EVENT_RECV_SEARCH</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      A search response has been received.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </para>
+</appendix>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:"~/.phpdoc/manual.ced"
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim600: syn=xml fen fdm=syntax fdl=2 si
+vim: et tw=78 syn=sgml
+vi: ts=1 sw=1
+-->
