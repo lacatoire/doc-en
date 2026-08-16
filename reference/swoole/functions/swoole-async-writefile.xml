@@ -7,6 +7,12 @@
   <refpurpose>Write data to a file asynchronously</refpurpose>
  </refnamediv>
 
+ <refsynopsisdiv>
+  <warning xmlns="http://docbook.org/ns/docbook">
+   <simpara>This feature has been <emphasis>removed</emphasis> in PECL swoole 4.3.0.</simpara>
+  </warning>
+ </refsynopsisdiv>
+
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
@@ -28,33 +34,31 @@
    <varlistentry>
     <term><parameter>filename</parameter></term>
     <listitem>
-     <para>
-      The filename being written.      
-     </para>
+     <simpara>
+      The filename being written.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>content</parameter></term>
     <listitem>
-     <para>
-      The content writing to the file.      
-     </para>
+     <simpara>
+      The content writing to the file.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>callback</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>flags</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

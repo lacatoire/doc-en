@@ -7,6 +7,12 @@
   <refpurpose>Load a swoole extension</refpurpose>
  </refnamediv>
 
+ <refsynopsisdiv>
+  <warning xmlns="http://docbook.org/ns/docbook">
+   <simpara>This feature has been <emphasis>removed</emphasis> in PECL swoole 1.9.11.</simpara>
+  </warning>
+ </refsynopsisdiv>
+
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
@@ -26,9 +32,8 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   
-  </para>
+  <simpara>
+  </simpara>
  </refsect1>
 
 
