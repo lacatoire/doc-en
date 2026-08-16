@@ -592,6 +592,21 @@
     </listitem>
    </varlistentry>
   </variablelist>
+  <variablelist xml:id="constants.fann-version">
+   <title>Library version</title>
+   <varlistentry xml:id="constant.fann-version">
+    <term>
+     <constant>FANN_VERSION</constant>
+     (<type>string</type>)
+    </term>
+    <listitem>
+     <simpara>
+      The version of the underlying libFANN library that the extension was
+      built against, for example <literal>2.2</literal>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </para>
 </appendix>
 
