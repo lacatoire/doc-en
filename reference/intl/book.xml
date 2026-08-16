@@ -93,6 +93,15 @@
    </listitem>
   </itemizedlist>
 
+  <note>
+   <simpara>
+    As of PHP 8.4.0, the behaviour of the Intl classes has been normalized to
+    always throw an <exceptionname>Error</exceptionname> when attempting to use a
+    non-initialized object (one created without invoking its constructor), or
+    when cloning such an object fails.
+   </simpara>
+  </note>
+
   <!-- {{{ Links -->
   <section xml:id="intl.links">
    <title>Links</title>
