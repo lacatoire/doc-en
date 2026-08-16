@@ -3,6 +3,7 @@
 
 <versions>
  <!-- Functions -->
+ <function name='scoutapm_enable_instrumentation' from='PECL scoutapm &gt;= 1.4.0'/>
  <function name='scoutapm_get_calls' from='PECL scoutapm &gt;= 1.0.0'/>
  <function name='scoutapm_list_instrumented_functions' from='PECL scoutapm &gt;= 1.0.2'/>
 </versions>
