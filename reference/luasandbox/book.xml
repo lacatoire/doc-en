@@ -60,6 +60,7 @@
  &reference.luasandbox.luasandboxruntimeerror;
  &reference.luasandbox.luasandboxsyntaxerror;
  &reference.luasandbox.luasandboxtimeouterror;
+ &reference.luasandbox.luasandboxemergencytimeouterror;
 
 </book>
 <!-- Keep this comment at the end of the file
