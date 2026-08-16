@@ -2,7 +2,7 @@
 <refentry xml:id="uri-whatwg-url.getunicodehost" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>Uri\WhatWg\Url::getUnicodeHost</refname>
-  <refpurpose>Retrieve the host component as an Unicode &string;</refpurpose>
+  <refpurpose>Retrieve the host component as a Unicode &string;</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
