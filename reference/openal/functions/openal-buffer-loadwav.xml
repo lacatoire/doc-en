@@ -9,6 +9,11 @@
  </refnamediv>
  <refsect1 role="description">
   &reftitle.description;
+  <warning>
+   <simpara>
+    This function was removed in PECL openal 0.9.0.
+   </simpara>
+  </warning>
   <methodsynopsis>
    <type>bool</type><methodname>openal_buffer_loadwav</methodname>
    <methodparam><type>resource</type><parameter>buffer</parameter></methodparam>
