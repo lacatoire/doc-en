@@ -493,6 +493,36 @@
      </thead>
      <tbody>
       <row>
+       <entry>8.5.0</entry>
+       <entry>
+        Driver-specific constants of the <classname>PDO</classname> class have
+        been deprecated in favor of the equivalent constants of the
+        driver-specific subclasses (<classname>Pdo\Dblib</classname>,
+        <classname>Pdo\Firebird</classname>, <classname>Pdo\Mysql</classname>,
+        <classname>Pdo\Odbc</classname>, <classname>Pdo\Pgsql</classname>,
+        <classname>Pdo\Sqlite</classname>).
+       </entry>
+      </row>
+      <row>
+       <entry>8.5.0</entry>
+       <entry>
+        Driver-specific methods of the <classname>PDO</classname> class have
+        been deprecated: <methodname>PDO::pgsqlCopyFromArray</methodname>,
+        <methodname>PDO::pgsqlCopyFromFile</methodname>,
+        <methodname>PDO::pgsqlCopyToArray</methodname>,
+        <methodname>PDO::pgsqlCopyToFile</methodname>,
+        <methodname>PDO::pgsqlGetNotify</methodname>,
+        <methodname>PDO::pgsqlGetPid</methodname>,
+        <methodname>PDO::pgsqlLOBCreate</methodname>,
+        <methodname>PDO::pgsqlLOBOpen</methodname>,
+        <methodname>PDO::pgsqlLOBUnlink</methodname>,
+        <methodname>PDO::sqliteCreateAggregate</methodname>,
+        <methodname>PDO::sqliteCreateCollation</methodname>, and
+        <methodname>PDO::sqliteCreateFunction</methodname>.
+        Use the equivalent methods of the driver-specific subclasses instead.
+       </entry>
+      </row>
+      <row>
        <entry>8.4.0</entry>
        <entry>
         The class constants are now typed.
