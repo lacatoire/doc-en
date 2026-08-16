@@ -29,7 +29,7 @@
      <ooclass>
       <classname>Yaf_Session</classname>
      </ooclass>
-     
+
      <oointerface>
       <interfacename>Iterator</interfacename>
      </oointerface>
@@ -45,20 +45,23 @@
 <!-- }}} -->
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
-     <modifier>protected</modifier>
      <modifier>static</modifier>
+     <modifier>protected</modifier>
+     <type>Yaf_Session</type>
      <varname linkend="yaf-session.props.instance">_instance</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>array</type>
      <varname linkend="yaf-session.props.session">_session</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>bool</type>
      <varname linkend="yaf-session.props.started">_started</varname>
     </fieldsynopsis>
 
-    
+
     <classsynopsisinfo role="comment">&Methods;</classsynopsisinfo>
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.yaf-session')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis[not(@role='procedural')])" />
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.yaf-session')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[1])" />
@@ -67,7 +70,7 @@
 
   </section>
 
-  
+
 <!-- {{{ Yaf_Session properties -->
   <section xml:id="yaf-session.props">
    &reftitle.properties;

@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>protected</modifier> <type>void</type><methodname>Yaf_Response_Abstract::setAllHeaders</methodname>
-   <void />
+   <modifier>protected</modifier> <type class="union"><type>bool</type><type>null</type></type><methodname>Yaf_Response_Abstract::setAllHeaders</methodname>
+   <methodparam><type>array</type><parameter>headers</parameter></methodparam>
   </methodsynopsis>
   <para>
 
@@ -23,7 +23,16 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  &no.function.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>headers</parameter></term>
+    <listitem>
+     <simpara>
+      An array of headers.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">

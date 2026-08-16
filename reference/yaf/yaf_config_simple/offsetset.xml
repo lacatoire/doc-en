@@ -11,8 +11,8 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>void</type><methodname>Yaf_Config_Simple::offsetSet</methodname>
-   <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam><type>string</type><parameter>value</parameter></methodparam>
+   <methodparam><type>mixed</type><parameter>name</parameter></methodparam>
+   <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
   </methodsynopsis>
   <para>
 

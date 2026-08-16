@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <modifier>static</modifier> <type>void</type><methodname>Yaf_Loader::import</methodname>
-   <void />
+   <modifier>public</modifier> <modifier>static</modifier> <type class="union"><type>bool</type><type>null</type></type><methodname>Yaf_Loader::import</methodname>
+   <methodparam><type>string</type><parameter>file</parameter></methodparam>
   </methodsynopsis>
   <para>
 

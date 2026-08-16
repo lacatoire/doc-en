@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>bool</type><methodname>Yaf_Request_Abstract::setBaseUri</methodname>
+   <modifier>public</modifier> <type class="union"><type>object</type><type>false</type></type><methodname>Yaf_Request_Abstract::setBaseUri</methodname>
    <methodparam><type>string</type><parameter>uir</parameter></methodparam>
   </methodsynopsis>
   <para>
@@ -45,9 +45,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   bool
-  </para>
+  <simpara>
+   Returns the current request instance on success, or &false; on failure.
+  </simpara>
  </refsect1>
 
 

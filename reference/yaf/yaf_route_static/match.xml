@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Route_Static::match</methodname>
+   <modifier>public</modifier> <type>bool</type><methodname>Yaf_Route_Static::match</methodname>
    <methodparam><type>string</type><parameter>uri</parameter></methodparam>
   </methodsynopsis>
   <para>

@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Response_Abstract::getHeader</methodname>
-   <void />
+   <modifier>public</modifier> <type>mixed</type><methodname>Yaf_Response_Abstract::getHeader</methodname>
+   <methodparam choice="opt"><type>string</type><parameter>name</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
 
@@ -23,7 +23,16 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  &no.function.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>name</parameter></term>
+    <listitem>
+     <simpara>
+      The header name.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -37,7 +46,7 @@
   &reftitle.seealso;
   <simplelist>
    <member><methodname>Yaf_Response_Abstract::setHeader</methodname></member>
-   <member><methodname>Yaf_Response_Abstract::cleanHeaders</methodname></member>
+   <member><methodname>Yaf_Response_Abstract::clearHeaders</methodname></member>
   </simplelist>
  </refsect1>
 

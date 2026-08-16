@@ -3,15 +3,15 @@
 
 <refentry xml:id="yaf-session.get" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
-  <refname>Yaf_Session::__get</refname>
-  <refpurpose>The __get purpose</refpurpose>
+  <refname>Yaf_Session::get</refname>
+  <refpurpose>Retrieve item from session</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Session::__get</methodname>
-   <methodparam><type>string</type><parameter>name</parameter></methodparam>
+   <modifier>public</modifier> <type>mixed</type><methodname>Yaf_Session::get</methodname>
+   <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>name</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
 
@@ -27,9 +27,9 @@
    <varlistentry>
     <term><parameter>name</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

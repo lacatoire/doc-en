@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>Yaf_Dispatcher</type><methodname>Yaf_Dispatcher::setDefaultModule</methodname>
+   <modifier>public</modifier> <type class="union"><type>Yaf_Dispatcher</type><type>null</type><type>false</type></type><methodname>Yaf_Dispatcher::setDefaultModule</methodname>
    <methodparam><type>string</type><parameter>module</parameter></methodparam>
   </methodsynopsis>
   <para>
@@ -27,9 +27,9 @@
    <varlistentry>
     <term><parameter>module</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

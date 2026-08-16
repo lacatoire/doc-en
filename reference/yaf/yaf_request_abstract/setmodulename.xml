@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Request_Abstract::setModuleName</methodname>
+   <modifier>public</modifier> <type class="union"><type>object</type><type>null</type></type><methodname>Yaf_Request_Abstract::setModuleName</methodname>
    <methodparam><type>string</type><parameter>module</parameter></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>format_name</parameter><initializer>true</initializer></methodparam>
   </methodsynopsis>

@@ -48,46 +48,57 @@
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>public</modifier>
+     <type class="union"><type>string</type><type>null</type></type>
      <varname linkend="yaf-request-abstract.props.module">module</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>public</modifier>
+     <type class="union"><type>string</type><type>null</type></type>
      <varname linkend="yaf-request-abstract.props.controller">controller</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>public</modifier>
+     <type class="union"><type>string</type><type>null</type></type>
      <varname linkend="yaf-request-abstract.props.action">action</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>public</modifier>
+     <type class="union"><type>string</type><type>null</type></type>
      <varname linkend="yaf-request-abstract.props.method">method</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type class="union"><type>array</type><type>null</type></type>
      <varname linkend="yaf-request-abstract.props.params">params</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type class="union"><type>string</type><type>null</type></type>
      <varname linkend="yaf-request-abstract.props.language">language</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>object</type>
      <varname linkend="yaf-request-abstract.props.exception">_exception</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>string</type>
      <varname linkend="yaf-request-abstract.props.base-uri">_base_uri</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>string</type>
      <varname linkend="yaf-request-abstract.props.uri">uri</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>bool</type>
      <varname linkend="yaf-request-abstract.props.dispatched">dispatched</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>bool</type>
      <varname linkend="yaf-request-abstract.props.routed">routed</varname>
     </fieldsynopsis>
 

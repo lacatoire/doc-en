@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>Yaf_Dispatcher</type><methodname>Yaf_Application::getDispatcher</methodname>
-   <void />
+   <modifier>public</modifier> <type class="union"><type>object</type><type>null</type></type><methodname>Yaf_Application::getDispatcher</methodname>
+   <void/>
   </methodsynopsis>
   <para>
 

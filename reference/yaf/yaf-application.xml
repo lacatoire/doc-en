@@ -52,35 +52,50 @@
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>array</type>
      <varname linkend="yaf-application.props.config">config</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>object</type>
      <varname linkend="yaf-application.props.dispatcher">dispatcher</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
      <modifier>static</modifier>
+     <type>object</type>
      <varname linkend="yaf-application.props.app">_app</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>array</type>
      <varname linkend="yaf-application.props.modules">_modules</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>bool</type>
      <varname linkend="yaf-application.props.running">_running</varname>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>string</type>
      <varname linkend="yaf-application.props.environ">_environ</varname>
     </fieldsynopsis>
+    <fieldsynopsis>
+     <modifier>protected</modifier>
+     <type>int</type>
+     <varname linkend="yaf-application.props.err-no">_err_no</varname>
+    </fieldsynopsis>
+    <fieldsynopsis>
+     <modifier>protected</modifier>
+     <type>string</type>
+     <varname linkend="yaf-application.props.err-msg">_err_msg</varname>
+    </fieldsynopsis>
 
-    
+
     <classsynopsisinfo role="comment">&Methods;</classsynopsisinfo>
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.yaf-application')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis[not(@role='procedural')])" />
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.yaf-application')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[not(@role='procedural')])" />
-    <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.yaf-application')/db:refentry/db:refsect1[@role='description']/descendant::db:destructorsynopsis[not(@role='procedural')])" />
    </classsynopsis>
 <!-- }}} -->
 
@@ -125,6 +140,18 @@
      <term><varname>_environ</varname></term>
      <listitem>
       <para></para>
+     </listitem>
+    </varlistentry>
+    <varlistentry xml:id="yaf-application.props.err-no">
+     <term><varname>_err_no</varname></term>
+     <listitem>
+      <simpara></simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry xml:id="yaf-application.props.err-msg">
+     <term><varname>_err_msg</varname></term>
+     <listitem>
+      <simpara></simpara>
      </listitem>
     </varlistentry>
    </variablelist>
