@@ -60,6 +60,29 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.rar-host-macos">
+   <term>
+    <constant>RAR_HOST_MACOS</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Use <link linkend="rarentry.constants.host-macos"><constant>RarEntry::HOST_MACOS</constant></link> instead.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.rar-maxpathlen">
+   <term>
+    <constant>RAR_MAXPATHLEN</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     The maximum length of a filesystem path, in bytes. This corresponds to the
+     platform's <literal>MAXPATHLEN</literal> value.
+    </simpara>
+   </listitem>
+  </varlistentry>
  </variablelist>
 </appendix>
 
