@@ -21,6 +21,10 @@
   <title>Discarding a value with <literal>(void)</literal></title>
 
   <simpara>
+   Available as of PHP 8.5.0.
+  </simpara>
+
+  <simpara>
    The <literal>(void)</literal> syntax may be used to explicitly discard the
    result of an expression. This is useful to indicate that ignoring a return
    value is intentional, especially when calling a function or method marked
