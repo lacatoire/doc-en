@@ -327,6 +327,19 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.sqlsrv-phptype-table">
+   <term>
+    <constant>SQLSRV_PHPTYPE_TABLE</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+    Specifies a table-valued parameter as a PHP data type. Table-valued
+    parameters are input-only. For usage information, see
+    <link xlink:href="&url.sqlsrv.specify.phptype;">How to: Specify PHP Types</link>.
+    </simpara>
+   </listitem>
+  </varlistentry>
   <varlistentry xml:id="constant.sqlsrv-enc-binary">
    <term>
     <constant>SQLSRV_ENC_BINARY</constant>
@@ -624,6 +637,19 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.sqlsrv-sqltype-table">
+   <term>
+    <constant>SQLSRV_SQLTYPE_TABLE</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+    Describes a table-valued parameter, a SQL Server table type. Table-valued
+    parameters are input-only. For usage information, see
+    <link xlink:href="&url.sqlsrv.specify.sqltype;">How to: Specify SQL Types</link>.
+    </simpara>
+   </listitem>
+  </varlistentry>
   <varlistentry xml:id="constant.sqlsrv-sqltype-text">
    <term>
     <constant>SQLSRV_SQLTYPE_TEXT</constant>
@@ -810,9 +836,9 @@
     </simpara>
    </listitem>
   </varlistentry>
-  <varlistentry xml:id="constant.sqlsrv-txn-read-serializable">
+  <varlistentry xml:id="constant.sqlsrv-txn-serializable">
    <term>
-    <constant>SQLSRV_TXN_READ_SERIALIZABLE</constant>
+    <constant>SQLSRV_TXN_SERIALIZABLE</constant>
     (<type>int</type>)
    </term>
    <listitem>
@@ -871,9 +897,9 @@
     </simpara>
    </listitem>
   </varlistentry>
-  <varlistentry xml:id="constant.sqlsrv-cursor-buffered">
+  <varlistentry xml:id="constant.sqlsrv-cursor-client-buffered">
    <term>
-    <constant>SQLSRV_CURSOR_BUFFERED</constant>
+    <constant>SQLSRV_CURSOR_CLIENT_BUFFERED</constant>
     (<type>int</type>)
    </term>
    <listitem>
