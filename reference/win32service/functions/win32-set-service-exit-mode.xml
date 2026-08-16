@@ -11,10 +11,10 @@
   &reftitle.description;
   <methodsynopsis role="procedural">
    <type>bool</type><methodname>win32_set_service_exit_mode</methodname>
-   <methodparam choice="opt"><type>bool</type><parameter>gracefulMode</parameter><initializer>true</initializer></methodparam>
+   <methodparam choice="opt"><type>bool</type><parameter>gracefulExit</parameter><initializer>true</initializer></methodparam>
   </methodsynopsis>
   <simpara>
-   If <parameter>gracefulMode</parameter> parameter is provided, the exit mode 
+   If <parameter>gracefulExit</parameter> parameter is provided, the exit mode
 is changed. When the exit mode is not graceful, the exit code used can be set
 with the <function>win32_set_service_exit_code</function> function.
   </simpara>
@@ -31,7 +31,7 @@ with the <function>win32_set_service_exit_code</function> function.
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>gracefulMode</parameter></term>
+    <term><parameter>gracefulExit</parameter></term>
     <listitem>
      <para>
       &true; for exit graceful. &false; for exit with error.
