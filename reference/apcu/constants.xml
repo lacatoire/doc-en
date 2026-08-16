@@ -37,17 +37,6 @@
     </simpara>
    </listitem>
   </varlistentry>
-  <varlistentry xml:id="constant.apc-iter-device">
-   <term>
-    <constant>APC_ITER_DEVICE</constant>
-    (<type>int</type>)
-   </term>
-   <listitem>
-    <simpara>
-
-    </simpara>
-   </listitem>
-  </varlistentry>
   <varlistentry xml:id="constant.apc-iter-dtime">
    <term>
     <constant>APC_ITER_DTIME</constant>
@@ -59,42 +48,9 @@
     </simpara>
    </listitem>
   </varlistentry>
-  <varlistentry xml:id="constant.apc-iter-filename">
-   <term>
-    <constant>APC_ITER_FILENAME</constant>
-    (<type>int</type>)
-   </term>
-   <listitem>
-    <simpara>
-
-    </simpara>
-   </listitem>
-  </varlistentry>
-  <varlistentry xml:id="constant.apc-iter-inode">
-   <term>
-    <constant>APC_ITER_INODE</constant>
-    (<type>int</type>)
-   </term>
-   <listitem>
-    <simpara>
-
-    </simpara>
-   </listitem>
-  </varlistentry>
   <varlistentry xml:id="constant.apc-iter-key">
    <term>
     <constant>APC_ITER_KEY</constant>
-    (<type>int</type>)
-   </term>
-   <listitem>
-    <simpara>
-
-    </simpara>
-   </listitem>
-  </varlistentry>
-  <varlistentry xml:id="constant.apc-iter-md5">
-   <term>
-    <constant>APC_ITER_MD5</constant>
     (<type>int</type>)
    </term>
    <listitem>
