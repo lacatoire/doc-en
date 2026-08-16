@@ -9,7 +9,7 @@
   &reftitle.description;
   <methodsynopsis>
    <type>array</type><methodname>array_uintersect_uassoc</methodname>
-   <methodparam><type>array</type><parameter>array1</parameter></methodparam>
+   <methodparam><type>array</type><parameter>array</parameter></methodparam>
    <methodparam rep="repeat"><type>array</type><parameter>arrays</parameter></methodparam>
    <methodparam><type>callable</type><parameter>value_compare_func</parameter></methodparam>
    <methodparam><type>callable</type><parameter>key_compare_func</parameter></methodparam>
@@ -24,7 +24,7 @@
   <para>
    <variablelist>
     <varlistentry>
-     <term><parameter>array1</parameter></term>
+     <term><parameter>array</parameter></term>
      <listitem>
       <para>
        The first array.
@@ -59,10 +59,10 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns an array containing all the values of
-   <parameter>array1</parameter> that are present in all the arguments.
-  </para>
+   <parameter>array</parameter> that are present in all the arguments.
+  </simpara>
  </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
