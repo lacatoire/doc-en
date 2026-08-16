@@ -6,7 +6,7 @@
 
  <partintro>
 
-  <section xml:id="RequestParseBodyException.intro">
+  <section xml:id="requestparsebodyexception.intro">
    &reftitle.intro;
    <simpara>
     A <exceptionname>RequestParseBodyException</exceptionname> is thrown in
@@ -15,7 +15,7 @@
    </simpara>
   </section>
 
-  <section xml:id="RequestParseBodyException.synopsis">
+  <section xml:id="requestparsebodyexception.synopsis">
    &reftitle.classsynopsis;
 
    <classsynopsis class="class">
