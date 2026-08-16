@@ -79,16 +79,18 @@
      </para>
     </question>
     <answer>
-     <para>
-      You should go to the PHP Bug Database and make sure the bug
-      isn't a known bug.  If you don't see it in the database, use
-      the reporting form to report the bug.  It is important to use
-      the bug database instead of just sending an email to one of the
-      mailing lists because the bug will have a tracking number assigned
-      and it will then be possible for you to go back later and check
-      on the status of the bug.  The bug database can be found at 
+     <simpara>
+      You should first search the existing reports and make sure the bug
+      isn't already known.  If you don't find it, open a new issue.  It is
+      important to use the issue tracker instead of just sending an email to
+      one of the mailing lists because the report will have a tracking number
+      assigned and it will then be possible for you to go back later and check
+      on the status of the bug.  General bugs are reported on the GitHub issue
+      tracker at
+      <link xlink:href="https://github.com/php/php-src/issues">https://github.com/php/php-src/issues</link>.
+      Security issues should instead be reported through
       <link xlink:href="&url.php.bugs;">&url.php.bugs;</link>.
-     </para>
+     </simpara>
     </answer>
    </qandaentry>
   </qandaset>
