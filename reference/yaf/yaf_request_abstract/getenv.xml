@@ -10,9 +10,9 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Request_Abstract::getEnv</methodname>
-   <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>default</parameter></methodparam>
+   <modifier>public</modifier> <type>mixed</type><methodname>Yaf_Request_Abstract::getEnv</methodname>
+   <methodparam choice="opt"><type>string</type><parameter>name</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type>mixed</type><parameter>default</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
     Retrieve ENV variable

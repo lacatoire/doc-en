@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>Yaf_Request_Abstract</type><methodname>Yaf_Dispatcher::getRequest</methodname>
+   <modifier>public</modifier> <type class="union"><type>Yaf_Request_Abstract</type><type>null</type></type><methodname>Yaf_Dispatcher::getRequest</methodname>
    <void />
   </methodsynopsis>
   <para>

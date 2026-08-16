@@ -38,6 +38,7 @@
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>string</type>
      <varname linkend="yaf-route-supervar.props.var-name">_var_name</varname>
     </fieldsynopsis>
 

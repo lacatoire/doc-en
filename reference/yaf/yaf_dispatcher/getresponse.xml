@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 
-<refentry xml:id="yaf-response-abstract.destruct" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+<refentry xml:id="yaf-dispatcher.getresponse" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
-  <refname>Yaf_Response_Abstract::__destruct</refname>
-  <refpurpose>The __destruct purpose</refpurpose>
+  <refname>Yaf_Dispatcher::getResponse</refname>
+  <refpurpose>Retrieve the response instance</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
-  <destructorsynopsis>
-   <modifier>public</modifier> <methodname>Yaf_Response_Abstract::__destruct</methodname>
-   <void />
-  </destructorsynopsis>
-  <para>
-
-  </para>
-
-  &warn.undocumented.func;
-
+  <methodsynopsis>
+   <modifier>public</modifier> <type class="union"><type>Yaf_Response_Abstract</type><type>null</type></type><methodname>Yaf_Dispatcher::getResponse</methodname>
+   <void/>
+  </methodsynopsis>
+  <simpara>
+   Retrieve the response instance used by the dispatcher.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -28,11 +25,16 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-
-  </para>
+  <simpara>
+  </simpara>
  </refsect1>
 
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><methodname>Yaf_Dispatcher::setResponse</methodname></member>
+  </simplelist>
+ </refsect1>
 
 </refentry>
 

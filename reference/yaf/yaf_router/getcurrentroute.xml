@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>string</type><methodname>Yaf_Router::getCurrentRoute</methodname>
-   <void />
+   <modifier>public</modifier> <type class="union"><type>int</type><type>string</type><type>null</type></type><methodname>Yaf_Router::getCurrentRoute</methodname>
+   <void/>
   </methodsynopsis>
   <para>
    Get the name of the route which is effective in the route process.
@@ -31,9 +31,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    String, the name of the effective route.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

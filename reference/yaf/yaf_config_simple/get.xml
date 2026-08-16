@@ -10,8 +10,8 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Config_Simple::__get</methodname>
-   <methodparam choice="opt"><type>string</type><parameter>name</parameter></methodparam>
+   <modifier>public</modifier> <type>mixed</type><methodname>Yaf_Config_Simple::__get</methodname>
+   <methodparam><type>string</type><parameter>name</parameter></methodparam>
   </methodsynopsis>
   <para>
 

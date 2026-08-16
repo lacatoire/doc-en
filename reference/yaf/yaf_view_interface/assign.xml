@@ -10,9 +10,9 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>abstract</modifier> <modifier>public</modifier> <type>bool</type><methodname>Yaf_View_Interface::assign</methodname>
+   <modifier>abstract</modifier> <modifier>public</modifier> <type class="union"><type>Yaf_View_Interface</type><type>bool</type></type><methodname>Yaf_View_Interface::assign</methodname>
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>value</parameter></methodparam>
+   <methodparam choice="opt"><type>mixed</type><parameter>value</parameter></methodparam>
   </methodsynopsis>
   <para>
      Assigan values to View engine, then the value can access directly by name in template.

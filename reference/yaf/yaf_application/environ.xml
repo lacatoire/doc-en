@@ -10,13 +10,13 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Application::environ</methodname>
-   <void />
+   <modifier>public</modifier> <type class="union"><type>string</type><type>null</type></type><methodname>Yaf_Application::environ</methodname>
+   <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    Retrive environ which was defined in yaf.environ which has a default value
    "product".
-  </para>
+  </simpara>
 
 
 

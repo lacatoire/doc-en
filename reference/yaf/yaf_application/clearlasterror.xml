@@ -10,15 +10,12 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>Yaf_Application</type><methodname>Yaf_Application::clearLastError</methodname>
-   <void />
+   <modifier>public</modifier> <type class="union"><type>object</type><type>null</type></type><methodname>Yaf_Application::clearLastError</methodname>
+   <void/>
   </methodsynopsis>
   <para>
 
   </para>
-
-
-
  </refsect1>
 
  <refsect1 role="parameters">

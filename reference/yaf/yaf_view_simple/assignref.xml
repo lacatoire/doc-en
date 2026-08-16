@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>bool</type><methodname>Yaf_View_Simple::assignRef</methodname>
+   <modifier>public</modifier> <type class="union"><type>object</type><type>null</type></type><methodname>Yaf_View_Simple::assignRef</methodname>
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
    <methodparam><type>mixed</type><parameter role="reference">value</parameter></methodparam>
   </methodsynopsis>

@@ -10,7 +10,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>private</modifier> <type>string</type><methodname>Yaf_Response_Abstract::__toString</methodname>
+   <modifier>public</modifier> <type>string</type><methodname>Yaf_Response_Abstract::__toString</methodname>
    <void />
   </methodsynopsis>
   <para>

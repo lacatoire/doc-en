@@ -11,18 +11,18 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>mixed</type><methodname>Yaf_Response_Abstract::getBody</methodname>
-   <methodparam choice="opt"><type>string</type><parameter>key</parameter></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>name</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   Retrieve a exists content
-  </para>
+  <simpara>
+   Retrieve an existing content
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>key</parameter></term>
+    <term><parameter>name</parameter></term>
     <listitem>
      <para>
       the content key, if you don't specific, then Yaf_Response_Abstract::DEFAULT_BODY

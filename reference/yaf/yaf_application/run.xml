@@ -10,14 +10,14 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yaf_Application::run</methodname>
-   <void />
+   <modifier>public</modifier> <type class="union"><type>object</type><type>false</type></type><methodname>Yaf_Application::run</methodname>
+   <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    Run a Yaf_Application, let the Yaf_Application accept a request and route
    this request, dispatch to controller/action and render response. Finally,
    return the response to the client.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
