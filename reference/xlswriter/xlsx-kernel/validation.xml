@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+
+<refentry xml:id="vtiful-kernel-excel.validation" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <refnamediv>
+  <refname>Vtiful\Kernel\Excel::validation</refname>
+  <refpurpose>Vtiful\Kernel\Excel validation</refpurpose>
+ </refnamediv>
+ <refsect1 role="description">
+  &reftitle.description;
+  <methodsynopsis>
+   <modifier>public</modifier> <type>Vtiful\Kernel\Excel</type> <methodname>Vtiful\Kernel\Excel::validation</methodname>
+   <methodparam><type>string</type><parameter>range</parameter></methodparam>
+   <methodparam><type>resource</type><parameter>validation_resource</parameter></methodparam>
+  </methodsynopsis>
+  <simpara>Applies a data validation rule to the given cell range.</simpara>
+ </refsect1>
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>range</parameter></term>
+    <listitem>
+     <simpara>Cell range in <literal>A1:B2</literal> notation.</simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>validation_resource</parameter></term>
+    <listitem>
+     <simpara>Data validation handle created from <classname>Vtiful\Kernel\Validation</classname>.</simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </refsect1>
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>Returns the current <classname>Vtiful\Kernel\Excel</classname> instance.</simpara>
+ </refsect1>
+</refentry>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:"~/.phpdoc/manual.ced"
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim600: syn=xml fen fdm=syntax fdl=2 si
+vim: et tw=78 syn=sgml
+vi: ts=1 sw=1
+-->

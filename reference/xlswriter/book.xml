@@ -17,6 +17,12 @@
  &reference.xlswriter.setup;
  &reference.xlswriter.xlsx-kernel;
  &reference.xlswriter.xlsx-format;
+ &reference.xlswriter.xlsx-chart;
+ &reference.xlswriter.xlsx-table;
+ &reference.xlswriter.xlsx-validation;
+ &reference.xlswriter.xlsx-conditional-format;
+ &reference.xlswriter.xlsx-rich-string;
+ &reference.xlswriter.xlsx-exception;
 
 </book>
 
