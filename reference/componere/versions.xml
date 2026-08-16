@@ -14,6 +14,7 @@
  <function name='componere\definition::__construct' from='Componere 2 &gt;= 2.1.0'/>
  <function name='componere\definition::addproperty' from='Componere 2 &gt;= 2.1.0'/>
  <function name='componere\definition::addconstant' from='Componere 2 &gt;= 2.1.0'/>
+ <function name='componere\definition::setconstant' from='Componere 3 &gt;= 3.0.0'/>
  <function name='componere\definition::getclosure' from='Componere 2 &gt;= 2.1.0'/>
  <function name='componere\definition::getclosures' from='Componere 2 &gt;= 2.1.0'/>
  <function name='componere\definition::register' from='Componere 2 &gt;= 2.1.0'/>
@@ -41,6 +42,7 @@
  <function name='componere\method::setprotected' from='Componere 2 &gt;= 2.1.0'/>
  <function name='componere\method::setprivate' from='Componere 2 &gt;= 2.1.0'/>
  <function name='componere\method::setstatic' from='Componere 2 &gt;= 2.1.0'/>
+ <function name='componere\method::setfinal' from='Componere 3 &gt;= 3.0.0'/>
  <function name='componere\method::getreflector' from='Componere 2 &gt;= 2.1.0'/>
 
  <function name='componere\value' from='Componere 2 &gt;= 2.1.0'/>
