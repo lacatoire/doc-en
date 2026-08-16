@@ -5,7 +5,7 @@
  <simpara>
   While PHP can be installed from source, it is also available through
   packages on systems that use DNF, such as Red Hat Enterprise Linux,
-  OpenSUSE, Fedora, CentOS, Rocky Linux, and Oracle Enterprise Linux.
+  Fedora, CentOS, Rocky Linux, and Oracle Enterprise Linux.
  </simpara>
  &warn.install.third-party-support;
  <simpara>
@@ -86,8 +86,8 @@
   <simpara>
    DNF will automatically add the appropriate lines to the
    different &php.ini; related files like
-   <filename>/etc/php/8.3/php.ini</filename>,
-   <filename>/etc/php/8.3/conf.d/*.ini</filename>, etc. and depending on
+   <filename>/etc/php.ini</filename>,
+   <filename>/etc/php.d/*.ini</filename>, etc. and depending on
    the extension will add entries similar to <literal>extension=foo.so</literal>.
    However, restarting the web server (like Apache) is required before these
    changes take effect.

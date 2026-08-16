@@ -95,7 +95,7 @@ sudo make install
     <screen>
 <![CDATA[
 cd /usr/local/lsws/fcgi-bin/
-./lsphp5 -v
+./lsphp -v
 ]]>
     </screen>
    </informalexample>
@@ -107,9 +107,9 @@ cd /usr/local/lsws/fcgi-bin/
    <informalexample>
     <screen>
 <![CDATA[
-PHP 5.6.17 (litespeed) (built: Mar 22 2016 11:34:19)
-Copyright (c) 1997-2014 The PHP Group
-Zend Engine v2.6.0, Copyright (c) 1998-2015 Zend Technologies
+PHP 8.3.0 (litespeed) (built: Nov 21 2023 00:00:00)
+Copyright (c) The PHP Group
+Zend Engine v4.3.0, Copyright (c) Zend Technologies
 ]]>
     </screen>
    </informalexample>
