@@ -274,7 +274,7 @@ print_r($db);
 ** Database of AminoAcid objects:
 Array
 (
-    [0] => aminoacid Object
+    [0] => AminoAcid Object
         (
             [name] => Alanine
             [symbol] => ala
@@ -282,7 +282,7 @@ Array
             [type] => hydrophobic
         )
 
-    [1] => aminoacid Object
+    [1] => AminoAcid Object
         (
             [name] => Lysine
             [symbol] => lys
