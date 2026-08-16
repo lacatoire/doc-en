@@ -61,9 +61,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the return value of the callback, or &false; on error.
-  </para>
+  <simpara>
+   Returns the return value of the callback.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
