@@ -45,6 +45,7 @@
  <function name='parle\parser::nonassoc' from='PECL parle &gt;= 0.5.1'/>
  <function name='parle\parser::precedence' from='PECL parle &gt;= 0.5.1'/>
  <function name='parle\parser::build' from='PECL parle &gt;= 0.5.1'/>
+ <function name='parle\parser::readbison' from='PECL parle &gt;= 0.8.5'/>
  <function name='parle\parser::push' from='PECL parle &gt;= 0.5.1'/>
  <function name='parle\parser::validate' from='PECL parle &gt;= 0.5.1'/>
  <function name='parle\parser::tokenid' from='PECL parle &gt;= 0.5.1'/>
@@ -67,6 +68,7 @@
  <function name='parle\rparser::nonassoc' from='PECL parle &gt;= 0.7.0'/>
  <function name='parle\rparser::precedence' from='PECL parle &gt;= 0.7.0'/>
  <function name='parle\rparser::build' from='PECL parle &gt;= 0.7.0'/>
+ <function name='parle\rparser::readbison' from='PECL parle &gt;= 0.8.5'/>
  <function name='parle\rparser::push' from='PECL parle &gt;= 0.7.0'/>
  <function name='parle\rparser::validate' from='PECL parle &gt;= 0.7.0'/>
  <function name='parle\rparser::tokenid' from='PECL parle &gt;= 0.7.0'/>
