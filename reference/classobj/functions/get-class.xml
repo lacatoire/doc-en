@@ -151,7 +151,7 @@ abstract class bar {
     public function __construct()
     {
         var_dump(get_class($this));
-        var_dump(get_class());
+        var_dump(self::class);
     }
 }
 
