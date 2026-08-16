@@ -49,9 +49,14 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   In case of failure, an <constant>E_WARNING</constant> level error is issued.
-  </para>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>max_length</parameter>
+   is negative.
+  </simpara>
+  <simpara>
+   If the data cannot be decoded, an <constant>E_WARNING</constant> level error
+   is issued.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
