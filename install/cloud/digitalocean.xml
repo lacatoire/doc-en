@@ -15,13 +15,13 @@
    </para>
   </listitem>
   <listitem>
-   <para>
+   <simpara>
     <link xlink:href="&url.docean.droplet;">Droplet</link>:
     Virtual machine boxes and installing
-    <link xlink:href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04">
+    <link xlink:href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-22-04">
      Lamp stack on a Linux server
     </link>.
-   </para>
+   </simpara>
   </listitem>
   <listitem>
    <para>
