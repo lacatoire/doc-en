@@ -3,18 +3,19 @@
 <reference xml:id="class.tidy" role="class" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
  <title>The <classname>tidy</classname> class</title>
  <titleabbrev>tidy</titleabbrev>
- 
+
  <partintro>
- 
+
 <!-- {{{ tidy intro -->
   <section xml:id="tidy.intro">
    &reftitle.intro;
-   <para>
-    An HTML node in an HTML file, as detected by tidy.
-   </para>
+   <simpara>
+    The <classname>tidy</classname> class represents an HTML document that has
+    been parsed and cleaned up by Tidy.
+   </simpara>
   </section>
 <!-- }}} -->
- 
+
   <section xml:id="tidy.synopsis">
    &reftitle.classsynopsis;
 
