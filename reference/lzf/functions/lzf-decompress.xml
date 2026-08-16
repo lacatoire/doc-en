@@ -11,19 +11,19 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <type>string</type><methodname>lzf_decompress</methodname>
-   <methodparam><type>string</type><parameter>data</parameter></methodparam>
+   <type class="union"><type>string</type><type>false</type></type><methodname>lzf_decompress</methodname>
+   <methodparam><type>string</type><parameter>string</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   <function>lzf_compress</function> decompresses the given
-   <parameter>data</parameter> string containing lzf encoded data.
+   <function>lzf_decompress</function> decompresses the given
+   <parameter>string</parameter> containing lzf encoded data.
   </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>data</parameter></term>
+    <term><parameter>string</parameter></term>
     <listitem>
      <simpara>
       The compressed string.
