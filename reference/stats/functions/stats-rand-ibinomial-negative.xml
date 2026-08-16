@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xml:id="function.stats-rand-gen-ibinomial" xmlns="http://docbook.org/ns/docbook">
+<refentry xml:id="function.stats-rand-ibinomial-negative" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
-  <refname>stats_rand_gen_ibinomial</refname>
-  <refpurpose>Generates a random deviate from the binomial distribution</refpurpose>
+  <refname>stats_rand_ibinomial_negative</refname>
+  <refpurpose>Generates a random deviate from the negative binomial distribution</refpurpose>
  </refnamediv>
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <type>int</type><methodname>stats_rand_gen_ibinomial</methodname>
+   <type>int</type><methodname>stats_rand_ibinomial_negative</methodname>
    <methodparam><type>int</type><parameter>n</parameter></methodparam>
-   <methodparam><type>float</type><parameter>pp</parameter></methodparam>
+   <methodparam><type>float</type><parameter>p</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   Returns a random deviate from the binomial distribution whose number of trials is <parameter>n</parameter>
-   and whose probability of an event in each trial is <parameter>pp</parameter>.
+   Returns a random deviate from a negative binomial distribution where the number of success is
+   <parameter>n</parameter> and the success rate is <parameter>p</parameter>.
   </simpara>
  </refsect1>
  <refsect1 role="parameters">
@@ -25,15 +25,15 @@
      <term><parameter>n</parameter></term>
      <listitem>
       <simpara>
-       The number of trials
+       The number of success
       </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><parameter>pp</parameter></term>
+     <term><parameter>p</parameter></term>
      <listitem>
       <simpara>
-       The probability of an event in each trial
+       The success rate
       </simpara>
      </listitem>
     </varlistentry>
@@ -44,7 +44,7 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   A random deviate
+   A random deviate, which is the number of failure.
   </simpara>
  </refsect1>
 
