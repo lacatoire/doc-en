@@ -48,9 +48,6 @@
  <function name='stats_rand_gen_f' from='PECL stats &gt;= 1.0.0'/>
  <function name='stats_rand_gen_funiform' from='PECL stats &gt;= 1.0.0'/>
  <function name='stats_rand_gen_gamma' from='PECL stats &gt;= 1.0.0'/>
- <function name='stats_rand_gen_ibinomial' from='PECL stats &gt;= 1.0.0'/>
- <function name='stats_rand_gen_ibinomial_negative' from='PECL stats &gt;= 1.0.0'/>
- <function name='stats_rand_gen_int' from='PECL stats &gt;= 1.0.0'/>
  <function name='stats_rand_gen_ipoisson' from='PECL stats &gt;= 1.0.0'/>
  <function name='stats_rand_gen_iuniform' from='PECL stats &gt;= 1.0.0'/>
  <function name='stats_rand_gen_noncenral_chisquare' from='PECL stats &gt;= 1.0.0'/>
@@ -60,7 +57,6 @@
  <function name='stats_rand_gen_noncentral_t' from='PECL stats &gt;= 1.0.0'/>
  <function name='stats_rand_gen_normal' from='PECL stats &gt;= 1.0.0'/>
  <function name='stats_rand_gen_t' from='PECL stats &gt;= 1.0.0'/>
- <function name='stats_rand_get_seeds' from='PECL stats &gt;= 1.0.0'/>
  <function name='stats_rand_getsd' from='PECL stats &gt;= 1.0.0'/>
  <function name='stats_rand_ibinomial' from='PECL stats &gt;= 1.0.0'/>
  <function name='stats_rand_ibinomial_negative' from='PECL stats &gt;= 1.0.0'/>

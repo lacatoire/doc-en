@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xml:id="function.stats-rand-get-seeds" xmlns="http://docbook.org/ns/docbook">
+<refentry xml:id="function.stats-rand-ignlgi" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
-  <refname>stats_rand_get_seeds</refname>
-  <refpurpose>Get the seed values of the random number generator</refpurpose>
+  <refname>stats_rand_ignlgi</refname>
+  <refpurpose>Generates random integer between 1 and 2147483562</refpurpose>
  </refnamediv>
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <type>array</type><methodname>stats_rand_get_seeds</methodname>
+   <type>int</type><methodname>stats_rand_ignlgi</methodname>
    <void/>
   </methodsynopsis>
   <simpara>
-   Returns the current seed values of the random number generator
+   Returns a random integer between 1 and 2147483562
   </simpara>
  </refsect1>
 
@@ -24,7 +24,7 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns an array of two integers.
+   A random integer
   </simpara>
  </refsect1>
 
