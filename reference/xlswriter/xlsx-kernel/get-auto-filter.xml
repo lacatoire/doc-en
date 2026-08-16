@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+
+<refentry xml:id="vtiful-kernel-excel.getAutoFilter" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <refnamediv>
+  <refname>Vtiful\Kernel\Excel::getAutoFilter</refname>
+  <refpurpose>Vtiful\Kernel\Excel getAutoFilter</refpurpose>
+ </refnamediv>
+ <refsect1 role="description">
+  &reftitle.description;
+  <methodsynopsis>
+   <modifier>public</modifier> <type>array</type><methodname>Vtiful\Kernel\Excel::getAutoFilter</methodname>
+   <void/>
+  </methodsynopsis>
+  <simpara>Returns the auto filter defined on the worksheet currently open for reading, including its range and per-column filter criteria.</simpara>
+ </refsect1>
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  &no.function.parameters;
+ </refsect1>
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>An associative array with the keys <literal>range</literal> (the filtered cell range) and <literal>columns</literal>, the latter listing each filtered column with its <literal>col_id</literal>, <literal>type</literal> (<literal>list</literal>, <literal>custom</literal>, <literal>top10</literal> or <literal>dynamic</literal>) and the criteria specific to that filter type. Returns &null; when no worksheet is open for reading or no auto filter is defined.</simpara>
+ </refsect1>
+</refentry>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:"~/.phpdoc/manual.ced"
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim600: syn=xml fen fdm=syntax fdl=2 si
+vim: et tw=78 syn=sgml
+vi: ts=1 sw=1
+-->
