@@ -7,15 +7,19 @@
  <function name='v8js' from='PECL v8js &gt;= 0.1.0'/>
  <function name='v8js::__construct' from='PECL v8js &gt;= 0.1.0'/>
  <function name='v8js::executestring' from='PECL v8js &gt;= 0.1.0'/>
- <function name='v8js::getpendingexception' from='PECL v8js &gt;= 0.1.0'/>
- <function name='v8js::registerextension' from='PECL v8js &gt;= 0.1.0'/>
- <function name='v8js::getextensions' from='PECL v8js &gt;= 0.1.0'/>
+ <function name='v8js::compilestring' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8js::executescript' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8js::setmodulenormaliser' from='PECL v8js &gt;= 0.4.0'/>
+ <function name='v8js::setmoduleloader' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8js::setexceptionfilter' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8js::settimelimit' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8js::setmemorylimit' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8js::setaverageobjectsize' from='PECL v8js &gt;= 0.6.0'/>
+ <function name='v8js::createsnapshot' from='PECL v8js &gt;= 0.5.0'/>
+ <function name='v8js::__sleep' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8js::__wakeup' from='PECL v8js &gt;= 0.2.1'/>
 
  <function name='v8jsexception' from='PECL v8js &gt;= 0.1.0'/>
- <function name='v8jsexception::getjsfilename' from='PECL v8js &gt;= 0.1.0'/>
- <function name='v8jsexception::getjslinenumber' from='PECL v8js &gt;= 0.1.0'/>
- <function name='v8jsexception::getjssourceline' from='PECL v8js &gt;= 0.1.0'/>
- <function name='v8jsexception::getjstrace' from='PECL v8js &gt;= 0.1.0'/>
  <function name='v8jsexception::__clone' from='PECL v8js &gt;= 0.1.0'/>
  <function name='v8jsexception::__construct' from='PECL v8js &gt;= 0.1.0'/>
  <function name='v8jsexception::getmessage' from='PECL v8js &gt;= 0.1.0'/>
@@ -26,6 +30,17 @@
  <function name='v8jsexception::getprevious' from='PECL v8js &gt;= 0.1.0'/>
  <function name='v8jsexception::gettraceasstring' from='PECL v8js &gt;= 0.1.0'/>
  <function name='v8jsexception::__tostring' from='PECL v8js &gt;= 0.1.0'/>
+
+ <function name='v8jsscriptexception' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8jsscriptexception::getjsfilename' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8jsscriptexception::getjslinenumber' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8jsscriptexception::getjsstartcolumn' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8jsscriptexception::getjsendcolumn' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8jsscriptexception::getjssourceline' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8jsscriptexception::getjstrace' from='PECL v8js &gt;= 0.2.1'/>
+
+ <function name='v8jstimelimitexception' from='PECL v8js &gt;= 0.2.1'/>
+ <function name='v8jsmemorylimitexception' from='PECL v8js &gt;= 0.2.1'/>
 </versions>
 
 <!-- Keep this comment at the end of the file
