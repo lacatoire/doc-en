@@ -45,12 +45,25 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   The logarithm of <parameter>num</parameter> to 
+  <simpara>
+   The logarithm of <parameter>num</parameter> to
    <parameter>base</parameter>, if given, or the
-   natural logarithm.  
-  </para>
+   natural logarithm.
+  </simpara>
+  <simpara>
+   If <parameter>base</parameter> is <literal>1</literal>,
+   <constant>NAN</constant> is returned.
+  </simpara>
  </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>base</parameter> is less than or equal to <literal>0</literal>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <para>

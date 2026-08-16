@@ -47,12 +47,13 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    <parameter>num</parameter> raised to the power of <parameter>exponent</parameter>.
-   If both arguments are non-negative integers and the result can be represented
-   as an integer, the result will be returned with <type>int</type> type,
-   otherwise it will be returned as a <type>float</type>.
-  </para>
+   If both arguments are integers, the <parameter>exponent</parameter> is
+   non-negative, and the result can be represented as an integer, the result
+   will be returned with <type>int</type> type, otherwise it will be returned
+   as a <type>float</type>.
+  </simpara>
   <para>
    PHP-Extensions may override the behaviour of this operation and make it return an object.
   </para>
