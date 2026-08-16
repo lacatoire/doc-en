@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+
+<refentry xml:id="mongodb-driver-writeresult.geterrorreplies" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <refnamediv>
+  <refname>MongoDB\Driver\WriteResult::getErrorReplies</refname>
+  <refpurpose>Returns any error replies from the server</refpurpose>
+ </refnamediv>
+
+ <refsect1 role="description">
+  &reftitle.description;
+  <methodsynopsis>
+   <modifier>final</modifier> <modifier>public</modifier> <type>array</type><methodname>MongoDB\Driver\WriteResult::getErrorReplies</methodname>
+   <void />
+  </methodsynopsis>
+  <simpara>
+   Returns the error reply documents that were returned by the server for the
+   write operation. These complement the individual write errors reported by
+   <methodname>MongoDB\Driver\WriteResult::getWriteErrors</methodname> and the
+   write concern error reported by
+   <methodname>MongoDB\Driver\WriteResult::getWriteConcernError</methodname>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  &no.function.parameters;
+ </refsect1>
+
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   Returns an array of error reply documents from the server. The array will be
+   empty if the server did not report any such error replies.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simplelist>
+   <member>Throws <exceptionname>MongoDB\Driver\Exception\InvalidArgumentException</exceptionname> on argument parsing errors.</member>
+  </simplelist>
+ </refsect1>
+
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <example>
+   <title><function>MongoDB\Driver\WriteResult::getErrorReplies</function> example</title>
+   <programlisting role="php">
+<![CDATA[
+<?php
+
+$manager = new MongoDB\Driver\Manager;
+
+$bulk = new MongoDB\Driver\BulkWrite;
+$bulk->insert(['_id' => 1]);
+$bulk->insert(['_id' => 1]);
+
+try {
+    $manager->executeBulkWrite('db.collection', $bulk);
+} catch (MongoDB\Driver\Exception\BulkWriteException $e) {
+    $result = $e->getWriteResult();
+
+    // Any error reply documents reported by the server
+    var_dump($result->getErrorReplies());
+}
+
+?>
+]]>
+   </programlisting>
+  </example>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><methodname>MongoDB\Driver\WriteResult::getWriteErrors</methodname></member>
+   <member><methodname>MongoDB\Driver\WriteResult::getWriteConcernError</methodname></member>
+  </simplelist>
+ </refsect1>
+
+</refentry>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:"~/.phpdoc/manual.ced"
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim600: syn=xml fen fdm=syntax fdl=2 si
+vim: et tw=78 syn=sgml
+vi: ts=1 sw=1
+-->
