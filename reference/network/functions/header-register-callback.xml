@@ -48,9 +48,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.true.always;
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -68,7 +68,7 @@
       <entry>8.0.0</entry>
       <entry>
        Passing an invalid <parameter>callback</parameter> now throws a
-       <classname>TypeError</classname>; previously &false; was returned.
+       <exceptionname>TypeError</exceptionname>; previously &false; was returned.
       </entry>
      </row>
     </tbody>
