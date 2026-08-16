@@ -54,18 +54,21 @@
        <entry><constant>PDO::TRAN_COMMIT_CLASS_UNCOMMIT_INSTANCE</constant></entry>
        <entry>The lowest isolation level (1). A dirty, non-repeatable or
         phantom read may occur for the tuple and a non-repeatable read may
-        occur for the table as well.</entry>
+        occur for the table as well.
+        This isolation level was removed as of PDO_CUBRID 10.1.0.</entry>
       </row>
       <row xml:id="pdo.constants.tran-commit-class-commit-instance">
        <entry><constant>PDO::TRAN_COMMIT_CLASS_COMMIT_INSTANCE</constant></entry>
        <entry>A relatively low isolation level (2). A dirty read does not
-        occur, but non-repeatable or phantom read may occur.</entry>
+        occur, but non-repeatable or phantom read may occur.
+        This isolation level was removed as of PDO_CUBRID 10.1.0.</entry>
       </row>
       <row xml:id="pdo.constants.tran-rep-class-uncommit-instance">
        <entry><constant>PDO::TRAN_REP_CLASS_UNCOMMIT_INSTANCE</constant></entry>
-       <entry>The default isolation of CUBRID (3). A dirty, non-repeatable or
-        phantom read may occur for the tuple, but repeatable read is ensured
-        for the table.</entry>
+       <entry>Formerly the default isolation of CUBRID (3). A dirty,
+        non-repeatable or phantom read may occur for the tuple, but repeatable
+        read is ensured for the table.
+        This isolation level was removed as of PDO_CUBRID 10.1.0.</entry>
       </row>
       <row xml:id="pdo.constants.tran-rep-class-commit-instance">
        <entry><constant>PDO::TRAN_REP_CLASS_COMMIT_INSTANCE</constant></entry>
@@ -184,6 +187,11 @@
       <row xml:id="pdo.constants.cubrid-sch-cross-reference">
        <entry><constant>PDO::CUBRID_SCH_CROSS_REFERENCE</constant></entry>
        <entry>Get reference relationship of two tables.</entry>
+      </row>
+      <row xml:id="pdo.constants.cubrid-sch-attr-with-synonym">
+       <entry><constant>PDO::CUBRID_SCH_ATTR_WITH_SYNONYM</constant></entry>
+       <entry>Get the attributes of table column, including synonyms.
+        Available as of PDO_CUBRID 11.2.</entry>
       </row>
      </tbody>
     </tgroup>
