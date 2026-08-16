@@ -1143,7 +1143,7 @@ Usage: php [options] [-f] <file> [args...]
 $ php -r 'var_dump($argv);' -- -h
 array(2) {
   [0]=>
-  string(1) "-"
+  string(19) "Standard input code"
   [1]=>
   string(2) "-h"
 }
