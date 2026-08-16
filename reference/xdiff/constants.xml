@@ -31,6 +31,18 @@
     </simpara>
    </listitem>
   </varlistentry>
+  <varlistentry xml:id="constant.xdiff-patch-ignorespace">
+   <term>
+    <constant>XDIFF_PATCH_IGNORESPACE</constant>
+    (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     This flag makes the patch functions ignore whitespace differences when
+     applying the patch.
+    </simpara>
+   </listitem>
+  </varlistentry>
  </variablelist>
 </appendix>
 

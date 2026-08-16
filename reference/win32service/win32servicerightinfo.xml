@@ -2,7 +2,6 @@
 <!-- $Revision$ -->
 
 <reference xml:id="class.win32service-rightinfo"
- role="exception"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns="http://docbook.org/ns/docbook">

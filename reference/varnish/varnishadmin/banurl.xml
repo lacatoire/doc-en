@@ -11,7 +11,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>int</type><methodname>VarnishAdmin::banUrl</methodname>
-   <methodparam><type>string</type><parameter>vcl_regex</parameter></methodparam>
+   <methodparam><type>string</type><parameter>regex</parameter></methodparam>
   </methodsynopsis>
   <para>
 
@@ -23,7 +23,7 @@
   <para>
    <variablelist>
     <varlistentry>
-     <term><parameter>vcl_regex</parameter></term>
+     <term><parameter>regex</parameter></term>
       <listitem>
        <para>
          URL regular expression in PCRE compatible syntax. It's based on the

@@ -11,7 +11,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <methodname>VarnishAdmin::__construct</methodname>
-   <methodparam choice="opt"><type>array</type><parameter>args</parameter></methodparam>
+   <methodparam choice="opt"><type>array</type><parameter>opt</parameter></methodparam>
   </methodsynopsis>
   <para>
 
@@ -22,7 +22,7 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>args</parameter></term>
+    <term><parameter>opt</parameter></term>
     <listitem>
      <para>
        Configuration arguments. The possible keys are:
