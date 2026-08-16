@@ -38,6 +38,14 @@
    Returns &true; if the object is contained in the map, &false; otherwise.
   </para>
  </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>object</parameter>
+   is not an object.
+  </simpara>
+ </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
 Local variables:
