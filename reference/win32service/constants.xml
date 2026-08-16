@@ -332,9 +332,8 @@
       <entry><literal>0x00000200</literal></entry>
       <entry>
         The service is notified when the system time has changed.
-        This enables the system to send 
-        <constant>WIN32_SERVICE_CONTROL_TIMECHANGE</constant> notifications to the service.
-        Windows Server 2008, Windows Vista, Windows Server 2003, 
+        This enables the system to send system time change notifications to the service.
+        Windows Server 2008, Windows Vista, Windows Server 2003,
         and Windows XP/2000:  This control code is not supported.
       </entry>
      </row>
@@ -343,9 +342,8 @@
       <entry><literal>0x00000400</literal></entry>
       <entry>
         The service is notified when an event for which the service has registered occurs.
-        This enables the system to send 
-        <constant>WIN32_SERVICE_CONTROL_TRIGGEREVENT</constant> notifications to the service.
-        Windows Server 2008, Windows Vista, Windows Server 2003, 
+        This enables the system to send trigger event notifications to the service.
+        Windows Server 2008, Windows Vista, Windows Server 2003,
         and Windows XP/2000:  This control code is not supported.
       </entry>
      </row>
@@ -1096,7 +1094,7 @@
      <row xml:id="constant.win32-generic-read">
       <entry><constant>WIN32_GENERIC_READ</constant></entry>
       <entry>Include rights:
-       <constant>WIN32_STANDARD_RIGHTS_READ</constant>,
+       the standard read access rights,
        <constant>WIN32_SERVICE_QUERY_CONFIG</constant>,
        <constant>WIN32_SERVICE_QUERY_STATUS</constant>,
        <constant>WIN32_SERVICE_INTERROGATE</constant>,
@@ -1108,7 +1106,7 @@
      <row xml:id="constant.win32-generic-write">
       <entry><constant>WIN32_GENERIC_WRITE</constant></entry>
       <entry>Include rights:
-       <constant>WIN32_STANDARD_RIGHTS_WRITE</constant>,
+       the standard write access rights,
        <constant>WIN32_SERVICE_CHANGE_CONFIG</constant>
       </entry>
       <entry>
@@ -1117,7 +1115,7 @@
      <row xml:id="constant.win32-generic-execute">
       <entry><constant>WIN32_GENERIC_EXECUTE</constant></entry>
       <entry>Include rights:
-       <constant>WIN32_STANDARD_RIGHTS_EXECUTE</constant>,
+       the standard execute access rights,
        <constant>WIN32_SERVICE_START</constant>,
        <constant>WIN32_SERVICE_STOP</constant>,
        <constant>WIN32_SERVICE_PAUSE_CONTINUE</constant>,

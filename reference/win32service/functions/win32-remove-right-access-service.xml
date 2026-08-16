@@ -13,7 +13,7 @@
    <type>void</type><methodname>win32_remove_right_access_service</methodname>
    <methodparam><type>string</type><parameter>servicename</parameter></methodparam>
    <methodparam><type>string</type><parameter>username</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>machine</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>machine</parameter><initializer>""</initializer></methodparam>
   </methodsynopsis>
   <para>
    Remove the rights access for <parameter>username</parameter> on <parameter>servicename</parameter>
@@ -81,7 +81,7 @@
   <para>
    <simplelist>
     <member><function>win32_read_all_rights_access_service</function></member>
-    <member><function>win32_read_rights_access_service</function></member>
+    <member><function>win32_read_right_access_service</function></member>
     <member><function>win32_add_right_access_service</function></member>
    </simplelist>
   </para>
