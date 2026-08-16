@@ -12,8 +12,9 @@
    <modifier>public</modifier> <type>string</type><methodname>Throwable::getTraceAsString</methodname>
    <void/>
   </methodsynopsis>
-  <para>
-  </para>
+  <simpara>
+   Gets the stack trace as a string.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -23,9 +24,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the stack trace as a string.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
