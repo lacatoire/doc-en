@@ -83,10 +83,10 @@ ps_delete($ps);
 ?>
 ]]>
     </programlisting>
-    <para>
+    <simpara>
      This example draws a line with a 10 and 2 points long line, and
-     gaps of 5 points inbetween.
-    </para>
+     gaps of 5 points in between.
+    </simpara>
    </example>
   </para>
  </refsect1>

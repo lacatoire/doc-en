@@ -114,7 +114,7 @@
      </thead>
      <tbody>
       <row>
-       <entry namest="name" nameend="version">Basic statments</entry>
+       <entry namest="name" nameend="version">Basic statements</entry>
       </row>
       <row>
        <entry>eval</entry>
@@ -131,7 +131,7 @@
       <!--end basic -->
 
       <row>
-       <entry namest="name" nameend="version">Outputing Functions</entry>
+       <entry namest="name" nameend="version">Outputting Functions</entry>
       </row>
       <row>
        <entry>echo</entry>
@@ -149,7 +149,7 @@
        <entry>file_put_contents</entry>
        <entry>0.1.0</entry>
       </row>
-      <!-- end outputing -->
+      <!-- end outputting -->
       <row>
        <entry namest="name" nameend="version">File System Functions</entry>
       </row>

@@ -51,7 +51,7 @@
    configuration settings are stored, then it may happen that after the 
    configuration settings have been saved to a file, the application is still using 
    old settings for some time until the cache is refreshed. In those cases it may be 
-   preferrable to refresh the cache right after the file has been changed. The 
+   preferable to refresh the cache right after the file has been changed. The
    following example shows how this can be done.
    <example>
     <title>A <function>wincache_refresh_if_changed</function> example</title>

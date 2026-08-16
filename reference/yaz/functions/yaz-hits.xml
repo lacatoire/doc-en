@@ -82,7 +82,7 @@
      </row>
      <row>
       <entry><literal>interpretation.term</literal></entry>
-      <entry>Interpretated sub query term (string)</entry>
+      <entry>Interpreted sub query term (string)</entry>
      </row>
      <row>
       <entry><literal>recommendation.term</literal></entry>

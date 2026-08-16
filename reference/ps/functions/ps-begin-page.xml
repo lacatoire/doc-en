@@ -15,7 +15,7 @@
    <methodparam><type>float</type><parameter>width</parameter></methodparam>
    <methodparam><type>float</type><parameter>height</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Starts a new page. Although the parameters <parameter>width</parameter>
    and <parameter>height</parameter> imply a different page size for each
    page, this is not possible in PostScript. The first call of
@@ -23,9 +23,9 @@
    document. Consecutive calls will have no effect, except for creating a new
    page. The situation is different if you intent to convert the PostScript
    document into PDF. This function places pdfmarks into the document which
-   can set the size for each page indiviually. The resulting PDF document will
+   can set the size for each page individually. The resulting PDF document will
    have different page sizes.
-  </para>
+  </simpara>
   <para>
    Though PostScript does not know different page sizes, pslib places
    a bounding box for each page into the document. This size is evaluated

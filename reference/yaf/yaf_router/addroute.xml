@@ -14,10 +14,10 @@
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
    <methodparam><type>Yaf_Route_Abstract</type><parameter>route</parameter></methodparam>
   </methodsynopsis>
-  <para>
-    defaultly, Yaf_Router using a <classname>Yaf_Route_Static</classname> as its defualt route. you
+  <simpara>
+    defaultly, Yaf_Router using a <classname>Yaf_Route_Static</classname> as its default route. you
     can add new routes into router's route stack by calling this method.
-  </para>
+  </simpara>
   <para>
     the newer route will be called before the older(route stack), and if the newer router return
     &true;, the router process will be end. otherwise, the older one will be

@@ -36,9 +36,9 @@
    <varlistentry>
     <term><parameter>control</parameter></term>
     <listitem>
-     <para>
-      The custom contole value between 128 and 255.
-     </para>
+     <simpara>
+      The custom control value between 128 and 255.
+     </simpara>
     </listitem>
    </varlistentry>
     <varlistentry>

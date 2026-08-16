@@ -29,12 +29,12 @@
     <parameter>arg</parameter>
    </methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Constructs signal event object. This is a straightforward method to create
    a signal event. Note, the generic
    <methodname>Event::__construct</methodname>
-   method can contruct signal event objects too.
-  </para>
+   method can construct signal event objects too.
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;

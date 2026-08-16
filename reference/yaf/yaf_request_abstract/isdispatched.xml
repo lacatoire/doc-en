@@ -4,7 +4,7 @@
 <refentry xml:id="yaf-request-abstract.isdispatched" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>Yaf_Request_Abstract::isDispatched</refname>
-  <refpurpose>Determin if the request is dispatched</refpurpose>
+  <refpurpose>Determine if the request is dispatched</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">

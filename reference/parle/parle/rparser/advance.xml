@@ -13,9 +13,9 @@
    <modifier>public</modifier> <type>void</type><methodname>Parle\RParser::advance</methodname>
    <void />
   </methodsynopsis>
-  <para>
-   Prosess next parser rule.
-  </para>
+  <simpara>
+   Process next parser rule.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">

@@ -14,7 +14,7 @@
    <void/>
   </methodsynopsis>
   <para>
-   Start a RPC HTTP server, and ready for accpet RPC requests.
+   Start a RPC HTTP server, and ready for accept RPC requests.
    <note>
     <para>
      Usual RPC calls will be issued as HTTP POST requests. If a HTTP GET

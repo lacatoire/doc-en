@@ -14,7 +14,7 @@
    <methodparam choice="opt"><type>string</type><parameter>name</parameter></methodparam>
   </methodsynopsis>
   <para>
-   Retrieve assigned varaiable
+   Retrieve assigned variable
    <note>
     <para>
      parameter can be empty since 2.1.11
