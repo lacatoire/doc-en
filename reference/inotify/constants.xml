@@ -237,6 +237,18 @@
      </simpara>
     </listitem>
    </varlistentry>
+   <varlistentry xml:id="constant.in-excl-unlink">
+    <term>
+     <constant>IN_EXCL_UNLINK</constant>
+      (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      Do not generate events for children of a watched directory after they
+      have been unlinked from it (Since Linux 2.6.36)
+     </simpara>
+    </listitem>
+   </varlistentry>
    <varlistentry xml:id="constant.in-mask-add">
     <term>
      <constant>IN_MASK_ADD</constant>
