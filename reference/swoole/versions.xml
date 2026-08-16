@@ -18,10 +18,10 @@
  <function name='swoole_timer_exists' from='PECL swoole &gt;= 1.9.0'/>
  <function name='swoole_timer_clear' from='PECL swoole &gt;= 1.9.0'/>
  <function name='swoole_async_set' from='PECL swoole &gt;= 1.9.0'/>
- <function name='swoole_async_read' from='PECL swoole &gt;= 1.9.0'/>
- <function name='swoole_async_write' from='PECL swoole &gt;= 1.9.0'/>
- <function name='swoole_async_readfile' from='PECL swoole &gt;= 1.9.0'/>
- <function name='swoole_async_writefile' from='PECL swoole &gt;= 1.9.0'/>
+ <function name='swoole_async_read' from='PECL swoole &gt;= 1.9.0' to='PECL swoole &lt; 4.3.0'/>
+ <function name='swoole_async_write' from='PECL swoole &gt;= 1.9.0' to='PECL swoole &lt; 4.3.0'/>
+ <function name='swoole_async_readfile' from='PECL swoole &gt;= 1.9.0' to='PECL swoole &lt; 4.3.0'/>
+ <function name='swoole_async_writefile' from='PECL swoole &gt;= 1.9.0' to='PECL swoole &lt; 4.3.0'/>
  <function name='swoole_async_dns_lookup' from='PECL swoole &gt;= 1.9.0'/>
  <function name='swoole_client_select' from='PECL swoole &gt;= 1.9.0'/>
  <function name='swoole_select' from='PECL swoole &gt;= 1.9.0'/>
@@ -29,7 +29,7 @@
  <function name='swoole_get_local_ip' from='PECL swoole &gt;= 1.9.0'/>
  <function name='swoole_strerror' from='PECL swoole &gt;= 1.9.0'/>
  <function name='swoole_errno' from='PECL swoole &gt;= 1.9.0'/>
- <function name='swoole_load_module' from='PECL swoole &gt;= 1.9.0'/>
+ <function name='swoole_load_module' from='PECL swoole &gt;= 1.9.0' to='PECL swoole &lt; 1.9.11'/>
  <function name='swoole_clear_error' from='PECL swoole &gt;= 4.6.0'/>
  <function name='swoole_error_log' from='PECL swoole &gt;= 4.5.8'/>
  <!-- Classes and Methods -->
