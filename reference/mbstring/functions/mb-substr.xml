@@ -106,6 +106,15 @@
        by <function>mb_strpos</function> can be passed directly.
       </entry>
      </row>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       For SJIS-Mac (MacJapanese) strings, character indices now refer to
+       the indices of the Unicode codepoints produced when the string is
+       converted to Unicode. This is significant because around 40 SJIS-Mac
+       characters convert to a sequence of multiple Unicode codepoints.
+      </entry>
+     </row>
      &mbstring.changelog.encoding-nullable;
     </tbody>
    </tgroup>
