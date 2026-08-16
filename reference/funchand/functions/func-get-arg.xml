@@ -41,18 +41,22 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the specified argument, or &false; on error.
-  </para>
+  <simpara>
+   Returns the specified argument.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Generates a warning if called from outside of a user-defined function, or
-   if <parameter>position</parameter> is greater than the number of arguments
-   actually passed.
-  </para>
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if called from outside of a
+   user-defined function.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>position</parameter> is negative, or greater than or equal to the
+   number of arguments actually passed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
