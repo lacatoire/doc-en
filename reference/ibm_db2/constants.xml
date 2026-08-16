@@ -11,7 +11,7 @@
      (<type>int</type>)
    </term>
    <listitem>
-    <simpara> 
+    <simpara>
      Specifies that binary data shall be returned as is. This is the default
      mode.
     </simpara>
@@ -46,7 +46,7 @@
      (<type>int</type>)
    </term>
    <listitem>
-    <simpara> 
+    <simpara>
      Specifies a scrollable cursor for a statement resource. This mode enables
      random access to rows in a result set, but currently is supported only by
      IBM DB2 Universal Database.
@@ -209,7 +209,7 @@
    </term>
    <listitem>
     <simpara>
-     Specifies that deferred prepare should be turned on for the specified statement resource. 
+     Specifies that deferred prepare should be turned on for the specified statement resource.
     </simpara>
    </listitem>
   </varlistentry>
@@ -220,7 +220,425 @@
    </term>
    <listitem>
     <simpara>
-     Specifies that deferred prepare should be turned off for the specified statement resource. 
+     Specifies that deferred prepare should be turned off for the specified statement resource.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-xml">
+   <term>
+    <constant>DB2_XML</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies that the variable should be bound as an XML data type.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-first-io">
+   <term>
+    <constant>DB2_FIRST_IO</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     For the i5_query_optimize option, specifies that queries are optimized with the goal of returning the first page of output as quickly as possible.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-all-io">
+   <term>
+    <constant>DB2_ALL_IO</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     For the i5_query_optimize option, specifies that queries are optimized with the goal of running the entire query to completion in the shortest elapsed time.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-rowcount-prefetch-on">
+   <term>
+    <constant>DB2_ROWCOUNT_PREFETCH_ON</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies that the client can request the full row count prior to fetching.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-rowcount-prefetch-off">
+   <term>
+    <constant>DB2_ROWCOUNT_PREFETCH_OFF</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies that the client cannot request the full row count prior to fetching.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-trusted-context-enable">
+   <term>
+    <constant>DB2_TRUSTED_CONTEXT_ENABLE</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Turns trusted context on for the connection.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-naming-on">
+   <term>
+    <constant>DB2_I5_NAMING_ON</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Turns on DB2 UDB CLI iSeries system naming, where tables, views, and indexes are created using the system naming convention (library/file).
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-naming-off">
+   <term>
+    <constant>DB2_I5_NAMING_OFF</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Turns off DB2 UDB CLI default (SQL) naming, where tables, views, and indexes are created using the SQL naming convention (schema.table). This is the default.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-txn-no-commit">
+   <term>
+    <constant>DB2_I5_TXN_NO_COMMIT</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     For the i5_commit option, specifies that commitment control is not used.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-txn-read-uncommitted">
+   <term>
+    <constant>DB2_I5_TXN_READ_UNCOMMITTED</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     For the i5_commit option, specifies the read uncommitted isolation level, where dirty reads, nonrepeatable reads, and phantom reads are possible.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-txn-read-committed">
+   <term>
+    <constant>DB2_I5_TXN_READ_COMMITTED</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     For the i5_commit option, specifies the read committed isolation level, where dirty reads are not possible.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-txn-repeatable-read">
+   <term>
+    <constant>DB2_I5_TXN_REPEATABLE_READ</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     For the i5_commit option, specifies the repeatable read isolation level, where dirty reads and nonrepeatable reads are not possible.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-txn-serializable">
+   <term>
+    <constant>DB2_I5_TXN_SERIALIZABLE</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     For the i5_commit option, specifies the serializable isolation level, where transactions are serializable.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fmt-iso">
+   <term>
+    <constant>DB2_I5_FMT_ISO</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies the ISO date/time format (yyyy-mm-dd for dates, hh.mm.ss for times) for IBM i. This is the default.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fmt-usa">
+   <term>
+    <constant>DB2_I5_FMT_USA</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies the USA format (mm/dd/yyyy for dates, hh:mmxx for times) for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fmt-eur">
+   <term>
+    <constant>DB2_I5_FMT_EUR</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies the European format (dd.mm.yyyy for dates, hh.mm.ss for times) for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fmt-jis">
+   <term>
+    <constant>DB2_I5_FMT_JIS</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies the Japanese Industrial Standard format (yyyy-mm-dd for dates, hh:mm:ss for times) for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fmt-mdy">
+   <term>
+    <constant>DB2_I5_FMT_MDY</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies the mm/dd/yyyy date format for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fmt-dmy">
+   <term>
+    <constant>DB2_I5_FMT_DMY</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies the dd/mm/yyyy date format for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fmt-ymd">
+   <term>
+    <constant>DB2_I5_FMT_YMD</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies the yy/mm/dd date format for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fmt-jul">
+   <term>
+    <constant>DB2_I5_FMT_JUL</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies the Julian date format (yy/ddd) for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fmt-hms">
+   <term>
+    <constant>DB2_I5_FMT_HMS</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies the hh:mm:ss time format for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fmt-job">
+   <term>
+    <constant>DB2_I5_FMT_JOB</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies that the job default date/time format is used for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-sep-slash">
+   <term>
+    <constant>DB2_I5_SEP_SLASH</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies a slash (/) as the date separator for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-sep-dash">
+   <term>
+    <constant>DB2_I5_SEP_DASH</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies a dash (-) as the date separator for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-sep-period">
+   <term>
+    <constant>DB2_I5_SEP_PERIOD</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies a period (.) as the date, time, or decimal separator for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-sep-comma">
+   <term>
+    <constant>DB2_I5_SEP_COMMA</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies a comma (,) as the date, time, or decimal separator for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-sep-blank">
+   <term>
+    <constant>DB2_I5_SEP_BLANK</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies a blank as the date or time separator for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-sep-colon">
+   <term>
+    <constant>DB2_I5_SEP_COLON</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies a colon (:) as the time separator for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-sep-job">
+   <term>
+    <constant>DB2_I5_SEP_JOB</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies that the job default separator is used for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fetch-on">
+   <term>
+    <constant>DB2_I5_FETCH_ON</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies that cursors are read-only and cannot be used for positioned updates or deletes on IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-fetch-off">
+   <term>
+    <constant>DB2_I5_FETCH_OFF</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies that cursors can be used for positioned updates and deletes on IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-job-sort-on">
+   <term>
+    <constant>DB2_I5_JOB_SORT_ON</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Turns on the job sort sequence for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-job-sort-off">
+   <term>
+    <constant>DB2_I5_JOB_SORT_OFF</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Turns off the job sort sequence, so that the hexadecimal sort sequence is used for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-dbcs-alloc-on">
+   <term>
+    <constant>DB2_I5_DBCS_ALLOC_ON</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Turns on the DB2 6X DBCS allocation scheme for IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-dbcs-alloc-off">
+   <term>
+    <constant>DB2_I5_DBCS_ALLOC_OFF</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Turns off the DB2 6X DBCS allocation scheme for IBM i. This is the default.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-char-trim-on">
+   <term>
+    <constant>DB2_I5_CHAR_TRIM_ON</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies that trailing blanks are trimmed from character data on IBM i.
+    </simpara>
+   </listitem>
+  </varlistentry>
+  <varlistentry xml:id="constant.db2-i5-char-trim-off">
+   <term>
+    <constant>DB2_I5_CHAR_TRIM_OFF</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Specifies that trailing blanks are not trimmed from character data on IBM i.
     </simpara>
    </listitem>
   </varlistentry>
