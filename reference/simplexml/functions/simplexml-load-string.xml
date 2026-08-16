@@ -83,6 +83,10 @@
 
  <refsect1 role="errors"><!-- {{{ -->
   &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>class_name</parameter>
+   is not the name of a class derived from <classname>SimpleXMLElement</classname>.
+  </simpara>
   <para>
    Produces an <constant>E_WARNING</constant> error message for each error
    found in the XML data.
