@@ -5,6 +5,7 @@
  <function name='win32-continue-service' from='PECL win32service &gt;=0.1.0'/>
  <function name='win32-create-service' from='PECL win32service &gt;=0.1.0'/>
  <function name='win32-delete-service' from='PECL win32service &gt;=0.1.0'/>
+ <function name='win32-exists-service' from='PECL win32service &gt;=1.1.0'/>
  <function name='win32-get-last-control-message' from='PECL win32service &gt;=0.1.0'/>
  <function name='win32-pause-service' from='PECL win32service &gt;=0.1.0'/>
  <function name='win32-query-service-status' from='PECL win32service &gt;=0.1.0'/>
@@ -26,6 +27,7 @@
  <function name='win32service\rightinfo' from='PECL win32service &gt;=1.1.0'/>
  <function name='win32service\rightinfo::__construct' from='PECL win32service &gt;=1.1.0'/>
  <function name='win32service\rightinfo::getdomain' from='PECL win32service &gt;=1.1.0'/>
+ <function name='win32service\rightinfo::getfullusername' from='PECL win32service &gt;=1.1.0'/>
  <function name='win32service\rightinfo::getusername' from='PECL win32service &gt;=1.1.0'/>
  <function name='win32service\rightinfo::getrights' from='PECL win32service &gt;=1.1.0'/>
  <function name='win32service\rightinfo::isdenyaccess' from='PECL win32service &gt;=1.1.0'/>
