@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+<refentry xml:id="function.ibase-get-client-version" xmlns="http://docbook.org/ns/docbook">
+ <refnamediv>
+  <refname>ibase_get_client_version</refname>
+  <refpurpose>Return the version of the client library</refpurpose>
+ </refnamediv>
+
+ <refsect1 role="description">
+  &reftitle.description;
+  <methodsynopsis>
+   <type>float</type><methodname>ibase_get_client_version</methodname>
+   <void/>
+  </methodsynopsis>
+  <simpara>
+   Return the version of the client library.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  &no.function.parameters;
+ </refsect1>
+
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   Returns the client library version as a floating-point number, built from the major and minor version numbers (for example <literal>6.1</literal>).
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>ibase_get_client_version</function></member>
+   <member><function>ibase_get_client_major_version</function></member>
+   <member><function>ibase_get_client_minor_version</function></member>
+  </simplelist>
+ </refsect1>
+
+</refentry>

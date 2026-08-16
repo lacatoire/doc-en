@@ -32,6 +32,9 @@
  <function name="ibase_free_query" from="PHP 5, PHP 7 &lt; 7.4.0"/>
  <function name="ibase_free_result" from="PHP 5, PHP 7 &lt; 7.4.0"/>
  <function name="ibase_gen_id" from="PHP 5, PHP 7 &lt; 7.4.0"/>
+ <function name="ibase_get_client_version" from="PHP 5, PHP 7 &lt; 7.4.0"/>
+ <function name="ibase_get_client_major_version" from="PHP 5, PHP 7 &lt; 7.4.0"/>
+ <function name="ibase_get_client_minor_version" from="PHP 5, PHP 7 &lt; 7.4.0"/>
  <function name="ibase_maintain_db" from="PHP 5, PHP 7 &lt; 7.4.0"/>
  <function name="ibase_modify_user" from="PHP 5, PHP 7 &lt; 7.4.0"/>
  <function name="ibase_name_result" from="PHP 5, PHP 7 &lt; 7.4.0"/>
@@ -82,6 +85,9 @@
  <function name="fbird_free_query" from="PHP 5, PHP 7 &lt; 7.4.0"/>
  <function name="fbird_free_result" from="PHP 5, PHP 7 &lt; 7.4.0"/>
  <function name="fbird_gen_id" from="PHP 5, PHP 7 &lt; 7.4.0"/>
+ <function name="fbird_get_client_version" from="PHP 5, PHP 7 &lt; 7.4.0"/>
+ <function name="fbird_get_client_major_version" from="PHP 5, PHP 7 &lt; 7.4.0"/>
+ <function name="fbird_get_client_minor_version" from="PHP 5, PHP 7 &lt; 7.4.0"/>
  <function name="fbird_maintain_db" from="PHP 5, PHP 7 &lt; 7.4.0"/>
  <function name="fbird_modify_user" from="PHP 5, PHP 7 &lt; 7.4.0"/>
  <function name="fbird_name_result" from="PHP 5, PHP 7 &lt; 7.4.0"/>
