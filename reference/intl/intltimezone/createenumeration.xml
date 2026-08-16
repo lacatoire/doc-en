@@ -10,19 +10,19 @@
 
  <refsect1 role="description">
   &reftitle.description;
-  <para>&style.oop; (method):</para>
+  <simpara>&style.oop; (method):</simpara>
   <methodsynopsis role="IntlTimeZone">
    <modifier>public</modifier> <modifier>static</modifier> <type class="union"><type>IntlIterator</type><type>false</type></type><methodname>IntlTimeZone::createEnumeration</methodname>
-   <methodparam choice="opt"><type class="union"><type>string</type><type>int</type><type>null</type></type><parameter>countryOrRawOffset</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type class="union"><type>IntlTimeZone</type><type>string</type><type>int</type><type>float</type><type>null</type></type><parameter>countryOrRawOffset</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>&style.procedural;:</para>
+  <simpara>&style.procedural;:</simpara>
   <methodsynopsis>
    <type class="union"><type>IntlIterator</type><type>false</type></type><methodname>intltz_create_enumeration</methodname>
-   <methodparam choice="opt"><type class="union"><type>string</type><type>int</type><type>null</type></type><parameter>countryOrRawOffset</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type class="union"><type>IntlTimeZone</type><type>string</type><type>int</type><type>float</type><type>null</type></type><parameter>countryOrRawOffset</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
 
-  </para>
+  </simpara>
 
   &warn.undocumented.func;
 
@@ -34,9 +34,9 @@
    <varlistentry>
     <term><parameter>countryOrRawOffset</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -44,9 +44,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   
-  </para>
+  <simpara>
+
+  </simpara>
  </refsect1>
 
 
