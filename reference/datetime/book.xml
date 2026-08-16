@@ -74,7 +74,7 @@
      <listitem>
       <itemizedlist>
        <listitem><simpara><exceptionname>DateInvalidOperationException</exceptionname></simpara></listitem>
-       <listitem><simpara><exceptionname>DateInvalidTimezoneException</exceptionname></simpara></listitem>
+       <listitem><simpara><exceptionname>DateInvalidTimeZoneException</exceptionname></simpara></listitem>
        <listitem><simpara><exceptionname>DateMalformedIntervalStringException</exceptionname></simpara></listitem>
        <listitem><simpara><exceptionname>DateMalformedPeriodStringException</exceptionname></simpara></listitem>
        <listitem><simpara><exceptionname>DateMalformedStringException</exceptionname></simpara></listitem>
