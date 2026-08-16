@@ -144,16 +144,18 @@
        <constant>Phar::OPENSSL_SHA256</constant>
        (<type>int</type>)
       </entry>
-      <entry/>
-      <entry/>
+      <entry>0x0011</entry>
+      <entry>signature with OpenSSL public/private key pair using the
+      SHA-256 hashing algorithm.</entry>
      </row>
      <row xml:id="phar.constants.openssl-sha512">
       <entry>
        <constant>Phar::OPENSSL_SHA512</constant>
        (<type>int</type>)
       </entry>
-      <entry/>
-      <entry/>
+      <entry>0x0012</entry>
+      <entry>signature with OpenSSL public/private key pair using the
+      SHA-512 hashing algorithm.</entry>
      </row>
     </tbody>
    </tgroup>

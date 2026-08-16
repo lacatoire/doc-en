@@ -17,7 +17,7 @@
    <type>bool</type><methodname>uopz_del_function</methodname>
    <methodparam><type>string</type><parameter>class</parameter></methodparam>
    <methodparam><type>string</type><parameter>function</parameter></methodparam>
-   <methodparam choice="opt"><type>int</type><parameter role="reference">all</parameter><initializer>&true;</initializer></methodparam>
+   <methodparam choice="opt"><type>bool</type><parameter>all</parameter><initializer>&true;</initializer></methodparam>
   </methodsynopsis>
   <para>
    Deletes a previously added function or method.

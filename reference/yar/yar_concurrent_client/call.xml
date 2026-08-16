@@ -10,10 +10,10 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <modifier>static</modifier> <type>int</type><methodname>Yar_Concurrent_Client::call</methodname>
+   <modifier>public</modifier> <modifier>static</modifier> <type class="union"><type>null</type><type>int</type><type>bool</type></type><methodname>Yar_Concurrent_Client::call</methodname>
    <methodparam><type>string</type><parameter>uri</parameter></methodparam>
    <methodparam><type>string</type><parameter>method</parameter></methodparam>
-   <methodparam choice="opt"><type>array</type><parameter>parameters</parameter></methodparam>
+   <methodparam choice="opt"><type>array</type><parameter>arguments</parameter></methodparam>
    <methodparam choice="opt"><type>callable</type><parameter>callback</parameter></methodparam>
    <methodparam choice="opt"><type>callable</type><parameter>error_callback</parameter></methodparam>
    <methodparam choice="opt"><type>array</type><parameter>options</parameter></methodparam>
@@ -44,7 +44,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><parameter>parameters</parameter></term>
+    <term><parameter>arguments</parameter></term>
     <listitem>
      <para>
       Parameters.
