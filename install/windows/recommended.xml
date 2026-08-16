@@ -28,6 +28,14 @@ opcache.enable_cli=On
  </sect2>
  <sect2>
   <title>WinCache</title>
+  <note>
+   <simpara>
+    The Microsoft WinCache extension is no longer maintained; its last release
+    (2.0.0.0) supports only PHP 7.x and there is no build for PHP 8. For opcode
+    caching on PHP 8, use <link linkend="book.opcache">OpCache</link>, which is
+    bundled with PHP.
+   </simpara>
+  </note>
   <para>
    It is recommended to use WinCache if using IIS, especially if in a shared
    web hosting environment or using networked file storage (NAS).
