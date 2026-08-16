@@ -53,6 +53,14 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If the specified number of <parameter>microseconds</parameter> is negative,
+   this function will throw a <exceptionname>ValueError</exceptionname>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
