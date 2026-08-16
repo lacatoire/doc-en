@@ -22,7 +22,7 @@
 
 <!-- {{{ Synopsis -->
    <classsynopsis>
-    <ooclass><classname>Yac</classname></ooclass>
+    <ooclass><modifier>final</modifier><classname>Yac</classname></ooclass>
 
 <!-- {{{ Class synopsis -->
     <classsynopsisinfo>
@@ -34,7 +34,9 @@
     <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>protected</modifier>
+     <type>string</type>
      <varname linkend="yac.props.prefix">_prefix</varname>
+     <initializer>""</initializer>
     </fieldsynopsis>
 
     
