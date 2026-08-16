@@ -25,7 +25,7 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   Returns a hash of strings with information about the current
+   Returns a hash of integers with information about the current
    process CPU usage. The indices of the hash are:
    <itemizedlist>
     <listitem>
