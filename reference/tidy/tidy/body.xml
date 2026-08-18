@@ -52,7 +52,7 @@
   &reftitle.examples;
   <para>
    <example>
-    <title><function>tidy::getBody</function> example</title>
+    <title><function>tidy::body</function> example</title>
     <programlisting role="php">
 <![CDATA[
 <?php
@@ -68,7 +68,7 @@ $html = '
 
 $tidy = tidy_parse_string($html);
 
-$body = $tidy->Body();
+$body = $tidy->body();
 echo $body->value;
 ?>
 ]]>
