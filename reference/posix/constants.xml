@@ -495,18 +495,6 @@
      </simpara>
     </listitem>
    </varlistentry>
-   <varlistentry xml:id="constant.posix-pc-alloc-symlink-max">
-    <term>
-     <constant>POSIX_PC_ALLOC_SYMLINK_MAX</constant>
-     (<type>int</type>)
-    </term>
-    <listitem>
-     <simpara>
-      The maximum number of symbolic links a given file or directory can have.
-      Available as of PHP 8.3.0.
-     </simpara>
-    </listitem>
-   </varlistentry>
    <varlistentry xml:id="constant.posix-pc-symlink-max">
     <term>
      <constant>POSIX_PC_SYMLINK_MAX</constant>
@@ -594,6 +582,19 @@
      <simpara>
       The number of clock ticks per second.
       Available as of PHP 8.4.0.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="constant.posix-sc-open-max">
+    <term>
+     <constant>POSIX_SC_OPEN_MAX</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <simpara>
+      The maximum number of files that can be open at once in a process.
+      Used as a <parameter>name</parameter> value for <function>posix_sysconf</function>.
+      Available as of PHP 8.5.0.
      </simpara>
     </listitem>
    </varlistentry>
