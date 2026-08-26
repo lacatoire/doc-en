@@ -170,8 +170,12 @@
      (<type>string</type>)
     </term>
     <listitem>
-     <para>
-     </para>
+     <simpara>
+      Name of the Argon2 implementation in use:
+      <literal>standard</literal> when built against libargon2,
+      <literal>sodium</literal> when built against libsodium, or
+      <literal>openssl</literal> when built against OpenSSL, as of PHP 8.4.0.
+     </simpara>
      <para>
       Available as of PHP 7.4.0.
      </para>
