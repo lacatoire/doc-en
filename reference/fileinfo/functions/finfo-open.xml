@@ -63,6 +63,11 @@
    (Procedural style only)
    Returns an <classname>finfo</classname> instance on success,&return.falseforfailure;.
   </simpara>
+  <simpara>
+   When using the object-oriented style, the <classname>finfo</classname>
+   constructor throws an <exceptionname>Exception</exceptionname> on failure
+   instead of returning &false;.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
