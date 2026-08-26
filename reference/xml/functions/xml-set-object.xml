@@ -71,9 +71,10 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       This function is now deprecated,
-       instead pass proper <type>callable</type> values to
-       <function>xml_set_</function>
+       This function has been deprecated. Instead, pass a proper method
+       <type>callable</type> to the
+       <literal>xml_set_<replaceable>*</replaceable>_handler()</literal>
+       functions.
       </entry>
      </row>
       &xml.changelog.parser-param;
