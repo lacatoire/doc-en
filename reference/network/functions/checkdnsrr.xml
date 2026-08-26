@@ -35,10 +35,10 @@
     <varlistentry>
      <term><parameter>type</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        <parameter>type</parameter> may be any one of: A, MX, NS, SOA,
-       PTR, CNAME, AAAA, A6, SRV, NAPTR, TXT or ANY.
-      </para>
+       PTR, CNAME, AAAA, A6, SRV, NAPTR, CAA, TXT or ANY.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>

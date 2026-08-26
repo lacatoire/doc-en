@@ -78,7 +78,7 @@
     <term><parameter>privacy_protocol</parameter></term>
     <listitem>
      <simpara>
-      the privacy protocol (DES or AES)
+      the privacy protocol (DES, AES128, or AES)
      </simpara>
     </listitem>
    </varlistentry>

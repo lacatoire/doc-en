@@ -2209,17 +2209,6 @@
 
 
 
-  <varlistentry xml:id="constant.socket-addrinuse">
-   <term>
-    <constant>SOCKET_ADDRINUSE</constant>
-    (<type>int</type>)
-   </term>
-   <listitem>
-    <simpara>
-     Address already in use.
-    </simpara>
-   </listitem>
-  </varlistentry>
 
 
 
