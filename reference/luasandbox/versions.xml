@@ -35,6 +35,7 @@
  <function name='luasandboxerrorerror' from='PECL luasandbox &gt;= 1.0.0'/>
 
  <function name='luasandboxtimeouterror' from='PECL luasandbox &gt;= 1.0.0'/>
+ <function name='luasandboxemergencytimeouterror' from='PECL luasandbox &gt;= 1.0.0'/>
 
  <function name='luasandboxfunction' from='PECL luasandbox &gt;= 1.0.0'/>
  <function name='luasandboxfunction::__construct' from='PECL luasandbox &gt;= 1.0.0'/>
