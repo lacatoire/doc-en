@@ -40,9 +40,11 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Throws an <classname>Error</classname> on failure.
-  </para>
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if <parameter>object</parameter>
+   is not contained in the map, or a <exceptionname>TypeError</exceptionname> if
+   <parameter>object</parameter> is not an object.
+  </simpara>
  </refsect1>
 
 </refentry>
