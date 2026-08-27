@@ -24,7 +24,9 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   An associative array, in the form <literal>resourceid =&gt; filename</literal>.
+   An associative array, in the form <literal>id =&gt; filename</literal>, where
+   <literal>id</literal> is the object handle of the open
+   <classname>Dba\Connection</classname>.
   </simpara>
  </refsect1>
 </refentry>
