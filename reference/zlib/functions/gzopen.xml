@@ -86,6 +86,12 @@
      <row>
       <entry>8.5.0</entry>
       <entry>
+       This function now respects the default stream context.
+      </entry>
+     </row>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
        <parameter>use_include_path</parameter> is now of type <type>bool</type>.
        Previously, it was of type <type>int</type>.
       </entry>
