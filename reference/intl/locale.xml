@@ -180,6 +180,13 @@
      </thead>
      <tbody>
       <row>
+       <entry>8.5.0</entry>
+       <entry>
+        Methods now throw a <classname>ValueError</classname> when locale
+        inputs contain null bytes.
+       </entry>
+      </row>
+      <row>
        <entry>8.4.0</entry>
        <entry>
         The class constants are now typed.
