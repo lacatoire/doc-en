@@ -106,7 +106,7 @@
   <para>
    <table>
     <title>Context options</title>
-    <tgroup cols="3">
+    <tgroup cols="4">
      <thead>
       <row>
        <entry>Name</entry>
