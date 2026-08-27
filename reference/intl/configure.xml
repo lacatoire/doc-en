@@ -5,6 +5,7 @@
  <para>
   <option role="configure">--enable-intl</option> will enable the
   extension while compiling PHP.
+  As of PHP 8.5.0, at least ICU 57.1 is required.
  </para>
  <para>
   If your ICU is installed to a non-standard directory then you might want to
