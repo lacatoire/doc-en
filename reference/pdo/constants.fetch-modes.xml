@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<section xmlns="http://docbook.org/ns/docbook" xml:id="pdo.constants.fetch-modes">
+<section xml:id="pdo.constants.fetch-modes" xmlns="http://docbook.org/ns/docbook">
  <title>Fetch Modes</title>
 
  <simpara>
@@ -310,10 +310,10 @@ JOIN table2 ON table1.table2id = table2.id
    <classname>PDOStatement</classname> for use with
    <constant>PDO::ATTR_STATEMENT_CLASS</constant>.
   </simpara>
-  <para>
+  <simpara>
    This value cannot be used with
    <constant>PDO::ATTR_DEFAULT_FETCH_MODE</constant>.
-  </para>
+  </simpara>
  </section>
 
  <section xml:id="pdo.constants.fetch-assoc" annotations="chunk:false">
@@ -387,11 +387,11 @@ print_r($row);
 <![CDATA[
 Array
 (
-    [id] => 104,
-    [0] => 104,
-    [name] => Chris,
-    [1] => Chris,
-    [country] => Ukraine,
+    [userid] => 104
+    [0] => 104
+    [name] => Chris
+    [1] => Chris
+    [country] => Ukraine
     [2] => Ukraine
 )
 ]]>
@@ -425,7 +425,7 @@ $stmt = $pdo->query(
      LEFT JOIN users AS referrer ON users.referred_by = referrer.userid
      WHERE userid = 109"
 );
-$row = $stmt->fetch(\PDO::FETCH_NUM);
+$row = $stmt->fetch(\PDO::FETCH_NAMED);
 print_r($row);
 ]]>
    </programlisting>
@@ -441,7 +441,7 @@ Array
             [1] => Chris
         )
     [country] => Germany
-    [referred_by] = 104
+    [referred_by] => 104
 )
 ]]>
    </screen>
@@ -494,7 +494,7 @@ Array
    returned.
   </simpara>
   <simpara>
-   If the specified column does not exist a <classname>ValueError</classname>
+   If the specified column does not exist a <exceptionname>ValueError</exceptionname>
    will be thrown.
   </simpara>
   <informalexample>
