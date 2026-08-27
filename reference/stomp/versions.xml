@@ -20,6 +20,7 @@
  <function name='stomp::commit' from='PECL stomp &gt;= 0.1.0'/>
  <function name='stomp::abort' from='PECL stomp &gt;= 0.1.0'/>
  <function name='stomp::ack' from='PECL stomp &gt;= 0.1.0'/>
+ <function name='stomp::nack' from='PECL stomp &gt;= 1.0.6'/>
  <function name='stomp::error' from='PECL stomp &gt;= 0.1.0'/>
  <function name='stomp::setreadtimeout' from='PECL stomp &gt;= 0.3.0'/>
  <function name='stomp::getreadtimeout' from='PECL stomp &gt;= 0.3.0'/>
