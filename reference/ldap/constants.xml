@@ -421,6 +421,7 @@
    <listitem>
     <simpara>
      SSL Authentication Mode - No authentication required. (Only for Oracle LDAP)
+     Deprecated as of PHP 8.5.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -432,6 +433,7 @@
    <listitem>
     <simpara>
      SSL Authentication Mode - Only server authentication required. (Only for Oracle LDAP)
+     Deprecated as of PHP 8.5.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -443,6 +445,7 @@
    <listitem>
     <simpara>
      SSL Authentication Mode - Both server and client authentication required. (Only for Oracle LDAP)
+     Deprecated as of PHP 8.5.0.
     </simpara>
    </listitem>
   </varlistentry>
