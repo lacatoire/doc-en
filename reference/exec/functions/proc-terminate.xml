@@ -33,10 +33,9 @@
     <varlistentry>
      <term><parameter>process</parameter></term>
      <listitem>
-      <para>
-       The <function>proc_open</function> <type>resource</type> that will
-       be closed.
-      </para>
+      <simpara>
+       The <function>proc_open</function> <type>resource</type> to terminate.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -56,9 +55,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the termination status of the process that was run.
-  </para>
+  <simpara>
+   &return.success;
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
