@@ -9,25 +9,26 @@
    The configuration variables <constant>PHP_VERSION</constant>,
    <constant>PHP_MINOR_VERSION</constant>, and
    <constant>PHP_RELEASE_VERSION</constant> are now always numbers.
-   Previously, they have been strings for buildconf builds.
+   Previously, they were strings for <command>buildconf</command> builds.
   </simpara>
 
   <simpara>
    <command>phpize</command> builds now reflect the source tree in the
-   build dir (as it already worked for in-tree builds); some extension
-   builds (especially when using Makefile.frag.w32) may need adjustments.
+   build directory (as it already worked for in-tree builds); some extension
+   builds (especially those using <filename>Makefile.frag.w32</filename>)
+   may need adjustments.
   </simpara>
 
   <simpara>
    <option role="configure">--enable-sanitizer</option> is now supported
-   for MSVC builds.  This enables ASan and debug assertions, and is supported
+   for MSVC builds. This enables ASan and debug assertions, and is supported
    as of MSVC 16.10 and Windows 10.
   </simpara>
 
   <simpara>
    The <option role="configure">--with-uncritical-warn-choke</option>
    configuration option for clang builds is no longer supported.
-   Select warnings to suppress via CFLAGS instead.
+   Use <envar>CFLAGS</envar> to select warnings to suppress instead.
   </simpara>
 
  </sect2>
