@@ -5,7 +5,7 @@
   <refname>iconv_get_encoding</refname>
   <refpurpose>Retrieve internal configuration variables of iconv extension</refpurpose>
  </refnamediv>
- 
+
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
@@ -59,13 +59,9 @@
     <title><function>iconv_get_encoding</function> example</title>
     <programlisting role="php">
 <![CDATA[
-<pre>
 <?php
-iconv_set_encoding("internal_encoding", "UTF-8");
-iconv_set_encoding("output_encoding", "ISO-8859-1");
-var_dump(iconv_get_encoding('all'));
+print_r(iconv_get_encoding('all'));
 ?>
-</pre>
 ]]>
     </programlisting>
     &example.outputs;
@@ -73,11 +69,10 @@ var_dump(iconv_get_encoding('all'));
 <![CDATA[
 Array
 (
-    [input_encoding] => ISO-8859-1
-    [output_encoding] => ISO-8859-1
+    [input_encoding] => UTF-8
+    [output_encoding] => UTF-8
     [internal_encoding] => UTF-8
 )
-
 ]]>
     </screen>
    </example>
