@@ -63,9 +63,9 @@
   </table>
   &ini.php.constants;
  </para>
- 
+
  &ini.descriptions.title;
- 
+
  <para>
   <variablelist>
 
@@ -75,21 +75,17 @@
      <type>bool</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       &false; by default. If changed to &true; scripts will not be terminated
       after a client has aborted their connection.
-     </para>
-     <para>
+     </simpara>
+     <simpara>
       See also <function>ignore_user_abort</function>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
     <varlistentry xml:id="ini.syntax-highlighting">
-     <term>
-      <parameter>highlight.bg</parameter>
-      <type>string</type>
-     </term>
      <term>
       <parameter>highlight.comment</parameter>
       <type>string</type>
@@ -111,10 +107,10 @@
       <type>string</type>
      </term>
      <listitem>
-      <para>
+      <simpara>
        Colors for Syntax Highlighting mode. Anything that's acceptable in
        &lt;font color="??????"&gt; would work.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
 
@@ -124,10 +120,10 @@
      <type>string</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Name (e.g.: <filename>browscap.ini</filename>) and location of browser
       capabilities file. See also <function>get_browser</function>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 

@@ -5,7 +5,7 @@
   <refname>define</refname>
   <refpurpose>Defines a named constant</refpurpose>
  </refnamediv>
- 
+
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
@@ -14,9 +14,9 @@
    <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>case_insensitive</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Defines a named constant at runtime.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -26,41 +26,41 @@
     <varlistentry>
      <term><parameter>constant_name</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The name of the constant.
-      </para>
+      </simpara>
       <note>
-       <para>
+       <simpara>
         It is possible to <function>define</function> constants with reserved or
         even invalid names, whose value can (only) be retrieved with
         <function>constant</function>. However, doing so is not recommended.
-       </para>
+       </simpara>
       </note>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>value</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The value of the constant.
-      </para>
+      </simpara>
       <warning>
-       <para>
+       <simpara>
         While it is possible to define <type>resource</type> constants, it is
         not recommended and may cause unpredictable behavior.
-       </para>
+       </simpara>
       </warning>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>case_insensitive</parameter></term>
      <listitem>
-      <para>
-       If set to &true;, the constant will be defined case-insensitive. 
-       The default behavior is case-sensitive; i.e. 
+      <simpara>
+       If set to &true;, the constant will be defined case-insensitive.
+       The default behavior is case-sensitive; i.e.
        <literal>CONSTANT</literal> and <literal>Constant</literal> represent
        different values.
-      </para>
+      </simpara>
       <warning>
        <simpara>
         Defining case-insensitive constants is deprecated as of PHP 7.3.0.
@@ -69,9 +69,9 @@
        </simpara>
       </warning>
       <note>
-       <para>
+       <simpara>
         Case-insensitive constants are stored as lower-case.
-       </para>
+       </simpara>
       </note>
      </listitem>
     </varlistentry>
@@ -81,9 +81,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -121,7 +121,7 @@
    </informaltable>
   </para>
  </refsect1>
- 
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
@@ -132,11 +132,6 @@
 <?php
 define("CONSTANT", "Hello world.");
 echo CONSTANT; // outputs "Hello world."
-echo Constant; // outputs "Constant" and issues a notice.
-
-define("GREETING", "Hello you.", true);
-echo GREETING; // outputs "Hello you."
-echo Greeting; // outputs "Hello you."
 
 // Works as of PHP 7
 define('ANIMALS', array(
@@ -154,13 +149,13 @@ echo ANIMALS[1]; // outputs "cat"
   <para>
    <example>
     <title>Constants with Reserved Names</title>
-    <para>
+    <simpara>
      This example illustrates the <emphasis>possibility</emphasis> to define a
      constant with the same name as a
      <link linkend="language.constants.magic">magic constant</link>.
      Since the resulting behavior is obviously confusing, it is not recommended
      to do this in practise, though.
-    </para>
+    </simpara>
     <programlisting role="php">
 <![CDATA[
 <?php
