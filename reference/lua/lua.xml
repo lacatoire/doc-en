@@ -58,6 +58,65 @@
      </listitem>
     </varlistentry>
 
+    <varlistentry xml:id="lua.constants.lua-ok">
+     <term><constant>LUA_OK</constant></term>
+     <listitem>
+      <simpara>No error.</simpara>
+     </listitem>
+    </varlistentry>
+
+    <varlistentry xml:id="lua.constants.lua-yield">
+     <term><constant>LUA_YIELD</constant></term>
+     <listitem>
+      <simpara>The thread (coroutine) yields.</simpara>
+     </listitem>
+    </varlistentry>
+
+    <varlistentry xml:id="lua.constants.lua-errrun">
+     <term><constant>LUA_ERRRUN</constant></term>
+     <listitem>
+      <simpara>A runtime error.</simpara>
+     </listitem>
+    </varlistentry>
+
+    <varlistentry xml:id="lua.constants.lua-errsyntax">
+     <term><constant>LUA_ERRSYNTAX</constant></term>
+     <listitem>
+      <simpara>A syntax error during compilation.</simpara>
+     </listitem>
+    </varlistentry>
+
+    <varlistentry xml:id="lua.constants.lua-errmem">
+     <term><constant>LUA_ERRMEM</constant></term>
+     <listitem>
+      <simpara>A memory allocation error.</simpara>
+     </listitem>
+    </varlistentry>
+
+    <varlistentry xml:id="lua.constants.lua-errerr">
+     <term><constant>LUA_ERRERR</constant></term>
+     <listitem>
+      <simpara>An error while running the message handler.</simpara>
+     </listitem>
+    </varlistentry>
+
+    <varlistentry xml:id="lua.constants.lua-errfile">
+     <term><constant>LUA_ERRFILE</constant></term>
+     <listitem>
+      <simpara>An error while loading a file.</simpara>
+     </listitem>
+    </varlistentry>
+
+    <varlistentry xml:id="lua.constants.lua-errgcmm">
+     <term><constant>LUA_ERRGCMM</constant></term>
+     <listitem>
+      <simpara>
+       An error while running a <literal>__gc</literal> metamethod.
+       Registered only when the linked Lua library defines it.
+      </simpara>
+     </listitem>
+    </varlistentry>
+
    </variablelist>
   </section>
 <!-- }}} -->
