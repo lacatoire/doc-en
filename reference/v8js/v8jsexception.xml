@@ -32,7 +32,7 @@
      
      <ooclass>
       <modifier>extends</modifier>
-      <classname>Exception</classname>
+      <classname>RuntimeException</classname>
      </ooclass>
     </classsynopsisinfo>
 <!-- }}} -->

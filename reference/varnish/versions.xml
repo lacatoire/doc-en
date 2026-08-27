@@ -14,6 +14,8 @@
  <function name='varnishadmin::start' from='PECL varnish &gt;= 0.3'/>
  <function name='varnishadmin::banurl' from='PECL varnish &gt;= 0.3'/>
  <function name='varnishadmin::ban' from='PECL varnish &gt;= 0.3'/>
+ <function name='varnishadmin::getvcllist' from='PECL varnish &gt;= 0.9.3'/>
+ <function name='varnishadmin::vcluse' from='PECL varnish &gt;= 0.9.3'/>
  <function name='varnishadmin::isrunning' from='PECL varnish &gt;= 0.3'/>
  <function name='varnishadmin::getpanic' from='PECL varnish &gt;= 0.4'/>
  <function name='varnishadmin::clearpanic' from='PECL varnish &gt;= 0.4'/>

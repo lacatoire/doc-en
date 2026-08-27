@@ -11,7 +11,7 @@
   &reftitle.description;
   <constructorsynopsis>
    <modifier>public</modifier> <methodname>wkhtmltox\Image\Converter::__construct</methodname>
-   <methodparam choice="opt"><type>string</type><parameter>buffer</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>buffer</parameter><initializer>&null;</initializer></methodparam>
    <methodparam choice="opt"><type>array</type><parameter>settings</parameter></methodparam>
   </constructorsynopsis>
   <para>
