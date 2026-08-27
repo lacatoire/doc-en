@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.mqseries-back">
+<refentry xml:id="function.mqseries-back" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>mqseries_back</refname>
   <refpurpose>MQSeries MQBACK</refpurpose>
@@ -27,7 +27,7 @@
    <function>mqseries_back</function>
    only works in conjunction with
    <function>mqseries_begin</function>
-   and only function when connecting directly to a Queueu manager. Not via the
+   and only function when connecting directly to a Queue manager. Not via the
    mqclient interface.
   </simpara>
  </refsect1>
@@ -94,7 +94,7 @@
   <note>
    <simpara>
     <function>mqseries_back</function>
-    will not function when using MQSeries Client to connect to a Queueu Manager.
+    will not function when using MQSeries Client to connect to a Queue Manager.
    </simpara>
   </note>
  </refsect1>

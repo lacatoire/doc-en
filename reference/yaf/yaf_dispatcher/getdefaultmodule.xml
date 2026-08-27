@@ -4,7 +4,7 @@
 <refentry xml:id="yaf-dispatcher.getdefaultmodule" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>Yaf_Dispatcher::getDefaultModule</refname>
-  <refpurpose>Retrive the default module name</refpurpose>
+  <refpurpose>Retrieve the default module name</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">

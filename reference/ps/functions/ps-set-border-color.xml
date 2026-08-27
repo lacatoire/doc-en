@@ -16,14 +16,14 @@
    <methodparam><type>float</type><parameter>green</parameter></methodparam>
    <methodparam><type>float</type><parameter>blue</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Links added with one of the functions <function>ps_add_weblink</function>,
    <function>ps_add_pdflink</function>, etc. will be displayed with a
-   surounded rectangle when the postscript document is converted to
+   surrounded rectangle when the postscript document is converted to
    pdf and viewed in a pdf viewer. This rectangle is not visible in
    the postscript document.
    This function sets the color of the rectangle's border line.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">

@@ -55,7 +55,7 @@
    <title><function>INI</function>example</title>
    <programlisting role="ini">
 <![CDATA[
-;filenmame foo.ini, placed in directory which is yaconf.directoy
+;filenmame foo.ini, placed in directory which is yaconf.directory
 [SectionA]
 ;key value pair
 key=val

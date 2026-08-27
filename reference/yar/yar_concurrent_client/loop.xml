@@ -77,7 +77,7 @@ function error_callback($type, $error, $callinfo) {
 }
 
 Yar_Concurrent_Client::call("http://host/api/", "some_method", array("parameters"), "callback");
-Yar_Concurrent_Client::call("http://host/api/", "some_method", array("parameters"));   // if the callback is not specificed, 
+Yar_Concurrent_Client::call("http://host/api/", "some_method", array("parameters"));   // if the callback is not specified,
                                                                                // callback in loop will be used
 Yar_Concurrent_Client::call("http://host/api/", "some_method", array("parameters"), "callback", NULL, array(YAR_OPT_PACKAGER => "json"));
                                                                                //this server accept json packager

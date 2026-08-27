@@ -186,9 +186,9 @@
     <varlistentry>
      <term><literal>parindent</literal></term>
      <listitem>
-      <para>
-       Indention of the first n line in a paragraph.
-      </para>
+      <simpara>
+       Indentation of the first n line in a paragraph.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>

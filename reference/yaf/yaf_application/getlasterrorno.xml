@@ -48,7 +48,7 @@ $config = array(
   "application" => array(
    "directory" => "/tmp/notexists",
      "dispatcher" => array(
-       "throwException" => 0, //trigger error instead of throw exception when error occure
+       "throwException" => 0, //trigger error instead of throw exception when error occurred
       ),
   ),
 );

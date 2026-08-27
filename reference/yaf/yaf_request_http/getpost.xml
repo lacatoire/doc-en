@@ -33,10 +33,10 @@
    <varlistentry>
     <term><parameter>default</parameter></term>
     <listitem>
-     <para>
-      if this parameter is provide, this will be returned if the varialbe can
+     <simpara>
+      if this parameter is provide, this will be returned if the variable can
       not be found
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>

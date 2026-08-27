@@ -13,9 +13,9 @@
    <modifier>public</modifier> <type>Parle\Token</type><methodname>Parle\RLexer::getToken</methodname>
    <void />
   </methodsynopsis>
-  <para>
-   Retrive the current token.
-  </para>
+  <simpara>
+   Retrieve the current token.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">

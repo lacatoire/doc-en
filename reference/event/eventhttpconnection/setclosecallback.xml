@@ -115,7 +115,7 @@ function _http_default($req, $dummy)
     $conn->setCloseCallback('_close_callback', NULL);
 
     /*
-    By enabling Event::READ we protect the server against unclosed conections.
+    By enabling Event::READ we protect the server against unclosed connections.
     This is a peculiarity of Libevent. The library disables Event::READ events
      on this connection, and the server is not notified about terminated
     connections.

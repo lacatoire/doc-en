@@ -148,9 +148,9 @@
   <para>
    <example>
     <title>A <function>win32_start_service_ctrl_dispatcher</function> example</title>
-    <para>
-     Check if the service is runnig under the SCM.
-    </para>
+    <simpara>
+     Check if the service is running under the SCM.
+    </simpara>
     <programlisting role="php">
 <![CDATA[
 <?php

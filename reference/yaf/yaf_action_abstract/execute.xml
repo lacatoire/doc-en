@@ -16,12 +16,12 @@
   <para>
    user should always define this method for a action, this is the entry point
    of an action.
-   <methodname>Yaf_Action_Abstract::execute</methodname> may have agruments.
+   <methodname>Yaf_Action_Abstract::execute</methodname> may have arguments.
    <note>
-    <para>
-     The value retrived from the request is not safe. you should do some
+    <simpara>
+     The value retrieved from the request is not safe. you should do some
      filtering work before you use it.
-    </para>
+    </simpara>
    </note>
   </para>
  </refsect1>

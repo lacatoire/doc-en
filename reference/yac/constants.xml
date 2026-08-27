@@ -65,7 +65,7 @@
     </term>
     <listitem>
      <simpara>
-      Use json as serializer(requrie --enable-json)
+      Use json as serializer(require --enable-json)
      </simpara>
     </listitem>
    </varlistentry>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.mcrypt-module-open">
+<refentry xml:id="function.mcrypt-module-open" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>mcrypt_module_open</refname>
   <refpurpose>Opens the module of the algorithm and the mode to be used</refpurpose>
@@ -115,7 +115,7 @@
     /* Create key (example only: MD5 is not a good hash algorithm for this) */
     $key = substr(hash('md5', 'very secret key'), 0, $ks);
 
-    /* Intialize encryption */
+    /* Initialize encryption */
     mcrypt_generic_init($td, $key, $iv);
 
     /* Encrypt data */
