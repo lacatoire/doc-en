@@ -106,6 +106,12 @@
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>public</modifier>
+     <modifier>readonly</modifier>
+     <type>Dom\HTMLCollection</type>
+     <varname linkend="dom-parentnode.props.children">children</varname>
+    </fieldsynopsis>
+    <fieldsynopsis>
+     <modifier>public</modifier>
      <type class="union"><type>Dom\HTMLElement</type><type>null</type></type>
      <varname linkend="dom-document.props.body">body</varname>
     </fieldsynopsis>

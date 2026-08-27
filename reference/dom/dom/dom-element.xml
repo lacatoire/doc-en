@@ -123,6 +123,12 @@
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>public</modifier>
+     <modifier>readonly</modifier>
+     <type>Dom\HTMLCollection</type>
+     <varname linkend="dom-parentnode.props.children">children</varname>
+    </fieldsynopsis>
+    <fieldsynopsis>
+     <modifier>public</modifier>
      <type>string</type>
      <varname linkend="dom-element.props.innerhtml">innerHTML</varname>
     </fieldsynopsis>
