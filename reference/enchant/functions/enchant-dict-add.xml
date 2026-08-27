@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.enchant-dict-add">
+<refentry xml:id="function.enchant-dict-add" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>enchant_dict_add</refname>
   <refpurpose>Add a word to personal word list</refpurpose>
@@ -33,7 +33,7 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   &return.success;
+   &return.void;
   </simpara>
  </refsect1>
 
