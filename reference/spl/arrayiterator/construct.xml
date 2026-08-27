@@ -30,6 +30,7 @@
      <listitem>
       <para>
        The array or object to be iterated on.
+       Passing an <type>object</type> is deprecated as of PHP 8.5.0.
       </para>
      </listitem>
     </varlistentry>
@@ -44,6 +45,28 @@
     </varlistentry>
    </variablelist>
   </para>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       Passing an <type>object</type> as <parameter>array</parameter> is deprecated.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="seealso">
