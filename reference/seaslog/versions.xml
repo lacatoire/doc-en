@@ -25,6 +25,7 @@
  <function name='seaslog::analyzerdetail' from='PECL seaslog &gt;=1.1.6'/>
  <function name='seaslog::getbuffer' from='PECL seaslog &gt;=1.0.0'/>
  <function name='seaslog::getbufferenabled' from='PECL seaslog &gt;=1.0.0'/>
+ <function name='seaslog::getbuffercount' from='PECL seaslog &gt;=2.1.0'/>
  <function name='seaslog::flushbuffer' from='PECL seaslog &gt;=1.0.0'/>
  <function name='seaslog::log' from='PECL seaslog &gt;=1.0.0'/>
  <function name='seaslog::debug' from='PECL seaslog &gt;=1.0.0'/>
