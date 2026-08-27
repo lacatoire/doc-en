@@ -11,7 +11,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>final</modifier> <modifier>public</modifier> <methodname>Yar_Server::__construct</methodname>
-   <methodparam><type>Object</type><parameter>obj</parameter></methodparam>
+   <methodparam><type>object</type><parameter>executor</parameter></methodparam>
   </methodsynopsis>
   <para>
    Set up a Yar HTTP RPC Server, All the public methods of $obj will be
@@ -23,7 +23,7 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>obj</parameter></term>
+    <term><parameter>executor</parameter></term>
     <listitem>
      <para>
        An Object, all public methods of its will be registered as RPC

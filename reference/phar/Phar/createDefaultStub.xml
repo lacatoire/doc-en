@@ -83,10 +83,10 @@ php myphar.phar
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Throws <classname>UnexpectedValueException</classname> if either parameter is longer
+  <simpara>
+   Throws <exceptionname>PharException</exceptionname> if either parameter is longer
    than 400 bytes.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">

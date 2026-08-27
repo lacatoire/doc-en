@@ -56,7 +56,7 @@
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
-   <member><methodname>Yaf_Server_Exception::getType</methodname></member>
+   <member><methodname>Yar_Server_Exception::getType</methodname></member>
   </simplelist>
  </refsect1>
 

@@ -10,9 +10,9 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <modifier>public</modifier> <type>void</type><methodname>Yar_Client::__call</methodname>
+   <modifier>public</modifier> <type>mixed</type><methodname>Yar_Client::__call</methodname>
    <methodparam><type>string</type><parameter>method</parameter></methodparam>
-   <methodparam><type>array</type><parameter>parameters</parameter></methodparam>
+   <methodparam><type>array</type><parameter>arguments</parameter></methodparam>
   </methodsynopsis>
   <para>
    Issue a call to remote RPC method.
@@ -31,7 +31,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><parameter>parameters</parameter></term>
+    <term><parameter>arguments</parameter></term>
     <listitem>
      <para>
        Parameters.
