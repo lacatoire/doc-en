@@ -112,6 +112,15 @@
       <row>
        <entry>8.4.0</entry>
        <entry>
+        The message of the <exceptionname>Error</exceptionname> thrown when
+        cloning a non-initialized instance changed from
+        <literal>Unconstructed Transliterator object cannot be cloned</literal>
+        to <literal>Cannot clone uninitialized Transliterator</literal>.
+       </entry>
+      </row>
+      <row>
+       <entry>8.4.0</entry>
+       <entry>
         The class constants are now typed.
        </entry>
       </row>
