@@ -248,10 +248,17 @@ class _MyClass {}
   </simpara>
 
   <simpara>
-   Calling <function>intlgregcal_create_instance</function> or
-   <methodname>IntlGregorianCalendar::__construct</methodname>
+   Calling <methodname>IntlGregorianCalendar::__construct</methodname>
    with more than two arguments is deprecated.
    Use either <methodname>IntlGregorianCalendar::createFromDate</methodname> or
+   <methodname>IntlGregorianCalendar::createFromDateTime</methodname> instead.
+  </simpara>
+
+  <simpara>
+   The <function>intlgregcal_create_instance</function> function is deprecated
+   whatever the number of arguments passed.
+   Use <methodname>IntlGregorianCalendar::__construct</methodname>,
+   <methodname>IntlGregorianCalendar::createFromDate</methodname> or
    <methodname>IntlGregorianCalendar::createFromDateTime</methodname> instead.
   </simpara>
  </sect2>
