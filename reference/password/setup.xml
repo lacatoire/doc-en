@@ -25,6 +25,8 @@
    or, starting from PHP 8.4.0, with OpenSSL using
    <option role="configure">--with-openssl</option> and
    <option role="configure">--with-openssl-argon2</option>.
+   The latter is not supported in thread-safe builds: configuring it together
+   with <acronym>ZTS</acronym> fails.
   </para>
   <para>
    Prior to PHP 8.1.0, it was possible to specify the argon2 directory with
