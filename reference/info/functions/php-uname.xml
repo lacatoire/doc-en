@@ -37,7 +37,9 @@
      <listitem>
       <para>
        <parameter>mode</parameter> is a single character that defines what
-       information is returned:
+       information is returned.
+       As of PHP 8.4.0, any other value is rejected with a
+       <exceptionname>ValueError</exceptionname>.
        <itemizedlist>
         <listitem>
          <para>
@@ -97,6 +99,18 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   As of PHP 8.4.0, a <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>mode</parameter> is not exactly one character long, or if it is
+   not one of <literal>'a'</literal>, <literal>'m'</literal>,
+   <literal>'n'</literal>, <literal>'r'</literal>, <literal>'s'</literal>,
+   or <literal>'v'</literal>.
+   Prior to PHP 8.4.0, <parameter>mode</parameter> was not validated.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -111,8 +125,9 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       Throws a <classname>ValueError</classname> when an invalid
-       <parameter>mode</parameter> is specified.
+       Throws a <exceptionname>ValueError</exceptionname> when
+       <parameter>mode</parameter> is not a single character, or is not one of
+       the listed modes.
       </entry>
      </row>
     </tbody>
