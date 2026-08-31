@@ -78,14 +78,6 @@
        Added support for <classname>Dom\Document</classname>.
       </entry>
      </row>
-     <row>
-      <entry>8.4.0</entry>
-      <entry>
-       This function now throws a <classname>TypeError</classname> instead of
-       a <classname>ValueError</classname> when passed a
-       non-XML or non-HTML <parameter>node</parameter>.
-      </entry>
-     </row>
     </tbody>
    </tgroup>
   </informaltable>
