@@ -240,10 +240,17 @@ class _MyClass {}
   <title>Intl</title>
 
   <simpara>
-   Calling <function>intlcal_set</function> or
-   <methodname>IntlCalendar::set</methodname>
+   Calling <methodname>IntlCalendar::set</methodname>
    with more than two arguments is deprecated.
    Use either <methodname>IntlCalendar::setDate</methodname> or
+   <methodname>IntlCalendar::setDateTime</methodname> instead.
+  </simpara>
+
+  <simpara>
+   The <function>intlcal_set</function> function is deprecated whatever the
+   number of arguments passed.
+   Use <methodname>IntlCalendar::set</methodname>,
+   <methodname>IntlCalendar::setDate</methodname> or
    <methodname>IntlCalendar::setDateTime</methodname> instead.
   </simpara>
 
