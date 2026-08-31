@@ -1377,6 +1377,13 @@
        <entry><literal>J</literal></entry>
        <entry>for <link linkend="reference.pcre.pattern.modifiers">PCRE_INFO_JCHANGED</link></entry>
       </row>
+      <row>
+       <entry><literal>r</literal></entry>
+       <entry>
+        for <link linkend="reference.pcre.pattern.modifiers">PCRE2_EXTRA_CASELESS_RESTRICT</link>
+        (available as of PHP 8.4.0)
+       </entry>
+      </row>
      </tbody>
     </tgroup>
    </table>
