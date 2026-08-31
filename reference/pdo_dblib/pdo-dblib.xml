@@ -50,7 +50,7 @@
      <fieldsynopsis>
       <modifier>public</modifier>
       <modifier>const</modifier>
-      <type>bool</type>
+      <type>int</type>
       <varname linkend="pdo-dblib.constants.attr-stringify-uniqueidentifier">Pdo\Dblib::ATTR_STRINGIFY_UNIQUEIDENTIFIER</varname>
      </fieldsynopsis>
      <fieldsynopsis>
@@ -74,7 +74,7 @@
      <fieldsynopsis>
       <modifier>public</modifier>
       <modifier>const</modifier>
-      <type>bool</type>
+      <type>int</type>
       <varname linkend="pdo-dblib.constants.attr-datetime-convert">Pdo\Dblib::ATTR_DATETIME_CONVERT</varname>
      </fieldsynopsis>
 
@@ -108,8 +108,8 @@
      <term><constant>Pdo\Dblib::ATTR_STRINGIFY_UNIQUEIDENTIFIER</constant></term>
      <listitem>
       <simpara>
-       As of PHP 8.4.0 this constant is typed as <type>bool</type>; previously,
-       it was typed as <type>int</type>.
+       As of PHP 8.4.0 this attribute is set as a <type>bool</type>;
+       previously, an <type>int</type> was expected.
       </simpara>
      </listitem>
     </varlistentry>
@@ -147,8 +147,8 @@
        file. By default, this attribute is &false;.
       </simpara>
       <simpara>
-       As of PHP 8.4.0 this constant is typed as <type>bool</type>; previously,
-       it was typed as <type>int</type>.
+       As of PHP 8.4.0 this attribute is set as a <type>bool</type>;
+       previously, an <type>int</type> was expected.
       </simpara>
      </listitem>
     </varlistentry>
