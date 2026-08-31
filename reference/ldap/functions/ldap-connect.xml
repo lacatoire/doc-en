@@ -118,8 +118,12 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       Calling <function>ldap_connect</function> with more than
-       two arguments is now deprecated.
+       Calling <function>ldap_connect</function> with more than two arguments
+       is now deprecated, use <function>ldap_connect_wallet</function> instead.
+       These extra arguments only exist when PHP is built with Oracle
+       <acronym>LDAP</acronym> support, and
+       <function>ldap_connect_wallet</function> is itself deprecated as of
+       PHP 8.5.0.
       </entry>
      </row>
      <row>
