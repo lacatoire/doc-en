@@ -155,6 +155,31 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
+       The internal rounding implementation has been rewritten, fixing rounding
+       bugs. For example <code>round(0.49999999999999994)</code> now returns
+       <literal>0.0</literal> instead of <literal>1.0</literal>.
+      </entry>
+     </row>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       The "pre-rounding" applied before rounding to the requested
+       <parameter>precision</parameter> has been removed, so that values are
+       compared and rounded as decimal numbers. For example
+       <code>round(0.285, 2)</code> now returns <literal>0.29</literal>.
+      </entry>
+     </row>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       The maximum precision that can be handled has been extended by one
+       digit. For example <code>round(4503599627370495.5)</code> now returns
+       <literal>4503599627370496</literal>.
+      </entry>
+     </row>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
        Now throws a <exceptionname>ValueError</exceptionname> if
        <parameter>mode</parameter> is invalid.
       </entry>
