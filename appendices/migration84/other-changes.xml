@@ -146,8 +146,7 @@
     have been added as aliases for
     <constant>NumberFormatter::ROUND_DOWN</constant> and
     <constant>NumberFormatter::ROUND_UP</constant>
-    to be consistent with the new
-    <constant>PHP_ROUND_<replaceable>*</replaceable></constant> modes.
+    to be consistent with the new <classname>RoundingMode</classname> cases.
    </simpara>
 
    <simpara>
