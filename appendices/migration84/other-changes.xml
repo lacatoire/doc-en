@@ -131,7 +131,7 @@
 
    <simpara>
     <function>hash_update</function>
-    now has a tentative return type of <type>true</type> instead of
+    now has a return type of <type>true</type> instead of
     <type>bool</type>.
     It could only ever return &true; in practice.
    </simpara>
