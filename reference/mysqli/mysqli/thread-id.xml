@@ -16,13 +16,13 @@
    <type>int</type><methodname>mysqli_thread_id</methodname>
    <methodparam><type>mysqli</type><parameter>mysql</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    The <function>mysqli_thread_id</function> function returns the thread
-   ID for the current connection which can then be killed using the
-   <function>mysqli_kill</function> function. If the connection is lost
+   ID for the current connection, which can then be killed with the
+   <literal>KILL</literal> SQL statement. If the connection is lost
    and you reconnect with <function>mysqli_ping</function>, the thread ID
    will be different. Therefore you should get the thread ID only when you need it.
-  </para>
+  </simpara>
   <note>
    <para>
     The thread ID is assigned on a connection-by-connection basis. Hence,
@@ -72,7 +72,7 @@ if (mysqli_connect_errno()) {
 $thread_id = $mysqli->thread_id;
 
 /* Kill connection */
-$mysqli->kill($thread_id);
+$mysqli->query("KILL $thread_id");
 
 /* This should produce an error */
 if (!$mysqli->query("CREATE TABLE myCity LIKE City")) {
@@ -101,7 +101,7 @@ if (mysqli_connect_errno()) {
 $thread_id = mysqli_thread_id($link);
 
 /* Kill connection */
-mysqli_kill($link, $thread_id);
+mysqli_query($link, "KILL $thread_id");
 
 /* This should produce an error */
 if (!mysqli_query($link, "CREATE TABLE myCity LIKE City")) {
