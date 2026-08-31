@@ -60,12 +60,16 @@
     <varlistentry>
      <term><parameter>algorithm</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        <type>int</type> - one of these <link linkend="openssl.signature-algos">Signature Algorithms</link>.
-      </para>
-      <para>
+      </simpara>
+      <simpara>
        <type>string</type> - a valid string returned by <function>openssl_get_md_methods</function> example, "sha256WithRSAEncryption" or "sha384".
-      </para>
+      </simpara>
+      <simpara>
+       For Ed25519 and Ed448 keys, <parameter>algorithm</parameter> must be
+       <literal>0</literal>: these key types sign without a separate digest.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -104,6 +108,14 @@
       <entry>8.5.0</entry>
       <entry>
        The optional parameter <parameter>padding</parameter> has been added.
+      </entry>
+     </row>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       Ed25519 and Ed448 keys are now supported. For these key types
+       <parameter>algorithm</parameter> must be <literal>0</literal>,
+       as they sign without a separate digest.
       </entry>
      </row>
      <row>
