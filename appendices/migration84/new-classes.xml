@@ -77,7 +77,7 @@
  <sect2 xml:id="migration84.new-classes.pdo-dblib">
   <title>PDO_DBLIB</title>
   <simplelist>
-   <member><classname>Pdo\DbLib</classname></member>
+   <member><classname>Pdo\Dblib</classname></member>
   </simplelist>
  </sect2>
 
