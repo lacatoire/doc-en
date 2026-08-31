@@ -50,7 +50,30 @@
   </variablelist>
  </refsect1>
 
- <xi:include xpointer="domxpath.registerphpfunctions..errors" />
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     Throws a <exceptionname>ValueError</exceptionname> if
+     <parameter>namespaceURI</parameter> is
+     <literal>http://php.net/xsl</literal>, which is reserved by PHP.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     Throws a <exceptionname>ValueError</exceptionname> if
+     a callback name is not valid.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     Throws a <exceptionname>TypeError</exceptionname> if
+     a given callback is not callable.
+    </simpara>
+   </listitem>
+  </itemizedlist>
+ </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
