@@ -407,11 +407,11 @@
    </simpara>
 
    <simpara>
-    The <literal>"allowed_classes"</literal> option for
-    <function>unserialize</function> now throws
-    <exceptionname>TypeError</exceptionname> and
-    <exceptionname>ValueError</exceptionname> if it is neither an
-    <type>array</type> of class names nor a <type>bool</type>.
+    The elements of the <literal>"allowed_classes"</literal> option for
+    <function>unserialize</function> are now validated.
+    An element that is neither a <type>string</type> nor an <type>object</type>
+    throws a <exceptionname>TypeError</exceptionname>, and an element that is
+    not a valid class name throws a <exceptionname>ValueError</exceptionname>.
    </simpara>
   </sect3>
 
