@@ -138,7 +138,7 @@
    <listitem>
     <simpara>
      Set the socket to a datagram congestion control protocol.
-     Available as of PHP 8.4.0. (NetBSD only)
+     Available as of PHP 8.4.0. (Linux and NetBSD)
     </simpara>
    </listitem>
   </varlistentry>
@@ -150,7 +150,7 @@
    <listitem>
     <simpara>
      Set the non-blocking socket status flag.
-     Available as of PHP 8.4.0.
+     Available as of PHP 8.4.0. (not available on Windows)
     </simpara>
    </listitem>
   </varlistentry>
@@ -162,7 +162,7 @@
    <listitem>
     <simpara>
      Set the close-on-exec socket status flag.
-     Available as of PHP 8.4.0.
+     Available as of PHP 8.4.0. (not available on Windows)
     </simpara>
    </listitem>
   </varlistentry>
@@ -2843,7 +2843,7 @@
    </term>
    <listitem>
     <simpara>
-     Set the port range used for selecting a local port	number.
+     Set the port range used for selecting a local port number.
      Available as of PHP 8.4.0. (FreeBSD/NetBSD/OpenBSD only)
     </simpara>
    </listitem>
@@ -2867,7 +2867,7 @@
    </term>
    <listitem>
     <simpara>
-     Use a high	range of port values.
+     Use a high range of port values.
      Available as of PHP 8.4.0. (FreeBSD/NetBSD/OpenBSD only)
     </simpara>
    </listitem>
@@ -3156,7 +3156,7 @@
    <listitem>
     <simpara>
      Controls generation of SIGPIPE for the socket.
-     Available as of PHP 8.4.0. (macOs and FreeBSD only)
+     Available as of PHP 8.4.0. (macOS and FreeBSD only)
     </simpara>
    </listitem>
   </varlistentry>
@@ -3168,8 +3168,10 @@
    <listitem>
     <simpara>
      Similar to <constant>SO_LINGER</constant> but lingering is in seconds
-     as opposed to time clicks on macOs.
-     Available as of PHP 8.4.0. (macOs only)
+     as opposed to time clicks.
+     Like <constant>SO_LINGER</constant>, it takes an <type>array</type> with
+     the keys <literal>l_onoff</literal> and <literal>l_linger</literal>.
+     Available as of PHP 8.4.0. (macOS only)
     </simpara>
    </listitem>
   </varlistentry>
@@ -3181,7 +3183,7 @@
    <listitem>
     <simpara>
      Bind a socket to a specific network interface by its index.
-     Available as of PHP 8.4.0.
+     Available as of PHP 8.4.0. (Linux only)
     </simpara>
    </listitem>
   </varlistentry>
