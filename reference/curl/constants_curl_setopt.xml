@@ -4560,6 +4560,10 @@
      </variablelist>
      Return <constant>CURL_PREREQFUNC_OK</constant> to allow the request, or
      <constant>CURL_PREREQFUNC_ABORT</constant> to abort the transfer.
+     Returning a value that is not an <type>int</type> throws a
+     <exceptionname>TypeError</exceptionname>, and returning an
+     <type>int</type> other than these two constants throws a
+     <exceptionname>ValueError</exceptionname>.
      Available as of PHP 8.4.0 and cURL 7.80.0.
     </para>
    </listitem>
@@ -4573,6 +4577,8 @@
     <para>
      Available as of PHP 8.4.0.
      This option requires <constant>CURLOPT_VERBOSE</constant> option enabled.
+     <constant>CURLINFO_HEADER_OUT</constant> must not be set on the same
+     handle: doing so throws a <exceptionname>ValueError</exceptionname>.
      A <type>callable</type> to replace the standard cURL verbose output.
      This callback gets called during various stages of the request with verbose debug information.
      The callback should match the following signature:
@@ -4606,6 +4612,7 @@
           <listitem>
            <simpara>
             Informational text.
+            Available as of PHP 8.4.0.
            </simpara>
           </listitem>
          </varlistentry>
@@ -4617,17 +4624,19 @@
           <listitem>
            <simpara>
             Header (or header-like) data received from the peer.
+            Available as of PHP 8.4.0.
            </simpara>
           </listitem>
          </varlistentry>
          <varlistentry xml:id="constant.curlinfo-header-out-debug">
           <term>
-           <constant linkend="constant.curlinfo-header-out-debug">CURLINFO_HEADER_OUT</constant>
+           <constant>CURLINFO_HEADER_OUT</constant>
            (<type>int</type>)
           </term>
           <listitem>
            <simpara>
             Header (or header-like) data sent to the peer.
+            Available as of PHP 8.4.0.
            </simpara>
           </listitem>
          </varlistentry>
@@ -4640,6 +4649,7 @@
            <simpara>
             Unprocessed protocol data received from the peer.
             Even if the data is encoded or compressed, it is not provided decoded nor decompressed to this callback.
+            Available as of PHP 8.4.0.
            </simpara>
           </listitem>
          </varlistentry>
@@ -4662,6 +4672,7 @@
           <listitem>
            <simpara>
             <acronym>SSL</acronym>/<acronym>TLS</acronym> (binary) data received from the peer.
+            Available as of PHP 8.4.0.
            </simpara>
           </listitem>
          </varlistentry>
@@ -4673,6 +4684,7 @@
           <listitem>
            <simpara>
             <acronym>SSL</acronym>/<acronym>TLS</acronym> (binary) data sent to the peer.
+            Available as of PHP 8.4.0.
            </simpara>
           </listitem>
          </varlistentry>
@@ -4683,7 +4695,7 @@
        <term><parameter>data</parameter></term>
        <listitem>
         <simpara>
-         Verbose debug data of the type indicate by the <parameter>type</parameter> parameter.
+         Verbose debug data of the type indicated by the <parameter>type</parameter> parameter.
         </simpara>
        </listitem>
       </varlistentry>
