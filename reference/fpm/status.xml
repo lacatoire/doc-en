@@ -289,6 +289,12 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.4.0</entry>
+      <entry>
+       The <literal>memory peak</literal> field was added.
+      </entry>
+     </row>
+     <row>
       <entry>8.1.0</entry>
       <entry>The openmetrics format was added.</entry>
      </row>
