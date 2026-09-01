@@ -438,7 +438,7 @@
      </row>
      <row xml:id="constant.dom-invalid-access-err">
       <entry>
-       <constant>DOM_INVALID_ACCESS_ERR</constant> / <constant>Dom\INVALID_ACCESS_ERR</constant>
+       <constant>DOM_INVALID_ACCESS_ERR</constant>
        (<type>int</type>)
       </entry>
       <entry>15</entry>
