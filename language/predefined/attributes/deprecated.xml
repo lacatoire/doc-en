@@ -9,7 +9,31 @@
    &reftitle.intro;
    <simpara>
     This attribute is used to mark functionality as deprecated.
-    Using deprecated functionality will cause an <constant>E_USER_DEPRECATED</constant> error to be emitted.
+    Using deprecated functionality emits an
+    <constant>E_USER_DEPRECATED</constant> error for symbols declared in PHP
+    code, and an <constant>E_DEPRECATED</constant> error for symbols provided
+    by PHP itself.
+   </simpara>
+
+   <simpara>
+    As of PHP 8.4 the attribute may be applied to functions, methods and class
+    constants, enum cases included. Applying it anywhere else is a compile
+    error, as is repeating it on the same symbol. As of PHP 8.5 it may also be
+    applied to global constants and to traits.
+   </simpara>
+
+   <simpara>
+    The emitted message is built from the target and from the
+    <link linkend="deprecated.props.since">since</link> and
+    <link linkend="deprecated.props.message">message</link> values, in that
+    order and regardless of the order the arguments are written in:
+    <literal>Function f() is deprecated</literal>,
+    <literal>Function f() is deprecated since 8.4</literal>,
+    <literal>Function f() is deprecated, use g() instead</literal>, or
+    <literal>Function f() is deprecated since 8.4, use g() instead</literal>.
+    <literal>Function %s()</literal> is replaced by
+    <literal>Method %s::%s()</literal>, <literal>Constant %s::%s</literal> or
+    <literal>Enum case %s::%s</literal> as appropriate.
    </simpara>
   </section>
 
