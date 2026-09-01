@@ -15,11 +15,23 @@
     <link linkend="language.operators.comparison">comparison</link> operators.
    </simpara>
 
+   <simpara>
+    The overloaded operators are
+    <literal>+</literal>, <literal>-</literal>, <literal>*</literal>,
+    <literal>/</literal>, <literal>%</literal> and <literal>**</literal>,
+    the increment and decrement operators, and the comparison operators.
+    Any other operator raises a <exceptionname>TypeError</exceptionname>.
+    The other operand may be a <classname>BcMath\Number</classname>, an
+    <type>int</type> or a numeric <type>string</type>; a <type>float</type>
+    is converted to <type>int</type> first, which emits a deprecation notice
+    and loses the fractional part.
+   </simpara>
+
    <note>
     <simpara>
      This class is not affected by the
      <link linkend="ini.bcmath.scale">bcmath.scale</link>
-     INI directive set in &php.ini;.
+     INI directive set in &php.ini;, nor by <function>bcscale</function>.
     </simpara>
    </note>
 

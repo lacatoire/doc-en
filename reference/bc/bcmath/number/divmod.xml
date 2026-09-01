@@ -59,7 +59,7 @@
    <programlisting role="php">
 <![CDATA[
 <?php
-echo '8.3 / 2.22' . PHP_EOL;
+echo '8 / 2.22' . PHP_EOL;
 [$quot, $rem] = new BcMath\Number('8')->divmod(new BcMath\Number('2.22'));
 var_dump($quot, $rem);
 
@@ -76,7 +76,7 @@ var_dump($quot, $rem);
    &example.outputs;
    <screen>
 <![CDATA[
-8.3 / 2.22
+8 / 2.22
 object(BcMath\Number)#3 (2) {
   ["value"]=>
   string(1) "3"
@@ -126,7 +126,7 @@ object(BcMath\Number)#1 (2) {
    <programlisting role="php">
 <![CDATA[
 <?php
-echo '8.3 / 2.22' . PHP_EOL;
+echo '8 / 2.22' . PHP_EOL;
 [$quot, $rem] = new BcMath\Number('8')->divmod(new BcMath\Number('2.22'), 1);
 var_dump($quot, $rem);
 
@@ -143,7 +143,7 @@ var_dump($quot, $rem);
    &example.outputs;
    <screen>
 <![CDATA[
-8.3 / 2.22
+8 / 2.22
 object(BcMath\Number)#3 (2) {
   ["value"]=>
   string(1) "3"
