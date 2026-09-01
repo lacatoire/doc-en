@@ -12,16 +12,17 @@
     followed by a pair of curly braces which enclose the definitions
     of the properties and methods belonging to the class.
    </para>
-   <para>
+   <simpara>
     The class name can be any valid label, provided it is not a
     PHP <link linkend="reserved">reserved word</link>.
     As of PHP 8.4.0, using a single underscore <literal>_</literal> as a
-    class name is deprecated.
+    class, interface, trait, or enum name is deprecated, as is using it as a
+    type name.
     A valid class name starts with a letter or underscore,
     followed by any number of letters, numbers, or underscores.
     As a regular expression, it would be expressed thus:
     <code>^[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*$</code>.
-   </para>
+   </simpara>
    <para>
     A class may contain its
     own <link linkend="language.oop5.constants">constants</link>, <link linkend="language.oop5.properties">variables</link>
