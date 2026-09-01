@@ -81,11 +81,11 @@
    </member>
    <member>
     <constant>PROPERTY_ID_COMPAT_MATH_START</constant>
-     <!-- for mathematical identifier profiling purpose -->
+     (<classname>IntlChar</classname>)
    </member>
    <member>
     <constant>PROPERTY_ID_COMPAT_MATH_CONTINUE</constant>
-     <!-- for mathematical identifier profiling purpose -->
+     (<classname>IntlChar</classname>)
    </member>
   </simplelist>
  </sect2>
