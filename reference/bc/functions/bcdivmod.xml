@@ -3,7 +3,7 @@
 <refentry xml:id="function.bcdivmod" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude">
  <refnamediv>
   <refname>bcdivmod</refname>
-  <refpurpose>Get the quotient and modulus of an arbitrary precision number</refpurpose>
+  <refpurpose>Get the quotient and remainder of an arbitrary precision number</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -29,6 +29,10 @@
   <simpara>
    Returns an indexed <type>array</type> where the first element is the quotient as a <type>string</type>
    and the second element is the remainder as a <type>string</type>.
+  </simpara>
+  <simpara>
+   <parameter>scale</parameter> applies to the remainder only; the quotient is
+   always returned with a scale of <literal>0</literal>.
   </simpara>
  </refsect1>
 
