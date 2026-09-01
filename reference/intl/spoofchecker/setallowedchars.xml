@@ -42,6 +42,11 @@
       <constant>Spoofchecker::ADD_CASE_MAPPINGS</constant>, or
       <constant>Spoofchecker::SIMPLE_CASE_INSENSITIVE</constant>.
      </simpara>
+     <simpara>
+      <constant>Spoofchecker::SIMPLE_CASE_INSENSITIVE</constant> requires
+      <acronym>ICU</acronym> 73 or later; it is not defined, and not accepted,
+      on older versions.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -58,8 +63,13 @@
   &reftitle.errors;
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>pattern</parameter> is
-   not a valid character set pattern, or if <parameter>patternOptions</parameter> is not
+   not a valid character set pattern, if it is longer than
+   <literal>2147483647</literal> bytes, or if <parameter>patternOptions</parameter> is not
    a valid combination of options.
+  </simpara>
+  <simpara>
+   An <constant>E_WARNING</constant> is raised if <acronym>ICU</acronym>
+   rejects the resulting character set.
   </simpara>
  </refsect1>
 

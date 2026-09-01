@@ -17,8 +17,9 @@
   </simpara>
   <simpara>
    This method behaves like <methodname>IntlDateFormatter::parse</methodname>, except
-   that the time zone of the formatter is updated according to the time zone information
-   contained in the parsed <parameter>string</parameter>.
+   that the calendar of the formatter is updated according to the information
+   contained in the parsed <parameter>string</parameter>, which in particular
+   updates its time zone.
   </simpara>
  </refsect1>
 
@@ -38,15 +39,25 @@
     <listitem>
      <simpara>
       Position at which to start the parsing in <parameter>string</parameter> (zero-based).
-      If no error occurs before <parameter>string</parameter> is consumed,
-      <parameter>offset</parameter> will contain -1, otherwise it will contain the position
-      at which parsing ended (and the error occurred).
-      This variable will contain the end position if the parse fails.
-      If <parameter>offset</parameter> &gt; <code>strlen($string)</code>, the parse fails immediately.
+      On success <parameter>offset</parameter> is set to the position at which
+      parsing ended; on failure it is left unchanged.
+      If <parameter>offset</parameter> is greater than the length of
+      <parameter>string</parameter>, the parse fails immediately, unless
+      <parameter>offset</parameter> is <literal>-1</literal>.
      </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>offset</parameter> is not of type <type>int</type>.
+   Unlike <methodname>IntlDateFormatter::parse</methodname>, this method does
+   not coerce it.
+  </simpara>
  </refsect1>
 
  <refsect1 role="returnvalues">
