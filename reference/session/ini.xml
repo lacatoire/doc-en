@@ -159,7 +159,7 @@
     </row>
     <row>
      <entry><link linkend="ini.session.trans-sid-hosts">session.trans_sid_hosts</link></entry>
-     <entry><literal>$_SERVER['HTTP_HOST']</literal></entry>
+     <entry><literal>""</literal></entry>
      <entry><constant>INI_ALL</constant></entry>
      <entry>
       Available as of PHP 7.1.0.
@@ -844,7 +844,8 @@
     <simpara>
      <literal>session.trans_sid_hosts</literal> specifies which hosts
      are rewritten to include session id when transparent sid support
-     is enabled. Defaults to <literal>$_SERVER['HTTP_HOST']</literal>
+     is enabled. Defaults to the empty string, in which case the host of
+     <literal>$_SERVER['HTTP_HOST']</literal> is used.
      Multiple hosts can be specified by ",", no space is allowed
      between hosts. e.g. <literal>php.net,wiki.php.net,bugs.php.net</literal>
     </simpara>
