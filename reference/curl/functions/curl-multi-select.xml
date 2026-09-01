@@ -54,7 +54,9 @@
   &reftitle.errors;
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>timeout</parameter>
-   is less than <literal>0</literal> or greater than <constant>PHP_INT_MAX</constant>.
+   is less than <literal>0</literal> or greater than
+   <literal>2147483.647</literal>, the largest value that fits the underlying
+   millisecond timeout.
   </simpara>
  </refsect1>
 
@@ -73,7 +75,10 @@
       <entry>8.4.0</entry>
       <entry>
        Now throws a <exceptionname>ValueError</exceptionname> if <parameter>timeout</parameter>
-       is less than <literal>0</literal> or greater than <constant>PHP_INT_MAX</constant>.
+       is less than <literal>0</literal> or greater than
+       <literal>2147483.647</literal>.
+       Formerly an <constant>E_WARNING</constant> was raised and
+       <literal>-1</literal> was returned.
       </entry>
      </row>
      &curl.changelog.multi-handle-param;
