@@ -99,7 +99,10 @@
     <variablelist>
 
      <varlistentry xml:id="regexiterator.constants.all-matches">
-      <term><constant>RegexIterator::ALL_MATCHES</constant></term>
+      <term>
+       <constant>RegexIterator::ALL_MATCHES</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         Return all matches for the current entry 
@@ -109,7 +112,10 @@
      </varlistentry>
 
      <varlistentry xml:id="regexiterator.constants.get-match">
-      <term><constant>RegexIterator::GET_MATCH</constant></term>
+      <term>
+       <constant>RegexIterator::GET_MATCH</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         Return the first match for the current entry 
@@ -119,7 +125,10 @@
      </varlistentry>
 
      <varlistentry xml:id="regexiterator.constants.match">
-      <term><constant>RegexIterator::MATCH</constant></term>
+      <term>
+       <constant>RegexIterator::MATCH</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         Only execute match (filter) for the current entry 
@@ -129,7 +138,10 @@
      </varlistentry>
 
      <varlistentry xml:id="regexiterator.constants.replace">
-      <term><constant>RegexIterator::REPLACE</constant></term>
+      <term>
+       <constant>RegexIterator::REPLACE</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         Replace the current entry 
@@ -139,7 +151,10 @@
      </varlistentry>
 
      <varlistentry xml:id="regexiterator.constants.split">
-      <term><constant>RegexIterator::SPLIT</constant></term>
+      <term>
+       <constant>RegexIterator::SPLIT</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         Returns the split values for the current entry (see <function>preg_split</function>).
@@ -152,7 +167,10 @@
     <title>RegexIterator Flags</title>
     <variablelist>
      <varlistentry xml:id="regexiterator.constants.use-key">
-      <term><constant>RegexIterator::USE_KEY</constant></term>
+      <term>
+       <constant>RegexIterator::USE_KEY</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         Special flag: Match the entry key instead of the entry value.
@@ -161,7 +179,10 @@
      </varlistentry>
 
      <varlistentry xml:id="regexiterator.constants.invert-match">
-      <term><constant>RegexIterator::INVERT_MATCH</constant></term>
+      <term>
+       <constant>RegexIterator::INVERT_MATCH</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         Inverts the return value of <methodname>RegexIterator::accept</methodname>.
