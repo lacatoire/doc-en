@@ -78,6 +78,16 @@
            <entry>X509_PURPOSE_ANY</entry>
            <entry>Can the cert be used for Any/All purposes?</entry>
           </row>
+          <row>
+           <entry>X509_PURPOSE_OCSP_HELPER</entry>
+           <entry>Can the cert be used as an OCSP helper?
+           Available as of PHP 8.4.0.</entry>
+          </row>
+          <row>
+           <entry>X509_PURPOSE_TIMESTAMP_SIGN</entry>
+           <entry>Can the cert be used for time stamp signing?
+           Available as of PHP 8.4.0.</entry>
+          </row>
          </tbody>
         </tgroup>
        </table>
