@@ -291,7 +291,12 @@ echo ANIMALS_DEF[1] . "\n"; // outputs "cat"
        <row xml:id="constant.function">
         <entry><constant>__FUNCTION__</constant></entry>
         <entry>
-         The function name, or <literal>{closure}</literal> for anonymous functions.
+         The function name.
+         For anonymous functions, as of PHP 8.4.0, a name of the form
+         <literal>{closure:&lt;context&gt;:&lt;line&gt;}</literal> where the
+         context is the file name at file level, the enclosing function or
+         method otherwise; prior to PHP 8.4.0 it was
+         <literal>{closure}</literal>.
         </entry>
        </row>
        <row xml:id="constant.class">
@@ -315,6 +320,8 @@ echo ANIMALS_DEF[1] . "\n"; // outputs "cat"
         <entry><constant>__METHOD__</constant></entry>
         <entry>
          The class method name.
+         Inside an anonymous function declared in a method, it holds the name
+         of the anonymous function, not that of the enclosing method.
         </entry>
        </row>
        <row xml:id="constant.property">
