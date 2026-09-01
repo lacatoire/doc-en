@@ -70,19 +70,28 @@
    &reftitle.constants;
    <variablelist>
     <varlistentry xml:id="splpriorityqueue.constants.extr-both">
-     <term><constant>SplPriorityQueue::EXTR_BOTH</constant></term>
+     <term>
+      <constant>SplPriorityQueue::EXTR_BOTH</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para/>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="splpriorityqueue.constants.extr-priority">
-     <term><constant>SplPriorityQueue::EXTR_PRIORITY</constant></term>
+     <term>
+      <constant>SplPriorityQueue::EXTR_PRIORITY</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para/>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="splpriorityqueue.constants.extr-data">
-     <term><constant>SplPriorityQueue::EXTR_DATA</constant></term>
+     <term>
+      <constant>SplPriorityQueue::EXTR_DATA</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para/>
      </listitem>
