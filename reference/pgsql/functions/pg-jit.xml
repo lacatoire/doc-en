@@ -32,7 +32,10 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns an &array; containing the JIT information of the server.
+   Returns an &array; with exactly two keys,
+   <literal>jit_provider</literal> and <literal>jit</literal>, holding the
+   value of the server setting of the same name.
+   A key is &null; when the corresponding query fails.
   </simpara>
  </refsect1>
 

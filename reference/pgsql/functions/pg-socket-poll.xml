@@ -55,9 +55,9 @@
     <term><parameter>timeout</parameter></term>
     <listitem>
      <simpara>
-      The maximum number of milliseconds to wait. Pass
-      <literal>-1</literal> to wait indefinitely, or
-      <literal>0</literal> to not wait at all.
+      The time at which to stop waiting, as a Unix timestamp in seconds, not
+      a duration. Pass <literal>-1</literal> to wait indefinitely.
+      A timestamp in the past makes the function return immediately.
      </simpara>
     </listitem>
    </varlistentry>
@@ -71,6 +71,14 @@
    if the timeout was reached, or <literal>-1</literal> on error.
   </simpara>
  </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>socket</parameter> is not a valid socket resource.
+  </simpara>
+ </refsect1>
+
 
  <refsect1 role="seealso">
   &reftitle.seealso;
