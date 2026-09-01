@@ -217,13 +217,13 @@
     <constant>SOCK_CONN_DGRAM</constant> (NetBSD only)
    </member>
    <member>
-    <constant>SOCK_DCCP</constant> (NetBSD only)
+    <constant>SOCK_DCCP</constant> (Linux and NetBSD)
    </member>
    <member>
     <constant>TCP_SYNCNT</constant> (Linux only)
    </member>
    <member>
-    <constant>SO_EXCLBIND</constant> (Solaris/Illumos only)
+    <constant>SO_EXCLBIND</constant> (Solaris only)
    </member>
    <member>
     <constant>SO_NOSIGPIPE</constant> (macOS and FreeBSD)
