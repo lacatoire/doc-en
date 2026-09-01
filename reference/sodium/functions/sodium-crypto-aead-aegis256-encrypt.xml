@@ -18,6 +18,10 @@
   <simpara>
    Encrypt then authenticate a message with AEGIS-256.
   </simpara>
+  <simpara>
+   This function is only available if PHP was built against libsodium 1.0.19
+   or later.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
