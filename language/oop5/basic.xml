@@ -213,10 +213,13 @@ readonly class Foo
    </para>
 
    <note>
-    <para>
+    <simpara>
      If there are no arguments to be passed to the class's constructor,
      parentheses after the class name may be omitted.
-    </para>
+     Omitting them, however, prevents dereferencing the result in the same
+     expression; see
+     <link linkend="language.oop5.basic.new.deref">below</link>.
+    </simpara>
    </note>
 
    <example>
@@ -374,10 +377,10 @@ bool(true)
     </screen>
    </example>
 
-   <para>
+   <simpara xml:id="language.oop5.basic.new.deref">
     It is possible to access a member of a newly created object
     in a single expression:
-   </para>
+   </simpara>
    <example>
     <title>Access member of newly created object</title>
     <programlisting role="php">
@@ -398,6 +401,24 @@ echo new DateTime()->format('Y'), PHP_EOL;
 ]]>
     </screen>
    </example>
+
+   <simpara>
+    As of PHP 8.4.0, the surrounding parentheses may be omitted, provided the
+    constructor argument list is written explicitly, even when it is empty:
+    <code>new Foo()->bar()</code> is valid, while
+    <code>new Foo->bar()</code> is a syntax error.
+    An anonymous class is dereferenceable even without an argument list.
+   </simpara>
+   <simpara>
+    This applies to the whole family of member accesses: property access with
+    <literal>-&gt;</literal> and <literal>?-&gt;</literal>, array access,
+    static access with <literal>::</literal> for constants,
+    <literal>::class</literal>, static properties and static methods, and
+    invoking the object.
+    A <literal>new</literal> expression is not a valid write target, so
+    assigning to one of its members in the same expression fails with
+    <literal>Cannot use temporary expression in write context</literal>.
+   </simpara>
 
    <note>
     <simpara>
