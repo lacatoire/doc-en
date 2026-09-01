@@ -27,6 +27,12 @@
      <simpara>
       The key in string representation.
      </simpara>
+     <simpara>
+      As of PHP 8.4.0, passing &false; or &null; is deprecated.
+      When iterating with <function>dba_firstkey</function> and
+      <function>dba_nextkey</function>, test the key against &false; before
+      passing it to this function.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -35,8 +41,19 @@
   &reftitle.returnvalues;
   <simpara>
    Returns an array of the form <literal>array(0 =&gt; group, 1 =&gt;
-   value_name)</literal>. This function will return &false; if
+   value_name)</literal>. The array always holds exactly these two entries;
+   when <parameter>key</parameter> has no group, the group is the empty
+   string. This function will return &false; if
    <parameter>key</parameter> is &null; or &false;.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   As of PHP 8.4.0, an <constant>E_DEPRECATED</constant> level error is
+   emitted when <parameter>key</parameter> is &false; or &null;.
+   The return value is unchanged.
   </simpara>
  </refsect1>
 
@@ -69,6 +86,7 @@
    <member><function>dba_firstkey</function></member>
    <member><function>dba_nextkey</function></member>
    <member><function>dba_fetch</function></member>
+   <member><function>dba_open</function></member>
   </simplelist>
  </refsect1>
 </refentry>
