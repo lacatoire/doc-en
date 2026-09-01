@@ -50,14 +50,51 @@
   <simpara>
    <function>grapheme_str_split</function> returns an array of strings, &return.falseforfailure;.
   </simpara>
+  <simpara>
+   If <parameter>string</parameter> is the empty string, an empty
+   <type>array</type> is returned.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   If <parameter>length</parameter> is less than <literal>1</literal>,
-   a <classname>ValueError</classname> will be thrown.
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>length</parameter> is less than <literal>1</literal> or greater
+   than <literal>1073741823</literal>.
   </simpara>
+ </refsect1>
+
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <example>
+   <title><function>grapheme_str_split</function> example</title>
+   <simpara>
+    A grapheme cluster made of several code points is kept together, where
+    <function>str_split</function> and <function>mb_str_split</function> would
+    break it apart.
+   </simpara>
+   <programlisting role="php">
+<![CDATA[
+<?php
+var_dump(grapheme_str_split("a\u{1F469}\u{200D}\u{1F469}\u{200D}\u{1F467}b"));
+?>
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+array(3) {
+  [0]=>
+  string(1) "a"
+  [1]=>
+  string(18) "👩‍👩‍👧"
+  [2]=>
+  string(1) "b"
+}
+]]>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
