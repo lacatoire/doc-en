@@ -100,7 +100,10 @@
    &reftitle.constants;
    <variablelist>
     <varlistentry xml:id="pdo-firebird.constants.attr-date-format">
-     <term><constant>Pdo\Firebird::ATTR_DATE_FORMAT</constant></term>
+     <term>
+      <constant>Pdo\Firebird::ATTR_DATE_FORMAT</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Sets the date format.
@@ -108,7 +111,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-firebird.constants.attr-time-format">
-     <term><constant>Pdo\Firebird::ATTR_TIME_FORMAT</constant></term>
+     <term>
+      <constant>Pdo\Firebird::ATTR_TIME_FORMAT</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Sets the time format.
@@ -116,7 +122,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-firebird.constants.attr-timestamp-format">
-     <term><constant>Pdo\Firebird::ATTR_TIMESTAMP_FORMAT</constant></term>
+     <term>
+      <constant>Pdo\Firebird::ATTR_TIMESTAMP_FORMAT</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Sets the timestamp format.
@@ -124,7 +133,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-firebird.constants.transaction-isolation-level">
-     <term><constant>Pdo\Firebird::TRANSACTION_ISOLATION_LEVEL</constant></term>
+     <term>
+      <constant>Pdo\Firebird::TRANSACTION_ISOLATION_LEVEL</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Attribute to sets the transaction isolation level.
@@ -135,7 +147,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-firebird.constants.read-committed">
-     <term><constant>Pdo\Firebird::READ_COMMITTED</constant></term>
+     <term>
+      <constant>Pdo\Firebird::READ_COMMITTED</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Flag denoting the <acronym>ANSI</acronym> transaction isolation
@@ -145,7 +160,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-firebird.constants.repeatable-read">
-     <term><constant>Pdo\Firebird::REPEATABLE_READ</constant></term>
+     <term>
+      <constant>Pdo\Firebird::REPEATABLE_READ</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Flag denoting the <acronym>ANSI</acronym> transaction isolation
@@ -155,7 +173,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-firebird.constants.serializable">
-     <term><constant>Pdo\Firebird::SERIALIZABLE</constant></term>
+     <term>
+      <constant>Pdo\Firebird::SERIALIZABLE</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Flag denoting the <acronym>ANSI</acronym> transaction isolation
@@ -165,7 +186,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-firebird.constants.writable-transaction">
-     <term><constant>Pdo\Firebird::WRITABLE_TRANSACTION</constant></term>
+     <term>
+      <constant>Pdo\Firebird::WRITABLE_TRANSACTION</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Boolean attribute used to toggle the transaction access mode between
