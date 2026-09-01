@@ -511,6 +511,9 @@ $object = $reflector->newLazyGhost($initializer);
      <methodname>ReflectionClass::getLazyInitializer</methodname>
     </member>
     <member>
+     <methodname>ReflectionProperty::isLazy</methodname>
+    </member>
+    <member>
      <methodname>ReflectionProperty::skipLazyInitialization</methodname>
     </member>
     <member>
