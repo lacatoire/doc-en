@@ -48,7 +48,7 @@
   &reftitle.errors;
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>domain</parameter>
-   is the empty <type>string</type>.
+   is the empty <type>string</type> or <literal>"0"</literal>.
   </simpara>
  </refsect1>
 
@@ -67,7 +67,9 @@
       <entry>8.4.0</entry>
       <entry>
        Now throws a <exceptionname>ValueError</exceptionname> if <parameter>domain</parameter>
-       is the empty <type>string</type>.
+       is the empty <type>string</type> or <literal>"0"</literal>.
+       Formerly both were treated as &null;, that is, the current domain was
+       returned.
       </entry>
      </row>
      <row>
