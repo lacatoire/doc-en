@@ -29,9 +29,11 @@
     <varlistentry>
      <term><parameter>signals</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Array of signals to wait for.
-      </para>
+       It must not be empty, and each value must be a signal number between
+       <literal>1</literal> and <constant>NSIG</constant> - 1.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -86,6 +88,20 @@
   <para>
    Returns a signal number on success,&return.falseforfailure;.
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>signals</parameter> is empty, or if one of its values is not
+   between <literal>1</literal> and <constant>NSIG</constant> - 1.
+  </simpara>
+  <simpara>
+   A <exceptionname>TypeError</exceptionname> is thrown if one of the values
+   of <parameter>signals</parameter> cannot be interpreted as an
+   <type>int</type>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
