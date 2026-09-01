@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<refentry xml:id="dom-htmldocument.savexml" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+<refentry xml:id="dom-xmldocument.savexml" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
-  <refname>Dom\HTMLDocument::saveXml</refname>
+  <refname>Dom\XMLDocument::saveXml</refname>
   <refpurpose>Serializes the document as an <acronym>XML</acronym> string</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
-  <methodsynopsis role="Dom\\HTMLDocument">
-   <modifier>public</modifier> <type class="union"><type>string</type><type>false</type></type><methodname>Dom\HTMLDocument::saveXml</methodname>
+  <methodsynopsis role="Dom\\XMLDocument">
+   <modifier>public</modifier> <type class="union"><type>string</type><type>false</type></type><methodname>Dom\XMLDocument::saveXml</methodname>
    <methodparam choice="opt"><type class="union"><type>Dom\Node</type><type>null</type></type><parameter>node</parameter><initializer>&null;</initializer></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>options</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
@@ -53,11 +53,40 @@
   </itemizedlist>
  </refsect1>
 
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <example xml:id="dom-xmldocument.savexml.example.formatoutput">
+   <title>Serializing with and without <property>Dom\XMLDocument::$formatOutput</property></title>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$document = Dom\XMLDocument::createFromString('<a><b/></a>');
+echo $document->saveXml(), "\n\n";
+
+$document->formatOutput = true;
+echo $document->saveXml();
+?>
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<a><b/></a>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<a>
+  <b/>
+</a>
+]]>
+   </screen>
+  </example>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
-   <member><methodname>Dom\HTMLDocument::saveXmlFile</methodname></member>
-   <member><methodname>Dom\HTMLDocument::saveHtml</methodname></member>
+   <member><methodname>Dom\XMLDocument::saveXmlFile</methodname></member>
   </simplelist>
  </refsect1>
 
