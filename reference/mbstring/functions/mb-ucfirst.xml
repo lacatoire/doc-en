@@ -2,7 +2,7 @@
 <refentry xml:id="function.mb-ucfirst" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>mb_ucfirst</refname>
-  <refpurpose>Make a string's first character uppercase</refpurpose>
+  <refpurpose>Make a string's first character title case</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -33,9 +33,7 @@
    <varlistentry>
     <term><parameter>encoding</parameter></term>
     <listitem>
-     <simpara>
-      The string encoding.
-     </simpara>
+     &mbstring.encoding.parameter;
     </listitem>
    </varlistentry>
   </variablelist>
@@ -46,6 +44,11 @@
   <simpara>
    Returns the resulting string.
   </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &mbstring.errors.encoding-invalid;
  </refsect1>
 
  <refsect1 role="notes">
