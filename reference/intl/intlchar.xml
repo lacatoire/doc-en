@@ -4067,7 +4067,7 @@
     <varlistentry xml:id="intlchar.constants.no-numeric-value">
      <term>
       <constant>IntlChar::NO_NUMERIC_VALUE</constant>
-      <type>int</type>
+      <type>float</type>
      </term>
      <listitem>
       <para>
