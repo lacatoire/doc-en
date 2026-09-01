@@ -51,6 +51,7 @@
      <modifier>const</modifier>
      <type>int</type>
      <varname linkend="recursivetreeiterator.constants.prefix-left">RecursiveTreeIterator::PREFIX_LEFT</varname>
+     <initializer>0</initializer>
     </fieldsynopsis>
     <fieldsynopsis>
      <modifier>public</modifier>
