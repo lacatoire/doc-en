@@ -47,12 +47,40 @@
   <sect3 xml:id="migration84.incompatible.core.readonly-indirect-modification">
    <title>Indirect Modification of readonly Properties</title>
 
-   <!-- TODO Link to clone magic method, and explain this better as UPGRADING is... -->
    <simpara>
-    Indirect modification of readonly properties within <code>__clone()</code>
-    is no longer allowed, e.g. <code>$ref = &amp;$this->readonly</code>.
+    Indirect modification of a <literal>readonly</literal> property is no
+    longer allowed within
+    <link linkend="object.clone">__clone()</link>, even for a property that may
+    be reinitialized during cloning as of PHP 8.3.0. This includes acquiring a
+    reference to the property (<code>$ref = &amp;$this->prop;</code>), writing
+    to or unsetting one of its array elements
+    (<code>$this->prop['key'] = $value;</code>), and passing it to a
+    by-reference parameter. Such an operation now throws an
+    <exceptionname>Error</exceptionname> with the message
+    <literal>Cannot indirectly modify readonly property C::$prop</literal>.
     This was already forbidden for readonly initialization, and was an
     oversight in the "readonly reinitialization during cloning" implementation.
+   </simpara>
+
+   <simpara>
+    A direct reinitializing assignment, <code>$this->prop = $value;</code>,
+    inside <link linkend="object.clone">__clone()</link> is still allowed.
+   </simpara>
+  </sect3>
+
+  <sect3 xml:id="migration84.incompatible.core.readonly-indirect-modification-message">
+   <title>Error Message of Indirect Modification of readonly Properties</title>
+
+   <simpara>
+    Indirect modification of an initialized <literal>readonly</literal>
+    property, that is acquiring a reference to it, assigning to or unsetting one
+    of its array elements, or passing it to a by-reference parameter, now
+    throws an <exceptionname>Error</exceptionname> with the message
+    <literal>Cannot indirectly modify readonly property C::$prop</literal>.
+    The message was previously
+    <literal>Cannot modify readonly property C::$prop</literal>, which direct
+    modification still uses. Code matching on the exception message has to be
+    updated.
    </simpara>
   </sect3>
 
