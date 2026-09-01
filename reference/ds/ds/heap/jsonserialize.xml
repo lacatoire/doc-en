@@ -9,17 +9,22 @@
 
  <refsect1 role="description">
   &reftitle.description;
-  <para>
-   See <function>JsonSerializable::jsonSerialize</function>
-  </para>
+  <methodsynopsis>
+   <modifier>public</modifier> <type>mixed</type><methodname>Ds\Heap::jsonSerialize</methodname>
+   <void />
+  </methodsynopsis>
+  <simpara>
+   See <methodname>JsonSerializable::jsonSerialize</methodname>
+  </simpara>
   <note>
-   <para>
-    You should never need to call this directly.
-   </para>
+   <simpara>
+    This method is not intended to be called directly.
+   </simpara>
   </note>
  </refsect1>
 
 </refentry>
+
 <!-- Keep this comment at the end of the file
 Local variables:
 mode: sgml

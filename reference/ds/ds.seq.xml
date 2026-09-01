@@ -8,71 +8,64 @@
 
  <partintro>
 
-<!-- {{{ Ds\Seq intro -->
   <section xml:id="ds-seq.intro">
    &reftitle.intro;
-   <para>
+   <simpara>
     A Seq is an ordered sequence of values in a contiguous buffer that grows
-    and shrinks automatically. It replaces both <classname>Ds\Vector</classname>
-    and <classname>Ds\Deque</classname> from v1.
-   </para>
-   <para>
+    and shrinks automatically. It replaces both <literal>Ds\Vector</literal>
+    and <literal>Ds\Deque</literal> from v1.
+   </simpara>
+   <simpara>
     Two pointers are used to keep track of a head and a tail. The pointers can
     "wrap around" the end of the buffer, which avoids the need to move other
     values around to make room. This makes shift and unshift very fast.
-   </para>
-   <para>
+   </simpara>
+   <simpara>
     Accessing a value by index requires a translation between the index and its
     corresponding position in the buffer: <code>((head + position) % capacity)</code>.
-   </para>
+   </simpara>
   </section>
-<!-- }}} -->
 
 <section xml:id="ds-seq.strengths">
     <title xmlns="http://docbook.org/ns/docbook">Strengths</title>
-    <para>
-        <simplelist>
-            <member>Supports array syntax (square brackets).</member>
-            <member>Uses less overall memory than an &array; for the same number of values.</member>
-            <member>Automatically frees allocated memory when its size drops low enough.</member>
-            <member>
-                <function>get</function>,
-                <function>set</function>,
-                <function>push</function>,
-                <function>pop</function>,
-                <function>shift</function>, and
-                <function>unshift</function> are all O(1).
-            </member>
-            <member>
-                <function>copy</function> is O(1) due to copy-on-write.
-            </member>
-        </simplelist>
-   </para>
+    <simplelist>
+        <member>Supports array syntax (square brackets).</member>
+        <member>Uses less overall memory than an &array; for the same number of values.</member>
+        <member>Automatically frees allocated memory when its size drops low enough.</member>
+        <member>
+            <methodname>Ds\Seq::get</methodname>,
+            <methodname>Ds\Seq::set</methodname>,
+            <methodname>Ds\Seq::push</methodname>,
+            <methodname>Ds\Seq::pop</methodname>,
+            <methodname>Ds\Seq::shift</methodname>, and
+            <methodname>Ds\Seq::unshift</methodname> are all O(1).
+        </member>
+        <member>
+            <methodname>Ds\Seq::copy</methodname> is O(1) due to copy-on-write.
+        </member>
+    </simplelist>
 </section>
 
 <section xml:id="ds-seq.weaknesses">
     <title xmlns="http://docbook.org/ns/docbook">Weaknesses</title>
-    <para>
-        <simplelist>
-            <member>Capacity must be a power of 2.</member>
-            <member>
-                <function>insert</function> and
-                <function>remove</function> are O(n).
-            </member>
-        </simplelist>
-   </para>
+    <simplelist>
+        <member>Capacity must be a power of 2.</member>
+        <member>
+            <methodname>Ds\Seq::insert</methodname> and
+            <methodname>Ds\Seq::remove</methodname> are O(n).
+        </member>
+    </simplelist>
 </section>
 
   <section xml:id="ds-seq.synopsis">
    &reftitle.classsynopsis;
 
-<!-- {{{ Synopsis -->
    <classsynopsis>
     <ooclass><classname>Ds\Seq</classname></ooclass>
 
-<!-- {{{ Class synopsis -->
     <classsynopsisinfo>
      <ooclass>
+      <modifier>final</modifier>
       <classname>Ds\Seq</classname>
      </ooclass>
 
@@ -89,7 +82,6 @@
       <interfacename>ArrayAccess</interfacename>
      </oointerface>
     </classsynopsisinfo>
-<!-- }}} -->
     <classsynopsisinfo role="comment">&Constants;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>const</modifier>
@@ -100,13 +92,11 @@
 
     <classsynopsisinfo role="comment">&Methods;</classsynopsisinfo>
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-seq')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis)" />
-    <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-seq')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis)" />
+    <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-seq')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[not(@role='procedural')])" />
    </classsynopsis>
-<!-- }}} -->
 
   </section>
 
-<!-- {{{ Ds\Seq constants -->
   <section xml:id="ds-seq.constants">
    &reftitle.constants;
    <variablelist>
@@ -114,13 +104,12 @@
     <varlistentry xml:id="ds-seq.constants.min-capacity">
      <term><constant>Ds\Seq::MIN_CAPACITY</constant></term>
      <listitem>
-      <para></para>
+      <simpara>The minimum capacity of a <classname>Ds\Seq</classname>.</simpara>
      </listitem>
     </varlistentry>
 
    </variablelist>
   </section>
-<!-- }}} -->
 
  </partintro>
 

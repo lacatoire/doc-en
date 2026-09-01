@@ -13,9 +13,15 @@
    <modifier>public</modifier> <type>Ds\Map</type><methodname>Ds\Map::copy</methodname>
    <void />
   </methodsynopsis>
-  <para>
+  <simpara>
     Returns a shallow copy of the map.
-  </para>
+  </simpara>
+  <note>
+    <simpara>
+        This operation is O(1) due to copy-on-write. The internal buffer is
+        only copied when either the original or the copy is modified.
+    </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="parameters">

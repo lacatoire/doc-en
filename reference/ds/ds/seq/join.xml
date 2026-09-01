@@ -11,7 +11,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>string</type><methodname>Ds\Seq::join</methodname>
-   <methodparam choice="opt"><type>string</type><parameter>glue</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>glue</parameter></methodparam>
   </methodsynopsis>
   <para>
     Joins all values together as a string using an optional separator between each value.
@@ -34,9 +34,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     All values of the seq joined together as a string.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+
 <refentry xml:id="ds-set.serialize" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>Ds\Set::__serialize</refname>
@@ -7,13 +9,17 @@
 
  <refsect1 role="description">
   &reftitle.description;
-  <para>
-   See <function>Serializable::serialize</function>
-  </para>
+  <methodsynopsis>
+   <modifier>public</modifier> <type>array</type><methodname>Ds\Set::__serialize</methodname>
+   <void />
+  </methodsynopsis>
+  <simpara>
+   See <link linkend="object.serialize">__serialize()</link>
+  </simpara>
   <note>
-   <para>
-    You should never need to call this directly.
-   </para>
+   <simpara>
+    This method is not intended to be called directly.
+   </simpara>
   </note>
  </refsect1>
 

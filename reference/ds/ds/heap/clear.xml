@@ -13,9 +13,9 @@
    <modifier>public</modifier> <type>void</type><methodname>Ds\Heap::clear</methodname>
    <void />
   </methodsynopsis>
-  <para>
+  <simpara>
    Removes all values from the heap.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">

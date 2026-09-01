@@ -17,15 +17,15 @@
     Adds all given values to the set that haven't already been added.
   </para>
   <note>
-    <para>
+    <simpara>
         Values of type <type>object</type> are supported.
 
         If an object implements <classname>Ds\Key</classname>,
-        equality will be determined by the object's <code>equals</code> function.
+        equality will be determined by the object's <methodname>Ds\Key::equals</methodname> function.
 
         If an object does not implement <classname>Ds\Key</classname>,
         objects must be references to the same instance to be considered equal.
-    </para>
+    </simpara>
   </note>
   <caution>
     <para>
@@ -131,7 +131,7 @@ $obj = new \ArrayIterator([]);
 $set->add($obj);
 $set->add($obj);
 
-// Adding multiple instances of the same object will add them all.
+// Distinct instances of the same class are all added.
 $set->add(new \stdClass());
 $set->add(new \stdClass());
 

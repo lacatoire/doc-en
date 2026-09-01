@@ -18,15 +18,15 @@
   </para>
 
   <note>
-    <para>
+    <simpara>
         Values of type <type>object</type> are supported.
 
         If an object implements <classname>Ds\Key</classname>,
-        equality will be determined by the object's <code>equals</code> function.
+        equality will be determined by the object's <methodname>Ds\Key::equals</methodname> function.
 
         If an object does not implement <classname>Ds\Key</classname>,
         objects must be references to the same instance to be considered equal.
-    </para>
+    </simpara>
   </note>
   <caution>
     <para>

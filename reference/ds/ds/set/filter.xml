@@ -14,7 +14,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>Ds\Set</type><methodname>Ds\Set::filter</methodname>
-   <methodparam choice="opt"><type>callable</type><parameter>callback</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>callable</type><type>null</type></type><parameter>predicate</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
     Creates a new set using a <type>callable</type> to
@@ -27,7 +27,7 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>callback</parameter></term>
+    <term><parameter>predicate</parameter></term>
     <listitem>
         <para>
             <methodsynopsis xmlns="http://docbook.org/ns/docbook">
@@ -51,11 +51,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     A new set containing all the values for which
-    either the <parameter>callback</parameter> returned &true;, or all values that
-    convert to &true; if a <parameter>callback</parameter> was not provided.
-  </para>
+    either the <parameter>predicate</parameter> returned &true;, or all values that
+    convert to &true; if a <parameter>predicate</parameter> was not provided.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

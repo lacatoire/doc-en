@@ -13,9 +13,9 @@
    <modifier>public</modifier> <type>bool</type><methodname>Ds\Seq::offsetExists</methodname>
    <methodparam><type>mixed</type><parameter>offset</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
     Returns whether an offset exists.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -24,9 +24,9 @@
    <varlistentry>
     <term><parameter>offset</parameter></term>
     <listitem>
-     <para>
+     <simpara>
         The offset to check.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -34,9 +34,22 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     &true; if the offset is valid, &false; otherwise.
-  </para>
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>offset</parameter> is not an <type>int</type> and cannot be
+   coerced to one.
+  </simpara>
+  <simpara>
+   An offset outside the range of the seq is not an error; &false; is
+   returned.
+  </simpara>
  </refsect1>
 
 </refentry>

@@ -20,21 +20,21 @@
   </para>
 
   <note>
-    <para>
+    <simpara>
         Keys of type <type>object</type> are supported.
 
         If an object implements <classname>Ds\Key</classname>,
-        equality will be determined by the object's <code>equals</code> function.
+        equality will be determined by the object's <methodname>Ds\Key::equals</methodname> function.
 
         If an object does not implement <classname>Ds\Key</classname>,
         objects must be references to the same instance to be considered equal.
-    </para>
+    </simpara>
   </note>
 
   <note>
-    <para>
-        You can also use array syntax to associate values by key, eg. <code>$map["key"] = $value</code>.
-    </para>
+    <simpara>
+        Array syntax can also be used to associate values by key, e.g. <code>$map["key"] = $value</code>.
+    </simpara>
   </note>
 
   <caution>
@@ -160,7 +160,7 @@ $obj = new \ArrayIterator([]);
 $map->put($obj, 1);
 $map->put($obj, 2);
 
-// Using multiple instances of the same object will create new associations.
+// Distinct instances of the same class create separate associations.
 $map->put(new \stdClass(), 3);
 $map->put(new \stdClass(), 4);
 

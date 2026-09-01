@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+
 <refentry xml:id="ds-heap.unserialize" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>Ds\Heap::__unserialize</refname>
@@ -7,13 +9,17 @@
 
  <refsect1 role="description">
   &reftitle.description;
-  <para>
-   See <function>Serializable::serialize</function>
-  </para>
+  <methodsynopsis>
+   <modifier>public</modifier> <type>void</type><methodname>Ds\Heap::__unserialize</methodname>
+   <methodparam><type>array</type><parameter>data</parameter></methodparam>
+  </methodsynopsis>
+  <simpara>
+   See <link linkend="object.unserialize">__unserialize()</link>
+  </simpara>
   <note>
-   <para>
-    You should never need to call this directly.
-   </para>
+   <simpara>
+    This method is not intended to be called directly.
+   </simpara>
   </note>
  </refsect1>
 

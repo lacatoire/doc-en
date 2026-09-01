@@ -8,26 +8,23 @@
 
  <partintro>
 
-<!-- {{{ Ds\Pair intro -->
   <section xml:id="ds-pair.intro">
    &reftitle.intro;
-   <para>
+   <simpara>
     A pair is a readonly key-value pair used by <classname>Ds\Map</classname>.
     Properties <literal>key</literal> and <literal>value</literal> are public and readonly.
-   </para>
+   </simpara>
   </section>
-<!-- }}} -->
 
   <section xml:id="ds-pair.synopsis">
    &reftitle.classsynopsis;
 
-<!-- {{{ Synopsis -->
    <classsynopsis>
     <ooclass><classname>Ds\Pair</classname></ooclass>
 
-<!-- {{{ Class synopsis -->
     <classsynopsisinfo>
      <ooclass>
+      <modifier>final</modifier>
       <modifier>readonly</modifier>
       <classname>Ds\Pair</classname>
      </ooclass>
@@ -36,18 +33,75 @@
       <interfacename>JsonSerializable</interfacename>
      </oointerface>
     </classsynopsisinfo>
-<!-- }}} -->
+
+    <classsynopsisinfo role="comment">&Properties;</classsynopsisinfo>
+    <fieldsynopsis>
+     <modifier>public</modifier>
+     <modifier>readonly</modifier>
+     <type>mixed</type>
+     <varname linkend="ds-pair.props.key">key</varname>
+    </fieldsynopsis>
+    <fieldsynopsis>
+     <modifier>public</modifier>
+     <modifier>readonly</modifier>
+     <type>mixed</type>
+     <varname linkend="ds-pair.props.value">value</varname>
+    </fieldsynopsis>
 
     <classsynopsisinfo role="comment">&Methods;</classsynopsisinfo>
-     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-pair')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis)">
-      <xi:fallback/>
-     </xi:include> 
-     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-pair')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[1])">
-      <xi:fallback/>
-     </xi:include> 
+     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-pair')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis)"/>
+     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-pair')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[not(@role='procedural')])"/>
     </classsynopsis>
-<!-- }}} -->
 
+  </section>
+
+  <section xml:id="ds-pair.props">
+   &reftitle.properties;
+   <variablelist>
+    <varlistentry xml:id="ds-pair.props.key">
+     <term><varname>key</varname></term>
+     <listitem>
+      <simpara>The key of the pair. Readonly.</simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry xml:id="ds-pair.props.value">
+     <term><varname>value</varname></term>
+     <listitem>
+      <simpara>The value of the pair. Readonly.</simpara>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </section>
+
+  <section role="changelog">
+   &reftitle.changelog;
+   <informaltable>
+    <tgroup cols="2">
+     <thead>
+      <row>
+       <entry>&Version;</entry>
+       <entry>&Description;</entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry>PECL ds 2.0.0</entry>
+       <entry>
+        The class is now <literal>readonly</literal>: the
+        <varname>key</varname> and <varname>value</varname> properties can no
+        longer be written to or unset after construction.
+       </entry>
+      </row>
+      <row>
+       <entry>PECL ds 2.0.0</entry>
+       <entry>
+        <literal>Ds\Pair::copy()</literal> was removed; use
+        <link linkend="language.oop5.cloning">clone</link> instead.
+       </entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </informaltable>
   </section>
 
  </partintro>

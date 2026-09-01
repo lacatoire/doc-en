@@ -11,30 +11,33 @@
   &reftitle.description;
   <constructorsynopsis>
    <modifier>public</modifier> <methodname>Ds\Heap::__construct</methodname>
+   <methodparam choice="opt"><type>mixed</type><parameter>values</parameter><initializer>&null;</initializer></methodparam>
    <methodparam choice="opt"><type class="union"><type>callable</type><type>null</type></type><parameter>comparator</parameter><initializer>&null;</initializer></methodparam>
   </constructorsynopsis>
-  <para>
-   Creates a new instance using an optional comparator function.
-  </para>
-  <para>
+  <simpara>
+   Creates a new instance, using either a <classname>Traversable</classname>
+   object or an array for the initial values, and an optional comparator
+   function.
+  </simpara>
+  <simpara>
    When no comparator is provided (or &null;), the heap behaves as a max-heap
    using standard comparison: the largest value will be at the top. A custom
    comparator can be used to change the ordering, for example to create a
    min-heap.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    The comparator should return a positive integer, 0, or a negative integer
    when the first argument is considered to be respectively greater than, equal
    to, or less than the second.
-  </para>
+  </simpara>
   <caution>
-   <para>
+   <simpara>
      Returning non-integer values from the comparator, such as &float;,
      will result in an internal cast to &integer; of the return value.
      So values such as <literal>0.99</literal> and <literal>0.1</literal> will
      both be cast to an integer value of <literal>0</literal>, which will
      compare such values as equal.
-   </para>
+   </simpara>
   </caution>
  </refsect1>
 
@@ -42,16 +45,34 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
+    <term><parameter>values</parameter></term>
+    <listitem>
+     <simpara>
+      A <classname>Traversable</classname> object or an array to use for the
+      initial values.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
     <term><parameter>comparator</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       An optional comparison function to customize the heap ordering.
       The function should accept two arguments and return an integer less than,
       equal to, or greater than zero.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>InvalidArgumentException</exceptionname> if
+   <parameter>values</parameter> is neither &null;, an array, nor a
+   <classname>Traversable</classname> object.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -88,7 +109,7 @@ Array
    <programlisting role="php">
 <![CDATA[
 <?php
-$heap = new \Ds\Heap(function ($a, $b) {
+$heap = new \Ds\Heap([], function ($a, $b) {
     return $b <=> $a;
 });
 

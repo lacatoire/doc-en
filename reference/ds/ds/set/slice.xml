@@ -14,7 +14,7 @@
   <methodsynopsis>
    <modifier>public</modifier> <type>Ds\Set</type><methodname>Ds\Set::slice</methodname>
    <methodparam><type>int</type><parameter>index</parameter></methodparam>
-   <methodparam choice="opt"><type>int</type><parameter>length</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>int</type><type>null</type></type><parameter>length</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
     Creates a sub-set of a given range.
@@ -31,29 +31,29 @@
         <para>
             The index at which the sub-set starts.
         </para>
-        <para>
-            If positive, the set will start at that index in the set.
+        <simpara>
+            If positive, the sub-set will start at that index in the set.
             If negative, the set will start that far from the end.
-        </para>
+        </simpara>
     </listitem>
     </varlistentry>
     <varlistentry>
     <term><parameter>length</parameter></term>
     <listitem>
-     <para>
+     <simpara>
         If a length is given and is positive, the resulting
         set will have up to that many values in it.
 
         If the length results in an overflow, only
         values up to the end of the set will be included.
 
-        If a length is given and is negative, the set
+        If a length is given and is negative, the sub-set
         will stop that many values from the end.
 
         If a length is not provided, the resulting set
         will contain all values between the index and the
         end of the set.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -125,7 +125,6 @@ Ds\Set Object
     [1] => c
     [2] => d
 )
-
 ]]>
    </screen>
   </example>

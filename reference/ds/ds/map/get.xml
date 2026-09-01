@@ -20,21 +20,21 @@
   </para>
 
   <note>
-    <para>
+    <simpara>
         Keys of type <type>object</type> are supported.
 
         If an object implements <classname>Ds\Key</classname>,
-        equality will be determined by the object's <code>equals</code> function.
+        equality will be determined by the object's <methodname>Ds\Key::equals</methodname> function.
 
         If an object does not implement <classname>Ds\Key</classname>,
         objects must be references to the same instance to be considered equal.
-    </para>
+    </simpara>
   </note>
 
   <note>
-    <para>
-        You can also use array syntax to access values by key, eg. <code>$map["key"]</code>.
-    </para>
+    <simpara>
+        Array syntax can also be used to access values by key, e.g. <code>$map["key"]</code>.
+    </simpara>
   </note>
 
   <caution>
@@ -83,10 +83,10 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   <classname>OutOfBoundsException</classname> if the key could not be found
+  <simpara>
+   <exceptionname>OutOfBoundsException</exceptionname> if the key could not be found
    and a default value was not provided.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

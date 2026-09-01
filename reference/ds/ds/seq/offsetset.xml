@@ -14,9 +14,9 @@
    <methodparam><type>mixed</type><parameter>offset</parameter></methodparam>
    <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
     Sets the value at a given offset.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -25,17 +25,17 @@
    <varlistentry>
     <term><parameter>offset</parameter></term>
     <listitem>
-     <para>
+     <simpara>
         The offset to set.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>value</parameter></term>
     <listitem>
-     <para>
+     <simpara>
         The new value.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -43,9 +43,21 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     &return.void;
-  </para>
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>offset</parameter> is neither &null; nor an <type>int</type>.
+  </simpara>
+  <simpara>
+   Throws an <exceptionname>OutOfRangeException</exceptionname> if
+   <parameter>offset</parameter> is outside the range of the seq.
+  </simpara>
  </refsect1>
 
 </refentry>

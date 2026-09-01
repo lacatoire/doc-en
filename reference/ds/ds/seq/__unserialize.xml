@@ -4,18 +4,22 @@
 <refentry xml:id="ds-seq.unserialize" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>Ds\Seq::__unserialize</refname>
-  <refpurpose>Restores the sequence from its serialized form</refpurpose>
+  <refpurpose>Restores the seq from its serialized form</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
-  <para>
-   See <function>Serializable::__unserialize</function>
-  </para>
+  <methodsynopsis>
+   <modifier>public</modifier> <type>void</type><methodname>Ds\Seq::__unserialize</methodname>
+   <methodparam><type>array</type><parameter>data</parameter></methodparam>
+  </methodsynopsis>
+  <simpara>
+   See <link linkend="object.unserialize">__unserialize()</link>
+  </simpara>
   <note>
-   <para>
-    You should never need to call this directly.
-   </para>
+   <simpara>
+    This method is not intended to be called directly.
+   </simpara>
   </note>
  </refsect1>
 

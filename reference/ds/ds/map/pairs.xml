@@ -13,9 +13,9 @@
    <modifier>public</modifier> <type>Ds\Seq</type><methodname>Ds\Map::pairs</methodname>
    <void />
   </methodsynopsis>
-  <para>
-    Returns a <classname>Ds\Seq</classname> containing all the pairs of the map.
-  </para>
+  <simpara>
+    Returns a A <classname>Ds\Seq</classname> containing all the pairs of the map.
+  </simpara>
 
  </refsect1>
 
@@ -26,9 +26,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     <classname>Ds\Seq</classname> containing all the pairs of the map.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -47,23 +47,23 @@ var_dump($map->pairs());
    &example.outputs.similar;
    <screen>
 <![CDATA[
-object(Ds\Seq)#8 (3) {
+object(Ds\Seq)#5 (3) {
   [0]=>
-  object(Ds\Pair)#5 (2) {
+  object(Ds\Pair)#2 (2) {
     ["key"]=>
     string(1) "a"
     ["value"]=>
     int(1)
   }
   [1]=>
-  object(Ds\Pair)#6 (2) {
+  object(Ds\Pair)#3 (2) {
     ["key"]=>
     string(1) "b"
     ["value"]=>
     int(2)
   }
   [2]=>
-  object(Ds\Pair)#7 (2) {
+  object(Ds\Pair)#4 (2) {
     ["key"]=>
     string(1) "c"
     ["value"]=>

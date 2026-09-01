@@ -77,6 +77,7 @@ print_r($map);
    &example.outputs.similar;
    <screen>
 <![CDATA[
+Ds\Map Object
 (
     [0] => Ds\Pair Object
         (

@@ -13,9 +13,9 @@
    <modifier>public</modifier> <type>mixed</type><methodname>Ds\Heap::pop</methodname>
    <void />
   </methodsynopsis>
-  <para>
+  <simpara>
    Removes and returns the value at the top of the heap.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -25,16 +25,16 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    The removed value which was at the top of the heap.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   <classname>UnderflowException</classname> if empty.
-  </para>
+  <simpara>
+   <exceptionname>UnderflowException</exceptionname> if empty.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -50,9 +50,9 @@ $heap->push(5);
 $heap->push(1);
 $heap->push(3);
 
-print_r($heap->pop());
-print_r($heap->pop());
-print_r($heap->pop());
+var_dump($heap->pop());
+var_dump($heap->pop());
+var_dump($heap->pop());
 ?>
 ]]>
    </programlisting>

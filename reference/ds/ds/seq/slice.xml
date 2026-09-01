@@ -14,11 +14,11 @@
   <methodsynopsis>
    <modifier>public</modifier> <type>Ds\Seq</type><methodname>Ds\Seq::slice</methodname>
    <methodparam><type>int</type><parameter>index</parameter></methodparam>
-   <methodparam choice="opt"><type>int</type><parameter>length</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type class="union"><type>int</type><type>null</type></type><parameter>length</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
     Creates a sub-seq of a given range.
-  </para>
+  </simpara>
 
  </refsect1>
 
@@ -28,32 +28,32 @@
    <varlistentry>
     <term><parameter>index</parameter></term>
     <listitem>
-        <para>
+        <simpara>
             The index at which the sub-seq starts.
-        </para>
-        <para>
-            If positive, the seq will start at that index in the seq.
+        </simpara>
+        <simpara>
+            If positive, the sub-seq will start at that index in the seq.
             If negative, the seq will start that far from the end.
-        </para>
+        </simpara>
     </listitem>
     </varlistentry>
     <varlistentry>
     <term><parameter>length</parameter></term>
     <listitem>
-     <para>
+     <simpara>
         If a length is given and is positive, the resulting
         seq will have up to that many values in it.
 
         If the length results in an overflow, only
         values up to the end of the seq will be included.
 
-        If a length is given and is negative, the seq
+        If a length is given and is negative, the sub-seq
         will stop that many values from the end.
 
         If a length is not provided, the resulting seq
         will contain all values between the index and the
         end of the seq.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -61,9 +61,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     A sub-seq of the given range.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -125,7 +125,6 @@ Ds\Seq Object
     [1] => c
     [2] => d
 )
-
 ]]>
    </screen>
   </example>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision$ -->
+
 <refentry xml:id="ds-set.offsetexists" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>Ds\Set::offsetExists</refname>
-  <refpurpose>Returns whether an offset exists</refpurpose>
+  <refpurpose>Not supported</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -11,9 +13,9 @@
    <modifier>public</modifier> <type>bool</type><methodname>Ds\Set::offsetExists</methodname>
    <methodparam><type>mixed</type><parameter>offset</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Returns whether an offset exists.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -22,9 +24,9 @@
    <varlistentry>
     <term><parameter>offset</parameter></term>
     <listitem>
-     <para>
-      The offset to check.
-     </para>
+     <simpara>
+      Ignored; the method throws before the offset is examined.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -32,9 +34,24 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &true; if the offset is valid, &false; otherwise.
-  </para>
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Always throws an <exceptionname>Error</exceptionname> with the message
+   <literal>Array access by key is not supported</literal>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><methodname>Ds\Set::contains</methodname></member>
+  </simplelist>
  </refsect1>
 
 </refentry>

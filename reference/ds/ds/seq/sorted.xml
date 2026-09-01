@@ -11,11 +11,11 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>Ds\Seq</type><methodname>Ds\Seq::sorted</methodname>
-   <methodparam choice="opt"><type>callable</type><parameter>comparator</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type class="union"><type>callable</type><type>null</type></type><parameter>comparator</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
     Returns a sorted copy, using an optional <parameter>comparator</parameter> function.
-  </para>
+  </simpara>
 
  </refsect1>
 
@@ -33,9 +33,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     Returns a sorted copy of the seq.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -95,6 +95,13 @@ Ds\Seq Object
 
  </refsect1>
 
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><methodname>Ds\Seq::sort</methodname></member>
+  </simplelist>
+ </refsect1>
 
 </refentry>
 

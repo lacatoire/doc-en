@@ -9,13 +9,17 @@
 
  <refsect1 role="description">
   &reftitle.description;
-  <para>
-   See <function>Serializable::__unserialize</function>
-  </para>
+  <methodsynopsis>
+   <modifier>public</modifier> <type>void</type><methodname>Ds\Map::__unserialize</methodname>
+   <methodparam><type>array</type><parameter>data</parameter></methodparam>
+  </methodsynopsis>
+  <simpara>
+   See <link linkend="object.unserialize">__unserialize()</link>
+  </simpara>
   <note>
-   <para>
-    You should never need to call this directly.
-   </para>
+   <simpara>
+    This method is not intended to be called directly.
+   </simpara>
   </note>
  </refsect1>
 

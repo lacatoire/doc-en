@@ -13,7 +13,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>void</type><methodname>Ds\Set::sort</methodname>
-   <methodparam choice="opt"><type>callable</type><parameter>comparator</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>callable</type><type>null</type></type><parameter>comparator</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
     Sorts the set in-place, using an optional <parameter>comparator</parameter> function.
@@ -100,6 +100,13 @@ Ds\Set Object
 
  </refsect1>
 
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><methodname>Ds\Set::sorted</methodname></member>
+  </simplelist>
+ </refsect1>
 
 </refentry>
 

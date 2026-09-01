@@ -42,9 +42,9 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   <classname>OutOfRangeException</classname> if the index is not valid.
-  </para>
+  <simpara>
+   <exceptionname>OutOfRangeException</exceptionname> if the index is not valid.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

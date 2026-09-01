@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 
-<refentry xml:id="ds-seq.construct" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+<refentry xml:id="function.ds-map" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
-  <refname>Ds\Seq::__construct</refname>
-  <refpurpose>Creates a new instance</refpurpose>
+  <refname>Ds\map</refname>
+  <refpurpose>Creates a new <classname>Ds\Map</classname></refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
-  <constructorsynopsis>
-   <modifier>public</modifier> <methodname>Ds\Seq::__construct</methodname>
+  <methodsynopsis>
+   <type>Ds\Map</type><methodname>Ds\map</methodname>
    <methodparam choice="opt"><type>mixed</type><parameter>values</parameter><initializer>&null;</initializer></methodparam>
-  </constructorsynopsis>
+  </methodsynopsis>
   <simpara>
-    Creates a new instance, using either a <classname>Traversable</classname>
-    object or an &array; for the initial <parameter>values</parameter>.
+   Creates a new <classname>Ds\Map</classname>, optionally filled with the
+   given values. Equivalent to <code>new \Ds\Map($values)</code>.
   </simpara>
  </refsect1>
 
@@ -25,12 +25,20 @@
    <varlistentry>
     <term><parameter>values</parameter></term>
     <listitem>
-     <para>
-      A traversable object or an &array; to use for the initial values.
-     </para>
+     <simpara>
+      A <classname>Traversable</classname> object or an array to use for the
+      initial values.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
+ </refsect1>
+
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   A new <classname>Ds\Map</classname>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -45,36 +53,31 @@
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
-   <title><function>Ds\Seq::__construct</function> example</title>
+   <title><function>Ds\map</function> example</title>
    <programlisting role="php">
 <![CDATA[
 <?php
-$seq = new \Ds\Seq();
-var_dump($seq);
+$map = \Ds\map(["a" => 1]);
 
-$seq = new \Ds\Seq([1, 2, 3]);
-var_dump($seq);
+var_dump($map instanceof \Ds\Map);
 ?>
 ]]>
    </programlisting>
-   &example.outputs.similar;
+   &example.outputs;
    <screen>
 <![CDATA[
-object(Ds\Seq)#1 (0) {
-}
-object(Ds\Seq)#2 (3) {
-  [0]=>
-  int(1)
-  [1]=>
-  int(2)
-  [2]=>
-  int(3)
-}
+bool(true)
 ]]>
    </screen>
   </example>
  </refsect1>
 
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><methodname>Ds\Map::__construct</methodname></member>
+  </simplelist>
+ </refsect1>
 
 </refentry>
 

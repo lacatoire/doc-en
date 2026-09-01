@@ -19,21 +19,21 @@
     Converts the map to an &array;.
   </para>
   <caution>
-        <para>
-            Maps where non-scalar keys are can't be converted to an &array;.
-        </para>
+        <simpara>
+            Maps with non-scalar keys can't be converted to an &array;.
+        </simpara>
     </caution>
     <caution>
-        <para>
+        <simpara>
             An &array; will treat all numeric keys as integers,
-            eg. <code>"1"</code> and <code>1</code> as keys in the map
+            e.g. <code>"1"</code> and <code>1</code> as keys in the map
             will only result in <code>1</code> being included in the array.
-        </para>
+        </simpara>
     </caution>
   <note>
-    <para>
-        Casting to an &array; is not supported yet.
-    </para>
+    <simpara>
+        Casting to an &array; is not supported.
+    </simpara>
   </note>
 
  </refsect1>

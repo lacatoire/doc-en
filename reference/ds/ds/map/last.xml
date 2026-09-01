@@ -33,9 +33,9 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   <classname>UnderflowException</classname> if empty.
-  </para>
+  <simpara>
+   <exceptionname>UnderflowException</exceptionname> if empty.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

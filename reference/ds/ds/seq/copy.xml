@@ -13,14 +13,14 @@
    <modifier>public</modifier> <type>Ds\Seq</type><methodname>Ds\Seq::copy</methodname>
    <void />
   </methodsynopsis>
-  <para>
+  <simpara>
     Returns a shallow copy of the seq.
-  </para>
+  </simpara>
   <note>
-    <para>
+    <simpara>
         This operation is O(1) due to copy-on-write. The internal buffer will
         only be copied when either the original or the copy is modified.
-    </para>
+    </simpara>
   </note>
  </refsect1>
 
@@ -31,9 +31,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    A shallow copy of the seq.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

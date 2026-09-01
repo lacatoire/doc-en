@@ -13,11 +13,11 @@
    <modifier>public</modifier> <type>void</type><methodname>Ds\Seq::rotate</methodname>
    <methodparam><type>int</type><parameter>rotations</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
     Rotates the seq by a given number of rotations, which is equivalent
     to successively calling <code>$seq->push($seq->shift())</code> if the number
     of rotations is positive, or <code>$seq->unshift($seq->pop())</code> if negative.
-  </para>
+  </simpara>
 
  </refsect1>
 
@@ -27,9 +27,9 @@
    <varlistentry>
     <term><parameter>rotations</parameter></term>
     <listitem>
-     <para>
+     <simpara>
         The number of times the seq should be rotated.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -37,9 +37,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-    &return.void;. The seq of the current instance will be rotated.
-  </para>
+  <simpara>
+    &return.void;
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

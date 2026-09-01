@@ -13,7 +13,7 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>Ds\Map</type><methodname>Ds\Map::filter</methodname>
-   <methodparam choice="opt"><type>callable</type><parameter>callback</parameter></methodparam>
+   <methodparam choice="opt"><type class="union"><type>callable</type><type>null</type></type><parameter>callback</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
     Creates a new map using a <type>callable</type> to determine which pairs to include.
@@ -115,13 +115,21 @@ var_dump($map->filter());
    &example.outputs.similar;
    <screen>
 <![CDATA[
-object(Ds\Map)#2 (3) {
+object(Ds\Map)#2 (2) {
   [0]=>
-  int(1)
+  object(Ds\Pair)#3 (2) {
+    ["key"]=>
+    string(1) "b"
+    ["value"]=>
+    int(1)
+  }
   [1]=>
-  string(1) "a"
-  [2]=>
-  bool(true)
+  object(Ds\Pair)#4 (2) {
+    ["key"]=>
+    string(1) "c"
+    ["value"]=>
+    bool(true)
+  }
 }
 ]]>
    </screen>

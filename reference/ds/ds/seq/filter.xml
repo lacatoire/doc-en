@@ -14,12 +14,12 @@
   &reftitle.description;
   <methodsynopsis>
    <modifier>public</modifier> <type>Ds\Seq</type><methodname>Ds\Seq::filter</methodname>
-   <methodparam choice="opt"><type>callable</type><parameter>callback</parameter><initializer>&null;</initializer></methodparam>
+   <methodparam choice="opt"><type class="union"><type>callable</type><type>null</type></type><parameter>callback</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
     Creates a new seq using a <type>callable</type> to
     determine which values to include.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -53,11 +53,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     A new seq containing all the values for which
     either the <parameter>callback</parameter> returned &true;, or all values that
     convert to &true; if a <parameter>callback</parameter> was not provided.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

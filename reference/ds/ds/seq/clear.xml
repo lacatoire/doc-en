@@ -13,9 +13,9 @@
    <modifier>public</modifier> <type>void</type><methodname>Ds\Seq::clear</methodname>
    <void />
   </methodsynopsis>
-  <para>
+  <simpara>
     Removes all values from the seq.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">

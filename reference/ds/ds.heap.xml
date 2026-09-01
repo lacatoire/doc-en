@@ -8,88 +8,62 @@
 
  <partintro>
 
-<!-- {{{ Ds\Heap intro -->
   <section xml:id="ds-heap.intro">
    &reftitle.intro;
-   <para>
+   <simpara>
     A Heap is a tree-based data structure in which the value at the top of the
     heap is determined by a configurable comparator. By default, when no comparator
     is provided, the heap behaves as a max-heap using standard comparison.
-   </para>
-   <para>
-    Replaces <classname>Ds\PriorityQueue</classname> from v1, providing more
+   </simpara>
+   <simpara>
+    Replaces <literal>Ds\PriorityQueue</literal> from v1, providing more
     flexibility through an optional callable comparator that can be passed to
     the constructor.
-   </para>
+   </simpara>
    <note>
-    <para>
-     Iterating over a Heap is destructive, equivalent to successive pop
-     operations until the heap is empty. The iterator operates on an internal
-     copy, so the original heap is not modified by foreach.
-    </para>
+    <simpara>
+     Iterating over a <classname>Ds\Heap</classname> yields the values in the
+     order in which they would be popped. The iterator operates on an internal
+     copy, so the heap itself is not modified by
+     <literal>foreach</literal>.
+    </simpara>
    </note>
 
-   <para>
-    <table>
-     <title>Strengths</title>
-     <tgroup cols="2">
-      <thead>
-       <row>
-        <entry>Operation</entry>
-        <entry>Complexity</entry>
-       </row>
-      </thead>
-      <tbody>
-       <row>
-        <entry>push</entry>
-        <entry>O(log n)</entry>
-       </row>
-       <row>
-        <entry>pop</entry>
-        <entry>O(log n)</entry>
-       </row>
-       <row>
-        <entry>peek</entry>
-        <entry>O(1)</entry>
-       </row>
-      </tbody>
-     </tgroup>
-    </table>
-   </para>
-
-   <para>
-    <table>
-     <title>Weaknesses</title>
-     <tgroup cols="2">
-      <thead>
-       <row>
-        <entry>Operation</entry>
-        <entry>Complexity</entry>
-       </row>
-      </thead>
-      <tbody>
-       <row>
-        <entry>Random access</entry>
-        <entry>Not supported</entry>
-       </row>
-      </tbody>
-     </tgroup>
-    </table>
-   </para>
-
   </section>
-<!-- }}} -->
+
+  <section xml:id="ds-heap.strengths">
+   <title>Strengths</title>
+   <simplelist>
+    <member>
+     <methodname>Ds\Heap::push</methodname> and
+     <methodname>Ds\Heap::pop</methodname> are O(log n).
+    </member>
+    <member>
+     <methodname>Ds\Heap::peek</methodname> is O(1).
+    </member>
+    <member>
+     <methodname>Ds\Heap::copy</methodname> is O(1) due to copy-on-write.
+    </member>
+   </simplelist>
+  </section>
+
+  <section xml:id="ds-heap.weaknesses">
+   <title>Weaknesses</title>
+   <simplelist>
+    <member>Random access is not supported.</member>
+    <member>Values are only ordered relative to the top of the heap.</member>
+   </simplelist>
+  </section>
 
   <section xml:id="ds-heap.synopsis">
    &reftitle.classsynopsis;
 
-<!-- {{{ Synopsis -->
    <classsynopsis>
     <ooclass><classname>Ds\Heap</classname></ooclass>
 
-<!-- {{{ Class synopsis -->
     <classsynopsisinfo>
      <ooclass>
+      <modifier>final</modifier>
       <classname>Ds\Heap</classname>
      </ooclass>
 
@@ -103,7 +77,6 @@
       <interfacename>JsonSerializable</interfacename>
      </oointerface>
     </classsynopsisinfo>
-<!-- }}} -->
     <classsynopsisinfo role="comment">&Constants;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>const</modifier>
@@ -116,11 +89,9 @@
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-heap')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis[not(@role='procedural')])" />
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-heap')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[not(@role='procedural')])" />
    </classsynopsis>
-<!-- }}} -->
 
   </section>
 
-<!-- {{{ Ds\Heap constants -->
   <section xml:id="ds-heap.constants">
    &reftitle.constants;
    <variablelist>
@@ -128,14 +99,12 @@
     <varlistentry xml:id="ds-heap.constants.min-capacity">
      <term><constant>Ds\Heap::MIN_CAPACITY</constant></term>
      <listitem>
-      <para></para>
+      <simpara>The minimum capacity of a <classname>Ds\Heap</classname>.</simpara>
      </listitem>
     </varlistentry>
 
    </variablelist>
   </section>
-<!-- }}} -->
-
 
  </partintro>
 

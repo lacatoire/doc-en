@@ -26,9 +26,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     A <classname>Ds\Seq</classname> containing all the values of the map.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

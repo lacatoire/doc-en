@@ -8,7 +8,6 @@
 
  <partintro>
 
-<!-- {{{ Ds\Map intro -->
   <section xml:id="ds-map.intro">
    &reftitle.intro;
    <para>
@@ -17,42 +16,34 @@
     Values are replaced if added to the map using the same key.
    </para>
   </section>
-<!-- }}} -->
-
 
 <section xml:id="ds-map.strengths">
     <title xmlns="http://docbook.org/ns/docbook">Strengths</title>
-    <para>
-        <simplelist>
-            <member>Keys and values can be any type, including objects.</member>
-            <member>Supports array syntax (square brackets).</member>
-            <member>Insertion order is preserved.</member>
-            <member>Performance and memory efficiency is very similar to an &array;.</member>
-            <member>Automatically frees allocated memory when its size drops low enough.</member>
-        </simplelist>
-   </para>
+    <simplelist>
+        <member>Keys and values can be any type, including objects.</member>
+        <member>Supports array syntax (square brackets).</member>
+        <member>Insertion order is preserved.</member>
+        <member>Performance and memory efficiency is very similar to an &array;.</member>
+        <member>Automatically frees allocated memory when its size drops low enough.</member>
+    </simplelist>
 </section>
 
 <section xml:id="ds-map.weaknesses">
     <title xmlns="http://docbook.org/ns/docbook">Weaknesses</title>
-    <para>
-        <simplelist>
-            <member>Can’t be converted to an array when objects are used as keys.</member>
-        </simplelist>
-   </para>
+    <simplelist>
+        <member>Can’t be converted to an array when objects are used as keys.</member>
+    </simplelist>
 </section>
-
 
   <section xml:id="ds-map.synopsis">
    &reftitle.classsynopsis;
 
-<!-- {{{ Synopsis -->
    <classsynopsis>
     <ooclass><classname>Ds\Map</classname></ooclass>
 
-<!-- {{{ Class synopsis -->
     <classsynopsisinfo>
      <ooclass>
+      <modifier>final</modifier>
       <classname>Ds\Map</classname>
      </ooclass>
 
@@ -69,7 +60,7 @@
       <interfacename>ArrayAccess</interfacename>
      </oointerface>
     </classsynopsisinfo>
-<!-- }}} -->
+
     <classsynopsisinfo role="comment">&Constants;</classsynopsisinfo>
     <fieldsynopsis>
      <modifier>const</modifier>
@@ -79,13 +70,12 @@
     </fieldsynopsis>
 
     <classsynopsisinfo role="comment">&Methods;</classsynopsisinfo>
+    <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-map')/db:refentry/db:refsect1[@role='description']/descendant::db:constructorsynopsis)" />
     <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('class.ds-map')/db:refentry/db:refsect1[@role='description']/descendant::db:methodsynopsis[not(@role='procedural')])" />
    </classsynopsis>
-<!-- }}} -->
 
   </section>
 
-<!-- {{{ Ds\Map constants -->
   <section xml:id="ds-map.constants">
    &reftitle.constants;
    <variablelist>
@@ -93,13 +83,12 @@
     <varlistentry xml:id="ds-map.constants.min-capacity">
      <term><constant>Ds\Map::MIN_CAPACITY</constant></term>
      <listitem>
-      <para></para>
+      <simpara>The minimum capacity of a <classname>Ds\Map</classname>.</simpara>
      </listitem>
     </varlistentry>
 
    </variablelist>
   </section>
-<!-- }}} -->
 
   <section role="changelog">
    &reftitle.changelog;
@@ -116,10 +105,23 @@
        <row>
         <entry>PECL ds 2.0.0</entry>
         <entry>
-         No longer implements <classname>Ds\Collection</classname>.
-         <methodname>Ds\Map::values</methodname> returns <classname>Ds\Seq</classname>.
-         <methodname>Ds\Map::pairs</methodname> returns <classname>Ds\Seq</classname>.
-         <methodname>Ds\Map::keys</methodname> returns <classname>Ds\Set</classname>.
+         The class no longer implements <literal>Ds\Collection</literal>.
+        </entry>
+       </row>
+       <row>
+        <entry>PECL ds 2.0.0</entry>
+        <entry>
+         <methodname>Ds\Map::values</methodname> and
+         <methodname>Ds\Map::pairs</methodname> now return a
+         <classname>Ds\Seq</classname>; previously, they returned a
+         <literal>Ds\Vector</literal>.
+        </entry>
+       </row>
+       <row>
+        <entry>PECL ds 2.0.0</entry>
+        <entry>
+         <methodname>Ds\Map::copy</methodname> is now O(1), the contents being
+         copied only when either the original or the copy is modified.
         </entry>
        </row>
        <row>

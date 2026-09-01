@@ -48,7 +48,7 @@ var_dump($set->capacity());
    &example.outputs.similar;
    <screen>
 <![CDATA[
-int(16)
+int(8)
 int(64)
 ]]>
    </screen>

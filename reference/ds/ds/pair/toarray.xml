@@ -19,9 +19,9 @@
     Converts the pair to an &array;.
   </para>
   <note>
-    <para>
-        Casting to an &array; is not supported yet.
-    </para>
+    <simpara>
+        Casting to an &array; is not supported.
+    </simpara>
   </note>
 
  </refsect1>

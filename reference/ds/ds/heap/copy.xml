@@ -13,12 +13,12 @@
    <modifier>public</modifier> <type>Ds\Heap</type><methodname>Ds\Heap::copy</methodname>
    <void />
   </methodsynopsis>
-  <para>
+  <simpara>
    Returns a shallow copy of the heap.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    This is an O(1) operation using copy-on-write.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -28,9 +28,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a shallow copy of the heap.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

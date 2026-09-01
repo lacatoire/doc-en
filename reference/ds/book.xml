@@ -8,9 +8,13 @@
 
  <preface xml:id="intro.ds">
   &reftitle.intro;
-  <para>
+  <simpara>
     Efficient data structures for PHP, provided as an alternative to the &array;.
-  </para>
+  </simpara>
+  <simpara>
+    See <link xlink:href="&url.blog.data.structures;">this blog post</link>
+    for benchmarks, discussion and frequently asked questions.
+  </simpara>
  </preface>
 
  &reference.ds.setup;
@@ -23,6 +27,8 @@
  &reference.ds.ds.pair;
  &reference.ds.ds.set;
  &reference.ds.ds.heap;
+
+ &reference.ds.functions;
 
 </book>
 

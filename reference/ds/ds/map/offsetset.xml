@@ -14,9 +14,9 @@
    <methodparam><type>mixed</type><parameter>offset</parameter></methodparam>
    <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
     Associates a key with a value.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -25,17 +25,17 @@
    <varlistentry>
     <term><parameter>offset</parameter></term>
     <listitem>
-     <para>
+     <simpara>
         The offset to set.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>value</parameter></term>
     <listitem>
-     <para>
+     <simpara>
         The new value.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -43,9 +43,18 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     &return.void;
-  </para>
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>OutOfBoundsException</exceptionname> with the
+   message <literal>Array access push syntax is not supported</literal> for
+   <code>$map[] = $value</code>.
+  </simpara>
  </refsect1>
 
 </refentry>

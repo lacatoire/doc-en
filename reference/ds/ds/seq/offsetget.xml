@@ -13,9 +13,9 @@
    <modifier>public</modifier> <type>mixed</type><methodname>Ds\Seq::offsetGet</methodname>
    <methodparam><type>mixed</type><parameter>offset</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
     Returns the value at a given offset.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -24,9 +24,9 @@
    <varlistentry>
     <term><parameter>offset</parameter></term>
     <listitem>
-     <para>
+     <simpara>
         The offset to get.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -34,9 +34,22 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     The value at the given offset.
-  </para>
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>offset</parameter> is not an <type>int</type> and cannot be
+   coerced to one.
+  </simpara>
+  <simpara>
+   Throws an <exceptionname>OutOfRangeException</exceptionname> if
+   <parameter>offset</parameter> is outside the range of the seq.
+  </simpara>
  </refsect1>
 
 </refentry>

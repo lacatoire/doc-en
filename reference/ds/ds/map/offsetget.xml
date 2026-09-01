@@ -13,9 +13,9 @@
    <modifier>public</modifier> <type>mixed</type><methodname>Ds\Map::offsetGet</methodname>
    <methodparam><type>mixed</type><parameter>offset</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
     Returns the value associated with a key.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -24,9 +24,9 @@
    <varlistentry>
     <term><parameter>offset</parameter></term>
     <listitem>
-     <para>
+     <simpara>
         The offset to get.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -34,9 +34,22 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     The value at the given offset.
-  </para>
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>OutOfBoundsException</exceptionname> with the
+   message <literal>Key not found</literal> if the key could not be found.
+  </simpara>
+  <simpara>
+   Throws an <exceptionname>OutOfBoundsException</exceptionname> with the
+   message <literal>Array access push syntax is not supported</literal> for
+   <code>$map[]</code>.
+  </simpara>
  </refsect1>
 
 </refentry>

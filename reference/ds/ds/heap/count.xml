@@ -9,12 +9,30 @@
 
  <refsect1 role="description">
   &reftitle.description;
-  <para>
-   See <function>Countable::count</function>
-  </para>
+  <methodsynopsis>
+   <modifier>public</modifier> <type>int</type><methodname>Ds\Heap::count</methodname>
+   <void />
+  </methodsynopsis>
+  <simpara>
+   Returns the number of values in the heap. See
+   <methodname>Countable::count</methodname>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  &no.function.parameters;
+ </refsect1>
+
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   The number of values in the heap.
+  </simpara>
  </refsect1>
 
 </refentry>
+
 <!-- Keep this comment at the end of the file
 Local variables:
 mode: sgml

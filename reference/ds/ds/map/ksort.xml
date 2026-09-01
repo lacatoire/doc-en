@@ -15,9 +15,9 @@
    <modifier>public</modifier> <type>void</type><methodname>Ds\Map::ksort</methodname>
    <methodparam choice="opt"><type>callable</type><parameter>comparator</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
     Sorts the map in-place by key, using an optional <parameter>comparator</parameter> function.
-  </para>
+  </simpara>
 
  </refsect1>
 
@@ -35,9 +35,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
     &return.void;
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -101,7 +101,6 @@ print_r($map);
    <screen>
 <![CDATA[
 Ds\Map Object
-Ds\Map Object
 (
     [0] => Ds\Pair Object
         (
@@ -128,6 +127,13 @@ Ds\Map Object
 
  </refsect1>
 
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><methodname>Ds\Map::ksorted</methodname></member>
+  </simplelist>
+ </refsect1>
 
 </refentry>
 
