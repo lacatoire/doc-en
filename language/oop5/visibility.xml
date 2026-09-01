@@ -124,6 +124,8 @@ $b->pubYear = 2023; // Fatal Error
     </example>
     <simpara>
      As of PHP 8.5, <literal>set</literal> visibility may also be applied to static properties of classes.
+     In PHP 8.4 doing so is a compile error,
+     <literal>Static property may not have asymmetric visibility</literal>.
     </simpara>
     <example>
      <title>Asymmetric Static Property Visibility</title>
@@ -170,7 +172,9 @@ Fatal error: Uncaught Error: Cannot modify private(set) property Manager::$calls
        The <literal>set</literal> visibility must be the same
        as <literal>get</literal> or more restrictive. That is,
        <code>public protected(set)</code> and <code>protected protected(set)</code>
-       are allowed, but <code>protected public(set)</code> will cause a syntax error.
+       are allowed, but <code>protected public(set)</code> is a compile error,
+       <literal>Visibility of property A::$x must not be weaker than set
+       visibility</literal>.
       </simpara>
      </listitem>
      <listitem>
@@ -197,6 +201,37 @@ Fatal error: Uncaught Error: Cannot modify private(set) property Manager::$calls
        Similarly, trying to write to an array property involves both a <literal>get</literal> and
        <literal>set</literal> operation internally, and therefore will follow the <literal>set</literal>
        visibility, as that is always the more restrictive.
+      </simpara>
+     </listitem>
+     <listitem>
+      <simpara>
+       A write from a scope that does not satisfy the <literal>set</literal>
+       visibility throws an <exceptionname>Error</exceptionname> naming that
+       visibility and the calling scope, for instance
+       <literal>Cannot modify private(set) property A::$x from global
+       scope</literal>. <function>unset</function> gives
+       <literal>Cannot unset ...</literal>, and taking a reference or writing
+       through an array element gives
+       <literal>Cannot indirectly modify ...</literal>.
+      </simpara>
+     </listitem>
+     <listitem>
+      <simpara>
+       A <link linkend="language.oop5.property-hooks.virtual">virtual
+       property</link> that defines only one of the two hooks may not specify
+       asymmetric visibility; doing so is a compile error,
+       <literal>Read-only virtual property Foo::$bar must not specify
+       asymmetric visibility</literal>, or its
+       <literal>Write-only</literal> counterpart.
+      </simpara>
+     </listitem>
+     <listitem>
+      <simpara>
+       <link linkend="object.set">__set()</link> and
+       <link linkend="object.unset">__unset()</link> are only invoked once the
+       property has been unset, and a write performed from inside
+       <link linkend="object.set">__set()</link> is itself subject to the
+       scope check.
       </simpara>
      </listitem>
     </itemizedlist>
