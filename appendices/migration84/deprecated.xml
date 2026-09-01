@@ -77,7 +77,7 @@ function foo(T1 $a, ?T2 $b, T3 $c) {}
    </para>
   </sect3>
 
-  <sect3>
+  <sect3 xml:id="migration84.deprecated.core.pow-zero-negative-exponent">
    <!-- RFC: https://wiki.php.net/rfc/raising_zero_to_power_of_negative_number -->
    <title>Raising zero to the power of negative number</title>
 
@@ -95,7 +95,9 @@ function foo(T1 $a, ?T2 $b, T3 $c) {}
 
    <simpara>
     This affects the exponentiation operator <literal>**</literal>
-    and the <function>pow</function> function.
+    and the <function>pow</function> function, which emit
+    <literal>Power of base 0 and negative exponent is deprecated</literal>.
+    The returned value is unchanged.
    </simpara>
 
    <simpara>
