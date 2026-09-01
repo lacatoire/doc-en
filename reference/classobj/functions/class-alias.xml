@@ -79,6 +79,13 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.4.0</entry>
+      <entry>
+       Using <literal>_</literal> as <parameter>alias</parameter> is now
+       deprecated.
+      </entry>
+     </row>
+     <row>
       <entry>8.3.0</entry>
       <entry>
        <function>class_alias</function> now supports creating an alias of an internal class.
