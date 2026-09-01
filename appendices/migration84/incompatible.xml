@@ -32,6 +32,22 @@
     <function>die</function> now consistently result in a
     <exceptionname>TypeError</exceptionname> being thrown.
    </simpara>
+
+   <simpara>
+    They can also be called with
+    <link linkend="functions.named-arguments">named arguments</link>, as in
+    <literal>exit(status: 7)</literal>, and appear in the function table, so
+    <function>function_exists</function> returns &true; for them.
+   </simpara>
+
+   <simpara>
+    Because a parameterless <function>exit</function> now goes through the
+    default <parameter>status</parameter> of <literal>0</literal>, calling it
+    within a
+    <link linkend="function.register-shutdown-function">shutdown function</link>
+    or an <link linkend="language.oop5.decon.destructor">object destructor</link>
+    resets an exit code set by an earlier call; previously that code was kept.
+   </simpara>
   </sect3>
 
   <sect3 xml:id="migration84.incompatible.core.recursion-comparison">
