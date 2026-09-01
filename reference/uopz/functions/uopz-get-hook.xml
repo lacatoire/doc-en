@@ -71,7 +71,13 @@ var_dump(uopz_get_hook('foo'));
    &example.outputs.similar;
    <screen>
 <![CDATA[
-object(Closure)#2 (0) {
+object(Closure)#2 (3) {
+  ["name"]=>
+  string(32) "{closure:/path/to/example.php:5}"
+  ["file"]=>
+  string(20) "/path/to/example.php"
+  ["line"]=>
+  int(5)
 }
 ]]>
    </screen>
