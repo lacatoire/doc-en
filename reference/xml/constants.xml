@@ -264,9 +264,11 @@
    </term>
    <listitem>
     <simpara>
+     Allows parsing documents larger than 10 MB.
+     It should only be enabled when the document size is bounded, since it
+     could otherwise lead to a denial of service.
+     This option is only available when libxml2 is used.
      Available as of PHP 8.4.0.
-     When libxml2 &lt; 2.7.0 is used (e.g. on PHP 7.x),
-     this option is enabled by default and cannot be disabled.
     </simpara>
    </listitem>
   </varlistentry>
