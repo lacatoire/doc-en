@@ -151,7 +151,15 @@ class _MyClass {}
 
    <simpara>
     Such usages should be replaced by either throwing an exception,
-    or calling <function>exit</function>, whichever is more appropriate.
+    or calling <function>exit</function> with a string message,
+    whichever is more appropriate.
+   </simpara>
+
+   <simpara>
+    The behaviour is otherwise unchanged: an <constant>E_DEPRECATED</constant>
+    diagnostic is emitted, then the <constant>E_USER_ERROR</constant> is raised
+    as before. A handler installed with <function>set_error_handler</function>
+    is called for both.
    </simpara>
   </sect3>
 
