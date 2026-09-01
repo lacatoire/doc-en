@@ -206,7 +206,9 @@
       Usage of this constant with <function>trigger_error</function> is
       deprecated as of PHP 8.4.0.
       It is recommended to either &throw; an <exceptionname>Exception</exceptionname>
-      or call <function>exit</function> instead.
+      or call <function>exit</function> with a string message instead.
+      The behaviour is otherwise unchanged: the error is still raised after the
+      deprecation diagnostic.
      </simpara>
     </warning>
    </listitem>

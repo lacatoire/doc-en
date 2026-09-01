@@ -49,9 +49,16 @@
       <warning>
        <simpara>
         Passing <constant>E_USER_ERROR</constant> as the
-        <parameter>error_level</parameter> is now deprecated.
+        <parameter>error_level</parameter> is deprecated as of PHP 8.4.0.
         Throw an <exceptionname>Exception</exceptionname> or
-        call <function>exit</function> instead.
+        call <function>exit</function> with a string message instead.
+       </simpara>
+       <simpara>
+        The behaviour is otherwise unchanged: an
+        <constant>E_DEPRECATED</constant> diagnostic is emitted, then the
+        <constant>E_USER_ERROR</constant> is raised as before. A handler
+        installed with <function>set_error_handler</function> is called for
+        both, and execution still terminates unless the handler prevents it.
        </simpara>
       </warning>
      </listitem>
@@ -94,7 +101,7 @@
        Passing <constant>E_USER_ERROR</constant> as the
        <parameter>error_level</parameter> is now deprecated.
        Throw an <exceptionname>Exception</exceptionname> or
-       call <function>exit</function> instead.
+       call <function>exit</function> with a string message instead.
       </entry>
      </row>
      <row>
