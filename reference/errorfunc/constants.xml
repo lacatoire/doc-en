@@ -281,8 +281,10 @@
     </simpara>
     <warning>
      <simpara>
-      This error level is unused,
-      and has been deprecated as of PHP 8.4.0.
+      The error level was removed as of PHP 8.4.0 and the constant deprecated:
+      referring to <constant>E_STRICT</constant> emits an
+      <constant>E_DEPRECATED</constant> diagnostic. The constant was also
+      removed from <constant>E_ALL</constant> in PHP 8.4.0.
      </simpara>
     </warning>
    </listitem>
