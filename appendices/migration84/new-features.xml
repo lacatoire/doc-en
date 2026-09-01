@@ -128,7 +128,7 @@ $object = $reflector->newLazyGhost($initializer);
 
    <simpara>
     The new <classname>Deprecated</classname> attribute can be used to mark functions, methods,
-    and class constants as deprecated. The behavior of functionality deprecated with this
+    and class constants, enum cases included, as deprecated. The behavior of functionality deprecated with this
     attribute matches the behavior of the existing deprecation mechanism for functionality
     provided by PHP itself. The only exception is that the emitted error code is
     <constant>E_USER_DEPRECATED</constant> instead of <constant>E_DEPRECATED</constant>.
