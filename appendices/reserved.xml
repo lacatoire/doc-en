@@ -14,9 +14,11 @@
   <sect1 xml:id="reserved.keywords">
   <title>List of Keywords</title>
    <simpara>
-    These words have special meaning in PHP. Some of them represent things 
-    which look like functions, some look like constants, and so on - but 
-    they're not, really: they are language constructs.
+    These words have special meaning in PHP. Some of them represent things
+    which look like functions, some look like constants, and so on - but
+    they're not, really: they are language constructs. The exceptions are
+    <function>exit</function> and <function>die</function>, which are proper
+    functions as of PHP 8.4.0 while remaining keywords.
     The following words cannot be used as constants, class names, or function names. 
     They are, however, allowed as property, constant, and
     method names of classes, interfaces, traits and enums, except that
