@@ -80,7 +80,10 @@
    &reftitle.constants;
    <variablelist>
     <varlistentry xml:id="pdo-odbc.constants.attr-use-cursor-library">
-     <term><constant>Pdo\Odbc::ATTR_USE_CURSOR_LIBRARY</constant></term>
+     <term>
+      <constant>Pdo\Odbc::ATTR_USE_CURSOR_LIBRARY</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <para>
        This option controls whether the ODBC cursor library is used.
@@ -90,7 +93,10 @@
        The following values are supported:
        <variablelist>
         <varlistentry xml:id="pdo-odbc.constants.sql-use-if-needed">
-         <term><constant>Pdo\Odbc::SQL_USE_IF_NEEDED</constant></term>
+         <term>
+          <constant>Pdo\Odbc::SQL_USE_IF_NEEDED</constant>
+          (<type>int</type>)
+         </term>
          <listitem>
           <simpara>
            Use the ODBC cursor library when needed.
@@ -99,7 +105,10 @@
          </listitem>
         </varlistentry>
         <varlistentry xml:id="pdo-odbc.constants.sql-use-driver">
-         <term><constant>Pdo\Odbc::SQL_USE_DRIVER</constant></term>
+         <term>
+          <constant>Pdo\Odbc::SQL_USE_DRIVER</constant>
+          (<type>int</type>)
+         </term>
          <listitem>
           <simpara>
            Never use the ODBC cursor library.
@@ -107,7 +116,10 @@
          </listitem>
         </varlistentry>
         <varlistentry xml:id="pdo-odbc.constants.sql-use-odbc">
-         <term><constant>Pdo\Odbc::SQL_USE_ODBC</constant></term>
+         <term>
+          <constant>Pdo\Odbc::SQL_USE_ODBC</constant>
+          (<type>int</type>)
+         </term>
          <listitem>
           <simpara>
            Always use the ODBC cursor library.
@@ -119,7 +131,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-odbc.constants.attr-assume-utf8">
-     <term><constant>Pdo\Odbc::ATTR_ASSUME_UTF8</constant></term>
+     <term>
+      <constant>Pdo\Odbc::ATTR_ASSUME_UTF8</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Windows only.

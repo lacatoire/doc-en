@@ -112,49 +112,70 @@
    &reftitle.constants;
    <variablelist>
     <varlistentry xml:id="pdo-sqlite.constants.deterministic">
-     <term><constant>Pdo\Sqlite::DETERMINISTIC</constant></term>
+     <term>
+      <constant>Pdo\Sqlite::DETERMINISTIC</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
       </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-sqlite.constants.open-readonly">
-     <term><constant>Pdo\Sqlite::OPEN_READONLY</constant></term>
+     <term>
+      <constant>Pdo\Sqlite::OPEN_READONLY</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
       </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-sqlite.constants.open-readwrite">
-     <term><constant>Pdo\Sqlite::OPEN_READWRITE</constant></term>
+     <term>
+      <constant>Pdo\Sqlite::OPEN_READWRITE</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
       </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-sqlite.constants.open-create">
-     <term><constant>Pdo\Sqlite::OPEN_CREATE</constant></term>
+     <term>
+      <constant>Pdo\Sqlite::OPEN_CREATE</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
       </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-sqlite.constants.attr-open-flags">
-     <term><constant>Pdo\Sqlite::ATTR_OPEN_FLAGS</constant></term>
+     <term>
+      <constant>Pdo\Sqlite::ATTR_OPEN_FLAGS</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
       </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-sqlite.constants.attr-readonly-statement">
-     <term><constant>Pdo\Sqlite::ATTR_READONLY_STATEMENT</constant></term>
+     <term>
+      <constant>Pdo\Sqlite::ATTR_READONLY_STATEMENT</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
       </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-sqlite.constants.attr-extended-result-codes">
-     <term><constant>Pdo\Sqlite::ATTR_EXTENDED_RESULT_CODES</constant></term>
+     <term>
+      <constant>Pdo\Sqlite::ATTR_EXTENDED_RESULT_CODES</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
       </simpara>
