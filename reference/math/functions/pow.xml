@@ -53,6 +53,17 @@
    as an integer, the result will be returned with <type>int</type> type,
    otherwise it will be returned as a <type>float</type>.
   </para>
+  <simpara>
+   If <parameter>num</parameter> is <literal>0</literal> and
+   <parameter>exponent</parameter> is negative, <constant>INF</constant> is
+   returned, or <constant>-INF</constant> if <parameter>num</parameter> is
+   <literal>-0.0</literal> and <parameter>exponent</parameter> is a negative
+   odd integer. As of PHP 8.4.0 this also emits
+   <literal>Power of base 0 and negative exponent is deprecated</literal>;
+   the returned value is unchanged. A <literal>-0.0</literal>
+   <parameter>exponent</parameter> is not affected, and
+   <literal>pow(0, -0.0)</literal> returns <literal>1.0</literal>.
+  </simpara>
   <para>
    PHP-Extensions may override the behaviour of this operation and make it return an object.
   </para>
