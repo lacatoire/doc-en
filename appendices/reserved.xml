@@ -507,6 +507,11 @@
     The following words cannot be used to name a class, interface, trait or enum.
     Prior to PHP 8.0, they are also prohibited from being used in namespaces.
    </simpara>
+   <simpara>
+    A single underscore <literal>_</literal> is not reserved, but
+    <link linkend="migration84.deprecated.core.underscore-class-name">deprecated
+    as of PHP 8.4.0</link> in those same positions.
+   </simpara>
    <para>
     <table>
      <title>Reserved words</title>
