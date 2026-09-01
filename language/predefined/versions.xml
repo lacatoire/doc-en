@@ -25,7 +25,6 @@
  <function name="argumentcounterror" from="PHP 7 &gt;= PHP 7.1.0, PHP 8"/>
  <function name="valueerror" from="PHP 8"/>
  <function name="unhandledmatcherror" from="PHP 8"/>
- <function name="requestparsebodyexception" from="PHP 8 &gt;= 8.4.0"/>
  <function name="fibererror" from="PHP 8 &gt;= 8.1.0"/>
  <function name="fibererror::__construct" from="PHP 8 &gt;= 8.1.0"/>
 
@@ -44,6 +43,8 @@
  <function name="errorexception" from="PHP 5 &gt;= 5.1.0, PHP 7, PHP 8"/>
  <function name="errorexception::__construct" from="PHP 5 &gt;= 5.1.0, PHP 7, PHP 8"/>
  <function name="errorexception::getseverity" from="PHP 5 &gt;= 5.1.0, PHP 7, PHP 8"/>
+
+ <function name="requestparsebodyexception" from="PHP 8 &gt;= 8.4.0"/>
 
  <function name="traversable" from="PHP 5, PHP 7, PHP 8"/>
 
