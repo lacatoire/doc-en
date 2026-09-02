@@ -67,8 +67,8 @@
    <title>FPM</title>
 
    <simpara>
-    FPM with httpd ProxyPass optionally decodes the full script path. Added
-    <!-- <link linkend="ini.fastcgi.script_path_encoded"-->fastcgi.script_path_encoded<!-- </link> -->
+    FPM with httpd ProxyPass decodes the full script path as of PHP 8.5.0. Added
+    <link linkend="ini.fastcgi.script-path-encoded">fastcgi.script_path_encoded</link>
     INI setting to prevent this new behavior.
    </simpara>
 
