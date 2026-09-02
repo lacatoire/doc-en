@@ -1,0 +1,54 @@
+# https://docs.github.com/en/actions
+
+name: "Internal Links"
+
+on:
+  pull_request:
+    branches:
+      - "master"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  internal-links:
+    name: "Internal Links Check"
+    runs-on: "ubuntu-latest"
+
+    env:
+      BASE_SHA: "${{ github.event.pull_request.base.sha }}"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v7"
+        with:
+          ref: "${{ github.event.pull_request.head.sha }}"
+          fetch-depth: 50
+
+      - name: "Fetch diff base"
+        run: |
+          git fetch origin "$BASE_SHA" --depth=50
+          for i in 1 2 3 4 5; do
+            git merge-base "$BASE_SHA" HEAD >/dev/null 2>&1 && break
+            git fetch --deepen=100 origin "$BASE_SHA"
+          done
+
+      - name: "Setup PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "8.3"
+
+      - name: "Check internal links on modified pages"
+        run: |
+          set -o pipefail
+          CHANGED=$(git diff "$BASE_SHA"...HEAD --name-only --diff-filter=d \
+            | grep '\.xml$' | grep '^reference/' || true)
+          if [ -z "$CHANGED" ]; then
+            echo "No reference XML files modified."
+            exit 0
+          fi
+          echo "$CHANGED" | php .github/scripts/check-internal-links.php
