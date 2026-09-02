@@ -46,9 +46,9 @@ jobs:
         run: |
           set -o pipefail
           CHANGED=$(git diff "$BASE_SHA"...HEAD --name-only --diff-filter=d \
-            | grep '\.xml$' | grep '^reference/' || true)
+            | grep '\.xml$' || true)
           if [ -z "$CHANGED" ]; then
-            echo "No reference XML files modified."
+            echo "No XML files modified."
             exit 0
           fi
           echo "$CHANGED" | php .github/scripts/check-internal-links.php

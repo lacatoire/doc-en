@@ -50,11 +50,6 @@ foreach ($files as $relPath) {
         continue;
     }
 
-    // Only check individual reference pages, not book/chapter/setup overview files.
-    if (!str_contains($xml, '<refentry')) {
-        continue;
-    }
-
     $pageId = extractPageId($xml);
     $links  = collectLinks($xml, $pageId);
     $count  = count($links);
