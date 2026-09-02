@@ -5,6 +5,7 @@
  *
  * Elements counted (they render as <a href> in PhD):
  *   <function>, <classname>, <exceptionname>, <interfacename>, <enumname>
+ *   <methodname> (ClassName::method form only)
  *   <link linkend="…">, <xref linkend="…">
  *
  * Self-references (the page's own xml:id) are excluded.
@@ -18,7 +19,7 @@ declare(strict_types=1);
 
 const MIN_LINKS = 3;
 
-const LINK_TAGS = ['function', 'classname', 'exceptionname', 'interfacename', 'enumname'];
+const LINK_TAGS = ['function', 'classname', 'exceptionname', 'interfacename', 'enumname', 'methodname'];
 
 // Stub/alias pages that are legitimately too short to reach the threshold.
 const SKIP_FILES = [
@@ -72,7 +73,7 @@ foreach ($files as $relPath) {
 
 if ($violations > 0) {
     echo "\n{$violations} page(s) have fewer than " . MIN_LINKS . " internal links.\n";
-    echo "Add <function>, <classname>, <link linkend>, or <xref linkend> elements to improve SEO.\n";
+    echo "Add <function>, <classname>, <methodname>, <link linkend>, or <xref linkend> elements to improve SEO.\n";
 }
 
 exit(0);
@@ -117,11 +118,22 @@ function collectLinks(string $xml, string $pageId): array
 
 function tagToId(string $tag, string $name): string
 {
+    if ($tag === 'methodname') {
+        // "ClassName::method" → "classname.method" (PhD url format)
+        $parts = explode('::', $name, 2);
+        if (count($parts) === 2) {
+            $class  = strtolower(str_replace('_', '-', $parts[0]));
+            $method = strtolower(str_replace('_', '-', $parts[1]));
+            return $class . '.' . $method;
+        }
+        return strtolower(str_replace('_', '-', $name));
+    }
+
     $slug = strtolower(str_replace('_', '-', $name));
 
     return match ($tag) {
-        'function'                                          => 'function.' . $slug,
-        'classname', 'exceptionname', 'interfacename', 'enumname' => 'class.' . $slug,
-        default                                             => $slug,
+        'function'                                                   => 'function.' . $slug,
+        'classname', 'exceptionname', 'interfacename', 'enumname'   => 'class.' . $slug,
+        default                                                      => $slug,
     };
 }
