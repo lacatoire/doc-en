@@ -154,6 +154,51 @@ echo (clone $dateTime)->format('Y');
    </screen>
   </example>
 
+  <sect2 xml:id="language.oop5.cloning.with-properties">
+   <title>Cloning with property overrides</title>
+
+   <para>
+    As of PHP 8.5.0, <literal>clone</literal> is a function that accepts an
+    optional <parameter>withProperties</parameter> parameter. This allows
+    overriding (including <link linkend="language.oop5.properties.readonly-properties">readonly</link>)
+    properties in a single expression without requiring a custom
+    <link linkend="object.clone">__clone()</link> method.
+   </para>
+
+   <example>
+    <title>Cloning an object with property overrides</title>
+    <programlisting role="php">
+<![CDATA[
+<?php
+class Point {
+    public function __construct(
+        public readonly int $x,
+        public readonly int $y,
+        public readonly int $z = 0,
+    ) {}
+}
+
+$p = new Point(1, 2, 3);
+$q = clone($p, withProperties: ['x' => 10, 'z' => 30]);
+
+echo $q->x; // 10
+echo $q->y; // 2
+echo $q->z; // 30
+?>
+]]>
+    </programlisting>
+   </example>
+
+   <para>
+    The <parameter>withProperties</parameter> argument is an array of property
+    names to values. Only the specified properties are overridden; all other
+    properties retain their cloned values. The
+    <link linkend="object.clone">__clone()</link> method is called after
+    property overrides are applied.
+   </para>
+
+  </sect2>
+
  </sect1>
  
 <!-- Keep this comment at the end of the file
