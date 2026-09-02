@@ -11,7 +11,7 @@
  *
  * Usage (from doc-en root):
  *   git diff "$BASE"...HEAD --name-only --diff-filter=d | grep '\.xml$' \
- *     | grep '^reference/' | php .github/scripts/check-internal-links.php
+ *     | php .github/scripts/check-internal-links.php
  */
 
 declare(strict_types=1);
@@ -26,6 +26,12 @@ const SKIP_FILES = [
     'reference/filesystem/functions/delete.xml',
 ];
 
+// Basenames always skipped — version tables and constant lists have no prose links.
+const SKIP_BASENAMES = [
+    'versions.xml',
+    'constants.xml',
+];
+
 $files = [];
 while (($line = fgets(STDIN)) !== false) {
     $file = trim($line);
@@ -38,6 +44,10 @@ $violations = 0;
 
 foreach ($files as $relPath) {
     if (in_array($relPath, SKIP_FILES, true)) {
+        continue;
+    }
+
+    if (in_array(basename($relPath), SKIP_BASENAMES, true)) {
         continue;
     }
 
