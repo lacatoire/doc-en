@@ -48,7 +48,10 @@
          </thead>
          <tbody>
           <row>
-           <entry><constant>MYSQLI_STORE_RESULT_COPY_DATA</constant></entry>
+           <entry>
+            <constant>MYSQLI_STORE_RESULT_COPY_DATA</constant>
+            (deprecated as of PHP 8.4.0)
+           </entry>
            <entry>Copy results from the internal mysqlnd buffer into the PHP variables fetched. By default,
            mysqlnd will use a reference logic to avoid copying and duplicating results held in memory.
            For certain result sets, for example, result sets with many small rows, the copy approach can
@@ -134,6 +137,30 @@
     important.
    </para>
   </note>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       The <constant>MYSQLI_STORE_RESULT_COPY_DATA</constant> constant is now
+       deprecated, as <parameter>mode</parameter> has had no effect since
+       PHP 8.1.0.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="seealso">
