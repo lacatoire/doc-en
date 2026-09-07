@@ -1,0 +1,63 @@
+# https://docs.github.com/en/actions
+
+name: "Migrated extensions"
+
+on:
+  pull_request:
+    branches:
+      - "master"
+
+permissions:
+  contents: "read"
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  migrated-extensions:
+    name: "Check migrated extensions"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Checkout php/doc-en"
+        uses: "actions/checkout@v7"
+        with:
+          ref: "${{ github.event.pull_request.head.sha }}"
+          fetch-depth: 50
+
+      - name: "Fetch diff base"
+        env:
+          BASE_SHA: "${{ github.event.pull_request.base.sha }}"
+        run: |
+          git fetch origin "$BASE_SHA" --depth=50
+          # Deepen until the merge-base is reachable (long-lived branches)
+          for i in 1 2 3 4 5; do
+            git merge-base "$BASE_SHA" HEAD >/dev/null 2>&1 && break
+            git fetch --deepen=100 origin "$BASE_SHA"
+          done
+
+      - name: "Check for changes to migrated extensions"
+        env:
+          BASE_SHA: "${{ github.event.pull_request.base.sha }}"
+        run: |
+          set -o pipefail
+
+          pattern="$(sed -e '/^[[:space:]]*$/d' -e 's#^#^reference/#' -e 's#$#/#' \
+            .github/migrated-extensions.txt)"
+
+          offending="$(git diff --name-only "$BASE_SHA"...HEAD \
+            | grep -E "$(echo "$pattern" | paste -sd '|' -)" || true)"
+
+          if [ -z "$offending" ]; then
+            echo "No file of a migrated extension is modified."
+            exit 0
+          fi
+
+          echo "::error::This pull request modifies extensions that now live in php/doc-extensions."
+          echo
+          echo "The following files belong to extensions listed in .github/migrated-extensions.txt:"
+          echo "$offending" | sed 's/^/  /'
+          echo
+          echo "Please open the pull request against https://github.com/php/doc-extensions instead."
+          exit 1
