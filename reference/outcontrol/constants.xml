@@ -171,9 +171,11 @@
     (<type>int</type>)
    </term>
    <listitem>
-    <para>
+    <simpara>
      Indicates that the output handler was called.
-    </para>
+     Prior to PHP 8.4.0, this flag could be set when starting an output
+     buffer.
+    </simpara>
    </listitem>
   </varlistentry>
   <varlistentry xml:id="constant.php-output-handler-disabled">

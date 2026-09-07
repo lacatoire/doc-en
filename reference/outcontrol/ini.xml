@@ -47,7 +47,7 @@
     </row>
     <row>
      <entry><link linkend="ini.url-rewriter.hosts">url_rewriter.hosts</link></entry>
-     <entry><literal>$_SERVER['HTTP_HOST']</literal> is used as default.</entry>
+     <entry><literal>""</literal></entry>
      <entry><constant>INI_ALL</constant></entry>
      <entry>Available as of PHP 7.1.0</entry>
     </row>
@@ -184,7 +184,9 @@
     <simpara>
      <literal>url_rewriter.hosts</literal> specifies which hosts are
      rewritten to include <function>output_add_rewrite_var</function> values.
-     Defaults to <literal>$_SERVER['HTTP_HOST']</literal>.
+     Defaults to the empty string; when it is empty, the host of
+     <literal>$_SERVER['HTTP_HOST']</literal> is used for the
+     <literal>form</literal> tag.
      Multiple hosts can be specified by a comma separated list
      that does not include spaces.
      For example <literal>"php.net,wiki.php.net,bugs.php.net"</literal>.
