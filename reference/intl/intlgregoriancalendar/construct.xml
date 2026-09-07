@@ -16,13 +16,13 @@
   </constructorsynopsis>
   <constructorsynopsis role="IntlGregorianCalendar">
    <modifier>public</modifier> <methodname>IntlGregorianCalendar::__construct</methodname>
-   <methodparam><type>int</type><parameter>timeZoneOrYear</parameter></methodparam>
+   <methodparam><type>int</type><parameter>timezoneOrYear</parameter></methodparam>
    <methodparam><type>int</type><parameter>localeOrMonth</parameter></methodparam>
    <methodparam><type>int</type><parameter>dayOfMonth</parameter></methodparam>
   </constructorsynopsis>
   <constructorsynopsis role="IntlGregorianCalendar">
    <modifier>public</modifier> <methodname>IntlGregorianCalendar::__construct</methodname>
-   <methodparam><type>int</type><parameter>timeZoneOrYear</parameter></methodparam>
+   <methodparam><type>int</type><parameter>timezoneOrYear</parameter></methodparam>
    <methodparam><type>int</type><parameter>localeOrMonth</parameter></methodparam>
    <methodparam><type>int</type><parameter>dayOfMonth</parameter></methodparam>
    <methodparam><type>int</type><parameter>hour</parameter></methodparam>
@@ -57,7 +57,7 @@
     </listitem>
    </varlistentry>
    <varlistentry>
-    <term><parameter>timeZoneOrYear</parameter></term>
+    <term><parameter>timezoneOrYear</parameter></term>
     <listitem>
      <para>
       
@@ -121,9 +121,14 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       This had been deprecated in favor of the methods
+       Calling this constructor with more than two arguments is deprecated,
+       in favor of the methods
        <methodname>IntlGregorianCalendar::createFromDate</methodname> and
        <methodname>IntlGregorianCalendar::createFromDateTime</methodname>.
+       The forms taking a time zone and a locale are not affected, and remain
+       the only way to build an instance for a given time zone or locale.
+       The <function>intlgregcal_create_instance</function> alias is deprecated
+       whatever the number of arguments passed.
       </entry>
      </row>
     </tbody>
