@@ -1,0 +1,135 @@
+# One word per line. Blank lines and lines starting with # are ignored.
+# Words listed here are NOT flagged by codespell. Grouped by reason.
+
+# ===== File structure / source markers =====
+
+# comment marker <!-- splitted from ./en/... --> (origin of a split file)
+splitted
+
+
+# ===== Protocol / SQL keywords =====
+
+# SQL/PDO keyword (IN/OUT/INOUT for stored procedures)
+inout
+# valid FTP command (RFC 959, pre-allocate space)
+allo
+
+
+# ===== British / valid hyphenated spellings =====
+
+co-ordinate
+co-ordinates
+re-use
+re-used
+re-usable
+re-using
+
+
+# ===== Foreign words appearing in multilingual example output =====
+
+# German pronoun "Sie"
+sie
+# "Dezember" = December in German
+dezember
+# "Februar" = February in German (date_format output with DE locale)
+februar
+# French feminine adjective ("heure normale du Japon")
+normale
+# German "Adresse" (= Address, in a German socket error message)
+adresse
+
+
+# ===== Proper nouns / cities / products =====
+
+# Nome, Alaska — part of America/Nome (real IANA timezone)
+nome
+# Herat, Afghanistan — real city (mysqli example "Herat (AFG)")
+herat
+# Russian cryptographic standard
+gost
+# Empress Database (historical product)
+empress
+# arbitrary dog name in an SPL example
+mavrick
+# Vai writing system (PCRE/Unicode table)
+vai
+# Hald CLUT, color lookup technique in image processing
+hald
+# IBM i PASE (Portable Application Solutions Environment)
+pase
+# SystemTap CLI tool name (<filename>stap</filename>)
+stap
+
+
+# ===== Abbreviations / short example strings =====
+
+# abbreviation ("2nd") or chemistry (Nd = Neodymium)
+nd
+# regex fragment with embedded comment: /te(?#...)st/
+te
+# dummy string in enchant example ('mis' -> 'cor')
+mis
+# short variable name: $ser = serialize(...)
+ser
+# stripslashes array example fragment: "fo\\'o"
+fo
+# $parms variable name in yaz example (arbitrary, renaming = scope creep)
+parms
+
+
+# ===== Example outputs (arbitrary string results) =====
+
+# output of str_increment("ABC") -> "ABD"
+abd
+# output of str_split("Hello", 3) -> ["Hel", "lo"]
+hel
+# trim output that leaves "Worl"
+worl
+# dummy string in json-encode example ('&blong&')
+blong
+# rar archive example file name (tese.txt)
+tese
+
+
+# ===== Valid technical terms =====
+
+# "making lighter" (opposite of darkening) -- correct image processing term
+lightening
+
+
+# ===== Untouchable identifiers (xml:id, variables, PHP keywords) =====
+
+# xml:id="language.references.arent" (apostrophe not allowed in an id)
+arent
+# xml:id="regexp.reference.onlyonce" (space not allowed in an id)
+onlyonce
+# xml:id="constant.swoole-error-server-send-to-woker-timeout" (renaming = broken link)
+woker
+# made-up function in a PHP example (function fot(...)) -- "for" is a PHP keyword
+fot
+# $fpr variable in a mongodb example (renaming to $for clashes with a keyword)
+fpr
+# 6-char chunk in segmented output of db2-lob-read example ("Loop 3: T. THI")
+thi
+# capture group in PCRE regex (sens|respons)e and \1ibility (renaming breaks the regex)
+respons
+# xml:id="filters.covert.quoted-printable" (stable anchor, renaming would break external links)
+covert
+
+
+# ===== Accepted English variants =====
+
+# PHP $statics variable name (handy plural for "static variables")
+statics
+# accepted variant of "implementers"
+implementors
+# used throughout the PHP manual (invokable object / __invoke)
+invokable
+# technically wrong in modern English (data is invariable), kept on cubrid pending review
+datas
+
+
+# ===== Untouchable legal text (appendices/license.xml) =====
+
+synching
+merchantibility
