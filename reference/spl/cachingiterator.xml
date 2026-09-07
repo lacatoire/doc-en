@@ -97,21 +97,30 @@
    <variablelist>
 
     <varlistentry xml:id="cachingiterator.constants.call-tostring">
-     <term><constant>CachingIterator::CALL_TOSTRING</constant></term>
+     <term>
+      <constant>CachingIterator::CALL_TOSTRING</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Convert every element to string.</para>
      </listitem>
     </varlistentry>
 
     <varlistentry xml:id="cachingiterator.constants.catch-get-child">
-     <term><constant>CachingIterator::CATCH_GET_CHILD</constant></term>
+     <term>
+      <constant>CachingIterator::CATCH_GET_CHILD</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Don't throw exception in accessing children.</para>
      </listitem>
     </varlistentry>
 
     <varlistentry xml:id="cachingiterator.constants.tostring-use-key">
-     <term><constant>CachingIterator::TOSTRING_USE_KEY</constant></term>
+     <term>
+      <constant>CachingIterator::TOSTRING_USE_KEY</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>
        Use <link linkend="cachingiterator.key">key</link> for conversion to
@@ -121,7 +130,10 @@
     </varlistentry>
 
     <varlistentry xml:id="cachingiterator.constants.tostring-use-current">
-     <term><constant>CachingIterator::TOSTRING_USE_CURRENT</constant></term>
+     <term>
+      <constant>CachingIterator::TOSTRING_USE_CURRENT</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>
        Use <link linkend="cachingiterator.current">current</link> for
@@ -130,7 +142,10 @@
     </varlistentry>
 
     <varlistentry xml:id="cachingiterator.constants.tostring-use-inner">
-     <term><constant>CachingIterator::TOSTRING_USE_INNER</constant></term>
+     <term>
+      <constant>CachingIterator::TOSTRING_USE_INNER</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>
        Use <link linkend="iteratoriterator.getinneriterator">inner</link>
@@ -140,7 +155,10 @@
     </varlistentry>
 
     <varlistentry xml:id="cachingiterator.constants.full-cache">
-     <term><constant>CachingIterator::FULL_CACHE</constant></term>
+     <term>
+      <constant>CachingIterator::FULL_CACHE</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Cache all read data.</para>
      </listitem>
@@ -168,23 +186,6 @@
         <interfacename>Stringable</interfacename> now.
        </entry>
       </row>
-     </tbody>
-    </tgroup>
-   </informaltable>
-  </section>
-
-
-  <section role="changelog">
-   &reftitle.changelog;
-   <informaltable>
-    <tgroup cols="2">
-     <thead>
-      <row>
-       <entry>&Version;</entry>
-       <entry>&Description;</entry>
-      </row>
-     </thead>
-     <tbody>
       &changelog.class-constants-typed;
      </tbody>
     </tgroup>
