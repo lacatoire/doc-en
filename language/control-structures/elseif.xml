@@ -15,7 +15,7 @@
   expression only if the <literal>elseif</literal> conditional
   expression evaluates to &true;.  For example, the
   following code would display <computeroutput>a is bigger than
-  b</computeroutput>, <computeroutput>a equal to b</computeroutput>
+  b</computeroutput>, <computeroutput>a is equal to b</computeroutput>
   or <computeroutput>a is smaller than b</computeroutput>:
   <informalexample>
    <programlisting role="php">

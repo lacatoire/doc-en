@@ -20,8 +20,8 @@
   <literal>include</literal> construct will emit an
   <constant>E_WARNING</constant> if
   it cannot find a file; this is different behavior from
-  <function>require</function>, which will emit an
-  <constant>E_ERROR</constant>.
+  <function>require</function>, which will produce a fatal error
+  (an <exceptionname>Error</exceptionname> exception since PHP 8.0.0).
  </simpara>
  <simpara>
   Note that both <literal>include</literal> and <literal>require</literal>
