@@ -33,7 +33,13 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   This method throws an <exceptionname>Exception</exceptionname> if invalid serialized data is passed.
+   This method throws an <exceptionname>Exception</exceptionname> if invalid
+   serialized data is passed.
+  </simpara>
+  <simpara>
+   This method throws an <exceptionname>Error</exceptionname> if it is called
+   on an already initialized object, since
+   <property>BcMath\Number::$value</property> is readonly.
   </simpara>
  </refsect1>
 
