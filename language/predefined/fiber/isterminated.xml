@@ -12,6 +12,8 @@
    <void/>
   </methodsynopsis>
   <simpara>
+   Determines whether the fiber has terminated, either by returning or by
+   throwing an exception.
   </simpara>
  </refsect1>
 

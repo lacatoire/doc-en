@@ -12,6 +12,8 @@
    <void/>
   </methodsynopsis>
   <simpara>
+   Returns the currently executing fiber instance, or &null; when called
+   outside of a fiber.
   </simpara>
  </refsect1>
 
