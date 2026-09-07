@@ -49,8 +49,8 @@ print_r(error_get_last());
 <![CDATA[
 Array
 (
-    [type] => 8
-    [message] => Undefined variable: a
+    [type] => 2
+    [message] => Undefined variable $a
     [file] => C:\WWW\index.php
     [line] => 2
 )
