@@ -245,12 +245,6 @@
     <constant>PDO::ATTR_STRINGIFY_FETCHES</constant> attribute with
     <methodname>PDO::getAttribute</methodname>.
    </simpara>
-
-   <simpara>
-    A new <constant>Pdo\Pgsql::ATTR_RESULT_MEMORY_SIZE</constant>
-    has been added to retrieve the memory usage of query results with
-    <methodname>PDO::getAttribute</methodname> for drivers that support it.
-   </simpara>
   </sect3>
 
   <sect3 xml:id="migration84.other-changes.functions.pdo-firebird">
@@ -323,8 +317,9 @@
    <title>PDO_PGSQL</title>
 
    <simpara>
-    Support retrieving the memory usage of queries for
-    <constant>Pdo\Pgsql::ATTR_RESULT_MEMORY_SIZE</constant>.
+    The new <constant>Pdo\Pgsql::ATTR_RESULT_MEMORY_SIZE</constant> attribute
+    retrieves the memory usage of a query result.
+    It is read with <methodname>PDOStatement::getAttribute</methodname>.
    </simpara>
 
    <simpara>
