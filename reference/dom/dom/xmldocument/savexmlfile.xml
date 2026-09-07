@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<refentry xml:id="dom-htmldocument.savexml" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+<refentry xml:id="dom-xmldocument.savexmlfile" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
-  <refname>Dom\HTMLDocument::saveXml</refname>
-  <refpurpose>Serializes the document as an <acronym>XML</acronym> string</refpurpose>
+  <refname>Dom\XMLDocument::saveXmlFile</refname>
+  <refpurpose>Serializes the document to a file as <acronym>XML</acronym></refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
   &reftitle.description;
-  <methodsynopsis role="Dom\\HTMLDocument">
-   <modifier>public</modifier> <type class="union"><type>string</type><type>false</type></type><methodname>Dom\HTMLDocument::saveXml</methodname>
-   <methodparam choice="opt"><type class="union"><type>Dom\Node</type><type>null</type></type><parameter>node</parameter><initializer>&null;</initializer></methodparam>
+  <methodsynopsis role="Dom\\XMLDocument">
+   <modifier>public</modifier> <type class="union"><type>int</type><type>false</type></type><methodname>Dom\XMLDocument::saveXmlFile</methodname>
+   <methodparam><type>string</type><parameter>filename</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>options</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
   <simpara>
-   Serializes the document as an <acronym>XML</acronym> string.
+   Serializes the document as <acronym>XML</acronym> and writes it to the
+   given file.
   </simpara>
  </refsect1>
 
@@ -21,11 +22,10 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>node</parameter></term>
+    <term><parameter>filename</parameter></term>
     <listitem>
      <simpara>
-      The node to serialize.
-      If not provided, the entire document is serialized.
+      The path of the file to write to.
      </simpara>
     </listitem>
    </varlistentry>
@@ -41,23 +41,14 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   The serialized <acronym>XML</acronym> document string in the current
-   document encoding, or &false; on failure.
+   The number of bytes written, or &false; on failure.
   </simpara>
- </refsect1>
-
- <refsect1 role="errors">
-  &reftitle.errors;
-  <itemizedlist>
-   &dom.errors.compliant.wrong_document;
-  </itemizedlist>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
-   <member><methodname>Dom\HTMLDocument::saveXmlFile</methodname></member>
-   <member><methodname>Dom\HTMLDocument::saveHtml</methodname></member>
+   <member><methodname>Dom\XMLDocument::saveXml</methodname></member>
   </simplelist>
  </refsect1>
 
