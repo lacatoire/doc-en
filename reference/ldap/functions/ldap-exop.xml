@@ -156,7 +156,7 @@ if ($ds) {
     var_dump($retdata);
 
     // Same thing using $response_data parameter
-    $success = ldap_exop($ds, LDAP_EXOP_WHO_AM_I, NULL, NULL, $retdata, $retoid);
+    $success = ldap_exop_sync($ds, LDAP_EXOP_WHO_AM_I, NULL, NULL, $retdata, $retoid);
     if ($success) {
       var_dump($retdata);
     }
