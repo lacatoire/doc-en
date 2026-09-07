@@ -121,73 +121,109 @@
    &reftitle.constants;
    <variablelist>
     <varlistentry xml:id="filesystemiterator.constants.current-as-pathname">
-     <term><constant>FilesystemIterator::CURRENT_AS_PATHNAME</constant></term>
+     <term>
+      <constant>FilesystemIterator::CURRENT_AS_PATHNAME</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Makes <methodname>FilesystemIterator::current</methodname> return the pathname.</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="filesystemiterator.constants.current-as-fileinfo">
-     <term><constant>FilesystemIterator::CURRENT_AS_FILEINFO</constant></term>
+     <term>
+      <constant>FilesystemIterator::CURRENT_AS_FILEINFO</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Makes <methodname>FilesystemIterator::current</methodname> return an <classname>SplFileInfo</classname> instance.</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="filesystemiterator.constants.current-as-self">
-     <term><constant>FilesystemIterator::CURRENT_AS_SELF</constant></term>
+     <term>
+      <constant>FilesystemIterator::CURRENT_AS_SELF</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Makes <methodname>FilesystemIterator::current</methodname> return $this (the FilesystemIterator).</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="filesystemiterator.constants.current-mode-mask">
-     <term><constant>FilesystemIterator::CURRENT_MODE_MASK</constant></term>
+     <term>
+      <constant>FilesystemIterator::CURRENT_MODE_MASK</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Masks <methodname>FilesystemIterator::current</methodname></para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="filesystemiterator.constants.key-as-pathname">
-     <term><constant>FilesystemIterator::KEY_AS_PATHNAME</constant></term>
+     <term>
+      <constant>FilesystemIterator::KEY_AS_PATHNAME</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Makes <methodname>FilesystemIterator::key</methodname> return the pathname.</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="filesystemiterator.constants.key-as-filename">
-     <term><constant>FilesystemIterator::KEY_AS_FILENAME</constant></term>
+     <term>
+      <constant>FilesystemIterator::KEY_AS_FILENAME</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Makes <methodname>FilesystemIterator::key</methodname> return the filename.</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="filesystemiterator.constants.follow-symlinks">
-     <term><constant>FilesystemIterator::FOLLOW_SYMLINKS</constant></term>
+     <term>
+      <constant>FilesystemIterator::FOLLOW_SYMLINKS</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Makes <methodname>RecursiveDirectoryIterator::hasChildren</methodname> follow symlinks.</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="filesystemiterator.constants.key-mode-mask">
-     <term><constant>FilesystemIterator::KEY_MODE_MASK</constant></term>
+     <term>
+      <constant>FilesystemIterator::KEY_MODE_MASK</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Masks <methodname>FilesystemIterator::key</methodname></para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="filesystemiterator.constants.new-current-and-key">
-     <term><constant>FilesystemIterator::NEW_CURRENT_AND_KEY</constant></term>
+     <term>
+      <constant>FilesystemIterator::NEW_CURRENT_AND_KEY</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Same as <literal>FilesystemIterator::KEY_AS_FILENAME | FilesystemIterator::CURRENT_AS_FILEINFO</literal>.</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="filesystemiterator.constants.other-mode-mask">
-     <term><constant>FilesystemIterator::OTHER_MODE_MASK</constant></term>
+     <term>
+      <constant>FilesystemIterator::OTHER_MODE_MASK</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Mask used for <methodname>FilesystemIterator::getFlags</methodname> and <methodname>FilesystemIterator::setFlags</methodname>.</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="filesystemiterator.constants.skip-dots">
-     <term><constant>FilesystemIterator::SKIP_DOTS</constant></term>
+     <term>
+      <constant>FilesystemIterator::SKIP_DOTS</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Skips dot files (<literal>.</literal> and <literal>..</literal>).</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="filesystemiterator.constants.unix-paths">
-     <term><constant>FilesystemIterator::UNIX_PATHS</constant></term>
+     <term>
+      <constant>FilesystemIterator::UNIX_PATHS</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>
        Makes paths use Unix-style forward slash irrespective of system default.
