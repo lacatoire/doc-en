@@ -768,6 +768,7 @@
     <varlistentry xml:id="numberformatter.constants.round-away-from-zero">
      <term>
       <constant>NumberFormatter::ROUND_AWAY_FROM_ZERO</constant>
+      <type>int</type>
      </term>
      <listitem>
       <simpara>&Alias; <constant>NumberFormatter::ROUND_UP</constant>.</simpara>
@@ -834,6 +835,7 @@
     <varlistentry xml:id="numberformatter.constants.round-halfodd">
      <term>
       <constant>NumberFormatter::ROUND_HALFODD</constant>
+      <type>int</type>
      </term>
      <listitem>
       <simpara>
@@ -858,6 +860,7 @@
     <varlistentry xml:id="numberformatter.constants.round-toward-zero">
      <term>
       <constant>NumberFormatter::ROUND_TOWARD_ZERO</constant>
+      <type>int</type>
      </term>
      <listitem>
       <simpara>&Alias; <constant>NumberFormatter::ROUND_DOWN</constant>.</simpara>
