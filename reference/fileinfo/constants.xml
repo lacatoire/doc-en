@@ -60,20 +60,6 @@
     </simpara>
    </listitem>
   </varlistentry>
-  <varlistentry xml:id="constant.fileinfo-compress">
-   <term>
-    <constant>FILEINFO_COMPRESS</constant>
-     (<type>int</type>)
-   </term>
-   <listitem>
-    <simpara>
-     Decompress compressed files.
-    </simpara>
-    <simpara>
-     Disabled due to thread safety issues.
-    </simpara>
-   </listitem>
-  </varlistentry>
   <varlistentry xml:id="constant.fileinfo-devices">
    <term>
     <constant>FILEINFO_DEVICES</constant>
