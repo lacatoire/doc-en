@@ -202,14 +202,22 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Error handling with <function>set_error_handler</function> and <function>trigger_error</function></title>
-    <para>
-     The example below shows the handling of internal exceptions by
-     triggering errors and handling them with a user defined function:
-    </para>
-    <programlisting role="php">
+  <example>
+   <title>Error handling with <function>set_error_handler</function> and <function>trigger_error</function></title>
+   <simpara>
+    The example below shows the handling of internal exceptions by
+    triggering errors and handling them with a user defined function:
+   </simpara>
+   <note>
+    <simpara>
+     Passing <constant>E_USER_ERROR</constant> to
+     <function>trigger_error</function> is deprecated as of PHP 8.4.0, and
+     emits an <constant>E_DEPRECATED</constant> diagnostic of its own before
+     the error is raised. It is kept here to show a handler covering the whole
+     <constant>E_USER_<replaceable>*</replaceable></constant> family.
+    </simpara>
+   </note>
+   <programlisting role="php">
 <![CDATA[
 <?php
 // error handler function
@@ -300,9 +308,9 @@ $d = scale_by_log($a, -2.5);
 var_dump($d); // Never reached
 ?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 vector a
 Array
@@ -336,20 +344,18 @@ vector d - fatal error
   Fatal error on line 35 in file trigger_error.php, PHP 5.2.1 (FreeBSD)<br />
 Aborting...<br />
 ]]>
-    </screen>
-   </example>
-  </para>
-  <para>
-   <example>
-    <title>Calling the previous handler from the new one</title>
-    <simpara>
-     The return value of <function>set_error_handler</function> is the handler
-     that was active until then. Calling it from the new handler keeps the
-     existing behaviour while adding to it. This only works if that handler is
-     a user defined function; &null; is returned when the built-in one was
-     active.
-    </simpara>
-    <programlisting role="php">
+   </screen>
+  </example>
+  <example>
+   <title>Calling the previous handler from the new one</title>
+   <simpara>
+    The return value of <function>set_error_handler</function> is the handler
+    that was active until then. Calling it from the new handler keeps the
+    existing behaviour while adding to it. This only works if that handler is
+    a user defined function; &null; is returned when the built-in one was
+    active.
+   </simpara>
+   <programlisting role="php">
 <![CDATA[
 <?php
 function logging_handler(int $errno, string $errstr): bool
@@ -373,17 +379,16 @@ trigger_error("only logged now", E_USER_WARNING);
 restore_error_handler();
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen>
+   </programlisting>
+   &example.outputs;
+   <screen>
 <![CDATA[
 counted: something happened
 logged: something happened
 logged: only logged now
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="notes">
