@@ -34,6 +34,20 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <classname>TypeError</classname> when <parameter>node</parameter> is
+   not an element or an attribute node.
+  </simpara>
+  <simpara>
+   Throws a <classname>TypeError</classname> when the document the node belongs
+   to has already been imported with <function>dom_import_simplexml</function>.
+   A document can only be represented by one of the two APIs: once it is bound to
+   the legacy one, the modern one refuses it, and the other way around.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
