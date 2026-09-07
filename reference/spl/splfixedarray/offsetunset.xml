@@ -42,10 +42,38 @@
  
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Throws <classname>RuntimeException</classname> when <parameter>index</parameter> is outside
-   the defined size of the array or when <parameter>index</parameter> cannot be parsed as an integer.
-  </para>
+  <simpara>
+   Throws an <exceptionname>OutOfBoundsException</exceptionname> when
+   <parameter>index</parameter> is outside the defined size of the array.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> when
+   <parameter>index</parameter> cannot be interpreted as an integer.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       An out of range <parameter>index</parameter> now throws an
+       <exceptionname>OutOfBoundsException</exceptionname>;
+       previously a <exceptionname>RuntimeException</exceptionname> was thrown.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
  
 </refentry>
