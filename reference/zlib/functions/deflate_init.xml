@@ -106,19 +106,24 @@
 
  <refsect1 role="returnvalues"><!-- {{{ -->
   &reftitle.returnvalues;
-  <para>
-   Returns a deflate context resource (<literal>zlib.deflate</literal>) on
-   success, &return.falseforfailure;.
-  </para>
+  <simpara>
+   Returns a <classname>DeflateContext</classname> instance on success,
+   &return.falseforfailure;.
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="errors"><!-- {{{ -->
   &reftitle.errors;
-  <para>
-   If an invalid option is passed to <parameter>options</parameter> or the
-   context couldn't be created, an error of level <constant>E_WARNING</constant>
-   is generated.
-  </para>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>encoding</parameter>
+   is invalid, or if the <varname>level</varname>, <varname>memory</varname>,
+   <varname>window</varname>, <varname>strategy</varname> or
+   <varname>dictionary</varname> option holds a value outside its accepted range.
+  </simpara>
+  <simpara>
+   If the context could not be allocated, an <constant>E_WARNING</constant>
+   is emitted and &false; is returned.
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="changelog">

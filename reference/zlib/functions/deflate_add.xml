@@ -67,10 +67,15 @@
 
  <refsect1 role="errors"><!-- {{{ -->
   &reftitle.errors;
-  <para>
-   If invalid arguments are given, an error of level
-   <constant>E_WARNING</constant> is generated.
-  </para>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>flush_mode</parameter>
+   is not one of the <constant>ZLIB_<replaceable>*</replaceable>_FLUSH</constant>
+   constants, <constant>ZLIB_BLOCK</constant> or <constant>ZLIB_FINISH</constant>.
+  </simpara>
+  <simpara>
+   If the underlying zlib stream reports an error, an <constant>E_WARNING</constant>
+   is emitted and &false; is returned.
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="changelog">
