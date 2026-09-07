@@ -48,7 +48,7 @@ try {
     &example.outputs.similar;
     <screen>
 <![CDATA[
-exception 'Exception' with message 'Some error message' in /home/bjori/tmp/ex.php:3
+Exception: Some error message in /home/bjori/tmp/ex.php:3
 Stack trace:
 #0 {main}
 ]]>
