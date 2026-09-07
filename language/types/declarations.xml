@@ -332,6 +332,7 @@ f(null);
       &example.outputs;
       <screen>
 <![CDATA[
+Deprecated: f(): Implicitly marking parameter $c as nullable is deprecated, the explicit nullable type must be used instead in example.php on line 4
 object(C)#1 (0) {
 }
 NULL
