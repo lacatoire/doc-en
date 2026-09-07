@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<reference xml:id="class.closedgeneratorexception" role="class" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
+<reference xml:id="class.closedgeneratorexception" role="exception" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
  <title>The ClosedGeneratorException class</title>
  <titleabbrev>ClosedGeneratorException</titleabbrev>
 
@@ -8,8 +8,10 @@
   <section xml:id="closedgeneratorexception.intro">
    &reftitle.intro;
    <simpara>
-    A <exceptionname>ClosedGeneratorException</exceptionname> is thrown when trying
-    to retrieve a value from a closed <classname>Generator</classname>.
+    A <exceptionname>ClosedGeneratorException</exceptionname> is thrown when a
+    <classname>Generator</classname> delegated to via <literal>yield from</literal>
+    is aborted before it can provide a return value, and the delegating
+    <classname>Generator</classname> attempts to retrieve that value.
    </simpara>
   </section>
 
