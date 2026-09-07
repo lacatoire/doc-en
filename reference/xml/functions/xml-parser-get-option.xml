@@ -94,7 +94,7 @@
      <row>
       <entry>7.1.24, 7.2.12, 7.3.0</entry>
       <entry>
-       <parameter>options</parameter> now supports <constant>XML_OPTION_SKIP_TAGSTART</constant>
+       <parameter>option</parameter> now supports <constant>XML_OPTION_SKIP_TAGSTART</constant>
        and <constant>XML_OPTION_SKIP_WHITE</constant>.
       </entry>
      </row>
