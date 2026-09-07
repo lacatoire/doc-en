@@ -27,6 +27,18 @@
     magic</link>, as this method is not used for calling the function.
    </simpara>
 
+   <simpara>
+    The debug output of a closure, as produced by
+    <function>var_dump</function>, is built by the engine and not by a
+    <link linkend="object.debuginfo">__debugInfo()</link> method. For a closure
+    declared in code it contains <literal>name</literal>,
+    <literal>file</literal> and <literal>line</literal>; for a closure created
+    from a callable it contains <literal>function</literal> instead. The
+    <literal>static</literal>, <literal>this</literal> and
+    <literal>parameter</literal> keys are added when the closure has static
+    variables, is bound to an object, or takes parameters, respectively.
+   </simpara>
+
   </section>
 
   <section xml:id="closure.synopsis">
@@ -59,8 +71,11 @@
       <row>
        <entry>8.4.0</entry>
        <entry>
-        The output of <methodname>Closure::__debugInfo</methodname> now includes the
-        name, line, and file of the closure.
+        The debug output of a closure declared in code, as produced by
+        <function>var_dump</function>, now includes its
+        <literal>name</literal>, <literal>file</literal> and
+        <literal>line</literal>. Closures created from a callable are
+        unaffected.
        </entry>
       </row>
      </tbody>
