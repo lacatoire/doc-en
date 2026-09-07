@@ -50,7 +50,14 @@
   </variablelist>
  </refsect1>
 
- <xi:include xpointer="domxpath.registerphpfunctions..errors" />
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>namespaceURI</parameter> is
+   <literal>http://php.net/xsl</literal>, which is reserved by PHP.
+  </simpara>
+ </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
