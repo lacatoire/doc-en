@@ -56,6 +56,30 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &mbstring.errors.encoding-invalid;
+ </refsect1>
+
+ <refsect1 role="notes">
+  &reftitle.notes;
+  <note>
+   <simpara>
+    Unlike <function>trim</function>, the <parameter>characters</parameter>
+    parameter does not support the <literal>".."</literal> range syntax: each
+    code point of the string is taken literally.
+   </simpara>
+  </note>
+  <note>
+   <simpara>
+    When the string has to be rebuilt, byte sequences that are not valid for
+    <parameter>encoding</parameter> are replaced according to
+    <function>mb_substitute_character</function>. If nothing is trimmed, the
+    string is returned unchanged.
+   </simpara>
+  </note>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
