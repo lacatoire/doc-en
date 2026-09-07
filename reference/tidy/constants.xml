@@ -10,7 +10,7 @@
  </para>
 
  <variablelist xml:id="tidy.constants.tag">
-  <title>tidy nodetype constants</title>
+  <title>tidy tag constants</title>
   <varlistentry xml:id="constant.tidy-tag-unknown">
    <term>
     <constant>TIDY_TAG_UNKNOWN</constant>
