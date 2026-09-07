@@ -1143,7 +1143,7 @@ Usage: php [options] [-f] <file> [args...]
 $ php -r 'var_dump($argv);' -- -h
 array(2) {
   [0]=>
-  string(1) "-"
+  string(19) "Standard input code"
   [1]=>
   string(2) "-h"
 }
@@ -1487,6 +1487,9 @@ php > $foo[TAB]ThisIsAReallyLongVariableName
    <filename>~/.php_history</filename> file.
    As of PHP 8.4.0, the path to the history file can be set using the
    <envar>PHP_HISTFILE</envar> environment variable.
+   The value is used as is, without expanding a leading tilde, and setting it
+   to the empty string disables the history file instead of falling back to
+   <filename>~/.php_history</filename>.
   </simpara>
 
   <para>
@@ -1644,17 +1647,19 @@ php >
    PHP applications will stall if a request is blocked.
   </para>
 
-  <para>
+  <simpara>
     URI requests are served from the current working directory where
     PHP was started, unless the -t option is used to specify an
     explicit document root.  If a URI request does not specify a file,
     then either index.php or index.html in the given directory are
     returned.  If neither file exists, the lookup for index.php and index.html
     will be continued in the parent directory and so on until one is found or
-    the document root has been reached. If an index.php or index.html is found,
-    it is returned and $_SERVER['PATH_INFO'] is set to the trailing part of
-    the URI. Otherwise a 404 response code is returned.
-  </para>
+    the document root has been reached. The lookup only walks up through path
+    components that do not exist: it stops as soon as an existing directory
+    holding neither index.php nor index.html is reached. If an index.php or
+    index.html is found, it is returned and $_SERVER['PATH_INFO'] is set to
+    the trailing part of the URI. Otherwise a 404 response code is returned.
+  </simpara>
 
   <note>
    <simpara>
