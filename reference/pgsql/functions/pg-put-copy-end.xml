@@ -31,8 +31,8 @@
     <term><parameter>error</parameter></term>
     <listitem>
      <simpara>
-      If not &null;, the <literal>COPY</literal> operation is forced to
-      fail with the given error message.
+      If not &null; and not the empty string, the <literal>COPY</literal>
+      operation is forced to fail with the given error message.
      </simpara>
     </listitem>
    </varlistentry>

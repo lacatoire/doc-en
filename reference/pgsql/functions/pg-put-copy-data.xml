@@ -32,8 +32,9 @@
     <term><parameter>cmd</parameter></term>
     <listitem>
      <simpara>
-      The data to send to the server. A final newline is automatically
-      added if not present. The data must be formatted according to
+      The data to send to the server, which is sent unchanged.
+      Terminating each row with a newline is the caller's responsibility.
+      The data must be formatted according to
       the <literal>COPY</literal> command's format.
      </simpara>
     </listitem>
