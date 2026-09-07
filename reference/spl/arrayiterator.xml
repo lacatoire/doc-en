@@ -77,7 +77,10 @@
     <variablelist>
 
      <varlistentry xml:id="arrayiterator.constants.std-prop-list">
-      <term><constant>ArrayIterator::STD_PROP_LIST</constant></term>
+      <term>
+       <constant>ArrayIterator::STD_PROP_LIST</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         Properties of the object have their normal functionality
@@ -87,7 +90,10 @@
      </varlistentry>
 
      <varlistentry xml:id="arrayiterator.constants.array-as-props">
-      <term><constant>ArrayIterator::ARRAY_AS_PROPS</constant></term>
+      <term>
+       <constant>ArrayIterator::ARRAY_AS_PROPS</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Entries can be accessed as properties (read and write).</para>
       </listitem>

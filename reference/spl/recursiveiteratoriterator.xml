@@ -68,28 +68,40 @@
    <variablelist>
 
     <varlistentry xml:id="recursiveiteratoriterator.constants.leaves-only">
-     <term><constant>RecursiveIteratorIterator::LEAVES_ONLY</constant></term>
+     <term>
+      <constant>RecursiveIteratorIterator::LEAVES_ONLY</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para/>
      </listitem>
     </varlistentry>
 
     <varlistentry xml:id="recursiveiteratoriterator.constants.self-first">
-     <term><constant>RecursiveIteratorIterator::SELF_FIRST</constant></term>
+     <term>
+      <constant>RecursiveIteratorIterator::SELF_FIRST</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para/>
      </listitem>
     </varlistentry>
 
     <varlistentry xml:id="recursiveiteratoriterator.constants.child-first">
-     <term><constant>RecursiveIteratorIterator::CHILD_FIRST</constant></term>
+     <term>
+      <constant>RecursiveIteratorIterator::CHILD_FIRST</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para/>
      </listitem>
     </varlistentry>
 
     <varlistentry xml:id="recursiveiteratoriterator.constants.catch-get-child">
-     <term><constant>RecursiveIteratorIterator::CATCH_GET_CHILD</constant></term>
+     <term>
+      <constant>RecursiveIteratorIterator::CATCH_GET_CHILD</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para/>
      </listitem>
