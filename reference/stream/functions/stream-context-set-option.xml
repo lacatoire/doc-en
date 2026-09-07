@@ -9,7 +9,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <type>bool</type><methodname>stream_context_set_option</methodname>
+   <type>true</type><methodname>stream_context_set_option</methodname>
    <methodparam><type>resource</type><parameter>stream_or_context</parameter></methodparam>
    <methodparam><type>string</type><parameter>wrapper</parameter></methodparam>
    <methodparam><type>string</type><parameter>option_name</parameter></methodparam>
@@ -19,7 +19,7 @@
    The following alternative signature is deprecated as of PHP 8.4.0,
    use <function>stream_context_set_options</function> instead.
    <methodsynopsis>
-    <type>bool</type><methodname>stream_context_set_option</methodname>
+    <type>true</type><methodname>stream_context_set_option</methodname>
     <methodparam><type>resource</type><parameter>stream_or_context</parameter></methodparam>
     <methodparam><type>array</type><parameter>options</parameter></methodparam>
    </methodsynopsis>
@@ -93,9 +93,9 @@
  
  <refsect1 role="returnvalues"><!-- {{{ -->
   &reftitle.returnvalues;
-  <para>
-   &return.success;
-  </para>
+  <simpara>
+   &return.true.always;
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="changelog">
@@ -109,6 +109,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       The return type is now <type>true</type>;
+       previously it was <type>bool</type>.
+      </entry>
+     </row>
      <row>
       <entry>8.4.0</entry>
       <entry>
