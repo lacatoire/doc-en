@@ -9,7 +9,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis role="FFI">
-   <modifier>public</modifier> <type class="union"><type>FFI\CType</type><type>null</type></type><methodname>FFI::type</methodname>
+   <modifier>public</modifier> <type>FFI\CType</type><methodname>FFI::type</methodname>
    <methodparam><type>string</type><parameter>type</parameter></methodparam>
   </methodsynopsis>
   <simpara>
@@ -36,8 +36,7 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns the freshly created <classname>FFI\CType</classname> object,
-   or &null; on failure.
+   Returns the freshly created <classname>FFI\CType</classname> object.
   </simpara>
  </refsect1>
 
