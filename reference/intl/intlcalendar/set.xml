@@ -158,9 +158,12 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       This had been deprecated in favor of the methods
+       Calling <methodname>IntlCalendar::set</methodname> with more than two
+       arguments is deprecated, in favor of
        <methodname>IntlCalendar::setDate</methodname> and
        <methodname>IntlCalendar::setDateTime</methodname>.
+       The <function>intlcal_set</function> function is deprecated whatever
+       the number of arguments passed.
       </entry>
      </row>
     </tbody>
@@ -211,6 +214,8 @@ string(20) "01/07/2012, 00:00:00"
   <para>
    <simplelist>
     <member><methodname>IntlCalendar::get</methodname></member>
+    <member><methodname>IntlCalendar::setDate</methodname></member>
+    <member><methodname>IntlCalendar::setDateTime</methodname></member>
     <member><methodname>IntlCalendar::add</methodname></member>
     <member><methodname>IntlCalendar::roll</methodname></member>
    </simplelist>
