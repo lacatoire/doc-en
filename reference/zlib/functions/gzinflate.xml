@@ -50,6 +50,13 @@
    or, unless <parameter>max_length</parameter> is <literal>0</literal>, more than the optional parameter <parameter>max_length</parameter>.
   </para>
  </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>max_length</parameter>
+   is negative.
+  </simpara>
+ </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
