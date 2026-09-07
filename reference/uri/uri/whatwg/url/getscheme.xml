@@ -24,7 +24,7 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns the scheme component as a &string; if the scheme component exists, &null; is returned otherwise.
+   Returns the scheme component of the URL as a &string;.
   </simpara>
  </refsect1>
 

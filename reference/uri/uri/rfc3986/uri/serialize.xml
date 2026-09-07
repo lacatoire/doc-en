@@ -24,7 +24,7 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns the serialized URI as a &string;.
+   Returns the serialized URI as an &array;.
   </simpara>
  </refsect1>
 

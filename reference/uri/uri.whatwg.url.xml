@@ -7,6 +7,8 @@
   <section xml:id="uri-whatwg-url.intro">
    &reftitle.intro;
    <simpara>
+    Represents a URL as defined by the WHATWG URL Standard. Instances are
+    immutable; the various <literal>with*</literal> methods return a new instance.
    </simpara>
   </section>
 
