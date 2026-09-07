@@ -25,6 +25,9 @@
   &reftitle.returnvalues;
   <simpara>
    Returns an <classname>XMLWriter</classname>.
+   More precisely, an instance of the called class is returned, so a subclass
+   of <classname>XMLWriter</classname> gets its own type back, with its constructor
+   called with no arguments.
   </simpara>
  </refsect1>
 

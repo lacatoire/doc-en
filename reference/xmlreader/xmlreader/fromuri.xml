@@ -27,6 +27,9 @@
   &reftitle.returnvalues;
   <simpara>
    Returns an <classname>XMLReader</classname>.
+   More precisely, an instance of the called class is returned, so a subclass
+   of <classname>XMLReader</classname> gets its own type back, with its constructor
+   called with no arguments.
   </simpara>
  </refsect1>
 
@@ -37,6 +40,19 @@
     <simpara>
      Passing an invalid <parameter>encoding</parameter> will throw a
      <exceptionname>ValueError</exceptionname>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     Throws a <exceptionname>ValueError</exceptionname> if
+     <parameter>uri</parameter> is empty.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     Throws an <exceptionname>Error</exceptionname> if the source cannot be
+     opened. <methodname>XMLReader::open</methodname> returns &false; and
+     raises an <constant>E_WARNING</constant> instead.
     </simpara>
    </listitem>
   </itemizedlist>

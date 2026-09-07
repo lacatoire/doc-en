@@ -24,7 +24,30 @@
   &reftitle.returnvalues;
   <simpara>
    Returns an <classname>XMLWriter</classname>.
+   More precisely, an instance of the called class is returned, so a subclass
+   of <classname>XMLWriter</classname> gets its own type back, with its constructor
+   called with no arguments.
   </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     Throws a <exceptionname>ValueError</exceptionname> if
+     <parameter>uri</parameter> is empty.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     Throws a <exceptionname>ValueError</exceptionname> if
+     <parameter>uri</parameter> does not resolve to a valid file path.
+     <methodname>XMLWriter::openUri</methodname> returns &false; and raises an
+     <constant>E_WARNING</constant> instead.
+    </simpara>
+   </listitem>
+  </itemizedlist>
  </refsect1>
 
  <refsect1 role="seealso">
