@@ -261,7 +261,7 @@ __HALT_COMPILER();
    <tbody>
     <row>
      <entry>4 bytes</entry>
-     <entry>Length of manifest in bytes (1 MB limit)</entry>
+     <entry>Length of manifest in bytes (100 MB limit)</entry>
     </row>
     <row>
      <entry>4 bytes</entry>
@@ -269,7 +269,7 @@ __HALT_COMPILER();
     </row>
     <row>
      <entry>2 bytes</entry>
-     <entry>API version of the Phar manifest (currently 1.0.0)</entry>
+     <entry>API version of the Phar manifest (currently 1.1.1)</entry>
     </row>
     <row>
      <entry>4 bytes</entry>
@@ -441,12 +441,12 @@ __HALT_COMPILER();
 </section>
 <section xml:id="phar.fileformat.signature" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <title>Phar Signature format</title>
- <para>
+ <simpara>
   Phars containing a signature always have the signature appended to the
   end of the Phar archive after the loader, manifest, and file contents.
   The signature formats supported at this time are MD5, SHA1, SHA256, SHA512,
-  and OPENSSL.
- </para>
+  OPENSSL, OPENSSL_SHA256, and OPENSSL_SHA512.
+ </simpara>
  <para>
   <table>
    <title>Signature format</title>
@@ -478,6 +478,8 @@ __HALT_COMPILER();
        support is available as of API version 1.1.0.
        <literal>0x0010</literal> is used to define an OPENSSL signature, what
        is available as of API version 1.1.1, if OpenSSL is available.
+       <literal>0x0011</literal> and <literal>0x0012</literal> define OPENSSL
+       signatures using the SHA-256 and SHA-512 hashing algorithms respectively.
       </entry>
      </row>
      <row>

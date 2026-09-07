@@ -150,13 +150,13 @@ $mimes = array(
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Throws <classname>PharException</classname> when unable to open the internal
+  <simpara>
+   Throws <exceptionname>PharException</exceptionname> when unable to open the internal
    file to output, or if
    called from a non-stub.  If an invalid array value is passed into
    <parameter>mimeTypes</parameter> or an invalid callback is passed into <parameter>rewrite</parameter>, then
-   <classname>UnexpectedValueException</classname> is thrown.
-  </para>
+   <exceptionname>PharException</exceptionname> is thrown.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
