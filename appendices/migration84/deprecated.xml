@@ -106,10 +106,14 @@ function foo(T1 $a, ?T2 $b, T3 $c) {}
 
   <sect3 xml:id="migration84.deprecated.core.underscore-class-name">
    <!-- RFC: https://wiki.php.net/rfc/deprecations_php_8_4#deprecate_using_a_single_underscore_as_a_class_name -->
-   <title>Using underscore <literal>_</literal> as class name</title>
+   <title>
+    Using underscore <literal>_</literal> as a class, interface, trait, or enum
+    name
+   </title>
 
    <para>
-    Naming a class <literal>_</literal> is now deprecated:
+    Naming a class, interface, trait, or enum <literal>_</literal> is now
+    deprecated:
     <informalexample>
      <programlisting role="php">
 <![CDATA[
@@ -119,6 +123,12 @@ class _ {}
      </programlisting>
     </informalexample>
    </para>
+
+   <simpara>
+    Using <literal>_</literal> as a type name, for instance as a parameter,
+    property, or return type, and passing it as the <parameter>alias</parameter>
+    of <function>class_alias</function>, are deprecated as well.
+   </simpara>
 
    <note>
     <para>
