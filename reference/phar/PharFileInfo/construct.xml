@@ -39,13 +39,13 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Throws <classname>BadMethodCallException</classname> if
+  <simpara>
+   Throws <exceptionname>BadMethodCallException</exceptionname> if
    <link linkend="object.construct">__construct()</link> is called twice.
-   Throws <classname>UnexpectedValueException</classname> if
+   Throws <exceptionname>RuntimeException</exceptionname> if
    the phar URL requested is malformed, the requested
    phar cannot be opened, or the file can't be found within the phar.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

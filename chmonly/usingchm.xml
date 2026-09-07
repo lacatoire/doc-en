@@ -109,10 +109,7 @@
        FTS). Here you can type in your search expression,
        optionally connecting words with AND/OR/NEAR/NOT. Before
        you click 'List topics', you can also set some options
-       at the bottom. After the search results are displayed,
-       you'll realize that manual text and user note results are
-       separated. To sort out the two types, click on the
-       'Location' column header. Now from the search results list,
+       at the bottom. From the search results list,
        you can pick a topic, and see it's page. The keywords you
        searched for are highlighted on the page.
       </simpara>
@@ -124,9 +121,7 @@
        the list, add the current topic to it, remove one, or
        display a selected item. You can also specify your own
        title for the favorite, by typing it into the 'Current
-       topic:' box. The user note page titles are prepended
-       with a 'N:' string so you can distinguish them from
-       normal manual pages in the favorites listing.
+       topic:' box.
       </simpara>
      </listitem>
     </itemizedlist>
