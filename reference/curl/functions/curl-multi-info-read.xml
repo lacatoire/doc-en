@@ -25,10 +25,10 @@
    function was called.
   </para>
   <warning>
-   <para>
-    The data the returned resource points to will not survive calling 
+   <simpara>
+    The data the returned array refers to will not survive calling
     <function>curl_multi_remove_handle</function>.
-   </para>
+   </simpara>
   </warning>
  </refsect1>
  
@@ -77,7 +77,7 @@
       </row>
       <row>
        <entry><literal>handle</literal></entry>
-       <entry>Resource of type curl indicates the handle which it concerns.</entry>
+       <entry>A <classname>CurlHandle</classname> instance indicating the handle which it concerns.</entry>
       </row>
      </tbody>
     </tgroup>

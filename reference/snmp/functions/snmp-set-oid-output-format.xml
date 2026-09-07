@@ -70,7 +70,7 @@
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
-   <title>Using <function>snmprealwalk</function></title>
+   <title>Using <function>snmp_set_oid_output_format</function></title>
    <programlisting role="php">
 <![CDATA[
 <?php
