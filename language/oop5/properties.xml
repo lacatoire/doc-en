@@ -393,9 +393,15 @@ var_dump($test2->prop); // NULL
    <note>
     <simpara>
      As of PHP 8.4.0, indirect modification of a readonly property within
-     <link linkend="object.clone">__clone()</link>, such as acquiring a
-     reference to it (<code>$ref = &amp;$this->prop</code>), is no longer
-     allowed. This was already forbidden during readonly initialization.
+     <link linkend="object.clone">__clone()</link> is no longer allowed. This
+     covers acquiring a reference to it (<code>$ref = &amp;$this->prop</code>),
+     writing to or unsetting one of its array elements
+     (<code>$this->prop['key'] = $value</code>), and passing it to a
+     by-reference parameter; each throws an
+     <exceptionname>Error</exceptionname> with the message
+     <literal>Cannot indirectly modify readonly property C::$prop</literal>.
+     A direct reinitializing assignment remains allowed. This was already
+     forbidden during readonly initialization.
     </simpara>
    </note>
   </sect2>
