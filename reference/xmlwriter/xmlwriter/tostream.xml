@@ -34,6 +34,9 @@
   &reftitle.returnvalues;
   <simpara>
    Returns an <classname>XMLWriter</classname>.
+   More precisely, an instance of the called class is returned, so a subclass
+   of <classname>XMLWriter</classname> gets its own type back, with its constructor
+   called with no arguments.
   </simpara>
  </refsect1>
 
@@ -44,6 +47,12 @@
     <simpara>
      Passing a resource that is not a stream to <parameter>stream</parameter>
      will throw a <exceptionname>TypeError</exceptionname>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     Throws a <exceptionname>TypeError</exceptionname> if
+     <parameter>stream</parameter> is not a valid stream resource.
     </simpara>
    </listitem>
   </itemizedlist>
