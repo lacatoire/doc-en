@@ -20,7 +20,7 @@
    <type>string</type><methodname>dba_fetch</methodname>
    <methodparam><type class="union"><type>string</type><type>array</type></type><parameter>key</parameter></methodparam>
    <methodparam><type>int</type><parameter>skip</parameter></methodparam>
-   <methodparam><type>resource</type><parameter>dba</parameter></methodparam>
+   <methodparam><type>Dba\Connection</type><parameter>dba</parameter></methodparam>
   </methodsynopsis>
   <simpara>
    <function>dba_fetch</function> fetches the data specified by
