@@ -44,6 +44,13 @@
       "libc.so.6"</code>.  If it is a custom library, a relative path is required,
       e.g.: <code>#define FFI_LIB "./mylib.so"</code>.
      </simpara>
+     <simpara>
+      As of PHP 8.5.0, if <literal>FFI_LIB</literal> is omitted, symbols are
+      looked up in the normal global scope on Windows as well, in the same
+      manner as platforms supporting <literal>RTLD_DEFAULT</literal>. Because
+      symbols on Windows are not necessarily unique, this convenience should
+      not be relied upon in production.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -67,6 +74,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       On Windows, symbols can now be resolved even when
+       <literal>FFI_LIB</literal> is not defined in the header file.
+      </entry>
+     </row>
      <row>
       <entry>8.3.0</entry>
       <entry>
