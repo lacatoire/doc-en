@@ -187,6 +187,12 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.5.0</entry>
+      <entry>
+       Added support for <literal>OffsetTime*</literal> Exif tags.
+      </entry>
+     </row>
+     <row>
       <entry>8.0.0</entry>
       <entry>
        <parameter>required_sections</parameter> is nullable now.
