@@ -69,6 +69,14 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       <constant>PGSQL_TUPLES_CHUNK</constant> can now be returned, when
+       <function>pg_set_chunked_rows_size</function> has been called
+       (libpq 17 and later).
+      </entry>
+     </row>
      &pgsql.changelog.result-object;
     </tbody>
    </tgroup>
