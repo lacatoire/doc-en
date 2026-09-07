@@ -314,7 +314,6 @@ var_dump($bar);
    <member><literal>(string)</literal> - cast to <type>string</type></member>
    <member><literal>(array)</literal> - cast to <type>array</type></member>
    <member><literal>(object)</literal> - cast to <type>object</type></member>
-   <member><literal>(unset)</literal> - cast to <type>NULL</type></member>
   </simplelist>
 
   <simpara>
@@ -324,14 +323,13 @@ var_dump($bar);
   </simpara>
 
   <warning>
-   <para>
+   <simpara>
     <literal>(integer)</literal> is an alias of the <literal>(int)</literal> cast.
     <literal>(boolean)</literal> is an alias of the <literal>(bool)</literal> cast.
     <literal>(binary)</literal> is an alias of the <literal>(string)</literal> cast.
-    <literal>(double)</literal> and <literal>(real)</literal> are aliases of
-    the <literal>(float)</literal> cast.
+    <literal>(double)</literal> is an alias of the <literal>(float)</literal> cast.
     These casts do not use the canonical type name and are deprecated as of PHP 8.5.0.
-   </para>
+   </simpara>
   </warning>
 
   <warning>
