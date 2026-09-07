@@ -2,10 +2,11 @@
 <!-- $Revision$ -->
 <section xml:id="intl.installation" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  &reftitle.install;
- <para>
+ <simpara>
   <option role="configure">--enable-intl</option> will enable the
   extension while compiling PHP.
- </para>
+  As of PHP 8.5.0, at least ICU 57.1 is required.
+ </simpara>
  <para>
   If your ICU is installed to a non-standard directory then you might want to
   specify its location in
