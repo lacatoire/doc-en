@@ -98,6 +98,9 @@
   &reftitle.returnvalues;
   <simpara>
    Returns &true; on success or &false; on error.
+   Unlike <function>ldap_exop</function>, this function always performs the
+   operation synchronously, so it never returns an
+   <classname>LDAP\Result</classname> instance.
   </simpara>
   <note>
    <simpara>
