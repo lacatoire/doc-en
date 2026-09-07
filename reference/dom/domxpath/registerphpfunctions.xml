@@ -57,7 +57,6 @@
      a callback name is not valid.
     </simpara>
    </listitem>
-   &dom.errors.compliant.common;
    <listitem>
     <simpara>
      Throws a <exceptionname>TypeError</exceptionname> if
