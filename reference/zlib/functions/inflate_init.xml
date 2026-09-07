@@ -37,37 +37,10 @@
       An associative array which may contain the following elements:
       <variablelist>
        <varlistentry>
-        <term><varname>level</varname></term>
-        <listitem>
-         <para>
-          The compression level in range -1..9; defaults to -1.
-         </para>
-        </listitem>
-       </varlistentry>
-       <varlistentry>
-        <term><varname>memory</varname></term>
-        <listitem>
-         <para>
-          The compression memory level in range 1..9; defaults to 8.
-         </para>
-        </listitem>
-       </varlistentry>
-       <varlistentry>
         <term><varname>window</varname></term>
         <listitem>
          <para>
           The zlib window size (logarithmic) in range 8..15; defaults to 15.
-         </para>
-        </listitem>
-       </varlistentry>
-       <varlistentry>
-        <term><varname>strategy</varname></term>
-        <listitem>
-         <para>
-          One of <constant>ZLIB_FILTERED</constant>,
-          <constant>ZLIB_HUFFMAN_ONLY</constant>, <constant>ZLIB_RLE</constant>,
-          <constant>ZLIB_FIXED</constant> or
-          <constant>ZLIB_DEFAULT_STRATEGY</constant> (the default).
          </para>
         </listitem>
        </varlistentry>
@@ -89,19 +62,24 @@
 
  <refsect1 role="returnvalues"><!-- {{{ -->
   &reftitle.returnvalues;
-  <para>
-   Returns an inflate context resource (<literal>zlib.inflate</literal>) on
-   success, &return.falseforfailure;.
-  </para>
+  <simpara>
+   Returns an <classname>InflateContext</classname> instance on success,
+   &return.falseforfailure;.
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="errors"><!-- {{{ -->
   &reftitle.errors;
-  <para>
-   If an invalid encoding or option is passed to <parameter>options</parameter>,
-   or the context couldn't be created, an error of level
-   <constant>E_WARNING</constant> is generated.
-  </para>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>encoding</parameter>
+   is not one of the <constant>ZLIB_ENCODING_<replaceable>*</replaceable></constant>
+   constants, or if the <varname>window</varname> option is outside the
+   range 8..15, or if the <varname>dictionary</varname> option is invalid.
+  </simpara>
+  <simpara>
+   If the context could not be allocated, an <constant>E_WARNING</constant>
+   is emitted and &false; is returned.
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="changelog">
