@@ -21,6 +21,16 @@
   &no.function.parameters;
  </refsect1>
 
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   An <type>array</type> holding a single <literal>value</literal> key, whose
+   value is the string of <property>BcMath\Number::$value</property>.
+   <property>BcMath\Number::$scale</property> is not serialized; it is
+   recomputed when the object is unserialized.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
