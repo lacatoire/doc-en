@@ -152,8 +152,8 @@
 
    <simpara>
     <methodname>ResourceBundle::get</methodname>
-    <!-- TODO Use a proper union type for the return type -->
-    now has a tentative return type of <literal>ResourceBundle|array|string|int|null</literal>.
+    now has a tentative return type of
+    <type class="union"><type>ResourceBundle</type><type>array</type><type>string</type><type>int</type><type>null</type></type>.
    </simpara>
 
    <simpara>
