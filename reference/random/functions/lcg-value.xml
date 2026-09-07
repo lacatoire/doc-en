@@ -48,9 +48,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   A pseudo random float value between 0.0 and 1.0, inclusive.
-  </para>
+  <simpara>
+   A pseudo random float value in the open interval (0, 1); the boundary values
+   0.0 and 1.0 are never returned.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">

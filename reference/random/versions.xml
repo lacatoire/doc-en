@@ -97,7 +97,6 @@
  <function name='random\randomizer::getfloat' from='PHP 8 &gt;= 8.3.0'/>
  <function name='random\randomizer::nextfloat' from='PHP 8 &gt;= 8.3.0'/>
 
- <!-- RoundingMode enum -->
  <function name='random\intervalboundary' from='PHP 8 &gt;= 8.3.0'/>
 </versions>
 
