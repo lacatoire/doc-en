@@ -184,7 +184,10 @@
    &reftitle.constants;
    <variablelist>
     <varlistentry xml:id="pdo-mysql.constants.attr-use-buffered-query">
-     <term><constant>Pdo\Mysql::ATTR_USE_BUFFERED_QUERY</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_USE_BUFFERED_QUERY</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        By default all statements are executed in
@@ -211,7 +214,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-local-infile">
-     <term><constant>Pdo\Mysql::ATTR_LOCAL_INFILE</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_LOCAL_INFILE</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Enable <literal>LOAD LOCAL INFILE</literal>.
@@ -225,7 +231,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-local-infile-directory">
-     <term><constant>Pdo\Mysql::ATTR_LOCAL_INFILE_DIRECTORY</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_LOCAL_INFILE_DIRECTORY</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Allows restricting LOCAL DATA loading to files located in this
@@ -235,7 +244,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-init-command">
-     <term><constant>Pdo\Mysql::ATTR_INIT_COMMAND</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_INIT_COMMAND</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Command to execute when connecting to the MySQL server.
@@ -245,7 +257,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-read-default-file">
-     <term><constant>Pdo\Mysql::ATTR_READ_DEFAULT_FILE</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_READ_DEFAULT_FILE</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Read options from the named option file instead of from
@@ -260,7 +275,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-read-default-group">
-     <term><constant>Pdo\Mysql::ATTR_READ_DEFAULT_GROUP</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_READ_DEFAULT_GROUP</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Read options from the named group from <filename>my.cnf</filename> or
@@ -276,7 +294,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-compress">
-     <term><constant>Pdo\Mysql::ATTR_COMPRESS</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_COMPRESS</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Enable network communication compression.
@@ -284,7 +305,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-direct-query">
-     <term><constant>Pdo\Mysql::ATTR_DIRECT_QUERY</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_DIRECT_QUERY</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        &Alias; <constant>PDO::ATTR_EMULATE_PREPARES</constant>.
@@ -292,7 +316,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-found-rows">
-     <term><constant>Pdo\Mysql::ATTR_FOUND_ROWS</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_FOUND_ROWS</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Return the number of found (matched) rows,
@@ -302,7 +329,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-ignore-space">
-     <term><constant>Pdo\Mysql::ATTR_IGNORE_SPACE</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_IGNORE_SPACE</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Permit spaces after SQL function names.
@@ -312,7 +342,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-max-buffer-size">
-     <term><constant>Pdo\Mysql::ATTR_MAX_BUFFER_SIZE</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_MAX_BUFFER_SIZE</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Maximum buffer size. Defaults to 1 MiB.
@@ -325,7 +358,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-multi-statements">
-     <term><constant>Pdo\Mysql::ATTR_MULTI_STATEMENTS</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_MULTI_STATEMENTS</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Disables multi query execution in both
@@ -336,7 +372,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-server-public-key">
-     <term><constant>Pdo\Mysql::ATTR_SERVER_PUBLIC_KEY</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_SERVER_PUBLIC_KEY</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        <acronym>RSA</acronym> public key file used with the SHA-256 based authentication.
@@ -345,7 +384,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-ssl-key">
-     <term><constant>Pdo\Mysql::ATTR_SSL_KEY</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_SSL_KEY</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        The file path to the <acronym>SSL</acronym> key.
@@ -354,7 +396,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-ssl-cert">
-     <term><constant>Pdo\Mysql::ATTR_SSL_CERT</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_SSL_CERT</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        The file path to the <acronym>SSL</acronym> certificate.
@@ -363,7 +408,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-ssl-ca">
-     <term><constant>Pdo\Mysql::ATTR_SSL_CA</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_SSL_CA</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        The file path to the <acronym>SSL</acronym> certificate authority.
@@ -372,7 +420,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-ssl-capath">
-     <term><constant>Pdo\Mysql::ATTR_SSL_CAPATH</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_SSL_CAPATH</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        The file path to the directory that contains the trusted
@@ -383,7 +434,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-ssl-cipher">
-     <term><constant>Pdo\Mysql::ATTR_SSL_CIPHER</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_SSL_CIPHER</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        A list of one or more permissible ciphers to use for
@@ -394,7 +448,10 @@ foreach ($unbufferedResult as $row) {
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-mysql.constants.attr-ssl-verify-server-cert">
-     <term><constant>Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT</constant></term>
+     <term>
+      <constant>Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Provides a way to disable verification of the server <acronym>SSL</acronym> certificate.
