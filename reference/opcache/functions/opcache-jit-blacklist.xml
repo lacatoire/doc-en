@@ -53,6 +53,20 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>closure</parameter> is not a <classname>Closure</classname>.
+  </simpara>
+  <simpara>
+   The call is a silent no-op when PHP is built without <acronym>JIT</acronym>
+   support, when <parameter>closure</parameter> does not wrap user code, or
+   when the function has not been trace-compiled yet.
+   Neither the return value nor any diagnostic distinguishes these cases.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
@@ -74,6 +88,12 @@ foo();
 ?>
 ]]>
    </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+int(2)
+]]>
+   </screen>
   </example>
  </refsect1>
 
