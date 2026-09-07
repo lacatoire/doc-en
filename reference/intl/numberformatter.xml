@@ -617,6 +617,15 @@
      </thead>
      <tbody>
       <row>
+       <entry>8.4.0</entry>
+       <entry>
+        Cloning a non-initialized instance, or a clone that fails at the
+        <acronym>ICU</acronym> level, now throws an
+        <exceptionname>Error</exceptionname>.
+        Formerly an <exceptionname>Exception</exceptionname> was thrown.
+       </entry>
+      </row>
+      <row>
        <entry>8.5.0</entry>
        <entry>
         Added <constant>NumberFormatter::DECIMAL_COMPACT_SHORT</constant>, <constant>NumberFormatter::DECIMAL_COMPACT_LONG</constant>,

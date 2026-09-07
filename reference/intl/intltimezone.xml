@@ -231,6 +231,15 @@
       <row>
        <entry>8.4.0</entry>
        <entry>
+        Cloning a non-initialized instance, or a clone that fails at the
+        <acronym>ICU</acronym> level, now throws an
+        <exceptionname>Error</exceptionname>.
+        Formerly an <exceptionname>Exception</exceptionname> was thrown.
+       </entry>
+      </row>
+      <row>
+       <entry>8.4.0</entry>
+       <entry>
         The class constants are now typed.
        </entry>
       </row>
