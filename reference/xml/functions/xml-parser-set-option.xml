@@ -127,6 +127,11 @@
    to <parameter>option</parameter>.
   </para>
   <simpara>
+   Throws an <exceptionname>Error</exceptionname> when
+   <constant>XML_OPTION_PARSE_HUGE</constant> is changed while the parser is
+   parsing, that is from within a handler.
+  </simpara>
+  <simpara>
    Prior to PHP 8.0.0, passing an invalid value to
    <parameter>option</parameter> generated an <constant>E_WARNING</constant>
    and made the function return &false;.
