@@ -96,6 +96,9 @@
      <listitem>
       <simpara><link linkend="object.construct">__construct()</link></simpara>
      </listitem>
+     <listitem>
+      <simpara><link linkend="object.invoke">__invoke()</link></simpara>
+     </listitem>
     </itemizedlist>
    </listitem>
   </itemizedlist>
