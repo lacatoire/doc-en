@@ -49,6 +49,8 @@
    </term>
    <listitem>
     <simpara>
+     Wait for processes that have exited.
+     Available as of PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -59,6 +61,12 @@
    </term>
    <listitem>
     <simpara>
+     Status shall be returned for any child that has stopped upon receipt
+     of a signal, and whose status either has not been reported since it
+     stopped or has been reported only by calls to
+     <function>pcntl_waitid</function> with the <constant>WNOWAIT</constant>
+     flag set.
+     Available as of PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -69,6 +77,10 @@
    </term>
    <listitem>
     <simpara>
+     Keep the process whose status is returned in <parameter>info</parameter>
+     in a waitable state. This shall not affect the state of the process,
+     which may be waited for again after the call completes.
+     Available as of PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -566,7 +578,7 @@
    <listitem>
     <simpara>
      Generates/restores a checkpoint.
-     Available from PHP 8.4.0 (DragonFlyBSD only).
+     Available as of PHP 8.4.0 (DragonFlyBSD only).
     </simpara>
    </listitem>
   </varlistentry>
@@ -578,7 +590,7 @@
    <listitem>
     <simpara>
      Generates/restores a checkpoint and exit.
-     Available from PHP 8.4.0 (DragonFlyBSD only).
+     Available as of PHP 8.4.0 (DragonFlyBSD only).
     </simpara>
    </listitem>
   </varlistentry>
@@ -1611,8 +1623,8 @@
    </listitem>
   </varlistentry>
  </variablelist>
-<variablelist xml:id="pcntl.constants.waitid">
- <title>First argument to <literal>waitid</literal> (<literal>idtype</literal>)</title>
+ <variablelist xml:id="pcntl.constants.waitid">
+  <title>First argument to <literal>waitid</literal> (<literal>idtype</literal>)</title>
   <varlistentry xml:id="constant.p-all">
    <term>
     <constant>P_ALL</constant>
@@ -1621,6 +1633,7 @@
    <listitem>
     <simpara>
      Select any children.
+     Available as of PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -1632,6 +1645,7 @@
    <listitem>
     <simpara>
      Select by process ID.
+     Available as of PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -1643,6 +1657,7 @@
    <listitem>
     <simpara>
      Select by process group ID.
+     Available as of PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -1655,6 +1670,7 @@
     <simpara>
      Select by PID file descriptor.
      Specific to Linux (since Linux 5.4).
+     Available as of PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -1667,6 +1683,7 @@
     <simpara>
      Select by effective user ID.
      Specific to NetBSD and FreeBSD.
+     Available as of PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -1679,6 +1696,7 @@
     <simpara>
      Select by effective group ID.
      Specific to NetBSD and FreeBSD.
+     Available as of PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -1691,6 +1709,7 @@
     <simpara>
      Select by session ID.
      Specific to NetBSD and FreeBSD.
+     Available as of PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
@@ -1703,6 +1722,7 @@
     <simpara>
      Select by jail identifier.
      Specific to FreeBSD.
+     Available as of PHP 8.4.0.
     </simpara>
    </listitem>
   </varlistentry>
