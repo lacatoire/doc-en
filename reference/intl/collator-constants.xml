@@ -41,6 +41,7 @@
    <varlistentry xml:id="collator.constants.alternate-handling">
     <term>
      <constant>Collator::ALTERNATE_HANDLING</constant>
+     <type>int</type>
     </term>
     <listitem>
      <para>

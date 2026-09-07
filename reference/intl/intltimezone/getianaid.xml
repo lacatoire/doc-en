@@ -51,6 +51,16 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Returns &false; and raises an intl error if
+   <parameter>timezoneId</parameter> cannot be converted to UTF-16, or if no
+   IANA identifier can be obtained for it, which is the case for an unknown
+   time zone.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
  <simplelist>

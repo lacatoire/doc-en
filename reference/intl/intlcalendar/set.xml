@@ -158,9 +158,12 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       This had been deprecated in favor of the methods
+       Calling <methodname>IntlCalendar::set</methodname> with more than two
+       arguments is deprecated, in favor of
        <methodname>IntlCalendar::setDate</methodname> and
        <methodname>IntlCalendar::setDateTime</methodname>.
+       The <function>intlcal_set</function> function is deprecated whatever
+       the number of arguments passed.
       </entry>
      </row>
     </tbody>
@@ -180,13 +183,13 @@ ini_set('date.timezone', 'Europe/Lisbon');
 ini_set('intl.default_locale', 'pt_PT');
 
 //Calls made later have priority
-$cal = new IntlGregorianCalendar(2013, 6 /* July */, 1);
+$cal = IntlGregorianCalendar::createFromDate(2013, 6 /* July */, 1);
 $cal->set(IntlCalendar::FIELD_YEAR, 2012);
 $cal->set(IntlCalendar::FIELD_EXTENDED_YEAR, 2011);
 var_dump(IntlDateFormatter::formatObject($cal));
 
 
-$cal = new IntlGregorianCalendar(2013, 6 /* July */, 1);
+$cal = IntlGregorianCalendar::createFromDate(2013, 6 /* July */, 1);
 $cal->set(IntlCalendar::FIELD_YEAR, 2012);
 $cal->set(IntlCalendar::FIELD_EXTENDED_YEAR, 2011);
 //the time has not been recalculated yet. If we clear the extended year,
@@ -211,6 +214,8 @@ string(20) "01/07/2012, 00:00:00"
   <para>
    <simplelist>
     <member><methodname>IntlCalendar::get</methodname></member>
+    <member><methodname>IntlCalendar::setDate</methodname></member>
+    <member><methodname>IntlCalendar::setDateTime</methodname></member>
     <member><methodname>IntlCalendar::add</methodname></member>
     <member><methodname>IntlCalendar::roll</methodname></member>
    </simplelist>

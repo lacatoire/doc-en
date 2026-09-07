@@ -17,8 +17,9 @@
   </simpara>
   <simpara>
    This method behaves like <methodname>IntlDateFormatter::parse</methodname>, except
-   that the time zone of the formatter is updated according to the time zone information
-   contained in the parsed <parameter>string</parameter>.
+   that the calendar of the formatter is updated according to the information
+   contained in the parsed <parameter>string</parameter>, which in particular
+   updates its time zone.
   </simpara>
  </refsect1>
 
@@ -48,6 +49,16 @@
     </listitem>
    </varlistentry>
   </variablelist>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>offset</parameter> is not of type <type>int</type>.
+   Unlike <methodname>IntlDateFormatter::parse</methodname>, this method does
+   not coerce it.
+  </simpara>
  </refsect1>
 
  <refsect1 role="returnvalues">
