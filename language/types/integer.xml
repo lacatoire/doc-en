@@ -115,7 +115,7 @@ $large_number = 50000000000000000000;
 var_dump($large_number);         // float(5.0E+19)
 
 var_dump(PHP_INT_MAX + 1);       // 32-bit system: float(2147483648)
-                                 // 64-bit system: float(9.2233720368548E+18)
+                                 // 64-bit system: float(9.223372036854776E+18)
 ?>
 ]]>
    </programlisting>
@@ -138,7 +138,7 @@ var_dump(PHP_INT_MAX + 1);       // 32-bit system: float(2147483648)
    <programlisting role="php">
 <![CDATA[
 <?php
-var_dump(25/7);         // float(3.5714285714286)
+var_dump(25/7);         // float(3.5714285714285716)
 var_dump((int) (25/7)); // int(3)
 var_dump(round(25/7));  // float(4)
 ?>
