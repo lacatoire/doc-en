@@ -23,6 +23,16 @@
    to the <function>substr</function> function, which would simply cut the string between
    the bytes and thus result in a malformed byte sequence.
   </para>
+  <simpara>
+   As of PHP 8.4.0, for <literal>UTF-8</literal> and its mobile variants both cut
+   points are moved back to the nearest byte that is not a continuation byte, and
+   byte sequences that are not valid are returned unchanged instead of being
+   re-encoded. For <literal>UTF-16</literal>, <literal>UTF-16BE</literal> and
+   <literal>UTF-16LE</literal>, <parameter>start</parameter> and
+   <parameter>length</parameter> are rounded down to an even number of bytes, a
+   cut that would split a surrogate pair is moved back by two bytes, and the
+   bytes are likewise returned unchanged. Valid strings are not affected.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -110,7 +120,10 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       The behavior is more consistent now on invalid <literal>UTF-8</literal> and <literal>UTF-16</literal> strings.
+       The cut points chosen on byte sequences that are not valid changed for
+       <literal>UTF-8</literal>, its mobile variants and the
+       <literal>UTF-16</literal> encodings, and such sequences are now returned
+       unchanged rather than re-encoded. Valid strings are unaffected.
       </entry>
      </row>
      &mbstring.changelog.encoding-nullable;
