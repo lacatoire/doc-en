@@ -20,13 +20,13 @@
    error handlers, from which <function>restore_error_handler</function> pops
    it back.
   </simpara>
-  <para>
+  <simpara>
    This function can be used to define custom error handlers during runtime,
    for example in applications which need to do file/data cleanup when a critical
    error happens, or when triggering an error in response to certain conditions
    (using <function>trigger_error</function>).
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    It is important to remember that the standard PHP error handler is completely
    bypassed for the error types specified by <parameter>error_levels</parameter> 
    unless the callback function returns &false;.
@@ -35,14 +35,14 @@
    read the current value of
    <link linkend="ini.error-reporting">error_reporting</link> and act
    appropriately.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    Also note that it is the handler's responsibility to stop the
    script's execution if necessary by calling <function>exit</function>. If the error-handler
    function returns, script execution will continue with the next statement
    after the one that caused an error.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    The following error types cannot be handled with a user defined
    function: <constant>E_ERROR</constant>, <constant>E_PARSE</constant>,
    <constant>E_CORE_ERROR</constant>, <constant>E_CORE_WARNING</constant>,
@@ -50,12 +50,12 @@
    <constant>E_COMPILE_WARNING</constant> independent of where they were raised, and
    most of <constant>E_STRICT</constant> raised in the file where
    <function>set_error_handler</function> is called.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    If errors occur before the script is executed (e.g. on file uploads) the 
    custom error handler cannot be called since it is not registered at that 
    time.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -79,7 +79,6 @@
         <methodparam><type>string</type><parameter>errstr</parameter></methodparam>
         <methodparam choice="opt"><type>string</type><parameter>errfile</parameter></methodparam>
         <methodparam choice="opt"><type>int</type><parameter>errline</parameter></methodparam>
-        <methodparam choice="opt"><type>array</type><parameter>errcontext</parameter></methodparam>
        </methodsynopsis>
        <variablelist>
         <varlistentry>
@@ -141,21 +140,21 @@
         </varlistentry>
        </variablelist>
       </para>
-      <para>
+      <simpara>
        If the function returns &false; then the normal error handler continues.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>error_levels</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Can be used to mask the triggering of the
        <parameter>callback</parameter> function just like the <link linkend="ini.error-reporting">error_reporting</link> ini setting 
        controls which errors are shown. Without this mask set the
        <parameter>callback</parameter> will be called for every error
        regardless to the setting of the <link linkend="ini.error-reporting">error_reporting</link> setting.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -164,10 +163,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the previously defined error handler (if any) as a <type>callable</type>.
    If the built-in error handler is used &null; is returned.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -205,10 +204,10 @@
   <para>
    <example>
     <title>Error handling with <function>set_error_handler</function> and <function>trigger_error</function></title>
-    <para>
+    <simpara>
      The example below shows the handling of internal exceptions by
      triggering errors and handling them with a user defined function:
-    </para>
+    </simpara>
     <programlisting role="php">
 <![CDATA[
 <?php
