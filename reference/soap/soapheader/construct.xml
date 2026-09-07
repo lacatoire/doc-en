@@ -13,8 +13,8 @@
    <methodparam><type>string</type><parameter>namespace</parameter></methodparam>
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
    <methodparam choice="opt"><type>mixed</type><parameter>data</parameter></methodparam>
-   <methodparam choice="opt"><type>bool</type><parameter>mustunderstand</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>actor</parameter></methodparam>
+   <methodparam choice="opt"><type>bool</type><parameter>mustUnderstand</parameter><initializer>&false;</initializer></methodparam>
+   <methodparam choice="opt"><type class="union"><type>string</type><type>int</type><type>null</type></type><parameter>actor</parameter><initializer>&null;</initializer></methodparam>
   </constructorsynopsis>
   <para>
    Constructs a new SoapHeader object.
