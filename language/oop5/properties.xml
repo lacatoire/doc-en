@@ -400,6 +400,15 @@ var_dump($test2->prop); // NULL
    </note>
   </sect2>
 
+  <sect2 xml:id="language.oop5.properties.hooks">
+   <title>Property hooks</title>
+   <simpara>
+    As of PHP 8.4.0, a property may declare
+    <link linkend="language.oop5.property-hooks">hooks</link> that run when it
+    is read or written.
+   </simpara>
+  </sect2>
+
   <sect2 xml:id="language.oop5.properties.dynamic-properties">
    <title>Dynamic properties</title>
    <para>
