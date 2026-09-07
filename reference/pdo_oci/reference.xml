@@ -7,6 +7,12 @@
   <titleabbrev>Oracle PDO Driver</titleabbrev>
   <partintro>
 
+   <warning>
+    <simpara>
+     This extension is <emphasis>UNBUNDLED</emphasis> as of PHP 8.4.0.
+    </simpara>
+   </warning>
+
    &reference.pdo-oci.configure;
    &reference.pdo-oci.constants;
 
