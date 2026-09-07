@@ -391,8 +391,8 @@ echo (("x minus one equals " . $x) - 1) . ", or so I hope\n";
    &example.outputs;
    <screen>
 <![CDATA[
--1, or so I hope
--1, or so I hope
+x minus one equals 3, or so I hope
+x minus one equals 3, or so I hope
 Fatal error: Uncaught TypeError: Unsupported operand types: string - int
 ]]>
    </screen>
