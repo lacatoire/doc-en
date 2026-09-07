@@ -27,6 +27,9 @@
      <simpara>
       Unix timestamp representing the date.
       A &float; value is also accepted which allows for microsecond precision.
+      The fractional part is rounded to the nearest microsecond, which may
+      carry into the next second, and a negative fraction resolves onto the
+      previous second.
      </simpara>
     </listitem>
    </varlistentry>
@@ -38,14 +41,23 @@
   &reftitle.returnvalues;
   <simpara>
    Returns a new <classname>DateTime</classname> instance.
+   Its time zone is always the <literal>+00:00</literal> offset, whatever the
+   default time zone is.
   </simpara>
  </refsect1>
 
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   If the <parameter>timestamp</parameter> is outside the range [<constant>PHP_INT_MIN</constant>, <constant>PHP_INT_MAX</constant>],
+   If <parameter>timestamp</parameter> is a &float; that is not finite, or
+   whose value is not representable in the range
+   [<constant>PHP_INT_MIN</constant>, <constant>PHP_INT_MAX</constant>],
    a <exceptionname>DateRangeError</exceptionname> is thrown.
+   An &integer; <parameter>timestamp</parameter> never throws.
+  </simpara>
+  <simpara>
+   If <parameter>timestamp</parameter> is neither an &integer; nor a &float;,
+   a <exceptionname>TypeError</exceptionname> is thrown.
   </simpara>
  </refsect1>
 
