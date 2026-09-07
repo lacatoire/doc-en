@@ -75,14 +75,14 @@
        <listitem>
         <simpara><classname>FiberError</classname></simpara>
        </listitem>
-       <listitem>
-        <simpara><classname>RequestParseBodyException</classname></simpara>
-       </listitem>
       </itemizedlist>
      </listitem>
      <listitem>
       <simpara><classname>Exception</classname></simpara>
       <itemizedlist>
+       <listitem>
+        <simpara><exceptionname>RequestParseBodyException</exceptionname></simpara>
+       </listitem>
        <listitem>
         <simpara>...</simpara>
        </listitem>
