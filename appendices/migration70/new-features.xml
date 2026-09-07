@@ -39,15 +39,15 @@ int(9)
    </screen>
   </informalexample>
 
-  <para>
+  <simpara>
    To enable strict mode, a single &declare; directive must be placed at the
    top of the file. This means that the strictness of typing for scalars is
    configured on a per-file basis. This directive not only affects the type
    declarations of parameters, but also a function's return type (see
-   <link linkend="language.types.declarations">return type declarations</link>,
+   <link linkend="language.types.declarations">return type declarations</link>),
    built-in PHP functions, and functions from loaded
    extensions.
-  </para>
+  </simpara>
 
   <para>
    Full documentation and examples of scalar type declarations can be found in
@@ -100,12 +100,12 @@ Array
    </screen>
   </informalexample>
 
-  <para>
+  <simpara>
    Full documentation and examples of return type declarations can be found in
    the
-   <link linkend="language.types.declarations">return type declarations</link>.
+   <link linkend="language.types.declarations">return type declarations</link>
    reference.
-  </para>
+  </simpara>
  </sect2>
 
  <sect2 xml:id="migration70.new-features.null-coalesce-op">
@@ -289,6 +289,7 @@ EOT;
 ª
 ª (same as before but with optional leading 0's)
 香
+🐘
 ]]>
    </screen>
   </informalexample>
@@ -321,8 +322,7 @@ echo $getX->call(new A);
    &example.outputs;
    <screen>
 <![CDATA[
-1
-1
+11
 ]]>
    </screen>
   </informalexample>
@@ -629,7 +629,7 @@ session_start([
   </informalexample>
  </sect2>
 
- <sect2 xml:id="migration70.new-features.preg-repace-callback-array-function">
+ <sect2 xml:id="migration70.new-features.preg-replace-callback-array-function">
   <title><function>preg_replace_callback_array</function></title>
 
   <para>

@@ -100,7 +100,10 @@ float(INF)
 Warning: Division by zero in %s on line %d
 float(NAN)
 
-PHP Fatal error:  Uncaught DivisionByZeroError: Modulo by zero in %s line %d
+Fatal error: Uncaught DivisionByZeroError: Modulo by zero in %s:%d
+Stack trace:
+#0 {main}
+  thrown in %s on line %d
 ]]>
    </screen>
   </informalexample>
