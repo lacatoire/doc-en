@@ -180,11 +180,11 @@
     <varlistentry xml:id="domdocument.props.actualencoding">
      <term><varname>actualEncoding</varname></term>
      <listitem>
-      <para>
+      <simpara>
        <emphasis>Deprecated as of PHP 8.4.0</emphasis>.
-       Actual encoding of the document, is a readonly equivalent to
+       Actual encoding of the document; a read-only equivalent of
        <varname linkend="domdocument.props.encoding">encoding</varname>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="domdocument.props.childelementcount">
@@ -196,12 +196,13 @@
     <varlistentry xml:id="domdocument.props.config">
      <term><varname>config</varname></term>
      <listitem>
-      <para>
+      <simpara>
        <emphasis>Deprecated as of PHP 8.4.0</emphasis>.
-       Configuration used when
-       <function>DOMDocument::normalizeDocument</function> is
-       invoked.
-      </para>
+       This property is always &null;, because the DOM Level 3
+       <literal>DOMConfiguration</literal> interface has never been
+       implemented. It has no effect on
+       <function>DOMDocument::normalizeDocument</function>.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="domdocument.props.doctype">
@@ -398,8 +399,15 @@
       <row>
        <entry>8.4.0</entry>
        <entry>
-        <varname>actualEncoding</varname> and
-        <varname>config</varname> are formally deprecated now.
+        <varname>actualEncoding</varname> is formally deprecated now, as it
+        duplicates <varname linkend="domdocument.props.encoding">encoding</varname>.
+       </entry>
+      </row>
+      <row>
+       <entry>8.4.0</entry>
+       <entry>
+        <varname>config</varname> is formally deprecated now, as it has always
+        been &null;.
        </entry>
       </row>
       <row>
