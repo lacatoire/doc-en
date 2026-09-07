@@ -29,15 +29,14 @@
   </para>
  </refsect1>
 
-  <refsect1 role="examples">
+ <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><methodname>ReflectionType::allowsNull</methodname> example</title>
-    <programlisting role="php">
+  <example>
+   <title><methodname>ReflectionType::allowsNull</methodname> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
-function someFunction(string $param, stdClass $param2 = null) {}
+function someFunction(string $param, ?stdClass $param2 = null) {}
 
 $reflectionFunc = new ReflectionFunction('someFunction');
 $reflectionParams = $reflectionFunc->getParameters();
@@ -45,16 +44,15 @@ $reflectionParams = $reflectionFunc->getParameters();
 var_dump($reflectionParams[0]->getType()->allowsNull());
 var_dump($reflectionParams[1]->getType()->allowsNull());
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen>
+   </programlisting>
+   &example.outputs;
+   <screen>
 <![CDATA[
 bool(false)
 bool(true)
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">

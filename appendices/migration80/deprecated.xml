@@ -24,16 +24,16 @@ function test($a, $b) {}      // After
 ]]>
      </programlisting>
     </para>
-    <para>
+    <simpara>
      One exception to this rule are parameters of the form <code>Type $param = null</code>, where
-     the null default makes the type implicitly nullable. This usage remains allowed, but it is
-     recommended to use an explicit nullable type instead:
-    </para>
+     the null default makes the type implicitly nullable. This usage remained allowed in PHP 8.0,
+     but it is deprecated as of PHP 8.4.0; an explicit nullable type should be used instead:
+    </simpara>
     <para>
      <programlisting role="php">
 <![CDATA[
 <?php
-function test(A $a = null, $b) {} // Still allowed
+function test(A $a = null, $b) {} // Allowed in PHP 8.0, deprecated as of PHP 8.4.0
 function test(?A $a, $b) {}       // Recommended
 ?>
 ]]>
