@@ -103,7 +103,7 @@
         As of PHP 7.1.0, a dedicated output buffer is used,
         <link linkend="ini.url-rewriter.tags">url_rewriter.tags</link>
         is used solely for output functions and
-        <link linkend="ini.url-rewriter.tags">url_rewriter.hosts</link> is available.
+        <link linkend="ini.url-rewriter.hosts">url_rewriter.hosts</link> is available.
         Prior to PHP 7.1.0, rewrite variables set by <function>output_add_rewrite_var</function>
         shared an output buffer with transparent session id support
         (see <link linkend="ini.session.trans-sid-tags">session.trans_sid_tags</link>).
