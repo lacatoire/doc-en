@@ -1487,6 +1487,9 @@ php > $foo[TAB]ThisIsAReallyLongVariableName
    <filename>~/.php_history</filename> file.
    As of PHP 8.4.0, the path to the history file can be set using the
    <envar>PHP_HISTFILE</envar> environment variable.
+   The value is used as is, without expanding a leading tilde, and setting it
+   to the empty string disables the history file instead of falling back to
+   <filename>~/.php_history</filename>.
   </simpara>
 
   <para>
