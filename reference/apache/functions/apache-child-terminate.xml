@@ -21,9 +21,12 @@
    been run as memory will usually only be freed internally but not
    given back to the operating system. 
   </para>
-  <para>
-   Works in the Apache, and FastCGI webservers.
-  </para>
+  <simpara>
+   This function is available when PHP runs as a FastCGI or CGI application.
+   Under Apache it was only available with the legacy Apache 1 SAPI; it is
+   not provided by the Apache 2 handler (the <literal>apache2handler</literal>
+   SAPI).
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
