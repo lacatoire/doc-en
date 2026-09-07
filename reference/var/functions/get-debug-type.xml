@@ -46,7 +46,7 @@
      Possible values for the returned &string; are:
 
      <informaltable>
-      <tgroup cols="2">
+      <tgroup cols="3">
        <thead>
         <row>
          <entry>Type + State</entry>
