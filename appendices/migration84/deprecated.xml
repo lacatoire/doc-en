@@ -11,7 +11,22 @@
 
    <simpara>
     A parameter's type is implicitly widened to accept <type>null</type>
-    if the default value for it is &null;.
+    if the default value for it is the literal &null; and the type does not
+    already accept &null;. Relying on this now emits
+    <literal>%s(): Implicitly marking parameter $%s as nullable is deprecated,
+    the explicit nullable type must be used instead</literal>.
+   </simpara>
+
+   <simpara>
+    The deprecation covers functions, methods, interface and abstract method
+    declarations, traits, closures and arrow functions, and applies to union
+    and intersection types as well as to a single class or scalar type. It does
+    not apply when the type already accepts &null;, as with
+    <type>mixed</type> or <type>?T</type>, nor when the default is a constant
+    that evaluates to &null;: in that case no widening happens at all, and
+    passing &null; throws a <exceptionname>TypeError</exceptionname>. A
+    promoted constructor property with a &null; default is not deprecated but a
+    fatal error, as it already was before PHP 8.4.
    </simpara>
 
    <para>
