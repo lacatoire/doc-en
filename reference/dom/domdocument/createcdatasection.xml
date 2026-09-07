@@ -8,7 +8,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis role="DOMDocument">
-   <modifier>public</modifier> <type class="union"><type>DOMCdataSection</type><type>false</type></type><methodname>DOMDocument::createCDATASection</methodname>
+   <modifier>public</modifier> <type>DOMCdataSection</type><methodname>DOMDocument::createCDATASection</methodname>
    <methodparam><type>string</type><parameter>data</parameter></methodparam>
   </methodsynopsis>
   <para>
@@ -33,9 +33,32 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   The new <classname>DOMCDATASection</classname> or &false; if an error occurred.
-  </para>
+  <simpara>
+   The new <classname>DOMCDATASection</classname>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.1.0</entry>
+      <entry>
+       In case of an error, a <exceptionname>DomException</exceptionname> is thrown now.
+       Previously, &false; was returned.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
  <refsect1 role="seealso">
   &reftitle.seealso;
