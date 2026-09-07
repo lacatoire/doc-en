@@ -232,7 +232,8 @@ class _MyClass {}
 
   <!-- RFC: https://wiki.php.net/rfc/deprecations_php_8_4#deprecate_passing_incorrect_data_types_for_options_to_exthash_functions -->
   <simpara>
-   Passing invalid options to hash functions is now deprecated.
+   Passing options of an incorrect data type to hash functions is now
+   deprecated.
   </simpara>
  </sect2>
 
