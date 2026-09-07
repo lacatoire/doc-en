@@ -601,7 +601,7 @@
    <listitem>
     <simpara>
      <link linkend="errorfunc.constants">Error reporting constants</link>.
-     This constant is unused, and has been deprecated as of PHP 8.4.0.
+     The error level was removed as of PHP 8.4.0 and the constant deprecated.
     </simpara>
    </listitem>
   </varlistentry>
