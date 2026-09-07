@@ -82,6 +82,7 @@
    <listitem>
     <simpara>
      Available as of PHP 8.4.0.
+     Only defined if PHP was built against libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -93,6 +94,7 @@
    <listitem>
     <simpara>
      Available as of PHP 8.4.0.
+     Only defined if PHP was built against libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -104,6 +106,7 @@
    <listitem>
     <simpara>
      Available as of PHP 8.4.0.
+     Only defined if PHP was built against libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -115,6 +118,7 @@
    <listitem>
     <simpara>
      Available as of PHP 8.4.0.
+     Only defined if PHP was built against libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -126,6 +130,7 @@
    <listitem>
     <simpara>
      Available as of PHP 8.4.0.
+     Only defined if PHP was built against libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -137,6 +142,7 @@
    <listitem>
     <simpara>
      Available as of PHP 8.4.0.
+     Only defined if PHP was built against libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -148,6 +154,7 @@
    <listitem>
     <simpara>
      Available as of PHP 8.4.0.
+     Only defined if PHP was built against libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -159,6 +166,7 @@
    <listitem>
     <simpara>
      Available as of PHP 8.4.0.
+     Only defined if PHP was built against libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
