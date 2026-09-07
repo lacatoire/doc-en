@@ -238,9 +238,10 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>ValueError</classname>
-   if <parameter>sub</parameter> or <parameter>plus</parameter> would cause over-/underflow
-   with the <constant>IMG_FILTER_SCATTER</constant> <parameter>filter</parameter>.
+   Throws a <exceptionname>ValueError</exceptionname>
+   if either of the <parameter>args</parameter> given to the
+   <constant>IMG_FILTER_SCATTER</constant> <parameter>filter</parameter>
+   is negative or would cause over-/underflow.
   </simpara>
  </refsect1>
 
@@ -259,9 +260,10 @@
       <row>
        <entry>8.4.0</entry>
        <entry>
-        Now throws a <classname>ValueError</classname>
-        if <parameter>sub</parameter> or <parameter>plus</parameter> would cause over-/underflow
-        with the <constant>IMG_FILTER_SCATTER</constant> <parameter>filter</parameter>.
+        Now throws a <exceptionname>ValueError</exceptionname>
+        if either of the <parameter>args</parameter> given to the
+        <constant>IMG_FILTER_SCATTER</constant> <parameter>filter</parameter>
+        is negative or would cause over-/underflow.
        </entry>
       </row>
       &gd.changelog.image-param;

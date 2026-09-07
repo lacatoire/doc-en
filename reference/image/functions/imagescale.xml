@@ -56,8 +56,12 @@
       One of <constant>IMG_NEAREST_NEIGHBOUR</constant>,
       <constant>IMG_BILINEAR_FIXED</constant>,
       <constant>IMG_BICUBIC</constant>,
-      <constant>IMG_BICUBIC_FIXED</constant> or anything else (will use two
-      pass).
+      <constant>IMG_BICUBIC_FIXED</constant> or another of the
+      <constant>IMG_<replaceable>*</replaceable></constant> interpolation
+      constants.
+      As of PHP 8.4.0 any other value throws a
+      <exceptionname>ValueError</exceptionname>; formerly it selected a two
+      pass scaling.
       <note>
        <simpara>
         <constant>IMG_WEIGHTED4</constant> is not yet supported.
@@ -79,11 +83,20 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>ValueError</classname> if <parameter>width</parameter>
-   or <parameter>height</parameter> would cause over-/underflow.
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>width</parameter> or <parameter>height</parameter>, once the
+   aspect ratio has been resolved, is not between <literal>1</literal> and
+   <constant>PHP_INT_MAX</constant> on 32 bit platforms, or would cause
+   over-/underflow.
   </simpara>
   <simpara>
-   Throws a <classname>ValueError</classname> if <parameter>mode</parameter> is invalid.
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>width</parameter> and <parameter>height</parameter> are both
+   negative.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>mode</parameter> is invalid.
   </simpara>
  </refsect1>
 
@@ -101,8 +114,10 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       Now throws a <classname>ValueError</classname> if <parameter>width</parameter>
-       or <parameter>height</parameter> would cause over-/underflow.
+       Now throws a <exceptionname>ValueError</exceptionname> if
+       <parameter>width</parameter> or <parameter>height</parameter> is out of
+       range or would cause over-/underflow, and if both are negative.
+       Formerly &false; was returned.
       </entry>
      </row>
      <row>
