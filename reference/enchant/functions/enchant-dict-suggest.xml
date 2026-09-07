@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.enchant-dict-suggest">
+<refentry xml:id="function.enchant-dict-suggest" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>enchant_dict_suggest</refname>
   <refpurpose>Suggest spellings for a word</refpurpose>
@@ -13,6 +13,8 @@
    <methodparam><type>string</type><parameter>word</parameter></methodparam>
   </methodsynopsis>
   <simpara>
+   Searches the dictionary for suggested spellings of the given
+   <parameter>word</parameter>.
   </simpara>
  </refsect1>
  <refsect1 role="parameters">
@@ -32,7 +34,8 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Will returns an array of suggestions if the word is bad spelled.
+   Returns an <type>array</type> of suggested spellings for the word,
+   which is empty if no suggestions are available.
   </simpara>
  </refsect1>
 

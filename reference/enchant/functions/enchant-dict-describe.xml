@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.enchant-dict-describe">
+<refentry xml:id="function.enchant-dict-describe" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>enchant_dict_describe</refname>
   <refpurpose>Describes an individual dictionary</refpurpose>
@@ -26,7 +26,9 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   &return.success;
+   Returns an <type>array</type> describing the dictionary, with the keys
+   <literal>lang</literal>, <literal>name</literal>, <literal>desc</literal>
+   and <literal>file</literal>.
   </simpara>
  </refsect1>
 
