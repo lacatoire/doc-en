@@ -102,10 +102,10 @@
  
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns an array with up to 7 elements. Not all image types will include
+  <simpara>
+   Returns an array with up to 9 elements. Not all image types will include
    the <literal>channels</literal> and <literal>bits</literal> elements.
-  </para>
+  </simpara>
   <para>
    Index 0 and 1 contains respectively the width and the height of the image.
   </para>
@@ -171,6 +171,17 @@ if ($size && $fp) {
    per pixel, but the number of bits per pixel cannot be calculated for an
    animated <acronym>GIF</acronym> with a global color table.
   </para>
+  <simpara>
+   As of PHP 8.5.0, <literal>width_unit</literal> and
+   <literal>height_unit</literal> indicate the units in which index 0 and
+   index 1 are expressed. For raster image formats this is always
+   <literal>px</literal>. For SVG images it reflects the unit suffix of the
+   <literal>width</literal> and <literal>height</literal> attributes of the
+   root <literal>&lt;svg&gt;</literal> element (e.g.
+   <literal>em</literal>, <literal>cm</literal>, <literal>mm</literal>); an
+   SVG that specifies a bare number without a unit defaults to
+   <literal>px</literal>. The two values are not necessarily equal.
+  </simpara>
   <para>
    On failure, &false; is returned.
   </para>
@@ -203,6 +214,28 @@ if ($size && $fp) {
       </row>
      </thead>
      <tbody>
+      <row>
+       <entry>8.5.0</entry>
+       <entry>
+        Added support for SVG images, when the
+        <link linkend="book.libxml">libxml</link> extension is loaded.
+       </entry>
+      </row>
+      <row>
+       <entry>8.5.0</entry>
+       <entry>
+        Added support for HEIF images (including HEIC containers)
+        via <constant>IMAGETYPE_HEIF</constant>.
+       </entry>
+      </row>
+      <row>
+       <entry>8.5.0</entry>
+       <entry>
+        The returned array now also contains the
+        <literal>width_unit</literal> and <literal>height_unit</literal>
+        elements.
+       </entry>
+      </row>
       <row>
        <entry>8.2.0</entry>
        <entry>
