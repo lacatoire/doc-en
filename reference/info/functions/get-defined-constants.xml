@@ -13,9 +13,10 @@
    <methodparam choice="opt"><type>bool</type><parameter>categorize</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
   <para>
-   Returns the names and values of all the constants currently defined.
-   This includes those created by extensions as well as those created with
-   the <function>define</function> function.
+   Returns the names and values of all currently defined constants. This includes constants
+   defined by extensions and those created using the <function>define</function> function.
+   However, it excludes <link linkend="language.constants.magic">magic constants</link>,
+   which resolve at compile time.
   </para>
  </refsect1>
 
@@ -94,12 +95,6 @@ Array
    Returns an array of constant name => constant value array, optionally
    grouped by extension name registering the constant.
   </simpara>
-
-  <warning>
-  <para>
-   Function doesn't return <link linkend="language.constants.magic">magic constants</link>.
-  </para>
-  </warning>
  </refsect1>
 
  <refsect1 role="examples">
