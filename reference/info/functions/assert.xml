@@ -64,7 +64,6 @@
           <literal>1</literal>: generate and execute code (development mode)
          </member>
          <member>
-          <!-- TODO: look up the RFC to figure out why you'd want this -->
           <literal>0</literal>: generate code but jump around it at runtime
          </member>
          <member>
@@ -212,13 +211,11 @@
       <simpara>
        If <parameter>description</parameter> is a &string; this message
        will be used if an exception or a warning is emitted.
-       An optional description that will be included in the failure message if
-       the <parameter>assertion</parameter> fails.
       </simpara>
       <simpara>
-       If <parameter>description</parameter> is omitted.
+       If <parameter>description</parameter> is omitted,
        <!-- This does not happen if &null; is passed ... -->
-       A default description equal to the source code for the invocation of
+       a default description equal to the source code for the invocation of
        <function>assert</function> is created at compile time.
       </simpara>
      </listitem>
@@ -240,6 +237,21 @@
   <simpara>
    If none of the conditions are true <function>assert</function> will return &true; if
    <parameter>assertion</parameter> is truthy and &false; otherwise.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>description</parameter> is neither an instance of
+   <exceptionname>Throwable</exceptionname>, a value convertible to
+   <type>string</type>, nor &null;. Throws an
+   <exceptionname>ArgumentCountError</exceptionname> if
+   <parameter>assertion</parameter> is not given. If the assertion fails,
+   throws the object passed as <parameter>description</parameter> when it is
+   an instance of <exceptionname>Throwable</exceptionname>, or, by default,
+   an <exceptionname>AssertionError</exceptionname>.
   </simpara>
  </refsect1>
 
