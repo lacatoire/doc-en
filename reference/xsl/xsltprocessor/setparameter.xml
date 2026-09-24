@@ -90,6 +90,15 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.5.0</entry>
+      <entry>
+       The <parameter>namespace</parameter> argument now takes effect;
+       previously it was treated as empty. It has no effect when
+       <parameter>name</parameter> uses Clark notation or is a QName, since in
+       those cases the namespace is derived from the name itself.
+      </entry>
+     </row>
+     <row>
       <entry>8.4.0</entry>
       <entry>
        Now throws a <exceptionname>ValueError</exceptionname> if any of the
