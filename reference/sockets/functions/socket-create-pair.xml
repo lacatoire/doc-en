@@ -95,6 +95,14 @@
     </thead>
     <tbody>
      <row>
+      <entry>8.4.0</entry>
+      <entry>
+       <parameter>type</parameter> may now be OR'ed with
+       <constant>SOCK_CLOEXEC</constant> and
+       <constant>SOCK_NONBLOCK</constant>.
+      </entry>
+     </row>
+     <row>
       <entry>8.0.0</entry>
       <entry>
        <parameter>pair</parameter> is a reference to an array of <classname>Socket</classname> instances now;
