@@ -36,7 +36,10 @@
      <listitem>
       <para>
        The binary string to convert.
-       Any invalid characters in <parameter>binary_string</parameter> are silently ignored.
+       Leading and trailing whitespace is ignored, and an optional
+       <literal>0b</literal> or <literal>0B</literal> prefix is stripped.
+       Any invalid characters remaining in <parameter>binary_string</parameter>
+       are silently ignored.
        As of PHP 7.4.0 supplying any invalid characters is deprecated.
       </para>
      </listitem>
@@ -73,6 +76,9 @@
       <entry>
        Passing invalid characters will now generate a deprecation notice.
        The result will still be computed as if the invalid characters did not exist.
+       Leading and trailing whitespace, and an optional
+       <literal>0b</literal>/<literal>0B</literal> prefix, are now also
+       trimmed before conversion.
       </entry>
      </row>
     </tbody>
