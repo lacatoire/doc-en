@@ -20,11 +20,15 @@
    to the corresponding value of <parameter>array</parameter>
    (and <parameter>arrays</parameter> if more arrays are provided)
    used as arguments for the callback.
-   The number of parameters that the <parameter>callback</parameter>
-   function accepts should match the number of arrays
-   passed to <function>array_map</function>. Excess
-   input arrays are ignored. An <classname>ArgumentCountError</classname>
-   is thrown if an insufficient number of arguments is provided.
+   Every input array is passed to <parameter>callback</parameter> as a
+   separate argument, even if <parameter>callback</parameter> declares
+   fewer parameters than the number of arrays passed to
+   <function>array_map</function>; the extra arguments are simply ignored
+   by <parameter>callback</parameter>, and the extra arrays still
+   contribute to the length of the result. An
+   <classname>ArgumentCountError</classname> is thrown if
+   <parameter>callback</parameter> requires more arguments than the number
+   of arrays passed.
   </para>
  </refsect1>
 
@@ -42,7 +46,8 @@
        &null; can be passed as a value to <parameter>callback</parameter>
        to perform a zip operation on multiple arrays and return an array
        where each element is an array containing the elements from the input arrays at the
-       same position of the internal array pointer (see example below).
+       same position within each input array, counting from the first
+       element regardless of the internal array pointer (see example below).
        If only <parameter>array</parameter> is provided,
        <methodname>array_map</methodname> will return the input array.
       </para>
