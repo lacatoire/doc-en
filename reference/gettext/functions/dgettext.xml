@@ -54,7 +54,8 @@
   &reftitle.errors;
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>domain</parameter>
-   is the empty <type>string</type>.
+   is the empty <type>string</type> or longer than 1024 bytes, or if
+   <parameter>message</parameter> is longer than 4096 bytes.
   </simpara>
  </refsect1>
 
@@ -74,6 +75,16 @@
       <entry>
        Now throws a <exceptionname>ValueError</exceptionname> if <parameter>domain</parameter>
        is the empty <type>string</type>.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if
+       <parameter>domain</parameter> is longer than 1024 bytes, or if
+       <parameter>message</parameter> is longer than 4096 bytes; previously,
+       an error of level <constant>E_WARNING</constant> was raised and the
+       function returned &false;.
       </entry>
      </row>
     </tbody>
