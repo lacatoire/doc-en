@@ -93,6 +93,13 @@ is_numeric($integer);          // true
 ?>
 ]]>
     </programlisting>
+    <simpara>
+     As of PHP 8.1.0, passing <parameter>$integer</parameter> triggers a
+     deprecation notice, and the commented result reflects the current
+     int-as-ASCII-codepoint behavior. Once <parameter>$integer</parameter>
+     is interpreted as a string instead, <literal>ctype_digit($integer)</literal>
+     will return &true;.
+    </simpara>
    </example>
   </para>
  </refsect1>
