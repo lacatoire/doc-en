@@ -115,7 +115,7 @@ Array
     <programlisting role="php">
      <![CDATA[
 <?php
-// This will generate a Notice that an array cannot be cast to a string.
+// This will generate a warning that an array cannot be cast to a string.
 $source = [1, 2, 3, 4];
 $filter = [3, 4, [5], 6];
 $result = array_diff($source, $filter);
