@@ -14,8 +14,8 @@
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>note_value</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
-   This function is a wrapper for Apache's <literal>table_get</literal> and
-   <literal>table_set</literal>. It edits the table of notes that exists
+   This function is a wrapper for Apache's <literal>apr_table_get</literal>
+   and <literal>apr_table_set</literal>. It edits the table of notes that exists
    during a request. The table's purpose is to allow Apache modules to
    communicate.
   </para>
@@ -103,16 +103,17 @@ $result = apache_note("resultdata");
     </programlisting>
     <programlisting role="perl">
 <![CDATA[
-# Get Apache request object
-my $r = Apache->request()->main();
+# Get Apache request object (mod_perl 2 API)
+use Apache2::RequestUtil ();
+my $r = Apache2::RequestUtil->request()->main();
 
 # Get passed data
-my $name = $r->notes('name');
+my $name = $r->notes->get('name');
 
 # some processing
 
 # Pass result back to PHP
-$r->notes('resultdata', $result);
+$r->notes->set('resultdata', $result);
 ]]>
     </programlisting>
    </example>
@@ -143,6 +144,8 @@ apache_note('sessionID', session_id());
   <para>
    <simplelist>
     <member><function>virtual</function></member>
+    <member><function>apache_setenv</function></member>
+    <member><function>apache_lookup_uri</function></member>
    </simplelist>
   </para>
  </refsect1>
