@@ -452,8 +452,14 @@
     <varlistentry xml:id="soapclient.props.httpurl">
      <term><varname>httpurl</varname></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The parsed endpoint <acronym>URL</acronym>, or &null; if no
+       <acronym>URL</acronym> is in use.
+       As of PHP 8.4.0, this property is a <classname>Soap\Url</classname>
+       instance; previously it was a &resource;.
+       Code using <function>is_resource</function> to check this property
+       must be changed to check for &null;.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="soapclient.props.location">
@@ -466,8 +472,14 @@
     <varlistentry xml:id="soapclient.props.sdl">
      <term><varname>sdl</varname></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The parsed <acronym>WSDL</acronym> description, or &null; in
+       non-<acronym>WSDL</acronym> mode.
+       As of PHP 8.4.0, this property is a <classname>Soap\Sdl</classname>
+       instance; previously it was a &resource;.
+       Code using <function>is_resource</function> to check this property
+       must be changed to check for &null;.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="soapclient.props.style">
