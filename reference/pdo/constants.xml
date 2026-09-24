@@ -226,7 +226,7 @@
    <varlistentry xml:id="pdo.constants.attr-autocommit">
     <term>
      <constant>PDO::ATTR_AUTOCOMMIT</constant>
-     (<type>bool</type>)
+     (<type>int</type>)
     </term>
     <listitem>
      <simpara>
@@ -494,7 +494,7 @@
    <varlistentry xml:id="pdo.constants.attr-emulate-prepares">
     <term>
      <constant>PDO::ATTR_EMULATE_PREPARES</constant>
-     (<type>bool</type>)
+     (<type>int</type>)
     </term>
     <listitem>
      <simpara>

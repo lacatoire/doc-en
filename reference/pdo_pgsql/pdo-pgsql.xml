@@ -135,7 +135,10 @@
    &reftitle.constants;
    <variablelist>
     <varlistentry xml:id="pdo-pgsql.constants.attr-disable-prepares">
-     <term><constant>Pdo\Pgsql::ATTR_DISABLE_PREPARES</constant></term>
+     <term>
+      <constant>Pdo\Pgsql::ATTR_DISABLE_PREPARES</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Send the query and the parameters to the server together in a single
@@ -146,7 +149,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-pgsql.constants.attr-result-memory-size">
-     <term><constant>Pdo\Pgsql::ATTR_RESULT_MEMORY_SIZE</constant></term>
+     <term>
+      <constant>Pdo\Pgsql::ATTR_RESULT_MEMORY_SIZE</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <simpara>
        Returns the amount of memory, in bytes, allocated to the specified
@@ -182,7 +188,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-pgsql.constants.transaction-idle">
-     <term><constant>Pdo\Pgsql::TRANSACTION_IDLE</constant></term>
+     <term>
+      <constant>Pdo\Pgsql::TRANSACTION_IDLE</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <warning>
        <simpara>
@@ -192,7 +201,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-pgsql.constants.transaction-active">
-     <term><constant>Pdo\Pgsql::TRANSACTION_ACTIVE</constant></term>
+     <term>
+      <constant>Pdo\Pgsql::TRANSACTION_ACTIVE</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <warning>
        <simpara>
@@ -202,7 +214,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-pgsql.constants.transaction-intrans">
-     <term><constant>Pdo\Pgsql::TRANSACTION_INTRANS</constant></term>
+     <term>
+      <constant>Pdo\Pgsql::TRANSACTION_INTRANS</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <warning>
        <simpara>
@@ -212,7 +227,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-pgsql.constants.transaction-inerror">
-     <term><constant>Pdo\Pgsql::TRANSACTION_INERROR</constant></term>
+     <term>
+      <constant>Pdo\Pgsql::TRANSACTION_INERROR</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <warning>
        <simpara>
@@ -222,7 +240,10 @@
      </listitem>
     </varlistentry>
     <varlistentry xml:id="pdo-pgsql.constants.transaction-unknown">
-     <term><constant>Pdo\Pgsql::TRANSACTION_UNKNOWN</constant></term>
+     <term>
+      <constant>Pdo\Pgsql::TRANSACTION_UNKNOWN</constant>
+      (<type>int</type>)
+     </term>
      <listitem>
       <warning>
        <simpara>
