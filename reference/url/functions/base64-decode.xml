@@ -36,8 +36,11 @@
       <para>
        If the <parameter>strict</parameter> parameter is set to &true;
        then the <function>base64_decode</function> function will return
-       &false; if the input contains character from outside the base64
-       alphabet. Otherwise invalid characters will be silently discarded.
+       &false; if the input contains a character from outside the base64
+       alphabet, if any data follows the padding, if the final group is
+       truncated to a single character, or if the amount of padding is
+       invalid. Otherwise, invalid characters are silently discarded and
+       none of these other conditions are checked.
       </para>
      </listitem>
     </varlistentry>
@@ -81,6 +84,8 @@ This is an encoded string
   <para>
    <simplelist>
     <member><function>base64_encode</function></member>
+    <member><function>bin2hex</function></member>
+    <member><function>hex2bin</function></member>
     <member><link xlink:href="&url.rfc;2045">RFC 2045</link> section 6.8</member>
    </simplelist>
   </para>
