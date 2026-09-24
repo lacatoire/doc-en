@@ -12,12 +12,16 @@
    <methodparam><type>float</type><parameter>num</parameter></methodparam>
   </methodsynopsis>
   <para>
-   Returns the arc cosine of <parameter>num</parameter> in radians.
+   Returns the arc cosine of <parameter>num</parameter> in radians,
+   i.e. the value, in the range <literal>[0, M_PI]</literal>, whose
+   cosine is <parameter>num</parameter>.
    <function>acos</function> is the inverse function of
-   <function>cos</function>, which means that
-   <code>$num == cos(acos($num))</code> for every value of
-   <parameter>num</parameter> that is in
-   the domain of <function>acos</function>.
+   <function>cos</function> restricted to that range, which means that
+   <literal>acos(cos($y)) == $y</literal> for every value of
+   <parameter>y</parameter> in <literal>[0, M_PI]</literal>; because of
+   floating-point rounding, the reverse composition
+   <literal>cos(acos($num))</literal> is not guaranteed to equal
+   <parameter>num</parameter>.
   </para>
  </refsect1>
  <refsect1 role="parameters">
