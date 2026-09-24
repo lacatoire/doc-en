@@ -69,7 +69,8 @@
     </listitem>
     <listitem>
      <simpara>
-      3 - a string containing all unique characters is returned.
+      3 - a string of all used byte-values is returned, each once,
+      in ascending order.
      </simpara>
     </listitem>
     <listitem>
@@ -79,6 +80,14 @@
     </listitem>
    </itemizedlist>
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If <parameter>mode</parameter> is not between 0 and 4 (inclusive),
+   a <exceptionname>ValueError</exceptionname> is thrown.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
