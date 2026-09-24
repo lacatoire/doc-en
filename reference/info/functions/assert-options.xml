@@ -77,15 +77,6 @@
            <entry>terminate execution on failed assertions</entry>
           </row>
           <row>
-           <entry>ASSERT_QUIET_EVAL</entry>
-           <entry>assert.quiet_eval</entry>
-           <entry>0</entry>
-           <entry>
-            disable error_reporting during assertion expression
-            evaluation. Removed as of PHP 8.0.0.
-           </entry>
-          </row>
-          <row>
            <entry>ASSERT_CALLBACK</entry>
            <entry>assert.callback</entry>
            <entry>(&null;)</entry>
@@ -155,7 +146,9 @@
      </listitem>
     </varlistentry>
    </variablelist>
-   Passing an empty string as <parameter>value</parameter> resets the assert callback.
+   Passing &null; as <parameter>value</parameter> for <constant>ASSERT_CALLBACK</constant>
+   resets the assert callback. Any other value, including an empty string, is
+   stored as the new callback as is.
   </para>
  </refsect1>
 
