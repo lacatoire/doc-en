@@ -21,7 +21,43 @@
  </refsect1>
 
  <refsect1 role="parameters">
-  <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('function.bcadd')/db:refsect1[@role='parameters']/*)" />
+  &reftitle.parameters;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term><parameter>num1</parameter></term>
+     <listitem>
+      <para>
+       The left operand, as a string.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>num2</parameter></term>
+     <listitem>
+      <para>
+       The right operand, as a string.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>scale</parameter></term>
+     <listitem>
+      <simpara>
+       This parameter is used to set the number of decimal digits taken
+       into account when comparing <parameter>num1</parameter> and
+       <parameter>num2</parameter>; both operands are truncated to
+       <parameter>scale</parameter> fractional digits before being
+       compared. If &null;, it will default to the default scale set with
+       <function>bcscale</function>, or fallback to the value of the
+       <link linkend="ini.bcmath.scale"><literal>bcmath.scale</literal></link> INI directive,
+       which is <literal>0</literal> unless changed, meaning fractional
+       digits are ignored by default.
+      </simpara>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
