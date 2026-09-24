@@ -181,43 +181,43 @@ string(1) "9"
 <![CDATA[
 <?php
 echo 'Using RoundingMode::HalfAwayFromZero with 1 decimal digit precision' . PHP_EOL;
-var_dump(bcround( 1.55, 1, RoundingMode::HalfAwayFromZero));
-var_dump(bcround(-1.55, 1, RoundingMode::HalfAwayFromZero));
+var_dump(bcround( '1.55', 1, RoundingMode::HalfAwayFromZero));
+var_dump(bcround('-1.55', 1, RoundingMode::HalfAwayFromZero));
 
 echo PHP_EOL;
 echo 'Using RoundingMode::HalfTowardsZero with 1 decimal digit precision' . PHP_EOL;
-var_dump(bcround( 1.55, 1, RoundingMode::HalfTowardsZero));
-var_dump(bcround(-1.55, 1, RoundingMode::HalfTowardsZero));
+var_dump(bcround( '1.55', 1, RoundingMode::HalfTowardsZero));
+var_dump(bcround('-1.55', 1, RoundingMode::HalfTowardsZero));
 
 echo PHP_EOL;
 echo 'Using RoundingMode::HalfEven with 1 decimal digit precision' . PHP_EOL;
-var_dump(bcround( 1.55, 1, RoundingMode::HalfEven));
-var_dump(bcround(-1.55, 1, RoundingMode::HalfEven));
+var_dump(bcround( '1.55', 1, RoundingMode::HalfEven));
+var_dump(bcround('-1.55', 1, RoundingMode::HalfEven));
 
 echo PHP_EOL;
 echo 'Using RoundingMode::HalfOdd with 1 decimal digit precision' . PHP_EOL;
-var_dump(bcround( 1.55, 1, RoundingMode::HalfOdd));
-var_dump(bcround(-1.55, 1, RoundingMode::HalfOdd));
+var_dump(bcround( '1.55', 1, RoundingMode::HalfOdd));
+var_dump(bcround('-1.55', 1, RoundingMode::HalfOdd));
 
 echo PHP_EOL;
 echo 'Using RoundingMode::TowardsZero with 1 decimal digit precision' . PHP_EOL;
-var_dump(bcround( 1.55, 1, RoundingMode::TowardsZero));
-var_dump(bcround(-1.55, 1, RoundingMode::TowardsZero));
+var_dump(bcround( '1.55', 1, RoundingMode::TowardsZero));
+var_dump(bcround('-1.55', 1, RoundingMode::TowardsZero));
 
 echo PHP_EOL;
 echo 'Using RoundingMode::AwayFromZero with 1 decimal digit precision' . PHP_EOL;
-var_dump(bcround( 1.55, 1, RoundingMode::AwayFromZero));
-var_dump(bcround(-1.55, 1, RoundingMode::AwayFromZero));
+var_dump(bcround( '1.55', 1, RoundingMode::AwayFromZero));
+var_dump(bcround('-1.55', 1, RoundingMode::AwayFromZero));
 
 echo PHP_EOL;
 echo 'Using RoundingMode::NegativeInfinity with 1 decimal digit precision' . PHP_EOL;
-var_dump(bcround( 1.55, 1, RoundingMode::NegativeInfinity));
-var_dump(bcround(-1.55, 1, RoundingMode::NegativeInfinity));
+var_dump(bcround( '1.55', 1, RoundingMode::NegativeInfinity));
+var_dump(bcround('-1.55', 1, RoundingMode::NegativeInfinity));
 
 echo PHP_EOL;
 echo 'Using RoundingMode::PositiveInfinity with 1 decimal digit precision' . PHP_EOL;
-var_dump(bcround( 1.55, 1, RoundingMode::PositiveInfinity));
-var_dump(bcround(-1.55, 1, RoundingMode::PositiveInfinity));
+var_dump(bcround( '1.55', 1, RoundingMode::PositiveInfinity));
+var_dump(bcround('-1.55', 1, RoundingMode::PositiveInfinity));
 ?>
 ]]>
    </programlisting>
