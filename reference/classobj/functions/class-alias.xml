@@ -15,11 +15,12 @@
   </methodsynopsis>
   <para>
    Creates an alias named <parameter>alias</parameter>
-   based on the user defined class <parameter>class</parameter>.
+   based on the class <parameter>class</parameter>.
    The aliased class is exactly the same as the original class.
   </para>
   <simpara>
    The class alias cannot be any of the PHP <link linkend="reserved.other-reserved-words">reserved words</link>.
+   Using one raises an uncatchable fatal error, not a warning.
   </simpara>
    <note>
    <simpara>
@@ -64,6 +65,12 @@
   &reftitle.returnvalues;
   <para>
    &return.success;
+  </para>
+  <para>
+   Returns &false;, with an <constant>E_WARNING</constant>, if
+   <parameter>class</parameter> does not exist, or if
+   <parameter>alias</parameter> is already declared as a class or another
+   alias.
   </para>
  </refsect1>
 
