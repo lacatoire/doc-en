@@ -49,27 +49,40 @@
     <member>the_request</member>
     <member>status_line</member>
     <member>method</member>
+    <member>mtime</member>
+    <member>clength</member>
+    <member>range</member>
+    <member>chunked</member>
     <member>content_type</member>
     <member>handler</member>
+    <member>no_cache</member>
+    <member>no_local_copy</member>
+    <member>unparsed_uri</member>
     <member>uri</member>
     <member>filename</member>
     <member>path_info</member>
     <member>args</member>
-    <member>boundary</member>
-    <member>no_cache</member>
-    <member>no_local_copy</member>
     <member>allowed</member>
-    <member>send_bodyct</member>
+    <member>sent_bodyct</member>
     <member>bytes_sent</member>
-    <member>byterange</member>
-    <member>clength</member>
-    <member>unparsed_uri</member>
-    <member>mtime</member>
     <member>request_time</member>
    </simplelist>
   </para>
   <para>
-   Returns &false; on failure.
+   String properties (such as <literal>the_request</literal>,
+   <literal>status_line</literal>, <literal>method</literal>,
+   <literal>range</literal>, <literal>content_type</literal>,
+   <literal>handler</literal>, <literal>unparsed_uri</literal>,
+   <literal>uri</literal>, <literal>filename</literal>,
+   <literal>path_info</literal> and <literal>args</literal>) are only
+   present on the returned <type>object</type> when the underlying value
+   is set, so the exact set of properties can vary between requests.
+  </para>
+  <para>
+   Returns &false; and emits an <constant>E_WARNING</constant> if the
+   partial request does not resolve to a <literal>200 OK</literal>
+   status, for example because the requested URI does not exist or
+   access to it is denied.
   </para>
  </refsect1>
 
@@ -117,6 +130,17 @@ file exists!
 ]]>
     </screen>
    </example>
+  </para>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>apache_request_headers</function></member>
+    <member><function>apache_response_headers</function></member>
+    <member><function>apache_note</function></member>
+   </simplelist>
   </para>
  </refsect1>
 </refentry>
