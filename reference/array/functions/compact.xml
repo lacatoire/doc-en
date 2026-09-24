@@ -62,6 +62,11 @@
    <function>compact</function> issues an <constant>E_WARNING</constant> level error if a given string
    refers to an unset variable.
   </para>
+  <simpara>
+   <function>compact</function> also issues an <constant>E_WARNING</constant>
+   level error, naming the argument's position, for each argument that is
+   neither a string nor an array; that argument is then skipped.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog"><!-- {{{ -->
