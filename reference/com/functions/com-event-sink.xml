@@ -31,8 +31,10 @@
     <varlistentry>
      <term><parameter>variant</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The COM object whose events should be captured, typically one
+       created with <literal>new COM(...)</literal>.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
