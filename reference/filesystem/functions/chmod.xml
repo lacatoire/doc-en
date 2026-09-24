@@ -38,7 +38,10 @@
        Note that <parameter>permissions</parameter> is not automatically
        assumed to be an octal value, so to ensure the expected operation,
        you need to prefix <parameter>permissions</parameter> with a zero (0). 
-       Strings such as "g+w" will not work properly.
+       A non-numeric string such as "g+w" throws a
+       <classname>TypeError</classname>, since <parameter>permissions</parameter>
+       is typed as <type>int</type>; a numeric string such as "0755" is
+       coerced to a decimal, not octal, integer.
       </para>
       <para>
        <informalexample>
@@ -46,7 +49,7 @@
 <![CDATA[
 <?php
 chmod("/somedir/somefile", 755);   // decimal; probably incorrect
-chmod("/somedir/somefile", "u+rwx,go+rx"); // string; incorrect
+chmod("/somedir/somefile", "0755"); // numeric string, coerced to the decimal 755; probably incorrect
 chmod("/somedir/somefile", 0755);  // octal; correct value of mode
 ?>
 ]]>
