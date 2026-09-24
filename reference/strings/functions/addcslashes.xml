@@ -43,7 +43,9 @@
        octal representation.
       </para>
       <para>
-       When you define a sequence of characters in the <parameter>characters</parameter> argument
+       With <literal>..</literal> it is possible to specify an
+       incrementing range of characters. When you define a sequence of
+       characters in the <parameter>characters</parameter> argument
        make sure that you know what characters come between the
        characters that you set as the start and end of the range.
        <example>
@@ -60,7 +62,8 @@ echo addcslashes('foo[ ]', 'A..z');
         </programlisting>
        </example>
        Also, if the first character in a range has a higher ASCII value
-       than the second character in the range, no range will be
+       than the second character in the range, an
+       <constant>E_WARNING</constant> is emitted and no range will be
        constructed.  Only the start, end and period characters will be
        escaped. Use the <function>ord</function> function to find the
        ASCII value for a character.
