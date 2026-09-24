@@ -14,8 +14,8 @@
   </methodsynopsis>
   <para>
    Returns an ASCII string containing the hexadecimal representation
-   of <parameter>string</parameter>. The conversion is done byte-wise
-   with the high-nibble first.
+   of <parameter>string</parameter>, using lowercase letters. The
+   conversion is done byte-wise with the high-nibble first.
   </para>
  </refsect1>
 
@@ -75,6 +75,7 @@ string(12) "Hello world!"
    <simplelist>
     <member><function>hex2bin</function></member>
     <member><function>pack</function></member>
+    <member><function>strtoupper</function></member>
    </simplelist>
   </para>
  </refsect1>
