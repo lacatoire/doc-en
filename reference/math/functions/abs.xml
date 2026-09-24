@@ -12,23 +12,21 @@
    <methodparam><type class="union"><type>int</type><type>float</type></type><parameter>num</parameter></methodparam>
   </methodsynopsis>
   <para>
-   Returns the absolute value of <parameter>num</parameter>. 
+   Returns the absolute value of <parameter>num</parameter>.
   </para>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>num</parameter></term>
-     <listitem>
-      <para>
-       The numeric value to process
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>num</parameter></term>
+    <listitem>
+     <para>
+      The numeric value to process
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
@@ -36,8 +34,11 @@
    The absolute value of <parameter>num</parameter>. If the
    argument <parameter>num</parameter> is
    of type <type>float</type>, the return type is also <type>float</type>,
-   otherwise it is <type>int</type> (as <type>float</type> usually has a
-   bigger value range than <type>int</type>).
+   otherwise it is <type>int</type>, or, if needed for size reasons,
+   <type>float</type> (as <type>float</type> usually has a
+   bigger value range than <type>int</type>); see the
+   <link linkend="language.types.integer.overflow">integer overflow</link>
+   section of the language reference.
   </para>
  </refsect1>
 
@@ -66,10 +67,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>abs</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>abs</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 var_dump(abs(-4.2));
@@ -77,27 +77,24 @@ var_dump(abs(5));
 var_dump(abs(-5));
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen>
+   </programlisting>
+   &example.outputs;
+   <screen>
 <![CDATA[
 float(4.2)
 int(5)
 int(5)
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>gmp_abs</function></member>
-    <member><function>gmp_sign</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>gmp_abs</function></member>
+   <member><function>gmp_sign</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
