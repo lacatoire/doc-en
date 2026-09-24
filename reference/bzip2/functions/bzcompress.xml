@@ -66,7 +66,10 @@
   <simpara>
    As of PHP 8.5.0, a <exceptionname>ValueError</exceptionname> is thrown if
    <parameter>block_size</parameter> is not between 1 and 9, or if
-   <parameter>work_factor</parameter> is not between 0 and 250.
+   <parameter>work_factor</parameter> is not between 0 and 250. A
+   <exceptionname>ValueError</exceptionname> is also thrown if
+   <parameter>data</parameter> is long enough that its worst-case compressed
+   size would exceed the platform's <literal>UINT_MAX</literal>.
   </simpara>
  </refsect1>
 
