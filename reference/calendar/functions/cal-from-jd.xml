@@ -56,7 +56,11 @@
    day of week (<literal>dow</literal>), abbreviated and full names of weekday and month and the
    date in string form "month/day/year".
    The day of week ranges from <literal>0</literal> (Sunday) to
-   <literal>6</literal> (Saturday).
+   <literal>6</literal> (Saturday). For <constant>CAL_JEWISH</constant> with
+   a <parameter>julian_day</parameter> before the Jewish epoch (a non-positive
+   year), <literal>dow</literal> is &null; instead, and
+   <literal>abbrevdayname</literal> and <literal>dayname</literal> are
+   empty strings.
   </para>
  </refsect1>
 
