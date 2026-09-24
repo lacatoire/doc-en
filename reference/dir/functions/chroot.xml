@@ -20,7 +20,7 @@
   </para>
   <para>
    This function is only available to GNU and BSD systems, and
-   only when using the CLI, CGI or Embed SAPI. Also, this function
+   only when using the CLI, CGI, phpdbg or Embed SAPI. Also, this function
    requires root privileges.
   </para>
   <para>
@@ -78,6 +78,17 @@ echo getcwd();
   &reftitle.notes;
   &note.no-windows;
   &note.no-zts;
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>chdir</function></member>
+    <member><function>getcwd</function></member>
+    <member><function>php_sapi_name</function></member>
+   </simplelist>
+  </para>
  </refsect1>
 </refentry>
 
