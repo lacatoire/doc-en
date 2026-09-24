@@ -59,12 +59,19 @@
       request body.
      </simpara>
      <itemizedlist>
-      <listitem><simpara><literal>max_file_uploads</literal></simpara></listitem>
-      <listitem><simpara><literal>max_input_vars</literal></simpara></listitem>
+      <listitem><simpara><link linkend="ini.max-file-uploads">max_file_uploads</link></simpara></listitem>
+      <listitem><simpara><link linkend="ini.max-input-vars">max_input_vars</link></simpara></listitem>
       <listitem><simpara><literal>max_multipart_body_parts</literal></simpara></listitem>
-      <listitem><simpara><literal>post_max_size</literal></simpara></listitem>
-      <listitem><simpara><literal>upload_max_filesize</literal></simpara></listitem>
+      <listitem><simpara><link linkend="ini.post-max-size">post_max_size</link></simpara></listitem>
+      <listitem><simpara><link linkend="ini.upload-max-filesize">upload_max_filesize</link></simpara></listitem>
      </itemizedlist>
+     <simpara>
+      Keys are matched case-insensitively. Any key that is not given keeps the
+      value of the &php.ini; directive of the same name. Each value is either
+      an <type>int</type>, or a <type>string</type> using the
+      <link linkend="faq.using.shorthandbytes">shorthand notation</link>, as in
+      <literal>'10M'</literal>.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -82,14 +89,33 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   When the request body is invalid,
-   according to the <literal>Content-Type</literal> header,
-   a <exceptionname>RequestParseBodyException</exceptionname> is thrown.
+   A <exceptionname>RequestParseBodyException</exceptionname> is thrown when
+   the request provides no <literal>Content-Type</literal> header, when that
+   header names an unsupported content type, or when the body is invalid
+   according to it.
+  </simpara>
+  <simpara>
+   A <exceptionname>RequestParseBodyException</exceptionname> is also thrown
+   when one of the limits is exceeded, that is the number of file uploads, the
+   number of input variables, the number of multipart body parts, or the body
+   size, and when the boundary of a
+   <literal>multipart/form-data</literal> body is missing or invalid. Outside
+   of <function>request_parse_body</function>, the same conditions only raise
+   an <constant>E_WARNING</constant>.
   </simpara>
   <simpara>
    A <exceptionname>ValueError</exceptionname> is thrown when
    <parameter>options</parameter> contains invalid keys,
    or invalid values for the corresponding key.
+  </simpara>
+  <simpara>
+   An <constant>E_WARNING</constant> is raised, rather than an exception being
+   thrown, when a value given in the shorthand notation cannot be parsed; the
+   degraded value is used and parsing continues. On
+   <literal>application/x-www-form-urlencoded</literal> bodies, exceeding
+   <link linkend="ini.post-max-size">post_max_size</link> also raises an
+   <constant>E_WARNING</constant> and yields an empty result instead of
+   throwing.
   </simpara>
  </refsect1>
 
@@ -128,6 +154,17 @@ assert_logged_in();
 ]]>
    </programlisting>
   </example>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><exceptionname>RequestParseBodyException</exceptionname></member>
+   <member><link linkend="ini.enable-post-data-reading">enable_post_data_reading</link></member>
+   <member><link linkend="ini.post-max-size">post_max_size</link></member>
+   <member><varname>$_POST</varname></member>
+   <member><varname>$_FILES</varname></member>
+  </simplelist>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file

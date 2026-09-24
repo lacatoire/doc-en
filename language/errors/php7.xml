@@ -81,6 +81,9 @@
       <simpara><classname>Exception</classname></simpara>
       <itemizedlist>
        <listitem>
+        <simpara><exceptionname>RequestParseBodyException</exceptionname></simpara>
+       </listitem>
+       <listitem>
         <simpara>...</simpara>
        </listitem>
       </itemizedlist>
