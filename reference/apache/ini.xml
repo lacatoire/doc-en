@@ -3,10 +3,12 @@
 <section xml:id="apache.configuration" xmlns="http://docbook.org/ns/docbook">
  &reftitle.runtime;
  <para>
-  The behaviour of the Apache PHP module is affected by settings in &php.ini;.
+  The behaviour of the Apache PHP module is affected by settings in
+  <link linkend="configuration.file">&php.ini;</link>.
   Configuration settings from &php.ini; may be overridden by
   <link linkend="configuration.changes.apache">php_flag</link> settings
-  in the server configuration file or local &htaccess; files.
+  in the server configuration file or local &htaccess; files, and read
+  back at runtime with <function>ini_get</function>.
  </para>
  <example>
   <title>Turning off PHP parsing for a directory using &htaccess;</title>
@@ -28,12 +30,6 @@
      <row>
       <entry><link linkend="ini.engine">engine</link></entry>
       <entry>"1"</entry>
-      <entry><constant>INI_ALL</constant></entry>
-      <entry></entry>
-     </row>
-     <row>
-      <entry><link linkend="ini.child-terminate">child_terminate</link></entry>
-      <entry>"0"</entry>
       <entry><constant>INI_ALL</constant></entry>
       <entry></entry>
      </row>
@@ -73,18 +69,6 @@
       server basis. By putting <userinput>engine off</userinput>
       in the appropriate places in the &httpd.conf; file, PHP can
       be enabled or disabled.
-     </para>
-    </listitem>
-   </varlistentry>
-   <varlistentry xml:id="ini.child-terminate">
-    <term>
-     <parameter>child_terminate</parameter>
-     <type>bool</type>
-    </term>
-    <listitem>
-     <para>
-      Specify whether PHP scripts may request child process termination on end of request, 
-      see also <function>apache_child_terminate</function>.
      </para>
     </listitem>
    </varlistentry>
