@@ -17,11 +17,15 @@
   <para>
    Compares <parameter>array</parameter> against <parameter>arrays</parameter> and
    returns the difference. Unlike <function>array_diff</function> the array
-   keys are used in the comparison.
+   keys are also used in the comparison.
   </para>
   <para>
    Unlike <function>array_diff_assoc</function> a user supplied callback
    function is used for the indices comparison, not internal function.
+   Values are still compared internally, as in <function>array_diff</function>;
+   an element is kept unless another array has an entry with an equal
+   key, as determined by <parameter>key_compare_func</parameter>, and an
+   equal value.
   </para>
  </refsect1>
 
@@ -143,6 +147,7 @@ Array
     <member><function>array_udiff_uassoc</function></member>
     <member><function>array_intersect</function></member>
     <member><function>array_intersect_assoc</function></member>
+    <member><function>array_intersect_uassoc</function></member>
     <member><function>array_uintersect</function></member>
     <member><function>array_uintersect_assoc</function></member>
     <member><function>array_uintersect_uassoc</function></member>
