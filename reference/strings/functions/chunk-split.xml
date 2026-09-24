@@ -18,7 +18,9 @@
    Can be used to split a string into smaller chunks which is useful for
    e.g. converting <function>base64_encode</function> output to match RFC
    2045 semantics. It inserts <parameter>separator</parameter> every 
-   <parameter>length</parameter> characters.
+   <parameter>length</parameter> characters. A copy of
+   <parameter>separator</parameter> is also appended to the end of the
+   returned string.
   </para>
  </refsect1>
 
@@ -38,7 +40,7 @@
      <term><parameter>length</parameter></term>
      <listitem>
       <para>
-       The chunk length.
+       The chunk length, which must be greater than <literal>0</literal>.
       </para>
      </listitem>
     </varlistentry>
@@ -59,6 +61,39 @@
   <para>
    Returns the chunked string.
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>length</parameter> is less than <literal>1</literal>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       <parameter>length</parameter> being less than <literal>1</literal>
+       now throws a <exceptionname>ValueError</exceptionname>; previously,
+       an error of level <constant>E_WARNING</constant> was raised and the
+       function returned &false;.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="examples">
