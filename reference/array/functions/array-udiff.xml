@@ -53,7 +53,8 @@
   &reftitle.returnvalues;
   <para>
    Returns an array containing all the values of <parameter>array</parameter>
-   that are not present in any of the other arguments.
+   that are not present in any of the other arguments. Note that keys are
+   preserved.
   </para>
  </refsect1>
  <refsect1 role="examples">
