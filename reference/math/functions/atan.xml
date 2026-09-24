@@ -46,6 +46,7 @@
   <para>
    <simplelist>
     <member><function>tan</function></member>
+    <member><function>atan2</function></member>
     <member><function>atanh</function></member>
     <member><function>asin</function></member>
     <member><function>acos</function></member>
