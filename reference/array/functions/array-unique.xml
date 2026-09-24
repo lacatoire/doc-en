@@ -24,9 +24,12 @@
   </para>
   <note>
    <simpara>
-    Two elements are considered equal if and only if
+    With the default <constant>SORT_STRING</constant> flag, two elements
+    are considered equal if and only if
     <literal>(string) $elem1 === (string) $elem2</literal>, i.e.
     when the string representation is the same, the first element will be used.
+    This does not hold for the other flag values, where the comparison
+    follows the corresponding comparison type instead.
    </simpara>
   </note>
  </refsect1>
@@ -55,7 +58,8 @@
        <itemizedlist>
         <listitem>
           <simpara><constant>SORT_REGULAR</constant> - compare items normally
-         (don't change types)</simpara>
+         (don't change types); as of PHP 8.1.19, enum cases are compared by
+         identity, so duplicate enum values are removed</simpara>
          <note>
           <simpara>
            When combining <constant>SORT_REGULAR</constant> with arrays
@@ -104,6 +108,13 @@
       </row>
      </thead>
      <tbody>
+      <row>
+       <entry>8.1.19</entry>
+       <entry>
+        Enum cases are now supported with <constant>SORT_REGULAR</constant>,
+        compared by identity, so duplicate enum values are removed.
+       </entry>
+      </row>
       <row>
        <entry>7.2.0</entry>
        <entry>
