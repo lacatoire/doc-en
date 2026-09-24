@@ -15,7 +15,7 @@
   </methodsynopsis>
   <simpara>
    Fetch all HTTP response headers.  Works in the
-   Apache, LiteSpeed, FastCGI, CLI, and FPM webservers.
+   Apache, LiteSpeed, FastCGI, and CLI webservers.
   </simpara>
  </refsect1>
 
@@ -27,7 +27,9 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   An array of all Apache response headers on success.
+   An array of all Apache response headers on success. Under the
+   LiteSpeed SAPI, &false; is returned if no response headers have
+   been sent yet.
   </simpara>
  </refsect1>
 
