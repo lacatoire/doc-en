@@ -85,6 +85,13 @@ echo addcslashes("zoo['.']", 'z..A');
        <function>addcslashes</function> to generate code in those languages
        with these characters defined in <parameter>characters</parameter>.
       </para>
+      <para>
+       The same caution applies to the digits 1 to 7 and to the letter x:
+       they are converted to \1 through \7 and \x, which are octal and
+       hexadecimal escape sequences in C and in PHP double-quoted strings,
+       and which <function>stripcslashes</function> decodes back, an octal
+       sequence also consuming up to two following literal digits.
+      </para>
      </listitem>
     </varlistentry>
    </variablelist>
