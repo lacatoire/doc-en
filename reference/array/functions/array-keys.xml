@@ -53,7 +53,10 @@
      <term><parameter>strict</parameter></term>
      <listitem>
       <para>
-       Determines if strict comparison (===) should be used during the search.
+       Determines if strict comparison (===) should be used during the
+       search. When not set, loose comparison (==) is used to compare
+       <parameter>filter_value</parameter> against each value of
+       <parameter>array</parameter>.
       </para>
      </listitem>
     </varlistentry>
