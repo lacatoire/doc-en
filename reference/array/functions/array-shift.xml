@@ -39,7 +39,7 @@
   &reftitle.returnvalues;
   <para>
    Returns the shifted value, or &null; if <parameter>array</parameter> is
-   empty or is not an array.
+   empty.
   </para>
  </refsect1>
  <refsect1 role="examples">
