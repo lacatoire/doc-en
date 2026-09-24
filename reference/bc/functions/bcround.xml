@@ -45,6 +45,7 @@
    <simplelist>
     <member><parameter>num</parameter> is not a well-formed BCMath numeric string.</member>
     <member>An invalid <parameter>mode</parameter> is specified.</member>
+    <member><parameter>precision</parameter> is outside the valid range.</member>
    </simplelist>
   </para>
  </refsect1>
