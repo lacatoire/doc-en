@@ -25,9 +25,9 @@
    hashes created by <function>crypt</function> can be used with
    <function>password_verify</function>.
   </para>
-  <para>
-   Prior to PHP 8.0.0, the <parameter>salt</parameter> parameter was optional; omitting it created a weak hash and raised an <constant>E_NOTICE</constant> error. As of PHP 8.0.0, the <parameter>salt</parameter> parameter is required, and omitting it raises an <classname>ArgumentCountError</classname>. Make sure to specify a strong enough salt for better security.
-  </para>
+  <simpara>
+   Prior to PHP 8.0.0, the <parameter>salt</parameter> parameter was optional; omitting it created a weak hash and raised an <constant>E_NOTICE</constant> error. As of PHP 8.0.0, the <parameter>salt</parameter> parameter is required, and omitting it raises an <exceptionname>ArgumentCountError</exceptionname>. Make sure to specify a strong enough salt for better security.
+  </simpara>
   <para>
    <function>password_hash</function> uses a strong hash, generates a strong salt, and applies proper rounds automatically. <function>password_hash</function> is a simple <function>crypt</function> wrapper and compatible with existing password hashes. Use of <function>password_hash</function> is encouraged.
   </para>
@@ -141,11 +141,11 @@
     <varlistentry>
      <term><parameter>salt</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        A salt string to base the hashing on. The format of the salt
        determines the hash type used; see the list of supported hash
        types above.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
