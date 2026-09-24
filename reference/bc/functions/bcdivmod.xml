@@ -3,7 +3,7 @@
 <refentry xml:id="function.bcdivmod" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude">
  <refnamediv>
   <refname>bcdivmod</refname>
-  <refpurpose>Get the quotient and modulus of an arbitrary precision number</refpurpose>
+  <refpurpose>Get the quotient and remainder of an arbitrary precision number</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -21,7 +21,41 @@
  </refsect1>
 
  <refsect1 role="parameters">
-  <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('function.bcdiv')/db:refsect1[@role='parameters']/*)" />
+  &reftitle.parameters;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term><parameter>num1</parameter></term>
+     <listitem>
+      <para>
+       The dividend, as a string.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>num2</parameter></term>
+     <listitem>
+      <para>
+       The divisor, as a string.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>scale</parameter></term>
+     <listitem>
+      <simpara>
+       This parameter is used to set the number of digits after the decimal
+       place in the remainder. The quotient always has a scale of
+       <literal>0</literal>. The remainder is truncated to
+       <parameter>scale</parameter>, not rounded. If &null;, it will default
+       to the default scale set with <function>bcscale</function>, or
+       fallback to the value of the
+       <link linkend="ini.bcmath.scale"><literal>bcmath.scale</literal></link> INI directive.
+      </simpara>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
