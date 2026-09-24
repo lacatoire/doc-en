@@ -13,7 +13,9 @@
    <void/>
   </methodsynopsis>
   <para>
-   Get a list of loaded Apache modules.
+   Get a list of loaded Apache modules. Also works under LiteSpeed,
+   which returns a fixed list of module names regardless of the
+   server configuration.
   </para>
  </refsect1>
 
@@ -25,7 +27,10 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   An <type>array</type> of loaded Apache modules.
+   An <type>array</type> of loaded Apache modules. Under LiteSpeed,
+   this is always the fixed list <literal>mod_rewrite</literal>,
+   <literal>mod_mime</literal>, <literal>mod_headers</literal>,
+   <literal>mod_expires</literal> and <literal>mod_auth_basic</literal>.
   </para>
  </refsect1>
 
@@ -49,13 +54,24 @@ Array
     [0] => core
     [1] => http_core
     [2] => mod_so
-    [3] => sapi_apache2
+    [3] => mod_php
     [4] => mod_mime
     [5] => mod_rewrite
 )
 ]]>
     </screen>
    </example>
+  </para>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>apache_get_version</function></member>
+    <member><function>apache_request_headers</function></member>
+    <member><function>apache_response_headers</function></member>
+   </simplelist>
   </para>
  </refsect1>
 </refentry>
