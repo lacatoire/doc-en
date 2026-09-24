@@ -42,7 +42,11 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   The arc cosine of <parameter>num</parameter> in radians.
+   The arc cosine of <parameter>num</parameter> in radians, as a
+   <type>float</type> between <literal>0</literal> and
+   <constant>M_PI</constant>, or the special value
+   <constant>NAN</constant> when <parameter>num</parameter> is
+   outside the <literal>-1</literal> to <literal>1</literal> range.
   </para>
  </refsect1>
  <refsect1 role="seealso">
