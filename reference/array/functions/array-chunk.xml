@@ -59,14 +59,14 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a multidimensional numerically indexed array, starting with zero,
    with each dimension containing at most <parameter>length</parameter>
    elements. The last chunk may contain fewer. Chunk keys are reindexed from
    zero unless <parameter>preserve_keys</parameter> is &true;, in which case
    the original keys are kept. An empty array is returned if
    <parameter>array</parameter> is empty.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
