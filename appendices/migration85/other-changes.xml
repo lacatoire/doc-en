@@ -347,6 +347,13 @@
     Upgraded pcre2lib from 10.44 to 10.46.
    </simpara>
 
+   <simpara>
+    The extension is now compiled without the semi-deprecated
+    <literal>PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK</literal> compile option.
+    This affects patterns that used <literal>\K</literal> inside lookahead or
+    lookbehind assertions, which is no longer permitted.
+   </simpara>
+
   </sect3>
 
   <sect3 xml:id="migration85.other-changes.extensions.pdo-sqlite">
