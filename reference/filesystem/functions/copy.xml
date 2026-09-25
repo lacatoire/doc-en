@@ -68,6 +68,21 @@
   <para>
    &return.success;
   </para>
+  <simpara>
+   If <parameter>from</parameter> and <parameter>to</parameter> resolve to
+   the same underlying file, <function>copy</function> returns &false;
+   without a warning and leaves the file untouched. This is deliberate,
+   to avoid truncating the file.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If <parameter>from</parameter> or <parameter>to</parameter> is a
+   directory, <function>copy</function> returns &false; and emits an
+   <constant>E_WARNING</constant>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

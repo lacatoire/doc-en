@@ -55,10 +55,13 @@
     <varlistentry>
      <term><parameter>suffix</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If the name component ends in <parameter>suffix</parameter> this will also
-       be cut off.
-      </para>
+       be cut off. The comparison is case-sensitive, and the suffix is only
+       cut off when it is strictly shorter than the name component; if
+       <parameter>suffix</parameter> equals the whole name component, it is
+       kept as is.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
