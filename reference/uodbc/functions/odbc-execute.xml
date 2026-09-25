@@ -77,7 +77,7 @@
      </row>
     </thead>
     <tbody>
-     &odbc.changelog.result-return;
+     &odbc.changelog.result-param;
      <row>
       <entry>8.0.0</entry>
       <entry>
