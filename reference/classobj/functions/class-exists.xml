@@ -42,10 +42,12 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns &true; if <parameter>class</parameter> is a defined class,
-   &false; otherwise.
-  </para>
+   &false; otherwise. Enums are classes and return &true; here. Interfaces
+   and traits are not considered classes; use <function>interface_exists</function>
+   or <function>trait_exists</function> for those.
+  </simpara>
  </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
@@ -95,6 +97,7 @@ if (class_exists(MyClass::class)) {
     <member><function>function_exists</function></member>
     <member><function>enum_exists</function></member>
     <member><function>interface_exists</function></member>
+    <member><function>trait_exists</function></member>
     <member><function>get_declared_classes</function></member>
    </simplelist>
   </para>
