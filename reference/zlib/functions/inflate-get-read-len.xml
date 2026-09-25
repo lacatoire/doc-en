@@ -36,9 +36,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns number of bytes read so far&return.falseforfailure;.
-  </para>
+  <simpara>
+   Returns the number of bytes read so far.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
