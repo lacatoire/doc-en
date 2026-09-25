@@ -35,10 +35,10 @@
   <note>
    <simpara>
     When a <type>CurlHandle</type> is executed via
-    <function>curl_multi_exec</function>, this function always returns
-    <literal>0</literal>. The error code for each individual handle is
-    available as the <literal>result</literal> key returned by
-    <function>curl_multi_info_read</function>.
+    <function>curl_multi_exec</function>, this function returns
+    <literal>0</literal> until <function>curl_multi_info_read</function> has
+    returned the message for that handle. From then on it returns the same
+    code as the <literal>result</literal> key of that message.
    </simpara>
   </note>
  </refsect1>
