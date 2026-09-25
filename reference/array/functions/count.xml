@@ -144,12 +144,12 @@ var_dump(count(false));
 ?>
 ]]>
     </programlisting>
-    &example.outputs;
+    &example.outputs.similar;
     <screen role="php">
 <![CDATA[
 int(3)
 
-Fatal error: Uncaught TypeError: count(): Argument #1 ($var) must be of type Countable .. on line 12
+Fatal error: Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given, called in ... on line 7
 ]]>
     </screen>
    </example>
