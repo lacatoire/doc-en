@@ -55,6 +55,8 @@
    </term>
    <listitem>
     <simpara>
+     Don't wait for child processes that may have been created while
+     logging the message.
     </simpara>
    </listitem>
   </varlistentry>

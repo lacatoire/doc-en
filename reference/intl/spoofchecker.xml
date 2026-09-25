@@ -317,7 +317,10 @@
       <type>int</type>
      </term>
      <listitem>
-      <para/>
+      <simpara>
+       Ignores white space while matching.
+       Available as of PHP 8.4.0.
+      </simpara>
      </listitem>
     </varlistentry>
 
@@ -327,7 +330,10 @@
       <type>int</type>
      </term>
      <listitem>
-      <simpara>Enables case-insensitive matching</simpara>
+      <simpara>
+       Enables case-insensitive matching, using full case folding.
+       Available as of PHP 8.4.0.
+      </simpara>
      </listitem>
     </varlistentry>
 
@@ -337,7 +343,10 @@
       <type>int</type>
      </term>
      <listitem>
-      <para>Adds all case mappings for each element in the set</para>
+      <simpara>
+       Adds all case mappings for each element in the set.
+       Available as of PHP 8.4.0.
+      </simpara>
      </listitem>
     </varlistentry>
 
@@ -347,7 +356,12 @@
       <type>int</type>
      </term>
      <listitem>
-      <simpara>Enables case-insensitive matching</simpara>
+      <simpara>
+       Enables case-insensitive matching, using simple case folding rather
+       than the full case folding of
+       <constant>Spoofchecker::CASE_INSENSITIVE</constant>.
+       Available as of PHP 8.4.0 and ICU 73.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>

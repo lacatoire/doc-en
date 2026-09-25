@@ -112,6 +112,18 @@
         String value for netmask in either IPv4 or IPv6.
        </entry>
       </row>
+      <row>
+       <entry>broadcast</entry>
+       <entry>
+        String value for the broadcast address, when provided by the operating system.
+       </entry>
+      </row>
+      <row>
+       <entry>ptp</entry>
+       <entry>
+        String value for the point-to-point destination address, when provided by the operating system.
+       </entry>
+      </row>
      </tbody>
     </tgroup>
    </table>
