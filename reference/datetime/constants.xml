@@ -113,7 +113,8 @@
    </term>
    <listitem>
     <simpara>
-     ISO-8601 Expanded (example: <literal>+10191-07-26T08:59:52+01:00</literal>)
+     ISO-8601 Expanded (as of PHP 8.2.0)
+     (example: <literal>+10191-07-26T08:59:52+01:00</literal>)
     </simpara>
     <note>
      <simpara>
@@ -184,6 +185,11 @@
      RFC 7231 (as of PHP 7.0.19 and 7.1.5)
      (example: <literal>Sat, 30 Apr 2016 17:52:13 GMT</literal>)
     </simpara>
+    <note>
+     <simpara>
+      This constant is deprecated as of PHP 8.5.0.
+     </simpara>
+    </note>
    </listitem>
   </varlistentry>
 
