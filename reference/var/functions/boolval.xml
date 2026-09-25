@@ -23,9 +23,9 @@
    <varlistentry>
     <term><parameter>value</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The value being converted to a <type>bool</type>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
