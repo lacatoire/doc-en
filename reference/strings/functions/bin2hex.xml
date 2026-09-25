@@ -12,11 +12,11 @@
    <type>string</type><methodname>bin2hex</methodname>
    <methodparam><type>string</type><parameter>string</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Returns an ASCII string containing the hexadecimal representation
    of <parameter>string</parameter>, using lowercase letters. The
    conversion is done byte-wise with the high-nibble first.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
