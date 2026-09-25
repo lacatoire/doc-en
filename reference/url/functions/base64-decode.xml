@@ -33,7 +33,7 @@
     <varlistentry>
      <term><parameter>strict</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If the <parameter>strict</parameter> parameter is set to &true;
        then the <function>base64_decode</function> function will return
        &false; if the input contains a character from outside the base64
@@ -41,7 +41,7 @@
        truncated to a single character, or if the amount of padding is
        invalid. Otherwise, invalid characters are silently discarded and
        none of these other conditions are checked.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
