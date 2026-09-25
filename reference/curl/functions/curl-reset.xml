@@ -32,6 +32,15 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if it is called from within
+   a callback that is currently running for <parameter>handle</parameter>,
+   for instance one set with <constant>CURLOPT_WRITEFUNCTION</constant>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -43,6 +52,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Now throws an <exceptionname>Error</exceptionname> when called from a
+       callback; previously an <constant>E_WARNING</constant> was emitted.
+      </entry>
+     </row>
      &curl.changelog.handle-param;
     </tbody>
    </tgroup>

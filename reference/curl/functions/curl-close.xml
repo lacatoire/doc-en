@@ -40,6 +40,15 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if it is called from within
+   a callback that is currently running for <parameter>handle</parameter>,
+   for instance one set with <constant>CURLOPT_WRITEFUNCTION</constant>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -63,6 +72,13 @@
        This function is a <acronym>NOP</acronym> now.
       </entry>
      </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Now throws an <exceptionname>Error</exceptionname> when called from a
+       callback; previously an <constant>E_WARNING</constant> was emitted.
+      </entry>
+     </row>
      &curl.changelog.handle-param;
     </tbody>
    </tgroup>
@@ -71,13 +87,12 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Initializing a new cURL session and fetching a web page</title>
-    <programlisting role="php">
+  <example>
+   <title>Initializing a new cURL session and fetching a web page</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
-// create a new cURL resource
+// create a new cURL handle
 $ch = curl_init();
 
 // set URL and other appropriate options
@@ -86,14 +101,10 @@ curl_setopt($ch, CURLOPT_HEADER, 0);
 
 // grab URL and pass it to the browser
 curl_exec($ch);
-
-// close cURL resource, and free up system resources
-curl_close($ch);
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
