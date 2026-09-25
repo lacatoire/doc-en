@@ -34,14 +34,14 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Inverse hyperbolic tangent of <parameter>num</parameter>. The function is
    defined on the open interval <literal>(-1, 1)</literal>. At the domain
    boundary, <literal>atanh(1)</literal> and <literal>atanh(-1)</literal>
    return <constant>INF</constant> and <constant>-INF</constant>
    respectively; outside it, including for <constant>INF</constant> and
    <constant>-INF</constant>, the function returns <constant>NAN</constant>.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="seealso">
   &reftitle.seealso;
