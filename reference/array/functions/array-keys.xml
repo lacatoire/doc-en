@@ -52,12 +52,12 @@
     <varlistentry>
      <term><parameter>strict</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Determines if strict comparison (===) should be used during the
        search. When not set, loose comparison (==) is used to compare
        <parameter>filter_value</parameter> against each value of
        <parameter>array</parameter>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
