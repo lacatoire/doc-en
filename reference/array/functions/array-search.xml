@@ -13,10 +13,10 @@
    <methodparam><type>array</type><parameter>haystack</parameter></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>strict</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Searches for <parameter>needle</parameter> in <parameter>haystack</parameter> using loose comparison
    unless <parameter>strict</parameter> is set.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
