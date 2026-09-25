@@ -35,11 +35,12 @@
   <note>
    <simpara>
     When a <type>CurlHandle</type> is executed via
-    <function>curl_multi_exec</function>, this function always returns
-    <literal>''</literal> (the empty string). To retrieve the error string for
-    each individual handle, pass the <literal>result</literal> key returned by
-    <function>curl_multi_info_read</function> to
-    <function>curl_strerror</function>.
+    <function>curl_multi_exec</function>, this function returns
+    <literal>''</literal> (the empty string) until
+    <function>curl_multi_info_read</function> has returned the message for that
+    handle. From then on it returns the error message, which can be more
+    detailed than the text <function>curl_strerror</function> gives for the
+    <literal>result</literal> key of that message.
    </simpara>
   </note>
  </refsect1>

@@ -83,6 +83,13 @@
     </tgroup>
    </table>
   </para>
+  <note>
+   <simpara>
+    The <literal>result</literal> is also stored in the handle the message
+    concerns: once it has been read, <function>curl_errno</function> and
+    <function>curl_error</function> return the error for that handle.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="changelog">

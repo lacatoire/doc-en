@@ -15,6 +15,16 @@
   <para>
    Copies a cURL handle keeping the same preferences.
   </para>
+  <simpara>
+   The copy does not take part in a share set with
+   <constant>CURLOPT_SHARE</constant>, and the cookies that the original
+   handle has received during earlier transfers are not copied. Cookies set
+   with <constant>CURLOPT_COOKIE</constant> or loaded from a
+   <constant>CURLOPT_COOKIEFILE</constant> file are copied. The streams set
+   with <constant>CURLOPT_FILE</constant>, <constant>CURLOPT_INFILE</constant>
+   and <constant>CURLOPT_WRITEHEADER</constant> are shared with the original
+   handle, not duplicated.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -31,6 +41,13 @@
   <para>
    Returns a new cURL handle, &return.falseforfailure;.
   </para>
+  <simpara>
+   On failure, an <constant>E_WARNING</constant> is emitted. This happens for
+   example when <constant>CURLOPT_POSTFIELDS</constant> holds a
+   <classname>CURLFile</classname> that is no longer allowed by the
+   <link linkend="ini.open-basedir">open_basedir</link> restriction in effect
+   when the function is called.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
