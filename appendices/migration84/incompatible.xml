@@ -646,11 +646,12 @@
 
   <simpara>
    The <constant>Pdo\Dblib::ATTR_STRINGIFY_UNIQUEIDENTIFIER</constant> and
-   <constant>Pdo\Dblib::ATTR_DATETIME_CONVERT</constant> attributes now act as
-   boolean attributes instead of integer attributes.
-   Thus setting the attribute via <methodname>PDO::setAttribute</methodname>
-   and retrieving it via <methodname>PDO::getAttribute</methodname> expects
-   and or return a <type>bool</type>.
+   <constant>Pdo\Dblib::ATTR_DATETIME_CONVERT</constant> attributes are now set
+   as boolean attributes instead of integer attributes.
+   <methodname>PDO::setAttribute</methodname> therefore expects a
+   <type>bool</type> for them.
+   <methodname>PDO::getAttribute</methodname> already returned a
+   <type>bool</type>.
   </simpara>
  </sect2>
 
@@ -658,11 +659,12 @@
   <title>PDO_FIREBIRD</title>
 
   <simpara>
-   The <constant>PDO::ATTR_AUTOCOMMIT</constant> attribute now act as
-   boolean attributes instead of integer attributes.
-   Thus setting the attribute via <methodname>PDO::setAttribute</methodname>
-   and retrieving it via <methodname>PDO::getAttribute</methodname> expects
-   and or return a <type>bool</type>.
+   The <constant>PDO::ATTR_AUTOCOMMIT</constant> attribute is now retrieved as
+   a boolean attribute instead of an integer attribute.
+   <methodname>PDO::getAttribute</methodname> therefore returns a
+   <type>bool</type> for it.
+   <methodname>PDO::setAttribute</methodname> already expected a
+   <type>bool</type>.
   </simpara>
 
   <simpara>
@@ -678,11 +680,12 @@
   <simpara>
    The <constant>PDO::ATTR_AUTOCOMMIT</constant>,
    <constant>PDO::ATTR_EMULATE_PREPARES</constant>, and
-   <constant>PDO::MYSQL_ATTR_DIRECT_QUERY</constant> attributes now act as
-   boolean attributes instead of integer attributes.
-   Thus setting the attribute via <methodname>PDO::setAttribute</methodname>
-   and retrieving it via <methodname>PDO::getAttribute</methodname> expects
-   and or return a <type>bool</type>.
+   <constant>PDO::MYSQL_ATTR_DIRECT_QUERY</constant> attributes are now
+   retrieved as boolean attributes instead of integer attributes.
+   <methodname>PDO::getAttribute</methodname> therefore returns a
+   <type>bool</type> for them.
+   <methodname>PDO::setAttribute</methodname> already expected a
+   <type>bool</type>.
   </simpara>
  </sect2>
 
