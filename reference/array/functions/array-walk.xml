@@ -100,11 +100,11 @@
    an error of level <link linkend="errorfunc.constants">E_WARNING</link> would be generated each time 
    <function>array_walk</function> calls <parameter>callback</parameter>.
   </para>
-  <para>
-   Throws a <classname>TypeError</classname> if <parameter>callback</parameter>
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>callback</parameter>
    replaces the array or object currently being iterated with a value that
    is neither an array nor an object.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -122,7 +122,7 @@
      <row>
       <entry>7.1.0</entry>
       <entry>
-       Throws a <classname>TypeError</classname> if
+       Throws a <exceptionname>TypeError</exceptionname> if
        <parameter>callback</parameter> replaces the array or object
        currently being iterated with a value that is neither an array
        nor an object.
