@@ -13,11 +13,11 @@
    <methodparam><type>string</type><parameter>alias</parameter></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>autoload</parameter><initializer>&true;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Creates an alias named <parameter>alias</parameter>
    based on the class <parameter>class</parameter>.
    The aliased class is exactly the same as the original class.
-  </para>
+  </simpara>
   <simpara>
    The class alias cannot be any of the PHP <link linkend="reserved.other-reserved-words">reserved words</link>.
    Using one raises an uncatchable fatal error, not a warning.
@@ -66,12 +66,12 @@
   <para>
    &return.success;
   </para>
-  <para>
+  <simpara>
    Returns &false;, with an <constant>E_WARNING</constant>, if
    <parameter>class</parameter> does not exist, or if
    <parameter>alias</parameter> is already declared as a class or another
    alias.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
