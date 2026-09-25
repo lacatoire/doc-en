@@ -3,7 +3,7 @@
 <refentry xml:id="function.bcmod" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude">
  <refnamediv>
   <refname>bcmod</refname>
-  <refpurpose>Get modulus of an arbitrary precision number</refpurpose>
+  <refpurpose>Get the remainder of an arbitrary precision number</refpurpose>
  </refnamediv>
  
  <refsect1 role="description">
@@ -27,9 +27,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the modulus as a string.
-  </para>
+  <simpara>
+   Returns the remainder as a string.
+  </simpara>
  </refsect1>
 
  <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('function.bcdiv')/db:refsect1[@role='errors'])" />
