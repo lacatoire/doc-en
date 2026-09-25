@@ -46,9 +46,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the number of bytes written or &false; if an error occurred.
-  </para>
+  <simpara>
+   Returns the number of bytes written, or <literal>-1</literal> if an error occurred.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog" xml:id="xsltprocessor.transformtouri..changelog">
