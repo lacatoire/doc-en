@@ -12,7 +12,7 @@
    <void/>
   </methodsynopsis>
   <simpara>
-   Returns the next highest integer value by rounding down
+   Returns the next lowest integer value by rounding down
    <varname>$this</varname> if necessary.
   </simpara>
  </refsect1>
