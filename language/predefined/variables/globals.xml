@@ -9,11 +9,11 @@
  
  <refsect1 role="description">
   &reftitle.description;
-  <para>
+  <simpara>
    An associative <type>array</type> containing references to all variables which
    are currently defined in the global scope of the script. The
    variable names are the keys of the array.
-  </para>
+  </simpara>
  </refsect1>
  
  <refsect1 role="examples">
@@ -57,12 +57,14 @@ $foo in current scope: local variable
 <![CDATA[
 <?php
 
-// Generates compile-time error:
+// Generates a compile-time error:
 $GLOBALS = [];
 $GLOBALS += [];
 $GLOBALS =& $x;
 $x =& $GLOBALS;
 unset($GLOBALS);
+
+// Generates a runtime error, as $GLOBALS cannot be passed by reference:
 array_pop($GLOBALS);
 // ...and any other write/read-write operation on $GLOBALS
 
@@ -79,10 +81,10 @@ array_pop($GLOBALS);
   &note.is-superglobal;
   <note>
    <title>Variable availability</title>
-   <para>
+   <simpara>
     Unlike all of the other <link linkend="language.variables.superglobals">superglobals</link>,
     <varname>$GLOBALS</varname> has essentially always been available in PHP.
-   </para>
+   </simpara>
   </note>
   <note>
    <para>
