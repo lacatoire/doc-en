@@ -11,7 +11,7 @@
    <type>float</type><methodname>atan</methodname>
    <methodparam><type>float</type><parameter>num</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Returns the arc tangent of <parameter>num</parameter> in radians,
    i.e. the value, in the range <literal>(-M_PI/2, M_PI/2)</literal>,
    whose tangent is <parameter>num</parameter>.
@@ -22,7 +22,7 @@
    because of floating-point rounding, the reverse composition
    <literal>tan(atan($num))</literal> is not guaranteed to equal
    <parameter>num</parameter>.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;

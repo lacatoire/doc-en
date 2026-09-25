@@ -11,7 +11,7 @@
    <type>float</type><methodname>acos</methodname>
    <methodparam><type>float</type><parameter>num</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Returns the arc cosine of <parameter>num</parameter> in radians,
    i.e. the value, in the range <literal>[0, M_PI]</literal>, whose
    cosine is <parameter>num</parameter>.
@@ -22,7 +22,7 @@
    floating-point rounding, the reverse composition
    <literal>cos(acos($num))</literal> is not guaranteed to equal
    <parameter>num</parameter>.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
