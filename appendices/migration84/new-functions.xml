@@ -206,8 +206,12 @@
   <title>Sodium</title>
 
   <simplelist>
-   <member><function>sodium_crypto_aead_aegis128l_<replaceable>*</replaceable></function></member>
-   <member><function>sodium_crypto_aead_aegis256l_<replaceable>*</replaceable></function></member>
+   <member><function>sodium_crypto_aead_aegis128l_decrypt</function></member>
+   <member><function>sodium_crypto_aead_aegis128l_encrypt</function></member>
+   <member><function>sodium_crypto_aead_aegis128l_keygen</function></member>
+   <member><function>sodium_crypto_aead_aegis256_decrypt</function></member>
+   <member><function>sodium_crypto_aead_aegis256_encrypt</function></member>
+   <member><function>sodium_crypto_aead_aegis256_keygen</function></member>
   </simplelist>
  </sect2>
 

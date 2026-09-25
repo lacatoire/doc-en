@@ -16,6 +16,10 @@
    Generate a random key for use with <function>sodium_crypto_aead_aegis128l_encrypt</function> and
    <function>sodium_crypto_aead_aegis128l_decrypt</function>.
   </simpara>
+  <simpara>
+   This function is only available if PHP was built against libsodium 1.0.19
+   or later.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
