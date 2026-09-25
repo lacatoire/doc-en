@@ -1115,7 +1115,7 @@ A\B::foo();   // calls method "foo" of class "B" from namespace "A\A"
     <listitem>
      <simpara>
       <link linkend="language.namespaces.faq.conflict">Import names must not conflict with
-      classes defined in the same file.</link>
+      classes defined in the same namespace block.</link>
      </simpara>
     </listitem>
     <listitem>
@@ -1383,7 +1383,7 @@ print $b;
    </para>
   </sect2>
   <sect2 xml:id="language.namespaces.faq.conflict">
-   <title>Import names must not conflict with classes defined in the same file.</title>
+   <title>Import names must not conflict with classes defined in the same namespace block.</title>
    <para>
     The following script combinations are legal:
     <informalexample>
@@ -1421,7 +1421,7 @@ $a = new MyClass; // instantiates class "thing" from namespace another
     There is no name conflict, even though the class <literal>MyClass</literal> exists
     within the <literal>my\stuff</literal> namespace, because the MyClass definition is
     in a separate file. However, the next example causes a fatal error on name conflict
-    because MyClass is defined in the same file as the use statement.
+    because MyClass is defined in the same namespace block as the use statement.
     <informalexample>
      <programlisting role="php" annotations="non-interactive">
      <![CDATA[
@@ -1434,6 +1434,27 @@ $a = new MyClass;
      </programlisting>
     </informalexample>
    </para>
+   <para>
+    Since a symbol declared in one namespace block no longer blocks an import
+    in a later block of the same file, the following is legal as of PHP 8.4.0:
+    <informalexample>
+     <programlisting role="php" annotations="non-interactive">
+     <![CDATA[
+<?php
+namespace { class C {} }
+namespace Ns { class C {} }
+namespace { use Ns\C; $a = new C; } // Ns\C
+     ]]>
+     </programlisting>
+    </informalexample>
+   </para>
+   <note>
+    <simpara>
+     Prior to PHP 8.4.0, the restriction applied to the whole file: a symbol
+     declared in any namespace block blocked an homonymous import in every
+     later block. The example above was a fatal error.
+    </simpara>
+   </note>
   </sect2>
   <sect2 xml:id="language.namespaces.faq.nested">
    <title>Nested namespaces are not allowed.</title>
