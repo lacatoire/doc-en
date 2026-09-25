@@ -42,19 +42,19 @@
     <varlistentry>
      <term><parameter>length</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        New size of the array, or the negative of that size to pad on the
        left instead of the right.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>value</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Value to pad if <parameter>array</parameter> is less than the
        absolute value of <parameter>length</parameter>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -63,7 +63,7 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a copy of the <parameter>array</parameter> padded to size specified
    by <parameter>length</parameter> with value 
    <parameter>value</parameter>. If <parameter>length</parameter> is 
@@ -74,7 +74,7 @@
    renumbered from <literal>0</literal>; string keys are preserved. When no
    padding takes place, <parameter>array</parameter> is returned as is,
    keys included.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
