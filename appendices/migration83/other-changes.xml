@@ -394,7 +394,7 @@
     supported there.
    </simpara>
 
-   <para>
+   <simpara>
     <function>array_sum</function> and <function>array_product</function> now
     warn when values in the array cannot be converted to int/float.
     Previously arrays and objects were ignored whilst every other value was
@@ -402,7 +402,7 @@
     cast (e.g.
     <link linkend="book.gmp">GMP</link>) are now casted instead of ignored.
     <!-- RFC: https://wiki.php.net/rfc/saner-array-sum-product -->
-   </para>
+   </simpara>
 
    <simpara>
     The <parameter>decimals</parameter> of <function>number_format</function>
