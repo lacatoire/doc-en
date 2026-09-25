@@ -55,8 +55,12 @@
        <entry>
         Now emits <constant>E_WARNING</constant> when <parameter>array</parameter> values
         cannot be converted to &integer; or &float;.
-        Previously &array;s and &object;s where ignored whilst every other value was cast to &integer;.
+        Previously &array;s and &object;s were ignored whilst every other value was cast to
+        a number (&integer; or &float;).
         Moreover, objects that define a numeric cast (e.g. <classname>GMP</classname>) are now cast instead of ignored.
+        After the warning, the value is still used: a non-numeric &string;
+        counts as <literal>0</literal>, a &resource; as its handle ID, and
+        an &array; or an &object; without a numeric cast is skipped.
        </entry>
       </row>
      </tbody>
