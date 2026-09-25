@@ -34,15 +34,15 @@
     <varlistentry>
      <term><parameter>permissions</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Note that <parameter>permissions</parameter> is not automatically
        assumed to be an octal value, so to ensure the expected operation,
        you need to prefix <parameter>permissions</parameter> with a zero (0). 
        A non-numeric string such as "g+w" throws a
-       <classname>TypeError</classname>, since <parameter>permissions</parameter>
+       <exceptionname>TypeError</exceptionname>, since <parameter>permissions</parameter>
        is typed as <type>int</type>; a numeric string such as "0755" is
        coerced to a decimal, not octal, integer.
-      </para>
+      </simpara>
       <para>
        <informalexample>
         <programlisting role="php">
