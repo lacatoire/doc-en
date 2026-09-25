@@ -4,7 +4,7 @@
 <refentry xml:id="function.apache-child-terminate" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>apache_child_terminate</refname>
-  <refpurpose>Terminate apache process after this request</refpurpose>
+  <refpurpose>Terminate the current process after this request</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -13,17 +13,23 @@
    <type>void</type><methodname>apache_child_terminate</methodname>
    <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>apache_child_terminate</function> will register the
-   Apache process executing the current PHP request for termination
+   php-cgi process executing the current PHP request for termination
    once execution of PHP code is completed. It may be used to
    terminate a process after a script with high memory consumption has
    been run as memory will usually only be freed internally but not
    given back to the operating system. 
-  </para>
-  <para>
-   Works in the Apache, and FastCGI webservers.
-  </para>
+  </simpara>
+  <simpara>
+   This function is available when PHP runs as a FastCGI or CGI application.
+   Under Apache it was only available with the legacy Apache 1 SAPI; it is
+   not provided by the Apache 2 handler (the <literal>apache2handler</literal>
+   SAPI).
+  </simpara>
+  <simpara>
+   This function is not available when PHP runs as php-fpm.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -38,16 +44,13 @@
   </para>
  </refsect1>
 
- <refsect1 role="notes">
-  &reftitle.notes;
-  &note.no-windows;
- </refsect1>
-
  <refsect1 role="seealso">
   &reftitle.seealso;
   <para>
    <simplelist>
     <member><function>exit</function></member>
+    <member><function>php_sapi_name</function></member>
+    <member><function>register_shutdown_function</function></member>
    </simplelist>
   </para>
  </refsect1>

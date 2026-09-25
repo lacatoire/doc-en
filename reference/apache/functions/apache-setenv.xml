@@ -52,9 +52,14 @@
     <varlistentry>
      <term><parameter>walk_to_top</parameter></term>
      <listitem>
-      <para>
-       Whether to set the top-level variable available to all Apache layers.
-      </para>
+      <simpara>
+       Whether to set the variable on the request that preceded any
+       internal redirect (such as a per-directory
+       <literal>RewriteRule</literal> or an <literal>ErrorDocument</literal>)
+       instead of the current one. This has no effect in a subrequest
+       (for example one started by <function>virtual</function> or an
+       SSI include), which is not reached by following redirects.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -87,12 +92,13 @@ apache_setenv("EXAMPLE_VAR", "Example Value");
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
-    <function>apache_setenv</function> can be paired up with
-    <function>apache_getenv</function> across separate pages or for setting
-    variables to pass to Server Side Includes (.shtml) that have been
-    included in PHP scripts.
-   </para>
+   <simpara>
+    The variable is only visible for the current request: it does not
+    persist to a later, separate request. <function>apache_setenv</function>
+    can be paired up with <function>apache_getenv</function> within the
+    same request, or for setting variables to pass to Server Side
+    Includes (.shtml) that have been included in PHP scripts.
+   </simpara>
   </note>
  </refsect1>
 
@@ -101,6 +107,8 @@ apache_setenv("EXAMPLE_VAR", "Example Value");
   <para>
    <simplelist>
     <member><function>apache_getenv</function></member>
+    <member><function>getenv</function></member>
+    <member><function>virtual</function></member>
    </simplelist>
   </para>
  </refsect1>
