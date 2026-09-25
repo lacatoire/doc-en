@@ -68,7 +68,7 @@
     <member>request_time</member>
    </simplelist>
   </para>
-  <para>
+  <simpara>
    String properties (such as <literal>the_request</literal>,
    <literal>status_line</literal>, <literal>method</literal>,
    <literal>range</literal>, <literal>content_type</literal>,
@@ -77,13 +77,13 @@
    <literal>path_info</literal> and <literal>args</literal>) are only
    present on the returned <type>object</type> when the underlying value
    is set, so the exact set of properties can vary between requests.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    Returns &false; and emits an <constant>E_WARNING</constant> if the
    partial request does not resolve to a <literal>200 OK</literal>
    status, for example because the requested URI does not exist or
    access to it is denied.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
