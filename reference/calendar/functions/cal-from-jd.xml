@@ -51,7 +51,7 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns an array containing calendar information like month, day, year,
    day of week (<literal>dow</literal>), abbreviated and full names of weekday and month and the
    date in string form "month/day/year".
@@ -61,7 +61,7 @@
    year), <literal>dow</literal> is &null; instead, and
    <literal>abbrevdayname</literal> and <literal>dayname</literal> are
    empty strings.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
