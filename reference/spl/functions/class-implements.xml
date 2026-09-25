@@ -14,10 +14,12 @@
    <methodparam><type class="union"><type>object</type><type>string</type></type><parameter>object_or_class</parameter></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>autoload</parameter><initializer>&true;</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   This function returns an array with the names of the interfaces that the
-   given <parameter>object_or_class</parameter> and its parents implement.
-  </para>
+  <simpara>
+   This function returns an array with the names of the interfaces
+   implemented by the given <parameter>object_or_class</parameter>, including
+   interfaces inherited through a parent class or through interface
+   inheritance.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -48,9 +50,12 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   An array on success, or &false; when the given class doesn't exist.
-  </para>
+  <simpara>
+   An array on success, or &false; when the given class doesn't exist. In
+   that case, a warning is also emitted, stating the class does not exist
+   (with <parameter>autoload</parameter> set to &true;, that it could not
+   be loaded either).
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

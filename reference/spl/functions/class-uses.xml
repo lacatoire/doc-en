@@ -14,11 +14,12 @@
    <methodparam><type class="union"><type>object</type><type>string</type></type><parameter>object_or_class</parameter></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>autoload</parameter><initializer>&true;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    This function returns an array with the names of the traits that the
-   given <parameter>object_or_class</parameter> uses. This does however not include
-   any traits used by a parent class.
-  </para>
+   given <parameter>object_or_class</parameter> uses directly, in its own
+   <literal>use</literal> statement. Traits used by a parent class, or
+   composed into another trait that is itself used, are not included.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
