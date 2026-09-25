@@ -12,6 +12,14 @@
    &info.function.alias;
    <function>exit</function>.
   </simpara>
+  <note>
+   <simpara>
+    Errors raised from a <function>die</function> call name
+    <literal>exit()</literal>, as in
+    <literal>exit(): Argument #1 ($status) must be of type string|int, array
+    given</literal>.
+   </simpara>
+  </note>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
