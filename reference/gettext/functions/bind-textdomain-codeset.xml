@@ -47,9 +47,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   A <type>string</type> on success.
-  </para>
+  <simpara>
+   A <type>string</type> on success, &return.falseforfailure;.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
