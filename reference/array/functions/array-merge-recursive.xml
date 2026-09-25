@@ -25,12 +25,12 @@
    too. If, however, the arrays have the same numeric key, the later
    value will not overwrite the original value, but will be appended.
   </para>
-  <para>
+  <simpara>
    On a string key collision, an &object; value on either side is silently
    converted to an &array; of its properties before merging, the same
    conversion as <literal>(array) $obj</literal> (including the mangled
    keys of private and protected properties).
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -60,7 +60,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws an <classname>Error</classname> if the arrays to merge contain a
+   Throws an <exceptionname>Error</exceptionname> if the arrays to merge contain a
    reference cycle (recursion).
   </simpara>
  </refsect1>
@@ -80,7 +80,7 @@
       <row>
        <entry>8.0.0</entry>
        <entry>
-        Now throws an <classname>Error</classname> if the arrays to merge
+        Now throws an <exceptionname>Error</exceptionname> if the arrays to merge
         contain a reference cycle (recursion); previously, an error of
         level <constant>E_WARNING</constant> was raised instead.
        </entry>
