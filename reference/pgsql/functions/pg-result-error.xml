@@ -48,10 +48,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns a <type>string</type>. Returns empty string if there is no error. If there is an error associated with the
-   <parameter>result</parameter> parameter, returns &false;.
-  </para>
+  <simpara>
+   Returns the error message associated with the <parameter>result</parameter>
+   as a <type>string</type>, or an empty string if there is no error.
+   Returns &false; on failure.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
