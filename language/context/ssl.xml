@@ -200,7 +200,8 @@
     <listitem>
      <simpara>
       If set to &true; server name indication will be enabled. Enabling SNI
-      allows multiple certificates on the same IP address.
+      allows multiple certificates on the same IP address, mapped by
+      <link linkend="context.ssl.sni-server-certs"><parameter>SNI_server_certs</parameter></link>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -211,13 +212,38 @@
     </term>
     <listitem>
      <simpara>
-      An array of server names and their corresponding certificates to be used
-      for SNI. The keys are the server names and the values are the paths to
-      the certificate files on the local filesystem. The certificate files must
-      be <acronym>PEM</acronym> encoded and contain both the certificate and private key.
+      Maps host names to the certificate to present when a client advertises
+      that name during the TLS handshake. Only used on server streams; it has
+      no effect on a client context. <link linkend="context.ssl.sni-enabled"><parameter>SNI_enabled</parameter></link>
+      does not need to be set for this option to take effect, it only
+      short-circuits it when explicitly set to a falsy value.
      </simpara>
      <simpara>
-      Available as of PHP 5.6.0.
+      Each key is a host name, matched case insensitively against the name
+      advertised by the client, and may start with a <literal>*</literal>
+      wildcard covering the left-most label only (<literal>*.example.org</literal>
+      matches <literal>sub.example.org</literal> but not
+      <literal>a.b.example.org</literal> or <literal>example.org</literal>).
+     </simpara>
+     <simpara>
+      Each value is either a <type>string</type>, the path to a single
+      <acronym>PEM</acronym> encoded file used as both the certificate chain
+      and the private key, or an <type>array</type> with the keys
+      <literal>local_cert</literal> and <literal>local_pk</literal>, the paths
+      to separate <acronym>PEM</acronym> encoded certificate and private key
+      files. Both keys are required when the array form is used. In either
+      form, the private key cannot be passphrase protected.
+     </simpara>
+     <simpara>
+      When no key matches the name advertised by the client, or when the
+      client sends no SNI extension, the main context's
+      <link linkend="context.ssl.local-cert"><parameter>local_cert</parameter></link>
+      is used as a fallback certificate.
+     </simpara>
+     <simpara>
+      Available as of PHP 5.6.0. The array value form with
+      <literal>local_cert</literal> and <literal>local_pk</literal> is
+      available as of PHP 7.2.0.
      </simpara>
     </listitem>
    </varlistentry>
@@ -355,6 +381,8 @@
       <entry>7.2.0</entry>
       <entry>
        Added <parameter>security_level</parameter>. Requires OpenSSL &gt;= 1.1.0.
+       <parameter>SNI_server_certs</parameter> values can now also be an
+       array with <literal>local_cert</literal> and <literal>local_pk</literal>.
       </entry>
      </row>
      <row>
