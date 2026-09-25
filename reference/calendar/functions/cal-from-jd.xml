@@ -51,13 +51,25 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns an array containing calendar information like month, day, year,
    day of week (<literal>dow</literal>), abbreviated and full names of weekday and month and the
    date in string form "month/day/year".
    The day of week ranges from <literal>0</literal> (Sunday) to
-   <literal>6</literal> (Saturday).
-  </para>
+   <literal>6</literal> (Saturday). For <constant>CAL_JEWISH</constant> with
+   a <parameter>julian_day</parameter> before the Jewish epoch (a non-positive
+   year), <literal>dow</literal> is &null; instead, and
+   <literal>abbrevdayname</literal> and <literal>dayname</literal> are
+   empty strings.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>calendar</parameter>
+   is not a valid calendar ID.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xml:id="function.cal-days-in-month" xmlns="http://docbook.org/ns/docbook"> 
+<refentry xml:id="function.cal-days-in-month" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>cal_days_in_month</refname>
   <refpurpose>Return the number of days in a month for a given year and calendar</refpurpose>
@@ -58,6 +58,14 @@
   <para>
    The length in days of the selected month in the given calendar
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>calendar</parameter>
+   is not a valid calendar ID, or if the given date is invalid.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
