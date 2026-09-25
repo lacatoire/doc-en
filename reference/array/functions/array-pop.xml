@@ -17,13 +17,13 @@
    the last element of <parameter>array</parameter>, shortening the
    <parameter>array</parameter> by one element.
   </para>
-  <para>
+  <simpara>
    If the removed element had the highest integer key assigned so far, that
    key is given back to the next element appended to
    <parameter>array</parameter>, with <literal>$array[] = $value</literal>
    or <function>array_push</function>. <function>unset</function> does not
    do this.
-  </para>
+  </simpara>
   &array.resetspointer;
  </refsect1>
 
