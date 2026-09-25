@@ -155,12 +155,24 @@ $object = $reflector->newLazyGhost($initializer);
   <sect3 xml:id="migration84.new-features.core.new-chaining">
    <title>Chaining &new; expressions without parentheses</title>
 
-   <!-- TODO: expand and examples? -->
    <simpara>
-    New expressions with constructor arguments are now dereferencable, meaning
-    they allow chaining method calls, property accesses, etc. without enclosing
-    the expression in parentheses.
+    New expressions are now dereferenceable, meaning they allow chaining
+    method calls, property accesses and the like without enclosing the
+    expression in parentheses, provided the constructor argument list is
+    written explicitly, even when it is empty.
+    See <link linkend="language.oop5.basic.new.deref">the object basics
+    page</link>.
    </simpara>
+   <example>
+    <title>Chaining a new expression</title>
+    <programlisting role="php">
+<![CDATA[
+<?php
+echo new DateTime()->format('Y'), PHP_EOL;
+?>
+]]>
+    </programlisting>
+   </example>
   </sect3>
 
   <sect3 xml:id="migration84.new-features.core.debug-weakref">
