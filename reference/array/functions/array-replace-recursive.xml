@@ -67,7 +67,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws an <classname>Error</classname> if an array to be merged contains
+   Throws an <exceptionname>Error</exceptionname> if an array to be merged contains
    a reference to itself (recursion).
   </simpara>
  </refsect1>
@@ -86,7 +86,7 @@
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Now throws an <classname>Error</classname> if an array to be merged
+       Now throws an <exceptionname>Error</exceptionname> if an array to be merged
        contains a reference to itself (recursion); previously, an error of
        level <constant>E_WARNING</constant> was raised instead.
       </entry>
