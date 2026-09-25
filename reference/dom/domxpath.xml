@@ -18,6 +18,12 @@ Remove me once you perform substitutions
    <simpara>
     Allows to use XPath 1.0 queries on HTML or XML documents.
    </simpara>
+   <simpara>
+    As of PHP 8.4.0, instances of this class cannot be cloned; attempting to
+    do so throws an <exceptionname>Error</exceptionname>.
+    Subclasses are covered by the restriction too, even when they declare
+    their own <code>__clone()</code> method.
+   </simpara>
   </section>
 <!-- }}} -->
  
@@ -86,7 +92,7 @@ Remove me once you perform substitutions
        <entry>8.4.0</entry>
        <entry>
         It is no longer possible to clone a <classname>DOMXPath</classname>
-        object. Doing so will result in an exception being thrown.
+        object. Doing so now throws an <exceptionname>Error</exceptionname>.
         Prior to PHP 8.4.0 this resulted in an unusable object.
        </entry>
       </row>
