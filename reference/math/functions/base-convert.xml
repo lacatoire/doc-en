@@ -41,7 +41,7 @@
     <varlistentry>
      <term><parameter>num</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The number to convert.
        Leading and trailing whitespace is ignored, and a
        <parameter>from_base</parameter>-matching prefix
@@ -50,7 +50,7 @@
        Any invalid characters remaining in <parameter>num</parameter>
        are silently ignored.
        As of PHP 7.4.0 supplying any invalid characters is deprecated.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
