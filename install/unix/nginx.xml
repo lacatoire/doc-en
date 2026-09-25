@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 <sect1 xml:id="install.unix.nginx" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
- <title>Nginx 1.4.x on Unix systems</title>
+ <title>Nginx on Unix systems</title>
 
  <simpara>
   This documentation will cover installing and configuring PHP with
-  PHP-FPM for a Nginx 1.4.x HTTP server.
+  PHP-FPM for a Nginx HTTP server.
  </simpara>
 
  <simpara>
