@@ -16,7 +16,15 @@
    Returns the floating point result of raising
    <parameter>num</parameter> to the power of <parameter>exponent</parameter>.
    If <parameter>num</parameter> is zero and <parameter>exponent</parameter>
-   is less than zero, then <constant>INF</constant> is returned.
+   is negative, then <constant>INF</constant> is returned, or
+   <constant>-INF</constant> if <parameter>num</parameter> is
+   <literal>-0.0</literal> and <parameter>exponent</parameter> is a negative
+   odd integer.
+  </simpara>
+  <simpara>
+   Unlike <function>pow</function> and the
+   <link linkend="language.operators.arithmetic">exponentiation
+   operator</link>, this function emits no diagnostic in that case.
   </simpara>
  </refsect1>
 

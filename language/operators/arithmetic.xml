@@ -103,12 +103,21 @@ int(-2)
    </screen>
   </example>
  </para>
+ <simpara>
+  As of PHP 8.4.0, raising <literal>0</literal> to a negative exponent with the
+  exponentiation operator is deprecated, as it is the equivalent of a division
+  by zero: it emits
+  <literal>Power of base 0 and negative exponent is deprecated</literal>.
+  <constant>INF</constant> is still returned, or <constant>-INF</constant> when
+  the base is <literal>-0.0</literal> and the exponent is a negative odd
+  integer. <function>fpow</function> performs the same computation without the
+  diagnostic.
+ </simpara>
  <sect2 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><link linkend="ref.math">Math functions</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><link linkend="ref.math">Math functions</link></member>
+   <member><function>fpow</function></member>
+  </simplelist>
  </sect2>
 </sect1>
