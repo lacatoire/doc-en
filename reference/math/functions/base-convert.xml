@@ -41,11 +41,16 @@
     <varlistentry>
      <term><parameter>num</parameter></term>
      <listitem>
-      <para>
-       The number to convert. Any invalid characters in
-       <parameter>num</parameter> are silently ignored.
+      <simpara>
+       The number to convert.
+       Leading and trailing whitespace is ignored, and a
+       <parameter>from_base</parameter>-matching prefix
+       (<literal>0x</literal> for base 16, <literal>0o</literal> for base 8,
+       <literal>0b</literal> for base 2) is stripped.
+       Any invalid characters remaining in <parameter>num</parameter>
+       are silently ignored.
        As of PHP 7.4.0 supplying any invalid characters is deprecated.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -74,6 +79,16 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>from_base</parameter> or <parameter>to_base</parameter> is not
+   between 2 and 36 (inclusive), or if the converted value is large enough
+   to overflow to infinity.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -90,6 +105,9 @@
       <entry>
        Passing invalid characters will now generate a deprecation notice.
        The result will still be computed as if the invalid characters did not exist.
+       Leading and trailing whitespace, and a base-matching
+       <literal>0x</literal>/<literal>0o</literal>/<literal>0b</literal>
+       prefix, are now also trimmed before conversion.
       </entry>
      </row>
     </tbody>
@@ -124,6 +142,12 @@ echo base_convert($hexadecimal, 16, 2);
   <para>
    <simplelist>
     <member><function>intval</function></member>
+    <member><function>bindec</function></member>
+    <member><function>decbin</function></member>
+    <member><function>hexdec</function></member>
+    <member><function>dechex</function></member>
+    <member><function>octdec</function></member>
+    <member><function>decoct</function></member>
    </simplelist>
   </para>
  </refsect1>
