@@ -74,7 +74,6 @@
   <varlistentry xml:id="pdo.constants.odbc-attr-assume-utf8">
    <term>
     <constant>PDO::ODBC_ATTR_ASSUME_UTF8</constant>
-     (<type>bool</type>)
    </term>
    <listitem>
     <simpara>
