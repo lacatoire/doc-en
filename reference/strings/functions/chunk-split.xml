@@ -14,14 +14,14 @@
    <methodparam choice="opt"><type>int</type><parameter>length</parameter><initializer>76</initializer></methodparam>
    <methodparam choice="opt"><type>string</type><parameter>separator</parameter><initializer>"\r\n"</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Can be used to split a string into smaller chunks which is useful for
    e.g. converting <function>base64_encode</function> output to match RFC
    2045 semantics. It inserts <parameter>separator</parameter> every 
    <parameter>length</parameter> characters. A copy of
    <parameter>separator</parameter> is also appended to the end of the
    returned string.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -39,9 +39,9 @@
     <varlistentry>
      <term><parameter>length</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The chunk length, which must be greater than <literal>0</literal>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
