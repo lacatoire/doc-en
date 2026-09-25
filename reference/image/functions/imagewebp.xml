@@ -33,11 +33,12 @@
     <varlistentry>
      <term><parameter>quality</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        <parameter>quality</parameter> ranges from 0 (worst
        quality, smaller file) to 100 (best quality, biggest file).
        If <literal>-1</literal> is provided, the default value <literal>80</literal> is used.
-      </para>
+       Values above 100 are accepted and produce a lossless image.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -55,7 +56,8 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>ValueError</classname> if <parameter>quality</parameter> is invalid.
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>quality</parameter> is less than <literal>-1</literal>.
   </simpara>
  </refsect1>
 
@@ -73,7 +75,8 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       Now throws a <classname>ValueError</classname> if <parameter>quality</parameter> is invalid.
+       Now throws a <exceptionname>ValueError</exceptionname> if
+       <parameter>quality</parameter> is less than <literal>-1</literal>.
       </entry>
      </row>
      &gd.changelog.image-param;
