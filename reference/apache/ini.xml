@@ -2,14 +2,14 @@
 <!-- $Revision$ -->
 <section xml:id="apache.configuration" xmlns="http://docbook.org/ns/docbook">
  &reftitle.runtime;
- <para>
+ <simpara>
   The behaviour of the Apache PHP module is affected by settings in
   <link linkend="configuration.file">&php.ini;</link>.
   Configuration settings from &php.ini; may be overridden by
   <link linkend="configuration.changes.apache">php_flag</link> settings
   in the server configuration file or local &htaccess; files, and read
   back at runtime with <function>ini_get</function>.
- </para>
+ </simpara>
  <example>
   <title>Turning off PHP parsing for a directory using &htaccess;</title>
   <programlisting>php_flag engine off</programlisting>
