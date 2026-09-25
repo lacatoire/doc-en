@@ -33,7 +33,7 @@
     <listitem>
      <simpara>
       The modes <literal>'r'</literal> (read), and <literal>'w'</literal> (write) are supported.
-      Everything else will cause <function>bzopen</function> to return &false;.
+      Everything else throws a <exceptionname>ValueError</exceptionname>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -45,6 +45,40 @@
    If the open fails, <function>bzopen</function> returns &false;, otherwise
    it returns a pointer to the newly opened file.
   </simpara>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>mode</parameter>
+   is not exactly <literal>"r"</literal> or <literal>"w"</literal>, or if
+   <parameter>file</parameter> is a <type>string</type> that is empty.
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>file</parameter>
+   is a <type>string</type> containing null bytes, or if it is neither a
+   <type>string</type> nor a stream resource.
+  </simpara>
+ </refsect1>
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       An invalid <parameter>mode</parameter> now throws a
+       <exceptionname>ValueError</exceptionname>; previously,
+       <function>bzopen</function> returned &false;.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
@@ -68,6 +102,8 @@ bzclose($bz);
   &reftitle.seealso;
   <simplelist>
    <member><function>bzclose</function></member>
+   <member><function>bzread</function></member>
+   <member><function>bzwrite</function></member>
   </simplelist>
  </refsect1>
 </refentry>
