@@ -34,17 +34,17 @@
     <varlistentry>
      <term><parameter>directory</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The directory path. An empty string, or the literal string
        <literal>"0"</literal>, means the current directory.
        If &null;, the currently set directory is returned.
-      </para>
-      <para>
+      </simpara>
+      <simpara>
        Otherwise, the path is resolved with a call equivalent to
        <function>realpath</function>: it must exist, or the function returns
        &false;, and the value returned by <function>bindtextdomain</function>
        is the resulting absolute, normalized path.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
