@@ -25,17 +25,14 @@
    hashes created by <function>crypt</function> can be used with
    <function>password_verify</function>.
   </para>
-  <para>
-   Prior to PHP 8.0.0, the <parameter>salt</parameter> parameter was optional. However, <function>crypt</function> creates a weak hash without the <parameter>salt</parameter>, and raises an <constant>E_NOTICE</constant> error without it. Make sure to specify a strong enough salt for better security. 
-  </para>
+  <simpara>
+   Prior to PHP 8.0.0, the <parameter>salt</parameter> parameter was optional; omitting it created a weak hash and raised an <constant>E_NOTICE</constant> error. As of PHP 8.0.0, the <parameter>salt</parameter> parameter is required, and omitting it raises an <exceptionname>ArgumentCountError</exceptionname>. Make sure to specify a strong enough salt for better security.
+  </simpara>
   <para>
    <function>password_hash</function> uses a strong hash, generates a strong salt, and applies proper rounds automatically. <function>password_hash</function> is a simple <function>crypt</function> wrapper and compatible with existing password hashes. Use of <function>password_hash</function> is encouraged.
   </para>
   <simpara>
-   The hash type is triggered by the salt argument.
-   If no salt is provided, PHP will
-   auto-generate either a standard two character (DES) or a twelve
-   character (MD5) salt, depending on the availability of MD5 crypt().  PHP sets a
+   The hash type is triggered by the salt argument. PHP sets a
    constant named <constant>CRYPT_SALT_LENGTH</constant> which indicates the
    longest valid salt allowed by the available hashes.
   </simpara>
@@ -105,8 +102,8 @@
      prefixed with $5$. If the salt string starts with 'rounds=&lt;N&gt;$', the numeric value of N
      is used to indicate how many times the hashing loop should be executed, much like the cost
      parameter on Blowfish. The default number of rounds is 5000, there is a minimum of
-     1000 and a maximum of 999,999,999. Any selection of N outside this range will be truncated to
-     the nearest limit.
+     1000 and a maximum of 999,999,999. PHP's own implementation, used on typical builds, rejects
+     an out-of-range N and returns a failure string instead of clamping it to the nearest limit.
     </simpara>
    </listitem>
    <listitem>
@@ -115,8 +112,8 @@
      prefixed with $6$. If the salt string starts with 'rounds=&lt;N&gt;$', the numeric value of N
      is used to indicate how many times the hashing loop should be executed, much like the cost
      parameter on Blowfish. The default number of rounds is 5000, there is a minimum of
-     1000 and a maximum of 999,999,999. Any selection of N outside this range will be truncated to
-     the nearest limit.
+     1000 and a maximum of 999,999,999. PHP's own implementation, used on typical builds, rejects
+     an out-of-range N and returns a failure string instead of clamping it to the nearest limit.
     </simpara>
    </listitem>
   </itemizedlist>
@@ -144,11 +141,11 @@
     <varlistentry>
      <term><parameter>salt</parameter></term>
      <listitem>
-      <para>
-       A salt string to base the hashing on. If not provided, the
-       behaviour is defined by the algorithm implementation and can lead to
-       unexpected results.
-      </para>
+      <simpara>
+       A salt string to base the hashing on. The format of the salt
+       determines the hash type used; see the list of supported hash
+       types above.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
