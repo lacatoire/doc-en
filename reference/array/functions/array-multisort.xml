@@ -12,7 +12,7 @@
    <methodparam><type>array</type><parameter role="reference">array1</parameter></methodparam>
    <methodparam choice="opt"><type>mixed</type><parameter>array1_sort_order</parameter><initializer>SORT_ASC</initializer></methodparam>
    <methodparam choice="opt"><type>mixed</type><parameter>array1_sort_flags</parameter><initializer>SORT_REGULAR</initializer></methodparam>
-   <methodparam rep="repeat"><type>mixed</type><parameter>rest</parameter></methodparam>
+   <methodparam rep="repeat"><type>mixed</type><parameter role="reference">rest</parameter></methodparam>
   </methodsynopsis>
   <para>
    <function>array_multisort</function> can be used to sort several
@@ -122,6 +122,18 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if the arrays do not
+   have the same number of elements, or if a sort order or sort flags
+   argument is not a valid value. Throws a <exceptionname>TypeError</exceptionname>
+   if an argument is neither an array nor a sort order or sort flags value,
+   or if a sort order or sort flags argument is given for an array that
+   already has one.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -137,6 +149,15 @@
       <entry>8.5.0</entry>
       <entry>
        The return type is &true; now; previously, it was <type>bool</type>.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> or a
+       <exceptionname>TypeError</exceptionname> on invalid arguments;
+       previously, an error of level <constant>E_WARNING</constant> was
+       raised and the function returned &false;.
       </entry>
      </row>
     </tbody>
