@@ -13,20 +13,20 @@
    <type>void</type><methodname>apache_child_terminate</methodname>
    <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>apache_child_terminate</function> will register the
    php-cgi process executing the current PHP request for termination
    once execution of PHP code is completed. It may be used to
    terminate a process after a script with high memory consumption has
    been run as memory will usually only be freed internally but not
    given back to the operating system. 
-  </para>
+  </simpara>
   <para>
    Works in the Apache, and FastCGI webservers.
   </para>
-  <para>
+  <simpara>
    This function is not available when PHP runs as php-fpm.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
