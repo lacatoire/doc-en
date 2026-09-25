@@ -16,15 +16,16 @@
    Returns a string with backslashes added before characters that need to be
    escaped. These characters are:
    <simplelist>
-    <member>single quote (<literal>'</literal>)</member>
-    <member>double quote (<literal>"</literal>)</member>
-    <member>backslash (<literal>\</literal>)</member>
-    <member>NUL (the NUL byte)</member>
+    <member>single quote (<literal>'</literal>), escaped as <literal>\'</literal></member>
+    <member>double quote (<literal>"</literal>), escaped as <literal>\"</literal></member>
+    <member>backslash (<literal>\</literal>), escaped as <literal>\\</literal></member>
+    <member>NUL (the NUL byte), replaced by the two-byte sequence <literal>\0</literal>, not by a backslash followed by the NUL byte</member>
    </simplelist>
   </para>
   <para>
-   A use case of <function>addslashes</function> is escaping the aforementioned
-   characters in a string that is to be evaluated by PHP:
+   A use case of <function>addslashes</function> is escaping, in a
+   single-quoted PHP string literal, the single quote and the backslash
+   from among the aforementioned characters:
    <example>
     <title>Escaping Characters</title>
     <programlisting role="php">
@@ -36,6 +37,11 @@ eval("echo '" . addslashes($str) . "';");
 ]]>
     </programlisting>
    </example>
+   The double quote and the NUL byte do not round-trip through a
+   single-quoted literal this way: a single-quoted literal does not
+   recognize <literal>\"</literal>, and <literal>\0</literal> is not
+   the NUL byte read back, but the two characters
+   <literal>\</literal> and <literal>0</literal>.
   </para>
   <para>
    The <function>addslashes</function> is sometimes incorrectly used to try to prevent
