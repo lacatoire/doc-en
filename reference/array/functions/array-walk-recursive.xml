@@ -82,8 +82,8 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   As of PHP 7.1.0, an <classname>ArgumentCountError</classname> will be
+  <simpara>
+   As of PHP 7.1.0, an <exceptionname>ArgumentCountError</exceptionname> will be
    thrown if the <parameter>callback</parameter> function requires more
    than 2 parameters (the value and key of the array member), or more than
    3 parameters if the <parameter>arg</parameter> is also passed. Previously,
@@ -91,19 +91,19 @@
    <link linkend="errorfunc.constants">E_WARNING</link> would be generated
    each time <function>array_walk_recursive</function> calls
    <parameter>callback</parameter>.
-  </para>
-  <para>
-   Throws an <classname>Error</classname> with the message "Recursion
+  </simpara>
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> with the message "Recursion
    detected" if <parameter>array</parameter> contains a reference cycle,
    i.e. a sub-array that (directly or indirectly) contains a reference to
    itself. This is specific to the recursive descent of this function;
    <function>array_walk</function> does not detect or reject such a cycle.
-  </para>
-  <para>
-   Throws a <classname>TypeError</classname> if
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
    <parameter>callback</parameter> replaces the array or object currently
    being iterated with a value that is neither an array nor an object.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
