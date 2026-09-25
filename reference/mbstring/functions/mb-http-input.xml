@@ -24,12 +24,13 @@
     <varlistentry>
      <term><parameter>type</parameter></term>
      <listitem>
-      <para>
-       Input string specifies the input type. 
+      <simpara>
+       Input string specifies the input type.
        <literal>"G"</literal> for GET, <literal>"P"</literal> for POST, <literal>"C"</literal> for COOKIE, <literal>"S"</literal> for string, <literal>"L"</literal> for list, and
-       <literal>"I"</literal> for the whole list (will return <type>array</type>). 
-       If type is omitted, it returns the last input type processed. 
-      </para>
+       <literal>"I"</literal> for the whole list (will return <type>array</type>).
+       It must be exactly one of these single characters.
+       If type is omitted, it returns the last input type processed.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -65,6 +66,15 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       <parameter>type</parameter> must now be exactly one character.
+       Formerly only its first character was examined, so a longer string
+       such as <literal>"PN"</literal> was accepted and behaved as
+       <literal>"P"</literal>.
+      </entry>
+     </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
