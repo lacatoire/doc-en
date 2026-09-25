@@ -12,11 +12,11 @@
    <type>array</type><methodname>apache_get_modules</methodname>
    <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    Get a list of loaded Apache modules. Also works under LiteSpeed,
    which returns a fixed list of module names regardless of the
    server configuration.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -26,12 +26,12 @@
  
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    An <type>array</type> of loaded Apache modules. Under LiteSpeed,
    this is always the fixed list <literal>mod_rewrite</literal>,
    <literal>mod_mime</literal>, <literal>mod_headers</literal>,
    <literal>mod_expires</literal> and <literal>mod_auth_basic</literal>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
