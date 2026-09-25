@@ -80,7 +80,7 @@
      <simpara>
       Allows preloading of FFI bindings during startup, which is not possible with <methodname>FFI::load</methodname>
       if <link linkend="ini.opcache.preload-user">opcache.preload_user</link> is set.
-      This directive accepts a <constant>DIRECTORY_SEPARATOR</constant> delimited list of filenames.
+      This directive accepts a <constant>PATH_SEPARATOR</constant> delimited list of filenames.
       The preloaded bindings can be accessed by calling <methodname>FFI::scope</methodname>.
      </simpara>
     </listitem>
