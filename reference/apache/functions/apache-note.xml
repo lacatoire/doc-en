@@ -13,12 +13,12 @@
    <methodparam><type>string</type><parameter>note_name</parameter></methodparam>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>note_value</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    This function is a wrapper for Apache's <literal>apr_table_get</literal>
    and <literal>apr_table_set</literal>. It edits the table of notes that exists
    during a request. The table's purpose is to allow Apache modules to
    communicate.
-  </para>
+  </simpara>
   <para>
    The main use for <function>apache_note</function> is to pass information
    from one module to another within the same request.
