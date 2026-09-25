@@ -34,14 +34,14 @@
     <varlistentry>
      <term><parameter>walk_to_top</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Whether to read the variable from the request that preceded
        any internal redirect (such as a per-directory
        <literal>RewriteRule</literal> or an <literal>ErrorDocument</literal>)
        instead of the current one. This has no effect in a subrequest
        (for example one started by <function>virtual</function> or an
        SSI include), which is not reached by following redirects.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -50,11 +50,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    The value of the Apache environment variable on success, or &false; if
    the variable is not set. A variable set to an empty string returns
    an empty string, not &false;.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
