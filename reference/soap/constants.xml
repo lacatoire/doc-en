@@ -733,7 +733,7 @@
       Disables the WSDL cache when used in the
       <link linkend="ini.soap.wsdl-cache">soap.wsdl_cache</link>
       configuration option or the
-      <literal>wsdl_cache</literal> option
+      <literal>cache_wsdl</literal> option
       to <methodname>SoapClient::__construct</methodname>
       and <methodname>SoapServer::__construct</methodname>.
      </entry>
@@ -748,7 +748,7 @@
       Specifies use of the on-disk WSDL cache only when used in the
       <link linkend="ini.soap.wsdl-cache">soap.wsdl_cache</link>
       configuration option or the
-      <literal>wsdl_cache</literal> option
+      <literal>cache_wsdl</literal> option
       to <methodname>SoapClient::__construct</methodname>
       and <methodname>SoapServer::__construct</methodname>.
      </entry>
@@ -763,7 +763,7 @@
       Specifies use of the in-memory WSDL cache only when used in the
       <link linkend="ini.soap.wsdl-cache">soap.wsdl_cache</link>
       configuration option or the
-      <literal>wsdl_cache</literal> option
+      <literal>cache_wsdl</literal> option
       to <methodname>SoapClient::__construct</methodname>
       and <methodname>SoapServer::__construct</methodname>.
      </entry>
@@ -778,7 +778,7 @@
       Specifies use of both on-disk and in-memory WSDL caches when used in the
       <link linkend="ini.soap.wsdl-cache">soap.wsdl_cache</link>
       configuration option or the
-      <literal>wsdl_cache</literal> option
+      <literal>cache_wsdl</literal> option
       to <methodname>SoapClient::__construct</methodname>
       and <methodname>SoapServer::__construct</methodname>.
      </entry>
