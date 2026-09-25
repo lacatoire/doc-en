@@ -35,10 +35,20 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns a translated <type>string</type> if one is found in the 
-   translation table, or the submitted message if not found.
-  </para>
+  <simpara>
+   Returns the entry found for <parameter>message</parameter> in the
+   translation table for the current domain, or
+   <parameter>message</parameter> itself if the table contains no entry
+   for it.
+  </simpara>
+  <note>
+   <simpara>
+    The empty string is reserved for the catalog's own metadata (headers
+    such as the content type and the plural forms), so passing an empty
+    <parameter>message</parameter> returns that metadata rather than a
+    translated string.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="examples">
@@ -95,6 +105,7 @@ echo _("Have a nice day");
    <simplelist>
     <member><function>_</function></member>
     <member><function>setlocale</function></member>
+    <member><function>bindtextdomain</function></member>
    </simplelist>
   </para>
  </refsect1>
