@@ -47,9 +47,13 @@
   </note>
   <warning>
    <simpara>
-    Prior to PHP 8.4.0, the hosts to be rewritten were set in
+    Prior to PHP 8.4.0, the hosts of URLs in tag attributes were checked
+    against
     <link linkend="ini.session.trans-sid-hosts">session.trans_sid_hosts</link>
-    instead of <link linkend="ini.url-rewriter.hosts">url_rewriter.hosts</link>.
+    instead of
+    <link linkend="ini.url-rewriter.hosts">url_rewriter.hosts</link>.
+    The <literal>form</literal> tag already used
+    <link linkend="ini.url-rewriter.hosts">url_rewriter.hosts</link>.
    </simpara>
   </warning>
  </refsect1>
@@ -97,13 +101,22 @@
       </row>
      </thead>
      <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       <link linkend="ini.url-rewriter.hosts">url_rewriter.hosts</link> is now
+       used instead of
+       <link linkend="ini.session.trans-sid-hosts">session.trans_sid_hosts</link>
+       to select the hosts whose URLs in tag attributes are rewritten.
+      </entry>
+     </row>
       <row>
        <entry>7.1.0</entry>
        <entry>
         As of PHP 7.1.0, a dedicated output buffer is used,
         <link linkend="ini.url-rewriter.tags">url_rewriter.tags</link>
         is used solely for output functions and
-        <link linkend="ini.url-rewriter.tags">url_rewriter.hosts</link> is available.
+        <link linkend="ini.url-rewriter.hosts">url_rewriter.hosts</link> is available.
         Prior to PHP 7.1.0, rewrite variables set by <function>output_add_rewrite_var</function>
         shared an output buffer with transparent session id support
         (see <link linkend="ini.session.trans-sid-tags">session.trans_sid_tags</link>).
