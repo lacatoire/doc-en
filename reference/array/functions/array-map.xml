@@ -14,7 +14,7 @@
    <methodparam><type>array</type><parameter>array</parameter></methodparam>
    <methodparam rep="repeat"><type>array</type><parameter>arrays</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>array_map</function> returns an &array; containing
    the results of applying the <parameter>callback</parameter>
    to the corresponding value of <parameter>array</parameter>
@@ -26,10 +26,10 @@
    <function>array_map</function>; the extra arguments are simply ignored
    by <parameter>callback</parameter>, and the extra arrays still
    contribute to the length of the result. An
-   <classname>ArgumentCountError</classname> is thrown if
+   <exceptionname>ArgumentCountError</exceptionname> is thrown if
    <parameter>callback</parameter> requires more arguments than the number
    of arrays passed.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -42,7 +42,7 @@
       <para>
        A <type>callable</type> to run for each element in each array.
       </para>
-      <para>
+      <simpara>
        &null; can be passed as a value to <parameter>callback</parameter>
        to perform a zip operation on multiple arrays and return an array
        where each element is an array containing the elements from the input arrays at the
@@ -50,7 +50,7 @@
        element regardless of the internal array pointer (see example below).
        If only <parameter>array</parameter> is provided,
        <methodname>array_map</methodname> will return the input array.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
