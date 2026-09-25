@@ -35,19 +35,19 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the entry found for <parameter>message</parameter> in the
    translation table for the current domain, or
    <parameter>message</parameter> itself if the table contains no entry
    for it.
-  </para>
+  </simpara>
   <note>
-   <para>
+   <simpara>
     The empty string is reserved for the catalog's own metadata (headers
     such as the content type and the plural forms), so passing an empty
     <parameter>message</parameter> returns that metadata rather than a
     translated string.
-   </para>
+   </simpara>
   </note>
  </refsect1>
 
