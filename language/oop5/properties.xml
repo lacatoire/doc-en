@@ -251,7 +251,7 @@ class Test1 {
 $test1 = new Test1;
 // Illegal initialization outside of private scope.
 $test1->prop = "foobar";
-// Error: Cannot initialize readonly property Test1::$prop from global scope
+// Error: Cannot modify protected(set) readonly property Test1::$prop from global scope
 ?>
 ]]>
      </programlisting>
@@ -398,6 +398,15 @@ var_dump($test2->prop); // NULL
      allowed. This was already forbidden during readonly initialization.
     </simpara>
    </note>
+  </sect2>
+
+  <sect2 xml:id="language.oop5.properties.hooks">
+   <title>Property hooks</title>
+   <simpara>
+    As of PHP 8.4.0, a property may declare
+    <link linkend="language.oop5.property-hooks">hooks</link> that run when it
+    is read or written.
+   </simpara>
   </sect2>
 
   <sect2 xml:id="language.oop5.properties.dynamic-properties">
