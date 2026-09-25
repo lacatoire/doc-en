@@ -2,6 +2,32 @@
 <!-- $Revision$ -->
 <section xml:id="odbc.installation" xmlns="http://docbook.org/ns/docbook">
  &reftitle.install;
+
+ <note>
+  <para>
+   As of PHP 8.5.0, the following changes apply to the ODBC extension build
+   configuration:
+   <itemizedlist>
+    <listitem>
+     <simpara>
+      Build flags to target specific drivers (except IBM DB2) have been
+      removed. It is strongly recommended to use a driver manager such as
+      <link xlink:href="&url.iodbc;">iODBC</link> or
+      <link xlink:href="&url.unixodbc;">unixODBC</link> on non-Windows
+      platforms.
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      The extension now assumes that at least ODBC 3.5 functionality is
+      available. The <literal>ODBCVER</literal> definition and the build
+      system flags to control it have been removed.
+     </simpara>
+    </listitem>
+   </itemizedlist>
+  </para>
+ </note>
+
  <para>
   <variablelist>
    <varlistentry xml:id="install.configure.with-adabas">
