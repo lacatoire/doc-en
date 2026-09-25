@@ -12,7 +12,7 @@
    <type class="union"><type>string</type><type>false</type></type><methodname>apache_get_version</methodname>
    <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    Fetch the server identification string sent in the
    <literal>Server</literal> response header, the same string
    available in
@@ -21,7 +21,7 @@
    <literal>ServerTokens</literal> directive and may or may not
    include the Apache version, or PHP's own version if
    <link linkend="ini.expose-php">expose_php</link> is enabled.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -31,11 +31,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the server identification string on success
    &return.falseforfailure;. The version, if present at all, may be
    truncated by <literal>ServerTokens</literal>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
