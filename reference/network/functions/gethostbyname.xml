@@ -26,9 +26,9 @@
    <varlistentry>
     <term><parameter>hostname</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The host name.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
