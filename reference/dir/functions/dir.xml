@@ -48,6 +48,16 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &fs.emits.warning.on.failure;
+  <simpara>
+   This may happen if <parameter>directory</parameter> is not a valid directory,
+   the directory can not be opened due to permission restrictions,
+   or due to filesystem errors.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
