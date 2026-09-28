@@ -77,20 +77,27 @@ a
     <programlisting role="php">
 <![CDATA[
 <?php
-// The output below assumes a 32-bit platform.
-// Note that the output is the same for all values.
 echo dechex(-1)."\n";
-echo dechex(PHP_INT_MAX * 2 + 1)."\n";
-echo dechex(pow(2, 32) - 1)."\n";
+echo dechex(PHP_INT_MAX)."\n";
 ?>
 ]]>
     </programlisting>
-    &example.outputs;
+    <simpara>
+     On a 32-bit platform:
+    </simpara>
     <screen>
 <![CDATA[
 ffffffff
-ffffffff
-ffffffff
+7fffffff
+]]>
+    </screen>
+    <simpara>
+     On a 64-bit platform:
+    </simpara>
+    <screen>
+<![CDATA[
+ffffffffffffffff
+7fffffffffffffff
 ]]>
     </screen>
    </example>
