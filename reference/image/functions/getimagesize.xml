@@ -130,8 +130,8 @@
    the type of the image.
   </para>
   <para>
-   Index 3 is a text string with the correct 
-   <literal>height="yyy" width="xxx"</literal> string that can be used
+   Index 3 is a text string with the correct
+   <literal>width="xxx" height="yyy"</literal> string that can be used
    directly in an <acronym>IMG</acronym> tag.
   </para>
   <para>
