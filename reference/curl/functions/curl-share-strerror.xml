@@ -23,9 +23,10 @@
    <varlistentry>
     <term><parameter>error_code</parameter></term>
     <listitem>
-     <para>
-      One of the <link xlink:href="&url.curl.error;">cURL error codes</link> constants.
-     </para>
+     <simpara>
+      One of the <constant>CURLSHE_<replaceable>*</replaceable></constant> error codes.
+      PHP does not expose these as constants, so this must be passed as a plain integer.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -33,9 +34,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns error description or &null; for invalid error code.
-  </para>
+  <simpara>
+   Returns a text error message describing the given error code. Although the return type is
+   nullable, this function never actually returns &null;: an unrecognized error code still
+   returns a generic message.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
