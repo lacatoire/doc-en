@@ -13,12 +13,35 @@
    <methodparam><type>CurlHandle</type><parameter>handle</parameter></methodparam>
    <methodparam><type>int</type><parameter>flags</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   Pause or unpause a cURL session. A session can be paused while a transfer is in progress,
-   in either the read, write or both directions, by calling this function from a callback
-   registered with <function>curl_setopt</function>.
-  </para>
-
+  <simpara>
+   Pause or unpause a cURL session, in either the read, write or both directions. This
+   function itself has no special requirement to be called from any particular context: it
+   works the same whether called from inside a transfer callback or from ordinary script
+   code between two <function>curl_multi_exec</function> calls. What does require a
+   callback is <emphasis>triggering</emphasis> the pause in the first place, by returning
+   <constant>CURL_WRITEFUNC_PAUSE</constant> or <constant>CURL_READFUNC_PAUSE</constant>
+   from a <constant>CURLOPT_WRITEFUNCTION</constant> or <constant>CURLOPT_READFUNCTION</constant>
+   callback registered with <function>curl_setopt</function>.
+  </simpara>
+  <warning>
+   <simpara>
+    If a transfer is paused this way during a plain <function>curl_exec</function> call
+    (as opposed to the multi API), nothing but the paused callback itself could ever call
+    <function>curl_pause</function> with <constant>CURLPAUSE_CONT</constant> to resume it,
+    and it will not run again while paused. Unless another mechanism intervenes, such as
+    <constant>CURLOPT_TIMEOUT</constant> or a <constant>CURLOPT_XFERINFOFUNCTION</constant>
+    callback that itself calls <function>curl_pause</function>, <function>curl_exec</function>
+    never returns.
+   </simpara>
+  </warning>
+  <simpara>
+   The pause state is not cleared by <function>curl_multi_remove_handle</function> or by
+   starting a new transfer on the handle: a handle paused with
+   <constant>CURLPAUSE_RECV</constant>, then removed and re-run directly with
+   <function>curl_exec</function>, opens a new connection but never returns, since the pause
+   is still in effect. Only an explicit <function>curl_pause</function> call with
+   <constant>CURLPAUSE_CONT</constant>, or <function>curl_reset</function>, lifts it.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -58,6 +81,15 @@
     </tbody>
    </tgroup>
   </informaltable>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>curl_setopt</function></member>
+   <member><function>curl_exec</function></member>
+   <member><function>curl_multi_exec</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
