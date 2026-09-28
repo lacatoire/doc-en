@@ -72,6 +72,8 @@ curl_share_setopt($sh, CURLSHOPT_SHARE, CURL_LOCK_DATA_COOKIE);
 // Initialize the first cURL handle and assign the share handle to it
 $ch1 = curl_init("http://example.com/");
 curl_setopt($ch1, CURLOPT_SHARE, $sh);
+// Activate the cookie engine, required for CURLOPT_SHARE cookie sharing to take effect
+curl_setopt($ch1, CURLOPT_COOKIEFILE, '');
 
 // Execute the first cURL handle
 curl_exec($ch1);
@@ -79,6 +81,7 @@ curl_exec($ch1);
 // Initialize the second cURL handle and assign the share handle to it
 $ch2 = curl_init("http://php.net/");
 curl_setopt($ch2, CURLOPT_SHARE, $sh);
+curl_setopt($ch2, CURLOPT_COOKIEFILE, '');
 
 // Execute the second cURL handle
 //  all cookies from $ch1 handle are shared with $ch2 handle
