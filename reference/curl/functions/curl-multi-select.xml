@@ -19,7 +19,13 @@
    <function>curl_multi_exec</function> or until the timeout strikes
    (whichever comes first).
   </para>
-
+  <simpara>
+   This function can also return well before <parameter>timeout</parameter> elapses without
+   any handle having made progress: an empty multi handle, or one where libcurl currently
+   has no file descriptor to offer (for example, while a threaded-resolver DNS lookup is in
+   progress), makes it return immediately. A loop that follows the canonical polling pattern
+   without accounting for this can busy-loop during such a gap.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -41,13 +47,17 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    On success, returns the number of active descriptors contained in
    the descriptor sets. This may be <literal>0</literal> if there was no activity on any
    of the descriptors. On failure, this function will
    return <literal>-1</literal> on a select failure (from the
-   underlying <literal>select()</literal> system call).
-  </para>
+   underlying <literal>select()</literal> system call). It is also returned when this
+   function is called reentrantly, from inside a callback of one of the multi handle's own
+   easy handles while a transfer is active; <function>curl_multi_errno</function> then
+   reports <constant>CURLM_RECURSIVE_API_CALL</constant> rather than an actual select
+   failure.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -76,6 +86,15 @@
        is less than <literal>0</literal> or greater than <constant>PHP_INT_MAX</constant>.
       </entry>
      </row>
+     <row>
+      <entry>8.3.12</entry>
+      <entry>
+       Now emits an <constant>E_WARNING</constant> and returns <literal>-1</literal> if
+       <parameter>timeout</parameter> is less than <literal>0</literal> or greater than
+       the underlying platform's signed <literal>int</literal> range; replaced by the
+       <exceptionname>ValueError</exceptionname> above as of PHP 8.4.0.
+      </entry>
+     </row>
      &curl.changelog.multi-handle-param;
     </tbody>
    </tgroup>
@@ -87,6 +106,8 @@
   <para>
    <simplelist>
     <member><function>curl_multi_init</function></member>
+    <member><function>curl_multi_exec</function></member>
+    <member><function>curl_multi_errno</function></member>
    </simplelist>
   </para>
  </refsect1>
