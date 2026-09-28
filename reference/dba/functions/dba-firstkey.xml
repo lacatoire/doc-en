@@ -35,6 +35,46 @@
   <simpara>
    Returns the key on success&return.falseforfailure;.
   </simpara>
+  <simpara>
+   The key is returned as a raw string. When working with
+   <literal>inifile</literal> databases this string has the form
+   <literal>"[group]value_name"</literal>, or simply
+   <literal>"value_name"</literal> when there is no group;
+   <function>dba_key_split</function> converts it back into a
+   <literal>[group, value_name]</literal> array.
+  </simpara>
+  <note>
+   <simpara>
+    On <literal>inifile</literal> databases, iterating over a non-empty
+    group also returns the group header itself (for example
+    <literal>"[group]"</literal>) as a key in its own right, in addition
+    to the keys it contains. <function>dba_key_split</function> turns
+    such a key into <literal>[group, ""]</literal>, with an empty value
+    name.
+   </simpara>
+  </note>
+  <note>
+   <simpara>
+    On <literal>inifile</literal> databases, writing to the database
+    (with <function>dba_insert</function>, <function>dba_replace</function>
+    or <function>dba_delete</function>) between calls to
+    <function>dba_firstkey</function> and <function>dba_nextkey</function>
+    silently ends the iteration, even when the write does not affect the
+    current key or group: the next call returns &false;, although the
+    data itself is not affected. The restitution order also follows the
+    physical order of the underlying file, not the logical insertion
+    order: replacing or re-inserting an existing key moves it to the end
+    of the iteration.
+   </simpara>
+  </note>
+  <note>
+   <simpara>
+    On a <literal>cdb</literal> database opened for writing (handler
+    <literal>cdb_make</literal>), <function>dba_firstkey</function>
+    always returns &false;, since such a database cannot be read until
+    it has been closed and reopened for reading.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="changelog">
