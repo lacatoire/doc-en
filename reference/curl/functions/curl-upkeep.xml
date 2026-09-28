@@ -19,11 +19,14 @@
    These mechanisms usually send some traffic on existing connections in order to keep them alive;
    this can prevent connections from being closed due to overzealous firewalls, for example.
   </para>
-  <para>
+  <simpara>
    Connection upkeep is currently available only for HTTP/2 connections.
    A small amount of traffic is usually sent to keep a connection alive.
-   HTTP/2 maintains its connection by sending a HTTP/2 PING frame.
-  </para>
+   HTTP/2 maintains its connection by sending an HTTP/2 PING frame. This function returns
+   &true; regardless of whether any traffic was actually sent: a handle that never
+   connected, uses a plain HTTP/1.1 connection, or has not yet reached its configured
+   <constant>CURLOPT_UPKEEP_INTERVAL_MS</constant> all silently no-op the same way.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -42,11 +45,18 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Returns &false; if called from a <constant>CURLOPT_<replaceable>*</replaceable>FUNCTION</constant>
+   callback of the same handle while a transfer is in progress.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>curl_upkeep</function> example</title>
+  <example>
+   <title><function>curl_upkeep</function> example</title>
     <programlisting role="php">
 <![CDATA[
 <?php
@@ -59,23 +69,21 @@ curl_setopt($ch, CURLOPT_HTTP_VERSION,CURL_HTTP_VERSION_2_0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_UPKEEP_INTERVAL_MS, 200);
 if (curl_exec($ch)) {
-    usleep(300);
+    usleep(300000);
     var_dump(curl_upkeep($ch));
 }
 ?>
 ]]>
     </programlisting>
-   </example>
-  </para>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>curl_init</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>curl_init</function></member>
+   <member><function>curl_setopt</function></member>
+  </simplelist>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
