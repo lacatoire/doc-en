@@ -962,6 +962,9 @@ purposes.</simpara></warning>'>
 
 <!-- dba notes -->
 <!ENTITY dba.parameter.dba 'A <classname xmlns="http://docbook.org/ns/docbook">Dba\Connection</classname> instance, returned by <function xmlns="http://docbook.org/ns/docbook">dba_open</function> or <function xmlns="http://docbook.org/ns/docbook">dba_popen</function>.'>
+<!ENTITY dba.errors.readonly-connection '<simpara xmlns="http://docbook.org/ns/docbook">
+Emits an <constant>E_WARNING</constant> and returns &false; if <parameter>dba</parameter>
+was not opened in a mode that allows writing.</simpara>'>
 <!ENTITY dba.changelog.dba-object '<row xmlns="http://docbook.org/ns/docbook">
  <entry>8.4.0</entry>
  <entry>
