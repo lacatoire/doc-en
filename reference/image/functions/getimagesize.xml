@@ -129,11 +129,11 @@
    Index 2 is one of the <constant>IMAGETYPE_<replaceable>*</replaceable></constant> constants indicating
    the type of the image.
   </para>
-  <para>
+  <simpara>
    Index 3 is a text string with the correct
    <literal>width="xxx" height="yyy"</literal> string that can be used
    directly in an <acronym>IMG</acronym> tag.
-  </para>
+  </simpara>
   <para>
    <literal>mime</literal> is the corresponding MIME type of the image.
    This information can be used to deliver images with the correct HTTP 
