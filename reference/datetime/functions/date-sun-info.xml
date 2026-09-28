@@ -17,34 +17,45 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>timestamp</parameter></term>
-     <listitem>
-      <para>
-       Unix timestamp.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>latitude</parameter></term>
-     <listitem>
-      <para>
-       Latitude in degrees.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>longitude</parameter></term>
-     <listitem>
-      <para>
-       Longitude in degrees.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>timestamp</parameter></term>
+    <listitem>
+     <simpara>
+      Unix timestamp.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>latitude</parameter></term>
+    <listitem>
+     <simpara>
+      Latitude in degrees, between <literal>-90</literal> and <literal>90</literal>.
+      Values outside that range are not rejected, but produce silently incorrect
+      results.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>longitude</parameter></term>
+    <listitem>
+     <simpara>
+      Longitude in degrees, between <literal>-180</literal> and <literal>180</literal>.
+      Values outside that range are not rejected, but produce silently incorrect
+      results.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>latitude</parameter>
+   or <parameter>longitude</parameter> is not a finite number (<literal>NAN</literal>
+   or <literal>INF</literal>).
+  </simpara>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -52,8 +63,7 @@
   <para>
    Returns an array whose structure is detailed in the following list:
   </para>
-  <para>
-   <variablelist>
+  <variablelist>
     <varlistentry>
      <term><literal>sunrise</literal></term>
      <listitem>
@@ -131,15 +141,14 @@
        The end of the astronomical dusk (zenith angle = 108°). It starts at
        <literal>nautical_twilight_end</literal>.
       </simpara>
-     </listitem> 
+     </listitem>
     </varlistentry>
    </variablelist>
-  </para>
-  <para> 
+  <simpara>
    The values of the array elements are either UNIX timestamps, &false; if the
    sun is below the respective zenith for the whole day, or &true; if the sun is
    above the respective zenith for the whole day.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -169,8 +178,7 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
+  <example>
     <title>A <function>date_sun_info</function> example</title>
     <programlisting role="php">
 <![CDATA[
@@ -196,11 +204,9 @@ astronomical_twilight_begin: 05:02:31
 astronomical_twilight_end: 18:02:51
 ]]>
     </screen>
-   </example>
-  </para>
+  </example>
 
-  <para>
-   <example>
+  <example>
     <title>Polar night, with some processing</title>
     <programlisting role="php">
 <![CDATA[
@@ -234,11 +240,9 @@ never: sunset
 18:03:49 AKST: astronomical_twilight_end
 ]]>
     </screen>
-   </example>
-  </para>
+  </example>
 
-  <para>
-   <example>
+  <example>
     <title>Midnight sun (Tromsø, Norway)</title>
     <programlisting role="php">
 <![CDATA[
@@ -264,11 +268,9 @@ Array
 )
 ]]>
     </screen>
-   </example>
-  </para>
+  </example>
 
-  <para>
-   <example>
+  <example>
     <title>Calculating length of day (Kyiv)</title>
     <programlisting role="php">
 <![CDATA[
@@ -286,8 +288,15 @@ echo "Length of day: ",
 Length of day: 13h 53m
 ]]>
     </screen>
-   </example>
-  </para>
+  </example>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>date_sunrise</function></member>
+   <member><function>date_sunset</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
