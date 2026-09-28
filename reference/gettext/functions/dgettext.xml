@@ -21,26 +21,24 @@
  
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>domain</parameter></term>
-     <listitem>
-      <para>
-       The domain
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>message</parameter></term>
-     <listitem>
-      <para>
-       The message
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>domain</parameter></term>
+    <listitem>
+     <simpara>
+      The domain
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>message</parameter></term>
+    <listitem>
+     <simpara>
+      The message
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
  
  <refsect1 role="returnvalues">
@@ -55,6 +53,14 @@
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>domain</parameter>
    is the empty <type>string</type>.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>domain</parameter>
+   is longer than 1024 bytes.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>message</parameter>
+   is longer than 4096 bytes.
   </simpara>
  </refsect1>
 
@@ -83,11 +89,9 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>gettext</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>gettext</function></member>
+  </simplelist>
  </refsect1>
 </refentry>
 
