@@ -26,9 +26,15 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Return an integer containing the last multi curl error number.
-  </para>
+  <simpara>
+   Returns the multi stack's last error number, or <literal>0</literal> (zero) if no error
+   occurred. This only reflects the outcome of the multi-stack functions themselves
+   (<function>curl_multi_add_handle</function>, <function>curl_multi_remove_handle</function>,
+   <function>curl_multi_exec</function>, <function>curl_multi_setopt</function>,
+   <function>curl_multi_select</function>); it says nothing about the outcome of an individual
+   transfer, which is retrieved with <function>curl_errno</function> on the easy handle
+   returned by <function>curl_multi_info_read</function>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -58,6 +64,8 @@
   &reftitle.seealso;
   <simplelist>
    <member><function>curl_errno</function></member>
+   <member><function>curl_multi_strerror</function></member>
+   <member><function>curl_multi_info_read</function></member>
   </simplelist>
  </refsect1>
 
