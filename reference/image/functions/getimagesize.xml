@@ -94,6 +94,13 @@
         <acronym>JFIF</acronym> files.
        </para>
       </note>
+      <note>
+       <simpara>
+        As soon as <parameter>image_info</parameter> is passed, it is reset
+        to an empty <type>array</type>, discarding any existing value, even
+        if the function call ultimately fails.
+       </simpara>
+      </note>
      </listitem>
     </varlistentry>
    </variablelist>
