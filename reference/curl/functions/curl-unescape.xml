@@ -3,7 +3,7 @@
 <refentry xml:id="function.curl-unescape" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>curl_unescape</refname>
-  <refpurpose>Decodes the given URL encoded string</refpurpose>
+  <refpurpose>Decodes the given URL-encoded string</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -13,9 +13,9 @@
    <methodparam><type>CurlHandle</type><parameter>handle</parameter></methodparam>
    <methodparam><type>string</type><parameter>string</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   This function decodes the given URL encoded string.
-  </para>
+  <simpara>
+   This function decodes the given URL-encoded string.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -25,9 +25,9 @@
    <varlistentry>
     <term><parameter>string</parameter></term>
     <listitem>
-     <para>
-      The URL encoded string to be decoded.
-     </para>
+     <simpara>
+      The URL-encoded string to be decoded.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -59,9 +59,8 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>curl_escape</function> example</title>
+  <example>
+   <title><function>curl_unescape</function> example</title>
     <programlisting role="php">
 <![CDATA[
 <?php
@@ -82,30 +81,27 @@ $effective_url_decoded = curl_unescape($ch, $effective_url);
 ?>
 ]]>
     </programlisting>
-   </example>
-  </para>
+  </example>
  </refsect1>
 
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
+   <simpara>
     <function>curl_unescape</function> does not decode plus symbols (+) into spaces. <function>urldecode</function> does.
-   </para>
+   </simpara>
   </note>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>curl_escape</function></member>
-    <member><function>urlencode</function></member>
-    <member><function>urldecode</function></member>
-    <member><function>rawurlencode</function></member>
-    <member><function>rawurldecode</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>curl_escape</function></member>
+   <member><function>urlencode</function></member>
+   <member><function>urldecode</function></member>
+   <member><function>rawurlencode</function></member>
+   <member><function>rawurldecode</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>

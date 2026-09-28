@@ -60,9 +60,8 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>curl_escape</function> example</title>
+  <example>
+   <title><function>curl_escape</function> example</title>
     <programlisting role="php">
 <![CDATA[
 <?php
@@ -86,20 +85,17 @@ curl_exec($ch);
 ?>
 ]]>
     </programlisting>
-   </example>
-  </para>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>curl_unescape</function></member>
-    <member><function>urlencode</function></member>
-    <member><function>rawurlencode</function></member>
-    <member><link xlink:href="&url.rfc;3986">RFC 3986</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>curl_unescape</function></member>
+   <member><function>urlencode</function></member>
+   <member><function>rawurlencode</function></member>
+   <member><link xlink:href="&url.rfc;3986">RFC 3986</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
