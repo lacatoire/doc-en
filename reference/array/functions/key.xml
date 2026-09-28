@@ -41,6 +41,35 @@
    internal pointer points beyond the end of the elements list or the array is 
    empty, <function>key</function> returns &null;.
   </para>
+  <note>
+   <simpara>
+    As an exception to the above, if <parameter>array</parameter> is an
+    &object; (calling <function>key</function> on an &object; is
+    deprecated as of PHP 8.1.0) and its internal pointer currently
+    references a declared, typed property that has not been
+    initialized, <function>key</function> silently moves the
+    pointer forward, skipping uninitialized properties, until it finds
+    an initialized one (or reaches the end of the property list). This
+    movement is <emphasis>not</emphasis> undone before the function
+    returns, contradicting the statement above that
+    <function>key</function> never moves the pointer.
+   </simpara>
+   <programlisting role="php">
+<![CDATA[
+<?php
+class C {
+    public string $a; // uninitialized
+    public int $b = 2;
+    public int $c = 3;
+}
+$o = new C();
+var_dump(@key($o));  // string(1) "b", silently skips over $a
+var_dump(@next($o));
+var_dump(@key($o));  // string(1) "c", confirms the pointer was already left on $b
+?>
+]]>
+   </programlisting>
+  </note>
  </refsect1>
 
  <refsect1 role="changelog">
