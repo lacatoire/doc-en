@@ -179,6 +179,13 @@
        <entry>
         If inside a function, this lists the functions arguments. If
         inside an included file, this lists the included file name(s). Unless <constant>DEBUG_BACKTRACE_IGNORE_ARGS</constant> is given.
+        <para>
+         Any argument declared with the
+         <link linkend="class.sensitiveparameter"><classname>SensitiveParameter</classname></link>
+         attribute is replaced by a
+         <link linkend="class.sensitiveparametervalue"><classname>SensitiveParameterValue</classname></link>
+         object instead of its real value.
+        </para>
        </entry>
       </row>
      </tbody>
@@ -187,11 +194,35 @@
   </para>
  </refsect1>
 
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Arguments captured in the <literal>"args"</literal> index are now
+       always copied by value, even when the corresponding parameter is
+       passed by reference. Previously, by-reference arguments were
+       exposed as live references.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>debug_backtrace</function> example</title>
+  <example>
+   <title><function>debug_backtrace</function> example</title>
     <programlisting role="php">
 <![CDATA[
 <?php
@@ -227,7 +258,7 @@ array(4) {
     ["function"] => string(6) "a_test"
     ["args"]=>
     array(1) {
-      [0] => &string(6) "friend"
+      [0] => string(6) "friend"
     }
 }
 [1]=>
@@ -243,18 +274,16 @@ array(4) {
 }
 ]]>
     </screen>
-   </example>
-  </para>
+  </example>
  </refsect1>
- 
+
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>trigger_error</function></member>
-    <member><function>debug_print_backtrace</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>trigger_error</function></member>
+   <member><function>debug_print_backtrace</function></member>
+   <member><classname>SensitiveParameterValue</classname></member>
+  </simplelist>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
