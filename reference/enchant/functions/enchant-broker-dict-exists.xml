@@ -24,7 +24,7 @@
     <term><parameter>tag</parameter></term>
     <listitem>
      <simpara>
-      non-empty tag in the LOCALE format, ex: us_US, ch_DE, etc.
+      non-empty tag in the LOCALE format, ex: en_US, de_DE, etc.
      </simpara>
     </listitem>
    </varlistentry>
@@ -35,6 +35,18 @@
   &reftitle.returnvalues;
   <simpara>
    Returns &true; when the tag exist or &false; when not.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>broker</parameter>
+   is invalid or has already been closed.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>tag</parameter>
+   is the empty string.
   </simpara>
  </refsect1>
 
@@ -78,6 +90,8 @@ if (enchant_broker_dict_exists($r,$tag)) {
   &reftitle.seealso;
   <simplelist>
    <member><function>enchant_broker_describe</function></member>
+   <member><function>enchant_broker_init</function></member>
+   <member><function>enchant_broker_request_dict</function></member>
   </simplelist>
  </refsect1>
 </refentry>
