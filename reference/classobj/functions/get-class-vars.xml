@@ -32,13 +32,19 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns an associative array of declared properties visible from the
    current scope, with their default value.
-   The resulting array elements are in the form of 
+   The resulting array elements are in the form of
    <literal>varname =&gt; value</literal>.
-   In case of an error, it returns &false;.
-  </para>
+  </simpara>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>class</parameter> is
+   not the name of an existing class.
+  </simpara>
  </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
@@ -139,6 +145,7 @@ a
   &reftitle.seealso;
   <para>
    <simplelist>
+    <member><function>get_class</function></member>
     <member><function>get_class_methods</function></member>
     <member><function>get_object_vars</function></member>
    </simplelist>
