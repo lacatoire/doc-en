@@ -23,10 +23,16 @@
    <methodparam><type>DateInterval</type><parameter>interval</parameter></methodparam>
   </methodsynopsis>
 
-  <para>
+  <simpara>
    Adds the specified <classname>DateInterval</classname> object to the
    specified <classname>DateTime</classname> object.
-  </para>
+  </simpara>
+  <simpara>
+   A <classname>DateInterval</classname> built from an ISO 8601 duration string uses
+   "wall-clock" arithmetic, while one obtained from <methodname>DateTime::diff</methodname>
+   uses "civil" arithmetic: for the same nominal duration, the two can produce a result an
+   hour apart once the addition crosses a DST fall-back transition.
+  </simpara>
   <para>
    Like <methodname>DateTimeImmutable::add</methodname> but works with
    <classname>DateTime</classname>.
@@ -61,10 +67,18 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &date.errors.objectuninitialized;
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
    <member><function>DateTimeImmutable::add</function></member>
+   <member><function>DateTime::sub</function></member>
+   <member><function>DateTime::diff</function></member>
+   <member><link linkend="datetime.examples-arithmetic">Date/Time Arithmetic</link></member>
   </simplelist>
  </refsect1>
 
