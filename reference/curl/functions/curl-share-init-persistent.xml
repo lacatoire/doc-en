@@ -18,6 +18,10 @@
    PHP request. If a persistent share handle with the same set of
    <parameter>share_options</parameter> is found, it will be reused.
   </simpara>
+  <simpara>
+   The persistent handle cache is per-process (per-thread on a threaded SAPI), not shared
+   across the workers of a pool such as PHP-FPM, nor across separate servers.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -64,7 +68,7 @@
     <simpara>
      If <parameter>share_options</parameter> contains a value not matching
      a <constant>CURL_LOCK_DATA_<replaceable>*</replaceable></constant>,
-     this function throws a <classname>ValueError</classname>.
+     this function throws a <exceptionname>ValueError</exceptionname>.
     </simpara>
    </listitem>
    <listitem>
@@ -76,8 +80,20 @@
    </listitem>
    <listitem>
     <simpara>
-     If <parameter>share_options</parameter> contains a non-integer value,
-     this function throws a <exceptionname>TypeError</exceptionname>.
+     If <parameter>share_options</parameter> contains an <type>array</type>,
+     <type>object</type>, or a non-numeric <type>string</type>, this function throws a
+     <exceptionname>TypeError</exceptionname>. A <type>bool</type>, <type>null</type> or
+     numeric value is coerced instead, and falls into one of the
+     <exceptionname>ValueError</exceptionname> cases above unless it happens to match a
+     valid constant.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     If constructing the underlying share handle fails, for example because a
+     <constant>CURL_LOCK_DATA_<replaceable>*</replaceable></constant> option is not
+     supported by the libcurl build in use, this function throws a generic
+     <exceptionname>Exception</exceptionname>.
     </simpara>
    </listitem>
   </itemizedlist>
