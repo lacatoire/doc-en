@@ -40,11 +40,13 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns &true; if all options were successfully set. If an option could
    not be successfully set, &false; is immediately returned, ignoring any
-   future options in the <parameter>options</parameter> array.
-  </para>
+   future options in the <parameter>options</parameter> array. Options already applied
+   before the failing one are not rolled back: they are written to the handle immediately
+   as the array is walked, and remain in effect for any subsequent transfer on that handle.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -96,13 +98,13 @@ curl_exec($ch);
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
-    As with <function>curl_setopt</function>, passing an array to 
-    <constant>CURLOPT_POST</constant> will encode the data as 
-    <emphasis>multipart/form-data</emphasis>, while passing a 
-    URL-encoded string will encode the data as 
+   <simpara>
+    As with <function>curl_setopt</function>, passing an array to
+    <constant>CURLOPT_POSTFIELDS</constant> will encode the data as
+    <emphasis>multipart/form-data</emphasis>, while passing a
+    URL-encoded string will encode the data as
     <emphasis>application/x-www-form-urlencoded</emphasis>.
-   </para>
+   </simpara>
   </note>
  </refsect1>
 
