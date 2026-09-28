@@ -12,9 +12,24 @@
    <type>void</type><methodname>curl_reset</methodname>
    <methodparam><type>CurlHandle</type><parameter>handle</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   This function re-initializes all options set on the given cURL handle to the default values.
-  </para>
+  <simpara>
+   This function re-initializes all options set on the given cURL handle to the default
+   values, except for live connections, the session ID cache, the DNS cache, cookies, shares
+   and the alt-svc cache: a cookie acquired before calling this function, whether from
+   <constant>CURLOPT_COOKIEFILE</constant>, a <literal>Set-Cookie</literal> response header,
+   or a <classname>CurlShareHandle</classname> with <constant>CURL_LOCK_DATA_COOKIE</constant>,
+   is still sent afterwards, until an explicit
+   <constant>CURLOPT_COOKIELIST</constant> => <literal>"ALL"</literal> or the handle is
+   destroyed.
+  </simpara>
+  <simpara>
+   Calling this function on a handle that is still attached to a <classname>CurlMultiHandle</classname>
+   and being actively driven by <function>curl_multi_exec</function> silently abandons the
+   transfer: no exception or warning is raised at the point of the call, but the multi stack
+   later reports <constant>CURLE_GOT_NOTHING</constant> for that handle once read via
+   <function>curl_multi_info_read</function>. This differs from an ordinary
+   <function>curl_setopt</function> call made mid-transfer, which does not disrupt it.
+  </simpara>
 
  </refsect1>
 
@@ -90,6 +105,8 @@ curl_exec($ch); // the previously set user-agent will be not sent, it has been r
   <para>
    <simplelist>
     <member><function>curl_setopt</function></member>
+    <member><function>curl_multi_exec</function></member>
+    <member><function>curl_multi_info_read</function></member>
    </simplelist>
   </para>
  </refsect1>
