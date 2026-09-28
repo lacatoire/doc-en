@@ -28,11 +28,6 @@
       <para>
        The module name.
       </para>
-      <note>
-       <para>
-        This parameter must be in <emphasis>lowercase</emphasis>.
-       </para>
-      </note>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -98,7 +93,8 @@ Array
   <para>
    <simplelist>
     <member><function>get_loaded_extensions</function></member>
-    <member><methodname>ReflectionExtension::getFunctions</methodname></member>
+    <member><function>extension_loaded</function></member>
+    <member><classname>ReflectionExtension</classname></member>
    </simplelist>
   </para>
  </refsect1>
