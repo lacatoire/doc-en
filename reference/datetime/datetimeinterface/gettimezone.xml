@@ -49,6 +49,11 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &date.errors.objectuninitialized;
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
