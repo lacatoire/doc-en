@@ -33,29 +33,25 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>A simple <function>gethostname</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title>A simple <function>gethostname</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 echo gethostname(); // may output e.g,: sandie
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>gethostbyname</function></member>
-    <member><function>gethostbyaddr</function></member>
-    <member><function>php_uname</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>gethostbyname</function></member>
+   <member><function>gethostbyaddr</function></member>
+   <member><function>php_uname</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
