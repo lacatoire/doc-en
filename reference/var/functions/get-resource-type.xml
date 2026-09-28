@@ -47,10 +47,10 @@
  </refsect1>
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Throws a <classname>TypeError</classname> if <parameter>resource</parameter> is
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>resource</parameter> is
    not a <type>resource</type>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
