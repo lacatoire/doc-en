@@ -44,146 +44,269 @@
    <itemizedlist>
     <listitem>
      <simpara>
-      "url"
+      "url" (<type>string</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "content_type"
+      "content_type" (<type>string</type>|<type>null</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "http_code"
+      "http_code" (<type>int</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "header_size"
+      "header_size" (<type>int</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "request_size"
+      "request_size" (<type>int</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "filetime"
+      "filetime" (<type>int</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "ssl_verify_result"
+      "ssl_verify_result" (<type>int</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "redirect_count"
+      "redirect_count" (<type>int</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "total_time"
+      "total_time" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "namelookup_time"
+      "namelookup_time" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "connect_time"
+      "connect_time" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "pretransfer_time"
+      "pretransfer_time" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "size_upload"
+      "size_upload" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "size_download"
+      "size_download" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "speed_download"
+      "speed_download" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "speed_upload"
+      "speed_upload" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "download_content_length"
+      "download_content_length" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "upload_content_length"
+      "upload_content_length" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "starttransfer_time"
+      "starttransfer_time" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "redirect_time"
+      "redirect_time" (<type>float</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "certinfo"
+      "redirect_url" (<type>string</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "primary_ip"
+      "primary_ip" (<type>string</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "primary_port"
+      "certinfo" (<type>array</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "local_ip"
+      "primary_port" (<type>int</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "local_port"
+      "local_ip" (<type>string</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "redirect_url"
+      "local_port" (<type>int</type>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "request_header" (This is only set if the <constant>CURLINFO_HEADER_OUT</constant>
+      "http_version" (<type>int</type>), one of the <constant>CURL_HTTP_VERSION_<replaceable>*</replaceable></constant> constants.
+      Available as of PHP 7.3.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "protocol" (<type>int</type>), one of the <constant>CURLPROTO_<replaceable>*</replaceable></constant> constants.
+      Available as of PHP 7.3.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "ssl_verifyresult" (<type>int</type>), the result of the certificate verification that was requested (distinct from
+      "ssl_verify_result" above, which is the result of the proxy certificate verification).
+      Available as of PHP 7.3.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "scheme" (<type>string</type>).
+      Available as of PHP 7.3.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "appconnect_time_us" (<type>int</type>), the microsecond-resolution counterpart of "connect_time" for the
+      SSL/SSH connect/handshake.
+      Available as of PHP 7.3.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "queue_time_us" (<type>int</type>).
+      Available as of PHP 8.5.0 and cURL 8.6.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "connect_time_us" (<type>int</type>), the microsecond-resolution counterpart of "connect_time".
+      Available as of PHP 7.3.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "namelookup_time_us" (<type>int</type>), the microsecond-resolution counterpart of "namelookup_time".
+      Available as of PHP 7.3.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "pretransfer_time_us" (<type>int</type>), the microsecond-resolution counterpart of "pretransfer_time".
+      Available as of PHP 7.3.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "redirect_time_us" (<type>int</type>), the microsecond-resolution counterpart of "redirect_time".
+      Available as of PHP 7.3.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "starttransfer_time_us" (<type>int</type>), the microsecond-resolution counterpart of "starttransfer_time".
+      Available as of PHP 7.3.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "posttransfer_time_us" (<type>int</type>).
+      Available as of PHP 8.4.0 and cURL 8.10.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "total_time_us" (<type>int</type>), the microsecond-resolution counterpart of "total_time".
+      Available as of PHP 7.3.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "request_header" (<type>string</type>) (This is only set if the <constant>CURLINFO_HEADER_OUT</constant>
       is set by a previous call to <function>curl_setopt</function>)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      "posttransfer_time_us" (Available as of PHP 8.4.0 and cURL 8.10.0)
+      "effective_method" (<type>string</type>), the last used effective HTTP method.
+      Requires cURL 7.72.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "capath" (<type>string</type>), the built-in default CA path string.
+      Available as of PHP 8.3.0 and cURL 7.84.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "cainfo" (<type>string</type>), the built-in default CA certificate path.
+      Available as of PHP 8.3.0 and cURL 7.84.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "used_proxy" (<type>int</type>), whether a proxy was used for this transfer.
+      Available as of PHP 8.5.0 and cURL 8.7.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "httpauth_used" (<type>int</type>), the actually used HTTP authentication method, one of the
+      <constant>CURLAUTH_<replaceable>*</replaceable></constant> constants.
+      Available as of PHP 8.5.0 and cURL 8.12.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "proxyauth_used" (<type>int</type>), the actually used proxy authentication method, one of the
+      <constant>CURLAUTH_<replaceable>*</replaceable></constant> constants.
+      Available as of PHP 8.5.0 and cURL 8.12.0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "conn_id" (<type>int</type>), the ID of the last connection used by the transfer.
+      Available as of PHP 8.5.0 and cURL 8.2.0
      </simpara>
     </listitem>
    </itemizedlist>
+   The <literal>"content_type"</literal>, <literal>"scheme"</literal> and <literal>"redirect_url"</literal>
+   keys hold an empty string, rather than &false;, when the corresponding information is unavailable; this
+   differs from calling this function with the matching <parameter>option</parameter>, where the same
+   condition returns &false; (or &null; for <literal>"content_type"</literal>).
    Note that private data is not included in the associative array and must be retrieved individually with the <constant>CURLINFO_PRIVATE</constant> option.
   </para>
  </refsect1>
@@ -200,6 +323,14 @@
       </row>
      </thead>
      <tbody>
+      <row>
+       <entry>8.5.0</entry>
+       <entry>
+        Added the <literal>conn_id</literal>, <literal>httpauth_used</literal>,
+        <literal>proxyauth_used</literal>, <literal>queue_time_us</literal> and
+        <literal>used_proxy</literal> array keys.
+       </entry>
+      </row>
       <row>
        <entry>8.4.0</entry>
        <entry>
@@ -319,6 +450,15 @@ if (!curl_errno($ch)) {
     is returned.
    </para>
   </note>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>curl_setopt</function></member>
+   <member><function>curl_errno</function></member>
+   <member><function>curl_exec</function></member>
+  </simplelist>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
