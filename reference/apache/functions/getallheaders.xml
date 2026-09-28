@@ -16,12 +16,12 @@
   <para>
    Fetches all HTTP headers from the current request.
   </para>
-  <para>
+  <simpara>
    On most SAPIs (Apache 2 handler, CGI, FPM and the CLI built-in server),
    this function is an alias for <function>apache_request_headers</function>.
    Please read the <function>apache_request_headers</function>
    documentation for more information on how this function works.
-  </para>
+  </simpara>
   <note>
    <simpara>
     Under the LiteSpeed SAPI, <function>getallheaders</function> is not an
