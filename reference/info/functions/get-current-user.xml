@@ -31,24 +31,22 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>get_current_user</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>get_current_user</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 echo 'Current script owner: ' . get_current_user();
 ?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 Current script owner: SYSTEM
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
