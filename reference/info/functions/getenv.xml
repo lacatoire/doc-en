@@ -26,27 +26,25 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>name</parameter></term>
-     <listitem>
-      <para>
-       The variable name as a &string; or &null;.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>local_only</parameter></term>
-     <listitem>
-      <para>
-       When set to &true;, only local environment variables are returned, set by the operating system or putenv. It only has
-       an effect when <parameter>name</parameter> is a &string;.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>name</parameter></term>
+    <listitem>
+     <para>
+      The variable name as a &string; or &null;.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>local_only</parameter></term>
+    <listitem>
+     <para>
+      When set to &true;, only local environment variables are returned, set by the operating system or putenv. It only has
+      an effect when <parameter>name</parameter> is a &string;.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -97,10 +95,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>getenv</function> Example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>getenv</function> Example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 // Example use of getenv()
@@ -109,14 +106,13 @@ $ip = getenv('REMOTE_ADDR');
 // Or simply use a Superglobal ($_SERVER or $_ENV)
 $ip = $_SERVER['REMOTE_ADDR'];
 
-// Safely get the value of an environment variable, ignoring whether 
+// Safely get the value of an environment variable, ignoring whether
 // or not it was set by a SAPI or has been changed with putenv
 $ip = getenv('REMOTE_ADDR', true) ?: getenv('REMOTE_ADDR')
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="notes">
@@ -134,13 +130,11 @@ $ip = getenv('REMOTE_ADDR', true) ?: getenv('REMOTE_ADDR')
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>putenv</function></member>
-    <member><function>apache_getenv</function></member>
-    <member><link linkend="language.variables.superglobals">Superglobals</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>putenv</function></member>
+   <member><function>apache_getenv</function></member>
+   <member><link linkend="language.variables.superglobals">Superglobals</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
