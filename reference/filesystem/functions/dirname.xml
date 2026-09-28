@@ -103,6 +103,14 @@ dirname('C:\\'); // Will return 'C:\' on Windows and '.' on *nix systems.
   </caution>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>levels</parameter> is less than <literal>1</literal>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
