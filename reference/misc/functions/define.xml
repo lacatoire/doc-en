@@ -21,10 +21,9 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>constant_name</parameter></term>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>constant_name</parameter></term>
      <listitem>
       <para>
        The name of the constant.
@@ -90,14 +89,15 @@
        </simpara>
       </warning>
       <note>
-       <para>
-        Case-insensitive constants are stored as lower-case.
-       </para>
+       <simpara>
+        As of PHP 8.0.0, this parameter no longer has any effect: passing &true; only
+        emits the deprecation warning above, and the constant is still defined
+        case-sensitively.
+       </simpara>
       </note>
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -105,6 +105,14 @@
   <para>
    &return.success;
   </para>
+  <warning>
+   <simpara>
+    Calling <function>define</function> with a <parameter>constant_name</parameter> that
+    already names a defined constant emits an <constant>E_WARNING</constant>
+    ("Constant <replaceable>constant_name</replaceable> already defined, this will be an
+    error in PHP 9") and returns &false;; the constant keeps its original value.
+   </simpara>
+  </warning>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -145,21 +153,29 @@
  
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Defining Constants</title>
+  <example>
+   <title>Defining Constants</title>
     <programlisting role="php">
 <![CDATA[
 <?php
 define("CONSTANT", "Hello world.");
 echo CONSTANT; // outputs "Hello world."
-echo Constant; // outputs "Constant" and issues a notice.
+try {
+    echo Constant; // an undefined bareword constant throws
+} catch (\Error $e) {
+    echo $e->getMessage(); // Undefined constant "Constant"
+}
 
+// case_insensitive no longer has any effect as of PHP 8.0.0: this emits
+// an E_WARNING, and GREETING is still defined case-sensitively
 define("GREETING", "Hello you.", true);
 echo GREETING; // outputs "Hello you."
-echo Greeting; // outputs "Hello you."
+try {
+    echo Greeting;
+} catch (\Error $e) {
+    echo $e->getMessage(); // Undefined constant "Greeting"
+}
 
-// Works as of PHP 7
 define('ANIMALS', array(
     'dog',
     'cat',
@@ -170,11 +186,9 @@ echo ANIMALS[1]; // outputs "cat"
 ?>
 ]]>
     </programlisting>
-   </example>
-  </para>
-  <para>
-   <example>
-    <title>Constants with Reserved Names</title>
+  </example>
+  <example>
+   <title>Constants with Reserved Names</title>
     <para>
      This example illustrates the <emphasis>possibility</emphasis> to define a
      constant with the same name as a
@@ -201,19 +215,16 @@ string(4) "test"
 int(5)
 ]]>
    </screen>
-   </example>
-  </para>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>defined</function></member>
-    <member><function>constant</function></member>
-    <member>The section on <link linkend="language.constants">Constants</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>defined</function></member>
+   <member><function>constant</function></member>
+   <member>The section on <link linkend="language.constants">Constants</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
