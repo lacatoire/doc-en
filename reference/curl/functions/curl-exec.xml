@@ -32,13 +32,21 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   On success, this function flushes the result directly to the
-   <literal>stdout</literal> and returns &true;, &return.falseforfailure;.
-   However, if the <constant>CURLOPT_RETURNTRANSFER</constant>
-   option is <link linkend="function.curl-setopt">set</link>, it will return
-   the result on success, &false; on failure.
-  </para>
+  <simpara>
+   On success, this function returns &true; in every mode other than
+   <constant>CURLOPT_RETURNTRANSFER</constant>: by default the result is
+   flushed directly to the <literal>stdout</literal>, but the same &true;
+   is returned when the body is instead written to a
+   <constant>CURLOPT_FILE</constant> stream or handed to a
+   <constant>CURLOPT_WRITEFUNCTION</constant> callback.
+   <constant>CURLOPT_RETURNTRANSFER</constant>, <constant>CURLOPT_FILE</constant>
+   and <constant>CURLOPT_WRITEFUNCTION</constant> share a single destination,
+   so whichever of these three is <link linkend="function.curl-setopt">set</link>
+   last on the handle determines where the body goes; only when
+   <constant>CURLOPT_RETURNTRANSFER</constant> is the one in effect does
+   this function return the result as a string on success, including an
+   empty string for an empty body. In every mode, &return.falseforfailure;.
+  </simpara>
   &return.falseproblem;
   <note>
    <para>
