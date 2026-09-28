@@ -32,11 +32,11 @@
  </refsect1>
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Throws an <classname>Error</classname> if called dynamically, i.e. through a
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if called dynamically, i.e. through a
    variable holding its name, as it needs direct access to the calling
    scope's symbol table.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
