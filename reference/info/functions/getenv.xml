@@ -30,18 +30,18 @@
    <varlistentry>
     <term><parameter>name</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The variable name as a &string; or &null;.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>local_only</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       When set to &true;, only local environment variables are returned, set by the operating system or putenv. It only has
       an effect when <parameter>name</parameter> is a &string;.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
