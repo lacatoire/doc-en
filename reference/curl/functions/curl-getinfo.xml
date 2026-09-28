@@ -261,7 +261,7 @@
     <listitem>
      <simpara>
       "effective_method" (<type>string</type>), the last used effective HTTP method.
-      Requires cURL 7.72.0
+      Available as of PHP 8.2.0 and cURL 7.72.0
      </simpara>
     </listitem>
     <listitem>
@@ -349,7 +349,8 @@
        <entry>
         Introduced <constant>CURLINFO_PROXY_ERROR</constant>,
         <constant>CURLINFO_REFERER</constant>,
-        <constant>CURLINFO_RETRY_AFTER</constant>.
+        <constant>CURLINFO_RETRY_AFTER</constant>,
+        <constant>CURLINFO_EFFECTIVE_METHOD</constant> constant and <literal>effective_method</literal>.
        </entry>
       </row>
       &curl.changelog.handle-param;
