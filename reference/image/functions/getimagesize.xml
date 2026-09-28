@@ -63,41 +63,39 @@
  
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>filename</parameter></term>
-     <listitem>
-      <para>
-        This parameter specifies the file you wish to retrieve information
-        about. It can reference a local file or (configuration permitting) a
-        remote file using one of the <link linkend="wrappers">supported streams</link>.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>image_info</parameter></term>
-     <listitem>
-      <para>
-       This optional parameter allows you to extract some extended
-       information from the image file. Currently, this will return the
-       different <acronym>JPG</acronym> APP markers as an associative array.
-       Some programs use these APP markers to embed text information in 
-       images. A very common one is to embed 
-       <link xlink:href="&url.iptc;">IPTC</link> information in the APP13 marker.
-       You can use the <function>iptcparse</function> function to parse the
-       binary APP13 marker into something readable.
-      </para>
-      <note>
-       <para>
-        The <parameter>image_info</parameter> only supports
-        <acronym>JFIF</acronym> files.
-       </para>
-      </note>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>filename</parameter></term>
+    <listitem>
+     <simpara>
+       This parameter specifies the file you wish to retrieve information
+       about. It can reference a local file or (configuration permitting) a
+       remote file using one of the <link linkend="wrappers">supported streams</link>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>image_info</parameter></term>
+    <listitem>
+     <simpara>
+      This optional parameter allows you to extract some extended
+      information from the image file. Currently, this will return the
+      different <acronym>JPG</acronym> APP markers as an associative array.
+      Some programs use these APP markers to embed text information in
+      images. A very common one is to embed
+      <link xlink:href="&url.iptc;">IPTC</link> information in the APP13 marker.
+      You can use the <function>iptcparse</function> function to parse the
+      binary APP13 marker into something readable.
+     </simpara>
+     <note>
+      <simpara>
+       The <parameter>image_info</parameter> only supports
+       <acronym>JFIF</acronym> files.
+      </simpara>
+     </note>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
  
  <refsect1 role="returnvalues">
@@ -233,21 +231,20 @@ if ($size && $fp) {
  
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>getimagesize</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>getimagesize</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 list($width, $height, $type, $attr) = getimagesize("img/flag.jpg");
 echo "<img src=\"img/flag.jpg\" $attr alt=\"getimagesize() example\" />";
 ?>
 ]]>
-    </programlisting>
-   </example>
-   <example>
-    <title>getimagesize (URL)</title>
-    <programlisting role="php">
+   </programlisting>
+  </example>
+  <example>
+   <title>getimagesize (URL)</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $size = getimagesize("http://www.example.com/gifs/logo.gif");
@@ -257,11 +254,11 @@ $size = getimagesize("http://www.example.com/gifs/lo%20go.gif");
 
 ?>
 ]]>
-    </programlisting>
-   </example>
-   <example>
-    <title>getimagesize() returning IPTC</title>
-    <programlisting role="php">
+   </programlisting>
+  </example>
+  <example>
+   <title>getimagesize() returning IPTC</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $size = getimagesize("testimg.jpg", $info);
@@ -271,9 +268,8 @@ if (isset($info["APP13"])) {
 }
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
  
  <refsect1 role="notes">
