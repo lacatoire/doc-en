@@ -26,9 +26,19 @@
     <term><parameter>key</parameter></term>
     <listitem>
      <simpara>
-      The key of the entry to be inserted. If this key already exist in the
-      database, this function will fail. Use <function>dba_replace</function>
-      if you need to replace an existent key.
+      The key of the entry to be inserted. For handlers which only support a
+      single value per key, if this key already exists in the database, this
+      function will fail; use <function>dba_replace</function> if you need
+      to replace an existent key.
+     </simpara>
+     <simpara>
+      This does not apply to the <literal>inifile</literal> and
+      <literal>cdb_make</literal> handlers, which support multiple values
+      per key (see the <parameter>skip</parameter> parameter of
+      <function>dba_fetch</function>): on these two handlers,
+      <function>dba_insert</function> always succeeds and adds a further
+      value for <parameter>key</parameter>, even when one already exists,
+      rather than failing.
      </simpara>
     </listitem>
    </varlistentry>
