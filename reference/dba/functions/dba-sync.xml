@@ -12,8 +12,46 @@
    <methodparam><type>Dba\Connection</type><parameter>dba</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   <function>dba_sync</function> synchronizes the database. This will probably
-   trigger a physical write to the disk, if supported.
+   <function>dba_sync</function> synchronizes the database, when the
+   handler supports it.
+  </simpara>
+  <simpara>
+   The following handlers actually trigger a physical write to the disk:
+  </simpara>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <literal>gdbm</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>db2</literal>, <literal>db3</literal>, <literal>db4</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>qdbm</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>tcadb</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>lmdb</literal>; on failure this is the only handler that
+     reports the underlying error by raising an
+     <constant>E_WARNING</constant>, the other handlers failing silently
+    </simpara>
+   </listitem>
+  </itemizedlist>
+  <simpara>
+   On every other handler (<literal>cdb</literal>, <literal>db1</literal>,
+   <literal>dbm</literal>, <literal>ndbm</literal>, <literal>inifile</literal>,
+   <literal>flatfile</literal>), <function>dba_sync</function> does nothing
+   at all and unconditionally returns &true;.
   </simpara>
  </refsect1>
  <refsect1 role="parameters">

@@ -12,7 +12,40 @@
    <methodparam><type>Dba\Connection</type><parameter>dba</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   <function>dba_optimize</function> optimizes the underlying database.
+   <function>dba_optimize</function> optimizes the underlying database, when
+   the handler supports it.
+  </simpara>
+  <simpara>
+   Only the following handlers perform actual optimization work:
+  </simpara>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <literal>gdbm</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>qdbm</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>tcadb</literal>; this call always fails when the extension is
+     compiled against a Tokyo Cabinet library whose internal version is
+     below the threshold the extension checks for at build time, regardless
+     of the database being used
+    </simpara>
+   </listitem>
+  </itemizedlist>
+  <simpara>
+   On every other handler (<literal>cdb</literal>, <literal>db1</literal>,
+   <literal>db2</literal>, <literal>db3</literal>, <literal>db4</literal>,
+   <literal>dbm</literal>, <literal>ndbm</literal>, <literal>lmdb</literal>,
+   <literal>inifile</literal>, <literal>flatfile</literal>),
+   <function>dba_optimize</function> does nothing at all and unconditionally
+   returns &true;: there is no way for the caller to tell whether an
+   optimization actually took place.
   </simpara>
  </refsect1>
  <refsect1 role="parameters">
