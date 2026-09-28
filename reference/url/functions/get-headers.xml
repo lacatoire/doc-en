@@ -62,12 +62,12 @@
    Returns an indexed or associative array with the headers, or &false; on
    failure.
   </para>
-  <para>
+  <simpara>
    With <parameter>associative</parameter> set to &true;, if a header name
    appears more than once in the response, its value becomes an array of
    all the values for that header, in the order received, instead of a
    plain string.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
