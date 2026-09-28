@@ -20,12 +20,15 @@
    is optional and defaults to the value of <function>time</function>.
   </para>
   <warning>
-   <para>
-    Unix timestamps do not handle timezones. Use the
+   <simpara>
+    This function applies the script's default time zone (set with
+    <function>date_default_timezone_set</function> or the
+    <literal>date.timezone</literal> ini setting) rather than a time zone attached
+    to the Unix timestamp itself, which has none. Use the
     <classname>DateTimeImmutable</classname> class, and its
     <methodname>DateTimeInterface::format</methodname> formatting method to
-    format date/time information with a timezone attached.
-   </para>
+    format date/time information with an explicit timezone attached.
+   </simpara>
   </warning>
  </refsect1>
 
@@ -136,6 +139,24 @@ echo date(DATE_ATOM, mktime(0, 0, 0, 7, 1, 2000));
 <?php
 // prints something like: Wednesday the 15th
 echo date('l \t\h\e jS');
+]]>
+    </programlisting>
+   </example>
+  </para>
+  <para>
+   A backslash at the very end of the <parameter>format</parameter> string,
+   with no character following it to escape, does not produce a literal
+   <literal>\</literal> in the output: it produces a NUL byte
+   (<literal>"\0"</literal>) instead.
+   <example>
+    <title>A trailing backslash produces a NUL byte</title>
+    <programlisting role="php">
+<![CDATA[
+<?php
+$out = date("Y\\"); // format is "Y" followed by a single, unescaped backslash
+var_dump(strlen($out), bin2hex($out));
+// int(5)
+// string(10) "3230323600"
 ]]>
     </programlisting>
    </example>
