@@ -27,6 +27,11 @@
      <simpara>
       The key in string representation.
      </simpara>
+     <simpara>
+      As of PHP 8.4.0, passing &false; or &null; is deprecated: check the result of
+      <function>dba_firstkey</function>/<function>dba_nextkey</function> against &false;
+      before passing it to this function.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -35,8 +40,18 @@
   &reftitle.returnvalues;
   <simpara>
    Returns an array of the form <literal>array(0 =&gt; group, 1 =&gt;
-   value_name)</literal>. This function will return &false; if
-   <parameter>key</parameter> is &null; or &false;.
+   value_name)</literal>, where <literal>group</literal> is an empty string if
+   <parameter>key</parameter> has no <literal>[group]</literal> prefix. This function will
+   return &false; if <parameter>key</parameter> is &null; or &false;.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   As of PHP 8.4.0, passing &false; or &null; to <parameter>key</parameter> emits an
+   <constant>E_DEPRECATED</constant> notice ("dba_key_split(): Passing false or null is
+   deprecated since 8.4"); the return value is unchanged, still &false;.
   </simpara>
  </refsect1>
 
@@ -69,6 +84,8 @@
    <member><function>dba_firstkey</function></member>
    <member><function>dba_nextkey</function></member>
    <member><function>dba_fetch</function></member>
+   <member><function>dba_open</function></member>
+   <member>Example 2 in the <link linkend="dba.examples">DBA examples</link></member>
   </simplelist>
  </refsect1>
 </refentry>
