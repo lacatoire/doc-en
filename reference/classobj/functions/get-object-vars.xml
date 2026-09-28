@@ -33,11 +33,11 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns an associative array of defined object accessible non-static properties
    for the specified <parameter>object</parameter> in scope.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    For a property with a <literal>get</literal>
    <link linkend="language.oop5.property-hooks">hook</link>, including a fully
    virtual property with no backing storage, the hook is invoked and its
@@ -45,7 +45,7 @@
    reading an object's properties this way can execute user code. A
    virtual property with only a <literal>set</literal> hook is excluded
    from the result, the same as an uninitialized typed property.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
