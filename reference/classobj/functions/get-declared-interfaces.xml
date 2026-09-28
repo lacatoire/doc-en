@@ -49,7 +49,7 @@ Array
     [1] => IteratorAggregate
     [2] => Iterator
     [3] => ArrayAccess
-    [4] => reflector
+    [4] => Reflector
     [5] => RecursiveIterator
     [6] => SeekableIterator
 )
