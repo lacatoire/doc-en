@@ -202,7 +202,12 @@ class _MyClass {}
   <simpara>
    Passing &null; or &false; to <function>dba_key_split</function> is now
    deprecated.
-   It would always return &false; in those cases.
+   It always returns &false; in those cases.
+  </simpara>
+
+  <simpara>
+   Check the result of <function>dba_firstkey</function>/<function>dba_nextkey</function>
+   against &false; before passing it to <function>dba_key_split</function>.
   </simpara>
  </sect2>
 
