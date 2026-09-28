@@ -42,10 +42,10 @@
    Returns an array of IPv4 addresses or &false; if
    <parameter>hostname</parameter> could not be resolved.
   </para>
-  <para>
+  <simpara>
    If <parameter>hostname</parameter> is longer than 255 characters, an
    <constant>E_WARNING</constant> level error is also emitted.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
