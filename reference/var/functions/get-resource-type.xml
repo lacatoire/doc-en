@@ -52,25 +52,23 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>get_resource_type</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>get_resource_type</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $fp = fopen("foo", "w");
 echo get_resource_type($fp) . "\n";
 ?>
 ]]>
-    </programlisting>
-    &example.outputs.7;
-    <screen role="php">
+   </programlisting>
+   &example.outputs.7;
+   <screen role="php">
 <![CDATA[
 stream
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
