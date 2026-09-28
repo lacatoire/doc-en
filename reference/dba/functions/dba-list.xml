@@ -24,8 +24,38 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   An associative array, in the form <literal>resourceid =&gt; filename</literal>.
+   An associative array, in the form <literal>object_id =&gt; filename</literal>.
   </simpara>
+  <simpara>
+   When several persistent connections (<function>dba_popen</function>)
+   share the same path, mode and handler, only the most recently opened
+   one is listed; the others remain open and usable but are not returned
+   by this function.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       The returned array's keys are now object ids of
+       <classname>Dba\Connection</classname> instances; previously, they were
+       resource ids.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
