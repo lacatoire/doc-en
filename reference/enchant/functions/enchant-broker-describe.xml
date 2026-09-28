@@ -31,6 +31,14 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>broker</parameter>
+   is invalid or has already been closed.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -107,6 +115,15 @@ Array
 ]]>
    </screen>
   </example>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>enchant_broker_init</function></member>
+   <member><function>enchant_broker_list_dicts</function></member>
+   <member><function>enchant_broker_get_error</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
