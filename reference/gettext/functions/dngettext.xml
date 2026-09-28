@@ -71,6 +71,14 @@
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>domain</parameter>
    is the empty <type>string</type>.
   </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>domain</parameter>
+   is longer than 1024 bytes.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>singular</parameter>
+   or <parameter>plural</parameter> is longer than 4096 bytes.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
