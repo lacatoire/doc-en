@@ -29,6 +29,14 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>broker</parameter>
+   is invalid or has already been freed.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -44,6 +52,14 @@
     </tbody>
    </tgroup>
   </informaltable>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>enchant_broker_init</function></member>
+   <member><function>enchant_dict_get_error</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
