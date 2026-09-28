@@ -17,10 +17,20 @@
    Fetches all HTTP headers from the current request.
   </para>
   <para>
-   This function is an alias for <function>apache_request_headers</function>.
+   On most SAPIs (Apache 2 handler, CGI, FPM and the CLI built-in server),
+   this function is an alias for <function>apache_request_headers</function>.
    Please read the <function>apache_request_headers</function>
    documentation for more information on how this function works.
   </para>
+  <note>
+   <simpara>
+    Under the LiteSpeed SAPI, <function>getallheaders</function> is not an
+    alias for <function>apache_request_headers</function>: both are
+    separately implemented on top of the LiteSpeed-specific request header
+    retrieval mechanism, so their behavior remains equivalent, but neither
+    is an alias of the other on that SAPI.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -84,6 +94,7 @@ foreach (getallheaders() as $name => $value) {
   <para>
    <simplelist>
     <member><function>apache_response_headers</function></member>
+    <member><function>headers_list</function></member>
    </simplelist>
   </para>
  </refsect1>
