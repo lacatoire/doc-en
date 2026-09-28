@@ -124,10 +124,18 @@
   <section xml:id="dateinterval.props">
    &reftitle.properties;
    <warning>
-    <para>
+    <simpara>
      The available properties listed below depend on PHP version, and should
-     be considered as <emphasis>readonly</emphasis>.
-    </para>
+     be considered as <emphasis>readonly</emphasis>. This blanket statement,
+     however, does not behave the same way for every property: writing to
+     <varname>y</varname>, <varname>m</varname>, <varname>d</varname>,
+     <varname>h</varname>, <varname>i</varname>, <varname>s</varname>,
+     <varname>f</varname> or <varname>invert</varname> does take effect, and
+     the new value is reflected back by <methodname>DateInterval::format</methodname>
+     and other accessors; <varname>days</varname>, by contrast, is a complete
+     no-op on write, silently creating a shadow dynamic property that is
+     never read back by anything.
+    </simpara>
    </warning>
    <variablelist>
     <varlistentry xml:id="dateinterval.props.y">
