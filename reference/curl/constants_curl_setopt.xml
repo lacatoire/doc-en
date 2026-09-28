@@ -4237,11 +4237,15 @@
     (<type>int</type>)
    </term>
    <listitem>
-    <para>
+    <simpara>
      The URL to fetch. This can also be set when initializing a
      session with <function>curl_init</function>.
+     When <link xmlns="http://docbook.org/ns/docbook" linkend="ini.open-basedir">open_basedir</link>
+     is enabled, PHP restricts <constant>CURLOPT_PROTOCOLS</constant> to disallow the
+     <literal>file</literal> protocol on this URL; the resulting error only surfaces at
+     <function>curl_exec</function> time.
      Available as of cURL 7.1.0.
-    </para>
+    </simpara>
    </listitem>
   </varlistentry>
   <varlistentry xml:id="constant.curlopt-use-ssl">
