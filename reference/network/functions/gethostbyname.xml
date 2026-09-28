@@ -42,6 +42,10 @@
    Returns the IPv4 address or a string containing the unmodified
    <parameter>hostname</parameter> on failure.
   </para>
+  <simpara>
+   If <parameter>hostname</parameter> is longer than 255 characters, an
+   <constant>E_WARNING</constant> level error is also emitted.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
