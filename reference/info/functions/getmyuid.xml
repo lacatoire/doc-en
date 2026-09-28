@@ -27,6 +27,12 @@
   <para>
    Returns the user ID of the current script, or &false; on error.
   </para>
+  <simpara>
+   If there is no stattable source file to determine ownership from (for
+   example, code run via the <option>-r</option> command line option or
+   from stdin), the PHP process's own user ID is silently returned
+   instead, with no distinct error indication.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
