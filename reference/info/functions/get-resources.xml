@@ -61,10 +61,10 @@
  </refsect1>
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Throws a <classname>ValueError</classname> if <parameter>type</parameter> is
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>type</parameter> is
    given and does not match any registered resource type.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
