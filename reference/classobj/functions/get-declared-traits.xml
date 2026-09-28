@@ -13,9 +13,9 @@
    <type>array</type><methodname>get_declared_traits</methodname>
    <void />
   </methodsynopsis>
-  <para>
+  <simpara>
    Gets the declared traits.
-  </para>
+  </simpara>
 
  </refsect1>
 
