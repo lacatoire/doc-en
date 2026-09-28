@@ -34,6 +34,11 @@
    &return.success;
   </simpara>
  </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &dba.errors.readonly-connection;
+ </refsect1>
+
 
  <refsect1 role="changelog">
   &reftitle.changelog;
