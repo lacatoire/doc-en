@@ -25,9 +25,9 @@
    <varlistentry>
     <term><parameter>ip</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The host IP address.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
