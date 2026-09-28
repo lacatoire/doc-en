@@ -58,16 +58,30 @@
    <literal>minute</literal>, <literal>second</literal>,
    <literal>fraction</literal>, and <literal>is_localtime</literal>.
   </para>
-  <para>
+  <simpara>
    If <literal>is_localtime</literal> is present then
    <literal>zone_type</literal> indicates the type of timezone. For type
    <literal>1</literal> (UTC offset) the <literal>zone</literal>,
    <literal>is_dst</literal> fields are added; for type <literal>2</literal>
-   (abbreviation) the fields <literal>tz_abbr</literal>,
+   (abbreviation) the fields <literal>zone</literal>, <literal>tz_abbr</literal>,
    <literal>is_dst</literal> are added; and for type <literal>3</literal>
-   (timezone identifier) the <literal>tz_abbr</literal>,
-   <literal>tz_id</literal> are added.
-  </para>
+   (timezone identifier) the <literal>tz_id</literal> field is added, along with
+   <literal>tz_abbr</literal> when the identifier resolves to a known abbreviation
+   (it can be absent, for example for <literal>Asia/Tokyo</literal>). A
+   <literal>zone_type</literal> of <literal>0</literal> means a timezone specifier
+   failed to resolve; in that case none of the type-dependent fields above are
+   added, and the <literal>errors</literal> array explains why.
+  </simpara>
+  <simpara>
+   If relative time elements are present in the parsed string, such as a weekday name
+   with the <literal>D</literal>/<literal>l</literal> format specifiers, the returned
+   array includes a nested array with the key <literal>relative</literal>. This array
+   then contains the keys <literal>year</literal>, <literal>month</literal>,
+   <literal>day</literal>, <literal>hour</literal>, <literal>minute</literal>,
+   <literal>second</literal>, and if necessary <literal>weekday</literal>,
+   <literal>weekdays</literal>, <literal>first_day_of_month</literal>, and
+   <literal>last_day_of_month</literal>, depending on the string that was passed in.
+  </simpara>
   <para>
    The array includes <literal>warning_count</literal> and
    <literal>warnings</literal> fields. The first one indicate how many
@@ -98,10 +112,10 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   This functions throws <exceptionname>ValueError</exceptionname> when the
+  <simpara>
+   This function throws <exceptionname>ValueError</exceptionname> when the
    <parameter>datetime</parameter> contains NULL-bytes.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
