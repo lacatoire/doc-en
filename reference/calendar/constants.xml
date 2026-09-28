@@ -11,9 +11,9 @@
    </term>
    <listitem>
     <simpara>
-     For <function>easter_days</function>: calculate Easter for years before
-     1753 according to the Julian calendar, and for later years according to the
-     Gregorian calendar.
+     For <function>easter_date</function> and <function>easter_days</function>:
+     calculate Easter for years before 1753 according to the Julian calendar,
+     and for later years according to the Gregorian calendar.
     </simpara>
    </listitem>
   </varlistentry>
@@ -24,9 +24,9 @@
    </term>
    <listitem>
     <simpara>
-     For <function>easter_days</function>: calculate Easter for years before
-     1583 according to the Julian calendar, and for later years according to the
-     Gregorian calendar.
+     For <function>easter_date</function> and <function>easter_days</function>:
+     calculate Easter for years before 1583 according to the Julian calendar,
+     and for later years according to the Gregorian calendar.
     </simpara>
    </listitem>
   </varlistentry>
@@ -37,8 +37,8 @@
    </term>
    <listitem>
     <simpara>
-     For <function>easter_days</function>: calculate Easter according to the
-     proleptic Gregorian calendar.
+     For <function>easter_date</function> and <function>easter_days</function>:
+     calculate Easter according to the proleptic Gregorian calendar.
     </simpara>
    </listitem>
   </varlistentry>
@@ -49,8 +49,8 @@
    </term>
    <listitem>
     <simpara>
-     For <function>easter_days</function>: calculate Easter according to the
-     Julian calendar.
+     For <function>easter_date</function> and <function>easter_days</function>:
+     calculate Easter according to the Julian calendar.
     </simpara>
    </listitem>
   </varlistentry>
