@@ -67,17 +67,17 @@
    <varlistentry>
     <term><parameter>filename</parameter></term>
     <listitem>
-     <para>
+     <simpara>
        This parameter specifies the file you wish to retrieve information
        about. It can reference a local file or (configuration permitting) a
        remote file using one of the <link linkend="wrappers">supported streams</link>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>image_info</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       This optional parameter allows you to extract some extended
       information from the image file. Currently, this will return the
       different <acronym>JPG</acronym> APP markers as an associative array.
@@ -86,12 +86,12 @@
       <link xlink:href="&url.iptc;">IPTC</link> information in the APP13 marker.
       You can use the <function>iptcparse</function> function to parse the
       binary APP13 marker into something readable.
-     </para>
+     </simpara>
      <note>
-      <para>
+      <simpara>
        The <parameter>image_info</parameter> only supports
        <acronym>JFIF</acronym> files.
-      </para>
+      </simpara>
      </note>
     </listitem>
    </varlistentry>
