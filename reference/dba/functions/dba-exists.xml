@@ -26,6 +26,7 @@
      <simpara>
       The key the check is performed for.
      </simpara>
+     &dba.note.inifile-array-key;
     </listitem>
    </varlistentry>
    <varlistentry>

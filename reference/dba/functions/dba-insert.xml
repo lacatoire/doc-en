@@ -30,6 +30,7 @@
       database, this function will fail. Use <function>dba_replace</function>
       if you need to replace an existent key.
      </simpara>
+     &dba.note.inifile-array-key;
     </listitem>
    </varlistentry>
    <varlistentry>
