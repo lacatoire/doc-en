@@ -39,10 +39,10 @@
  </refsect1>
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Throws a <classname>TypeError</classname> if <parameter>object_or_class</parameter> is
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>object_or_class</parameter> is
    neither an object nor the name of an existing class.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
