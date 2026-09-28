@@ -49,10 +49,10 @@
        The directory where the extension is loaded from depends on your
        platform:
       </para>
-      <para>
-       Windows - If not explicitly set in the &php.ini;, the extension is
-       loaded from <filename>C:\php5\</filename> by default.
-      </para>
+      <simpara>
+       Windows - The extension is loaded from the directory set by the
+       <link linkend="ini.extension-dir">extension_dir</link> &php.ini; directive.
+      </simpara>
       <para>
        Unix - If not explicitly set in the &php.ini;, the default extension
        directory depends on
