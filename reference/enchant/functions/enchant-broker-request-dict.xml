@@ -35,7 +35,19 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns a dictionary resource on success&return.falseforfailure;.
+   Returns an <classname>EnchantDictionary</classname> instance on success&return.falseforfailure;.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>broker</parameter>
+   is invalid or has already been freed.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>tag</parameter>
+   is the empty string.
   </simpara>
  </refsect1>
 
