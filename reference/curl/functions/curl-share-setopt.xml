@@ -50,6 +50,18 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>option</parameter> is not
+   a valid cURL share option. Despite being documented alongside
+   <constant>CURLSHOPT_SHARE</constant> and <constant>CURLSHOPT_UNSHARE</constant> as one of
+   the <constant>CURLSHOPT_<replaceable>*</replaceable></constant> constants,
+   <constant>CURLSHOPT_NONE</constant> is never a valid value for this parameter and always
+   triggers this error.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -61,6 +73,14 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       An invalid <parameter>option</parameter> now throws a
+       <exceptionname>ValueError</exceptionname>; previously, it emitted an
+       <constant>E_WARNING</constant> and returned &false;.
+      </entry>
+     </row>
      &curl.changelog.share-handle-param;
     </tbody>
    </tgroup>
@@ -69,8 +89,7 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
+  <example>
     <title><function>curl_share_setopt</function> example</title>
     <para>
      This example will create a cURL share handle, add two cURL handles to it,
@@ -103,8 +122,15 @@ curl_exec($ch2);
 ?>
 ]]>
     </programlisting>
-   </example>
-  </para>
+  </example>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>curl_share_init</function></member>
+   <member><function>curl_share_init_persistent</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
