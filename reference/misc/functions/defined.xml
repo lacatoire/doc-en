@@ -22,20 +22,30 @@
    linkend="language.types.enumerations">enum cases</link>.
   </para>
   <note>
-   <para>
+   <simpara>
     If you want to see if a variable exists, use <function>isset</function>
     as <function>defined</function> only applies to <link linkend="language.constants">constants</link>. If you want to see if a
     function exists, use <function>function_exists</function>.
-   </para>
+   </simpara>
+  </note>
+  <note>
+   <simpara>
+    For a class constant, this function returns &false; both when the constant does
+    not exist and when it exists but is not accessible from the calling scope (for
+    example, a private constant accessed from outside the class). Unlike
+    <function>method_exists</function> and <function>property_exists</function>, which
+    test existence regardless of visibility, this function cannot distinguish the two
+    cases; <function>constant</function> does, by throwing a distinct
+    <exceptionname>Error</exceptionname> for each.
+   </simpara>
   </note>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>constant_name</parameter></term>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>constant_name</parameter></term>
      <listitem>
       <para>
        The constant name.
@@ -64,7 +74,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -77,9 +86,8 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Checking Constants</title>
+  <example>
+   <title>Checking Constants</title>
     <programlisting role="php">
 <![CDATA[
 <?php
@@ -105,9 +113,9 @@ var_dump(defined('foo::test')); // bool(true)
 ?>
 ]]>
     </programlisting>
-   </example>
-   <example>
-    <title>Checking Enum Cases (as of PHP 8.1.0)</title>
+  </example>
+  <example>
+   <title>Checking Enum Cases (as of PHP 8.1.0)</title>
     <programlisting role="php">
 <![CDATA[
 <?php
@@ -125,21 +133,20 @@ var_dump(defined('Suit::Hearts')); // bool(true)
 ?>
 ]]>
     </programlisting>
-   </example>
-  </para>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>define</function></member>
-    <member><function>constant</function></member>
-    <member><function>get_defined_constants</function></member>
-    <member><function>function_exists</function></member>
-    <member>The section on <link linkend="language.constants">Constants</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>define</function></member>
+   <member><function>constant</function></member>
+   <member><function>get_defined_constants</function></member>
+   <member><function>function_exists</function></member>
+   <member><function>method_exists</function></member>
+   <member><function>property_exists</function></member>
+   <member>The section on <link linkend="language.constants">Constants</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
