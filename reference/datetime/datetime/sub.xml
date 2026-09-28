@@ -23,10 +23,16 @@
    <methodparam><type>DateTime</type><parameter>object</parameter></methodparam>
    <methodparam><type>DateInterval</type><parameter>interval</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Modifies the specified DateTime object, by subtracting the specified
    <classname>DateInterval</classname> object.
-  </para>
+  </simpara>
+  <simpara>
+   A <classname>DateInterval</classname> built from an ISO 8601 duration string uses
+   "wall-clock" arithmetic, while one obtained from <methodname>DateTime::diff</methodname>
+   uses "civil" arithmetic: for the same nominal duration, the two can produce a result an
+   hour apart once the subtraction crosses a DST transition, in either direction.
+  </simpara>
   <para>
    Like <methodname>DateTimeImmutable::sub</methodname> but works with
    <classname>DateTime</classname>.
@@ -97,10 +103,73 @@
   </informaltable>
  </refsect1>
 
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <example>
+   <title><function>DateTime::sub</function> example</title>
+   <simpara>&style.oop;</simpara>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$date = new DateTime('2000-01-20');
+$date->sub(new DateInterval('P10D'));
+echo $date->format('Y-m-d') . "\n";
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+2000-01-10
+]]>
+   </screen>
+   <simpara>&style.procedural;</simpara>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$date = date_create('2000-01-20');
+date_sub($date, new DateInterval('P10D'));
+echo date_format($date, 'Y-m-d') . "\n";
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+2000-01-10
+]]>
+   </screen>
+  </example>
+  <example>
+   <title>Beware when subtracting months</title>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$date = new DateTime('2001-04-30');
+$interval = new DateInterval('P1M');
+
+$date->sub($interval);
+echo $date->format('Y-m-d') . "\n";
+
+$date->sub($interval);
+echo $date->format('Y-m-d') . "\n";
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+2001-03-30
+2001-03-02
+]]>
+   </screen>
+  </example>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
    <member><function>DateTimeImmutable::sub</function></member>
+   <member><function>DateTime::add</function></member>
+   <member><function>DateTime::diff</function></member>
+   <member><link linkend="datetime.examples-arithmetic">Date/Time Arithmetic</link></member>
   </simplelist>
  </refsect1>
 </refentry>
