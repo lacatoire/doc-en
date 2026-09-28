@@ -58,6 +58,11 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &date.errors.objectuninitialized;
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
@@ -157,6 +162,7 @@ echo $newDate->format('n');
   <simplelist>
    <member><function>DateTimeImmutable::setDate</function></member>
    <member><function>DateTimeImmutable::setTime</function></member>
+   <member><function>DateTime::setISODate</function></member>
   </simplelist>
  </refsect1>
 
