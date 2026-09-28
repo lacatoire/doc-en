@@ -157,12 +157,13 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the sunrise time in a specified <parameter>returnFormat</parameter> on
-   success&return.falseforfailure;. One potential reason for failure is that the
+   success&return.falseforfailure;. Potential reasons for failure are that the
    sun does not rise at all, which happens inside the polar circles for part of
-   the year.
-  </para>
+   the year, or that <parameter>latitude</parameter> or <parameter>longitude</parameter>
+   is not a finite number (for example <literal>NAN</literal> or <literal>INF</literal>).
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -225,7 +226,7 @@ echo date("D M d Y"). ', sunrise time : ' .date_sunrise(time(), SUNFUNCS_RET_STR
     &example.outputs.similar;
     <screen>
 <![CDATA[
-Deprecated: Constant SUNFUNCS_RET_STRING is deprecated in script on line 10
+Deprecated: Constant SUNFUNCS_RET_STRING is deprecated since 8.4, as date_sunrise() and date_sunset() were deprecated in 8.1 in script on line 10
 Deprecated: Function date_sunrise() is deprecated since 8.1, use date_sun_info() instead in script on line 10
 Mon Dec 20 2004, sunrise time : 08:54
 ]]>
@@ -243,7 +244,7 @@ var_dump(date_sunrise($solstice, SUNFUNCS_RET_STRING, 69.245833, -53.537222));
     &example.outputs;
     <screen>
 <![CDATA[
-Deprecated: Constant SUNFUNCS_RET_STRING is deprecated in script on line 3
+Deprecated: Constant SUNFUNCS_RET_STRING is deprecated since 8.4, as date_sunrise() and date_sunset() were deprecated in 8.1 in script on line 3
 Deprecated: Function date_sunrise() is deprecated since 8.1, use date_sun_info() instead in script on line 3
 bool(false)
 ]]>
