@@ -32,6 +32,14 @@
     <function>die</function> now consistently result in a
     <exceptionname>TypeError</exceptionname> being thrown.
    </simpara>
+
+   <simpara>
+    A parameterless <function>exit</function>/<function>die</function> call within a
+    <link linkend="function.register-shutdown-function">shutdown function</link> or an
+    <link linkend="language.oop5.decon.destructor">object destructor</link> now goes
+    through the default <literal>status = 0</literal> and therefore resets a
+    previously set exit code; previously, the earlier exit code was kept.
+   </simpara>
   </sect3>
 
   <sect3 xml:id="migration84.incompatible.core.recursion-comparison">

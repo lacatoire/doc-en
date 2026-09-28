@@ -36,6 +36,16 @@
     the global <function>exit</function> function.
    </simpara>
   </caution>
+  <simpara>
+   As of PHP 8.4.0, <function>exit</function> and <function>die</function> are entries
+   in the function table: <literal>function_exists('exit')</literal> and
+   <literal>function_exists('die')</literal> both return &true;, and the
+   first-class callable syntax <literal>exit(...)</literal>/<literal>die(...)</literal>
+   produces a <classname>Closure</classname>. Errors raised from a call written as
+   <function>die</function> are always reported with the <literal>exit():</literal>
+   prefix, never <literal>die():</literal>, since <function>die</function> is only an
+   alias.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -47,7 +57,9 @@
      <simpara>
       If <parameter>status</parameter> is a string,
       this function prints the <parameter>status</parameter> just before exiting.
-      The exit code returned by PHP is <literal>0</literal>.
+      The exit code itself is left unchanged: it is whatever was previously set (by an
+      earlier <function>exit</function> call with an <type>int</type> status, for
+      example), or <literal>0</literal> if nothing set it.
      </simpara>
      <para>
       If <parameter>status</parameter> is an <type>int</type>,
