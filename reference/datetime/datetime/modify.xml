@@ -33,7 +33,12 @@
    <varlistentry>
     <term><parameter>modifier</parameter></term>
     <listitem>
-     <para>&date.formats.parameter;</para>
+     <simpara>&date.formats.parameter;</simpara>
+     <simpara>
+      A timezone embedded in <parameter>modifier</parameter> is silently ignored: the
+      object's own timezone is left unchanged, with the exception of the
+      <literal>@&lt;timestamp&gt;</literal> form, which resets it to UTC.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
