@@ -59,6 +59,13 @@
    resource number.
   </para>
  </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   Throws a <classname>ValueError</classname> if <parameter>type</parameter> is
+   given and does not match any registered resource type.
+  </para>
+ </refsect1>
 
  <refsect1 role="changelog">
   &reftitle.changelog;
