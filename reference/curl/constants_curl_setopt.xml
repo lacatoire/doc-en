@@ -798,14 +798,12 @@
     (<type>int</type>)
    </term>
    <listitem>
-    <para>
+    <simpara>
      Set to &true; to follow any <literal>Location: </literal> header that the server sends as
      part of the HTTP header.
      See also <constant>CURLOPT_MAXREDIRS</constant>.
-     This constant is not available when <link xmlns="http://docbook.org/ns/docbook" linkend="ini.open-basedir">open_basedir</link>
-     is enabled.
      Available as of cURL 7.1.0.
-    </para>
+    </simpara>
    </listitem>
   </varlistentry>
   <varlistentry xml:id="constant.curlopt-forbid-reuse">
@@ -2105,18 +2103,19 @@
     (<type>int</type>)
    </term>
    <listitem>
-    <para>
+    <simpara>
      The full data to post in a HTTP <literal>POST</literal> operation.
      This parameter can either be
      passed as a urlencoded <type>string</type> like '<literal>para1=val1&amp;para2=val2&amp;...</literal>'
      or as an <type>array</type> with the field name as key and field data as value.
-     If <parameter>value</parameter> is an <type>array</type>, the
+     If <parameter>value</parameter> is a non-empty <type>array</type>, the
      <literal>Content-Type</literal> header will be set to
-     <literal>multipart/form-data</literal>.
+     <literal>multipart/form-data</literal>. An empty <type>array</type> is sent as an
+     empty body instead, with <literal>Content-Type: application/x-www-form-urlencoded</literal>.
      Files can be sent using <classname>CURLFile</classname> or <classname>CURLStringFile</classname>,
      in which case <parameter>value</parameter> must be an <type>array</type>.
      Available as of cURL 7.1.0.
-    </para>
+    </simpara>
    </listitem>
   </varlistentry>
   <varlistentry xml:id="constant.curlopt-postquote">
@@ -2284,6 +2283,11 @@
      Bitmask of <constant>CURLPROTO_<replaceable>*</replaceable></constant> values.
      If used, this bitmask limits what protocols cURL may use in the transfer.
      Defaults to <constant>CURLPROTO_ALL</constant>, ie. cURL will accept all protocols it supports.
+     PHP itself already excludes <constant>CURLPROTO_FILE</constant> from the effective
+     bitmask when <link xmlns="http://docbook.org/ns/docbook" linkend="ini.open-basedir">open_basedir</link>
+     is set; on top of that, explicitly setting this option to a bitmask that includes
+     <constant>CURLPROTO_FILE</constant> while open_basedir is set fails with an
+     <constant>E_WARNING</constant> and <function>curl_setopt</function> returns &false;.
      See also <constant>CURLOPT_REDIR_PROTOCOLS_STR</constant>.
      Available as of cURL 7.19.4 and deprecated as of cURL 7.85.0.
     </simpara>
@@ -2978,7 +2982,7 @@
     (<type>int</type>)
    </term>
    <listitem>
-    <para>
+    <simpara>
      Bitmask of <constant>CURLPROTO_<replaceable>*</replaceable></constant> values
      which limit what protocols cURL may use in a transfer that it follows to in
      a redirect when <constant>CURLOPT_FOLLOWLOCATION</constant> is enabled.
@@ -2987,9 +2991,11 @@
      As of cURL 7.19.4, by default cURL will allow all protocols
      except for <literal>FILE</literal> and <literal>SCP</literal>.
      Prior to cURL 7.19.4, cURL would unconditionally follow to all supported protocols.
+     The same <link xmlns="http://docbook.org/ns/docbook" linkend="ini.open-basedir">open_basedir</link>
+     restriction described on <constant>CURLOPT_PROTOCOLS</constant> applies here too.
      See also <constant>CURLOPT_PROTOCOLS</constant> for protocol constant values.
      Available as of cURL 7.19.4 and deprecated as of cURL 7.85.0.
-    </para>
+    </simpara>
    </listitem>
   </varlistentry>
   <varlistentry xml:id="constant.curlopt-redir-protocols-str">
@@ -3273,11 +3279,12 @@
     (<type>int</type>)
    </term>
    <listitem>
-    <para>
-     A result of <function>curl_share_init</function>. Makes the cURL
+    <simpara>
+     A result of <function>curl_share_init</function>, or, as of PHP 8.5.0, of
+     <function>curl_share_init_persistent</function>. Makes the cURL
      handle to use the data from the shared handle.
      Available as of cURL 7.10.
-    </para>
+    </simpara>
    </listitem>
   </varlistentry>
   <varlistentry xml:id="constant.curlopt-socks5-auth">
