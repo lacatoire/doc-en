@@ -35,9 +35,12 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns error string for valid error code, &null; otherwise.
-  </para>
+  <simpara>
+   Returns the error string for the given error code. Although the return type is nullable,
+   this function never actually returns &null;: an <parameter>error_code</parameter> outside
+   the known <constant>CURLM_<replaceable>*</replaceable></constant> range still returns a
+   generic "Unknown error" string.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
