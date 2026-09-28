@@ -210,7 +210,9 @@
         meaning 'critical'; other bits are reserved and should be ignored.
         <literal>tag</literal>: The CAA tag name (alphanumeric ASCII string).
         <literal>value</literal>: The CAA tag value (binary string, may use subformats).
-        For additional information see: <link xlink:href="&url.rfc;6844">RFC 6844</link>
+        For additional information see: <link xlink:href="&url.rfc;6844">RFC 6844</link>.
+        <literal>DNS_CAA</literal> is only available on non-Windows builds; requesting
+        this record type is not supported on Windows.
        </entry>
       </row>
       <row>
@@ -294,7 +296,7 @@
       <row>
        <entry>7.0.16, 7.1.2</entry>
        <entry>
-        Added support for CAA record type.
+        Added support for CAA record type. Not available on Windows.
        </entry>
       </row>
      </tbody>
