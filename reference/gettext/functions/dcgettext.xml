@@ -22,50 +22,107 @@
  
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>domain</parameter></term>
-     <listitem>
-      <para>
-       The domain
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>message</parameter></term>
-     <listitem>
-      <para>
-       The message
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>category</parameter></term>
-     <listitem>
-      <para>
-       The category
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>domain</parameter></term>
+    <listitem>
+     <simpara>
+      The domain to search within for this single lookup, overriding
+      the current default domain set with <function>textdomain</function>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>message</parameter></term>
+    <listitem>
+     <simpara>
+      The message being translated.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>category</parameter></term>
+    <listitem>
+     <simpara>
+      The locale category the lookup is performed against, as one of
+      the <constant>LC_*</constant> constants accepted by
+      <function>setlocale</function>, such as
+      <constant>LC_MESSAGES</constant> or <constant>LC_CTYPE</constant>.
+      <constant>LC_ALL</constant> is not accepted, as the underlying
+      category must designate a single locale facet.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
- 
+
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   A <type>string</type> on success.
-  </para>
+  <simpara>
+   Returns the translation of <parameter>message</parameter> for
+   <parameter>domain</parameter> and <parameter>category</parameter>,
+   or <parameter>message</parameter> unaltered if no translation
+   exists for it. The return value is always a <type>string</type>;
+   this function never returns &false;, invalid arguments cause it to
+   throw a <exceptionname>ValueError</exceptionname> instead.
+  </simpara>
  </refsect1>
- 
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>domain</parameter> is the empty <type>string</type>, or
+   longer than 1024 bytes.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>message</parameter> is longer than 4096 bytes.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>category</parameter> is <constant>LC_ALL</constant>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if
+       <parameter>domain</parameter> is the empty <type>string</type>.
+      </entry>
+     </row>
+     <row>
+      <entry>8.2.18</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if
+       <parameter>category</parameter> is <constant>LC_ALL</constant>.
+       Previously, passing <constant>LC_ALL</constant> could abort the
+       process on some platforms (e.g. macOS with gettext 0.22.5 or
+       later).
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>gettext</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>gettext</function></member>
+  </simplelist>
  </refsect1>
 </refentry>
 
