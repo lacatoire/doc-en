@@ -218,6 +218,25 @@
    &false; is returned and an <constant>E_WARNING</constant> level error is issued when
    <parameter>handler</parameter> is &null;, but there is no default handler.
   </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>path</parameter>,
+   <parameter>mode</parameter> or <parameter>handler</parameter> is an empty string, if
+   <parameter>map_size</parameter> or <parameter>flags</parameter> is negative, or if
+   <parameter>mode</parameter> does not follow the <literal>[rwnc][dl-]?t?</literal>
+   grammar described above (too long, an invalid character in any position, or combining
+   <literal>-</literal> with <literal>t</literal>).
+  </simpara>
+  <simpara>
+   Emits an <constant>E_WARNING</constant> (and returns &false;) for a number of other
+   runtime failures: an unknown <parameter>handler</parameter> name; disabling locking
+   (<literal>-</literal>) on a handler that requires it; a <literal>t</literal> (test
+   lock) modifier that is meaningless for the resolved lock mode; a lock already held on
+   the same file by an incompatible mode ("Unable to establish lock (database file
+   already open)", or "Unable to establish lock" from the underlying <function>flock</function>
+   call); a failure to open the lock file or the data file stream; a failure to cast the
+   stream to a file descriptor; or an internal driver initialization failure
+   ("Driver initialization failed for handler: <replaceable>handler</replaceable>").
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
