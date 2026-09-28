@@ -54,14 +54,14 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    On read error, <function>getimagesizefromstring</function> will generate
    an error of level <constant>E_NOTICE</constant>. Unlike
    <function>getimagesize</function>, this function does not access a file
    and never throws a <exceptionname>ValueError</exceptionname> or raises an
    <constant>E_WARNING</constant> for the equivalent of an inaccessible or
    empty <parameter>filename</parameter>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
