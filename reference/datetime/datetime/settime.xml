@@ -85,6 +85,58 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &date.errors.objectuninitialized;
+ </refsect1>
+
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <example>
+   <title><function>DateTime::setTime</function> example</title>
+   <simpara>&style.oop;</simpara>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$date = new DateTime('2001-01-01');
+
+$date->setTime(14, 55);
+echo $date->format('Y-m-d H:i:s') . "\n";
+
+$date->setTime(14, 55, 24);
+echo $date->format('Y-m-d H:i:s') . "\n";
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+2001-01-01 14:55:00
+2001-01-01 14:55:24
+]]>
+   </screen>
+   <simpara>&style.procedural;</simpara>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$date = date_create('2001-01-01');
+
+date_time_set($date, 14, 55);
+echo date_format($date, 'Y-m-d H:i:s') . "\n";
+
+date_time_set($date, 14, 55, 24);
+echo date_format($date, 'Y-m-d H:i:s') . "\n";
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+2001-01-01 14:55:00
+2001-01-01 14:55:24
+]]>
+   </screen>
+  </example>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>

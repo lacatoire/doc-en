@@ -66,6 +66,11 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &date.errors.objectuninitialized;
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -157,6 +162,7 @@ echo $newDate->format('Y-m-d H:i:s') . "\n";
   <simplelist>
    <member><function>DateTimeImmutable::setDate</function></member>
    <member><function>DateTimeImmutable::setISODate</function></member>
+   <member><function>DateTime::setTime</function></member>
   </simplelist>
  </refsect1>
 
