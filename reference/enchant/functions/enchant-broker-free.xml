@@ -37,6 +37,18 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>broker</parameter>
+   is invalid or has already been freed.
+  </simpara>
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if any <classname>EnchantDictionary</classname>
+   obtained from <parameter>broker</parameter> is still open.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
