@@ -52,6 +52,18 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   On read error, <function>getimagesizefromstring</function> will generate
+   an error of level <constant>E_NOTICE</constant>. Unlike
+   <function>getimagesize</function>, this function does not access a file
+   and never throws a <exceptionname>ValueError</exceptionname> or raises an
+   <constant>E_WARNING</constant> for the equivalent of an inaccessible or
+   empty <parameter>filename</parameter>.
+  </para>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
@@ -79,6 +91,8 @@ $size_info2 = getimagesizefromstring($data);
   &reftitle.seealso;
   <simplelist>
    <member><function>getimagesize</function></member>
+   <member><function>image_type_to_mime_type</function></member>
+   <member><function>exif_imagetype</function></member>
   </simplelist>
  </refsect1>
  
