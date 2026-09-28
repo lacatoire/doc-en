@@ -17,12 +17,16 @@
    <function>date_default_timezone_set</function> sets the default timezone
    used by all date/time functions.
   </para>
-  <para>
-   Instead of using this function to set the default timezone in your script,
-   you can also use the INI setting <link
-   linkend="ini.date.timezone">date.timezone</link> to set the default
-   timezone.
-  </para>
+  <simpara>
+   Instead of using this function, you can also use the INI setting
+   <link linkend="ini.date.timezone">date.timezone</link> to set the
+   default timezone. Unlike setting <literal>date.timezone</literal> in
+   <filename>php.ini</filename>, which applies to every request by
+   default, <function>date_default_timezone_set</function> only affects
+   the current request; and if both are used in the same request,
+   <function>date_default_timezone_set</function> takes precedence
+   regardless of the order they were called in.
+  </simpara>
  </refsect1>
  
  <refsect1 role="parameters">
@@ -53,11 +57,20 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If the <parameter>timezoneId</parameter> is not a valid timezone
+   identifier, an <constant>E_NOTICE</constant> is emitted, and this
+   function returns &false;.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
    <example>
-    <title>Getting the default timezone</title>
+    <title>Comparing the script timezone against the ini setting</title>
     <programlisting role="php">
 <![CDATA[
 <?php
