@@ -42,6 +42,11 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &date.errors.objectuninitialized;
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
@@ -73,6 +78,7 @@ echo $newDate->format('Y-m-d H:i:sP') . "\n";
   <simplelist>
    <member><function>DateTimeImmutable::getTimezone</function></member>
    <member><function>DateTimeZone::__construct</function></member>
+   <member><function>DateTime::setTimezone</function></member>
   </simplelist>
  </refsect1>
 
