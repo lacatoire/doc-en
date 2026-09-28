@@ -23,62 +23,97 @@
  
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>domain</parameter></term>
-     <listitem>
-      <para>
-       The domain
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>singular</parameter></term>
-     <listitem>
-      <para>
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>plural</parameter></term>
-     <listitem>
-      <para>
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>count</parameter></term>
-     <listitem>
-      <para>
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>category</parameter></term>
-     <listitem>
-      <para>
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>domain</parameter></term>
+    <listitem>
+     <simpara>
+      The domain
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>singular</parameter></term>
+    <listitem>
+     <simpara>
+      The singular form of the message.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>plural</parameter></term>
+    <listitem>
+     <simpara>
+      The plural form of the message.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>count</parameter></term>
+    <listitem>
+     <simpara>
+      The number (e.g. item count) to determine the translation for the
+      respective grammatical number.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>category</parameter></term>
+    <listitem>
+     <simpara>
+      The locale category, one of the <literal>LC_*</literal> constants,
+      except <constant>LC_ALL</constant>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
- 
+
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
    A <type>string</type> on success.
   </para>
  </refsect1>
- 
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>domain</parameter>
+   is the empty <type>string</type> or longer than 1024 bytes, if
+   <parameter>singular</parameter> or <parameter>plural</parameter> is longer than
+   4096 bytes, or if <parameter>category</parameter> is <constant>LC_ALL</constant>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> for the conditions
+       described above, instead of silently truncating or ignoring them.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>ngettext</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>ngettext</function></member>
+  </simplelist>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
