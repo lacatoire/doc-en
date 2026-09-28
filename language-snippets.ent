@@ -1438,6 +1438,11 @@ The function modifies this object.</simpara></listitem></varlistentry>'>
 returned by <function>timezone_open</function></simpara></listitem></varlistentry>'>
 
 <!ENTITY date.datetime.return.modifiedobject 'Returns the modified <classname xmlns="http://docbook.org/ns/docbook">DateTime</classname> object for method chaining.'>
+
+<!ENTITY date.errors.objectuninitialized '<simpara xmlns="http://docbook.org/ns/docbook">
+Throws a <exceptionname>DateObjectError</exceptionname> if the object was not correctly
+initialized by its constructor, for example when it was created with
+<methodname>ReflectionClass::newInstanceWithoutConstructor</methodname>.</simpara>'>
 <!ENTITY date.datetimeimmutable.return.modifiedobject 'Returns a new <classname xmlns="http://docbook.org/ns/docbook">DateTimeImmutable</classname> object with the modified data.'>
 
 <!ENTITY date.timezone.dbversion 'This list is based upon the timezone database version'>
