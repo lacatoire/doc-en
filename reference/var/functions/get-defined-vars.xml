@@ -45,10 +45,6 @@ $arr = get_defined_vars();
 // print $b
 print_r($arr["b"]);
 
-/* print path to the PHP interpreter (if used as a CGI)
- * e.g. /usr/local/bin/php */
-echo $arr["_"];
-
 // print the command-line parameters if any
 print_r($arr["argv"]);
 
