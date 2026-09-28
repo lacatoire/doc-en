@@ -37,6 +37,13 @@
    <parameter>object_or_class</parameter>.
   </para>
  </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>object_or_class</parameter> is
+   neither an object nor the name of an existing class.
+  </simpara>
+ </refsect1>
 
  <refsect1 role="changelog">
   &reftitle.changelog;
