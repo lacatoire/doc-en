@@ -1413,8 +1413,9 @@ Furthermore, these timezones may be removed from the IANA timezone database at a
 </simpara>'>
 
 <!ENTITY date.timezone.errors.description '<simpara xmlns="http://docbook.org/ns/docbook">
-Every call to a date/time function will generate a <constant>E_WARNING</constant>
-if the time zone is not valid. See also <function>date_default_timezone_set</function></simpara>'>
+<function>date_default_timezone_set</function> emits an <constant>E_NOTICE</constant> and
+returns &false; if given an invalid time zone, keeping the previous, still-valid time zone in
+effect; no other date/time function can inherit an invalid time zone through this path.</simpara>'>
 
 <!ENTITY date.timestamp.description '
 <varlistentry xmlns="http://docbook.org/ns/docbook"><term><parameter>timestamp</parameter></term><listitem><simpara>
