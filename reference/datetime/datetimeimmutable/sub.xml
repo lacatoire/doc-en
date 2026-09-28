@@ -15,11 +15,18 @@
    <modifier>public</modifier> <type>DateTimeImmutable</type><methodname>DateTimeImmutable::sub</methodname>
    <methodparam><type>DateInterval</type><parameter>interval</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Returns a new <classname>DateTimeImmutable</classname> object, with the specified
    <classname>DateInterval</classname> object subtracted from the specified
    DateTimeImmutable object.
-  </para>
+  </simpara>
+  <simpara>
+   A <classname>DateInterval</classname> built from an ISO 8601 duration string uses
+   "wall-clock" arithmetic, while one obtained from
+   <methodname>DateTimeImmutable::diff</methodname> uses "civil" arithmetic: for the same
+   nominal duration, the two can produce a result an hour apart once the subtraction
+   crosses a DST transition, in either direction.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
