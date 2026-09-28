@@ -23,8 +23,11 @@
     <term><parameter>key</parameter></term>
     <listitem>
      <simpara>
-      The key of the entry which is deleted.
+      The key of the entry which is deleted. On <literal>inifile</literal>, deleting by
+      an array key removes <emphasis>every</emphasis> line sharing that group/name pair
+      in a single call, not just one.
      </simpara>
+     &dba.note.inifile-array-key;
     </listitem>
    </varlistentry>
    <varlistentry>
