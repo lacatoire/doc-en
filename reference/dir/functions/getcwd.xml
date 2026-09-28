@@ -40,10 +40,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>getcwd</function> example</title>
-     <programlisting role="php">
+  <example>
+   <title><function>getcwd</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 
@@ -57,16 +56,15 @@ echo getcwd() . "\n";
 
 ?>
 ]]>
-     </programlisting>
-     &example.outputs.similar;
-     <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 /home/didou
 /home/didou/cvs
 ]]>
-     </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="notes">
@@ -84,12 +82,11 @@ echo getcwd() . "\n";
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>chdir</function></member>
-    <member><function>chmod</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>chdir</function></member>
+   <member><function>chmod</function></member>
+   <member><function>realpath</function></member>
+  </simplelist>
  </refsect1>
 </refentry>
 
