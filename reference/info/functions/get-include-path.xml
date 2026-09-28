@@ -32,10 +32,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>get_include_path</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>get_include_path</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 echo get_include_path();
@@ -44,9 +43,8 @@ echo get_include_path();
 echo ini_get('include_path');
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
