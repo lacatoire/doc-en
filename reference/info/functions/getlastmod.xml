@@ -16,6 +16,15 @@
    Gets the time of the last modification of the main script of execution.
   </para>
   <para>
+   The main script of execution is the request's entry script: the file
+   that PHP was invoked with. It stays the same even when this function is
+   called from a file reached through <function>include</function>,
+   <function>require</function>, or an
+   <link linkend="ini.auto-prepend-file">auto_prepend_file</link> or
+   <link linkend="ini.auto-append-file">auto_append_file</link> that is
+   currently executing.
+  </para>
+  <para>
    If you're interested in getting the last modification time
    of a different file, consider using <function>filemtime</function>.
   </para>
@@ -32,6 +41,14 @@
    Returns the time of the last modification of the current
    page. The value returned is a Unix timestamp, suitable for
    feeding to <function>date</function>. Returns &false; on error.
+  </para>
+  <para>
+   The value is computed once per request, the first time it is needed by
+   <function>getlastmod</function>, <function>getmyuid</function>,
+   <function>getmygid</function> or <function>getmyinode</function>
+   (whichever is called first), and is then reused for the rest of the
+   request. Unlike <function>filemtime</function>, this cached value is
+   not affected by <function>clearstatcache</function>.
   </para>
  </refsect1>
 
