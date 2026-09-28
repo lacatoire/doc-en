@@ -44,9 +44,12 @@
    by this function, the return value will be the string
    <literal>Unknown</literal>.
   </para>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
   <para>
-   This function will return &null; and generate an error if
-   <parameter>resource</parameter> is not a <type>resource</type>.
+   Throws a <classname>TypeError</classname> if <parameter>resource</parameter> is
+   not a <type>resource</type>.
   </para>
  </refsect1>
 
@@ -78,6 +81,8 @@ stream
   <para>
    <simplelist>
     <member><function>get_resource_id</function></member>
+    <member><function>get_resources</function></member>
+    <member><function>is_resource</function></member>
    </simplelist>
   </para>
  </refsect1>
