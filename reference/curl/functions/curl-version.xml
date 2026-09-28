@@ -45,7 +45,8 @@
       </row>
       <row>
        <entry>ssl_version_number</entry>
-       <entry>OpenSSL 24 bit version number</entry>
+       <entry>Always <literal>0</literal>; this field is no longer used by libcurl regardless
+       of the TLS backend actually linked. Use <literal>ssl_version</literal> instead.</entry>
       </row>
       <row>
        <entry>ssl_version</entry>
@@ -61,7 +62,10 @@
       </row>
       <row>
        <entry>age</entry>
-       <entry/>
+       <entry>Age of the version information returned. This value increases with each new
+       generation of fields added to the underlying data structure by libcurl; a higher
+       value means more of the keys below (from <literal>ares</literal> onwards) are
+       available.</entry>
       </row>
       <row>
        <entry>features</entry>
@@ -77,6 +81,35 @@
         An associative array of all known cURL features, and whether they
         are supported (&true;) or not (&false;)
        </entry>
+      </row>
+      <row>
+       <entry>ares</entry>
+       <entry>c-ares version, as a string, if built in, else an empty string</entry>
+      </row>
+      <row>
+       <entry>ares_num</entry>
+       <entry>c-ares version, as a number, or <literal>0</literal></entry>
+      </row>
+      <row>
+       <entry>libidn</entry>
+       <entry>GNU libidn version, as a string, if built in, else an empty string</entry>
+      </row>
+      <row>
+       <entry>iconv_ver_num</entry>
+       <entry>iconv version number, or <literal>0</literal></entry>
+      </row>
+      <row>
+       <entry>libssh_version</entry>
+       <entry>libssh or libssh2 version used for SCP and SFTP, as a string, if built in,
+       else an empty string</entry>
+      </row>
+      <row>
+       <entry>brotli_ver_num</entry>
+       <entry>Brotli version number, or <literal>0</literal></entry>
+      </row>
+      <row>
+       <entry>brotli_version</entry>
+       <entry>Brotli version, as a string, if built in, else an empty string</entry>
       </row>
      </tbody>
     </tgroup>
@@ -124,11 +157,11 @@
   <para>
    <example>
     <title><function>curl_version</function> example</title>
-    <para>
-     This example will check which features that's available 
-     in cURL build by using the <literal>'features'</literal> bitmask returned 
+    <simpara>
+     This example checks which features are available in the cURL build by using the
+     <literal>'features'</literal> bitmask returned
      by <function>curl_version</function>.
-    </para>
+    </simpara>
     <programlisting role="php">
 <![CDATA[
 <?php
