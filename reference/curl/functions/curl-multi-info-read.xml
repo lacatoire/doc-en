@@ -18,18 +18,20 @@
    Messages may include information such as an error code from the transfer or just the fact 
    that a transfer is completed.
   </para>
-  <para>   
-   Repeated calls to this function will return a new result each time, until a &false; is returned 
-   as a signal that there is no more to get at this point. The integer pointed to with 
-   <parameter>queued_messages</parameter> will contain the number of remaining messages after this 
-   function was called.
-  </para>
-  <warning>
-   <para>
-    The data the returned resource points to will not survive calling 
-    <function>curl_multi_remove_handle</function>.
-   </para>
-  </warning>
+  <simpara>
+   Repeated calls to this function will return a new result each time, until a &false; is returned
+   as a signal that there is no more to get at this point. When a message is returned, the integer
+   pointed to with <parameter>queued_messages</parameter> is updated to the number of remaining
+   messages after this function was called; when &false; is returned instead, it is left
+   untouched.
+  </simpara>
+  <simpara>
+   Calling this function from inside a callback set on an easy handle of the multi handle
+   (<constant>CURLOPT_WRITEFUNCTION</constant>, <constant>CURLOPT_HEADERFUNCTION</constant>,
+   <constant>CURLOPT_XFERINFOFUNCTION</constant>) makes it return &false; unconditionally for
+   the whole multi handle, even for a message concerning a different, already-finished handle.
+   No message is lost; it becomes readable again once the callback returns.
+  </simpara>
  </refsect1>
  
  <refsect1 role="parameters">
@@ -104,11 +106,13 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>curl_multi_init</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>curl_multi_init</function></member>
+   <member><function>curl_multi_exec</function></member>
+   <member><function>curl_multi_add_handle</function></member>
+   <member><function>curl_multi_remove_handle</function></member>
+   <member><function>curl_multi_getcontent</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
