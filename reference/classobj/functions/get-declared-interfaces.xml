@@ -30,18 +30,17 @@
  </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>get_declared_interfaces</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>get_declared_interfaces</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 print_r(get_declared_interfaces());
 ?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 Array
 (
@@ -49,14 +48,13 @@ Array
     [1] => IteratorAggregate
     [2] => Iterator
     [3] => ArrayAccess
-    [4] => reflector
+    [4] => Reflector
     [5] => RecursiveIterator
     [6] => SeekableIterator
 )
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
  <refsect1 role="seealso">
   &reftitle.seealso;
