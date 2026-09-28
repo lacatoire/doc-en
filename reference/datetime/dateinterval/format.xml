@@ -19,13 +19,12 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>format</parameter></term>
-     <listitem>
-      <para>
-       <table>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>format</parameter></term>
+    <listitem>
+     <para>
+      <table>
         <title>
          The following characters are recognized in the
          <parameter>format</parameter> parameter string.
@@ -134,12 +133,11 @@
           </row>
          </tbody>
         </tgroup>
-       </table>
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+      </table>
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -147,6 +145,11 @@
   <para>
    Returns the formatted interval.
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &date.errors.objectuninitialized;
  </refsect1>
 
  <refsect1 role="changelog">
@@ -179,50 +182,45 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><classname>DateInterval</classname> example</title>
-    <programlisting role="php">
-     <![CDATA[
+  <example>
+   <title><classname>DateInterval</classname> example</title>
+   <programlisting role="php">
+<![CDATA[
 <?php
 $interval = new DateInterval('P2Y4DT6H8M');
 echo $interval->format('%d days');
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen role="php">
-     <![CDATA[
+   </programlisting>
+   &example.outputs;
+   <screen role="php">
+<![CDATA[
 4 days
 ]]>
-    </screen>
-   </example>
-  </para>
-  <para>
-   <example>
-    <title><classname>DateInterval</classname> and carry over points</title>
-    <programlisting role="php">
-     <![CDATA[
+   </screen>
+  </example>
+  <example>
+   <title><classname>DateInterval</classname> and carry over points</title>
+   <programlisting role="php">
+<![CDATA[
 <?php
 $interval = new DateInterval('P32D');
 echo $interval->format('%d days');
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen role="php">
-     <![CDATA[
+   </programlisting>
+   &example.outputs;
+   <screen role="php">
+<![CDATA[
 32 days
 ]]>
-    </screen>
-   </example>
-  </para>
-  <para>
-   <example>
-    <title>
-     <classname>DateInterval</classname> and
-     <methodname>DateTime::diff</methodname> with the %a and %d modifiers
-    </title>
-    <programlisting role="php">
-     <![CDATA[
+   </screen>
+  </example>
+  <example>
+   <title>
+    <classname>DateInterval</classname> and
+    <methodname>DateTime::diff</methodname> with the %a and %d modifiers
+   </title>
+   <programlisting role="php">
+<![CDATA[
 <?php
 $january = new DateTime('2010-01-01');
 $february = new DateTime('2010-02-01');
@@ -235,28 +233,37 @@ echo $interval->format('%a total days')."\n";
 // month.
 echo $interval->format('%m month, %d days');
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen role="php">
-     <![CDATA[
+   </programlisting>
+   &example.outputs;
+   <screen role="php">
+<![CDATA[
 31 total days
 1 month, 0 days
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
  
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
-    The <methodname>DateInterval::format</methodname> method does not 
-    recalculate carry over points in time strings nor in date segments. This 
+   <simpara>
+    The <methodname>DateInterval::format</methodname> method does not
+    recalculate carry over points in time strings nor in date segments. This
     is expected because it is not possible to overflow values like <literal>"32 days"</literal>
-    which could be interpreted as anything from <literal>"1 month and 4 days"</literal> 
+    which could be interpreted as anything from <literal>"1 month and 4 days"</literal>
     to <literal>"1 month and 1 day"</literal>.
-   </para>
+   </simpara>
+  </note>
+  <note>
+   <simpara>
+    An unrecognized <parameter>format</parameter> character is echoed back literally with its
+    <literal>%</literal> prefix (for example, <literal>%Q</literal> stays <literal>%Q</literal>),
+    unlike <methodname>DateTimeInterface::format</methodname>'s own escaping convention, which
+    has no <literal>%</literal> prefix at all. A trailing, unescaped <literal>%</literal> at the
+    very end of <parameter>format</parameter>, with no character following it, is dropped
+    silently rather than printed literally.
+   </simpara>
   </note>
  </refsect1>
 
