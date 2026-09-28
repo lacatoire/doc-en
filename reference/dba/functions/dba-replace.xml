@@ -18,6 +18,14 @@
    with <parameter>key</parameter> and <parameter>value</parameter> into the
    database specified by <parameter>dba</parameter>.
   </simpara>
+  <simpara>
+   This is not supported by the <literal>cdb_make</literal> handler, which
+   cannot replace an existing value: on this handler,
+   <function>dba_replace</function> always fails, even when
+   <parameter>key</parameter> does not exist yet. Use
+   <function>dba_insert</function> instead, which <literal>cdb_make</literal>
+   does support.
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
