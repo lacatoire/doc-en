@@ -3,7 +3,7 @@
 <refentry xml:id="function.date-create" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>date_create</refname>
-  <refpurpose>create a new <classname>DateTime</classname> object</refpurpose>
+  <refpurpose>Create a new <classname>DateTime</classname> object</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -33,9 +33,13 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns a new DateTime instance &return.falseforfailure;
-  </para>
+  <simpara>
+   Returns a new DateTime instance &return.falseforfailure; If &false; is returned, the
+   parsing errors can be retrieved with <function>date_get_last_errors</function>, as long
+   as no other date-parsing call has been made in between: its state is reset by any
+   subsequent call, including a successful one. It also surfaces warnings that don't cause
+   a &false; return on their own, such as a silently rolled-over out-of-range date.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
@@ -44,6 +48,7 @@
    <member><methodname>DateTimeImmutable::__construct</methodname></member>
    <member><methodname>DateTimeImmutable::createFromFormat</methodname></member>
    <member><methodname>DateTime::__construct</methodname></member>
+   <member><function>date_get_last_errors</function></member>
   </simplelist>
  </refsect1>
 
