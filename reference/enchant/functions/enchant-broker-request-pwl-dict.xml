@@ -36,7 +36,17 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns a dictionary resource on success&return.falseforfailure;.
+   Returns an <classname>EnchantDictionary</classname> instance on success, or &false;
+   on failure (including when <parameter>filename</parameter> is restricted by
+   <link linkend="ini.open-basedir">open_basedir</link>).
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>broker</parameter>
+   is invalid or has already been freed.
   </simpara>
  </refsect1>
 
