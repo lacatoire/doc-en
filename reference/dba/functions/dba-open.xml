@@ -42,8 +42,11 @@
       read/write access to an already existing database, <literal>c</literal>
       for read/write access and database creation if it doesn't currently exist,
       and <literal>n</literal> for create, truncate and read/write access.
-      The database is created in BTree mode, other modes (like Hash or Queue)
-      are not supported.
+      On the <literal>db2</literal>, <literal>db3</literal> and
+      <literal>db4</literal> handlers, the database is created in BTree mode,
+      other modes (like Hash or Queue) are not supported; the
+      <literal>db1</literal> handler, however, always creates the database in
+      Hash mode.
      </simpara>
      <simpara>
       Additionally you can set the database lock method with the next char.
@@ -145,7 +148,12 @@
         <member>ok: the second call will be successful.</member>
         <member>wait: the second call waits until <function>dba_close</function> is called for the first.</member>
         <member>false: the second call returns false.</member>
-        <member>illegal: you must not mix <literal>"l"</literal> and <literal>"d"</literal> modifiers for <parameter>mode</parameter> parameter.</member>
+        <member>illegal: mixing the <literal>"l"</literal> and <literal>"d"</literal> lock
+        modifiers is a discipline requirement, not something enforced by <literal>dba</literal>:
+        <literal>l</literal> locks a separate <filename>.lck</filename> file while
+        <literal>d</literal> locks the data file itself, so two openers using different
+        modifiers use different file descriptors and both succeed silently and
+        simultaneously, defeating the locking discipline instead of being rejected.</member>
        </simplelist>
       </para>
      </note>
