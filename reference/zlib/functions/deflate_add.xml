@@ -63,14 +63,31 @@
   <para>
    Returns a chunk of compressed data, &return.falseforfailure;.
   </para>
+  <simpara>
+   After a call with <parameter>flush_mode</parameter> set to
+   <constant>ZLIB_FINISH</constant> completes the stream successfully,
+   <parameter>context</parameter> is automatically reset and can be reused to
+   compress a brand new, independent stream.
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="errors"><!-- {{{ -->
   &reftitle.errors;
-  <para>
-   If invalid arguments are given, an error of level
-   <constant>E_WARNING</constant> is generated.
-  </para>
+  <simpara>
+   If <parameter>flush_mode</parameter> is <constant>ZLIB_BLOCK</constant>
+   and the zlib library PHP was compiled against is older than version
+   1.2.4, an <exceptionname>Error</exceptionname> is thrown.
+  </simpara>
+  <simpara>
+   If <parameter>flush_mode</parameter> is not one of the accepted
+   <constant>ZLIB_*</constant> constants listed above, a
+   <exceptionname>ValueError</exceptionname> is thrown.
+  </simpara>
+  <simpara>
+   If an internal zlib error occurs while compressing the data, an error
+   of level <constant>E_WARNING</constant> is generated and &false; is
+   returned.
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="changelog">
