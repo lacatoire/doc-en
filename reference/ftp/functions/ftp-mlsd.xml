@@ -15,7 +15,6 @@
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>ftp</parameter></term>
@@ -32,7 +31,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
@@ -61,7 +59,6 @@
  
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>ftp_mlsd</function> example</title>
     <programlisting role="php">
@@ -186,16 +183,13 @@ array(5) {
 ]]>
     </screen>
    </example>
-  </para>
  </refsect1>
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>ftp_rawlist</function></member>
     <member><function>ftp_nlist</function></member>
    </simplelist>
-  </para>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
