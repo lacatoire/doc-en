@@ -63,7 +63,6 @@
  </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title>Using <function>get_called_class</function></title>
     <programlisting role="php">
@@ -93,7 +92,6 @@ string(3) "bar"
 ]]>
     </screen>
    </example>
-  </para>
  </refsect1>
  <refsect1 role="seealso">
   &reftitle.seealso;
