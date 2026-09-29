@@ -64,6 +64,17 @@ echo gmp_strval($abs2) . "\n";
    </example>
   </para>
  </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>gmp_sign</function></member>
+    <member><function>gmp_neg</function></member>
+    <member><function>abs</function></member>
+   </simplelist>
+  </para>
+ </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
 Local variables:
