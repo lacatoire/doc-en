@@ -35,10 +35,12 @@
     <varlistentry>
      <term><parameter>protocol</parameter></term>
      <listitem>
-      <para>
-       <parameter>protocol</parameter> is either <literal>"tcp"</literal>
-       or <literal>"udp"</literal> (in lowercase).
-      </para>
+      <simpara>
+       <parameter>protocol</parameter> is commonly <literal>"tcp"</literal>
+       or <literal>"udp"</literal> (in lowercase). Any protocol name listed
+       in <filename>/etc/services</filename> is accepted, and the value is
+       not validated by PHP.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -57,6 +59,8 @@
   <para>
    <simplelist>
     <member><function>getservbyname</function></member>
+    <member><function>getprotobyname</function></member>
+    <member><function>getprotobynumber</function></member>
    </simplelist>
   </para>
  </refsect1>
