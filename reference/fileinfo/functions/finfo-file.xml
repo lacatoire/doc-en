@@ -78,7 +78,7 @@
   &reftitle.errors;
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if
-   <parameter>filename</parameter> contains any null bytes.
+   <parameter>filename</parameter> is an empty string or contains any null bytes.
    Prior to PHP 8.5.0, a <exceptionname>TypeError</exceptionname> was thrown
    instead.
   </simpara>
