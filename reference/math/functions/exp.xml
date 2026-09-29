@@ -23,7 +23,6 @@
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>num</parameter></term>
@@ -34,7 +33,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
@@ -44,7 +42,6 @@
  </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>exp</function> example</title>
     <programlisting role="php">
@@ -63,16 +60,13 @@ echo exp(5.7);
 ]]>
     </screen>
    </example>
-  </para>
  </refsect1>
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>log</function></member>
     <member><function>pow</function></member>
    </simplelist>
-  </para>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
