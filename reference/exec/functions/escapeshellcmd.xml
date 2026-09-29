@@ -61,6 +61,15 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>command</parameter> exceeds the maximum command line length
+   allowed by the platform, or if the escaped command would exceed that length.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
