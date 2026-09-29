@@ -97,6 +97,17 @@ Array
    </example>
   </para>
  </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>microtime</function></member>
+    <member><function>time</function></member>
+    <member><function>hrtime</function></member>
+   </simplelist>
+  </para>
+ </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
 Local variables:
