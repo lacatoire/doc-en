@@ -40,12 +40,20 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>dictionary</parameter>
+   is invalid or has already been freed.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
    <member><function>enchant_dict_add_to_session</function></member>
    <member><function>enchant_dict_remove</function></member>
-   <member><function>enchant_dict_is_added_to_session</function></member>
+   <member><function>enchant_dict_is_added</function></member>
   </simplelist>
  </refsect1>
 </refentry>
