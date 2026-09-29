@@ -13,16 +13,16 @@
    <methodparam><type>bool</type><parameter>dither</parameter></methodparam>
    <methodparam><type>int</type><parameter>num_colors</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>imagetruecolortopalette</function> converts a truecolor image
    to a palette image. The code for this function was originally drawn from
    the Independent JPEG Group library code, which is excellent. The code
-   has been modified to preserve as much alpha channel information as
-   possible in the resulting palette, in addition to preserving colors as
-   well as possible. This does not work as well as might be hoped. It is
+   has been modified to preserve colors as well as possible. When GD is
+   built with libimagequant, the alpha channel is preserved in the resulting
+   palette. It is
    usually best to simply produce a truecolor output image instead, which
    guarantees the highest output quality.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
