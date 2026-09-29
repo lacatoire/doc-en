@@ -45,7 +45,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>fstat</function> example</title>
     <programlisting role="php">
@@ -89,7 +88,6 @@ Array
 ]]>
     </screen>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="notes">
