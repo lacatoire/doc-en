@@ -19,7 +19,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>filename</parameter></term>
@@ -35,7 +34,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -65,7 +63,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title>Testing whether a file exists</title>
     <programlisting role="php">
@@ -82,7 +79,6 @@ if (file_exists($filename)) {
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="notes">
@@ -93,7 +89,6 @@ if (file_exists($filename)) {
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>is_readable</function></member>
     <member><function>is_writable</function></member>
@@ -101,7 +96,6 @@ if (file_exists($filename)) {
     <member><function>file</function></member>
     <member><classname>SplFileInfo</classname></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
