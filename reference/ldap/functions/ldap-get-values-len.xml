@@ -17,10 +17,10 @@
   <para>
    Reads all the values of the attribute in the entry in the result.
   </para>
-  <para>
-   This function is used exactly like <function>ldap_get_values</function>
-   except that it handles binary data and not string data.
-  </para>
+  <simpara>
+   <function>ldap_get_values</function> is an alias of this function; both
+   behave identically and return values as binary-safe strings.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -46,8 +46,9 @@
     <varlistentry>
      <term><parameter>attribute</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The attribute name, for example <literal>"cn"</literal>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
