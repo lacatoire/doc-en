@@ -78,14 +78,12 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>ob_flush</function></member>
     <member><function>ob_clean</function></member>
     <member><function>ob_end_flush</function></member>
     <member><function>ob_end_clean</function></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
