@@ -97,6 +97,46 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   <function>glob</function> returns &false; in the following cases:
+   <itemizedlist>
+    <listitem>
+     <simpara>
+      <parameter>pattern</parameter> is longer than the maximum path length
+      of the platform (for example 4096 bytes on Linux): an
+      <constant>E_WARNING</constant> level error is emitted.
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <parameter>flags</parameter> contains a value that is invalid or not
+      supported on the current platform: an <constant>E_WARNING</constant>
+      level error is emitted.
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      Every matched path is rejected by the
+      <link linkend="ini.open-basedir">open_basedir</link> restriction:
+      no error is emitted.
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      The underlying glob implementation fails for a reason other than
+      "no match": no error is emitted.
+     </simpara>
+    </listitem>
+   </itemizedlist>
+  </para>
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>pattern</parameter> contains any null bytes.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
