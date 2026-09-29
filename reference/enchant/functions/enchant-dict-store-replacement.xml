@@ -14,10 +14,11 @@
    <methodparam><type>string</type><parameter>correct</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-    Add a correction for 'mis' using 'cor'.
-    Notes that you replaced @mis with @cor, so it's possibly more likely
-    that future occurrences of @mis will be replaced with @cor. So it might
-    bump @cor up in the suggestion list.
+    Add a correction for <parameter>misspelled</parameter> using <parameter>correct</parameter>.
+    Notes that you replaced <parameter>misspelled</parameter> with <parameter>correct</parameter>,
+    so it's possibly more likely that future occurrences of <parameter>misspelled</parameter>
+    will be replaced with <parameter>correct</parameter>. So it might
+    bump <parameter>correct</parameter> up in the suggestion list.
   </simpara>
  </refsect1>
  <refsect1 role="parameters">
@@ -46,6 +47,14 @@
   &reftitle.returnvalues;
   <simpara>
    &return.success;
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>dictionary</parameter>
+   is invalid or has already been freed.
   </simpara>
  </refsect1>
 
