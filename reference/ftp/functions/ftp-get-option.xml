@@ -19,7 +19,6 @@
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>ftp</parameter></term>
@@ -48,6 +47,12 @@
             Returns &true; if this option is on, &false; otherwise. 
            </entry>
           </row>
+          <row>
+           <entry><constant>FTP_USEPASVADDRESS</constant></entry>
+           <entry>
+            Returns &true; if the IP address returned by the FTP server in response to the PASV command is used, &false; otherwise.
+           </entry>
+          </row>
          </tbody>
         </tgroup>
        </table>
@@ -55,15 +60,20 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the value on success or &false; if the given 
-   <parameter>option</parameter> is not supported. In the latter case, a
-   warning message is also thrown.
-  </para>
+  <simpara>
+   Returns the value of the requested <parameter>option</parameter>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if the <parameter>option</parameter>
+   is not supported.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -85,7 +95,6 @@
  
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>ftp_get_option</function> example</title>
     <programlisting role="php">
@@ -97,15 +106,12 @@ $timeout = ftp_get_option($ftp, FTP_TIMEOUT_SEC);
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>ftp_set_option</function></member>
    </simplelist>
-  </para>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
