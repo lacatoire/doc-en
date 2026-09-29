@@ -44,7 +44,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>func_get_args</function> example</title>
     <programlisting role="php">
@@ -78,9 +77,7 @@ Argument 2 is: 3
 ]]>
     </screen>
    </example>
-  </para>
 
-  <para>
    <example>
     <title><function>func_get_args</function> example of byref and byval arguments</title>
     <programlisting role="php">
@@ -120,7 +117,6 @@ After change  : array (
 )
     </screen>
    </example>
-  </para>
 
  </refsect1>
 
