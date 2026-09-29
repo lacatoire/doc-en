@@ -18,9 +18,10 @@
    <methodparam choice="opt"><type class="union"><type>int</type><type>null</type></type><parameter>year</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
-   Identical to <function>mktime</function> except the passed parameters represents a 
-   GMT date. <function>gmmktime</function> internally uses <function>mktime</function>
-   so only times valid in derived local time can be used.
+   Identical to <function>mktime</function> except the passed parameters represent a
+   GMT date. The result does not depend on the default timezone set by
+   <function>date_default_timezone_set</function> or the
+   <link linkend="ini.date.timezone">date.timezone</link> INI setting.
   </para>
   <para>
    Like <function>mktime</function>, optional arguments may be left out in
@@ -95,7 +96,9 @@
      <term><parameter>year</parameter></term>
      <listitem>
       <para>
-       The year
+       The number of the year, may be a two or four digit value,
+       with values between 0-69 mapping to 2000-2069 and 70-100 to
+       1970-2000.
       </para>
      </listitem>
     </varlistentry>
@@ -172,6 +175,7 @@ July 1, 2000 is on a Saturday
    <simplelist>
     <member>The <classname>DateTimeImmutable</classname> class</member>
     <member><function>mktime</function></member>
+    <member><function>checkdate</function></member>
     <member><function>date</function></member>
     <member><function>time</function></member>
    </simplelist>
