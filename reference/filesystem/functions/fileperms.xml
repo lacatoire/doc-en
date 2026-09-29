@@ -19,7 +19,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>filename</parameter></term>
@@ -30,7 +29,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -63,7 +61,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title>Display permissions as an octal value</title>
     <programlisting role="php">
@@ -131,7 +128,6 @@ echo $info;
 ]]>
     </screen>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="notes">
@@ -142,13 +138,11 @@ echo $info;
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>chmod</function></member>
     <member><function>is_readable</function></member>
     <member><function>stat</function></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
