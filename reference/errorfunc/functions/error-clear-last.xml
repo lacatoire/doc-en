@@ -12,8 +12,10 @@
    <type>void</type><methodname>error_clear_last</methodname>
    <void/>
   </methodsynopsis>
-  <para>
-  </para>
+  <simpara>
+   Clears the most recent error, so that <function>error_get_last</function>
+   returns &null;.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -23,15 +25,13 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Clears the most recent errors, making it unable to be retrieved with
-   <function>error_get_last</function>.
-  </para>
+  <simpara>
+   &return.void;
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title>An <function>error_clear_last</function> example</title>
     <programlisting role="php">
@@ -56,9 +56,9 @@ NULL
 NULL
 array(4) {
   ["type"]=>
-  int(8)
+  int(2)
   ["message"]=>
-  string(21) "Undefined variable: b"
+  string(21) "Undefined variable $b"
   ["file"]=>
   string(9) "%s"
   ["line"]=>
@@ -68,16 +68,13 @@ NULL
 ]]>
     </screen>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><link linkend="errorfunc.constants">Error constants</link></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
