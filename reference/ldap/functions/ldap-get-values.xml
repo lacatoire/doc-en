@@ -53,8 +53,9 @@
     <varlistentry>
      <term><parameter>attribute</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The attribute name, for example <literal>"cn"</literal>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
