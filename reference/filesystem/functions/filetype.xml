@@ -19,7 +19,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>filename</parameter></term>
@@ -30,7 +29,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -39,11 +37,10 @@
    Returns the type of the file. Possible values are fifo, char,
    dir, block, link, file, socket and unknown.
   </para>
-  <para>
+  <simpara>
    Returns &false; if an error occurs. <function>filetype</function> will also
-   produce an <constant>E_NOTICE</constant> message if the stat call fails
-   or if the file type is unknown.
-  </para>
+   produce an <constant>E_NOTICE</constant> message if the file type is unknown.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -86,7 +83,6 @@ dir
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>is_dir</function></member>
     <member><function>is_file</function></member>
@@ -96,7 +92,6 @@ dir
     <member><function>pathinfo</function></member>
     <member><function>stat</function></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
