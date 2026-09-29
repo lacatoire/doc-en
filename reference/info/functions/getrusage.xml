@@ -125,6 +125,9 @@ echo $dat["ru_stime.tv_sec"];  // system time used (seconds)
   &reftitle.seealso;
   <para>
    <simplelist>
+    <member><function>pcntl_wait</function></member>
+    <member><function>pcntl_waitpid</function></member>
+    <member><function>pcntl_waitid</function></member>
     <member>Your system's man page on <command>getrusage(2)</command></member>
    </simplelist>
   </para>
