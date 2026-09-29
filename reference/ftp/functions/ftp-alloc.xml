@@ -85,7 +85,6 @@
  
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>ftp_alloc</function> example</title>
     <programlisting role="php">
@@ -111,7 +110,6 @@ ftp_close($ftp);
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
  <refsect1 role="seealso">
   &reftitle.seealso;
