@@ -36,10 +36,13 @@
     <varlistentry>
      <term><parameter>protocol</parameter></term>
      <listitem>
-      <para>
-       <parameter>protocol</parameter> is either <literal>"tcp"</literal>
-       or <literal>"udp"</literal> (in lowercase).
-      </para>
+      <simpara>
+       The protocol name, looked up in the protocol column of
+       <filename>/etc/services</filename>, for example <literal>"tcp"</literal>
+       or <literal>"udp"</literal> (in lowercase). Any other protocol present
+       in the system services database, such as <literal>"sctp"</literal>,
+       is also accepted. See also <function>getprotobyname</function>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -81,6 +84,8 @@ foreach ($services as $service) {
   <para>
    <simplelist>
     <member><function>getservbyport</function></member>
+    <member><function>getprotobyname</function></member>
+    <member><function>getprotobynumber</function></member>
     <member>
      <link xlink:href="&url.network.port-numbers;">&url.network.port-numbers;</link>
      for a complete list of port numbers.
