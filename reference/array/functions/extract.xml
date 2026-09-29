@@ -31,7 +31,6 @@
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>array</parameter></term>
@@ -156,7 +155,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
@@ -165,9 +163,32 @@
    table.
   </para>
  </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>flags</parameter> is not a valid extract type.
+  </simpara>
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>flags</parameter> is <constant>EXTR_PREFIX_SAME</constant>,
+   <constant>EXTR_PREFIX_ALL</constant>,
+   <constant>EXTR_PREFIX_INVALID</constant> or
+   <constant>EXTR_PREFIX_IF_EXISTS</constant> and
+   <parameter>prefix</parameter> is not provided.
+  </simpara>
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>prefix</parameter> is provided but is not a valid variable name.
+  </simpara>
+  <simpara>
+   An <exceptionname>Error</exceptionname> is thrown if
+   <function>extract</function> is called dynamically, for example through
+   a variable function such as <code>$f = 'extract'; $f($array);</code>.
+  </simpara>
+ </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>extract</function> example</title>
     <programlisting role="php">
@@ -205,7 +226,6 @@ blue, large, sphere, medium
      <varname>$wddx_shape</varname>.
     </para>
    </example>
-  </para>
  </refsect1>
  <refsect1 role="notes">
   &reftitle.notes;
@@ -225,12 +245,10 @@ blue, large, sphere, medium
  </refsect1>
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>compact</function></member>
     <member><function>list</function></member>
    </simplelist>
-  </para>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
