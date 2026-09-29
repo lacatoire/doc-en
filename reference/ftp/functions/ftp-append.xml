@@ -15,11 +15,12 @@
    <methodparam><type>string</type><parameter>local_filename</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>mode</parameter><initializer><constant>FTP_BINARY</constant></initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
 
-  </para>
+   <function>ftp_append</function> appends the contents of a local file to a
+   remote file on the FTP server. If the remote file does not exist, it is created.
+  </simpara>
 
-  &warn.undocumented.func;
 
  </refsect1>
 
@@ -35,25 +36,26 @@
    <varlistentry>
     <term><parameter>remote_filename</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+      The remote file path.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>local_filename</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+      The local file path.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>mode</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+      The transfer mode. Must be either <constant>FTP_ASCII</constant> or
+      <constant>FTP_BINARY</constant>.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
