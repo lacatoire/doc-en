@@ -20,11 +20,14 @@
    shells.
   </para>
   <simpara>
-   The behavior on Unix systems and macOS is determined by the system's
-   implementation of glob(). On Windows, an implementation that conforms
-   to the POSIX 1003.2 definition for glob() is used, and it includes
-   an extension to handle the <literal>[!...]</literal> convention for
-   negating a range.
+   As of PHP 8.5.0, PHP uses its own bundled implementation of glob() on all
+   platforms by default. It conforms to the POSIX 1003.2 definition for
+   glob(), and it includes an extension to handle the
+   <literal>[!...]</literal> convention for negating a range. The system's
+   implementation of glob() is only used if PHP was built with
+   <literal>--enable-system-glob</literal>. Prior to PHP 8.5.0, the behavior
+   on Unix systems and macOS was determined by the system's implementation of
+   glob(), and the bundled implementation was only used on Windows.
   </simpara>
  </refsect1>
 
@@ -153,11 +156,6 @@ path/Zend/README.md
  <refsect1 role="notes">
   &reftitle.notes;
   &note.no-remote;
-  <note>
-   <simpara>
-    This function isn't available on some systems (e.g. old Sun OS).
-   </simpara>
-  </note>
  </refsect1>
 
  <refsect1 role="seealso">
