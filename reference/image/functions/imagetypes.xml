@@ -23,14 +23,15 @@
  
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a bit-field corresponding to the image formats supported by the
    version of GD linked into PHP.  The following bits are returned,
    <constant>IMG_AVIF</constant> | <constant>IMG_BMP</constant> |
    <constant>IMG_GIF</constant> | <constant>IMG_JPG</constant> |
    <constant>IMG_PNG</constant> | <constant>IMG_WBMP</constant> | 
-   <constant>IMG_XPM</constant> | <constant>IMG_WEBP</constant>.
-  </para>
+   <constant>IMG_XPM</constant> | <constant>IMG_WEBP</constant> |
+   <constant>IMG_TGA</constant>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
