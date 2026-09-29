@@ -19,7 +19,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>filename</parameter></term>
@@ -30,7 +29,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -72,12 +70,10 @@ if (getmyinode() == fileinode($filename)) {
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>getmyinode</function></member>
     <member><function>stat</function></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
