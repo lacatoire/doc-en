@@ -95,6 +95,16 @@
    Unless <literal>GLOB_NOSORT</literal> was used, the names will
    be sorted alphanumerically.
   </para>
+  <note>
+   <simpara>
+    Matches that are outside the
+    <link linkend="ini.open-basedir">open_basedir</link> restriction are
+    silently removed from the result, without any error. If only some of the
+    matches are removed, the remaining ones are returned. If every match is
+    removed, &false; is returned instead of an empty array, so the result
+    differs from the case where nothing matched at all.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="examples">
