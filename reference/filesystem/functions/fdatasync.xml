@@ -21,7 +21,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>stream</parameter></term>
@@ -30,7 +29,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -42,7 +40,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>fdatasync</function> example</title>
     <programlisting role="php">
@@ -62,17 +59,14 @@ fclose($stream);
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
  
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>fflush</function></member>
     <member><function>fsync</function></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
