@@ -40,10 +40,14 @@
    Possible values for the returned string are:
    <simplelist>
     <member>
-      <literal>"boolean"</literal>
+      <literal>"boolean"</literal> (for historical reasons <literal>"boolean"</literal> is
+      returned in case of a <type>bool</type>, and not simply
+      <literal>"bool"</literal>)
      </member>
     <member>
-     <literal>"integer"</literal>
+     <literal>"integer"</literal> (for historical reasons <literal>"integer"</literal> is
+     returned in case of an <type>int</type>, and not simply
+     <literal>"int"</literal>)
     </member>
     <member>
      <literal>"double"</literal> (for historical reasons <literal>"double"</literal> is
@@ -73,6 +77,18 @@
     </member>
    </simplelist>
   </para>
+  <note>
+   <simpara>
+    Because of these legacy names, a comparison such as
+    <literal>gettype($value) === "int"</literal> is always &false;. Use
+    <function>get_debug_type</function> to get the canonical type names, or
+    the <function>is_int</function> family of functions to check a type.
+    The <literal>(boolean)</literal>, <literal>(integer)</literal> and
+    <literal>(double)</literal> casts that use the same legacy names are
+    deprecated as of PHP 8.5.0; see
+    <link linkend="language.types.type-juggling">type juggling</link>.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="changelog">
