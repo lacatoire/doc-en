@@ -25,7 +25,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>error_level</parameter></term>
@@ -45,7 +44,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -87,7 +85,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>error_reporting</function> examples</title>
     <programlisting role="php">
@@ -120,7 +117,6 @@ ini_set('error_reporting', E_ALL);
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="notes">
@@ -136,7 +132,6 @@ ini_set('error_reporting', E_ALL);
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member>The <link linkend="ini.display-errors">display_errors</link> directive</member>
     <member>The <link linkend="ini.html-errors">html_errors</link> directive</member>
@@ -144,7 +139,6 @@ ini_set('error_reporting', E_ALL);
     <member>The <link linkend="language.operators.errorcontrol">error control</link> operator</member>
     <member><function>ini_set</function></member>
    </simplelist>
-  </para>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
