@@ -28,6 +28,12 @@
       An integer or a string. The string representation can be decimal,
       hexadecimal, octal, or binary.
      </simpara>
+     <simpara>
+      White space anywhere in the string, including between digits, is ignored.
+      A leading <literal>-</literal> sign denotes a negative number, but a
+      leading <literal>+</literal> sign is not accepted and causes a
+      <exceptionname>ValueError</exceptionname> to be thrown.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
@@ -129,6 +135,7 @@ $b = gmp_init("0xFFFFDEBACDFEDF7200");
   &reftitle.seealso;
   <simplelist>
    <member><methodname>GMP::__construct</methodname></member>
+   <member><function>gmp_strval</function></member>
   </simplelist>
  </refsect1>
  
