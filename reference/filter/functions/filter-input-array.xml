@@ -73,6 +73,19 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if the
+   <parameter>options</parameter> &array; contains a key that is not a
+   &string;.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if the
+   <parameter>options</parameter> &array; contains an empty key.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
