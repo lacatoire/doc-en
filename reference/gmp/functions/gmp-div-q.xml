@@ -84,6 +84,21 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>DivisionByZeroError</exceptionname> if
+   <parameter>num2</parameter> is zero.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>rounding_mode</parameter> is not one of
+   <constant>GMP_ROUND_ZERO</constant>,
+   <constant>GMP_ROUND_PLUSINF</constant> or
+   <constant>GMP_ROUND_MINUSINF</constant>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
