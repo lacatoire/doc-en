@@ -49,14 +49,16 @@
     <varlistentry>
      <term><parameter>filters</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Allows reducing the PNG file size. It is a bitmask field which may be
        set to any combination of the <constant>PNG_FILTER_<replaceable>*</replaceable></constant>
-       constants. <constant>PNG_NO_FILTER</constant> or 
-       <constant>PNG_ALL_FILTERS</constant> may also be used to respectively
-       disable or activate all filters.
-       The default value (<literal>-1</literal>) disables filtering.
-      </para>
+       constants. <constant>PNG_ALL_FILTERS</constant> may also be used to
+       activate all filters, and <constant>PNG_FILTER_NONE</constant> to disable
+       filtering.
+       The default value (<literal>-1</literal>) leaves the choice of filters to
+       libpng. <constant>PNG_NO_FILTER</constant> does not select any specific
+       filter and is not a way to disable filtering.
+      </simpara>
       <caution>
        <simpara>
         The <parameter>filters</parameter> parameter is ignored by system libgd.
