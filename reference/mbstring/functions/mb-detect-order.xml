@@ -38,27 +38,25 @@
        This setting affects <function>mb_detect_encoding</function> and
        <function>mb_send_mail</function>.
       </para>
-      <para>
-       <literal>mbstring</literal> currently implements the following
-       encoding detection filters. If there is an invalid byte sequence
-       for the following encodings, encoding detection will fail.
-      </para>
       <simpara>
-       <literal>UTF-8</literal>, <literal>UTF-7</literal>,
-       <literal>ASCII</literal>,
-       <literal>EUC-JP</literal>,<literal>SJIS</literal>,
-       <literal>eucJP-win</literal>, <literal>SJIS-win</literal>,
-       <literal>JIS</literal>, <literal>ISO-2022-JP</literal> 
+       As of PHP 8.1, <function>mb_detect_encoding</function> uses heuristics
+       to choose among the valid text encodings of the list. An encoding for
+       which the string contains an invalid byte sequence is rejected.
       </simpara>
       <para>
        For <literal>ISO-8859-*</literal>, <literal>mbstring</literal>
        always detects as <literal>ISO-8859-*</literal>.
       </para>
-      <para>
-       For <literal>UTF-16</literal>, <literal>UTF-32</literal>,
-       <literal>UCS2</literal> and <literal>UCS4</literal>, encoding
-       detection will fail always.
-      </para>
+      <simpara>
+       <literal>UTF-16</literal>, <literal>UTF-32</literal>,
+       <literal>UCS-2</literal> and <literal>UCS-4</literal> encodings can be detected.
+      </simpara>
+      <simpara>
+       <literal>auto</literal> in the other functions which accept an encoding list,
+       such as <function>mb_convert_encoding</function>, expands to the default
+       detection order of <literal>mbstring</literal>, not to the order set by
+       this function.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
