@@ -14,12 +14,16 @@
    <methodparam><type class="union"><type>GMP</type><type>int</type><type>string</type></type><parameter>num2</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>rounding_mode</parameter><initializer><constant>GMP_ROUND_ZERO</constant></initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Calculates remainder of the integer division of
-   <parameter>num1</parameter> by <parameter>num2</parameter>. The
-   remainder has the sign of the <parameter>num1</parameter> argument,
-   if not zero.
-  </para>
+   <parameter>num1</parameter> by <parameter>num2</parameter>. If the
+   remainder is not zero, its sign depends on <parameter>rounding_mode</parameter>:
+   with <constant>GMP_ROUND_ZERO</constant> it is the sign of
+   <parameter>num1</parameter>, with <constant>GMP_ROUND_PLUSINF</constant>
+   it is the opposite of the sign of <parameter>num2</parameter>, and with
+   <constant>GMP_ROUND_MINUSINF</constant> it is the sign of
+   <parameter>num2</parameter>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
