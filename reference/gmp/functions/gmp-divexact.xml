@@ -65,8 +65,8 @@
 $div1 = gmp_divexact("10", "2");
 echo gmp_strval($div1) . "\n";
 
-$div2 = gmp_divexact("10", "3"); // bogus result
-echo gmp_strval($div2) . "\n";
+// gmp_divexact("10", "3") has no meaningful result: 3 does not divide 10, and
+// the value returned in that case depends on the platform and the GMP version.
 ?>
 ]]>
     </programlisting>
@@ -74,7 +74,6 @@ echo gmp_strval($div2) . "\n";
     <screen>
 <![CDATA[
 5
-2863311534
 ]]>
     </screen>
    </example>
