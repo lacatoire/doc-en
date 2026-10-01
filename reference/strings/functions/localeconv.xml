@@ -143,8 +143,15 @@
    </informaltable>
   </para>
   <simpara>
-   The <literal>p_sign_posn</literal> and <literal>n_sign_posn</literal> contain a string
-   of formatting options. Each number represents one of the above listed conditions.
+   The <literal>p_sign_posn</literal> and <literal>n_sign_posn</literal> contain an
+   <type>int</type> that represents one of the above listed conditions.
+   The <literal>int_frac_digits</literal>, <literal>frac_digits</literal>,
+   <literal>p_cs_precedes</literal>, <literal>p_sep_by_space</literal>,
+   <literal>n_cs_precedes</literal> and <literal>n_sep_by_space</literal>
+   fields are <type>int</type>s too. If the current locale does not define a value, the field is
+   equal to <constant>CHAR_MAX</constant> (<literal>127</literal> on most
+   platforms). This is the case for all of the integer fields in the default
+   <literal>C</literal> locale.
   </simpara>
   <para>
    The grouping fields contain arrays that define the way numbers should be
