@@ -60,10 +60,10 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   If <parameter>max</parameter> is less than <parameter>min</parameter>,
+  <simpara>
+   If <parameter>max</parameter> is less than or equal to <parameter>min</parameter>,
    a <exceptionname>ValueError</exceptionname> will be thrown.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
