@@ -52,17 +52,17 @@
  
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a file pointer identical to that returned by
    <function>fopen</function>, except that it is unidirectional (may
    only be used for reading or writing) and must be closed with
    <function>pclose</function>. This pointer may be used with
-   <function>fgets</function>, <function>fgetss</function>, and
-   <function>fwrite</function>. When the mode is 'r', the returned
+   <function>fgets</function>, <function>fgetc</function>,
+   <function>fread</function>, and <function>fwrite</function>. When the mode is 'r', the returned
    file pointer equals to the STDOUT of the command, when the mode
    is 'w', the returned file pointer equals to the STDIN of the
    command.
-  </para>
+  </simpara>
   <para>
    If an error occurs, returns &false;.
   </para>
