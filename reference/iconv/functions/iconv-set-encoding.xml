@@ -53,6 +53,12 @@
   <para>
    &return.success;
   </para>
+  <simpara>
+   Returns &false; if <parameter>type</parameter> is not one of the values
+   listed above, without emitting any diagnostic. Returns &false; and emits an
+   <constant>E_WARNING</constant> if <parameter>encoding</parameter> is 64
+   characters long or more.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
