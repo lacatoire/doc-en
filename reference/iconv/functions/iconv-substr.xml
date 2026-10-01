@@ -97,12 +97,12 @@
    Returns the portion of <parameter>string</parameter> specified by the
    <parameter>offset</parameter> and <parameter>length</parameter> parameters.
   </para>
-  <para>
-   If <parameter>string</parameter> is shorter than <parameter>offset</parameter>
-   characters long, &false; will be returned.
-   If <parameter>string</parameter> is exactly <parameter>offset</parameter>
-   characters long, an empty string will be returned.
-  </para>
+  <simpara>
+   If <parameter>string</parameter> is shorter than or exactly
+   <parameter>offset</parameter> characters long,
+   an empty string will be returned.
+   &false; is returned only on failure, such as an invalid byte sequence.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -121,6 +121,14 @@
       <entry>8.0.0</entry>
       <entry>
        <parameter>length</parameter> and <parameter>encoding</parameter> are nullable now.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       If <parameter>offset</parameter> is beyond the end of
+       <parameter>string</parameter>, an empty string is now returned.
+       Previously, &false; was returned.
       </entry>
      </row>
       <row>
