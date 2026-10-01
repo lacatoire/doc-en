@@ -44,23 +44,29 @@
     <varlistentry>
      <term><parameter>from_encoding</parameter></term>
      <listitem>
-      <para>
-       <parameter>from_encoding</parameter> is specified as an <type>array</type> 
-       or comma separated <type>string</type>, it tries to detect encoding from
-       <parameter>from-coding</parameter>. When <parameter>from_encoding</parameter> 
-       is omitted, <literal>detect_order</literal> is used.
-      </para>
+      <simpara>
+       The encoding of the variables to convert. It is a required parameter.
+       If it is an <type>array</type>
+       or a comma separated <type>string</type> of several encodings, the
+       encoding is detected from the strings of all the variables together,
+       and the detected encoding is returned.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>var</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        <parameter>var</parameter> is the reference to the
        variable being converted. String, Array and Object are accepted.
        <function>mb_convert_variables</function> assumes all parameters
        have the same encoding.
-      </para>
+       Strings held in an array or in an object property are converted in place.
+       A reference stored in an array is replaced by the converted string;
+       the variable it referred to keeps its previous value.
+       If a variable contains a recursive reference, an
+       <constant>E_WARNING</constant> is raised and &false; is returned.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
