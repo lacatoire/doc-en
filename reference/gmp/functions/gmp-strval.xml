@@ -39,6 +39,13 @@
        The base of the returned number. The default base is 10. 
        Allowed values for the base are from 2 to 62 and -2 to -36.
       </para>
+      <simpara>
+       A negative base produces the same digits as its absolute value,
+       but with upper-case letters. For bases from 37 to 62, the digits are
+       case sensitive: upper-case letters represent the values 10 to 35,
+       and lower-case letters the values 36 to 61, as described for
+       <function>gmp_init</function>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -50,6 +57,15 @@
   <para>
    The number, as a <type>string</type>.
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>base</parameter> is not between 2 and 62,
+   or between -2 and -36.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -65,6 +81,12 @@ printf("Decimal: %s, 36-based: %s", gmp_strval($a), gmp_strval($a,36));
 ?>
 ]]>
     </programlisting>
+    &example.outputs;
+    <screen>
+<![CDATA[
+Decimal: 71915494046709, 36-based: phpiscool
+]]>
+    </screen>
    </example>
   </para>
  </refsect1>
