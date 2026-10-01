@@ -47,22 +47,22 @@
 <![CDATA[
 <?php
 // displays correct result
-echo gmp_intval("2147483647") . "\n";
+echo gmp_intval("9223372036854775807") . "\n";
 
-// displays wrong result, above PHP integer limit
-echo gmp_intval("2147483648") . "\n";
+// displays wrong result, above PHP integer limit (on 64-bit platforms)
+echo gmp_intval("9223372036854775808") . "\n";
 
 // displays correct result
-echo gmp_strval("2147483648") . "\n";
+echo gmp_strval("9223372036854775808") . "\n";
 ?>
 ]]>
     </programlisting>
     &example.outputs;
     <screen>
 <![CDATA[
-2147483647
-2147483647
-2147483648
+9223372036854775807
+0
+9223372036854775808
 ]]>
     </screen>
    </example>
@@ -74,8 +74,11 @@ echo gmp_strval("2147483648") . "\n";
   <warning>
    <simpara>
     This function returns a useful result only if the number actually
-    fits the PHP integer (i.e., signed long type). To simply print the GMP
-    number, use <function>gmp_strval</function>.
+    fits the PHP integer (i.e., signed long type). If it does not fit, the
+    result is not clamped to the nearest representable integer: only the
+    least significant bits of the absolute value are kept, with the sign of
+    the number. To simply print the GMP number, use
+    <function>gmp_strval</function>.
    </simpara>
   </warning>
  </refsect1>
