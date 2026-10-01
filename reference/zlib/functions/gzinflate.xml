@@ -44,11 +44,11 @@
   <para>
    The original uncompressed data or &false; on error.
   </para>
-  <para>
-   The function will return an error if the uncompressed data is more than
-   32768 times the length of the compressed input <parameter>data</parameter> 
-   or, unless <parameter>max_length</parameter> is <literal>0</literal>, more than the optional parameter <parameter>max_length</parameter>.
-  </para>
+  <simpara>
+   An error is raised if the uncompressed data is longer than
+   <parameter>max_length</parameter>, unless <parameter>max_length</parameter>
+   is <literal>0</literal>, or if there is not enough memory available.
+  </simpara>
  </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
