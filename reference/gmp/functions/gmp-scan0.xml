@@ -47,10 +47,13 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the index of the found bit, as an <type>int</type>. The
    index starts from 0.
-  </para>
+   If no clear bit is found at or above <parameter>start</parameter>,
+   <literal>-1</literal> is returned. This only happens for a negative
+   <parameter>num1</parameter>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
