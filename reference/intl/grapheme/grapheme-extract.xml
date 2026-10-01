@@ -112,6 +112,14 @@
        Support for negative <parameter>offset</parameter>s has been added.
       </entry>
      </row>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       <parameter>next</parameter> is now assigned correctly when the start
+       offset is moved forward over invalid starting bytes. Previously, it
+       could point to the start of the grapheme boundary instead of its end.
+      </entry>
+     </row>
     </tbody>
    </tgroup>
   </informaltable>
