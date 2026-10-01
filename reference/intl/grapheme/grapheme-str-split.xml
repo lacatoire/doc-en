@@ -37,9 +37,10 @@
    <varlistentry>
     <term><parameter>length</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       Each element of the returned array will be composed of <parameter>length</parameter> grapheme clusters.
-     </para>
+      Must be between <literal>1</literal> and <literal>1073741823</literal> inclusive.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -55,8 +56,9 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   If <parameter>length</parameter> is less than <literal>1</literal>,
-   a <classname>ValueError</classname> will be thrown.
+   If <parameter>length</parameter> is less than <literal>1</literal>
+   or greater than <literal>1073741823</literal>,
+   a <exceptionname>ValueError</exceptionname> will be thrown.
   </simpara>
  </refsect1>
 

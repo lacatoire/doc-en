@@ -68,7 +68,7 @@
      <term><parameter>insertion_cost</parameter></term>
      <listitem>
       <simpara>
-       Defines the cost of insertion. Must be greater than <literal>0</literal>.
+       Defines the cost of insertion. Must be between <literal>1</literal> and <literal>1073741823</literal> inclusive.
       </simpara>
      </listitem>
     </varlistentry>
@@ -76,7 +76,7 @@
      <term><parameter>replacement_cost</parameter></term>
      <listitem>
       <simpara>
-       Defines the cost of replacement. Must be greater than <literal>0</literal>.
+       Defines the cost of replacement. Must be between <literal>1</literal> and <literal>1073741823</literal> inclusive.
       </simpara>
      </listitem>
     </varlistentry>
@@ -84,7 +84,7 @@
      <term><parameter>deletion_cost</parameter></term>
      <listitem>
       <simpara>
-       Defines the cost of deletion. Must be greater than <literal>0</literal>.
+       Defines the cost of deletion. Must be between <literal>1</literal> and <literal>1073741823</literal> inclusive.
       </simpara>
      </listitem>
     </varlistentry>
@@ -113,8 +113,8 @@
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if
    <parameter>insertion_cost</parameter>, <parameter>replacement_cost</parameter>,
-   or <parameter>deletion_cost</parameter> is less than or equal to
-   <literal>0</literal>.
+   or <parameter>deletion_cost</parameter> is less than <literal>1</literal>
+   or greater than <literal>1073741823</literal>.
   </simpara>
   <simpara>
    Returns &false; and sets an intl error if either input string is not
