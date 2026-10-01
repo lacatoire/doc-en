@@ -4,7 +4,7 @@
  <refnamediv>
   <refname>libxml_set_streams_context</refname>
   <refpurpose>
-   Set the streams context for the next libxml document load or write
+   Set the streams context for subsequent libxml document loads and writes
   </refpurpose>
  </refnamediv>
  <refsect1 role="description">
@@ -13,9 +13,12 @@
    <type>void</type><methodname>libxml_set_streams_context</methodname>
    <methodparam><type>resource</type><parameter>context</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   Sets the streams context for the next libxml document load or write.
-  </para>
+  <simpara>
+   Sets the streams context used by all subsequent libxml document loads and
+   writes. The context is not reset after the next operation: it stays in effect
+   until another call to <function>libxml_set_streams_context</function>
+   replaces it.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
