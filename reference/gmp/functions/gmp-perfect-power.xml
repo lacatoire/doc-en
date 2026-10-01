@@ -12,9 +12,11 @@
    <type>bool</type><methodname>gmp_perfect_power</methodname>
    <methodparam><type class="union"><type>GMP</type><type>int</type><type>string</type></type><parameter>num</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   Checks whether <parameter>num</parameter> is a perfect power.
-  </para>
+  <simpara>
+   Checks whether <parameter>num</parameter> is a perfect power, that is, if
+   it can be written as <literal>a**b</literal> with <literal>b</literal>
+   greater than 1.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -31,9 +33,14 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns &true; if <parameter>num</parameter> is a perfect power, &false; otherwise.
-  </para>
+   <literal>0</literal>, <literal>1</literal> and <literal>-1</literal> return &true;.
+   A negative <parameter>num</parameter> returns &true; only if it is an odd
+   power of an integer: <literal>-8</literal> and <literal>-27</literal> return
+   &true;, whereas <literal>-4</literal> and <literal>-16</literal> return
+   &false;.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
