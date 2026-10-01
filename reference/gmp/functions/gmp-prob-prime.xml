@@ -25,9 +25,12 @@
     <varlistentry>
      <term><parameter>num</parameter></term>
      <listitem>
-      <para>
-       The number being checked as a prime.
-      </para>
+      <simpara>
+       The number being checked as a prime. The sign is ignored: a negative
+       number is checked as its absolute value, so <literal>-7</literal> is
+       reported as prime like <literal>7</literal>. <literal>-1</literal>,
+       <literal>0</literal> and <literal>1</literal> are not prime.
+      </simpara>
       &gmp.parameter; 
      </listitem>
     </varlistentry>
