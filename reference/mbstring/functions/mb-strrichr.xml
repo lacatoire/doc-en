@@ -15,14 +15,18 @@
    <methodparam choice="opt"><type>bool</type><parameter>before_needle</parameter><initializer>&false;</initializer></methodparam>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>encoding</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>mb_strrichr</function> finds the last occurrence of
    <parameter>needle</parameter> in <parameter>haystack</parameter>
    and returns the portion of <parameter>haystack</parameter>. Unlike
    <function>mb_strrchr</function>, <function>mb_strrichr</function> is
    case-insensitive.
+   <function>mb_strrichr</function> uses simple case folding
+   (like <constant>MB_CASE_FOLD_SIMPLE</constant> of <function>mb_convert_case</function>),
+   so characters whose full case folding is several characters,
+   such as "ß" (which folds to "ss"), do not match their expansion.
    If <parameter>needle</parameter> is not found, it returns &false;.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
