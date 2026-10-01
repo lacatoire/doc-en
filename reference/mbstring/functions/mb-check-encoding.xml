@@ -19,8 +19,6 @@
    validated recursively.
    It is useful to prevent so-called "Invalid Encoding Attack".
   </para>
-  <para>
-  </para>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -56,9 +54,14 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   &return.success;
-  </para>
+  <simpara>
+   Returns &true; if <parameter>value</parameter> is valid in the specified
+   encoding, &false; otherwise. If <parameter>value</parameter> is an &array;,
+   every key and every string value, including those of nested arrays,
+   must be valid in the specified encoding. An array that contains an &object;, a &resource;,
+   or a circular reference is not valid, and the function returns &false;.
+   A circular reference also emits an <constant>E_WARNING</constant>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
