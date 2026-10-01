@@ -46,6 +46,15 @@
    &return.success;
   </para>
  </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>namespace</parameter> is not empty and <parameter>name</parameter>
+   uses Clark notation or is a QName.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -61,9 +70,10 @@
       <entry>8.5.0</entry>
       <entry>
        The <parameter>namespace</parameter> argument now takes effect;
-       previously it was treated as empty. It has no effect when
-       <parameter>name</parameter> uses Clark notation or is a QName, since in
-       those cases the namespace is derived from the name itself.
+       previously it was ignored.
+       A <exceptionname>ValueError</exceptionname> is now thrown if
+       <parameter>namespace</parameter> is not empty and <parameter>name</parameter>
+       uses Clark notation or is a QName.
       </entry>
      </row>
     </tbody>
