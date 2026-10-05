@@ -58,8 +58,20 @@
    <function>session_id</function> returns the session id for the current
    session or the empty string (<literal>""</literal>) if there is no current
    session (no current session id exists).
-   On failure, &false; is returned.
   </para>
+  <simpara>
+   When <parameter>id</parameter> is specified, the previous session id is
+   returned, not the new one.
+   The id is kept after <function>session_write_close</function> and
+   <function>session_abort</function>; only <function>session_destroy</function>
+   empties it.
+  </simpara>
+  <simpara>
+   On failure, &false; is returned. This happens, with an
+   <constant>E_WARNING</constant>, if a session is active, or if headers have already been sent
+   and <link linkend="ini.session.use-cookies">session.use_cookies</link>
+   is enabled.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -73,6 +85,21 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>7.3.0</entry>
+      <entry>
+       &false; is now returned, with an <constant>E_WARNING</constant>, when a session is
+       active; previously the session id was replaced silently.
+      </entry>
+     </row>
+     <row>
+      <entry>7.2.0</entry>
+      <entry>
+       &false; is now returned, with an <constant>E_WARNING</constant>, when headers have
+       already been sent and <link linkend="ini.session.use-cookies">session.use_cookies</link>
+       is enabled.
+      </entry>
+     </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
@@ -90,6 +117,8 @@
    <simplelist>
     <member><function>session_regenerate_id</function></member>
     <member><function>session_start</function></member>
+    <member><function>session_create_id</function></member>
+    <member><function>session_name</function></member>
     <member><function>session_set_save_handler</function></member>
     <member>
      <link linkend="ini.session.save-handler">session.save_handler</link>
