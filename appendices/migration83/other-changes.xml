@@ -407,8 +407,8 @@
     The <parameter>decimals</parameter> of <function>number_format</function>
     now properly handles negative integers.
     Rounding with a negative value for <parameter>decimals</parameter> means
-    that <parameter>num</parameter> is rounded to <parameter>decimals</parameter>
-    significant digits before the decimal point.
+    that <parameter>num</parameter> is rounded to the left of the decimal point,
+    e.g. a value of <literal>-2</literal> rounds to hundreds.
     Previously negative <parameter>decimals</parameter> were silently
     ignored and the number got rounded to zero decimal places.
    </simpara>
