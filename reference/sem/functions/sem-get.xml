@@ -63,8 +63,8 @@
     <term><parameter>auto_release</parameter></term>
     <listitem>
      <simpara>
-      Specifies if the semaphore should be automatically released on request
-      shutdown.
+      Specifies if the semaphore should be automatically released when the
+      <classname>SysvSemaphore</classname> object is destroyed.
      </simpara>
     </listitem>
    </varlistentry>
