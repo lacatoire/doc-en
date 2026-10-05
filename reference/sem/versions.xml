@@ -13,7 +13,7 @@
  <function name="sem_acquire" from="PHP 4, PHP 5, PHP 7, PHP 8"/>
  <function name="sem_get" from="PHP 4, PHP 5, PHP 7, PHP 8"/>
  <function name="sem_release" from="PHP 4, PHP 5, PHP 7, PHP 8"/>
- <function name="sem_remove" from="PHP 4 &gt;= 4.1.0, PHP 5, PHP 7, PHP 8"/>
+ <function name="sem_remove" from="PHP 4 &gt;= 4.0.7, PHP 5, PHP 7, PHP 8"/>
  <function name="shm_attach" from="PHP 4, PHP 5, PHP 7, PHP 8"/>
  <function name="shm_detach" from="PHP 4, PHP 5, PHP 7, PHP 8"/>
  <function name="shm_get_var" from="PHP 4, PHP 5, PHP 7, PHP 8"/>

@@ -16,7 +16,13 @@
    <function>sem_remove</function> removes the given semaphore.
   </simpara>
   <simpara>
-   After removing the semaphore, it is no longer accessible.
+   The semaphore is removed from the system at once, for every process
+   that uses its key, even if another process currently holds it.
+   Processes blocked in <function>sem_acquire</function> fail,
+   and any other <classname>SysvSemaphore</classname> object created
+   for the same key can no longer be used.
+   A later call to <function>sem_get</function> with the same key
+   creates a new semaphore.
   </simpara>
  </refsect1>
 
@@ -39,6 +45,8 @@
   &reftitle.returnvalues;
   <simpara>
    &return.success;
+   An <constant>E_WARNING</constant> is emitted on failure, for instance
+   when the semaphore no longer exists.
   </simpara>
  </refsect1>
 
