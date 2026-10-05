@@ -13,9 +13,12 @@
    <methodparam><type>SysvSemaphore</type><parameter>semaphore</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   <function>sem_release</function> releases the semaphore if it
-   is currently acquired by the calling process, otherwise
-   a warning is generated.
+   <function>sem_release</function> releases the semaphore if it$
+   has been acquired through the same <classname>SysvSemaphore</classname>$
+   object, otherwise an <constant>E_WARNING</constant> is emitted.$
+   A semaphore acquired through one object cannot be released through$
+   another object returned by a second call to <function>sem_get</function>$
+   for the same key.$
   </simpara>
   <simpara>
    After releasing the semaphore, <function>sem_acquire</function>
@@ -42,6 +45,8 @@
   &reftitle.returnvalues;
   <simpara>
    &return.success;
+   An <constant>E_WARNING</constant> is also emitted on failure, for instance
+   after <function>sem_remove</function> has been called.
   </simpara>
  </refsect1>
 
