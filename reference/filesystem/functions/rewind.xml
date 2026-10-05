@@ -31,10 +31,10 @@
     <varlistentry>
      <term><parameter>stream</parameter></term>
      <listitem>
-      <para>
-       The file pointer must be valid, and must point to a file
-       successfully opened by <function>fopen</function>.
-      </para>
+      <simpara>
+       The file pointer must be valid, and must point to a stream that
+       supports seeking, such as a file opened by <function>fopen</function>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -46,6 +46,14 @@
   <para>
    &return.success;
   </para>
+  <note>
+   <simpara>
+    &false; is returned, and an <constant>E_WARNING</constant> is emitted,
+    if <parameter>stream</parameter> does not support seeking, such as a
+    stream opened on <literal>php://output</literal> or a pipe opened by
+    <function>popen</function>.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="examples">
