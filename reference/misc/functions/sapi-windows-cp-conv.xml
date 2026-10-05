@@ -61,10 +61,42 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   This function issues E_WARNING level errors, if invalid codepages are given,
-   or if the subject is not valid for <parameter>in_codepage</parameter>.
-  </para>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if an integer
+   <parameter>in_codepage</parameter> or <parameter>out_codepage</parameter>
+   is not a known codepage identifier, is outside the range from
+   <literal>0</literal> to <literal>4294967295</literal>, or if
+   <parameter>subject</parameter> is too long.
+  </simpara>
+  <simpara>
+   Issues an <constant>E_WARNING</constant> level error, and returns &null;,
+   if the <parameter>subject</parameter> cannot be converted from
+   <parameter>in_codepage</parameter>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       An invalid codepage or a too long <parameter>subject</parameter> now
+       throws a <exceptionname>ValueError</exceptionname>; previously an
+       <constant>E_WARNING</constant> was issued.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="seealso">
