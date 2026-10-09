@@ -39,7 +39,7 @@
    random number generator as <function>mt_rand</function>. To preserve
    backwards compatibility <function>rand</function> allows
    <parameter>max</parameter> to be smaller than <parameter>min</parameter>
-   as opposed to returning &false; as <function>mt_rand</function>.</simpara>
+   as opposed to throwing a <exceptionname>ValueError</exceptionname> as <function>mt_rand</function>.</simpara>
   </note>
  </refsect1>
  <refsect1 role="parameters">
