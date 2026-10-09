@@ -5,16 +5,16 @@
   <refname>setrawcookie</refname>
   <refpurpose>Send a cookie without urlencoding the cookie value</refpurpose>
  </refnamediv>
- 
+
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
    <type>bool</type><methodname>setrawcookie</methodname>
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>value</parameter></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>value</parameter><initializer>""</initializer></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>expires_or_options</parameter><initializer>0</initializer></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>path</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>domain</parameter></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>path</parameter><initializer>""</initializer></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>domain</parameter><initializer>""</initializer></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>secure</parameter><initializer>&false;</initializer></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>httponly</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
@@ -22,14 +22,16 @@
   <methodsynopsis>
    <type>bool</type><methodname>setrawcookie</methodname>
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>value</parameter></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>value</parameter><initializer>""</initializer></methodparam>
    <methodparam choice="opt"><type>array</type><parameter>options</parameter><initializer>[]</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>setrawcookie</function> is exactly the same as
    <function>setcookie</function> except that the cookie value will not be
-   automatically urlencoded when sent to the browser.
-  </para>
+   automatically urlencoded when sent to the browser. Because of this, a value
+   containing a character that is not allowed in a cookie header is refused
+   instead of being encoded.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -45,6 +47,54 @@
   <para>
    &return.success;
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if:
+  </simpara>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <parameter>value</parameter> contains <literal>,</literal>,
+     <literal>;</literal>, a space, <literal>\t</literal>, <literal>\r</literal>,
+     <literal>\n</literal>, <literal>\013</literal> or <literal>\014</literal>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>name</parameter> is empty, or contains <literal>=</literal>,
+     <literal>,</literal>, <literal>;</literal>, a space, <literal>\t</literal>,
+     <literal>\r</literal>, <literal>\n</literal>, <literal>\013</literal> or
+     <literal>\014</literal>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>path</parameter> or <parameter>domain</parameter>, passed as an
+     argument or as an option, contains <literal>,</literal>, <literal>;</literal>,
+     a space, <literal>\t</literal>, <literal>\r</literal>, <literal>\n</literal>,
+     <literal>\013</literal> or <literal>\014</literal>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     The year of <parameter>expires</parameter> is greater than 9999.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     The <parameter>options</parameter> array contains unsupported keys or
+     numeric keys.
+    </simpara>
+   </listitem>
+  </itemizedlist>
+  <simpara>
+   An <exceptionname>ArgumentCountError</exceptionname> is thrown if more than
+   three arguments are passed when the third argument is an
+   <parameter>options</parameter> array.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -66,6 +116,15 @@
        </entry>
       </row>
       <row>
+       <entry>8.0.0</entry>
+       <entry>
+        An invalid <parameter>value</parameter>, name, path, domain or
+        <parameter>expires</parameter> year, or an unsupported options key, now
+        throws a <exceptionname>ValueError</exceptionname> instead of emitting
+        an <constant>E_WARNING</constant> and returning &false;.
+       </entry>
+      </row>
+      <row>
        <entry>7.3.0</entry>
        <entry>
         An alternative signature supporting an <parameter>options</parameter>
@@ -80,11 +139,10 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>setcookie</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>setcookie</function></member>
+   <member><function>header</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
