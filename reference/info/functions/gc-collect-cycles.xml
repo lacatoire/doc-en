@@ -24,9 +24,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns number of collected cycles.
-  </para>
+  <simpara>
+   Returns the number of values freed by the garbage collection run.
+   This counts the individual values that were freed, not the number of
+   cycles found, so a single cycle of three objects returns 3.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
