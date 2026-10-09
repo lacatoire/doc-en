@@ -123,13 +123,20 @@
  
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   If <parameter>language</parameter> is set and
-   <parameter>language</parameter> is valid, it returns
-   &true;. Otherwise, it returns &false;. 
+  <simpara>
+   If <parameter>language</parameter> is set, it returns
+   &true; on success.
    When <parameter>language</parameter> is omitted or &null;, it returns the language
    name as a <type>string</type>.
-  </para>
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>language</parameter> is not a valid language.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
