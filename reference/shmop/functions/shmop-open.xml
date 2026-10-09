@@ -20,84 +20,86 @@
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>key</parameter></term>
-     <listitem>
-      <simpara>
-       System's id for the shared memory block.
-       Can be passed as a decimal or hex.
-      </simpara>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>mode</parameter></term>
-     <listitem>
-      <para>
-       The flags that you can use:
-       <itemizedlist>
-        <listitem>
-         <simpara>
-          "a" for access (sets SHM_RDONLY for shmat)
-          use this flag when you need to open an existing shared memory
-          segment for read only
-         </simpara>
-        </listitem>
-        <listitem>
-         <simpara>
-          "c" for create (sets IPC_CREATE)
-          use this flag when you need to create a new shared memory segment
-          or if a segment with the same key exists, try to open it for read
-          and write
-         </simpara>
-        </listitem>
-        <listitem>
-         <simpara>
-          "w" for read &amp; write access
-          use this flag when you need to read and write to a shared memory
-          segment, use this flag in most cases.
-         </simpara>
-        </listitem>
-        <listitem>
-         <simpara>
-          "n" create a new memory segment (sets IPC_CREATE|IPC_EXCL)
-          use this flag when you want to create a new shared memory segment
-          but if one already exists with the same flag, fail. This is useful
-          for security purposes, using this you can prevent race condition
-          exploits.
-         </simpara>
-        </listitem>
-       </itemizedlist>
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>permissions</parameter></term>
-     <listitem>
-      <simpara>
-       The permissions that you wish to assign to your memory segment, those
-       are the same as permission for a file. Permissions need to be passed
-       in octal form, like for example <literal>0644</literal>
-      </simpara>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>size</parameter></term>
-     <listitem>
-      <simpara>
-       The size of the shared memory block you wish to create in bytes
-      </simpara>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-   <note>
-    <simpara>
-     Note: the 3rd and 4th should be entered as 0 if you are opening an
-     existing memory segment.
-    </simpara>
-   </note>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>key</parameter></term>
+    <listitem>
+     <simpara>
+      System's id for the shared memory block.
+      Can be passed as a decimal or hex.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>mode</parameter></term>
+    <listitem>
+     <para>
+      The flags that you can use:
+      <itemizedlist>
+       <listitem>
+        <simpara>
+         "a" for access (sets SHM_RDONLY for shmat)
+         use this flag when you need to open an existing shared memory
+         segment for read only
+        </simpara>
+       </listitem>
+       <listitem>
+        <simpara>
+         "c" for create (sets IPC_CREAT)
+         use this flag when you need to create a new shared memory segment
+         or if a segment with the same key exists, try to open it for read
+         and write; the call fails if <parameter>size</parameter> is larger
+         than the existing segment, and a smaller size is accepted
+        </simpara>
+       </listitem>
+       <listitem>
+        <simpara>
+         "w" for read &amp; write access
+         use this flag when you need to read and write to a shared memory
+         segment, use this flag in most cases.
+        </simpara>
+       </listitem>
+       <listitem>
+        <simpara>
+         "n" create a new memory segment (sets IPC_CREAT|IPC_EXCL)
+         use this flag when you want to create a new shared memory segment
+         but if one already exists with the same flag, fail. This is useful
+         for security purposes, using this you can prevent race condition
+         exploits.
+        </simpara>
+       </listitem>
+      </itemizedlist>
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>permissions</parameter></term>
+    <listitem>
+     <simpara>
+      The permissions that you wish to assign to your memory segment, those
+      are the same as permission for a file. Permissions need to be passed
+      in octal form, like for example <literal>0644</literal>
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>size</parameter></term>
+    <listitem>
+     <simpara>
+      The size of the shared memory block you wish to create in bytes. It is
+      only used with the <literal>"c"</literal> and <literal>"n"</literal>
+      modes; with <literal>"a"</literal> and <literal>"w"</literal> it is
+      ignored.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+  <note>
+   <simpara>
+    Note: the 3rd and 4th should be entered as 0 if you are opening an
+    existing memory segment.
+   </simpara>
+  </note>
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
@@ -111,9 +113,14 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   If <parameter>mode</parameter> is invalid, or <parameter>size</parameter> is less than or equal to zero,
+   If <parameter>mode</parameter> is invalid, or <parameter>size</parameter> is less than or equal to zero
+   with the <literal>"c"</literal> or <literal>"n"</literal> mode,
    a <classname>ValueError</classname> is thrown.
-   On other failures, <constant>E_WARNING</constant> is emitted.
+   On other failures, <constant>E_WARNING</constant> is emitted, with one of
+   the messages "Unable to attach or create shared memory segment" (also used
+   when <literal>"n"</literal> finds an existing segment),
+   "Unable to get shared memory segment information" or
+   "Unable to attach to shared memory segment".
   </simpara>
  </refsect1>
 
@@ -138,7 +145,8 @@
      <row>
       <entry>8.0.0</entry>
       <entry>
-       If <parameter>mode</parameter> is invalid, or <parameter>size</parameter> is less than or equal to zero,
+       If <parameter>mode</parameter> is invalid, or <parameter>size</parameter> is less than or equal to zero
+       with the <literal>"c"</literal> or <literal>"n"</literal> mode,
        a <classname>ValueError</classname> is thrown; previously <constant>E_WARNING</constant> was emitted instead,
        and the function returned &false;.
       </entry>
