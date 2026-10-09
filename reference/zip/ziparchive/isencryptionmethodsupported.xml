@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xml:id="ziparchive.isencryptionmethoddupported" xmlns="http://docbook.org/ns/docbook">
+<refentry xml:id="ziparchive.isencryptionmethodsupported" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>ZipArchive::isEncryptionMethodSupported</refname>
-  <refpurpose>Check if a encryption method is supported by libzip</refpurpose>
+  <refpurpose>Check if an encryption method is supported by libzip</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -14,7 +14,7 @@
    <methodparam choice="opt"><type>bool</type><parameter>enc</parameter><initializer>&true;</initializer></methodparam>
   </methodsynopsis>
   <simpara>
-   Check if a compression method is supported by libzip.
+   Check if an encryption method is supported by libzip.
   </simpara>
  </refsect1>
 
