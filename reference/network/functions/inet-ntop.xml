@@ -40,6 +40,19 @@
   <para>
    Returns a string representation of the address&return.falseforfailure;.
   </para>
+  <note>
+   <simpara>
+    The string is produced by the C library's <literal>inet_ntop()</literal>,
+    so the exact text of some IPv6 addresses depends on the platform. In
+    particular, the notation used for IPv4-compatible addresses
+    (<literal>::a.b.c.d</literal>) depends on the C library. For example,
+    <code>inet_ntop(inet_pton("::1.2.3.4"))</code> returns
+    <literal>::1.2.3.4</literal> with glibc, while the same script may return
+    <literal>::102:304</literal> on other platforms such as musl-based
+    distributions. Do not compare or store the returned string across
+    different platforms without normalizing it first.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="examples">
