@@ -43,7 +43,17 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns &true; if the entry exists, otherwise &false;
+   Returns &true; if the entry exists, otherwise &false;. Only the key is
+   checked, so a variable stored as &false; or &null; is reported as existing.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if <parameter>shm</parameter> was
+   detached with <function>shm_detach</function>, although the segment still
+   exists and holds its data.
   </simpara>
  </refsect1>
 
@@ -75,6 +85,7 @@
   <simplelist>
    <member><function>shm_get_var</function></member>
    <member><function>shm_put_var</function></member>
+   <member><function>shm_remove_var</function></member>
   </simplelist>
  </refsect1>
 
