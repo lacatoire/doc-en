@@ -20,10 +20,15 @@
    <parameter>key</parameter>.
   </simpara>
   <simpara>
-   Warnings (<constant>E_WARNING</constant> level) will be issued if
-   <parameter>shm</parameter> is not a valid SysV shared memory
-   index or if there was not enough shared memory remaining to complete your
-   request.
+   An <constant>E_WARNING</constant> is emitted, and &false; returned, if there
+   was not enough shared memory remaining to complete the request. The old
+   value of the key is removed before the new one is checked against the free
+   space, so an update that does not fit leaves the key absent, not unchanged.
+  </simpara>
+  <simpara>
+   The data area is the size of the segment minus the 40-byte segment header
+   (64-bit builds); each variable takes its serialized length plus a chunk
+   header, rounded up to a multiple of 8 bytes.
   </simpara>
  </refsect1>
 
@@ -52,8 +57,8 @@
      <simpara>
       The variable. All <link linkend="language.types">variable types</link>
       that <function>serialize</function> supports may be used: generally
-      this means all types except for resources and some internal objects
-      that cannot be serialized.
+      this means all types except for some internal objects that cannot be
+      serialized. A resource is accepted but is stored as <literal>0</literal>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -63,7 +68,19 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   &return.success;
+   Returns &true; on success, or &false; if there was not enough shared
+   memory left.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if <parameter>shm</parameter> was
+   detached with <function>shm_detach</function>, or if it was detached while
+   <methodname>__serialize</methodname> or <methodname>__sleep</methodname>
+   ran during the call. Any exception thrown by serialization, for example
+   for a <classname>Closure</classname>, is propagated.
   </simpara>
  </refsect1>
 
@@ -95,6 +112,7 @@
   <simplelist>
    <member><function>shm_get_var</function></member>
    <member><function>shm_has_var</function></member>
+   <member><function>shm_remove_var</function></member>
   </simplelist>
  </refsect1>
 
