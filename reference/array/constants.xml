@@ -179,7 +179,7 @@
    </term>
    <listitem>
     <simpara>
-
+     The default mode: counts the number of elements at the top level of an array only.
     </simpara>
    </listitem>
   </varlistentry>
@@ -190,7 +190,7 @@
    </term>
    <listitem>
     <simpara>
-
+     Recursively counts the elements of multidimensional arrays.
     </simpara>
    </listitem>
   </varlistentry>
@@ -201,7 +201,7 @@
    </term>
    <listitem>
     <simpara>
-
+     If there is a collision, overwrite the existing variable.
     </simpara>
    </listitem>
   </varlistentry>
@@ -212,7 +212,7 @@
    </term>
    <listitem>
     <simpara>
-
+     If there is a collision, don't overwrite the existing variable.
     </simpara>
    </listitem>
   </varlistentry>
@@ -223,7 +223,7 @@
    </term>
    <listitem>
     <simpara>
-
+     If there is a collision, prefix the variable name with <parameter>prefix</parameter>.
     </simpara>
    </listitem>
   </varlistentry>
@@ -234,7 +234,7 @@
    </term>
    <listitem>
     <simpara>
-
+     Prefix all variable names with <parameter>prefix</parameter>.
     </simpara>
    </listitem>
   </varlistentry>
@@ -245,7 +245,7 @@
    </term>
    <listitem>
     <simpara>
-
+     Only prefix invalid or numeric variable names with <parameter>prefix</parameter>.
     </simpara>
    </listitem>
   </varlistentry>
@@ -256,7 +256,7 @@
    </term>
    <listitem>
     <simpara>
-
+     Only create prefixed variable names if the non-prefixed version of the same variable exists in the current symbol table.
     </simpara>
    </listitem>
   </varlistentry>
@@ -267,7 +267,7 @@
    </term>
    <listitem>
     <simpara>
-
+     Only overwrite the variable if it already exists in the current symbol table, otherwise do nothing.
     </simpara>
    </listitem>
   </varlistentry>
@@ -278,7 +278,7 @@
    </term>
    <listitem>
     <simpara>
-
+     Extracts variables as references. This effectively means that the values of the imported variables are still referencing the values of the array parameter.
     </simpara>
    </listitem>
   </varlistentry>
