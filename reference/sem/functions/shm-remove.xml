@@ -13,8 +13,13 @@
    <methodparam><type>SysvSharedMemory</type><parameter>shm</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   <function>shm_remove</function> removes the shared memory
-   <parameter>shm</parameter>. All data will be destroyed.
+   <function>shm_remove</function> marks the shared memory segment
+   <parameter>shm</parameter> for destruction. The segment is destroyed, and
+   its data with it, when the last process attached to it detaches.
+   The key is released immediately: a later call to
+   <function>shm_attach</function> with the same key creates a new, empty
+   segment. Until the old segment is destroyed, <parameter>shm</parameter>
+   and the processes already attached to it can keep reading and writing it.
   </simpara>
  </refsect1>
 
@@ -36,6 +41,16 @@
   &reftitle.returnvalues;
   <simpara>
    &return.success;
+   An <constant>E_WARNING</constant> is raised when the removal is refused,
+   typically because the segment belongs to another user.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <classname>Error</classname> if <parameter>shm</parameter> has
+   already been detached with <function>shm_detach</function>.
   </simpara>
  </refsect1>
 
@@ -65,6 +80,8 @@
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
+   <member><function>shm_attach</function></member>
+   <member><function>shm_detach</function></member>
    <member><function>shm_remove_var</function></member>
   </simplelist>
  </refsect1>
