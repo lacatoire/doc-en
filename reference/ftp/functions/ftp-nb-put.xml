@@ -26,7 +26,6 @@
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>ftp</parameter></term>
@@ -66,7 +65,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
@@ -74,6 +72,18 @@
    Returns <constant>FTP_FAILED</constant> or <constant>FTP_FINISHED</constant>
    or <constant>FTP_MOREDATA</constant>, or &false; on failure to open the local file.
   </para>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>mode</parameter> is not <constant>FTP_ASCII</constant> or
+   <constant>FTP_BINARY</constant>.
+  </simpara>
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if another transfer is
+   already in progress on the connection.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -102,7 +112,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>ftp_nb_put</function> example</title>
     <programlisting role="php">
@@ -155,18 +164,15 @@ if ($ret != FTP_FINISHED) {
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>ftp_nb_fput</function></member>
     <member><function>ftp_nb_continue</function></member>
     <member><function>ftp_put</function></member>
     <member><function>ftp_fput</function></member>
    </simplelist>
-  </para>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
