@@ -5,19 +5,20 @@
   <refname>set_time_limit</refname>
   <refpurpose>Limits the maximum execution time</refpurpose>
  </refnamediv>
- 
+
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
    <type>bool</type><methodname>set_time_limit</methodname>
    <methodparam><type>int</type><parameter>seconds</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Set the number of seconds a script is allowed to run. If this is reached,
    the script returns a fatal error. The default limit is 30 seconds or, if
    it exists, the <literal>max_execution_time</literal> value defined in the
-   &php.ini;.
-  </para>
+   &php.ini;. In the CLI SAPI the default is <literal>0</literal>, which means
+   no limit.
+  </simpara>
   <para>
    When called, <function>set_time_limit</function> restarts the timeout
    counter from zero. In other words, if the timeout is the default 30
@@ -29,19 +30,19 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>seconds</parameter></term>
-     <listitem>
-      <para>
-       The maximum execution time, in seconds. If set to zero, no time limit
-       is imposed.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>seconds</parameter></term>
+    <listitem>
+     <simpara>
+      The maximum execution time, in seconds. If set to zero, no time limit
+      is imposed. On Unix-like systems, a negative value or a value above
+      <literal>999999999</literal> also means no limit, although
+      <function>ini_get</function> reports the value given.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -54,27 +55,29 @@
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
-    The <function>set_time_limit</function> function and the configuration 
+   <simpara>
+    The <function>set_time_limit</function> function and the configuration
     directive <link linkend="ini.max-execution-time">max_execution_time</link>
     only affect the execution time of the script itself.  Any time spent on
     activity that happens outside the execution of the script such as system
     calls using <function>system</function>, stream operations, database
     queries, etc. is not included when determining the maximum time that the
     script has been running.
-    This is not true on Windows where the measured time is real.
-   </para>
+    Whether the measured time is real or CPU time depends on the build. On
+   Windows it is real time; on Linux and FreeBSD it is real time for
+   thread-safe (ZTS) builds, and the process CPU time (user and system) for
+   non-thread-safe builds, so time spent blocked, for example in
+   <function>sleep</function>, is not counted.
+   </simpara>
   </note>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><link linkend="ini.max-execution-time">max_execution_time</link></member>
-    <member><link linkend="ini.max-input-time">max_input_time</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><link linkend="ini.max-execution-time">max_execution_time</link></member>
+   <member><link linkend="ini.max-input-time">max_input_time</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
