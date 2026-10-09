@@ -210,6 +210,19 @@
     <simpara>
      Disable network access when loading documents
     </simpara>
+    <caution>
+     <simpara>
+      This only refuses locations starting with <literal>http://</literal> or
+      <literal>ftp://</literal>. It does not cover other schemes such as
+      <literal>https://</literal> or <literal>ftps://</literal>, nor network
+      locations reached through a PHP stream wrapper, for example
+      <literal>php://filter/resource=http://...</literal>. To block network
+      access, use <constant>LIBXML_NO_XXE</constant> (only available in Libxml
+      &gt;= 2.13.0, as of PHP 8.4.0), disable <link linkend="ini.allow-url-fopen">allow_url_fopen</link>,
+      or set an external entity loader with
+      <function>libxml_set_external_entity_loader</function>.
+     </simpara>
+    </caution>
    </listitem>
   </varlistentry>
   <varlistentry xml:id="constant.libxml-nowarning">
