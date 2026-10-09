@@ -46,9 +46,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   &gmp.return;
-  </para>
+  <simpara>
+   Returns the Jacobi symbol of <parameter>num1</parameter> and
+   <parameter>num2</parameter> as an <type>int</type>: <literal>1</literal>,
+   <literal>-1</literal> or <literal>0</literal>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
