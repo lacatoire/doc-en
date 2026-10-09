@@ -5,11 +5,11 @@
   <refname>sha1</refname>
   <refpurpose>Calculate the sha1 hash of a string</refpurpose>
  </refnamediv>
- 
+
  <refsynopsisdiv>
   &warn.passwordhashing;
  </refsynopsisdiv>
- 
+
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
@@ -25,44 +25,42 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>string</parameter></term>
-     <listitem>
-      <para>
-       The input string.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>binary</parameter></term>
-     <listitem>
-      <para>
-       If the optional <parameter>binary</parameter> is set to &true;,
-       then the sha1 digest is instead returned in raw binary format with a
-       length of 20, otherwise the returned value is a 40-character
-       hexadecimal number.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>string</parameter></term>
+    <listitem>
+     <simpara>
+      The input string.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>binary</parameter></term>
+    <listitem>
+     <simpara>
+      If the optional <parameter>binary</parameter> is set to &true;,
+      then the sha1 digest is instead returned in raw binary format with a
+      length of 20, otherwise the returned value is a 40-character
+      hexadecimal number.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the sha1 hash as a string.
-  </para>
+  <simpara>
+   Returns the sha1 hash as a 40-character lowercase hexadecimal string, or
+   as a 20-byte raw binary string if <parameter>binary</parameter> is &true;.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>A <function>sha1</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title>A <function>sha1</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $str = 'apple';
@@ -72,19 +70,20 @@ if (sha1($str) === 'd0be2dc421be4fcd0172e5afceea3970e2f3d940') {
 }
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>hash</function></member>
-    <member><function>password_hash</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>hash</function></member>
+   <member><function>password_hash</function></member>
+   <member><function>sha1_file</function></member>
+   <member><function>md5</function></member>
+   <member><function>crc32</function></member>
+   <member><function>hash_equals</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
