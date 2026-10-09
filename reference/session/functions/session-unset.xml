@@ -12,10 +12,13 @@
    <type>bool</type><methodname>session_unset</methodname>
    <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    The <function>session_unset</function> function frees all session variables
-   currently registered.
-  </para>
+   currently registered. The session itself is not destroyed: if it is then
+   written, for example by <function>session_write_close</function>, an empty
+   session is stored, whereas <function>session_destroy</function> removes the
+   stored data.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -25,9 +28,12 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   &return.success;
-  </para>
+  <simpara>
+   Returns &false; if no session is active, &true; otherwise. &true; is also
+   returned when nothing was cleared, because <varname>$_SESSION</varname> is
+   no longer the session array, for example after
+   <code>$_SESSION = 'str';</code> or <code>unset($_SESSION);</code>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -70,9 +76,11 @@
    </para>
   </caution>
   <note>
-   <para>
-    The use of <function>session_unset</function> is identical to <code>$_SESSION = []</code>.
-   </para>
+   <simpara>
+    <function>session_unset</function> clears the <varname>$_SESSION</varname>
+    array in place, whereas <code>$_SESSION = []</code> assigns a new array.
+    A copy of <varname>$_SESSION</varname> taken earlier keeps its content.
+   </simpara>
   </note>
   <caution>
    <para>
@@ -82,6 +90,16 @@
     session variables even if the session is not active.
    </para>
   </caution>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>session_destroy</function></member>
+   <member><function>session_start</function></member>
+   <member><function>session_write_close</function></member>
+   <member><function>session_reset</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
