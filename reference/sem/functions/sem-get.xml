@@ -37,6 +37,7 @@
     <term><parameter>key</parameter></term>
     <listitem>
      <simpara>
+      The semaphore key, for example as returned by <function>ftok</function>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -45,7 +46,10 @@
     <listitem>
      <simpara>
       The number of processes that can acquire the semaphore simultaneously
-      is set to <parameter>max_acquire</parameter>.
+      is set to <parameter>max_acquire</parameter>. The value is applied only
+      when no other process is using the semaphore set, otherwise it is
+      ignored. A value outside the range 1 to 32767 emits an
+      <constant>E_WARNING</constant> and leaves the semaphore with no free slot.
      </simpara>
     </listitem>
    </varlistentry>
@@ -53,9 +57,8 @@
     <term><parameter>permissions</parameter></term>
     <listitem>
      <simpara>
-      The semaphore permissions. Actually this value is
-      set only if the process finds it is the only process currently
-      attached to the semaphore.
+      The semaphore permissions. The value is used only when the call
+      creates the semaphore set; if the set already exists, it is ignored.
      </simpara>
     </listitem>
    </varlistentry>
@@ -63,8 +66,10 @@
     <term><parameter>auto_release</parameter></term>
     <listitem>
      <simpara>
-      Specifies if the semaphore should be automatically released on request
-      shutdown.
+      Specifies if the semaphore should be automatically released when the
+      returned <classname>SysvSemaphore</classname> object is destroyed, which
+      can happen before the end of the request. If &false;, nothing is released
+      at that point.
      </simpara>
     </listitem>
    </varlistentry>
@@ -74,8 +79,12 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns a positive semaphore identifier on success, or &false; on
-   error.
+   Returns a <classname>SysvSemaphore</classname> instance on success, or
+   &false; if the semaphore set cannot be obtained, with an
+   <constant>E_WARNING</constant>. A failure of a later step (for example an
+   invalid <parameter>max_acquire</parameter>) also emits an
+   <constant>E_WARNING</constant>, but an instance is still returned, and it
+   may be unusable.
   </simpara>
  </refsect1>
 
@@ -120,6 +129,10 @@
     otherwise PHP will be unable to access the semaphore.
    </simpara>
   </warning>
+  <simpara>
+   The semaphore set is not removed at the end of the script. It persists
+   until <function>sem_remove</function> is called.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
@@ -127,6 +140,7 @@
   <simplelist>
    <member><function>sem_acquire</function></member>
    <member><function>sem_release</function></member>
+   <member><function>sem_remove</function></member>
    <member><function>ftok</function></member>
   </simplelist>
  </refsect1>
