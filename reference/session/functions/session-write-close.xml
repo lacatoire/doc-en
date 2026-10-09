@@ -15,15 +15,21 @@
   <para>
    End the current session and store session data.
   </para>
-  <para>
+  <simpara>
    Session data is usually stored after your script terminated without the
    need to call <function>session_write_close</function>, but as session data
    is locked to prevent concurrent writes only one script may operate on a
    session at any time. When using framesets together with sessions you will
    experience the frames loading one by one due to this locking. You can
    reduce the time needed to load all the frames by ending the session as
-   soon as all changes to session variables are done.
-  </para>
+   soon as all changes to session variables are done. The lock is released
+   when the session is closed. It is taken by the <literal>files</literal>
+   handler; a custom session handler locks only if its own code does.
+  </simpara>
+  <simpara>
+   After the call, <varname>$_SESSION</varname> and <function>session_id</function>
+   are unchanged, but further changes to <varname>$_SESSION</varname> are not stored.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -33,9 +39,12 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   &return.success;
-  </para>
+  <simpara>
+   Returns &false; if no session is active, &true; otherwise. The result of
+   the handler's <literal>write</literal> and <literal>close</literal>
+   callbacks is not returned: &true; is returned even if writing the session
+   data failed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -54,7 +63,8 @@
       <entry>
        If <varname>$_SESSION</varname> contains a key with a pipe character
        (<literal>|</literal>), an <constant>E_WARNING</constant> is now emitted. Previously, this
-       would silently fail to write the session data.
+       would silently fail to write the session data. The stored session is
+       replaced by an empty one, so all stored variables are lost.
       </entry>
      </row>
      <row>
@@ -75,6 +85,9 @@
    <member><function>session_register_shutdown</function></member>
    <member><function>session_start</function></member>
    <member><function>session_abort</function></member>
+   <member><function>session_commit</function></member>
+   <member><function>session_destroy</function></member>
+   <member><function>session_reset</function></member>
   </simplelist>
  </refsect1>
 
