@@ -12,38 +12,39 @@
    <methodparam><type>object</type><parameter>node</parameter></methodparam>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>class_name</parameter><initializer><constant>SimpleXMLElement::class</constant></initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    This function takes a node of a <link linkend="book.dom">DOM</link>
    document and makes it into a SimpleXML node. This new object can
-   then be used as a native SimpleXML element. 
-  </para>
+   then be used as a native SimpleXML element.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>node</parameter></term>
-     <listitem>
-      <para>
-       A <link linkend="book.dom">DOM</link> Element node
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>class_name</parameter></term>
-     <listitem>
-      <para>
-       You may use this optional parameter so that
-       <function>simplexml_import_dom</function> will return an object of 
-       the specified class. That class should extend the 
-       <type>SimpleXMLElement</type> class.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>node</parameter></term>
+    <listitem>
+     <simpara>
+      A <link linkend="book.dom">DOM</link> document or element node, or a
+      <classname>SimpleXMLElement</classname>. A document is replaced by its
+      root element.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>class_name</parameter></term>
+    <listitem>
+     <simpara>
+      You may use this optional parameter so that
+      <function>simplexml_import_dom</function> will return an object of
+      the specified class. That class must extend the
+      <type>SimpleXMLElement</type> class. &null; is accepted and means
+      <classname>SimpleXMLElement</classname>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -57,7 +58,9 @@
   &reftitle.errors;
   <simpara>
    Throws a <classname>TypeError</classname> when passed a
-   non-XML or non-HTML <parameter>node</parameter>.
+   non-XML or non-HTML <parameter>node</parameter>, or when
+   <parameter>class_name</parameter> is not the name of a class derived from
+   <classname>SimpleXMLElement</classname>.
   </simpara>
  </refsect1>
 
@@ -93,35 +96,30 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Importing a <classname>DOMDocument</classname></title>
-    <programlisting role="php">
+  <example>
+   <title>Importing a <classname>DOMDocument</classname></title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $dom = new DOMDocument;
 $dom->loadXML('<books><book><title>blah</title></book></books>');
-if (!$dom) {
-    echo 'Error while parsing the document';
-    exit;
-}
 
 $s = simplexml_import_dom($dom);
 
 echo $s->book[0]->title;
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen>
+   </programlisting>
+   &example.outputs;
+   <screen>
 <![CDATA[
 blah
 ]]>
-    </screen>
-   </example>
-   <example>
-    <title>Importing a <classname>Dom\Document</classname></title>
-    <programlisting role="php">
+   </screen>
+  </example>
+  <example>
+   <title>Importing a <classname>Dom\Document</classname></title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $dom = Dom\XMLDocument::createFromString('<books><book><title>blah</title></book></books>');
@@ -131,25 +129,23 @@ $s = simplexml_import_dom($dom);
 echo $s->book[0]->title;
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen>
+   </programlisting>
+   &example.outputs;
+   <screen>
 <![CDATA[
 blah
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>dom_import_simplexml</function></member>
-    <member><xref linkend="simplexml.examples-basic"/></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>dom_import_simplexml</function></member>
+   <member><function>Dom\import_simplexml</function></member>
+   <member><xref linkend="simplexml.examples-basic"/></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
