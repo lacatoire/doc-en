@@ -62,13 +62,13 @@
     <varlistentry>
      <term><parameter>offset</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Starting position in <parameter>haystack</parameter> in bytes - if given, it must be zero or a
-       positive value that is less than or equal to the length of <parameter>haystack</parameter> in
+       positive value that is less than the length of <parameter>haystack</parameter> in
        bytes, or a negative value that counts from the end of <parameter>haystack</parameter>.
        If <parameter>offset</parameter> does not point to the first byte of a UTF-8
        character, the start position is moved to the next character boundary.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -88,11 +88,19 @@
  
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    A string starting at offset <parameter>offset</parameter> and ending on a default grapheme cluster
    boundary that conforms to the <parameter>size</parameter> and <parameter>type</parameter> specified,
    &return.falseforfailure;.
-  </para>
+   &false; is returned when <parameter>offset</parameter> is not inside
+   <parameter>haystack</parameter> or when <parameter>haystack</parameter> is empty.
+  </simpara>
+  <simpara>
+   An empty string is returned if <parameter>size</parameter> is <literal>0</literal>, or if the first
+   grapheme cluster does not fit in <parameter>size</parameter> bytes or characters.
+   In the latter case <parameter>next</parameter> is not advanced, so a loop that passes
+   <parameter>next</parameter> back as <parameter>offset</parameter> and only stops on &false; never ends.
+  </simpara>
  </refsect1>
  
  <refsect1 role="changelog">
