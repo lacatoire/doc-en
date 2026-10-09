@@ -12,11 +12,19 @@
    <type>bool</type><methodname>session_reset</methodname>
    <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>session_reset</function> reinitializes a session with
    original values stored in session storage. This function requires an active session and
-   discards changes in $_SESSION.
-  </para>
+   discards changes in <varname>$_SESSION</varname>.
+  </simpara>
+  <note>
+   <simpara>
+    <varname>$_SESSION</varname> is rebuilt as a new array: a reference to
+    <varname>$_SESSION</varname> or to one of its elements taken before the call
+    no longer affects the session afterwards, and objects are
+    unserialized again as new instances.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -26,9 +34,14 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+   Returns &false; without emitting an error when there is no active session.
+  </simpara>
+  <simpara>
+   If the session data cannot be read again, an <constant>E_WARNING</constant> is emitted and
+   the session is closed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -56,8 +69,7 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
+  <simplelist>
     <member><varname>$_SESSION</varname></member>
     <member>
      The <link linkend="ini.session.auto-start">session.auto_start</link>
@@ -66,8 +78,9 @@
     <member><function>session_start</function></member>
     <member><function>session_abort</function></member>
     <member><function>session_commit</function></member>
+    <member><function>session_destroy</function></member>
+    <member><function>session_regenerate_id</function></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
