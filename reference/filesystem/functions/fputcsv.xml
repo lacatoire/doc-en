@@ -27,7 +27,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>stream</parameter></term>
@@ -56,7 +55,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
   &warning.csv.escape-parameter;
   <note>
    <para>
@@ -110,7 +108,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>fputcsv</function> example</title>
     <programlisting role="php">
@@ -143,7 +140,6 @@ aaa,bbb,ccc,dddd
 ]]>
     </screen>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="seealso">
