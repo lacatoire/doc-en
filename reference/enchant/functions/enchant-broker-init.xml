@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.enchant-broker-init">
+<refentry xml:id="function.enchant-broker-init" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>enchant_broker_init</refname>
   <refpurpose>Create a new broker object</refpurpose>
@@ -21,7 +21,7 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns a broker resource on success or &false;.
+   Returns an <classname>EnchantBroker</classname> object on success, &return.falseforfailure;.
   </simpara>
  </refsect1>
 
