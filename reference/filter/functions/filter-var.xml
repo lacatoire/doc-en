@@ -87,6 +87,30 @@
    unless the <constant>FILTER_NULL_ON_FAILURE</constant> flag is used,
    in which case &null; is returned.
   </simpara>
+  <simpara>
+   If the <constant>FILTER_THROW_ON_FAILURE</constant> flag is used,
+   a <exceptionname>Filter\FilterFailedException</exceptionname> is thrown
+   on failure instead.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>options</parameter> contains both
+   <constant>FILTER_NULL_ON_FAILURE</constant> and
+   <constant>FILTER_THROW_ON_FAILURE</constant>.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>Filter\FilterFailedException</exceptionname>
+   if the <constant>FILTER_THROW_ON_FAILURE</constant> flag is used and
+   <parameter>value</parameter> does not satisfy the filter, is an
+   &array; without the <constant>FILTER_REQUIRE_ARRAY</constant> or
+   <constant>FILTER_FORCE_ARRAY</constant> flag, is not an &array; when
+   <constant>FILTER_REQUIRE_ARRAY</constant> is used, or is an object
+   without a <methodname>__toString</methodname> method.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
