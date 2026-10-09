@@ -45,7 +45,27 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns the variable with the given key.
+   Returns the variable with the given key. Returns &false; with an
+   <constant>E_WARNING</constant> if the key does not exist or if the stored
+   data is corrupted. A stored &false; is also returned as &false;, without a
+   warning, so use <function>shm_has_var</function> to tell the cases apart.
+  </simpara>
+  <warning>
+   <simpara>
+    The stored data is restored with <function>unserialize</function>
+    semantics: <methodname>__wakeup</methodname> and
+    <methodname>__unserialize</methodname> run and the autoloader may be
+    called. Any process that can write to the segment controls the bytes that
+    are unserialized, and no class restriction applies.
+   </simpara>
+  </warning>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if <parameter>shm</parameter> was
+   detached with <function>shm_detach</function>.
   </simpara>
  </refsect1>
 
@@ -77,6 +97,7 @@
   <simplelist>
    <member><function>shm_has_var</function></member>
    <member><function>shm_put_var</function></member>
+   <member><function>shm_remove_var</function></member>
   </simplelist>
  </refsect1>
 
