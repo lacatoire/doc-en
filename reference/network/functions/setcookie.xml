@@ -209,20 +209,42 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   If the <parameter>options</parameter> array contains unsupported keys:
+   A <exceptionname>ValueError</exceptionname> is thrown if:
   </simpara>
   <itemizedlist>
    <listitem>
     <simpara>
-     Prior to PHP 8.0.0, an <constant>E_WARNING</constant> was generated.
+     <parameter>name</parameter> is empty, or contains <literal>=</literal>,
+     <literal>,</literal>, <literal>;</literal>, a space, <literal>\t</literal>,
+     <literal>\r</literal>, <literal>\n</literal>, <literal>\013</literal> or
+     <literal>\014</literal>.
     </simpara>
    </listitem>
    <listitem>
     <simpara>
-     As of PHP 8.0.0, a <exceptionname>ValueError</exceptionname> is thrown.
+     <parameter>path</parameter> or <parameter>domain</parameter>, passed as an
+     argument or as an option, contains <literal>,</literal>, <literal>;</literal>,
+     a space, <literal>\t</literal>, <literal>\r</literal>, <literal>\n</literal>,
+     <literal>\013</literal> or <literal>\014</literal>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     The year of <parameter>expires</parameter> is greater than 9999.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     The <parameter>options</parameter> array contains unsupported keys or
+     numeric keys.
     </simpara>
    </listitem>
   </itemizedlist>
+  <simpara>
+   An <exceptionname>ArgumentCountError</exceptionname> is thrown if more than
+   three arguments are passed when the third argument is an
+   <parameter>options</parameter> array.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -253,8 +275,10 @@
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Passing unsupported keys now throws a <exceptionname>ValueError</exceptionname>
-       instead of emitting an <constant>E_WARNING</constant>.
+       Passing unsupported keys, or an invalid name, path, domain or
+       <parameter>expires</parameter> year, now throws a
+       <exceptionname>ValueError</exceptionname> instead of emitting an
+       <constant>E_WARNING</constant> and returning &false;.
       </entry>
      </row>
      <row>
