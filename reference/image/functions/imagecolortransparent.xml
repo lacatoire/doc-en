@@ -40,6 +40,15 @@
    is &null;, and the image has no transparent color, the
    returned identifier will be <literal>-1</literal>.
   </para>
+  <simpara>
+   The returned value is always the current transparent color, which is the
+   requested one only if it was accepted. With the bundled GD library, a negative
+   <parameter>color</parameter>, or an index that is not in the palette of a
+   palette image, is silently ignored: the current transparent color is left
+   unchanged and returned, so there is no way to remove the transparent color
+   once it has been set. With an external libgd (tested with 2.3.3),
+   <literal>-1</literal> removes the transparent color instead.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -114,6 +123,16 @@ imagepng($im, './imagecolortransparent.png');
     color, any regions of the image in that color that were drawn previously
     will be transparent.
    </para>
+  </note>
+  <note>
+   <simpara>
+    On palette images, setting the transparent color also sets the
+    <literal>alpha</literal> value of that palette entry to
+    <literal>127</literal> and restores the previous transparent color to
+    <literal>0</literal>, as can be seen with
+    <function>imagecolorsforindex</function>. On true color images, only the
+    transparent color value is stored.
+   </simpara>
   </note>
  </refsect1>
 </refentry>
