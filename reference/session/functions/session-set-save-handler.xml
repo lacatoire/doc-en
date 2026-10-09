@@ -34,6 +34,10 @@
    when a storage method other than those supplied by PHP sessions
    is preferred, e.g. storing the session data in a local database.
   </para>
+  <simpara>
+   Passing individual callbacks is deprecated as of PHP 8.4.0.
+   The object prototype is not supported with named arguments.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -57,10 +61,11 @@
     <varlistentry>
      <term><parameter>register_shutdown</parameter></term>
      <listitem>
-      <para>
-       Register <function>session_write_close</function> as a
-       <function>register_shutdown_function</function> function.
-      </para>
+      <simpara>
+       Register <function>session_register_shutdown</function> with
+       <function>register_shutdown_function</function>. When it runs, it registers
+       <function>session_write_close</function> as a shutdown function.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -161,13 +166,14 @@
        This callback is invoked when PHP shuts down or explicitly when <function>session_write_close</function>
        is called.  Note that after executing this function PHP will internally execute the <parameter>close</parameter> callback.
        <note>
-        <para>
-         The "write" handler is not executed until after the output stream is
-         closed.  Thus, output from debugging statements in the "write"
-         handler will never be seen in the browser.  If debugging output is
-         necessary, it is suggested that the debug output be written to a
-         file instead.
-        </para>
+        <simpara>
+         The "write" handler is executed at the end of the request, after the
+         script has finished. Output from the "write" and "close" handlers is
+         sent after the output of the script.
+         It is called instead of "update_timestamp" only when the session
+         data has changed, or when <link linkend="ini.session.lazy-write">session.lazy_write</link>
+         is disabled.
+        </simpara>
        </note>
       </para>
      </listitem>
@@ -195,17 +201,19 @@
       <para>
        A callable with the following signature:
        <methodsynopsis>
-        <type>bool</type><methodname><replaceable>gc</replaceable></methodname>
+        <type class="union"><type>int</type><type>false</type></type><methodname><replaceable>gc</replaceable></methodname>
         <methodparam><type>int</type><parameter>lifetime</parameter></methodparam>
        </methodsynopsis>
       </para>
-      <para>
+      <simpara>
        The garbage collector callback is invoked internally by PHP periodically in order to
        purge old session data.  The frequency is controlled by
        <link linkend="ini.session.gc-probability">session.gc_probability</link> and <link linkend="ini.session.gc-divisor">session.gc_divisor</link>.
        The value of lifetime which is passed to this callback can be set in <link linkend="ini.session.gc-maxlifetime">session.gc_maxlifetime</link>.
-       Return value should be &true; for success, &false; for failure.
-      </para>
+       The return value is the number of deleted sessions, which
+       <function>session_gc</function> returns: &true; counts as 1,
+       and &false; or any other value that is not an &integer; is a failure.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -271,6 +279,10 @@
   <para>
    &return.success;
   </para>
+  <simpara>
+   &false; is returned, with an <constant>E_WARNING</constant>, when a session
+   is active or when the headers have already been sent.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -290,6 +302,28 @@
        Calling <function>session_set_save_handler</function> with more
        than two arguments is now deprecated.
        Use the two argument signature instead.
+      </entry>
+     </row>
+     <row>
+      <entry>8.3.0</entry>
+      <entry>
+       <parameter>create_sid</parameter>, <parameter>validate_sid</parameter> and
+       <parameter>update_timestamp</parameter> now accept &null;.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       A callback that does not return a <type>bool</type> now throws a
+       <exceptionname>TypeError</exceptionname>; previously an <constant>E_WARNING</constant>
+       was emitted.
+      </entry>
+     </row>
+     <row>
+      <entry>7.2.0</entry>
+      <entry>
+       An <constant>E_WARNING</constant> is now emitted, and &false; returned, when
+       a session is active or when the headers have already been sent.
       </entry>
      </row>
     </tbody>
@@ -335,20 +369,32 @@ session_start();
  <refsect1 role="notes">
   &reftitle.notes;
   <warning>
-   <para>
+   <simpara>
     The <parameter>write</parameter> and
-    <parameter>close</parameter> handlers are called after object
-    destruction and therefore cannot use objects or throw exceptions.
-    Exceptions are not able to be caught since will not be caught nor will
-    any exception trace be displayed and the execution will just cease unexpectedly.
+    <parameter>close</parameter> handlers are called at the end of the request.
+    With the object prototype and <parameter>register_shutdown</parameter> set to &true;,
+    they run before the destructors of global objects; with the callable
+    prototype, or when it is &false;, they run after them.
+    An exception thrown by the <parameter>write</parameter> handler cannot be
+    caught by the script: it is reported as an uncaught exception.
     The object destructors can however use sessions.
-   </para>
+   </simpara>
    <para>
     It is possible to call <function>session_write_close</function> from the
     destructor to solve this chicken and egg problem but the most reliable way is
     to register the shutdown function as described above.
    </para>
   </warning>
+  <note>
+   <simpara>
+    The <parameter>open</parameter>, <parameter>close</parameter>,
+    <parameter>write</parameter>, <parameter>destroy</parameter>,
+    <parameter>validate_sid</parameter> and <parameter>update_timestamp</parameter>
+    callbacks must return a <type>bool</type>. As of PHP 8.0.0, any other return value
+    throws a <exceptionname>TypeError</exceptionname>, except <literal>0</literal> and
+    <literal>-1</literal>, which emit an <constant>E_DEPRECATED</constant>.
+   </simpara>
+  </note>
   <warning>
    <para>
     Current working directory is changed with some SAPIs if session is
