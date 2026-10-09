@@ -43,11 +43,24 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    A two element array, where the first element is the integer component of
    the root, and the second element is the remainder, both represented as GMP
-   numbers.
-  </para>
+   numbers. The root is truncated towards zero and the remainder has the sign
+   of <parameter>num</parameter>, so that the root raised to the power
+   <parameter>nth</parameter>, plus the remainder, equals
+   <parameter>num</parameter>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>nth</parameter> is less than <literal>1</literal>, or if
+   <parameter>nth</parameter> is even and <parameter>num</parameter> is
+   negative.
+  </simpara>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
