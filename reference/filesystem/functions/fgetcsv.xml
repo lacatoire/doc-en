@@ -34,7 +34,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>stream</parameter></term>
@@ -114,7 +113,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
   &warning.csv.escape-parameter;
  </refsect1>
 
@@ -194,7 +192,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title>Read and print the entire contents of a CSV file</title>
     <programlisting role="php">
@@ -223,7 +220,6 @@ if (($handle = fopen("test.csv", "r")) !== false) {
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="seealso">
