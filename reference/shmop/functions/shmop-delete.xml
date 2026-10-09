@@ -12,7 +12,16 @@
    <methodparam><type>Shmop</type><parameter>shmop</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   <function>shmop_delete</function> is used to delete a shared memory block.
+   <function>shmop_delete</function> marks a shared memory block for deletion.
+  </simpara>
+  <simpara>
+   The data is not destroyed at once: the segment is destroyed when the last
+   process detaches from it, that is, in PHP, when the last
+   <classname>Shmop</classname> object for it is freed. Until then, the given
+   object and every process attached earlier keep reading and writing it. The
+   key is released immediately, so a later call to
+   <function>shmop_open</function> with the same key creates a new segment,
+   independent of the old one.
   </simpara>
  </refsect1>
  <refsect1 role="parameters">
@@ -22,8 +31,8 @@
     <term><parameter>shmop</parameter></term>
     <listitem>
      <simpara>
-      The shared memory block resource created by
-      <function>shmop_open</function>
+      The <classname>Shmop</classname> instance created by
+      <function>shmop_open</function>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -32,7 +41,10 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   &return.success;
+   Returns &true; on success, or &false; on failure. If the removal is refused,
+   for example because the segment belongs to another user, an
+   <constant>E_WARNING</constant> is emitted and &false; is returned. Calling
+   the function again on the same object returns &true;.
   </simpara>
  </refsect1>
 
@@ -72,8 +84,8 @@ shmop_delete($shm_id);
    </programlisting>
   </example>
   <simpara>
-   This example will delete shared memory block identified by
-   <literal>$shm_id</literal>.
+   This example will mark the shared memory block identified by
+   <literal>$shm_id</literal> for deletion.
   </simpara>
  </refsect1>
 </refentry>
