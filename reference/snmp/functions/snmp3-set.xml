@@ -43,6 +43,10 @@
     <listitem>
      <simpara>
       The hostname of the SNMP agent (server).
+      The hostname may be followed by a port, as in <literal>host:port</literal>;
+      an IPv6 address must be enclosed in square brackets when used with a
+      port (<literal>[::1]:161</literal>). Transport prefixes such as
+      <literal>udp:</literal> or <literal>tcp:</literal> are not supported.
      </simpara>
     </listitem>
    </varlistentry>
@@ -111,7 +115,10 @@
     <term><parameter>timeout</parameter></term>
     <listitem>
      <simpara>
-      The number of microseconds until the first timeout.
+      The number of microseconds to wait for a response on each attempt,
+      without backoff. A call can therefore last up to
+      <parameter>timeout</parameter> multiplied by (<parameter>retries</parameter> + 1).
+      The default, <literal>-1</literal>, uses the library default of 1 second.
      </simpara>
     </listitem>
    </varlistentry>
@@ -119,7 +126,8 @@
     <term><parameter>retries</parameter></term>
     <listitem>
      <simpara>
-      The number of times to retry if timeouts occur.
+      The number of times to retry if timeouts occur. The default,
+      <literal>-1</literal>, uses the library default of 5 retries.
      </simpara>
     </listitem>
    </varlistentry>
@@ -134,6 +142,63 @@
   <simpara>
    If the SNMP host rejects the data type, an E_WARNING message like "Warning: Error in packet. Reason: (badValue) The value given has the wrong type or length." is shown.
    If an unknown or invalid OID is specified the warning probably reads "Could not add variable".
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if:
+  </simpara>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     the hostname contains null bytes, or is 128 bytes or longer.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     the port in the hostname is greater than 65535 or negative.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     the <parameter>security_name</parameter> is empty or contains null bytes.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>timeout</parameter> is lower than -1.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>retries</parameter> is lower than -1 or greater than <constant>INT_MAX</constant>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>object_id</parameter> is an empty array.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>type</parameter> is not a single character.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>security_level</parameter> is not one of <literal>noAuthNoPriv</literal>, <literal>authNoPriv</literal> or <literal>authPriv</literal> (or their short forms <literal>nanp</literal>, <literal>anp</literal> and <literal>ap</literal>).
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>auth_protocol</parameter> or <parameter>privacy_protocol</parameter> is not a supported protocol.
+    </simpara>
+   </listitem>
+  </itemizedlist>
+  <simpara>
+   These checks are done before any network access.
   </simpara>
  </refsect1>
 
@@ -153,8 +218,9 @@
       <entry>8.5.0</entry>
       <entry>
        Now throws a <exceptionname>ValueError</exceptionname> when the hostname
-   length is equal to or greater than 128 bytes, when the port is
-       negative or greater than 65535, or when the timeout or retries values
+       contains null bytes or its length is equal to or greater than 128 bytes,
+       when the port is negative or greater than 65535, when the security name is
+       empty or contains null bytes, or when the timeout or retries values
        are lower than -1 or too large.
       </entry>
      </row>
