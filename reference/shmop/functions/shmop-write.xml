@@ -24,8 +24,8 @@
     <term><parameter>shmop</parameter></term>
     <listitem>
      <simpara>
-      The shared memory block identifier created by
-      <function>shmop_open</function>
+      The <classname>Shmop</classname> instance created by
+      <function>shmop_open</function>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -43,7 +43,9 @@
      <simpara>
       Specifies where to start writing data inside the shared memory
       segment. The offset must be greater than or equal to zero
-      and less than or equal to the actual size of the shared memory segment.
+      and less than or equal to the actual size of the shared memory segment;
+      writing at exactly the size stores nothing and returns
+      <literal>0</literal>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -52,15 +54,22 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   The size of the written <parameter>data</parameter>.
+   The number of bytes written. It is smaller than the length of
+   <parameter>data</parameter> when the data does not fit between
+   <parameter>offset</parameter> and the end of the segment: the remainder is
+   discarded silently.
   </simpara>
  </refsect1>
 
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   If <parameter>offset</parameter> is out of range, or a read-only shared memory segment
-   should be written to, a <classname>ValueError</classname> is thrown.
+   If <parameter>offset</parameter> is out of range,
+   a <exceptionname>ValueError</exceptionname> is thrown.
+  </simpara>
+  <simpara>
+   If the shared memory segment was opened read-only (mode <literal>"a"</literal>),
+   an <exceptionname>Error</exceptionname> is thrown.
   </simpara>
  </refsect1>
 
