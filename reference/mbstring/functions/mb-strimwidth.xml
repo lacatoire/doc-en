@@ -82,10 +82,18 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    The truncated <type>string</type>. If <parameter>trim_marker</parameter> is set,
    <parameter>trim_marker</parameter> replaces the last chars to match the <parameter>width</parameter>.
-  </para>
+  </simpara>
+  <note>
+   <simpara>
+    If the string has to be truncated and <parameter>width</parameter> is less
+    than or equal to the width of <parameter>trim_marker</parameter>, only
+    <parameter>trim_marker</parameter> is returned, so the result can be wider
+    than <parameter>width</parameter>.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="changelog">
