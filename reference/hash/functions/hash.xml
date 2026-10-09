@@ -49,11 +49,17 @@
     <varlistentry>
      <term><parameter>options</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        An array of options for the various hashing algorithms.
-       Currently, only the <literal>"seed"</literal> parameter is
-       supported by the MurmurHash variants.
-      </para>
+       The <literal>"seed"</literal> option is supported by the MurmurHash
+       variants and by <literal>xxh32</literal>, <literal>xxh64</literal>,
+       <literal>xxh3</literal> and <literal>xxh128</literal>.
+       The <literal>"secret"</literal> option is supported by
+       <literal>xxh3</literal> and <literal>xxh128</literal>; it must be a
+       string of at least 136 bytes and cannot be combined with
+       <literal>"seed"</literal>.
+       Other algorithms ignore both options.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -74,6 +80,10 @@
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> exception if
    <parameter>algo</parameter> is unknown.
+   Throws an <exceptionname>Error</exceptionname> exception if the
+   <literal>"secret"</literal> option for <literal>xxh3</literal> or
+   <literal>xxh128</literal> is shorter than 136 bytes, or if both
+   <literal>"seed"</literal> and <literal>"secret"</literal> are passed.
   </simpara>
  </refsect1>
 
