@@ -27,20 +27,23 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>value</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The value to be serialized. <function>serialize</function>
-       handles all types, except the <type>resource</type>-type and some <type>object</type>s (see note below).
+       handles all types, except that a <type>resource</type> is written as
+       <literal>i:0;</literal>, without any diagnostic, and that some
+       <type>object</type>s cannot be serialized (see note below).
        You can even <function>serialize</function> arrays that contain
-       references to itself. Circular references inside the array/object you 
-       are serializing will also be stored. Any other 
-       reference will be lost.
-      </para>
-      <para>
+       references to itself. A reference shared between several elements of
+       the value, including a circular reference, is stored, and is
+       restored by <function>unserialize</function>. A reference that
+       occurs only once, or that is shared with a variable outside the
+       value, is lost.
+      </simpara>
+      <simpara>
        When serializing objects, PHP will attempt to call the member functions
        <link linkend="object.serialize">__serialize()</link> or
        <link linkend="object.sleep">__sleep()</link> prior to serialization.
@@ -48,7 +51,15 @@
        to being serialized. Likewise, when the object is restored using 
        <function>unserialize</function> the <link linkend="object.unserialize">__unserialize()</link> or
        <link linkend="object.wakeup">__wakeup()</link> member function is called.
-      </para>
+       If the class defines <link linkend="object.serialize">__serialize()</link>,
+       it is used and <link linkend="object.sleep">__sleep()</link> is ignored.
+       Otherwise, if the class implements <interfacename>Serializable</interfacename>,
+       its <methodname>Serializable::serialize</methodname> method is used (the
+       <literal>C:</literal> format) before <link linkend="object.sleep">__sleep()</link>.
+       An enum case is written in the <literal>E:</literal> format. Uninitialized typed
+       properties and static properties are not written; <literal>readonly</literal>
+       properties are.
+      </simpara>
       <note>
        <para>
        Object's private members have the class name prepended to the member
@@ -59,7 +70,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -76,9 +86,68 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Exception</exceptionname> if <parameter>value</parameter>
+   contains an object that cannot be serialized, such as a
+   <classname>Closure</classname>, a <classname>Generator</classname>, an anonymous class
+   or a <classname>WeakMap</classname>. It also throws the exceptions thrown by
+   <link linkend="object.serialize">__serialize()</link>,
+   <link linkend="object.sleep">__sleep()</link> and
+   <methodname>Serializable::serialize</methodname>, an
+   <exceptionname>Exception</exceptionname> if <methodname>Serializable::serialize</methodname>
+   returns neither a <type>string</type> nor &null;, and a
+   <exceptionname>TypeError</exceptionname> if <link linkend="object.serialize">__serialize()</link>
+   does not return an <type>array</type>.
+  </simpara>
+  <simpara>
+   An <constant>E_WARNING</constant> is raised, and &null; is serialized for the object, if
+   <link linkend="object.sleep">__sleep()</link> does not return an <type>array</type>.
+   As of PHP 8.0.0, a name returned by <link linkend="object.sleep">__sleep()</link> that
+   is not a property, or that is returned several times, raises an <constant>E_WARNING</constant>
+   and is skipped.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.1.0</entry>
+      <entry>
+       Enum cases are serialized in the <literal>E:</literal> format.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       A name returned by <link linkend="object.sleep">__sleep()</link> that is not a
+       property is now skipped with an <constant>E_WARNING</constant>; previously it was
+       serialized as &null; with an <constant>E_NOTICE</constant>.
+      </entry>
+     </row>
+     <row>
+      <entry>7.4.0</entry>
+      <entry>
+       <link linkend="object.serialize">__serialize()</link> is now called.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>serialize</function> example</title>
     <programlisting role="php" annotations="non-interactive">
@@ -103,7 +172,6 @@ if (!odbc_execute($stmt, $sqldata)) {
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="notes">
@@ -131,7 +199,6 @@ if (!odbc_execute($stmt, $sqldata)) {
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>unserialize</function></member>
     <member><function>var_export</function></member>
@@ -142,7 +209,6 @@ if (!odbc_execute($stmt, $sqldata)) {
     <member><link linkend="object.serialize">__serialize()</link></member>
     <member><link linkend="object.unserialize">__unserialize()</link></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
