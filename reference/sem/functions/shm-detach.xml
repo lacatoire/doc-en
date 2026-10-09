@@ -18,6 +18,13 @@
    <function>shm_attach</function>. Remember, that shared memory still exist
    in the Unix system and the data is still present.
   </simpara>
+  <simpara>
+   Calling this function is optional: the segment is also detached
+   automatically when the <classname>SysvSharedMemory</classname> object is
+   destroyed. After the call the object can no longer be used, not even with
+   <function>shm_remove</function>; to remove the segment,
+   <function>shm_attach</function> has to be called again.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -37,7 +44,20 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   &return.true.always;
+   Returns &true;. A second call on the same object throws an
+   <exceptionname>Error</exceptionname> instead of returning.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if <parameter>shm</parameter> was
+   already detached. The same <exceptionname>Error</exceptionname> is thrown by
+   <function>shm_put_var</function>, <function>shm_get_var</function>,
+   <function>shm_has_var</function>, <function>shm_remove_var</function> and
+   <function>shm_remove</function> when they are given a detached object,
+   although the segment still exists and holds its data.
   </simpara>
  </refsect1>
 
@@ -76,6 +96,9 @@
    <member><function>shm_attach</function></member>
    <member><function>shm_remove</function></member>
    <member><function>shm_remove_var</function></member>
+   <member><function>shm_put_var</function></member>
+   <member><function>shm_get_var</function></member>
+   <member><function>shm_has_var</function></member>
   </simplelist>
  </refsect1>
 
