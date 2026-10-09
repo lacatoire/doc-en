@@ -45,7 +45,17 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   &return.success;
+   Returns &true; on success, or &false; with an
+   <constant>E_WARNING</constant> if no variable is stored under
+   <parameter>key</parameter>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if <parameter>shm</parameter> was
+   detached with <function>shm_detach</function>.
   </simpara>
  </refsect1>
 
@@ -75,6 +85,9 @@
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
+   <member><function>shm_put_var</function></member>
+   <member><function>shm_get_var</function></member>
+   <member><function>shm_has_var</function></member>
    <member><function>shm_remove</function></member>
   </simplelist>
  </refsect1>
