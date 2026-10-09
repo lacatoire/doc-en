@@ -28,6 +28,13 @@
    shared memory. <parameter>size</parameter> and
    <parameter>permissions</parameter> will be ignored.
   </simpara>
+  <simpara>
+   The segment survives the end of the script and of the
+   <classname>SysvSharedMemory</classname> instance; it is only removed by
+   <function>shm_remove</function>. If an existing segment was not created by
+   <function>shm_attach</function>, its first bytes are overwritten with the
+   header of the extension.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -37,7 +44,8 @@
     <term><parameter>key</parameter></term>
     <listitem>
      <simpara>
-      A numeric shared memory segment ID
+      A numeric System V IPC key, for example the result of
+      <function>ftok</function>. It is not the identifier of the segment.
      </simpara>
     </listitem>
    </varlistentry>
@@ -45,7 +53,9 @@
     <term><parameter>size</parameter></term>
     <listitem>
      <simpara>
-      The memory size. If not provided, default to the
+      The memory size, in bytes, of the whole segment: the data area is 40
+      bytes smaller on 64-bit builds, and a segment that does not exist yet
+      cannot be created with a smaller size. If not provided, default to the
       <literal>sysvshm.init_mem</literal> in the &php.ini;, otherwise 10000
       bytes.
      </simpara>
@@ -55,7 +65,9 @@
     <term><parameter>permissions</parameter></term>
     <listitem>
      <simpara>
-      The optional permission bits. Default to 0666.
+      The optional permission bits, used only when the segment is created.
+      Default to 0666, which makes the segment readable and writable by every
+      local user.
      </simpara>
     </listitem>
    </varlistentry>
@@ -65,7 +77,20 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns a <classname>SysvSharedMemory</classname> instance on success, &return.falseforfailure;.
+   Returns a <classname>SysvSharedMemory</classname> instance on success, or &false; on failure. An <constant>E_WARNING</constant>
+   is emitted when the segment cannot be created or attached, for example when
+   <parameter>size</parameter> is too small for a new segment or the system
+   call fails. When several processes create the same segment at the same time,
+   the one that loses the race fails with a <literal>File exists</literal>
+   warning.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>size</parameter> is less than or equal to 0.
   </simpara>
  </refsect1>
 
@@ -103,6 +128,7 @@
   <simplelist>
    <member><function>shm_detach</function></member>
    <member><function>ftok</function></member>
+   <member><function>shm_remove</function></member>
   </simplelist>
  </refsect1>
 
