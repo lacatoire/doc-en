@@ -30,7 +30,7 @@
    </term>
    <listitem>
     <simpara>
-     Return value of <function>session_status</function> if sessions are disabled.
+     Return value of <function>session_status</function> if the configured save or serialize handler is not registered.
     </simpara>
    </listitem>
   </varlistentry>
@@ -42,7 +42,7 @@
    <listitem>
     <simpara>
      Return value of <function>session_status</function> if sessions are enabled,
-     but no session exists.
+     but no session is started.
     </simpara>
    </listitem>
   </varlistentry>
@@ -53,8 +53,8 @@
    </term>
    <listitem>
     <simpara>
-     Return value of <function>session_status</function> if sessions are enabled,
-     and a session exists.
+     Return value of <function>session_status</function> if a session is
+     started.
     </simpara>
    </listitem>
   </varlistentry>
