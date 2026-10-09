@@ -122,7 +122,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>gc_status</function> Usage</title>
     <programlisting role="php">
@@ -191,7 +190,6 @@ array(12) {
 ]]>
     </screen>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="seealso">
