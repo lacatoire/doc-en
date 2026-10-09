@@ -25,12 +25,18 @@
     <varlistentry>
      <term><parameter>options</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The options to set. This is a string where each 
-       character is an option. To set a mode, the mode 
-       character must be the last one set, however there 
-       can only be set one mode but multiple options.
-      </para>
+       character is an option or a mode. Each character is handled
+       independently, so a mode may appear anywhere in the string.
+       If several modes are given, the last one wins.
+      </simpara>
+      <simpara>
+       Every call starts from an empty set of options: the options that were
+       previously set are not kept, and the default options are not applied.
+       For example, passing only a mode such as <literal>"j"</literal>
+       clears the default options.
+      </simpara>
 
       <table>
        <title>Regex options</title>
@@ -87,10 +93,11 @@
        </tgroup>
       </table>
       <note>
-       <para>
-        The <literal>"e"</literal> option has no effect when set through <function>mb_regex_set_options</function>.
-        Use it with <function>mb_ereg_replace</function> or <function>mb_eregi_replace</function>.
-       </para>
+       <simpara>
+        The <literal>"e"</literal> option is not supported anymore: passing it to
+        <function>mb_regex_set_options</function> or <function>mb_ereg_replace</function>
+        throws a <exceptionname>ValueError</exceptionname>.
+       </simpara>
       </note>
       <table>
        <title>Regex syntax modes (only one may be set)</title>
