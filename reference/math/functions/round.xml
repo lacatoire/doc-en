@@ -51,20 +51,21 @@
     <varlistentry>
      <term><parameter>precision</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The optional number of decimal digits to round to.
-      </para>
-      <para>
+      </simpara>
+      <simpara>
        If the <parameter>precision</parameter> is positive, <parameter>num</parameter> is
-       rounded to <parameter>precision</parameter> significant digits after the decimal point.
-      </para>
-      <para>
+       rounded to <parameter>precision</parameter> decimal places after the decimal point.
+      </simpara>
+      <simpara>
        If the <parameter>precision</parameter> is negative, <parameter>num</parameter> is
-       rounded to <parameter>precision</parameter> significant digits before the decimal point,
-       i.e. to the nearest multiple of <code>pow(10, -$precision)</code>, e.g. for a
+       rounded to the left of the decimal point, e.g. for a
        <parameter>precision</parameter> of -1 <parameter>num</parameter> is rounded to tens,
        for a <parameter>precision</parameter> of -2 to hundreds, etc.
-      </para>
+       With the half-way rounding modes the result is the nearest multiple of
+       <code>pow(10, -$precision)</code>.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
