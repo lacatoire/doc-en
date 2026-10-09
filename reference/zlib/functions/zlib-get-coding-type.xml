@@ -12,9 +12,9 @@
    <type class="union"><type>string</type><type>false</type></type><methodname>zlib_get_coding_type</methodname>
    <void/>
   </methodsynopsis>
-  <para>
-   Returns the coding type used for output compression.  
-  </para>
+  <simpara>
+   Returns the coding type used for output compression.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -28,19 +28,27 @@
    Possible return values are <literal>gzip</literal>, <literal>deflate</literal>,
    or &false;.
   </para>
+  <simpara>
+   The coding type is only known once output compression has been negotiated:
+   <link linkend="ini.zlib.output-compression">zlib.output_compression</link>
+   is enabled (or <function>ob_gzhandler</function> is used) and the
+   <literal>Accept-Encoding</literal> header of the request contains
+   <literal>gzip</literal> or <literal>deflate</literal>.
+   <literal>gzip</literal> is returned when both are present. In every other
+   case, such as output compression being off or the client advertising
+   neither encoding, &false; is returned.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member>
-     The <link 
-     linkend="ini.zlib.output-compression">zlib.output_compression</link> 
-     directive
-    </member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member>
+    The <link
+    linkend="ini.zlib.output-compression">zlib.output_compression</link>
+    directive
+   </member>
+  </simplelist>
  </refsect1>
 
 </refentry>
