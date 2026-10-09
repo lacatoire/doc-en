@@ -24,25 +24,46 @@
 
  <refsect1 role="returnvalues"><!-- {{{ -->
   &reftitle.returnvalues;
-  <para>
-   <itemizedlist>
-    <listitem>
-     <simpara><constant>PHP_SESSION_DISABLED</constant> if sessions are disabled.</simpara>
-    </listitem>
-    <listitem>
-     <simpara><constant>PHP_SESSION_NONE</constant> if sessions are enabled, but none exists.</simpara>
-    </listitem>
-    <listitem>
-     <simpara><constant>PHP_SESSION_ACTIVE</constant> if sessions are enabled, and one exists.</simpara>
-    </listitem>
-   </itemizedlist>
-  </para>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <constant>PHP_SESSION_DISABLED</constant> (<literal>0</literal>) if the
+     <link linkend="ini.session.save-handler">session.save_handler</link> or
+     <link linkend="ini.session.serialize-handler">session.serialize_handler</link>
+     setting names a handler that is not registered. This is not permanent:
+     once the settings are valid, <function>session_start</function> can start
+     the session.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <constant>PHP_SESSION_NONE</constant> (<literal>1</literal>) if sessions
+     are enabled, but no session is started. This is also the status after
+     <function>session_write_close</function>, <function>session_abort</function>
+     or <function>session_destroy</function>, even though
+     <function>session_id</function> and <varname>$_SESSION</varname> may still
+     hold values.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <constant>PHP_SESSION_ACTIVE</constant> (<literal>2</literal>) if a
+     session is started. The status is already active while the
+     <literal>open</literal>, <literal>read</literal>, <literal>write</literal>,
+     <literal>close</literal>, <literal>destroy</literal> and <literal>gc</literal>
+     callbacks of a custom session handler run.
+    </simpara>
+   </listitem>
+  </itemizedlist>
  </refsect1><!-- }}} -->
  
  <refsect1 role="seealso"><!-- {{{ -->
   &reftitle.seealso;
   <simplelist>
    <member><function>session_start</function></member>
+   <member><function>session_write_close</function></member>
+   <member><function>session_destroy</function></member>
+   <member><function>session_abort</function></member>
   </simplelist>
  </refsect1><!-- }}} -->
 
