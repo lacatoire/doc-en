@@ -12,7 +12,56 @@
    <type>bool</type><methodname>ldap_start_tls</methodname>
    <methodparam><type>LDAP\Connection</type><parameter>ldap</parameter></methodparam>
   </methodsynopsis>
-  &warn.undocumented.func;
+  <simpara>
+   Upgrades an existing, unencrypted connection to TLS using the StartTLS
+   extended operation. The connection is first switched to LDAP protocol
+   version 3, and any pending TLS option set with <function>ldap_set_option</function>
+   (<constant>LDAP_OPT_X_TLS_*</constant>) is applied before the operation.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term><parameter>ldap</parameter></term>
+     <listitem>
+      <simpara>
+       &ldap.parameter.ldap;
+      </simpara>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   &return.success;
+   On failure, an <constant>E_WARNING</constant> is emitted with a message of the
+   form "Unable to start TLS: <replaceable>error</replaceable>".
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if the connection has
+   already been closed.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>ldap_connect</function></member>
+    <member><function>ldap_set_option</function></member>
+    <member><function>ldap_bind</function></member>
+   </simplelist>
+  </para>
  </refsect1>
 
 </refentry>
