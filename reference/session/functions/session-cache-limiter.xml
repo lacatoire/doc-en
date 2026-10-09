@@ -25,16 +25,24 @@
    client, whereas <literal>private</literal> disallows caching by proxies
    and permits the client to cache the contents.
   </para>
-  <para>
-   In <literal>private</literal> mode, the Expire header sent to the client
+  <simpara>
+   In <literal>private</literal> mode, the <literal>Expires</literal> header sent to the client
    may cause confusion for some browsers, including <productname>Mozilla</productname>.
    You can avoid this problem by using <literal>private_no_expire</literal> mode. The
-   <literal>Expire</literal> header is never sent to the client in this mode.
-  </para>
-  <para>
+   <literal>Expires</literal> header is never sent to the client in this mode.
+  </simpara>
+  <simpara>
    Setting the cache limiter to <literal>''</literal> will turn off automatic sending
-   of cache headers entirely.
-  </para>
+   of cache headers entirely. A name other than the ones listed below is
+   accepted, but then no cache header is sent. Names are compared
+   case-insensitively.
+  </simpara>
+  <simpara>
+   The headers are sent by <function>session_start</function>, not by
+   <function>session_cache_limiter</function>, and they replace headers of the
+   same name set earlier or later with <function>header</function>. Use
+   <literal>''</literal> to keep headers set with <function>header</function>.
+  </simpara>
   <para>
    The cache limiter is reset to the default value stored in
    <link linkend="ini.session.cache-limiter">session.cache_limiter</link>
@@ -70,8 +78,8 @@
           <entry>
            <programlisting role="header">
 <![CDATA[
-Expires: (sometime in the future, according session.cache_expire)
-Cache-Control: public, max-age=(sometime in the future, according to session.cache_expire)
+Expires: (sometime in the future, according to session.cache_expire)
+Cache-Control: public, max-age=(session.cache_expire in seconds)
 Last-Modified: (the timestamp of the current script)
 ]]>
            </programlisting>
@@ -82,7 +90,7 @@ Last-Modified: (the timestamp of the current script)
           <entry>
            <programlisting role="header">
 <![CDATA[
-Cache-Control: private, max-age=(session.cache_expire in the future)
+Cache-Control: private, max-age=(session.cache_expire in seconds)
 Last-Modified: (the timestamp of the current script)
 ]]>
            </programlisting>
@@ -94,7 +102,7 @@ Last-Modified: (the timestamp of the current script)
            <programlisting role="header">
 <![CDATA[
 Expires: Thu, 19 Nov 1981 08:52:00 GMT
-Cache-Control: private, max-age=(session.cache_expire in the future)
+Cache-Control: private, max-age=(session.cache_expire in seconds)
 Last-Modified: (the timestamp of the current script)
 ]]>
            </programlisting>
@@ -123,10 +131,13 @@ Pragma: no-cache
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the name of the current cache limiter.
-   On failure to change the value, &false; is returned.
-  </para>
+  <simpara>
+   Returns the name of the cache limiter before the call, so when
+   <parameter>value</parameter> is given, the previous name is returned.
+   If <parameter>value</parameter> is given while a session is active or after
+   the headers were sent, an <constant>E_WARNING</constant> is raised and
+   &false; is returned.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -144,6 +155,16 @@ Pragma: no-cache
       <entry>8.0.0</entry>
       <entry>
        <parameter>value</parameter> is nullable now.
+       Passing &null; only returns the current cache limiter; previously it
+       set the cache limiter to <literal>''</literal>.
+      </entry>
+     </row>
+     <row>
+      <entry>7.2.0</entry>
+      <entry>
+       An <constant>E_WARNING</constant> is raised and &false; is returned when
+       the cache limiter is changed while a session is active or after the
+       headers were sent.
       </entry>
      </row>
     </tbody>
@@ -178,6 +199,8 @@ echo "The cache limiter is now set to $cache_limiter<br />";
   <para>
    <simplelist>
     <member><link linkend="ini.session.cache-limiter">session.cache_limiter</link></member>
+    <member><link linkend="ini.session.cache-expire">session.cache_expire</link></member>
+    <member><function>session_cache_expire</function></member>
    </simplelist>
   </para>
  </refsect1>
