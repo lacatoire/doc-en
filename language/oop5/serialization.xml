@@ -71,7 +71,7 @@
    later in the application, the application includes the class definition
    for that object throughout the application. Not doing so might result in an
    object being unserialized without a class definition, which will result in
-   PHP giving the object a class of <classname>__PHP_Incomplete_Class_Name</classname>,
+   PHP giving the object a class of <classname>__PHP_Incomplete_Class</classname>,
    which has no methods and would render the object useless.
   </simpara>
   
