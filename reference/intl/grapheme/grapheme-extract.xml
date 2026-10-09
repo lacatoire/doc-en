@@ -95,6 +95,20 @@
   </para>
  </refsect1>
  
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>type</parameter> is not one of
+   <constant>GRAPHEME_EXTR_COUNT</constant>,
+   <constant>GRAPHEME_EXTR_MAXBYTES</constant> or
+   <constant>GRAPHEME_EXTR_MAXCHARS</constant>, if
+   <parameter>size</parameter> is less than <literal>0</literal>, or if
+   <parameter>size</parameter> is too large (greater than
+   <literal>2147483647</literal>).
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
