@@ -58,6 +58,41 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if:
+  </simpara>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <parameter>word_size</parameter> is less than <literal>1</literal>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     The length of <parameter>data</parameter> is not a multiple of
+     <parameter>word_size</parameter>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>flags</parameter> contains several word order options
+     (<constant>GMP_MSW_FIRST</constant> and
+     <constant>GMP_LSW_FIRST</constant>).
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>flags</parameter> contains several endian options
+     (<constant>GMP_LITTLE_ENDIAN</constant>,
+     <constant>GMP_BIG_ENDIAN</constant> or
+     <constant>GMP_NATIVE_ENDIAN</constant> combined with each other).
+    </simpara>
+   </listitem>
+  </itemizedlist>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
