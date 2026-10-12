@@ -24,11 +24,7 @@
     <varlistentry>
      <term><parameter>num</parameter></term>
      <listitem>
-      <para>
-       Either a <classname>GMP</classname> object, or a numeric
-       string provided that it is possible to convert the latter to an
-       <type>int</type>.
-      </para>
+      &gmp.parameter;
      </listitem>
     </varlistentry>
    </variablelist>
