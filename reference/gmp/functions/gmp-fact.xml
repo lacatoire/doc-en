@@ -41,6 +41,14 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>num</parameter> is negative.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
