@@ -36,9 +36,11 @@
     <varlistentry>
      <term><parameter>start</parameter></term>
      <listitem>
-      <para>
-       The starting bit.
-      </para>
+      <simpara>
+       The starting bit. Must be greater than or equal to 0. As of PHP 8.5.0,
+       it must also be less than <literal>2147483647 * 64</literal> on
+       64-bit platforms.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -51,6 +53,17 @@
    Returns the index of the found bit, as an <type>int</type>. The
    index starts from 0.
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>start</parameter> is less than <literal>0</literal>.
+   As of PHP 8.5.0, a <exceptionname>ValueError</exceptionname> is also thrown
+   if <parameter>start</parameter> is greater than or equal to
+   <literal>2147483647 * 64</literal> (on 64-bit platforms).
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
