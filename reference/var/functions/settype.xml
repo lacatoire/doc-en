@@ -21,63 +21,61 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>var</parameter></term>
-     <listitem>
-      <para>
-       The variable being converted.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>type</parameter></term>
-     <listitem>
-      <para>
-       Possibles values of <parameter>type</parameter> are:
-       <itemizedlist>
-        <listitem>
-         <simpara>
-          "boolean" or "bool"
-         </simpara>
-        </listitem>
-        <listitem>
-         <simpara>
-          "integer" or "int"
-         </simpara>
-        </listitem>
-        <listitem>
-         <simpara>
-          "float" or "double"
-         </simpara>
-        </listitem>
-        <listitem>
-         <simpara>
-          "string"
-         </simpara>
-        </listitem>
-        <listitem>
-         <simpara>
-          "array"
-         </simpara>
-        </listitem>
-        <listitem>
-         <simpara>
-          "object"
-         </simpara>
-        </listitem>
-        <listitem>
-         <simpara>
-          "null"
-         </simpara>
-        </listitem>
-       </itemizedlist>
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>var</parameter></term>
+    <listitem>
+     <simpara>
+      The variable being converted.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>type</parameter></term>
+    <listitem>
+     <para>
+      Possibles values of <parameter>type</parameter> are (case-insensitive):
+      <itemizedlist>
+       <listitem>
+        <simpara>
+         "boolean" or "bool"
+        </simpara>
+       </listitem>
+       <listitem>
+        <simpara>
+         "integer" or "int"
+        </simpara>
+       </listitem>
+       <listitem>
+        <simpara>
+         "float" or "double"
+        </simpara>
+       </listitem>
+       <listitem>
+        <simpara>
+         "string"
+        </simpara>
+       </listitem>
+       <listitem>
+        <simpara>
+         "array"
+        </simpara>
+       </listitem>
+       <listitem>
+        <simpara>
+         "object"
+        </simpara>
+       </listitem>
+       <listitem>
+        <simpara>
+         "null"
+        </simpara>
+       </listitem>
+      </itemizedlist>
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -89,12 +87,14 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if the value of
    <parameter>type</parameter> is not a valid type, as of PHP 8.0.0.
    Prior to PHP 8.0.0, a <constant>E_WARNING</constant> was emitted
-   and &false; was returned.
-  </para>
+   and &false; was returned. <literal>"resource"</literal> is not a valid
+   target either and throws a <exceptionname>ValueError</exceptionname> with its
+   own message.
+  </simpara>
   <simpara>
    Throws a <exceptionname>TypeError</exceptionname> if
    <parameter>var</parameter> is a reference to a
@@ -102,6 +102,12 @@
    converted value cannot be assigned to the declared type of that property
    under the active
    <link linkend="language.types.declarations.strict">typing mode</link>.
+  </simpara>
+  <simpara>
+   An <exceptionname>Error</exceptionname> is thrown if <parameter>var</parameter> is
+   not a variable and cannot be passed by reference, and any exception thrown
+   by <methodname>__toString</methodname> propagates when an object is
+   converted to <type>string</type>.
   </simpara>
  </refsect1>
 
@@ -132,10 +138,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>settype</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>settype</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $foo = "5bar"; // string
@@ -147,17 +152,29 @@ settype($bar, "string");  // $bar is now "1" (string)
 var_dump($foo, $bar);
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
-    Maximum value for "int" is <constant>PHP_INT_MAX</constant>.
-   </para>
+   <simpara>
+    Maximum value for "int" is <constant>PHP_INT_MAX</constant>. A numeric
+    string larger than that saturates at <constant>PHP_INT_MAX</constant>,
+    whereas an out-of-range <type>float</type>, <constant>NAN</constant> or
+    <constant>INF</constant> is not representable: an
+    <constant>E_WARNING</constant> is emitted and the result is a wrapped
+    value (<literal>0</literal> for <constant>NAN</constant>).
+   </simpara>
+  </note>
+  <note>
+   <simpara>
+    Converting an <type>object</type> to <type>int</type> or <type>float</type>
+    emits an <constant>E_WARNING</constant> and gives <literal>1</literal>.
+    Converting an <type>array</type> to <type>string</type> emits an
+    <constant>E_WARNING</constant> and gives <literal>"Array"</literal>.
+   </simpara>
   </note>
   <note>
    <simpara>
@@ -174,13 +191,11 @@ var_dump($foo, $bar);
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>gettype</function></member>
-    <member><link linkend="language.types.typecasting">type-casting</link></member>
-    <member><link linkend="language.types.type-juggling">type-juggling</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>gettype</function></member>
+   <member><link linkend="language.types.typecasting">type-casting</link></member>
+   <member><link linkend="language.types.type-juggling">type-juggling</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
