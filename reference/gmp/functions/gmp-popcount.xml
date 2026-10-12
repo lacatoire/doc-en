@@ -33,9 +33,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    The population count of <parameter>num</parameter>, as an <type>int</type>.
-  </para>
+   If <parameter>num</parameter> is negative, <literal>-1</literal> is
+   returned.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
