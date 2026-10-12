@@ -19,7 +19,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>stream</parameter></term>
@@ -28,7 +27,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -38,9 +36,16 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Emits an <constant>E_WARNING</constant> level error if the stream does not support
+   synchronization, such as a <literal>php://memory</literal> stream.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>fsync</function> example</title>
     <programlisting role="php">
@@ -60,17 +65,14 @@ fclose($stream);
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
  
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>fdatasync</function></member>
     <member><function>fflush</function></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
