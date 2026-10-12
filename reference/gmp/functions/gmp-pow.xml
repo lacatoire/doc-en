@@ -34,9 +34,9 @@
     <varlistentry>
      <term><parameter>exponent</parameter></term>
      <listitem>
-      <para>
-       The positive power to raise the <parameter>num</parameter>.
-      </para>
+      <simpara>
+       The non-negative power to raise the <parameter>num</parameter> to.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -51,6 +51,14 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>exponent</parameter> is negative.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
@@ -63,8 +71,12 @@ $pow1 = gmp_pow("2", 31);
 echo gmp_strval($pow1) . "\n";
 $pow2 = gmp_pow("0", 0);
 echo gmp_strval($pow2) . "\n";
-$pow3 = gmp_pow("2", -1); // Negative exp, generates warning
-echo gmp_strval($pow3) . "\n";
+try {
+    $pow3 = gmp_pow("2", -1); // Negative exponent, throws a ValueError
+    echo gmp_strval($pow3) . "\n";
+} catch (ValueError $e) {
+    echo $e->getMessage() . "\n";
+}
 ?>
 ]]>
     </programlisting>
@@ -73,6 +85,7 @@ echo gmp_strval($pow3) . "\n";
 <![CDATA[
 2147483648
 1
+gmp_pow(): Argument #2 ($exponent) must be greater than or equal to 0
 ]]>
     </screen>
    </example>
