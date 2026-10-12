@@ -29,6 +29,12 @@
       hexadecimal, octal, or binary.
       Any whitespace in the input string is ignored.
      </simpara>
+     <simpara>
+      White space anywhere in the string, including between digits, is ignored.
+      A leading <literal>-</literal> sign denotes a negative number, but a
+      leading <literal>+</literal> sign is not accepted and causes a
+      <exceptionname>ValueError</exceptionname> to be thrown.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
@@ -133,6 +139,7 @@ $e = gmp_init("123456789 00000");
   &reftitle.seealso;
   <simplelist>
    <member><methodname>GMP::__construct</methodname></member>
+   <member><function>gmp_strval</function></member>
   </simplelist>
  </refsect1>
  
