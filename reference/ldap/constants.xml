@@ -522,7 +522,7 @@
    </term>
    <listitem>
     <simpara>
-     Control Constant - Proxied Authorization (<link xlink:href="&url.rfc;4730">RFC 4370</link>).
+     Control Constant - Proxied Authorization (<link xlink:href="&url.rfc;4370">RFC 4370</link>).
      Available as of PHP 7.3.0.
     </simpara>
    </listitem>
