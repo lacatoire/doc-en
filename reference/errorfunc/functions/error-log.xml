@@ -22,7 +22,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>message</parameter></term>
@@ -65,7 +64,7 @@
           <row>
            <entry>2</entry>
            <entry>
-            No longer an option.
+            Not available. Passing this value throws a <exceptionname>ValueError</exceptionname>.
            </entry>
           </row>
           <row>
@@ -87,6 +86,9 @@
         </tgroup>
        </table>
       </para>
+      <simpara>
+       Any other value is treated like <literal>0</literal>.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -110,7 +112,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -120,6 +121,14 @@
    If <parameter>message_type</parameter> is zero, this function always returns &true;,
    regardless of whether the error could be logged or not.
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>message_type</parameter> is <literal>2</literal>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -147,7 +156,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example role="php">
     <title><function>error_log</function> examples</title>
     <programlisting role="php">
@@ -171,7 +179,6 @@ error_log("You messed up!", 3, "/var/tmp/my-errors.log");
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="notes">
