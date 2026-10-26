@@ -3,7 +3,7 @@
 <refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.session-abort">
  <refnamediv>
   <refname>session_abort</refname>
-  <refpurpose>Discard session array changes and finish session</refpurpose>
+  <refpurpose>Discard session data changes and finish session</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -12,10 +12,17 @@
    <type>bool</type><methodname>session_abort</methodname>
    <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>session_abort</function> finishes session without saving
-   data. Thus the original values in session data are kept.
-  </para>
+   data. Thus the original values in session data are kept in the session
+   storage, and the session lock is released.
+  </simpara>
+  <simpara>
+   The <varname>$_SESSION</varname> array is not modified: it keeps the
+   changes made since the session was started. Use
+   <function>session_reset</function> to restore the stored values in
+   <varname>$_SESSION</varname>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -65,6 +72,7 @@
     <member><function>session_start</function></member>
     <member><function>session_reset</function></member>
     <member><function>session_commit</function></member>
+    <member><function>session_write_close</function></member>
    </simplelist>
   </para>
  </refsect1>
