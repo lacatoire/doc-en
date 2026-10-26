@@ -17,43 +17,82 @@
    <parameter>data</parameter>, and populates the $_SESSION superglobal
    with the result.
   </simpara>
-  <para>
+  <simpara>
    By default, the unserialization method used is internal to PHP, and is not the same as <function>unserialize</function>.
    The serialization method can be set using <link linkend="ini.session.serialize-handler">session.serialize_handler</link>.
-  </para>
+  </simpara>
+  <simpara>
+   A session must be active, see <function>session_start</function>.
+   With the <literal>php</literal> and <literal>php_binary</literal> handlers,
+   the decoded variables are merged into the existing $_SESSION:
+   variables with the same name are overwritten, the others are kept.
+   With the <literal>php_serialize</literal> handler, the decoded value
+   replaces $_SESSION as a whole.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>data</parameter></term>
      <listitem>
-      <para>
-       The encoded data to be stored.
-      </para>
+      <simpara>
+       The serialized session data, in the format of
+       <link linkend="ini.session.serialize-handler">session.serialize_handler</link>,
+       as returned by <function>session_encode</function>.
+       The data is not written to the session storage until the session is written,
+       for example by <function>session_write_close</function>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+  </simpara>
+  <simpara>
+   If no session is active, an <constant>E_WARNING</constant> is emitted and &false; is returned.
+   If the data cannot be decoded, an <constant>E_WARNING</constant> is emitted,
+   &false; is returned and the session is destroyed:
+   its data is deleted from the storage, $_SESSION becomes an empty array,
+   <function>session_status</function> returns <constant>PHP_SESSION_NONE</constant>
+   and <function>session_id</function> returns an empty string.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>7.0.0</entry>
+      <entry>
+       An <constant>E_WARNING</constant> is now emitted when no session is active.
+       Previously, &false; was returned silently.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>session_encode</function></member>
     <member><link linkend="ini.session.serialize-handler">session.serialize_handler</link></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
