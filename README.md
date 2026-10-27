@@ -24,19 +24,6 @@
 This repository contains the source of the English PHP manual, published on
 [php.net](https://www.php.net/docs.php).
 
-Contributing
-------------
-
-Please read the
-[contribution guidelines](https://github.com/php/doc-base/blob/master/docs/contributing.md)
-and the [README file](https://github.com/php/doc-base/blob/master/README.md)
-of the [doc-base repository](https://github.com/php/doc-base) before sending a
-pull request.
-
-For information related to creating a local setup, see the contribution
-guidelines or [this page](https://doc.php.net/tutorial/local-setup.php) on our
-documentation website.
-
 Build the documentation locally
 -------------------------------
 
