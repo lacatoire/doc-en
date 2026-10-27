@@ -24,6 +24,13 @@
 This repository contains the source of the English PHP manual, published on
 [php.net](https://www.php.net/docs.php).
 
+> [!IMPORTANT]
+> Third-party extensions (distributed via PECL or PIE) are moving to
+> [php/doc-extensions](https://github.com/php/doc-extensions). Pull requests
+> that touch an extension carrying a `MOVING_TO_DOC_EXTENSIONS_DO_NOT_CHANGE_HERE.md`
+> notice under `reference/` fail the "Migrated Extensions" check and must be
+> opened against `php/doc-extensions` instead.
+
 Build the documentation locally
 -------------------------------
 

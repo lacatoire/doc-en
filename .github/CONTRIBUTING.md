@@ -8,7 +8,9 @@ Thank you for helping to improve the PHP documentation.
 2. Edit the XML files (typos and short changes can be made directly on GitHub).
 3. For larger changes, [build the manual locally](https://github.com/php/doc-base/blob/master/docs/local-setup.md)
    to check that the XML is valid and renders as expected.
-4. Open a pull request against `php/doc-en`.
+4. Open a pull request against `php/doc-en`, unless the extension has moved to
+   [php/doc-extensions](https://github.com/php/doc-extensions) (see the notice in its
+   `reference/` folder).
 
 The repository runs a few checks on every pull request (DocBook lint, XML
 validity, trailing whitespace).
