@@ -18,21 +18,26 @@
    <methodparam choice="opt"><type>int</type><parameter role="reference">port</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
-   The <function>socket_recvfrom</function> function receives
-   <parameter>length</parameter> bytes of data in <parameter>data</parameter> from
-   <parameter>address</parameter> on port <parameter>port</parameter> (if the
-   socket is not of type <constant>AF_UNIX</constant>) using
-   <parameter>socket</parameter>. <function>socket_recvfrom</function> can be
+   The <function>socket_recvfrom</function> function receives up to
+   <parameter>length</parameter> bytes of data in <parameter>data</parameter> using
+   <parameter>socket</parameter>, and sets <parameter>address</parameter> and
+   <parameter>port</parameter> (if the socket is not of type <constant>AF_UNIX</constant>)
+   to the address and the port of the sender.
+   <function>socket_recvfrom</function> can be
    used to gather data from both connected and unconnected sockets.
    Additionally, one or more flags can be specified to modify the behaviour of
-   the function.
+   the function. A datagram longer than <parameter>length</parameter> is cut,
+   and the rest of it is lost.
   </para>
   <para>
    The <parameter>address</parameter> and <parameter>port</parameter> must be
    passed by reference. If the socket is not connection-oriented,
    <parameter>address</parameter> will be set to the internet protocol address of
    the remote host or the path to the UNIX socket. If the socket is
-   connection-oriented, <parameter>address</parameter> is &null;. Additionally,
+   connection-oriented, <parameter>address</parameter> is <literal>"0.0.0.0"</literal>
+   (<literal>"::"</literal> for <constant>AF_INET6</constant>) and
+   <parameter>port</parameter> is <literal>0</literal>, or an empty string for an
+   <constant>AF_UNIX</constant> socket. Additionally,
    the <parameter>port</parameter> will contain the port of the remote host in
    the case of an unconnected <constant>AF_INET</constant> or
    <constant>AF_INET6</constant> socket. 
@@ -42,116 +47,117 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <para>
-       The <parameter>socket</parameter> must be a <classname>Socket</classname> instance previously
-       created by socket_create().
-      </para>
-     </listitem>
-    </varlistentry>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <para>
+      The <parameter>socket</parameter> must be a <classname>Socket</classname> instance previously
+      created by socket_create().
+     </para>
+    </listitem>
+   </varlistentry>
 
-    <varlistentry>
-     <term><parameter>data</parameter></term>
-     <listitem>
-      <para>
-       The data received will be fetched to the variable specified with
-       <parameter>data</parameter>.
-      </para>
-     </listitem>
-    </varlistentry>
+   <varlistentry>
+    <term><parameter>data</parameter></term>
+    <listitem>
+     <para>
+      The data received will be fetched to the variable specified with
+      <parameter>data</parameter>.
+     </para>
+    </listitem>
+   </varlistentry>
 
-    <varlistentry>
-     <term><parameter>length</parameter></term>
-     <listitem>
-      <para>
-       Up to <parameter>length</parameter> bytes will be fetched from remote host.
-      </para>
-     </listitem>
-    </varlistentry>
+   <varlistentry>
+    <term><parameter>length</parameter></term>
+    <listitem>
+     <para>
+      Up to <parameter>length</parameter> bytes will be fetched from remote host.
+     </para>
+    </listitem>
+   </varlistentry>
 
-    <varlistentry>
-     <term><parameter>flags</parameter></term>
-     <listitem>
-      <para>
-       The value of <parameter>flags</parameter> can be any combination of 
-       the following flags, joined with the binary OR (<literal>|</literal>)
-       operator.
-      </para>
-      
-      <table>
-       <title>Possible values for <parameter>flags</parameter></title>
-       <tgroup cols="2">
-        <thead>
-         <row>
-          <entry>Flag</entry>
-          <entry>Description</entry>
-         </row>
-        </thead>
-        <tbody>
-         <row>
-          <entry><constant>MSG_OOB</constant></entry>
-          <entry>
-           Process out-of-band data.
-          </entry>
-         </row>
-         <row>
-          <entry><constant>MSG_PEEK</constant></entry>
-          <entry>
-           Receive data from the beginning of the receive queue without
-           removing it from the queue.
-          </entry>
-         </row>
-         <row>
-          <entry><constant>MSG_WAITALL</constant></entry>
-          <entry>
-           Block until at least <parameter>length</parameter> are received.
-           However, if a signal is caught or the remote host disconnects, the
-           function may return less data.
-          </entry>
-         </row>
-         <row>
-          <entry><constant>MSG_DONTWAIT</constant></entry>
-          <entry>
-           With this flag set, the function returns even if it would normally
-           have blocked.
-          </entry>
-         </row>
-        </tbody>
-       </tgroup>
-      </table>
-     </listitem>
-    </varlistentry>
+   <varlistentry>
+    <term><parameter>flags</parameter></term>
+    <listitem>
+     <para>
+      The value of <parameter>flags</parameter> can be any combination of 
+      the following flags, joined with the binary OR (<literal>|</literal>)
+      operator.
+     </para>
+     
+     <table>
+      <title>Possible values for <parameter>flags</parameter></title>
+      <tgroup cols="2">
+       <thead>
+        <row>
+         <entry>Flag</entry>
+         <entry>Description</entry>
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry><constant>MSG_OOB</constant></entry>
+         <entry>
+          Process out-of-band data.
+         </entry>
+        </row>
+        <row>
+         <entry><constant>MSG_PEEK</constant></entry>
+         <entry>
+          Receive data from the beginning of the receive queue without
+          removing it from the queue.
+         </entry>
+        </row>
+        <row>
+         <entry><constant>MSG_WAITALL</constant></entry>
+         <entry>
+          Block until <parameter>length</parameter> bytes are received.
+          However, if a signal is caught, the remote host disconnects or a
+          timeout expires, the function may return less data.
+         </entry>
+        </row>
+        <row>
+         <entry><constant>MSG_DONTWAIT</constant></entry>
+         <entry>
+          With this flag set, the function returns even if it would normally
+          have blocked.
+         </entry>
+        </row>
+       </tbody>
+      </tgroup>
+     </table>
+    </listitem>
+   </varlistentry>
 
-    <varlistentry>
-     <term><parameter>address</parameter></term>
-     <listitem>
-      <para>
-       If the socket is of the type <constant>AF_UNIX</constant> type,
-       <parameter>address</parameter> is the path to the file. Else, for
-       unconnected sockets, <parameter>address</parameter> is the IP address of,
-       the remote host, or &null; if the socket is connection-oriented.
-      </para>
-     </listitem>
-    </varlistentry>
+   <varlistentry>
+    <term><parameter>address</parameter></term>
+    <listitem>
+     <para>
+      If the socket is of the type <constant>AF_UNIX</constant> type,
+      <parameter>address</parameter> is the path to the file. Else, for
+      unconnected sockets, <parameter>address</parameter> is the IP address of
+      the remote host. If the socket is connection-oriented, it is <literal>"0.0.0.0"</literal>
+      (<literal>"::"</literal> for <constant>AF_INET6</constant>), or an empty string for an
+      <constant>AF_UNIX</constant> socket.
+     </para>
+    </listitem>
+   </varlistentry>
 
-    <varlistentry>
-     <term><parameter>port</parameter></term>
-     <listitem>
-      <para>
-       This argument only applies to <constant>AF_INET</constant> and
-       <constant>AF_INET6</constant> sockets, and specifies the remote port
-       from which the data is received. If the socket is connection-oriented,
-       <parameter>port</parameter> will be &null;.
-      </para>
-     </listitem>
-    </varlistentry>
-    
-   </variablelist>
-  </para>
+   <varlistentry>
+    <term><parameter>port</parameter></term>
+    <listitem>
+     <para>
+      This argument only applies to <constant>AF_INET</constant> and
+      <constant>AF_INET6</constant> sockets, and specifies the remote port
+      from which the data is received. It is required for these sockets, and
+      can be omitted for an <constant>AF_UNIX</constant> socket, which leaves it unchanged.
+      If the socket is connection-oriented, <parameter>port</parameter> will be <literal>0</literal>.
+     </para>
+    </listitem>
+   </varlistentry>
+   
+  </variablelist>
  </refsect1>
  
  <refsect1 role="returnvalues">
@@ -161,7 +167,21 @@
    or &false; if there was an error. The actual error code can be retrieved by 
    calling <function>socket_last_error</function>. This error code may be
    passed to <function>socket_strerror</function> to get a textual explanation
-   of the error.
+   of the error. No error code is set when <parameter>length</parameter> is
+   not greater than 0, and no warning is emitted when the call would block on
+   a non-blocking socket. On failure, <parameter>data</parameter>,
+   <parameter>address</parameter> and <parameter>port</parameter> are left unchanged.
+  </para>
+  <para>
+   At the end of the stream of a connection-oriented socket, or for an empty datagram,
+   <literal>0</literal> is returned and <parameter>data</parameter> is set to an empty string.
+  </para>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   An <exceptionname>ArgumentCountError</exceptionname> is thrown if <parameter>port</parameter> is omitted
+   with an <constant>AF_INET</constant> or <constant>AF_INET6</constant> socket.
   </para>
  </refsect1>
 
@@ -184,42 +204,43 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>socket_recvfrom</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>socket_recvfrom</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
-
 $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
-socket_bind($socket, '127.0.0.1', 1223);
+socket_bind($socket, '127.0.0.1', 0);
+socket_getsockname($socket, $address, $port);
 
-$from = '';
-$port = 0;
-socket_recvfrom($socket, $buf, 12, 0, $from, $port);
+$sender = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+socket_sendto($sender, 'Hello, world! How are you?', 26, 0, $address, $port);
 
-echo "Received $buf from remote address $from and remote port $port" . PHP_EOL;
-?>
+socket_recvfrom($socket, $buf, 12, 0, $from, $fromPort);
+echo "Received $buf from remote address $from and remote port $fromPort" . PHP_EOL;
 ]]>
-    </programlisting>
-    <para>
-     This example will initiate a UDP socket on port 1223 of 127.0.0.1
-     and print at most 12 characters received from a remote host.
-    </para>
-   </example>
-  </para>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
+<![CDATA[
+Received Hello, world from remote address 127.0.0.1 and remote port 39712
+]]>
+   </screen>
+   <para>
+    This example creates a UDP socket on 127.0.0.1, sends it a datagram of 26 bytes, and prints the
+    first 12 bytes received. The rest of the datagram is lost.
+   </para>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>socket_recv</function></member>
-    <member><function>socket_send</function></member>
-    <member><function>socket_sendto</function></member>
-    <member><function>socket_create</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>socket_recv</function></member>
+   <member><function>socket_send</function></member>
+   <member><function>socket_sendto</function></member>
+   <member><function>socket_create</function></member>
+  </simplelist>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
