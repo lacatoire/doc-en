@@ -19,33 +19,32 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <para>
-       A <classname>Socket</classname> instance created with <function>socket_create</function>.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <para>
+      A <classname>Socket</classname> instance created with <function>socket_create</function>.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   &return.success;
+   Returns &true; if <parameter>socket</parameter> is at the out-of-band mark, and &false; if
+   it is not. &false; is also returned, with an <constant>E_WARNING</constant>, when the check fails,
+   for example on a socket that does not support out-of-band data, such as a datagram socket.
   </para>
  </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Using <function>socket_atmark</function> to check if the socket is ready to read out-of-band data.</title>
-    <programlisting role="php">
+  <example>
+   <title>Using <function>socket_atmark</function> to check if the socket is ready to read out-of-band data.</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $socketServer = socket_create( AF_INET, SOCK_STREAM, SOL_TCP );
@@ -68,9 +67,11 @@ $st = 'Not so urgent.';
 socket_send( $socketClient, $st, strlen( $st ), 0 );
 socket_shutdown( $socketClient );
 
+$urgentRead = false;
 do {
-    if ( socket_atmark( $socket ) ) {
+    if ( !$urgentRead && socket_atmark( $socket ) ) {
         $rc = socket_recv( $socket, $st, 65536, MSG_OOB );
+        $urgentRead = true;
         echo "Received urgent data: ({$rc}) {$st}\n";
     } else {
         $rc = socket_recv( $socket, $st, 1024, 0 );
@@ -80,20 +81,22 @@ do {
 socket_close( $socketServer );
 socket_close( $socketClient );
 socket_close( $socket );
-?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen>
+   </programlisting>
+   &example.outputs;
+   <screen>
 <![CDATA[
 Received normal data: (20) This is normal data.
 Received urgent data: (1) !
 Received normal data: (14) Not so urgent.
 Received normal data: (0)
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+   <para>
+    The mark is read only once: on Linux, <function>socket_atmark</function> still returns &true;
+    after the urgent byte was read.
+   </para>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
