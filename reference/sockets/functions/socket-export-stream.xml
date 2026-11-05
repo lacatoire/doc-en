@@ -13,7 +13,7 @@
    <methodparam><type>Socket</type><parameter>socket</parameter></methodparam>
   </methodsynopsis>
   <para>
-
+   Closing the <classname>Socket</classname> with <function>socket_close</function> also closes the exported stream.
   </para>
 
   &warn.undocumented.func;
