@@ -14,7 +14,7 @@
    <methodparam><modifier role="attribute">#[\SensitiveParameter]</modifier><type>string</type><parameter>string2</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   Compare two strings as if they were arbitrary-length, unsigned little-endian integers, without side-channel leakage.
+   Compare two strings of the same length as if they were unsigned little-endian integers, without side-channel leakage.
   </simpara>
 
  </refsect1>
@@ -52,6 +52,17 @@
   <simpara>
    Returns <literal>0</literal> if both strings are equal.
   </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     If <parameter>string1</parameter> and <parameter>string2</parameter> do not have the same length, a <classname>SodiumException</classname> will be thrown.
+    </simpara>
+   </listitem>
+  </itemizedlist>
  </refsect1>
 
 
