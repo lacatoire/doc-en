@@ -100,10 +100,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>sleep</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>sleep</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 
@@ -118,18 +117,17 @@ echo date('h:i:s') . "\n";
 
 ?>
 ]]>
-    </programlisting>
-    <para>
-     This example will output (after 10 seconds)
-    </para>
-    <screen>
+   </programlisting>
+   <para>
+    This example will output (after 10 seconds)
+   </para>
+   <screen>
 <![CDATA[
 05:31:23
 05:31:33
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
