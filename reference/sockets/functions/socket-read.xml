@@ -24,61 +24,59 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <para>
-       A <classname>Socket</classname> instance created with <function>socket_create</function>
-       or <function>socket_accept</function>.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>length</parameter></term>
-     <listitem>
-      <para>
-       The maximum number of bytes read is specified by the
-       <parameter>length</parameter> parameter. Otherwise you can use
-       <literal>\r</literal>, <literal>\n</literal>,
-       or <literal>\0</literal> to end reading (depending on the <parameter>mode</parameter>
-       parameter, see below).
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>mode</parameter></term>
-     <listitem>
-      <para>
-       Optional <parameter>mode</parameter> parameter is a named constant:
-       <itemizedlist>
-        <listitem>
-         <simpara>
-          <constant>PHP_BINARY_READ</constant> (Default) - use the system
-          <literal>recv()</literal> function. Safe for reading binary data.
-         </simpara>
-        </listitem>
-        <listitem>
-         <simpara>
-          <constant>PHP_NORMAL_READ</constant> - reading stops at
-          <literal>\n</literal> or <literal>\r</literal>.
-         </simpara>
-        </listitem>
-       </itemizedlist>
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <para>
+      A <classname>Socket</classname> instance created with <function>socket_create</function>
+      or <function>socket_accept</function>.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>length</parameter></term>
+    <listitem>
+     <para>
+      The maximum number of bytes read is specified by the
+      <parameter>length</parameter> parameter. With <constant>PHP_NORMAL_READ</constant>,
+      reading also stops after a <literal>\r</literal> or a <literal>\n</literal>
+      (see the <parameter>mode</parameter> parameter below). A
+      <parameter>length</parameter> of 0 or less returns &false;, without any warning or
+      error code.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>mode</parameter></term>
+    <listitem>
+     <para>
+      Optional <parameter>mode</parameter> parameter is a named constant:
+      <itemizedlist>
+       <listitem>
+        <simpara>
+         <constant>PHP_BINARY_READ</constant> (Default) - use the system
+         <literal>recv()</literal> function. Safe for reading binary data.
+        </simpara>
+       </listitem>
+       <listitem>
+        <simpara>
+         <constant>PHP_NORMAL_READ</constant> - reading stops at
+         <literal>\n</literal> or <literal>\r</literal>.
+        </simpara>
+       </listitem>
+      </itemizedlist>
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
    <function>socket_read</function> returns the data as a string on success,
-   or &false; on error (including if the remote host has closed the
-   connection). The error code can be retrieved with
+   or &false; on error. The error code can be retrieved with
    <function>socket_last_error</function>. This code may be passed to
    <function>socket_strerror</function> to get a textual representation of
    the error.
@@ -86,7 +84,10 @@
   <note>
    <para>
     <function>socket_read</function> returns a zero length string ("")
-    when there is no more data to read.
+    when there is no more data to read. With <constant>PHP_BINARY_READ</constant>
+    this is also the result once the remote host has closed the connection and the
+    pending data has been read, whereas <constant>PHP_NORMAL_READ</constant> returns
+    &false; and emits an <constant>E_WARNING</constant> in that case.
    </para>
   </note>
  </refsect1>
@@ -110,17 +111,17 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>socket_accept</function></member>
-    <member><function>socket_bind</function></member>
-    <member><function>socket_connect</function></member>
-    <member><function>socket_listen</function></member>
-    <member><function>socket_last_error</function></member>
-    <member><function>socket_strerror</function></member>
-    <member><function>socket_write</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>socket_accept</function></member>
+   <member><function>socket_bind</function></member>
+   <member><function>socket_connect</function></member>
+   <member><function>socket_listen</function></member>
+   <member><function>socket_last_error</function></member>
+   <member><function>socket_recv</function></member>
+   <member><function>socket_select</function></member>
+   <member><function>socket_strerror</function></member>
+   <member><function>socket_write</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
