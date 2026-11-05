@@ -27,7 +27,7 @@
     <term><parameter>x</parameter></term>
     <listitem>
      <simpara>
-      Scalar, representing the X coordinate.
+      The first scalar operand.
      </simpara>
     </listitem>
    </varlistentry>
@@ -35,7 +35,7 @@
     <term><parameter>y</parameter></term>
     <listitem>
      <simpara>
-      Scalar, representing the Y coordinate.
+      The second scalar operand.
      </simpara>
     </listitem>
    </varlistentry>
