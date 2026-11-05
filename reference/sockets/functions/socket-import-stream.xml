@@ -14,6 +14,7 @@
   </methodsynopsis>
   <para>
    Imports a stream that encapsulates a socket into a socket extension resource.
+   Closing the returned <classname>Socket</classname> with <function>socket_close</function> also closes the stream.
   </para>
  </refsect1>
 
