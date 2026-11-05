@@ -36,7 +36,7 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   The result array contains the following items:
+   The result array contains the following items. Some of them depend on the stream, as described below.
   </para>
   <itemizedlist>
    <listitem>
@@ -60,6 +60,12 @@
      determine if there is more data to be read, use
      <function>feof</function> instead of reading this item.
     </para>
+    <note>
+     <simpara>
+      <literal>timed_out</literal>, <literal>blocked</literal> and <literal>eof</literal>
+      are not present for <literal>php://temp</literal> and <literal>data:</literal> streams.
+     </simpara>
+    </note>
    </listitem>
    <listitem>
     <para>
@@ -83,6 +89,8 @@
      <literal>wrapper_type</literal> (string) - a label describing
      the protocol wrapper implementation layered over the stream.
      See <xref linkend="wrappers"/> for more information about wrappers.
+     It is not present for sockets, nor for the streams of <function>popen</function>
+     and <function>proc_open</function>.
     </para>
    </listitem>
    <listitem>
@@ -118,7 +126,12 @@
    <listitem>
     <para>
      <literal>uri</literal> (string) - the URI/filename associated with this
-     stream.
+     stream. It is not present for directory handles, nor for the streams of
+     <function>popen</function> and <function>proc_open</function>.
+    </para>
+    <para>
+     A <literal>data:</literal> stream also has the <literal>mediatype</literal> and
+     <literal>base64</literal> items, and the parameters of the URI.
     </para>
    </listitem>
    <listitem>
@@ -130,12 +143,33 @@
   </itemizedlist>
  </refsect1>
 
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.3.0</entry>
+      <entry>
+       The <literal>uri</literal> item is now present for the streams created by
+       <function>stream_socket_client</function> and <function>stream_socket_server</function>.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>stream_get_meta_data</function> example using <function>fopen</function> with http</title>
-    <programlisting role="php">
+  <example>
+   <title><function>stream_get_meta_data</function> example using <function>fopen</function> with http</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $url = 'http://www.example.com/';
@@ -149,11 +183,10 @@ $meta = stream_get_meta_data($fp);
 var_dump($meta);
 
 fclose($fp);
-?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 array(10) {
   'timed_out' =>
@@ -194,7 +227,7 @@ array(10) {
   'wrapper_type' =>
   string(4) "http"
   'stream_type' =>
-  string(14) "tcp_socket/ssl"
+  string(10) "tcp_socket"
   'mode' =>
   string(1) "r"
   'unread_bytes' =>
@@ -205,12 +238,12 @@ array(10) {
   string(23) "http://www.example.com/"
 }
 ]]>
-    </screen>
-   </example>
-   <example>
-    <title><function>stream_get_meta_data</function> example using <function>stream_socket_client</function> with https</title>
-    <programlisting role="php">
-     <![CDATA[
+   </screen>
+  </example>
+  <example>
+   <title><function>stream_get_meta_data</function> example using <function>stream_socket_client</function> with https</title>
+   <programlisting role="php">
+    <![CDATA[
 <?php
 $streamContext = stream_context_create(
     [
@@ -235,13 +268,12 @@ $client = stream_socket_client(
 $meta = stream_get_meta_data($client);
 
 var_dump($meta);
-?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
-     <![CDATA[
-array(8) {
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
+    <![CDATA[
+array(9) {
   'crypto' =>
   array(4) {
     'protocol' =>
@@ -267,11 +299,12 @@ array(8) {
   int(0)
   'seekable' =>
   bool(false)
+  'uri' =>
+  string(25) "ssl://www.example.com:443"
 }
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="notes">
@@ -285,12 +318,10 @@ array(8) {
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>get_headers</function></member>
-    <member><link linkend="reserved.variables.httpresponseheader">$http_response_header</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>get_headers</function></member>
+   <member><link linkend="reserved.variables.httpresponseheader">$http_response_header</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
