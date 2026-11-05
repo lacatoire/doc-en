@@ -20,79 +20,78 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>include_path</parameter></term>
-     <listitem>
-      <para>
-       The new value for the <link
-       linkend="ini.include-path">include_path</link>
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>include_path</parameter></term>
+    <listitem>
+     <para>
+      The new value for the <link
+      linkend="ini.include-path">include_path</link>: a list of paths separated by
+      <constant>PATH_SEPARATOR</constant>. It must not be empty.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
    Returns the old <link linkend="ini.include-path">include_path</link> on
-   success&return.falseforfailure;.
+   success&return.falseforfailure;. An empty <parameter>include_path</parameter> is refused:
+   &false; is returned, without any diagnostic, and the include path is unchanged.
+  </para>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>include_path</parameter>
+   contains null bytes.
   </para>
  </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>set_include_path</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>set_include_path</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 set_include_path('/usr/lib/pear');
 
 // Or using ini_set()
 ini_set('include_path', '/usr/lib/pear');
-?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
-  <para>
-   <example>
-    <title>Adding to the include path</title>
-    <para>
-     Making use of the <constant>PATH_SEPARATOR</constant> constant, it is
-     possible to extend the include path regardless of the operating system.
-    </para>
-    <para>
-     In this example we add <filename>/usr/lib/pear</filename> to the end of
-     the existing <literal>include_path</literal>.
-    </para>
-    <programlisting role="php">
+   </programlisting>
+  </example>
+  <example>
+   <title>Adding to the include path</title>
+   <para>
+    Making use of the <constant>PATH_SEPARATOR</constant> constant, it is
+    possible to extend the include path regardless of the operating system.
+   </para>
+   <para>
+    In this example we add <filename>/usr/lib/pear</filename> to the end of
+    the existing <literal>include_path</literal>.
+   </para>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $path = '/usr/lib/pear';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>ini_set</function></member>
-    <member><function>get_include_path</function></member>
-    <member><function>restore_include_path</function></member>
-    <member><function>include</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>ini_set</function></member>
+   <member><function>get_include_path</function></member>
+   <member><function>restore_include_path</function></member>
+   <member><function>include</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
