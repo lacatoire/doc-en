@@ -16,7 +16,7 @@
   <para>
    The <function>socket_shutdown</function> function allows you to stop
    incoming, outgoing or all data (the default) from being sent through the
-   <parameter>socket</parameter>
+   <parameter>socket</parameter>.
   </para>
   <note>
    <para>
@@ -47,19 +47,19 @@
         <tgroup cols="2">
          <tbody>
           <row>
-           <entry><literal>0</literal></entry>
+           <entry><constant>SHUT_RD</constant> (<literal>0</literal>)</entry>
            <entry>
             Shutdown socket reading
            </entry>
           </row>
           <row>
-           <entry><literal>1</literal></entry>
+           <entry><constant>SHUT_WR</constant> (<literal>1</literal>)</entry>
            <entry>
             Shutdown socket writing
            </entry>
           </row>
           <row>
-           <entry><literal>2</literal></entry>
+           <entry><constant>SHUT_RDWR</constant> (<literal>2</literal>)</entry>
            <entry>
             Shutdown socket reading and writing
            </entry>
@@ -67,6 +67,9 @@
          </tbody>
         </tgroup>
        </table>
+      </para>
+      <para>
+       The <constant>SHUT_*</constant> constants are available as of PHP 8.5.0; the integer values can be used before.
       </para>
      </listitem>
     </varlistentry>
@@ -78,6 +81,15 @@
   &reftitle.returnvalues;
   <para>
    &return.success;
+   If the socket is not connected, an <constant>E_WARNING</constant> is emitted, &false; is returned,
+   and <function>socket_last_error</function> returns <constant>SOCKET_ENOTCONN</constant>.
+  </para>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   If <parameter>mode</parameter> is not <constant>SHUT_RD</constant>, <constant>SHUT_WR</constant>
+   or <constant>SHUT_RDWR</constant>, a <exceptionname>ValueError</exceptionname> is thrown.
   </para>
  </refsect1>
 
@@ -92,10 +104,30 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       The <constant>SHUT_RD</constant>, <constant>SHUT_WR</constant> and <constant>SHUT_RDWR</constant>
+       constants have been added. A <parameter>mode</parameter> other than these values now throws a
+       <exceptionname>ValueError</exceptionname>, instead of emitting an <constant>E_WARNING</constant>
+       and returning &false;.
+      </entry>
+     </row>
      &sockets.changelog.socket-param;
     </tbody>
    </tgroup>
   </informaltable>
+ </refsect1>
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>socket_close</function></member>
+    <member><function>socket_connect</function></member>
+    <member><function>socket_last_error</function></member>
+    <member><function>stream_socket_shutdown</function></member>
+   </simplelist>
+  </para>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
