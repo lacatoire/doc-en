@@ -15,6 +15,9 @@
   <para>
    <function>socket_close</function> closes the <classname>Socket</classname> instance
    given by <parameter>socket</parameter>.
+   If a stream was imported with <function>socket_import_stream</function> or exported with
+   <function>socket_export_stream</function>, it is closed too: every variable holding it becomes a closed resource.
+   Destroying the <classname>Socket</classname> without calling <function>socket_close</function> does not close it.
   </para>
  </refsect1>
 
