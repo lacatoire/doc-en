@@ -45,6 +45,10 @@
        (e.g. <literal>127.0.0.1</literal>).
       </para>
       <para>
+       If the socket is of the <constant>AF_INET6</constant> family, the
+       <parameter>address</parameter> is an IPv6 address (e.g. <literal>::1</literal>).
+      </para>
+      <para>
        If the socket is of the <constant>AF_UNIX</constant> family, the
        <parameter>address</parameter> is the path of a
        Unix-domain socket (e.g. <filename>/tmp/my.sock</filename>).
@@ -56,7 +60,7 @@
      <listitem>
       <para>
        The <parameter>port</parameter> parameter is only used when
-       binding an <constant>AF_INET</constant> socket, and designates
+       binding an <constant>AF_INET</constant> or <constant>AF_INET6</constant> socket, and designates
        the port on which to listen for connections.
       </para>
      </listitem>
