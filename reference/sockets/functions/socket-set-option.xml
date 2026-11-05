@@ -109,15 +109,14 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>socket_set_option</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>socket_set_option</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
-if (!is_resource($socket)) {
+if ($socket === false) {
     echo 'Unable to create socket: '. socket_strerror(socket_last_error()) . PHP_EOL;
 }
 
@@ -136,11 +135,9 @@ if ($rval === false) {
 } else if ($rval !== 0) {
     echo 'SO_REUSEADDR is set on socket !' . PHP_EOL;
 }
-?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
