@@ -23,44 +23,45 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <para>
-       A <classname>Socket</classname> instance created with
-       <function>socket_create</function>.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>address</parameter></term>
-     <listitem>
-      <para>
-       The <parameter>address</parameter> parameter is either an IPv4 address
-       in dotted-quad notation (e.g. <literal>127.0.0.1</literal>) if 
-       <parameter>socket</parameter> is <constant>AF_INET</constant>, a valid 
-       IPv6 address (e.g. <literal>::1</literal>) if IPv6 support is enabled and 
-       <parameter>socket</parameter> is <constant>AF_INET6</constant>
-       or the pathname of a Unix domain socket, if the socket family is
-       <constant>AF_UNIX</constant>.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>port</parameter></term>
-     <listitem>
-      <para>
-       The <parameter>port</parameter> parameter is only used and is mandatory
-       when connecting to an <constant>AF_INET</constant> or an 
-       <constant>AF_INET6</constant> socket, and designates
-       the port on the remote host to which a connection should be made.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <para>
+      A <classname>Socket</classname> instance created with
+      <function>socket_create</function>.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>address</parameter></term>
+    <listitem>
+     <para>
+      The <parameter>address</parameter> parameter is either an IPv4 address
+      in dotted-quad notation (e.g. <literal>127.0.0.1</literal>) or a host name
+      (e.g. <literal>localhost</literal>), which is resolved, if
+      <parameter>socket</parameter> is <constant>AF_INET</constant>, a valid 
+      IPv6 address (e.g. <literal>::1</literal>) if IPv6 support is enabled and 
+      <parameter>socket</parameter> is <constant>AF_INET6</constant>
+      or the pathname of a Unix domain socket, if the socket family is
+      <constant>AF_UNIX</constant>. When a host name cannot be resolved, the function
+      returns &false; and <function>socket_last_error</function> returns <literal>-10001</literal>
+      (<function>socket_strerror</function> gives "Unknown host").
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>port</parameter></term>
+    <listitem>
+     <para>
+      The <parameter>port</parameter> parameter is only used and is mandatory
+      when connecting to an <constant>AF_INET</constant> or an 
+      <constant>AF_INET6</constant> socket, and designates
+      the port on the remote host to which a connection should be made.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -73,8 +74,13 @@
   </para>
   <note>
    <para>
-    If the socket is non-blocking then this function returns &false; with an
-    error <literal>Operation now in progress</literal>.
+    If the socket is non-blocking and the connection cannot be completed at once, as is usual
+    for TCP, this function returns &false; with the error <literal>Operation now in progress</literal>
+    (<constant>SOCKET_EINPROGRESS</constant>), without any warning. A connection of a
+    datagram socket, or to a local <constant>AF_UNIX</constant> socket, is usually completed at once.
+    To finish a pending connection, wait for the socket to become writable with
+    <function>socket_select</function>, then read the <constant>SO_ERROR</constant> option with
+    <function>socket_get_option</function>: it is <literal>0</literal> when the connection succeeded.
    </para>
   </note>
  </refsect1>
