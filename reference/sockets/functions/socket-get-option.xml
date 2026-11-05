@@ -132,8 +132,8 @@
             non-zero and <varname>l_linger</varname> is non-zero,
             <function>socket_close</function> will block until all the data 
             is sent or the time specified in <varname>l_linger</varname>
-            elapses. If the socket is non-blocking, 
-            <function>socket_close</function> will fail and return an error.
+            elapses. If the socket is non-blocking,
+            <function>socket_close</function> does not wait.
            </para>
           </entry>
           <entry>
