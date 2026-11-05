@@ -26,7 +26,7 @@ Uses a CPU- and memory-hard hash algorithm along with a randomly-generated salt,
     <term><parameter>password</parameter></term>
     <listitem>
      <simpara>
-      <type>string</type>; The password to generate a hash for.
+      <type>string</type>; The password to generate a hash for. An empty password emits an <constant>E_WARNING</constant> and is still hashed.
      </simpara>
     </listitem>
    </varlistentry>
@@ -34,7 +34,7 @@ Uses a CPU- and memory-hard hash algorithm along with a randomly-generated salt,
     <term><parameter>opslimit</parameter></term>
     <listitem>
      <simpara>
-      Represents a maximum amount of computations to perform. Raising this number will make the function require more CPU cycles to compute a key. There are constants available to set the operations limit to appropriate values depending on intended use, in order of strength: <constant>SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE</constant>, <constant>SODIUM_CRYPTO_PWHASH_OPSLIMIT_MODERATE</constant> and <constant>SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE</constant>.
+      Represents a maximum amount of computations to perform. Raising this number will make the function require more CPU cycles to compute a key. There are constants available to set the operations limit to appropriate values depending on intended use, in order of strength: <constant>SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE</constant>, <constant>SODIUM_CRYPTO_PWHASH_OPSLIMIT_MODERATE</constant> and <constant>SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE</constant>. The value must be at least 1.
      </simpara>
     </listitem>
    </varlistentry>
@@ -42,7 +42,7 @@ Uses a CPU- and memory-hard hash algorithm along with a randomly-generated salt,
     <term><parameter>memlimit</parameter></term>
     <listitem>
      <simpara>
-      The maximum amount of RAM that the function will use, in bytes. There are constants to help you choose an appropriate value, in order of size: <constant>SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE</constant>, <constant>SODIUM_CRYPTO_PWHASH_MEMLIMIT_MODERATE</constant>, and <constant>SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE</constant>. Typically these should be paired with the matching opslimit values.
+      The maximum amount of RAM that the function will use, in bytes. There are constants to help you choose an appropriate value, in order of size: <constant>SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE</constant>, <constant>SODIUM_CRYPTO_PWHASH_MEMLIMIT_MODERATE</constant>, and <constant>SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE</constant>. The value must be at least 8192. Typically these should be paired with the matching opslimit values.
      </simpara>
     </listitem>
    </varlistentry>
