@@ -56,7 +56,9 @@
      <listitem>
       <para>
        The available socket options are the same as those for the
-       <function>socket_get_option</function> function.
+       <function>socket_get_option</function> function, plus the ones that only
+       <function>socket_set_option</function> handles, listed with the form of
+       <parameter>value</parameter> below.
       </para>
      </listitem>
     </varlistentry>
@@ -64,7 +66,71 @@
      <term><parameter>value</parameter></term>
      <listitem>
       <para>
-       The option value.
+       The option value. Its form depends on the option:
+       <table>
+        <title>forms of <parameter>value</parameter></title>
+        <tgroup cols="2">
+         <thead>
+          <row>
+           <entry>Option</entry>
+           <entry>Value</entry>
+          </row>
+         </thead>
+         <tbody>
+          <row>
+           <entry><constant>SO_LINGER</constant></entry>
+           <entry>
+            An <type>array</type> (or an object) with the <literal>l_onoff</literal> and
+            <literal>l_linger</literal> keys, each between 0 and 65535.
+           </entry>
+          </row>
+          <row>
+           <entry><constant>SO_RCVTIMEO</constant>, <constant>SO_SNDTIMEO</constant></entry>
+           <entry>
+            An <type>array</type> (or an object) with the <literal>sec</literal> and
+            <literal>usec</literal> keys.
+           </entry>
+          </row>
+          <row>
+           <entry><constant>SO_BINDTODEVICE</constant>, <constant>TCP_CONGESTION</constant></entry>
+           <entry>A <type>string</type>: the name of the interface, or of the congestion control algorithm.</entry>
+          </row>
+          <row>
+           <entry><constant>UDP_SEGMENT</constant></entry>
+           <entry>An <type>int</type> between 0 and 65535; <literal>0</literal> disables the segmentation.</entry>
+          </row>
+          <row>
+           <entry><constant>SO_ATTACH_REUSEPORT_CBPF</constant></entry>
+           <entry>
+            An <type>int</type>: <constant>SKF_AD_CPU</constant> or <constant>SKF_AD_QUEUE</constant> attach the matching
+            filter, <literal>0</literal> detaches it. Any other value emits an <constant>E_WARNING</constant>
+            and &false; is returned.
+           </entry>
+          </row>
+          <row>
+           <entry><constant>IPV6_PKTINFO</constant></entry>
+           <entry>An <type>array</type> with the <literal>addr</literal> and <literal>ifindex</literal> keys.</entry>
+          </row>
+          <row>
+           <entry>
+            <constant>MCAST_JOIN_GROUP</constant>, <constant>MCAST_LEAVE_GROUP</constant>,
+            <constant>MCAST_BLOCK_SOURCE</constant>, <constant>MCAST_UNBLOCK_SOURCE</constant>,
+            <constant>MCAST_JOIN_SOURCE_GROUP</constant>, <constant>MCAST_LEAVE_SOURCE_GROUP</constant>
+           </entry>
+           <entry>
+            An <type>array</type> (or an object) with the <literal>group</literal> and <literal>interface</literal> keys,
+            and the <literal>source</literal> key for the options that name a source.
+           </entry>
+          </row>
+          <row>
+           <entry>Any other option</entry>
+           <entry>
+            An <type>int</type>. Other types are converted to an integer: <literal>"abc"</literal> or &null; become <literal>0</literal>.
+           </entry>
+          </row>
+         </tbody>
+        </tgroup>
+       </table>
       </para>
      </listitem>
     </varlistentry>
@@ -93,12 +159,19 @@
      <row>
       <entry>8.5.0</entry>
       <entry>
-       Now throws an exception when <constant>MCAST_LEAVE_GROUP</constant>
-       or <constant>MCAST_LEAVE_SOURCE_GROUP</constant> is used and the
-       value is not a valid object or array, and throws a
+       Now throws a <exceptionname>TypeError</exceptionname> when one of the
+       <constant>MCAST_*</constant> options is used and the value is not an object
+       or an array (a <exceptionname>ValueError</exceptionname> was thrown before),
+       and throws a
        <exceptionname>ValueError</exceptionname> when a multicast option is
        used on a socket that is not of <constant>AF_INET</constant> or
        <constant>AF_INET6</constant> family.
+      </entry>
+     </row>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       The <constant>UDP_SEGMENT</constant> option has been added.
       </entry>
      </row>
      &sockets.changelog.socket-param;
