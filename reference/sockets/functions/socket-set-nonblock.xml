@@ -3,7 +3,7 @@
 <refentry xml:id="function.socket-set-nonblock" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>socket_set_nonblock</refname>
-  <refpurpose>Sets nonblocking mode for file descriptor fd</refpurpose>
+  <refpurpose>Sets nonblocking mode on a socket</refpurpose>
  </refnamediv>
  
  <refsect1 role="description">
@@ -14,7 +14,7 @@
   </methodsynopsis>
   <para>
    The <function>socket_set_nonblock</function> function sets the 
-   <constant>O_NONBLOCK</constant> flag on the socket specified by
+   <literal>O_NONBLOCK</literal> flag on the socket specified by
    the <parameter>socket</parameter> parameter.
   </para>
   <para>
@@ -83,7 +83,7 @@ socket_accept($socket);
     </programlisting>
     <para>
      This example creates a listening socket on all interfaces on port 1223 and
-     sets the socket to <constant>O_NONBLOCK</constant> mode. 
+     sets the socket to non-blocking mode.
      <function>socket_accept</function> will immediately fail unless there is a
      pending connection exactly at this moment.
     </para>
