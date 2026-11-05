@@ -23,37 +23,37 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>value</parameter></term>
-     <listitem>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>value</parameter></term>
+    <listitem>
+     <para>
+      An array or <interfacename>Countable</interfacename> object.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>mode</parameter></term>
+    <listitem>
+     <para>
+      Either <constant>COUNT_NORMAL</constant> (or 0, the default) or
+      <constant>COUNT_RECURSIVE</constant> (or 1).
+      If the optional <parameter>mode</parameter> parameter is set to
+      <constant>COUNT_RECURSIVE</constant> (or 1), <function>count</function>
+      will recursively count the array.  This is particularly useful for
+      counting all the elements of a multidimensional array.
+     </para>
+     <caution>
       <para>
-       An array or <interfacename>Countable</interfacename> object.
+       <function>count</function> can detect recursion to avoid an infinite
+       loop, but will emit an <constant>E_WARNING</constant> every time it
+       does (in case the array contains itself more than once) and return a
+       count higher than may be expected.
       </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>mode</parameter></term>
-     <listitem>
-      <para>
-       If the optional <parameter>mode</parameter> parameter is set to
-       <constant>COUNT_RECURSIVE</constant> (or 1), <function>count</function>
-       will recursively count the array.  This is particularly useful for
-       counting all the elements of a multidimensional array.
-      </para>
-      <caution>
-       <para>
-        <function>count</function> can detect recursion to avoid an infinite
-        loop, but will emit an <constant>E_WARNING</constant> every time it
-        does (in case the array contains itself more than once) and return a
-        count higher than may be expected.
-       </para>
-      </caution>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+     </caution>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -73,6 +73,8 @@
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>mode</parameter>
    is not <constant>COUNT_NORMAL</constant> or <constant>COUNT_RECURSIVE</constant>.
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>value</parameter>
+   is neither an &array; nor a <interfacename>Countable</interfacename> object.
   </simpara>
  </refsect1>
 
@@ -116,10 +118,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example xml:id="count.example.basic">
-    <title><function>count</function> example</title>
-    <programlisting role="php">
+  <example xml:id="count.example.basic">
+   <title><function>count</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $a[0] = 1;
@@ -133,20 +134,18 @@ $b[10] = 11;
 var_dump(count($b));
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen role="php">
+   </programlisting>
+   &example.outputs;
+   <screen role="php">
 <![CDATA[
 int(3)
 int(3)
 ]]>
-    </screen>
-   </example>
-  </para>
-  <para>
-   <example xml:id="count.example.badexample">
-    <title><function>count</function> non Countable|array example (bad example - don't do this)</title>
-    <programlisting role="php" annotations="non-interactive">
+   </screen>
+  </example>
+  <example xml:id="count.example.badexample">
+   <title><function>count</function> non Countable|array example (bad example - don't do this)</title>
+   <programlisting role="php" annotations="non-interactive">
 <![CDATA[
 <?php
 $b[0]  = 7;
@@ -159,21 +158,19 @@ var_dump(count(null));
 var_dump(count(false));
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen role="php">
+   </programlisting>
+   &example.outputs;
+   <screen role="php">
 <![CDATA[
 int(3)
 
 Fatal error: Uncaught TypeError: count(): Argument #1 ($var) must be of type Countable .. on line 12
 ]]>
-    </screen>
-   </example>
-  </para>
-  <para>
-   <example xml:id="count.example.recursive">
-    <title>Recursive <function>count</function> example</title>
-    <programlisting role="php">
+   </screen>
+  </example>
+  <example xml:id="count.example.recursive">
+   <title>Recursive <function>count</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $food = array('fruits' => array('orange', 'banana', 'apple'),
@@ -187,20 +184,18 @@ var_dump(count($food));
 
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen role="php">
+   </programlisting>
+   &example.outputs;
+   <screen role="php">
 <![CDATA[
 int(8)
 int(2)
 ]]>
-    </screen>
-   </example>
-  </para>
-  <para>
-   <example xml:id="count.example.countable">
-    <title><interfacename>Countable</interfacename> object</title>
-    <programlisting role="php">
+   </screen>
+  </example>
+  <example xml:id="count.example.countable">
+   <title><interfacename>Countable</interfacename> object</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 class CountOfMethods implements Countable
@@ -219,29 +214,26 @@ $obj = new CountOfMethods();
 var_dump(count($obj));
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen role="php">
+   </programlisting>
+   &example.outputs;
+   <screen role="php">
 <![CDATA[
 int(2)
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>is_array</function></member>
-    <member><function>isset</function></member>
-    <member><function>empty</function></member>
-    <member><function>strlen</function></member>
-    <member><function>is_countable</function></member>
-    <member><link linkend="language.types.array">Arrays</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>is_array</function></member>
+   <member><function>isset</function></member>
+   <member><function>empty</function></member>
+   <member><function>strlen</function></member>
+   <member><function>is_countable</function></member>
+   <member><link linkend="language.types.array">Arrays</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
