@@ -49,8 +49,9 @@
      <term><parameter>length</parameter></term>
      <listitem>
       <para>
-       <parameter>length</parameter> bytes from <parameter>data</parameter> will be
-       sent.
+       At most <parameter>length</parameter> bytes from <parameter>data</parameter> will be
+       sent. If <parameter>length</parameter> is greater than the length of <parameter>data</parameter>,
+       the whole of <parameter>data</parameter> is sent. It must not be negative.
       </para>
      </listitem>
     </varlistentry>
@@ -101,7 +102,8 @@
      <term><parameter>address</parameter></term>
      <listitem>
       <para>
-       IP address of the remote host.
+       For <constant>AF_INET</constant> and <constant>AF_INET6</constant> sockets, the host name or the
+       IP address of the remote host. For <constant>AF_UNIX</constant> sockets, the path of the remote socket.
       </para>
      </listitem>
     </varlistentry>
@@ -110,7 +112,9 @@
      <listitem>
       <para>
        <parameter>port</parameter> is the remote port number at which the data
-       will be sent.
+       will be sent. It is required for <constant>AF_INET</constant> and <constant>AF_INET6</constant> sockets,
+       and ignored for <constant>AF_UNIX</constant> sockets. When given, it must be between 0 and 65535,
+       and the port 0 fails with <constant>SOCKET_EINVAL</constant>.
       </para>
      </listitem>
     </varlistentry>
@@ -122,7 +126,17 @@
   &reftitle.returnvalues;
   <para>
    <function>socket_sendto</function> returns the number of bytes sent to the
-   remote host, or &false; if an error occurred.
+   remote host, or &false; if an error occurred. In that case an <constant>E_WARNING</constant> is emitted
+   and the error code can be retrieved with <function>socket_last_error</function>;
+   it can be passed to <function>socket_strerror</function> to get a textual explanation.
+  </para>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   A <exceptionname>ValueError</exceptionname> is thrown if <parameter>length</parameter> is negative,
+   if <parameter>port</parameter> is not between 0 and 65535, or if <parameter>port</parameter> is &null;
+   or omitted with an <constant>AF_INET</constant> or <constant>AF_INET6</constant> socket.
   </para>
  </refsect1>
 
