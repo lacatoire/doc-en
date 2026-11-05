@@ -37,18 +37,18 @@
     <listitem>
      <simplelist>
       <member>
-       <constant>SODIUM_BASE64_VARIANT_ORIGINAL</constant> for standard (<literal>A-Za-z0-9/\+</literal>)
+       <constant>SODIUM_BASE64_VARIANT_ORIGINAL</constant> for standard (<literal>A-Za-z0-9+/</literal>)
        Base64 encoding.
       </member>
       <member>
-       <constant>SODIUM_BASE64_VARIANT_ORIGINAL_NO_PADDING</constant> for standard (<literal>A-Za-z0-9/\+</literal>)
+       <constant>SODIUM_BASE64_VARIANT_ORIGINAL_NO_PADDING</constant> for standard (<literal>A-Za-z0-9+/</literal>)
        Base64 encoding, without <literal>=</literal> padding characters.
       </member>
       <member>
-       <constant>SODIUM_BASE64_VARIANT_URLSAFE</constant> for URL-safe (<literal>A-Za-z0-9\-_</literal>) Base64 encoding.
+       <constant>SODIUM_BASE64_VARIANT_URLSAFE</constant> for URL-safe (<literal>A-Za-z0-9-_</literal>) Base64 encoding.
       </member>
       <member>
-       <constant>SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING</constant> for URL-safe (<literal>A-Za-z0-9\-_</literal>)
+       <constant>SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING</constant> for URL-safe (<literal>A-Za-z0-9-_</literal>)
        Base64 encoding, without <literal>=</literal> padding characters.
       </member>
      </simplelist>
@@ -62,6 +62,17 @@
   <simpara>
    Base64-encoded string.
   </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     If <parameter>id</parameter> is not one of the <constant>SODIUM_BASE64_VARIANT_*</constant> constants, a <classname>SodiumException</classname> will be thrown.
+    </simpara>
+   </listitem>
+  </itemizedlist>
  </refsect1>
 
  <refsect1 role="examples">

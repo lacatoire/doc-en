@@ -38,28 +38,34 @@
     <listitem>
      <simplelist>
       <member>
-       <constant>SODIUM_BASE64_VARIANT_ORIGINAL</constant> for standard (<literal>A-Za-z0-9/\+</literal>)
+       <constant>SODIUM_BASE64_VARIANT_ORIGINAL</constant> for standard (<literal>A-Za-z0-9+/</literal>)
        Base64 encoding.
       </member>
       <member>
-       <constant>SODIUM_BASE64_VARIANT_ORIGINAL_NO_PADDING</constant> for standard (<literal>A-Za-z0-9/\+</literal>)
+       <constant>SODIUM_BASE64_VARIANT_ORIGINAL_NO_PADDING</constant> for standard (<literal>A-Za-z0-9+/</literal>)
        Base64 encoding, without <literal>=</literal> padding characters.
       </member>
       <member>
-       <constant>SODIUM_BASE64_VARIANT_URLSAFE</constant> for URL-safe (<literal>A-Za-z0-9\-_</literal>) Base64 encoding.
+       <constant>SODIUM_BASE64_VARIANT_URLSAFE</constant> for URL-safe (<literal>A-Za-z0-9-_</literal>) Base64 encoding.
       </member>
       <member>
-       <constant>SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING</constant> for URL-safe (<literal>A-Za-z0-9\-_</literal>)
+       <constant>SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING</constant> for URL-safe (<literal>A-Za-z0-9-_</literal>)
        Base64 encoding, without <literal>=</literal> padding characters.
       </member>
      </simplelist>
+     <simpara>
+      Padding is strict: the <literal>=</literal> characters are required with
+      <constant>SODIUM_BASE64_VARIANT_ORIGINAL</constant> and <constant>SODIUM_BASE64_VARIANT_URLSAFE</constant>,
+      and rejected with the variants without padding.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>ignore</parameter></term>
     <listitem>
      <simpara>
-      Characters to ignore when decoding (e.g. whitespace characters).
+      Characters to ignore when decoding (e.g. whitespace characters). They are skipped everywhere
+      in the string, including inside the padding. Characters of the alphabet have no effect: they are decoded.
      </simpara>
     </listitem>
    </varlistentry>
@@ -71,6 +77,22 @@
   <simpara>
    Decoded string.
   </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     If <parameter>id</parameter> is not one of the <constant>SODIUM_BASE64_VARIANT_*</constant> constants, a <classname>SodiumException</classname> will be thrown.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     If <parameter>string</parameter> is not a valid base64 string for the variant, a <classname>SodiumException</classname> will be thrown instead of returning &false; as <function>base64_decode</function> does.
+    </simpara>
+   </listitem>
+  </itemizedlist>
  </refsect1>
 
  <refsect1 role="examples">
