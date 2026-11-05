@@ -16,9 +16,11 @@
   </methodsynopsis>
   <para>
    Binds the name given in <parameter>address</parameter> to the socket
-   described by <parameter>socket</parameter>. This has to be done before
-   a connection is established using <function>socket_connect</function>
-   or <function>socket_listen</function>.
+   described by <parameter>socket</parameter>. This chooses the local address
+   and port: without it, the system binds the socket itself when
+   <function>socket_connect</function> or <function>socket_listen</function>
+   is called. For an <constant>AF_UNIX</constant> socket, it has to be done
+   before <function>socket_listen</function>.
   </para>
  </refsect1>
 
@@ -139,8 +141,9 @@ socket_close($sock);
   &reftitle.notes;
   <note>
    <para>
-    This function must be used on the socket before
-    <function>socket_connect</function>.
+    To choose the local address or port of an outgoing connection, this function
+    must be used on the socket before <function>socket_connect</function>:
+    it fails once the socket is connected.
    </para>
   </note>
  </refsect1>
