@@ -42,7 +42,7 @@
        level at which the option resides. For example, to retrieve options at
        the socket level, a <parameter>level</parameter> parameter of
        <constant>SOL_SOCKET</constant> would be used. Other levels, such as
-       <constant>TCP</constant>, can be used by
+       <constant>SOL_TCP</constant>, can be used by
        specifying the protocol number of that level. Protocol numbers can be
        found by using the <function>getprotobyname</function> function.
       </para>
@@ -482,10 +482,13 @@
          <row>
           <entry><constant>SO_MEMINFO</constant></entry>
           <entry>
-           Gets all the meminfo of a socket.
+           Gets all the meminfo of a socket, as an array of nine integers with the keys
+           <literal>rmem_alloc</literal>, <literal>rcvbuf</literal>, <literal>wmem_alloc</literal>,
+           <literal>sndbuf</literal>, <literal>fwd_alloc</literal>, <literal>wmem_queued</literal>,
+           <literal>optmem</literal>, <literal>backlog</literal> and <literal>drops</literal>.
           </entry>
           <entry>
-           <type>int</type>
+           <type>array</type>
           </entry>
          </row>
          <row>
@@ -513,6 +516,16 @@
           </entry>
           <entry>
            <type>int</type>
+          </entry>
+         </row>
+         <row>
+          <entry><constant>TCP_CONGESTION</constant></entry>
+          <entry>
+           Gets the congestion control algorithm of a TCP socket, as an array with
+           a <literal>name</literal> key. (Linux only)
+          </entry>
+          <entry>
+           <type>array</type>
           </entry>
          </row>
          <row>
