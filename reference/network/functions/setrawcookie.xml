@@ -11,10 +11,10 @@
   <methodsynopsis>
    <type>bool</type><methodname>setrawcookie</methodname>
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>value</parameter></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>value</parameter><initializer>""</initializer></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>expires_or_options</parameter><initializer>0</initializer></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>path</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>domain</parameter></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>path</parameter><initializer>""</initializer></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>domain</parameter><initializer>""</initializer></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>secure</parameter><initializer>&false;</initializer></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>httponly</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
@@ -22,13 +22,16 @@
   <methodsynopsis>
    <type>bool</type><methodname>setrawcookie</methodname>
    <methodparam><type>string</type><parameter>name</parameter></methodparam>
-   <methodparam choice="opt"><type>string</type><parameter>value</parameter></methodparam>
+   <methodparam choice="opt"><type>string</type><parameter>value</parameter><initializer>""</initializer></methodparam>
    <methodparam choice="opt"><type>array</type><parameter>options</parameter><initializer>[]</initializer></methodparam>
   </methodsynopsis>
   <para>
    <function>setrawcookie</function> is exactly the same as
    <function>setcookie</function> except that the cookie value will not be
-   automatically urlencoded when sent to the browser.
+   automatically urlencoded when sent to the browser. For this reason, a
+   <parameter>value</parameter> containing <literal>,</literal>, <literal>;</literal>,
+   a space, a tab or a line break is refused, whereas <function>setcookie</function>
+   accepts it because it urlencodes it.
   </para>
  </refsect1>
 
@@ -47,6 +50,16 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>value</parameter> contains
+   <literal>,</literal>, <literal>;</literal>, a space, <literal>\t</literal>, <literal>\r</literal>,
+   <literal>\n</literal>, <literal>\013</literal> or <literal>\014</literal>. The other
+   <exceptionname>ValueError</exceptionname> and <exceptionname>ArgumentCountError</exceptionname>
+   cases are those of <function>setcookie</function>.
+  </para>
+ </refsect1>
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -66,6 +79,14 @@
        </entry>
       </row>
       <row>
+       <entry>8.0.0</entry>
+       <entry>
+        A <parameter>value</parameter> containing one of the characters above now throws a
+        <exceptionname>ValueError</exceptionname>; previously an <constant>E_WARNING</constant> was
+        emitted and &false; was returned.
+       </entry>
+      </row>
+      <row>
        <entry>7.3.0</entry>
        <entry>
         An alternative signature supporting an <parameter>options</parameter>
@@ -80,11 +101,10 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>setcookie</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>setcookie</function></member>
+   <member><function>header</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
