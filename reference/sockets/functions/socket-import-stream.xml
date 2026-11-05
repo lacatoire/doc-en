@@ -13,30 +13,38 @@
    <methodparam><type>resource</type><parameter>stream</parameter></methodparam>
   </methodsynopsis>
   <para>
-   Imports a stream that encapsulates a socket into a socket extension resource.
+   Imports a stream that encapsulates a socket into a <classname>Socket</classname> instance.
   </para>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>stream</parameter></term>
-     <listitem>
-      <para>
-       The stream resource to import.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>stream</parameter></term>
+    <listitem>
+     <para>
+      The stream resource to import.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   Returns &false; on failure.
+   Returns a <classname>Socket</classname> instance, or &false; on failure.
+   When the stream is not a socket (a plain file, <literal>php://memory</literal>,
+   a directory handle, ...) or has a read filter, an <constant>E_WARNING</constant> is emitted
+   and &false; is returned.
+  </para>
+  <para>
+   If data was already buffered in the stream, a <classname>Socket</classname> is returned
+   with an <constant>E_WARNING</constant> saying that the buffered data was lost:
+   <function>socket_recv</function> no longer sees it.
+   The <classname>Socket</classname> and the stream share the same file descriptor,
+   and the read buffer of the stream is switched off.
   </para>
  </refsect1>
 
@@ -65,28 +73,24 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>socket_import_stream</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>socket_import_stream</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $stream = stream_socket_server("udp://0.0.0.0:58380", $errno, $errstr, STREAM_SERVER_BIND); 
 $sock   = socket_import_stream($stream);
-?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>stream_socket_server</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>stream_socket_server</function></member>
+   <member><function>socket_export_stream</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
