@@ -46,7 +46,10 @@
     <listitem>
      <para>
       Hints provide criteria for selecting addresses returned.  You may specify the
-      hints as defined by getaddrinfo.
+      hints as defined by getaddrinfo, but only the <literal>ai_flags</literal>,
+      <literal>ai_socktype</literal>, <literal>ai_protocol</literal> and <literal>ai_family</literal>
+      keys are accepted. The values are integers between 0 and 2147483647, and
+      <literal>ai_family</literal> must be <constant>AF_INET</constant> or <constant>AF_INET6</constant>.
      </para>
     </listitem>
    </varlistentry>
@@ -62,6 +65,16 @@
   </para>
  </refsect1>
  
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   A <exceptionname>ValueError</exceptionname> is thrown if <parameter>hints</parameter> has another key
+   than the ones above, if a value is not between 0 and 2147483647, or if <literal>ai_family</literal>
+   is neither <constant>AF_INET</constant> nor <constant>AF_INET6</constant>.
+   A <exceptionname>TypeError</exceptionname> is thrown if a value cannot be cast to <type>int</type>.
+  </para>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
