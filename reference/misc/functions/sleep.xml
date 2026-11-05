@@ -20,7 +20,9 @@
    <para>
     In order to delay program execution for a fraction of a second, use <function>usleep</function>
     as the <function>sleep</function> function expects an &integer;. For example, <code>sleep(0.25)</code> will
-    pause program execution for <literal>0</literal> seconds.
+    pause program execution for <literal>0</literal> seconds: the fractional part is dropped, with an
+    <constant>E_DEPRECATED</constant> as of PHP 8.1.0, and a <classname>TypeError</classname> is thrown
+    when <literal>strict_types</literal> is enabled.
    </para>
   </note>
  </refsect1>
@@ -52,7 +54,9 @@
    <literal>192</literal> (the value of the
    <constant>WAIT_IO_COMPLETION</constant> constant within the Windows API).
    On other platforms, the return value will be the number of seconds left to
-   sleep.
+   sleep, rounded down to a whole number: <literal>0</literal> does not guarantee that the whole
+   delay elapsed when a signal arrived in the last second. <function>time_nanosleep</function>
+   returns the exact remainder.
   </para>
  </refsect1>
 
@@ -75,6 +79,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.1.0</entry>
+      <entry>
+       Passing a <type>float</type> with a fractional part to <parameter>seconds</parameter>
+       emits an <constant>E_DEPRECATED</constant>, as the fractional part is dropped.
+      </entry>
+     </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
