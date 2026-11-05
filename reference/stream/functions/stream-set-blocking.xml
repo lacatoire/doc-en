@@ -57,6 +57,10 @@
   &reftitle.returnvalues;
   <para>
    &return.success;
+   &true; is also returned for streams that have no blocking mode, such as
+   <literal>php://memory</literal>, <literal>php://temp</literal>, <literal>php://output</literal>,
+   <literal>php://input</literal>, <literal>data://</literal> streams and directory handles:
+   the call then has no effect.
   </para>
  </refsect1>
 
@@ -66,12 +70,28 @@
    <para>On Windows, this has no affect on local files. Non-blocking IO for local files is not supported on Windows.
    </para>
   </note>
+  <note>
+   <para>
+    The mode belongs to the file description, which is shared with the process that started PHP.
+    After <literal>stream_set_blocking(STDIN, false)</literal>, standard input stays non-blocking when the script ends,
+    and a program reading from it afterwards can fail with "Resource temporarily unavailable".
+   </para>
+  </note>
+  <note>
+   <para>
+    A <classname>Socket</classname> object is not accepted: use <function>socket_set_block</function>
+    or <function>socket_set_nonblock</function> instead.
+   </para>
+  </note>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
    <member><function>stream_select</function></member>
+   <member><function>stream_set_timeout</function></member>
+   <member><function>socket_set_block</function></member>
+   <member><function>socket_set_nonblock</function></member>
   </simplelist>
  </refsect1>
 </refentry>
