@@ -58,7 +58,7 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   A ciphertext string in the format of (one-time public key, encrypted message, authentication tag).
+   A ciphertext string in the format of (one-time public key, authentication tag, encrypted message).
   </simpara>
  </refsect1>
 
