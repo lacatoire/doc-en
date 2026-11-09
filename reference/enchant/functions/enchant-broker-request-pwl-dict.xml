@@ -37,7 +37,10 @@
   &reftitle.returnvalues;
   <simpara>
    Returns an <classname>EnchantDictionary</classname> instance on
-   success&return.falseforfailure;.
+   success&return.falseforfailure;. &false; is also returned, with an
+   <constant>E_WARNING</constant>, if <parameter>filename</parameter> is not
+   allowed by the <link linkend="ini.open-basedir">open_basedir</link>
+   restriction.
   </simpara>
  </refsect1>
 
