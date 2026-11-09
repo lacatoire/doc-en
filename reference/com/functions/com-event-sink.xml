@@ -31,8 +31,11 @@
     <varlistentry>
      <term><parameter>variant</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The COM object whose events should be captured, an instance of
+       <classname>COM</classname>, <classname>DOTNET</classname> or
+       <classname>VARIANT</classname>.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
