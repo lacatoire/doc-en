@@ -67,7 +67,7 @@
       <entry>
        A <exceptionname>DateObjectError</exceptionname> is now thrown for an
        object that has not been correctly initialized. Previously, an
-       <classname>Error</classname> was thrown.
+       <exceptionname>Error</exceptionname> was thrown.
       </entry>
      </row>
     </tbody>
