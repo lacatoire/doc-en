@@ -53,11 +53,11 @@
     <varlistentry>
      <term><parameter>more_entropy</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If set to &true;, <function>uniqid</function> will add additional
        entropy (a random number) at the end of the return value, which
        increases the likelihood that the result will be unique.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
