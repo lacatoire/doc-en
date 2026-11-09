@@ -53,6 +53,18 @@
          </tbody>
         </tgroup>
        </table>
+       <note>
+        <simpara>
+         The arguments are printed as strings: a string longer than
+         <link linkend="ini.zend.exception-string-param-max-len"><parameter>zend.exception_string_param_max_len</parameter></link>
+         bytes (15 by default) is truncated and ends with <literal>...</literal>,
+         an array is printed as <literal>Array</literal> and an object as
+         <literal>Object(ClassName)</literal>. An argument declared with the
+         <link linkend="class.sensitiveparameter"><classname>SensitiveParameter</classname></link>
+         attribute is printed as
+         <literal>Object(SensitiveParameterValue)</literal>.
+        </simpara>
+       </note>
       </para>
      </listitem>
     </varlistentry>
@@ -78,10 +90,9 @@
 
    <refsect1 role="examples">
     &reftitle.examples;
-    <para>
-     <example>
-      <title><function>debug_print_backtrace</function> example</title>
-      <programlisting role="php">
+    <example>
+     <title><function>debug_print_backtrace</function> example</title>
+     <programlisting role="php">
 <![CDATA[
 <?php
 // include.php file
@@ -102,8 +113,8 @@ a();
 
 ?>
 ]]>
-      </programlisting>
-      <programlisting role="php">
+     </programlisting>
+     <programlisting role="php">
 <![CDATA[
 <?php
 // test.php file
@@ -112,27 +123,25 @@ a();
 include 'include.php';
 ?>
 ]]>
-     </programlisting>
-     &example.outputs.similar;
-     <screen>
+    </programlisting>
+    &example.outputs.similar;
+    <screen>
 <![CDATA[
-#0  c() called at [/tmp/include.php:10]
-#1  b() called at [/tmp/include.php:6]
-#2  a() called at [/tmp/include.php:17]
-#3  include(/tmp/include.php) called at [/tmp/test.php:3]
+#0 /tmp/include.php(9): c()
+#1 /tmp/include.php(5): b()
+#2 /tmp/include.php(16): a()
+#3 /tmp/test.php(5): include('/tmp/include.ph...')
 ]]>
-     </screen>
-    </example>
-   </para>
+    </screen>
+   </example>
   </refsect1>
 
   <refsect1 role="seealso">
    &reftitle.seealso;
-   <para>
-    <simplelist>
-     <member><function>debug_backtrace</function></member>
-    </simplelist>
-   </para>
+   <simplelist>
+    <member><function>debug_backtrace</function></member>
+    <member><link linkend="ini.zend.exception-string-param-max-len"><parameter>zend.exception_string_param_max_len</parameter></link></member>
+   </simplelist>
   </refsect1>
  </refentry>
 
