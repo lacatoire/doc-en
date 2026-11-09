@@ -179,6 +179,13 @@
        <entry>
         If inside a function, this lists the functions arguments. If
         inside an included file, this lists the included file name(s). Unless <constant>DEBUG_BACKTRACE_IGNORE_ARGS</constant> is given.
+        <simpara>
+         Any argument declared with the
+         <link linkend="class.sensitiveparameter"><classname>SensitiveParameter</classname></link>
+         attribute is replaced by a
+         <link linkend="class.sensitiveparametervalue"><classname>SensitiveParameterValue</classname></link>
+         object instead of its real value.
+        </simpara>
        </entry>
       </row>
      </tbody>
@@ -187,12 +194,44 @@
   </para>
  </refsect1>
 
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.2.0</entry>
+      <entry>
+       Arguments declared with the
+       <classname>SensitiveParameter</classname> attribute are replaced by a
+       <classname>SensitiveParameterValue</classname> object in
+       <literal>"args"</literal>.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       The arguments listed in <literal>"args"</literal> are no longer
+       references, even when the corresponding parameter is passed by
+       reference.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>debug_backtrace</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>debug_backtrace</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 // filename: /tmp/a.php
@@ -211,12 +250,12 @@ a_test('friend');
 include_once '/tmp/a.php';
 ?>
 ]]>
-    </programlisting>
-    <para>
-     Results similar to the following when executing
-     <filename>/tmp/b.php</filename>:
-    </para>
-    <screen>
+   </programlisting>
+   <simpara>
+    Results similar to the following when executing
+    <filename>/tmp/b.php</filename>:
+   </simpara>
+   <screen>
 <![CDATA[
 Hi: friend
 array(2) {
@@ -227,7 +266,7 @@ array(4) {
     ["function"] => string(6) "a_test"
     ["args"]=>
     array(1) {
-      [0] => &string(6) "friend"
+      [0] => string(6) "friend"
     }
 }
 [1]=>
@@ -242,19 +281,17 @@ array(4) {
   }
 }
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
  
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>trigger_error</function></member>
-    <member><function>debug_print_backtrace</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>trigger_error</function></member>
+   <member><function>debug_print_backtrace</function></member>
+   <member><classname>SensitiveParameterValue</classname></member>
+  </simplelist>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
