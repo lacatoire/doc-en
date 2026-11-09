@@ -57,7 +57,7 @@
      <simpara>
       The timestamp of the sunrise (zenith angle = 90°35').
      </simpara>
-    </listitem> 
+    </listitem>
    </varlistentry>
    <varlistentry>
     <term><literal>sunset</literal></term>
@@ -65,7 +65,7 @@
      <simpara>
       The timestamp of the sunset (zenith angle = 90°35').
      </simpara>
-    </listitem> 
+    </listitem>
    </varlistentry>
    <varlistentry>
     <term><literal>transit</literal></term>
@@ -74,7 +74,7 @@
       The timestamp when the sun is at its zenith, i.e. has reached its topmost
       point.
      </simpara>
-    </listitem> 
+    </listitem>
    </varlistentry>
    <varlistentry>
     <term><literal>civil_twilight_begin</literal></term>
@@ -83,7 +83,7 @@
       The start of the civil dawn (zenith angle = 96°). It ends at
       <literal>sunrise</literal>.
      </simpara>
-    </listitem> 
+    </listitem>
    </varlistentry>
    <varlistentry>
     <term><literal>civil_twilight_end</literal></term>
@@ -92,7 +92,7 @@
       The end of the civil dusk (zenith angle = 96°). It starts at
       <literal>sunset</literal>.
      </simpara>
-    </listitem> 
+    </listitem>
    </varlistentry>
    <varlistentry>
     <term><literal>nautical_twilight_begin</literal></term>
@@ -101,7 +101,7 @@
       The start of the nautical dawn (zenith angle = 102°). It ends at
       <literal>civil_twilight_begin</literal>.
      </simpara>
-    </listitem> 
+    </listitem>
    </varlistentry>
    <varlistentry>
     <term><literal>nautical_twilight_end</literal></term>
@@ -110,7 +110,7 @@
       The end of the nautical dusk (zenith angle = 102°). It starts at
       <literal>civil_twilight_end</literal>.
      </simpara>
-    </listitem> 
+    </listitem>
    </varlistentry>
    <varlistentry>
     <term><literal>astronomical_twilight_begin</literal></term>
@@ -119,7 +119,7 @@
       The start of the astronomical dawn (zenith angle = 108°). It ends at
       <literal>nautical_twilight_begin</literal>.
      </simpara>
-    </listitem> 
+    </listitem>
    </varlistentry>
    <varlistentry>
     <term><literal>astronomical_twilight_end</literal></term>
@@ -128,7 +128,7 @@
       The end of the astronomical dusk (zenith angle = 108°). It starts at
       <literal>nautical_twilight_end</literal>.
      </simpara>
-    </listitem> 
+    </listitem>
    </varlistentry>
   </variablelist>
   <para> 
