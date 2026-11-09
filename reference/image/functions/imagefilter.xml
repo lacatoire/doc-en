@@ -238,7 +238,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>ValueError</classname> with the
+   Throws a <exceptionname>ValueError</exceptionname> with the
    <constant>IMG_FILTER_SCATTER</constant> <parameter>filter</parameter> if
    <parameter>args</parameter> or <parameter>arg2</parameter> is negative or
    greater than <literal>2147483647</literal>.
@@ -260,7 +260,7 @@
       <row>
        <entry>8.4.0</entry>
        <entry>
-        Now throws a <classname>ValueError</classname> with the
+        Now throws a <exceptionname>ValueError</exceptionname> with the
         <constant>IMG_FILTER_SCATTER</constant> <parameter>filter</parameter>
         if <parameter>args</parameter> or <parameter>arg2</parameter> is
         negative or greater than <literal>2147483647</literal>.

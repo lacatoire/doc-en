@@ -57,7 +57,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>ValueError</classname> if <parameter>quality</parameter>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>quality</parameter>
    is less than <literal>-1</literal>.
   </simpara>
  </refsect1>
@@ -76,7 +76,7 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       Now throws a <classname>ValueError</classname> if <parameter>quality</parameter>
+       Now throws a <exceptionname>ValueError</exceptionname> if <parameter>quality</parameter>
        is less than <literal>-1</literal>.
       </entry>
      </row>

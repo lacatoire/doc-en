@@ -58,7 +58,7 @@
       <constant>IMG_BILINEAR_FIXED</constant>,
       <constant>IMG_BICUBIC</constant> or
       <constant>IMG_BICUBIC_FIXED</constant>. Any other value throws a
-      <classname>ValueError</classname>.
+      <exceptionname>ValueError</exceptionname>.
       <note>
        <simpara>
         <constant>IMG_WEIGHTED4</constant> is not yet supported.
@@ -113,7 +113,7 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
-       Now throws a <classname>ValueError</classname> if <parameter>mode</parameter> is invalid;
+       Now throws a <exceptionname>ValueError</exceptionname> if <parameter>mode</parameter> is invalid;
        previously, &false; was returned.
       </entry>
      </row>
