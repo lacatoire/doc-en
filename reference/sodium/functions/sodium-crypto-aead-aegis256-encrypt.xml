@@ -44,7 +44,7 @@
     <term><parameter>nonce</parameter></term>
     <listitem>
      <simpara>
-      A number that must be only used once, per message.
+      A number that must be only used once, per message. 32 bytes long.
      </simpara>
     </listitem>
    </varlistentry>

@@ -27,7 +27,8 @@
     <term><parameter>ciphertext</parameter></term>
     <listitem>
      <simpara>
-      Must be in the format provided by <function>sodium_crypto_aead_aegis128l_encrypt</function>.
+      Must be in the format provided by <function>sodium_crypto_aead_aegis128l_encrypt</function>
+      (ciphertext and tag, concatenated).
      </simpara>
     </listitem>
    </varlistentry>
@@ -44,7 +45,7 @@
     <term><parameter>nonce</parameter></term>
     <listitem>
      <simpara>
-      A number that must be only used once, per message.
+      A number that must be only used once, per message. 16 bytes long.
      </simpara>
     </listitem>
    </varlistentry>
