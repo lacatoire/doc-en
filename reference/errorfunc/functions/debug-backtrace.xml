@@ -177,8 +177,10 @@
        <entry>args</entry>
        <entry><type>array</type></entry>
        <entry>
-        If inside a function, this lists the functions arguments. If
-        inside an included file, this lists the included file name(s). Unless <constant>DEBUG_BACKTRACE_IGNORE_ARGS</constant> is given.
+        <simpara>
+         If inside a function, this lists the functions arguments. If
+         inside an included file, this lists the included file name(s). Unless <constant>DEBUG_BACKTRACE_IGNORE_ARGS</constant> is given.
+        </simpara>
         <simpara>
          Any argument declared with the
          <link linkend="class.sensitiveparameter"><classname>SensitiveParameter</classname></link>
