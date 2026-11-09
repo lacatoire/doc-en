@@ -12,9 +12,17 @@
    <type class="union"><type>CurlHandle</type><type>false</type></type><methodname>curl_copy_handle</methodname>
    <methodparam><type>CurlHandle</type><parameter>handle</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Copies a cURL handle keeping the same preferences.
-  </para>
+  </simpara>
+  <simpara>
+   The cookies that the handle received during previous transfers and the
+   share set with <constant>CURLOPT_SHARE</constant> are not carried over to
+   the copy. Streams set with <constant>CURLOPT_FILE</constant>,
+   <constant>CURLOPT_WRITEHEADER</constant> and
+   <constant>CURLOPT_INFILE</constant> are shared with the original, not
+   duplicated.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -28,9 +36,12 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns a new cURL handle, &return.falseforfailure;.
-  </para>
+  <simpara>
+   Returns a new cURL handle, &return.falseforfailure;. An
+   <constant>E_WARNING</constant> is emitted when &false; is returned, for
+   example if the handle holds a <classname>CURLFile</classname> that is no
+   longer allowed by <literal>open_basedir</literal>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
