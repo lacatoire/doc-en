@@ -107,8 +107,49 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   &false; is returned and an <constant>E_WARNING</constant> level error is issued when
-   <parameter>handler</parameter> is &null;, but there is no default handler.
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>path</parameter>, <parameter>mode</parameter> or
+   <parameter>handler</parameter> is empty, if <parameter>map_size</parameter>
+   or <parameter>flags</parameter> is negative, or if
+   <parameter>mode</parameter> is invalid: longer than 3 characters, a first
+   character other than <literal>r</literal>, <literal>w</literal>,
+   <literal>c</literal> or <literal>n</literal>, a second character other than
+   <literal>d</literal>, <literal>l</literal>, <literal>-</literal> or
+   <literal>t</literal>, a third character other than <literal>t</literal>, or
+   a combination of <literal>-</literal> and <literal>t</literal>.
+  </simpara>
+  <simpara>
+   &false; is returned and an <constant>E_WARNING</constant> is emitted when:
+  </simpara>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <parameter>handler</parameter> is &null;, but there is no default handler,
+     or the requested handler is not available;
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     the <literal>-</literal> or <literal>t</literal> modifier is not supported
+     by the handler, or <literal>t</literal> is used where no lock is taken;
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     the lock cannot be established, for instance because the database is
+     already open;
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     the lock file or the database file cannot be opened, or the handler fails
+     to initialize the database.
+    </simpara>
+   </listitem>
+  </itemizedlist>
+  <simpara>
+   An <constant>E_NOTICE</constant> is emitted if a locking modifier is
+   requested for a handler that does its own locking.
   </simpara>
  </refsect1>
 
@@ -133,11 +174,19 @@
      <row>
       <entry>8.2.0</entry>
       <entry>
+       A <exceptionname>ValueError</exceptionname> is now thrown for an invalid
+       <parameter>mode</parameter>; previously, an <constant>E_WARNING</constant>
+       was emitted and &false; was returned.
+      </entry>
+     </row>
+     <row>
+      <entry>8.2.0</entry>
+      <entry>
        <parameter>flags</parameter> is added.
       </entry>
      </row>
      <row>
-      <entry>8.1.0</entry>
+      <entry>8.2.0</entry>
       <entry>
        <parameter>handler</parameter> is now nullable.
       </entry>
