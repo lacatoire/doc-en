@@ -40,9 +40,12 @@
          <entry>SNMP_VALUE_OBJECT</entry>
          <entry>
           The return values will be objects with the properties <literal>value</literal> and <literal>type</literal>, where the latter
-          is one of the <constant>SNMP_OCTET_STR</constant>, <constant>SNMP_COUNTER</constant> etc. constants. The
-          way <literal>value</literal> is returned is based on which one of constants
-          <constant>SNMP_VALUE_LIBRARY</constant>, <constant>SNMP_VALUE_PLAIN</constant> is set.
+          is the type of the value, for example <constant>SNMP_OCTET_STR</constant>.
+          Note that <constant>SNMP_COUNTER</constant> (66) is the type of Gauge32 values;
+          Counter32 values have the type 65, for which there is no constant.
+          The way <literal>value</literal> is returned depends on whether
+          <constant>SNMP_VALUE_PLAIN</constant> is set: without it, which is
+          <constant>SNMP_VALUE_LIBRARY</constant> (0), the value is formatted as returned by the Net-SNMP library.
          </entry>
         </row>
        </tbody>
@@ -60,6 +63,14 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <classname>ValueError</classname> if <parameter>method</parameter> is not a bitmask of
+   <constant>SNMP_VALUE_LIBRARY</constant>, <constant>SNMP_VALUE_PLAIN</constant>, and <constant>SNMP_VALUE_OBJECT</constant>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -72,6 +83,13 @@
     </thead>
     <tbody>
      &return.type.true;
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Throws a <classname>ValueError</classname> if <parameter>method</parameter> is invalid,
+       instead of emitting an <constant>E_WARNING</constant> and returning &false;.
+      </entry>
+     </row>
     </tbody>
    </tgroup>
   </informaltable>
@@ -99,7 +117,7 @@
  // stdClass Object
  // (
  //   [type] => 4        <-- SNMP_OCTET_STR, see constants
- //   [value] => lo
+ //   [value] => STRING: lo
  // )
 
  snmp_set_valueretrieval(SNMP_VALUE_OBJECT | SNMP_VALUE_PLAIN);
