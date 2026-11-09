@@ -53,11 +53,12 @@
     <term><parameter>mode</parameter></term>
     <listitem>
      <para>
-      One of <constant>IMG_NEAREST_NEIGHBOUR</constant>,
+      One of the <literal>IMG_*</literal> interpolation method constants, for
+      example <constant>IMG_NEAREST_NEIGHBOUR</constant>,
       <constant>IMG_BILINEAR_FIXED</constant>,
-      <constant>IMG_BICUBIC</constant>,
-      <constant>IMG_BICUBIC_FIXED</constant> or anything else (will use two
-      pass).
+      <constant>IMG_BICUBIC</constant> or
+      <constant>IMG_BICUBIC_FIXED</constant>. Any other value throws a
+      <classname>ValueError</classname>.
       <note>
        <simpara>
         <constant>IMG_WEIGHTED4</constant> is not yet supported.
@@ -80,7 +81,9 @@
   &reftitle.errors;
   <simpara>
    Throws a <classname>ValueError</classname> if <parameter>width</parameter>
-   or <parameter>height</parameter> would cause over-/underflow.
+   and <parameter>height</parameter> are both negative, or if either of them
+   is not between <literal>1</literal> and <literal>2147483647</literal> once
+   the aspect ratio has been applied.
   </simpara>
   <simpara>
    Throws a <classname>ValueError</classname> if <parameter>mode</parameter> is invalid.
@@ -102,13 +105,16 @@
       <entry>8.4.0</entry>
       <entry>
        Now throws a <classname>ValueError</classname> if <parameter>width</parameter>
-       or <parameter>height</parameter> would cause over-/underflow.
+       or <parameter>height</parameter> is not between <literal>1</literal> and
+       <literal>2147483647</literal> once the aspect ratio has been applied;
+       previously, &false; was returned.
       </entry>
      </row>
      <row>
       <entry>8.4.0</entry>
       <entry>
-       Now throws a <classname>ValueError</classname> if <parameter>mode</parameter> is invalid.
+       Now throws a <classname>ValueError</classname> if <parameter>mode</parameter> is invalid;
+       previously, &false; was returned.
       </entry>
      </row>
      <row>
