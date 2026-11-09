@@ -6,6 +6,14 @@
 
 <section xml:id="oci8.configure" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
 <title>Configuring PHP with OCI8</title>
+ <simpara>
+  &pecl.moved-ver;8.4.0
+ </simpara>
+ <simpara>
+  &pecl.info;
+  <link xlink:href="&url.pecl.package;oci8">&url.pecl.package;oci8</link>.
+  The instructions below apply to PHP &lt; 8.4.
+ </simpara>
  <para>
   Review the
   previous <link linkend="oci8.requirements">Requirements</link>
