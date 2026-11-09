@@ -169,9 +169,11 @@
          <row>
           <entry><constant>SNMP_VALUE_OBJECT</constant></entry><entry>
            The return values will be objects with the properties "value" and "type", where the latter
-           is one of the SNMP_OCTET_STR, SNMP_COUNTER etc. constants. The
-           way "value" is returned is based on which one of <constant>SNMP_VALUE_LIBRARY</constant>,
-           <constant>SNMP_VALUE_PLAIN</constant> is set
+           is the type of the value, for example SNMP_OCTET_STR. Note that SNMP_COUNTER (66)
+           is the type of Gauge32 values; Counter32 values have the type 65, for which there is no constant.
+           The way "value" is returned depends on whether <constant>SNMP_VALUE_PLAIN</constant> is set:
+           without it, which is <constant>SNMP_VALUE_LIBRARY</constant> (0), the value is formatted as returned
+           by the Net-SNMP library
           </entry>
          </row>
         </tbody>
