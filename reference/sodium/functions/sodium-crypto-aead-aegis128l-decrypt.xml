@@ -18,6 +18,9 @@
   <simpara>
    Verify then decrypt a message with AEGIS-128L.
   </simpara>
+  <simpara>
+   Only available if PHP was built against libsodium 1.0.19 or later.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -64,6 +67,17 @@
   &reftitle.returnvalues;
   <simpara>
    Returns the plaintext on success, &return.falseforfailure;.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>SodiumException</exceptionname> if
+   <parameter>nonce</parameter> is not
+   <constant>SODIUM_CRYPTO_AEAD_AEGIS128L_NPUBBYTES</constant> bytes long or
+   <parameter>key</parameter> is not
+   <constant>SODIUM_CRYPTO_AEAD_AEGIS128L_KEYBYTES</constant> bytes long.
   </simpara>
  </refsect1>
 

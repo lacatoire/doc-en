@@ -81,7 +81,11 @@
    </term>
    <listitem>
     <simpara>
-     Available as of PHP 8.4.0.
+     Length in bytes of the key: <literal>16</literal>.
+    </simpara>
+    <simpara>
+     Available as of PHP 8.4.0. Only defined if PHP was built against
+     libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -92,7 +96,11 @@
    </term>
    <listitem>
     <simpara>
-     Available as of PHP 8.4.0.
+     Length in bytes of the secret nonce: <literal>0</literal>.
+    </simpara>
+    <simpara>
+     Available as of PHP 8.4.0. Only defined if PHP was built against
+     libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -103,7 +111,11 @@
    </term>
    <listitem>
     <simpara>
-     Available as of PHP 8.4.0.
+     Length in bytes of the public nonce: <literal>16</literal>.
+    </simpara>
+    <simpara>
+     Available as of PHP 8.4.0. Only defined if PHP was built against
+     libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -114,7 +126,11 @@
    </term>
    <listitem>
     <simpara>
-     Available as of PHP 8.4.0.
+     Length in bytes of the authentication tag: <literal>32</literal>.
+    </simpara>
+    <simpara>
+     Available as of PHP 8.4.0. Only defined if PHP was built against
+     libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -125,7 +141,11 @@
    </term>
    <listitem>
     <simpara>
-     Available as of PHP 8.4.0.
+     Length in bytes of the key: <literal>32</literal>.
+    </simpara>
+    <simpara>
+     Available as of PHP 8.4.0. Only defined if PHP was built against
+     libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -136,7 +156,11 @@
    </term>
    <listitem>
     <simpara>
-     Available as of PHP 8.4.0.
+     Length in bytes of the secret nonce: <literal>0</literal>.
+    </simpara>
+    <simpara>
+     Available as of PHP 8.4.0. Only defined if PHP was built against
+     libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -147,7 +171,11 @@
    </term>
    <listitem>
     <simpara>
-     Available as of PHP 8.4.0.
+     Length in bytes of the public nonce: <literal>32</literal>.
+    </simpara>
+    <simpara>
+     Available as of PHP 8.4.0. Only defined if PHP was built against
+     libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
@@ -158,7 +186,11 @@
    </term>
    <listitem>
     <simpara>
-     Available as of PHP 8.4.0.
+     Length in bytes of the authentication tag: <literal>32</literal>.
+    </simpara>
+    <simpara>
+     Available as of PHP 8.4.0. Only defined if PHP was built against
+     libsodium 1.0.19 or later.
     </simpara>
    </listitem>
   </varlistentry>
