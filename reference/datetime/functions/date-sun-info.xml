@@ -21,9 +21,9 @@
    <varlistentry>
     <term><parameter>timestamp</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       Unix timestamp.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
