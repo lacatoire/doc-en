@@ -189,9 +189,7 @@
        is set (1), the <acronym>SNMP</acronym> library will return 'quick printed' values.  This
        means that just the value will be printed.  When <parameter>quick_print</parameter> is not
        enabled (default) the NET-<acronym>SNMP</acronym> library prints extra information
-       including the type of the value (i.e. IpAddress or OID).  Additionally,
-       if quick_print is not enabled, the library prints additional hex values
-       for all strings of three characters or less.
+       including the type of the value (i.e. IpAddress or OID).
       </simpara>
      </listitem>
     </varlistentry>
