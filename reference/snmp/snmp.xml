@@ -200,8 +200,8 @@
      <listitem>
       <simpara>Controls the way enum values are printed</simpara>
       <simpara>
-       Parameter toggles if walk/get etc. should automatically lookup enum values
-       in the MIB and return them together with their human readable string.
+       Toggles whether walk/get etc. return enum values as the raw integer (&true;)
+       or together with their label from the MIB (&false;).
       </simpara>
      </listitem>
     </varlistentry>
