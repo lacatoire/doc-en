@@ -63,7 +63,7 @@
   &reftitle.returnvalues;
   <simpara>
    A successful call returns the value of the requested PDO attribute.
-   An unsuccessful call returns &null;.
+   An unsuccessful call returns &false;.
   </simpara>
  </refsect1>
 
