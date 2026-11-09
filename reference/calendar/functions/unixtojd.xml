@@ -38,9 +38,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   A julian day number as integer, &return.falseforfailure;.
-  </para>
+  <simpara>
+   A julian day number as integer, or &false; if <parameter>timestamp</parameter>
+   is too large to be converted to a local date.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
