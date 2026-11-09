@@ -55,6 +55,15 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &ext.enchant.broker-valueerror;
+  <simpara>
+   This only applies when PHP is built against libenchant 1.x: with
+   libenchant 2, this function does nothing.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
