@@ -18,10 +18,11 @@
    <methodparam><type>CurlHandle</type><parameter>handle</parameter></methodparam>
   </methodsynopsis>
   &note.resource-migration-8.0-dead-function;
-  <para>
-   Closes a cURL session and frees all resources.  The cURL handle,
-   <parameter>handle</parameter>, is also deleted.
-  </para>
+  <simpara>
+   This function has no effect as of PHP 8.0.0: the cURL handle,
+   <parameter>handle</parameter>, remains usable and is freed when the
+   <classname>CurlHandle</classname> object is destroyed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -38,6 +39,14 @@
   <para>
    &return.void;
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if it is called from a
+   callback of <parameter>handle</parameter> while a transfer is running.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -63,6 +72,14 @@
        This function is a <acronym>NOP</acronym> now.
       </entry>
      </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       An <exceptionname>Error</exceptionname> is now thrown if called from a
+       callback of <parameter>handle</parameter>; previously, an
+       <constant>E_WARNING</constant> was emitted.
+      </entry>
+     </row>
      &curl.changelog.handle-param;
     </tbody>
    </tgroup>
@@ -86,9 +103,6 @@ curl_setopt($ch, CURLOPT_HEADER, 0);
 
 // grab URL and pass it to the browser
 curl_exec($ch);
-
-// close cURL resource, and free up system resources
-curl_close($ch);
 ?>
 ]]>
     </programlisting>
