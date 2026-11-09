@@ -209,6 +209,9 @@
      <term><varname>oid_output_format</varname></term>
      <listitem>
       <simpara>Controls OID output format</simpara>
+      <simpara>
+       Its value is <literal>0</literal> until a format has been set, and <literal>0</literal> is rejected when written back.
+      </simpara>
       <table>
        <title>OID .1.3.6.1.2.1.1.3.0 representation for various
        <varname>oid_output_format</varname> values</title>

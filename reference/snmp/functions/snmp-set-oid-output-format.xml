@@ -25,6 +25,12 @@
    <varlistentry>
     <term><parameter>format</parameter></term>
     <listitem>
+     <simpara>
+      One of the <constant>SNMP_OID_OUTPUT_*</constant> constants.
+      A boolean is not an on/off switch: <constant>true</constant> is coerced to <literal>1</literal>,
+      which is <constant>SNMP_OID_OUTPUT_SUFFIX</constant>, unless <literal>strict_types</literal> is enabled.
+      This matters for the alias <function>snmp_set_oid_numeric_print</function>, whose name suggests one.
+     </simpara>
      <table>
       <title>OID .1.3.6.1.2.1.1.3.0 representation for various <parameter>format</parameter> values</title>
        <tgroup cols="2">
@@ -50,6 +56,14 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <classname>ValueError</classname> if <parameter>format</parameter> is not one of the
+   <constant>SNMP_OID_OUTPUT_*</constant> constants.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -62,6 +76,13 @@
     </thead>
     <tbody>
      &return.type.true;
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Throws a <classname>ValueError</classname> if <parameter>format</parameter> is invalid,
+       instead of emitting an <constant>E_WARNING</constant> and returning &false;.
+      </entry>
+     </row>
     </tbody>
    </tgroup>
   </informaltable>
