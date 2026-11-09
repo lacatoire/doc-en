@@ -66,6 +66,15 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If the object has not been correctly initialized (for example, by a class
+   extending <classname>DateTimeImmutable</classname> without calling the parent
+   constructor), a <exceptionname>DateObjectError</exceptionname> is thrown.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -77,6 +86,14 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.3.0</entry>
+      <entry>
+       A <exceptionname>DateObjectError</exceptionname> is now thrown for an
+       object that has not been correctly initialized. Previously, an
+       <classname>Error</classname> was thrown.
+      </entry>
+     </row>
      <row>
       <entry>8.1.0</entry>
       <entry>The behaviour with double existing hours (during the fall-back
@@ -157,6 +174,7 @@ echo $newDate->format('Y-m-d H:i:s') . "\n";
   <simplelist>
    <member><function>DateTimeImmutable::setDate</function></member>
    <member><function>DateTimeImmutable::setISODate</function></member>
+   <member><function>DateTime::setTime</function></member>
   </simplelist>
  </refsect1>
 
