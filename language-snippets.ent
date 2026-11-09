@@ -2112,19 +2112,27 @@ while <constant>PGSQL_BOTH</constant> will return both numerical and associative
 <!ENTITY snmp.parameter.security-name '<simpara xmlns="http://docbook.org/ns/docbook">The security name, usually some kind of username.</simpara>'>
 
 <!ENTITY snmp.parameter.security-level '<simpara xmlns="http://docbook.org/ns/docbook">The security level: <literal>"noAuthNoPriv"</literal>,
-<literal>"authNoPriv"</literal>, or <literal>"authPriv"</literal>.</simpara>'>
+<literal>"authNoPriv"</literal>, or <literal>"authPriv"</literal>, compared without regard to case.
+<literal>"nanp"</literal>, <literal>"anp"</literal> and <literal>"ap"</literal> are accepted as short forms.
+The authentication arguments are only used with <literal>"authNoPriv"</literal> and <literal>"authPriv"</literal>,
+and the privacy arguments only with <literal>"authPriv"</literal>. For the other levels they are ignored without validation.</simpara>'>
 
 <!ENTITY snmp.parameter.auth-protocol '<simpara xmlns="http://docbook.org/ns/docbook">The authentication protocol: <literal>"MD5"</literal>, <literal>"SHA"</literal>,
-<literal>"SHA256"</literal>, or <literal>"SHA512"</literal>.</simpara>'>
+<literal>"SHA256"</literal>, or <literal>"SHA512"</literal>, compared without regard to case.
+<literal>"SHA256"</literal> and <literal>"SHA512"</literal> are only accepted when the Net-SNMP library provides them,
+and <literal>"MD5"</literal> is not accepted when the library was built without it.</simpara>'>
 
-<!ENTITY snmp.parameter.auth-passphrase '<simpara xmlns="http://docbook.org/ns/docbook">The authentication passphrase.</simpara>'>
+<!ENTITY snmp.parameter.auth-passphrase '<simpara xmlns="http://docbook.org/ns/docbook">The authentication passphrase, at least 8 bytes long. A shorter one, an empty one included,
+emits an <constant>E_WARNING</constant> and makes the call return &false;.</simpara>'>
 
 <!ENTITY snmp.parameter.privacy-protocol '<simpara xmlns="http://docbook.org/ns/docbook">The privacy protocol: <literal>"DES"</literal>, or <literal>"AES"</literal>,
 also accepted as <literal>"AES128"</literal>. <literal>"AES192"</literal>, <literal>"AES192C"</literal>,
 <literal>"AES256"</literal>, and <literal>"AES256C"</literal> are accepted when supported by the
-Net-SNMP library.</simpara>'>
+Net-SNMP library. The comparison is made without regard to case, and <literal>"DES"</literal> is not accepted
+when the library was built without it.</simpara>'>
 
-<!ENTITY snmp.parameter.privacy-passphrase '<simpara xmlns="http://docbook.org/ns/docbook">The privacy passphrase.</simpara>'>
+<!ENTITY snmp.parameter.privacy-passphrase '<simpara xmlns="http://docbook.org/ns/docbook">The privacy passphrase, at least 8 bytes long. A shorter one, an empty one included,
+emits an <constant>E_WARNING</constant> and makes the call return &false;.</simpara>'>
 
 <!-- Common pieces for reference part END -->
 
