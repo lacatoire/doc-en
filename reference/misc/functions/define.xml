@@ -21,83 +21,76 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>constant_name</parameter></term>
-     <listitem>
-      <para>
-       The name of the constant.
-      </para>
-      <note>
-       <para>
-        It is possible to <function>define</function> constants with reserved or
-        even invalid names, whose value can (only) be retrieved with
-        <function>constant</function>. However, doing so is not recommended.
-       </para>
-       <simpara>
-        <function>define</function> takes the name as an ordinary
-        <type>string</type> and does not resolve it against the current
-        <link linkend="language.namespaces.dynamic">namespace</link>.
-        Inside <literal>namespace My\Namespace;</literal>,
-        <literal>define('MYCONST', 1)</literal> therefore defines
-        <literal>MYCONST</literal> in the global namespace, silently and
-        without error.
-        To place the constant in a namespace, the namespace must be part of
-        the name, written without a leading namespace separator, as in
-        <literal>define('My\Namespace\MYCONST', 1)</literal> or
-        <literal>define(__NAMESPACE__ . '\MYCONST', 1)</literal>.
-        Unlike <function>defined</function> and <function>constant</function>,
-        <function>define</function> does not strip a leading separator:
-        <literal>define('\My\Namespace\MYCONST', 1)</literal> returns &true;
-        but creates a constant that can never be retrieved.
-        Because the name is a plain string, aliases introduced by
-        <literal>use</literal> statements are not applied to it.
-        In a double-quoted string the namespace separators must be escaped,
-        as in <literal>"My\\Namespace\\MYCONST"</literal>.
-       </simpara>
-      </note>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>value</parameter></term>
-     <listitem>
-      <para>
-       The value of the constant.
-      </para>
-      <warning>
-       <para>
-        While it is possible to define <type>resource</type> constants, it is
-        not recommended and may cause unpredictable behavior.
-       </para>
-      </warning>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>case_insensitive</parameter></term>
-     <listitem>
-      <para>
-       If set to &true;, the constant will be defined case-insensitive. 
-       The default behavior is case-sensitive; i.e. 
-       <literal>CONSTANT</literal> and <literal>Constant</literal> represent
-       different values.
-      </para>
-      <warning>
-       <simpara>
-        Defining case-insensitive constants is deprecated as of PHP 7.3.0.
-        As of PHP 8.0.0, only &false; is an acceptable value, passing
-        &true; will produce a warning.
-       </simpara>
-      </warning>
-      <note>
-       <para>
-        Case-insensitive constants are stored as lower-case.
-       </para>
-      </note>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>constant_name</parameter></term>
+    <listitem>
+     <simpara>
+      The name of the constant.
+     </simpara>
+     <note>
+      <simpara>
+       It is possible to <function>define</function> constants with reserved or
+       even invalid names, whose value can (only) be retrieved with
+       <function>constant</function>. However, doing so is not recommended.
+      </simpara>
+      <simpara>
+       <function>define</function> takes the name as an ordinary
+       <type>string</type> and does not resolve it against the current
+       <link linkend="language.namespaces.dynamic">namespace</link>.
+       Inside <literal>namespace My\Namespace;</literal>,
+       <literal>define('MYCONST', 1)</literal> therefore defines
+       <literal>MYCONST</literal> in the global namespace, silently and
+       without error.
+       To place the constant in a namespace, the namespace must be part of
+       the name, written without a leading namespace separator, as in
+       <literal>define('My\Namespace\MYCONST', 1)</literal> or
+       <literal>define(__NAMESPACE__ . '\MYCONST', 1)</literal>.
+       Unlike <function>defined</function> and <function>constant</function>,
+       <function>define</function> does not strip a leading separator:
+       <literal>define('\My\Namespace\MYCONST', 1)</literal> returns &true;
+       but creates a constant that can never be retrieved.
+       Because the name is a plain string, aliases introduced by
+       <literal>use</literal> statements are not applied to it.
+       In a double-quoted string the namespace separators must be escaped,
+       as in <literal>"My\\Namespace\\MYCONST"</literal>.
+      </simpara>
+     </note>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>value</parameter></term>
+    <listitem>
+     <simpara>
+      The value of the constant.
+     </simpara>
+     <warning>
+      <simpara>
+       While it is possible to define <type>resource</type> constants, it is
+       not recommended and may cause unpredictable behavior.
+      </simpara>
+     </warning>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>case_insensitive</parameter></term>
+    <listitem>
+     <simpara>
+      If set to &true;, the constant will be defined case-insensitive.
+      The default behavior is case-sensitive; i.e.
+      <literal>CONSTANT</literal> and <literal>Constant</literal> represent
+      different values.
+     </simpara>
+     <warning>
+      <simpara>
+       Defining case-insensitive constants is deprecated as of PHP 7.3.0.
+       As of PHP 8.0.0, only &false; is an acceptable value, passing
+       &true; will produce a warning.
+      </simpara>
+     </warning>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -105,6 +98,10 @@
   <para>
    &return.success;
   </para>
+  <simpara>
+   If the constant is already defined, an <constant>E_WARNING</constant> is
+   emitted, &false; is returned and the constant keeps its original value.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -145,19 +142,14 @@
  
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Defining Constants</title>
-    <programlisting role="php">
+  <example>
+   <title>Defining Constants</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 define("CONSTANT", "Hello world.");
 echo CONSTANT; // outputs "Hello world."
-echo Constant; // outputs "Constant" and issues a notice.
-
-define("GREETING", "Hello you.", true);
-echo GREETING; // outputs "Hello you."
-echo Greeting; // outputs "Hello you."
+echo Constant; // throws an Error: Undefined constant "Constant"
 
 // Works as of PHP 7
 define('ANIMALS', array(
@@ -169,20 +161,18 @@ echo ANIMALS[1]; // outputs "cat"
 
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
-  <para>
-   <example>
-    <title>Constants with Reserved Names</title>
-    <para>
-     This example illustrates the <emphasis>possibility</emphasis> to define a
-     constant with the same name as a
-     <link linkend="language.constants.magic">magic constant</link>.
-     Since the resulting behavior is obviously confusing, it is not recommended
-     to do this in practise, though.
-    </para>
-    <programlisting role="php">
+   </programlisting>
+  </example>
+  <example>
+   <title>Constants with Reserved Names</title>
+   <simpara>
+    This example illustrates the <emphasis>possibility</emphasis> to define a
+    constant with the same name as a
+    <link linkend="language.constants.magic">magic constant</link>.
+    Since the resulting behavior is obviously confusing, it is not recommended
+    to do this in practise, though.
+   </simpara>
+   <programlisting role="php">
 <![CDATA[
 <?php
 var_dump(defined('__LINE__'));
@@ -191,29 +181,26 @@ var_dump(constant('__LINE__'));
 var_dump(__LINE__);
 ?>
 ]]>
-    </programlisting>
-   &example.outputs;
-   <screen>
+   </programlisting>
+  &example.outputs;
+  <screen>
 <![CDATA[
 bool(false)
 bool(true)
 string(4) "test"
 int(5)
 ]]>
-   </screen>
-   </example>
-  </para>
+  </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>defined</function></member>
-    <member><function>constant</function></member>
-    <member>The section on <link linkend="language.constants">Constants</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>defined</function></member>
+   <member><function>constant</function></member>
+   <member>The section on <link linkend="language.constants">Constants</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>

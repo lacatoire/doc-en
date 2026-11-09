@@ -46,11 +46,43 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If the specified number of <parameter>microseconds</parameter> is negative,
+   this function will throw a <exceptionname>ValueError</exceptionname>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
    &return.void;
   </para>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       A <exceptionname>ValueError</exceptionname> is now thrown if
+       <parameter>microseconds</parameter> is negative; previously, an
+       <constant>E_WARNING</constant> was emitted.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="examples">
