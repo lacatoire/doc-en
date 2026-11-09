@@ -110,7 +110,7 @@
       <entry>
        A <exceptionname>DateObjectError</exceptionname> is now thrown for an
        object that has not been correctly initialized. Previously, an
-       <classname>Error</classname> was thrown.
+       <exceptionname>Error</exceptionname> was thrown.
       </entry>
      </row>
      <row>
@@ -133,7 +133,7 @@
   &reftitle.examples;
   <example>
    <title><function>DateTime::setTime</function> example</title>
-   <para>&style.oop;</para>
+   <simpara>&style.oop;</simpara>
    <programlisting role="php">
 <![CDATA[
 <?php
@@ -153,7 +153,7 @@ echo $date->format('Y-m-d H:i:s') . "\n";
 2001-01-01 14:55:24
 ]]>
    </screen>
-   <para>&style.procedural;</para>
+   <simpara>&style.procedural;</simpara>
    <programlisting role="php">
 <![CDATA[
 <?php
