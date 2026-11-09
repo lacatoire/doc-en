@@ -43,7 +43,7 @@
      <para>
       Unix timestamp representing the date.
       Setting timestamps outside the range of &integer; is possible by using
-      <methodname>DateTimeImmutable::modify</methodname> with the <literal>@</literal> format.
+      <methodname>DateTime::modify</methodname> with the <literal>@</literal> format.
      </para>
     </listitem>
    </varlistentry>
@@ -57,10 +57,87 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If the object has not been correctly initialized (for example, by a class
+   extending <classname>DateTime</classname> without calling the parent
+   constructor), a <exceptionname>DateObjectError</exceptionname> is thrown.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.3.0</entry>
+      <entry>
+       A <exceptionname>DateObjectError</exceptionname> is now thrown for an
+       object that has not been correctly initialized. Previously, an
+       <classname>Error</classname> was thrown.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </refsect1>
+
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <example>
+   <title><function>DateTime::setTimestamp</function> example</title>
+   <para>&style.oop;</para>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$date = new DateTime();
+echo $date->format('U = Y-m-d H:i:s') . "\n";
+
+$date->setTimestamp(1171502725);
+echo $date->format('U = Y-m-d H:i:s') . "\n";
+]]>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
+<![CDATA[
+1272508903 = 2010-04-28 22:41:43
+1171502725 = 2007-02-14 20:25:25
+]]>
+   </screen>
+   <para>&style.procedural;</para>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$date = date_create();
+echo date_format($date, 'U = Y-m-d H:i:s') . "\n";
+
+date_timestamp_set($date, 1171502725);
+echo date_format($date, 'U = Y-m-d H:i:s') . "\n";
+]]>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
+<![CDATA[
+1272508903 = 2010-04-28 22:41:43
+1171502725 = 2007-02-14 20:25:25
+]]>
+   </screen>
+  </example>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
    <member><function>DateTimeImmutable::setTimestamp</function></member>
+   <member><function>DateTime::getTimestamp</function></member>
    <member><function>DateTime::setMicrosecond</function></member>
   </simplelist>
  </refsect1>
