@@ -159,14 +159,14 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the sunset time in a specified <parameter>returnFormat</parameter> on
    success&return.falseforfailure;. Potential reasons for failure are that the
    sun does not set at all, which happens inside the polar circles for part of
    the year, or that <parameter>latitude</parameter> or
    <parameter>longitude</parameter> is not a finite number (for example
    <constant>NAN</constant> or <constant>INF</constant>).
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
