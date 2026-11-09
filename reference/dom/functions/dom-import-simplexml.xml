@@ -44,6 +44,14 @@
   </para>
  </refsect1>
  
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>node</parameter>
+   is not a valid <classname>SimpleXMLElement</classname> attribute or element node.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -55,6 +63,14 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       A <exceptionname>TypeError</exceptionname> is now thrown if
+       <parameter>node</parameter> is not a valid node; previously, a
+       <exceptionname>ValueError</exceptionname> was thrown.
+      </entry>
+     </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
@@ -82,10 +98,6 @@ if ($sxe === false) {
 }
 
 $dom_sxe = dom_import_simplexml($sxe);
-if (!$dom_sxe) {
-    echo 'Error while converting XML';
-    exit;
-}
 
 $dom = new DOMDocument('1.0');
 $dom_sxe = $dom->importNode($dom_sxe, true);
