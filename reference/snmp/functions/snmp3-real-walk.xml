@@ -40,8 +40,8 @@
     </term>
     <listitem>
      <simpara>
-      The hostname of the
-      <acronym>SNMP</acronym> agent (server).
+      The hostname of the <acronym>SNMP</acronym> agent (server), optionally followed by a port,
+      as in <literal>127.0.0.1:161</literal>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -99,7 +99,14 @@
     </term>
     <listitem>
      <simpara>
-      The <acronym>SNMP</acronym> object id.
+      The root of the subtree to read: all the <acronym>SNMP</acronym> objects below
+      <parameter>object_id</parameter> are returned. An empty string stands for
+      <literal>.1.3.6.1.2.1</literal> (mib-2), which is only a part of the whole tree.
+      &null; does the same, but is deprecated.
+     </simpara>
+     <simpara>
+      An array with a single element is accepted. An array with several elements is not, as a walk
+      reads a single subtree: an <constant>E_WARNING</constant> is emitted and &false; is returned.
      </simpara>
     </listitem>
    </varlistentry>
@@ -109,7 +116,9 @@
     </term>
     <listitem>
      <simpara>
-      The number of microseconds until the first timeout.
+      The number of microseconds until the first timeout. The default, <literal>-1</literal>, selects the
+      Net-SNMP library default: the <literal>timeout</literal> and <literal>retries</literal> settings of
+      <filename>snmp.conf</filename> if present, otherwise one second and 5 retries.
      </simpara>
     </listitem>
    </varlistentry>
@@ -119,7 +128,8 @@
     </term>
     <listitem>
      <simpara>
-      The number of times to retry if timeouts occur.
+      The number of times to retry if timeouts occur. The default, <literal>-1</literal>, selects the
+      Net-SNMP library default, see <parameter>timeout</parameter>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -132,6 +142,25 @@
    Returns an associative array of the
    <acronym>SNMP</acronym> object ids and their values on success or &false; on error.
    In case of an error, an E_WARNING message is shown.
+  </simpara>
+  <simpara>
+   The keys are the object ids, formatted according to <function>snmp_set_oid_output_format</function>.
+   &false; is returned, with an <constant>E_WARNING</constant>, if the subtree does not exist or is empty,
+   for example "No Such Object" or "No more variables left in this MIB View".
+   It is also returned on an error or a timeout during the walk, in which case the entries already received are discarded.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <classname>ValueError</classname> if <parameter>hostname</parameter> contains a null byte,
+   is 128 bytes long or longer, or has a port outside the range 0 to 65535,
+   if <parameter>security_name</parameter> is empty or contains a null byte,
+   if <parameter>security_level</parameter>, <parameter>auth_protocol</parameter> or <parameter>privacy_protocol</parameter> is not valid,
+   if <parameter>timeout</parameter> is lower than <literal>-1</literal>,
+   if <parameter>retries</parameter> is lower than <literal>-1</literal> or too large,
+   or if <parameter>object_id</parameter> is an empty array.
   </simpara>
  </refsect1>
 
@@ -146,6 +175,15 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> when the hostname
+       length is equal to or greater than 128 bytes, when the port is
+       negative or greater than 65535, or when the timeout or retries values
+       are lower than -1 or too large.
+      </entry>
+     </row>
      &snmp.changelog.privacy-protocol-aes;
      &snmp.changelog.auth-protocol-sha2;
     </tbody>
@@ -171,11 +209,11 @@
     The above will output something like:
 <![CDATA[
 array (
-  'IF-MIB::ifName.1' => 'STRING: lo',
-  'IF-MIB::ifName.2' => 'STRING: eth0',
-  'IF-MIB::ifName.3' => 'STRING: eth2',
-  'IF-MIB::ifName.4' => 'STRING: sit0',
-  'IF-MIB::ifName.5' => 'STRING: sixxs',
+  'IF-MIB::ifName.1' => 'STRING: "lo"',
+  'IF-MIB::ifName.2' => 'STRING: "eth0"',
+  'IF-MIB::ifName.3' => 'STRING: "eth2"',
+  'IF-MIB::ifName.4' => 'STRING: "sit0"',
+  'IF-MIB::ifName.5' => 'STRING: "sixxs"',
 )
 ]]>
    </simpara>
@@ -186,7 +224,7 @@ array (
   &reftitle.seealso;
   <simplelist>
    <member>
-    <function>snmpwalk</function>
+    <function>snmp3_walk</function>
    </member>
   </simplelist>
  </refsect1>
