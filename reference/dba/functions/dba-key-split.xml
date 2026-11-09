@@ -27,6 +27,12 @@
      <simpara>
       The key in string representation.
      </simpara>
+     <simpara>
+      As of PHP 8.4.0, passing &false; or &null; is deprecated and emits an
+      <constant>E_DEPRECATED</constant>. Test the result of
+      <function>dba_firstkey</function> and <function>dba_nextkey</function>
+      against &false; before passing it to this function.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
