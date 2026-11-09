@@ -29,17 +29,17 @@
    <varlistentry>
     <term><parameter>latitude</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       Latitude in degrees, from -90 to 90.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>longitude</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       Longitude in degrees, from -180 to 180.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -140,11 +140,11 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if
    <parameter>latitude</parameter> or <parameter>longitude</parameter> is not
    a finite number (<constant>NAN</constant> or <constant>INF</constant>).
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
