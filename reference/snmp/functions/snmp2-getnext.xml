@@ -21,6 +21,9 @@
    value of the <acronym>SNMP</acronym> object that follows the specified
    <parameter>object_id</parameter>.
   </simpara>
+  <simpara>
+   This function uses <acronym>SNMP</acronym>v2c.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -76,6 +79,10 @@
    Returns <acronym>SNMP</acronym> object value on success or &false; on error.
    In case of an error, an E_WARNING message is shown.
   </simpara>
+  <simpara>
+   The format of the returned values depends on the settings made with
+   <function>snmp_set_quick_print</function> and <function>snmp_set_valueretrieval</function>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -97,6 +104,10 @@ $nameOfSecondInterface = snmp2_getnext('localhost', 'public', 'IF-MIB::ifName.1'
   <simplelist>
    <member><function>snmp2_get</function></member>
    <member><function>snmp2_walk</function></member>
+   <member><function>snmp_set_quick_print</function></member>
+   <member><function>snmp_set_enum_print</function></member>
+   <member><function>snmp_set_valueretrieval</function></member>
+   <member><function>snmp_set_oid_output_format</function></member>
   </simplelist>
  </refsect1>
 

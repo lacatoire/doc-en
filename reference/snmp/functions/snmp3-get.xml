@@ -26,6 +26,9 @@
    value of an <acronym>SNMP</acronym> object specified by the
    <parameter>object_id</parameter>.
   </simpara>
+  <simpara>
+   This function uses <acronym>SNMP</acronym>v3.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -107,6 +110,10 @@
   <simpara>
    Returns <acronym>SNMP</acronym> object value on success or &false; on error.
   </simpara>
+  <simpara>
+   The format of the returned values depends on the settings made with
+   <function>snmp_set_quick_print</function> and <function>snmp_set_valueretrieval</function>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -154,6 +161,10 @@ $nameOfSecondInterface = snmp3_get('localhost', 'james', 'authPriv', 'SHA', 'sec
   &reftitle.seealso;
   <simplelist>
    <member><function>snmp3_set</function></member>
+   <member><function>snmp_set_quick_print</function></member>
+   <member><function>snmp_set_enum_print</function></member>
+   <member><function>snmp_set_valueretrieval</function></member>
+   <member><function>snmp_set_oid_output_format</function></member>
   </simplelist>
  </refsect1>
 
