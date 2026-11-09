@@ -35,7 +35,7 @@
     <term><parameter>p</parameter></term>
     <listitem>
      <simpara>
-      A point (x-coordinate), which is typically a public key.
+      A point, given as its 32-byte ristretto255 encoding, which is typically a public key.
      </simpara>
     </listitem>
    </varlistentry>
