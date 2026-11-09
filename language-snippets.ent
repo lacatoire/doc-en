@@ -2634,15 +2634,15 @@ to be references, then they must be references in the passed argument list.'>
   <tbody>
    <row><entry>=</entry><entry>The type is taken from the MIB</entry></row>
    <row><entry>i</entry><entry>INTEGER</entry> </row>
-   <row><entry>u</entry><entry>INTEGER</entry></row>
+   <row><entry>u</entry><entry>UNSIGNED INTEGER, sent as Gauge32</entry></row>
    <row><entry>s</entry><entry>STRING</entry></row>
-   <row><entry>x</entry><entry>HEX STRING</entry></row>
-   <row><entry>d</entry><entry>DECIMAL STRING</entry></row>
+   <row><entry>x</entry><entry>HEX STRING: hexadecimal digits, with or without spaces and with or without a 0x prefix. The number of digits must be even</entry></row>
+   <row><entry>d</entry><entry>DECIMAL STRING: a list of decimal byte values, for example 72 101 108 for Hel</entry></row>
    <row><entry>n</entry><entry>NULLOBJ</entry></row>
    <row><entry>o</entry><entry>OBJID</entry></row>
    <row><entry>t</entry><entry>TIMETICKS</entry></row>
    <row><entry>a</entry><entry>IPADDRESS</entry></row>
-   <row><entry>b</entry><entry>BITS</entry></row>
+   <row><entry>b</entry><entry>BITS: a list of bit numbers, where bit 0 is the most significant bit of the first byte</entry></row>
   </tbody>
  </tgroup>
 </table>
@@ -2683,7 +2683,7 @@ to be references, then they must be references in the passed argument list.'>
  </listitem>
  <listitem>
   <simpara>
-   Using type "x" and a hex number but without(!) the usual "0x" prefix.
+   Using type "x" and the hexadecimal value of the bytes, for example F8 for the bits 0 to 4.
   </simpara>
  </listitem>
 </itemizedlist>
