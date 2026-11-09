@@ -75,6 +75,11 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &dba.errors.connection-closed;
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -87,6 +92,7 @@
     </thead>
     <tbody>
      &dba.changelog.dba-object;
+     &dba.changelog.dba-closed;
      <row>
       <entry>8.3.0</entry>
       <entry>

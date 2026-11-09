@@ -977,6 +977,20 @@ purposes.</simpara></warning>'>
  </entry>
 </row>'>
 
+<!ENTITY dba.changelog.dba-closed '<row xmlns="http://docbook.org/ns/docbook">
+ <entry>8.4.0</entry>
+ <entry>
+  An <exceptionname>Error</exceptionname> is now thrown when the connection has
+  already been closed; previously, a <exceptionname>TypeError</exceptionname>
+  was thrown.
+ </entry>
+</row>'>
+
+<!ENTITY dba.errors.connection-closed '<simpara xmlns="http://docbook.org/ns/docbook">
+ Throws an <exceptionname>Error</exceptionname> if the <parameter>dba</parameter>
+ connection has already been closed.
+</simpara>'>
+
 <!-- dbase notes -->
 
 <!ENTITY dbase.type-conversion '<para xmlns="http://docbook.org/ns/docbook">

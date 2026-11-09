@@ -25,6 +25,19 @@
      <simpara>
       The key of the entry which is deleted.
      </simpara>
+     <note>
+      <simpara>
+       When working with inifiles this function accepts arrays as keys
+       where index 0 is the group and index 1 is the value name. See:
+       <function>dba_key_split</function>.
+      </simpara>
+     </note>
+     <note>
+      <simpara>
+       On <literal>inifile</literal> databases, all the entries sharing the
+       key are deleted at once, not only the first one.
+      </simpara>
+     </note>
     </listitem>
    </varlistentry>
    <varlistentry>
@@ -44,6 +57,11 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &dba.errors.connection-closed;
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -56,6 +74,7 @@
     </thead>
     <tbody>
      &dba.changelog.dba-object;
+     &dba.changelog.dba-closed;
     </tbody>
    </tgroup>
   </informaltable>
