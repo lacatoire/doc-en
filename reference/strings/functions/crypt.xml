@@ -33,9 +33,7 @@
   </para>
   <simpara>
    The hash type is triggered by the salt argument.
-   If no salt is provided, PHP will
-   auto-generate either a standard two character (DES) or a twelve
-   character (MD5) salt, depending on the availability of MD5 crypt().  PHP sets a
+   PHP sets a
    constant named <constant>CRYPT_SALT_LENGTH</constant> which indicates the
    longest valid salt allowed by the available hashes.
   </simpara>
@@ -105,8 +103,8 @@
      prefixed with $5$. If the salt string starts with 'rounds=&lt;N&gt;$', the numeric value of N
      is used to indicate how many times the hashing loop should be executed, much like the cost
      parameter on Blowfish. The default number of rounds is 5000, there is a minimum of
-     1000 and a maximum of 999,999,999. Any selection of N outside this range will be truncated to
-     the nearest limit.
+     1000 and a maximum of 999,999,999. A value of N outside this range makes
+     <function>crypt</function> fail and return <literal>"*0"</literal>.
     </simpara>
    </listitem>
    <listitem>
@@ -115,8 +113,8 @@
      prefixed with $6$. If the salt string starts with 'rounds=&lt;N&gt;$', the numeric value of N
      is used to indicate how many times the hashing loop should be executed, much like the cost
      parameter on Blowfish. The default number of rounds is 5000, there is a minimum of
-     1000 and a maximum of 999,999,999. Any selection of N outside this range will be truncated to
-     the nearest limit.
+     1000 and a maximum of 999,999,999. A value of N outside this range makes
+     <function>crypt</function> fail and return <literal>"*0"</literal>.
     </simpara>
    </listitem>
   </itemizedlist>
@@ -144,11 +142,9 @@
     <varlistentry>
      <term><parameter>salt</parameter></term>
      <listitem>
-      <para>
-       A salt string to base the hashing on. If not provided, the
-       behaviour is defined by the algorithm implementation and can lead to
-       unexpected results.
-      </para>
+      <simpara>
+       A salt string to base the hashing on.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
