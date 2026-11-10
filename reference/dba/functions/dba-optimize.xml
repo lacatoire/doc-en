@@ -12,7 +12,35 @@
    <methodparam><type>Dba\Connection</type><parameter>dba</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   <function>dba_optimize</function> optimizes the underlying database.
+   <function>dba_optimize</function> optimizes the underlying database, when
+   the handler supports it.
+  </simpara>
+  <simpara>
+   Only the following handlers perform an actual optimization:
+  </simpara>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <literal>gdbm</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>qdbm</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>tcadb</literal>; the call always fails when the extension is
+     compiled against a Tokyo Cabinet library older than the required version
+    </simpara>
+   </listitem>
+  </itemizedlist>
+  <simpara>
+   On every other handler, <function>dba_optimize</function> does nothing and
+   returns &true;. A database opened in read-only mode, as is always the case
+   for <literal>cdb</literal>, is not optimized: an
+   <constant>E_WARNING</constant> is emitted and &false; is returned.
   </simpara>
  </refsect1>
  <refsect1 role="parameters">
@@ -35,6 +63,11 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &dba.errors.connection-closed;
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -47,6 +80,7 @@
     </thead>
     <tbody>
      &dba.changelog.dba-object;
+     &dba.changelog.dba-closed;
     </tbody>
    </tgroup>
   </informaltable>

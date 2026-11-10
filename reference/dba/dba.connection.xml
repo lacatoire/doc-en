@@ -9,7 +9,7 @@
   <section xml:id="dba-connection.intro">
    &reftitle.intro;
    <simpara>
-    A fully opaque class which replaces a <literal>dba</literal> resource as of PHP 8.4.0.
+    A fully opaque class which replaces a <literal>dba</literal> &resource; as of PHP 8.4.0.
    </simpara>
   </section>
   <!-- }}} -->
