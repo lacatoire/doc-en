@@ -22,8 +22,13 @@
   <para>
    Connection upkeep is currently available only for HTTP/2 connections.
    A small amount of traffic is usually sent to keep a connection alive.
-   HTTP/2 maintains its connection by sending a HTTP/2 PING frame.
+   HTTP/2 maintains its connection by sending an HTTP/2 PING frame.
   </para>
+  <simpara>
+   A returned &true; does not mean that any traffic was sent: nothing is sent
+   if the interval set with <constant>CURLOPT_UPKEEP_INTERVAL_MS</constant>
+   has not elapsed, or if the handle has no HTTP/2 connection.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -37,9 +42,12 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+   &false; is returned, with <function>curl_errno</function> reporting
+   <literal>CURLE_RECURSIVE_API_CALL</literal>, when the function is called
+   from a callback of the same handle during a transfer.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -74,6 +82,7 @@ if (curl_exec($ch)) {
   <para>
    <simplelist>
     <member><function>curl_init</function></member>
+    <member><function>curl_setopt</function></member>
    </simplelist>
   </para>
  </refsect1>
