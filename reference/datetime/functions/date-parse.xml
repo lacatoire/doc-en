@@ -72,7 +72,7 @@
    resolved, <literal>zone_type</literal> is <literal>0</literal> and none of
    these fields is added; the <literal>errors</literal> array then explains why.
   </simpara>
-  <para>
+  <simpara>
    If relative time elements are present in the
    <parameter>datetime</parameter> string such as <literal>+3 days</literal>,
    the returned array includes a nested array with the key
@@ -83,7 +83,7 @@
    <literal>weekdays</literal>, <literal>first_day_of_month</literal> or
    <literal>last_day_of_month</literal>, depending on the string that was
    passed in.
-  </para>
+  </simpara>
   <para>
    The array includes <literal>warning_count</literal> and
    <literal>warnings</literal> fields. The first one indicate how many
