@@ -26,9 +26,23 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Return an integer containing the last multi curl error number.
-  </para>
+  <simpara>
+   Returns the last multi curl error number, or <literal>0</literal> (zero) if
+   no error occurred. <function>curl_multi_strerror</function> turns it into
+   a message.
+  </simpara>
+  <note>
+   <simpara>
+    The error number only reflects the multi functions
+    (<function>curl_multi_add_handle</function>,
+    <function>curl_multi_remove_handle</function>,
+    <function>curl_multi_exec</function>,
+    <function>curl_multi_setopt</function> and
+    <function>curl_multi_select</function>), not the outcome of the individual
+    transfers: for these, read the <literal>result</literal> key returned by
+    <function>curl_multi_info_read</function>.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -58,6 +72,8 @@
   &reftitle.seealso;
   <simplelist>
    <member><function>curl_errno</function></member>
+   <member><function>curl_multi_strerror</function></member>
+   <member><function>curl_multi_info_read</function></member>
   </simplelist>
  </refsect1>
 
