@@ -44,11 +44,19 @@
   &reftitle.parameters;
   <variablelist>
    <varlistentry>
-    <term><parameter>datetime</parameter></term>
+    <term><parameter>baseObject</parameter></term>
     <listitem>
-     <para>
+     <simpara>
+      Procedural style only: the date to compare from.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>targetObject</parameter></term>
+    <listitem>
+     <simpara>
       The date to compare to.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
@@ -73,13 +81,13 @@
    <parameter>invert</parameter> property of a
    <classname>DateInterval</classname> object.
   </para>
-  <para>
+  <simpara>
    The return value more specifically represents the clock-time interval to
    apply to the original object (<parameter>$this</parameter> or
-   <parameter>$originObject</parameter>) to arrive at the
+   <parameter>$baseObject</parameter>) to arrive at the
    <parameter>$targetObject</parameter>. This process is not always
    reversible.
-  </para>
+  </simpara>
   <para>
    The method is aware of DST changeovers, and hence can return an interval of
    <literal>24 hours and 30 minutes</literal>, as per one of the examples. If
@@ -209,6 +217,8 @@ bool(false)
    <member><function>DateInterval::format</function></member>
    <member><function>DateTime::add</function></member>
    <member><function>DateTime::sub</function></member>
+   <member><function>DateTimeImmutable::add</function></member>
+   <member><function>DateTimeImmutable::sub</function></member>
   </simplelist>
  </refsect1>
 
