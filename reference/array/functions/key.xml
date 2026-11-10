@@ -41,6 +41,17 @@
    internal pointer points beyond the end of the elements list or the array is 
    empty, <function>key</function> returns &null;.
   </para>
+  <note>
+   <simpara>
+    As an exception, if <parameter>array</parameter> is an
+    <type>object</type> (calling <function>key</function> on an
+    <type>object</type> is deprecated as of PHP 8.1.0) and its internal pointer
+    references a typed property that has not been initialized,
+    the pointer is moved forward to the next initialized property, and it is not
+    moved back before the function returns (as of PHP 8.2.27, 8.3.15 and
+    8.4.2).
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="changelog">
