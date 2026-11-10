@@ -59,16 +59,19 @@
    <literal>minute</literal>, <literal>second</literal>,
    <literal>fraction</literal>, and <literal>is_localtime</literal>.
   </para>
-  <para>
+  <simpara>
    If <literal>is_localtime</literal> is present then
    <literal>zone_type</literal> indicates the type of timezone. For type
    <literal>1</literal> (UTC offset) the <literal>zone</literal>,
    <literal>is_dst</literal> fields are added; for type <literal>2</literal>
-   (abbreviation) the fields <literal>tz_abbr</literal>,
-   <literal>is_dst</literal> are added; and for type <literal>3</literal>
-   (timezone identifier) the <literal>tz_abbr</literal>,
-   <literal>tz_id</literal> are added.
-  </para>
+   (abbreviation) the fields <literal>zone</literal>,
+   <literal>is_dst</literal>, <literal>tz_abbr</literal> are added; and for
+   type <literal>3</literal> (timezone identifier) the
+   <literal>tz_id</literal> field is added, along with
+   <literal>tz_abbr</literal> when it is known. If the timezone could not be
+   resolved, <literal>zone_type</literal> is <literal>0</literal> and none of
+   these fields is added; the <literal>errors</literal> array then explains why.
+  </simpara>
   <para>
    If relative time elements are present in the
    <parameter>datetime</parameter> string such as <literal>+3 days</literal>,
@@ -76,8 +79,10 @@
    <literal>relative</literal>. This array then contains the keys
    <literal>year</literal>, <literal>month</literal>, <literal>day</literal>,
    <literal>hour</literal>, <literal>minute</literal>,
-   <literal>second</literal>, and if necessary <literal>weekday</literal>, and
-   <literal>weekdays</literal>, depending on the string that was passed in.
+   <literal>second</literal>, and if necessary <literal>weekday</literal>,
+   <literal>weekdays</literal>, <literal>first_day_of_month</literal> or
+   <literal>last_day_of_month</literal>, depending on the string that was
+   passed in.
   </para>
   <para>
    The array includes <literal>warning_count</literal> and
