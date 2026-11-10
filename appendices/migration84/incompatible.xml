@@ -47,12 +47,30 @@
   <sect3 xml:id="migration84.incompatible.core.readonly-indirect-modification">
    <title>Indirect Modification of readonly Properties</title>
 
-   <!-- TODO Link to clone magic method, and explain this better as UPGRADING is... -->
    <simpara>
-    Indirect modification of readonly properties within <code>__clone()</code>
-    is no longer allowed, e.g. <code>$ref = &amp;$this->readonly</code>.
-    This was already forbidden for readonly initialization, and was an
+    Indirect modification of <literal>readonly</literal> properties is no
+    longer allowed within <link linkend="object.clone">__clone()</link>, even
+    for properties that may be reinitialized during cloning as of PHP 8.3.0.
+    This includes acquiring a reference to the property
+    (<code>$ref = &amp;$this->prop;</code>), writing to an array element of the
+    property (<code>$this->prop['key'] = $value;</code>) and passing the
+    property to a by-reference parameter. Such an operation now throws an
+    <exceptionname>Error</exceptionname> with the message
+    <literal>Cannot indirectly modify readonly property C::$prop</literal>.
+    This was already forbidden during readonly initialization, and was an
     oversight in the "readonly reinitialization during cloning" implementation.
+    A direct reinitializing assignment (<code>$this->prop = $value;</code>)
+    inside <code>__clone()</code> is still allowed.
+   </simpara>
+   <simpara>
+    As of PHP 8.4.0, indirect modifications of an initialized
+    <literal>readonly</literal> property, outside <code>__clone()</code> too,
+    throw an <exceptionname>Error</exceptionname> with the message
+    <literal>Cannot indirectly modify readonly property C::$prop</literal>:
+    acquiring a reference to it, assigning to or unsetting one of its array
+    elements, or passing it to a by-reference parameter. The message was
+    previously <literal>Cannot modify readonly property C::$prop</literal>.
+    Code matching on the exception message has to be updated.
    </simpara>
   </sect3>
 
@@ -106,7 +124,6 @@
   </para>
  </sect2>
 
- <!-- TODO: Check resource names -->
  <sect2 xml:id="migration84.incompatible.resource2object">
   <title>Resource to Object Migration</title>
 
@@ -150,7 +167,7 @@
     <classname>Soap\Url</classname> object rather than a
     <literal>soap_url</literal> &resource;.
     Checks using <function>is_resource</function> (i.e.
-    <code>is_resource($client->httpurl)</code>) should be  replaced with checks
+    <code>is_resource($client->httpurl)</code>) should be replaced with checks
     for &null; (i.e. <code>$client->httpurl !== null</code>).
    </simpara>
    <simpara>
@@ -158,7 +175,7 @@
     <classname>Soap\Sdl</classname> object rather than a
     <literal>soap_sdl</literal> &resource;.
     Checks using <function>is_resource</function> (i.e.
-    <code>is_resource($client->sdl)</code>) should be  replaced with checks
+    <code>is_resource($client->sdl)</code>) should be replaced with checks
     for &null; (i.e. <code>$client->sdl !== null</code>).
    </simpara>
   </sect3>
@@ -408,10 +425,12 @@
 
    <simpara>
     The <literal>"allowed_classes"</literal> option for
-    <function>unserialize</function> now throws
-    <exceptionname>TypeError</exceptionname> and
-    <exceptionname>ValueError</exceptionname> if it is neither an
-    <type>array</type> of class names nor a <type>bool</type>.
+    <function>unserialize</function> now throws a
+    <exceptionname>TypeError</exceptionname> if it is neither an
+    <type>array</type> nor a <type>bool</type>, or if an element of the array
+    is not a <type>string</type> or an object, and a
+    <exceptionname>ValueError</exceptionname> if an element is a string that is
+    not a valid class name.
    </simpara>
   </sect3>
 

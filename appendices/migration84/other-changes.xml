@@ -147,7 +147,7 @@
     <constant>NumberFormatter::ROUND_DOWN</constant> and
     <constant>NumberFormatter::ROUND_UP</constant>
     to be consistent with the new
-    <constant>PHP_ROUND_<replaceable>*</replaceable></constant> modes.
+    <enumname>RoundingMode</enumname> cases.
    </simpara>
 
    <simpara>

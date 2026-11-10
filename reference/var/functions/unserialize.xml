@@ -148,10 +148,12 @@
    Objects may throw <classname>Throwable</classname>s in their unserialization handlers.
   </simpara>
   <simpara>
-   As of PHP 8.4.0, if the <literal>allowed_classes</literal> element of
-   <parameter>options</parameter> is neither an <type>array</type> of class names
-   nor a <type>bool</type>, <function>unserialize</function> throws
-   <exceptionname>TypeError</exceptionname> and <exceptionname>ValueError</exceptionname>.
+   As of PHP 8.4.0, <function>unserialize</function> throws a
+   <exceptionname>TypeError</exceptionname> if the <literal>allowed_classes</literal>
+   element of <parameter>options</parameter> is neither an <type>array</type>
+   nor a <type>bool</type>, or if an element of the array is neither a
+   <type>string</type> nor an object, and a <exceptionname>ValueError</exceptionname>
+   if an element is a string that is not a valid class name.
   </simpara>
  </refsect1>
 
