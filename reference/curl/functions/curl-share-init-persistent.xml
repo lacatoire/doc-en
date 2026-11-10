@@ -18,6 +18,11 @@
    PHP request. If a persistent share handle with the same set of
    <parameter>share_options</parameter> is found, it will be reused.
   </simpara>
+  <simpara>
+   The persistent handles belong to the PHP process (or thread) that created
+   them: they are not shared between the workers of a pool, such as
+   <acronym>PHP-FPM</acronym>, nor between servers.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -64,7 +69,7 @@
     <simpara>
      If <parameter>share_options</parameter> contains a value not matching
      a <constant>CURL_LOCK_DATA_<replaceable>*</replaceable></constant>,
-     this function throws a <classname>ValueError</classname>.
+     this function throws a <exceptionname>ValueError</exceptionname>.
     </simpara>
    </listitem>
    <listitem>
@@ -76,8 +81,18 @@
    </listitem>
    <listitem>
     <simpara>
-     If <parameter>share_options</parameter> contains a non-integer value,
-     this function throws a <exceptionname>TypeError</exceptionname>.
+     If <parameter>share_options</parameter> contains an array, an object or a
+     non-numeric string, this function throws a
+     <exceptionname>TypeError</exceptionname>. Other non-integer values are
+     converted to <type>int</type>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     If libcurl cannot share one of the data types, for example
+     <constant>CURL_LOCK_DATA_SSL_SESSION</constant> without SSL support or
+     <constant>CURL_LOCK_DATA_PSL</constant> without libpsl, this function
+     throws an <exceptionname>Exception</exceptionname>.
     </simpara>
    </listitem>
   </itemizedlist>
