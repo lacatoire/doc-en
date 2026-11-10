@@ -19,11 +19,11 @@
    These mechanisms usually send some traffic on existing connections in order to keep them alive;
    this can prevent connections from being closed due to overzealous firewalls, for example.
   </para>
-  <para>
+  <simpara>
    Connection upkeep is currently available only for HTTP/2 connections.
    A small amount of traffic is usually sent to keep a connection alive.
    HTTP/2 maintains its connection by sending an HTTP/2 PING frame.
-  </para>
+  </simpara>
   <simpara>
    A returned &true; does not mean that any traffic was sent: nothing is sent
    if the interval set with <constant>CURLOPT_UPKEEP_INTERVAL_MS</constant>
