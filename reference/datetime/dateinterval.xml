@@ -129,10 +129,13 @@
   <section xml:id="dateinterval.props">
    &reftitle.properties;
    <warning>
-    <para>
+    <simpara>
      The available properties listed below depend on PHP version, and should
-     be considered as <emphasis>readonly</emphasis>.
-    </para>
+     be considered as <emphasis>readonly</emphasis>. Writing to
+     <varname>days</varname> has no effect: it creates a dynamic property that
+     is not used by any method, whereas the new values of the other properties
+     are taken into account.
+    </simpara>
    </warning>
    <variablelist>
     <varlistentry xml:id="dateinterval.props.y">
