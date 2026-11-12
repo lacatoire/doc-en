@@ -3,7 +3,7 @@
 <refentry xml:id="function.socket-recv" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>socket_recv</refname>
-  <refpurpose>Receives data from a connected socket</refpurpose>
+  <refpurpose>Receives data from a socket</refpurpose>
  </refnamediv>
  
  <refsect1 role="description">
@@ -19,7 +19,7 @@
    The <function>socket_recv</function> function receives
    <parameter>length</parameter> bytes of data in <parameter>data</parameter> from
    <parameter>socket</parameter>. <function>socket_recv</function> can
-   be used to gather data from connected sockets. Additionally, one or
+   be used to gather data from connected sockets and from bound datagram sockets. Additionally, one or
    more flags can be specified to modify the behaviour of the
    function.
   </para>
@@ -33,93 +33,97 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <para>
-       The <parameter>socket</parameter> must be a <classname>Socket</classname> instance previously
-       created by <function>socket_create</function>.
-      </para>
-     </listitem>
-    </varlistentry>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <para>
+      The <parameter>socket</parameter> must be a <classname>Socket</classname> instance previously
+      created by <function>socket_create</function>.
+     </para>
+    </listitem>
+   </varlistentry>
 
-    <varlistentry>
-     <term><parameter>data</parameter></term>
-     <listitem>
-      <para>
-       The data received will be fetched to the variable specified with
-       <parameter>data</parameter>. If an error occurs, if the
-       connection is reset, or if no data is
-       available, <parameter>data</parameter> will be set to &null;.
-      </para>
-     </listitem>
-    </varlistentry>
+   <varlistentry>
+    <term><parameter>data</parameter></term>
+    <listitem>
+     <para>
+      The data received will be fetched to the variable specified with
+      <parameter>data</parameter>. If an error occurs, if the
+      connection is reset, if the end of the stream is reached, or if no data is
+      available, <parameter>data</parameter> will be set to &null;, except when
+      <parameter>length</parameter> is not greater than 0: <parameter>data</parameter>
+      is then left unchanged.
+     </para>
+    </listitem>
+   </varlistentry>
 
-    <varlistentry>
-     <term><parameter>length</parameter></term>
-     <listitem>
-      <para>
-       Up to <parameter>length</parameter> bytes will be fetched from remote host.
-      </para>
-     </listitem>
-    </varlistentry>
+   <varlistentry>
+    <term><parameter>length</parameter></term>
+    <listitem>
+     <para>
+      Up to <parameter>length</parameter> bytes will be fetched from remote host.
+     </para>
+    </listitem>
+   </varlistentry>
 
-    <varlistentry>
-     <term><parameter>flags</parameter></term>
-     <listitem>
-      <para>
-       The value of <parameter>flags</parameter> can be any combination of 
-       the following flags, joined with the binary OR (<literal>|</literal>)
-       operator.
-      </para>
-      
-      <table>
-       <title>Possible values for <parameter>flags</parameter></title>
-       <tgroup cols="2">
-        <thead>
-         <row>
-          <entry>Flag</entry>
-          <entry>Description</entry>
-         </row>
-        </thead>
-        <tbody>
-         <row>
-          <entry><constant>MSG_OOB</constant></entry>
-          <entry>
-           Process out-of-band data.
-          </entry>
-         </row>
-         <row>
-          <entry><constant>MSG_PEEK</constant></entry>
-          <entry>
-           Receive data from the beginning of the receive queue without
-           removing it from the queue.
-          </entry>
-         </row>
-         <row>
-          <entry><constant>MSG_WAITALL</constant></entry>
-          <entry>
-           Block until at least <parameter>length</parameter> are received.
-           However, if a signal is caught or the remote host disconnects, the
-           function may return less data.
-          </entry>
-         </row>
-         <row>
-          <entry><constant>MSG_DONTWAIT</constant></entry>
-          <entry>
-           With this flag set, the function returns even if it would normally
-           have blocked.
-          </entry>
-         </row>
-        </tbody>
-       </tgroup>
-      </table>
-     </listitem>
-    </varlistentry>    
-   </variablelist>
-  </para>
+   <varlistentry>
+    <term><parameter>flags</parameter></term>
+    <listitem>
+     <para>
+      The value of <parameter>flags</parameter> can be any combination of 
+      the following flags, joined with the binary OR (<literal>|</literal>)
+      operator.
+     </para>
+     
+     <table>
+      <title>Possible values for <parameter>flags</parameter></title>
+      <tgroup cols="2">
+       <thead>
+        <row>
+         <entry>Flag</entry>
+         <entry>Description</entry>
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry><constant>MSG_OOB</constant></entry>
+         <entry>
+          Process out-of-band data.
+         </entry>
+        </row>
+        <row>
+         <entry><constant>MSG_PEEK</constant></entry>
+         <entry>
+          Receive data from the beginning of the receive queue without
+          removing it from the queue.
+         </entry>
+        </row>
+        <row>
+         <entry><constant>MSG_WAITALL</constant></entry>
+         <entry>
+          Block until <parameter>length</parameter> bytes are received.
+          However, if a signal is caught, the remote host disconnects or a
+          timeout expires, the function may return less data.
+         </entry>
+        </row>
+        <row>
+         <entry><constant>MSG_DONTWAIT</constant></entry>
+         <entry>
+          With this flag set, the function returns even if it would normally
+          have blocked.
+         </entry>
+        </row>
+       </tbody>
+      </tgroup>
+     </table>
+     <para>
+      The table is not exhaustive: the platform may define other flags, such as
+      <constant>MSG_TRUNC</constant> or <constant>MSG_ERRQUEUE</constant>.
+     </para>
+    </listitem>
+   </varlistentry>    
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -129,7 +133,13 @@
    or &false; if there was an error. The actual error code can be retrieved by 
    calling <function>socket_last_error</function>. This error code may be
    passed to <function>socket_strerror</function> to get a textual explanation
-   of the error.
+   of the error. No error code is set when <parameter>length</parameter> is not
+   greater than 0, and a non-blocking socket, <constant>MSG_DONTWAIT</constant> or
+   a receive timeout give &false; with <constant>SOCKET_EAGAIN</constant> and no warning.
+  </para>
+  <para>
+   At the end of the stream of a connection-oriented socket, or for an empty datagram,
+   <literal>0</literal> is returned and <parameter>data</parameter> is set to &null;.
   </para>
  </refsect1>
 
@@ -152,15 +162,14 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>socket_recv</function> example</title>
-    <para>
-     This example is a simple rewrite of the first example from
-     <xref linkend="sockets.examples"/> to
-     use <function>socket_recv</function>.
-    </para>
-    <programlisting role="php">
+  <example>
+   <title><function>socket_recv</function> example</title>
+   <para>
+    This example is a simple rewrite of the second example from
+    <xref linkend="sockets.examples"/> to
+    use <function>socket_recv</function>.
+   </para>
+   <programlisting role="php">
 <![CDATA[
 <?php
 error_reporting(E_ALL);
@@ -184,7 +193,7 @@ if ($socket === false) {
 echo "Attempting to connect to '$address' on port '$service_port'...";
 $result = socket_connect($socket, $address, $service_port);
 if ($result === false) {
-    echo "socket_connect() failed.\nReason: ($result) " . socket_strerror(socket_last_error($socket)) . "\n";
+    echo "socket_connect() failed.\nReason: " . socket_strerror(socket_last_error($socket)) . "\n";
 } else {
     echo "OK.\n";
 }
@@ -209,11 +218,10 @@ socket_close($socket);
 
 echo $buf . "\n";
 echo "OK.\n\n";
-?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 <h2>TCP/IP Connection</h2>
 OK.
@@ -221,7 +229,7 @@ Attempting to connect to '208.77.188.166' on port '80'...OK.
 Sending HTTP HEAD request...OK.
 Reading response:
 
-Read 123 bytes from socket_recv(). Closing socket...HTTP/1.1 200 OK
+Read 264 bytes from socket_recv(). Closing socket...HTTP/1.1 200 OK
 Date: Mon, 14 Sep 2009 08:56:36 GMT
 Server: Apache/2.2.3 (Red Hat)
 Last-Modified: Tue, 15 Nov 2005 13:24:10 GMT
@@ -233,11 +241,22 @@ Content-Type: text/html; charset=UTF-8
 
 OK.
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
-                     
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>socket_read</function></member>
+   <member><function>socket_recvfrom</function></member>
+   <member><function>socket_send</function></member>
+   <member><function>socket_select</function></member>
+   <member><function>socket_last_error</function></member>
+   <member><function>socket_strerror</function></member>
+  </simplelist>
+ </refsect1>
+
 </refentry>
 <!-- Keep this comment at the end of the file
 Local variables:
