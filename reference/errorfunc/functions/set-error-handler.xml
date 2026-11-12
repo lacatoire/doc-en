@@ -35,21 +35,33 @@
    read the current value of
    <link linkend="ini.error-reporting">error_reporting</link> and act
    appropriately.
+   The handler is also called for errors silenced by the
+   <link linkend="language.operators.errorcontrol">error control operator</link>
+   (<literal>@</literal>), in which case <function>error_reporting</function>
+   returns <literal>4437</literal>.
   </para>
   <para>
    Also note that it is the handler's responsibility to stop the
    script's execution if necessary by calling <function>exit</function>. If the error-handler
-   function returns, script execution will continue with the next statement
-   after the one that caused an error.
+   function returns, script execution continues right after the point where
+   the error was raised: the rest of the statement that caused the error is
+   still executed.
   </para>
   <para>
    The following error types cannot be handled with a user defined
    function: <constant>E_ERROR</constant>, <constant>E_PARSE</constant>,
    <constant>E_CORE_ERROR</constant>, <constant>E_CORE_WARNING</constant>,
    <constant>E_COMPILE_ERROR</constant>,
-   <constant>E_COMPILE_WARNING</constant> independent of where they were raised, and
-   most of <constant>E_STRICT</constant> raised in the file where
-   <function>set_error_handler</function> is called.
+   <constant>E_COMPILE_WARNING</constant> independent of where they were raised.
+   Errors raised while compiling the file in which
+   <function>set_error_handler</function> is called cannot be handled either,
+   as the handler is not registered yet at that time.
+  </para>
+  <para>
+   The handler is not active while it is running: an error raised inside the
+   handler goes to the standard PHP error handler, and
+   <function>set_error_handler</function> called from inside the handler
+   returns &null; and replaces the running handler.
   </para>
   <para>
    If errors occur before the script is executed (e.g. on file uploads) the 
@@ -60,106 +72,104 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>callback</parameter></term>
-     <listitem>
-      <simpara>
-       If &null; is passed, no user-defined handler is left active and errors
-       fall back to the built-in error handler.
-       The handler that was active until then is still saved on the stack and
-       can be brought back with <function>restore_error_handler</function>.
-       Otherwise, the handler is a callback with the following signature:
-      </simpara>
-      <para>
-       <methodsynopsis>
-        <type>bool</type><methodname><replaceable>handler</replaceable></methodname>
-        <methodparam><type>int</type><parameter>errno</parameter></methodparam>
-        <methodparam><type>string</type><parameter>errstr</parameter></methodparam>
-        <methodparam choice="opt"><type>string</type><parameter>errfile</parameter></methodparam>
-        <methodparam choice="opt"><type>int</type><parameter>errline</parameter></methodparam>
-        <methodparam choice="opt"><type>array</type><parameter>errcontext</parameter></methodparam>
-       </methodsynopsis>
-       <variablelist>
-        <varlistentry>
-         <term><parameter>errno</parameter></term>
-         <listitem>
-          <simpara>
-           The first parameter, <parameter>errno</parameter>, will be passed the
-           level of the error raised, as an integer.
-          </simpara>
-         </listitem>
-        </varlistentry>
-        <varlistentry>
-         <term><parameter>errstr</parameter></term>
-         <listitem>
-          <simpara>
-           The second parameter, <parameter>errstr</parameter>, will be passed the
-           error message, as a string.
-          </simpara>
-         </listitem>
-        </varlistentry>
-        <varlistentry>
-         <term><parameter>errfile</parameter></term>
-         <listitem>
-          <simpara>
-           If the callback accepts a third parameter, <parameter>errfile</parameter>,
-           it will be passed the filename that the error was raised in, as a string.
-          </simpara>
-         </listitem>
-        </varlistentry>
-        <varlistentry>
-         <term><parameter>errline</parameter></term>
-         <listitem>
-          <simpara>
-           If the callback accepts a fourth parameter, <parameter>errline</parameter>,
-           it will be passed the line number where the error was raised, as an integer.
-          </simpara>
-         </listitem>
-        </varlistentry>
-        <varlistentry>
-         <term><parameter>errcontext</parameter></term>
-         <listitem>
-          <simpara>
-           If the callback accepts a fifth parameter, <parameter>errcontext</parameter>,
-           it will be passed an array that points to the active symbol table at the
-           point the error occurred. In other words, <parameter>errcontext</parameter>
-           will contain an array of every variable that existed in the scope the
-           error was triggered in.
-           User error handlers must not modify the error context.
-          </simpara>
-          <warning xmlns="http://docbook.org/ns/docbook">
-           <simpara>
-            This parameter has been <emphasis>DEPRECATED</emphasis> as of PHP 7.2.0,
-            and <emphasis>REMOVED</emphasis> as of PHP 8.0.0. If the function defines
-            this parameter without a default, an error of "too few arguments" will be
-            raised when it is called.
-           </simpara>
-          </warning>
-         </listitem>
-        </varlistentry>
-       </variablelist>
-      </para>
-      <para>
-       If the function returns &false; then the normal error handler continues.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>error_levels</parameter></term>
-     <listitem>
-      <para>
-       Can be used to mask the triggering of the
-       <parameter>callback</parameter> function just like the <link linkend="ini.error-reporting">error_reporting</link> ini setting 
-       controls which errors are shown. Without this mask set the
-       <parameter>callback</parameter> will be called for every error
-       regardless to the setting of the <link linkend="ini.error-reporting">error_reporting</link> setting.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>callback</parameter></term>
+    <listitem>
+     <simpara>
+      If &null; is passed, no user-defined handler is left active and errors
+      fall back to the built-in error handler.
+      The handler that was active until then is still saved on the stack and
+      can be brought back with <function>restore_error_handler</function>.
+      Otherwise, the handler is a callback with the following signature:
+     </simpara>
+     <methodsynopsis>
+      <type>bool</type><methodname><replaceable>handler</replaceable></methodname>
+      <methodparam><type>int</type><parameter>errno</parameter></methodparam>
+      <methodparam><type>string</type><parameter>errstr</parameter></methodparam>
+      <methodparam choice="opt"><type>string</type><parameter>errfile</parameter></methodparam>
+      <methodparam choice="opt"><type>int</type><parameter>errline</parameter></methodparam>
+      <methodparam choice="opt"><type>array</type><parameter>errcontext</parameter></methodparam>
+     </methodsynopsis>
+     <variablelist>
+      <varlistentry>
+       <term><parameter>errno</parameter></term>
+       <listitem>
+        <simpara>
+         The first parameter, <parameter>errno</parameter>, will be passed the
+         level of the error raised, as an integer.
+        </simpara>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term><parameter>errstr</parameter></term>
+       <listitem>
+        <simpara>
+         The second parameter, <parameter>errstr</parameter>, will be passed the
+         error message, as a string.
+        </simpara>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term><parameter>errfile</parameter></term>
+       <listitem>
+        <simpara>
+         If the callback accepts a third parameter, <parameter>errfile</parameter>,
+         it will be passed the filename that the error was raised in, as a string.
+        </simpara>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term><parameter>errline</parameter></term>
+       <listitem>
+        <simpara>
+         If the callback accepts a fourth parameter, <parameter>errline</parameter>,
+         it will be passed the line number where the error was raised, as an integer.
+        </simpara>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term><parameter>errcontext</parameter></term>
+       <listitem>
+        <simpara>
+         If the callback accepts a fifth parameter, <parameter>errcontext</parameter>,
+         it will be passed an array that points to the active symbol table at the
+         point the error occurred. In other words, <parameter>errcontext</parameter>
+         will contain an array of every variable that existed in the scope the
+         error was triggered in.
+         User error handlers must not modify the error context.
+        </simpara>
+        <warning xmlns="http://docbook.org/ns/docbook">
+         <simpara>
+          This parameter has been <emphasis>DEPRECATED</emphasis> as of PHP 7.2.0,
+          and <emphasis>REMOVED</emphasis> as of PHP 8.0.0. If the function defines
+          this parameter without a default, an error of "too few arguments" will be
+          raised when it is called.
+         </simpara>
+        </warning>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+     <para>
+      If the function returns &false; then the normal error handler continues.
+      Any other return value, including &null;, means that the error has been
+      handled.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>error_levels</parameter></term>
+    <listitem>
+     <para>
+      Can be used to mask the triggering of the
+      <parameter>callback</parameter> function just like the <link linkend="ini.error-reporting">error_reporting</link> ini setting
+      controls which errors are shown. Without this mask set the
+      <parameter>callback</parameter> will be called for every error
+      regardless to the setting of the <link linkend="ini.error-reporting">error_reporting</link> setting.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -168,6 +178,14 @@
    Returns the previously defined error handler (if any) as a <type>callable</type>.
    If the built-in error handler is used &null; is returned.
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>callback</parameter> is neither a valid callback nor &null;.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -185,13 +203,21 @@
       <row>
        <entry>8.0.0</entry>
        <entry>
+        A <exceptionname>TypeError</exceptionname> is now thrown if
+        <parameter>callback</parameter> is not a valid callback. Previously,
+        an <constant>E_WARNING</constant> was emitted and &null; was returned.
+       </entry>
+      </row>
+      <row>
+       <entry>8.0.0</entry>
+       <entry>
         <parameter>errcontext</parameter> was removed, and will no longer be passed to user callbacks.
        </entry>
       </row>
       <row>
        <entry>7.2.0</entry>
        <entry>
-        <parameter>errcontext</parameter> became deprecated. Usage of this parameter now emits an <constant>E_DEPRECATED</constant> notice.
+        <parameter>errcontext</parameter> became deprecated.
        </entry>
       </row>
      </tbody>
@@ -202,14 +228,13 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Error handling with <function>set_error_handler</function> and <function>trigger_error</function></title>
-    <para>
-     The example below shows the handling of internal exceptions by
-     triggering errors and handling them with a user defined function:
-    </para>
-    <programlisting role="php">
+  <example>
+   <title>Error handling with <function>set_error_handler</function> and <function>trigger_error</function></title>
+   <para>
+    The example below shows the handling of internal exceptions by
+    triggering errors and handling them with a user defined function:
+   </para>
+   <programlisting role="php">
 <![CDATA[
 <?php
 // error handler function
@@ -300,9 +325,9 @@ $d = scale_by_log($a, -2.5);
 var_dump($d); // Never reached
 ?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 vector a
 Array
@@ -333,24 +358,22 @@ NULL
 ----
 vector d - fatal error
 Unknown error type: [8192] Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead<br />
-<b>My ERROR</b> [256] log(x) for x <= 0 is undefined, you used: scale = -2.5<br />
-  Fatal error on line 35 in file trigger_error.php, PHP 5.2.1 (FreeBSD)<br />
+<b>My ERROR</b> [256] log(x) for x &lt;= 0 is undefined, you used: scale = -2.5<br />
+  Fatal error on line 43 in file trigger_error.php, PHP 8.5.12 (Linux)<br />
 Aborting...<br />
 ]]>
-    </screen>
-   </example>
-  </para>
-  <para>
-   <example>
-    <title>Calling the previous handler from the new one</title>
-    <simpara>
-     The return value of <function>set_error_handler</function> is the handler
-     that was active until then. Calling it from the new handler keeps the
-     existing behaviour while adding to it. This only works if that handler is
-     a user defined function; &null; is returned when the built-in one was
-     active.
-    </simpara>
-    <programlisting role="php">
+   </screen>
+  </example>
+  <example>
+   <title>Calling the previous handler from the new one</title>
+   <simpara>
+    The return value of <function>set_error_handler</function> is the handler
+    that was active until then. Calling it from the new handler keeps the
+    existing behaviour while adding to it. This only works if that handler is
+    a user defined function; &null; is returned when the built-in one was
+    active.
+   </simpara>
+   <programlisting role="php">
 <![CDATA[
 <?php
 function logging_handler(int $errno, string $errstr): bool
@@ -374,17 +397,16 @@ trigger_error("only logged now", E_USER_WARNING);
 restore_error_handler();
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen>
+   </programlisting>
+   &example.outputs;
+   <screen>
 <![CDATA[
 counted: something happened
 logged: something happened
 logged: only logged now
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="notes">
@@ -409,6 +431,7 @@ logged: only logged now
    <member><exceptionname>ErrorException</exceptionname></member>
    <member><function>error_reporting</function></member>
    <member><function>restore_error_handler</function></member>
+   <member><function>set_exception_handler</function></member>
    <member><function>get_error_handler</function></member>
    <member><function>trigger_error</function></member>
    <member><link linkend="errorfunc.constants">error level constants</link></member>
