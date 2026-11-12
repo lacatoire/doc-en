@@ -23,19 +23,18 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>filename</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If <parameter>filename</parameter> is of the form "scheme://...", it
        is assumed to be a URL and PHP will search for a protocol handler
        (also known as a wrapper) for that scheme. If no wrappers for that
-       protocol are registered, PHP will emit a notice to help you track
+       protocol are registered, PHP will emit a warning to help you track
        potential problems in your script and then continue as though
        <parameter>filename</parameter> specifies a regular file.
-      </para>
+      </simpara>
       <para>
        If PHP has decided that <parameter>filename</parameter> specifies
        a local file, then it will try to open a stream on that file.
@@ -277,7 +276,6 @@ $handle = fopen("c:\\folder\\resource.txt", "r");
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -359,7 +357,6 @@ $handle = fopen("ftp://user:password@example.com/somefile.txt", "w");
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><xref linkend="wrappers"/></member>
     <member><function>fclose</function></member>
@@ -376,7 +373,6 @@ $handle = fopen("ftp://user:password@example.com/somefile.txt", "w");
     <member><function>umask</function></member>
     <member><classname>SplFileObject</classname></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
