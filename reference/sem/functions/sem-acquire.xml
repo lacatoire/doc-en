@@ -17,12 +17,16 @@
    <function>sem_acquire</function> by default blocks (if necessary) until the
    semaphore can be acquired.  A process attempting to acquire a semaphore which
    it has already acquired will block forever if acquiring the semaphore would
-   cause its maximum number of semaphore to be exceeded.
+   cause its maximum number of semaphores to be exceeded.
+   While the call is blocked, handlers installed with
+   <function>pcntl_signal</function> run only after it returns.
   </simpara>
   <simpara>
-   After processing a request, any semaphores acquired by the process but not
-   explicitly released will be released automatically and a warning will be
-   generated.
+   Any semaphore acquired but not explicitly released is released automatically,
+   without any warning, when the <classname>SysvSemaphore</classname> object is
+   destroyed, if <parameter>auto_release</parameter> of
+   <function>sem_get</function> is &true;. Otherwise, it is only released when
+   the process ends.
   </simpara>
  </refsect1>
 
@@ -56,6 +60,9 @@
   &reftitle.returnvalues;
   <simpara>
    &return.success;
+   If <parameter>non_blocking</parameter> is &true; and the semaphore cannot be
+   acquired immediately, &false; is returned without any diagnostic. Any other
+   failure raises an <constant>E_WARNING</constant>.
   </simpara>
  </refsect1>
 
@@ -70,6 +77,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>5.6.1</entry>
+      <entry>
+       The optional <parameter>non_blocking</parameter> parameter has been
+       added; it was originally named <parameter>nowait</parameter>.
+      </entry>
+     </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
