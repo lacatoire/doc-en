@@ -3,7 +3,7 @@
 <refentry xml:id="function.spl-autoload-call" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>spl_autoload_call</refname>
-  <refpurpose>Try all registered __autoload() functions to load the requested class</refpurpose>
+  <refpurpose>Try all registered autoloaders to load the requested class</refpurpose>
  </refnamediv>
  <refsect1 role="description">
   &reftitle.description;
@@ -13,7 +13,7 @@
   </methodsynopsis>
   <para>
    This function can be used to manually search for a class, interface, trait, or enumeration
-   using the registered __autoload functions.
+   using the registered autoloaders.
   </para>
  </refsect1>
 
