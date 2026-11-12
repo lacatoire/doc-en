@@ -30,7 +30,10 @@
      <term><parameter>callback</parameter></term>
      <listitem>
       <para>
-       The autoload function being unregistered.
+       The autoload function being unregistered. A <classname>Closure</classname>
+       is matched by identity: the same <classname>Closure</classname> object
+       that was registered has to be passed, and a new closure of the same code
+       removes nothing, in which case &false; is returned.
       </para>
      </listitem>
     </varlistentry>
@@ -56,6 +59,14 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.6.0</entry>
+      <entry>
+       Closures created from the same function or method, for example with
+       the first-class callable syntax <literal>f(...)</literal>, are now
+       recognized as the same autoloader.
+      </entry>
+     </row>
      <row>
       <entry>8.5.0</entry>
       <entry>
