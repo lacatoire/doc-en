@@ -57,7 +57,7 @@ class ApiRouter extends Yaf_Route_Interface
         return true;
     }
 
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }
 ?>]]>
    </programlisting>
