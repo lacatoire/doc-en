@@ -49,7 +49,16 @@
     <term><parameter>object_id</parameter></term>
     <listitem>
      <simpara>
-      The <acronym>SNMP</acronym> object id.
+      The <acronym>SNMP</acronym> object id, or an array of object ids.
+     </simpara>
+     <simpara>
+      With an array, all the object ids are set in a single request: if one of them cannot be set,
+      the function returns &false; and none of them is changed.
+      <parameter>type</parameter> and <parameter>value</parameter> are matched with the object ids by position,
+      array keys are ignored, and surplus elements are ignored. With fewer elements, an <constant>E_WARNING</constant>
+      is emitted and &false; is returned before anything is sent. A string <parameter>type</parameter> or
+      <parameter>value</parameter> is used for every object id. An array <parameter>type</parameter> or
+      <parameter>value</parameter> with a string <parameter>object_id</parameter> throws a <classname>TypeError</classname>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -82,7 +91,8 @@
     <term><parameter>retries</parameter></term>
     <listitem>
      <simpara>
-      The number of times to retry if timeouts occur.
+      The number of times to retry if timeouts occur. The same request is sent again each time,
+      so an agent that applied it but whose answer was lost may receive it more than once.
      </simpara>
     </listitem>
    </varlistentry>
@@ -95,8 +105,11 @@
    &return.success;
   </simpara>
   <simpara>
-   If the SNMP host rejects the data type, an E_WARNING message like "Warning: Error in packet. Reason: (badValue) The value given has the wrong type or length." is shown.
-   If an unknown or invalid OID is specified the warning probably reads "Could not add variable".
+   &true; means that the agent answered without error, the value is not read back.
+   If the agent rejects the request, an <constant>E_WARNING</constant> like "Error in packet at '<replaceable>oid</replaceable>': <replaceable>status</replaceable>"
+   is emitted, where the status is given by the agent, for example <literal>notWritable</literal> or <literal>wrongType</literal>.
+   If an object id cannot be resolved, the warning reads "Invalid object identifier".
+   If the type is unknown or the value does not fit it, the warning reads "Could not add variable".
   </simpara>
  </refsect1>
 
@@ -132,7 +145,7 @@
     <programlisting role="php">
 <![CDATA[
 <?php
-  snmpset("localhost", "public", "IF-MIB::ifAlias.3", "s", "foo");
+  snmpset("localhost", "private", "IF-MIB::ifAlias.3", "s", "foo");
 ?>
  ]]>
     </programlisting>
@@ -142,9 +155,9 @@
     <programlisting role="php">
 <![CDATA[
 <?php
-  snmpset("localhost", "public", 'FOO-MIB::bar.42', 'b', '0 1 2 3 4');
+  snmpset("localhost", "private", 'FOO-MIB::bar.42', 'b', '0 1 2 3 4');
 // or
-  snmpset("localhost", "public", 'FOO-MIB::bar.42', 'x', 'F0');
+  snmpset("localhost", "private", 'FOO-MIB::bar.42', 'x', 'F0');
 ?>
  ]]>
     </programlisting>
