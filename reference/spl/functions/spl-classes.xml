@@ -30,7 +30,8 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   Returns an <type>array</type> containing the currently available SPL classes.
+   Returns an <type>array</type> containing the currently available SPL classes,
+   interfaces and exceptions. Each key and its value is the name of the class.
   </para>
  </refsect1>
 
@@ -75,19 +76,15 @@ print_r(spl_classes());
 <![CDATA[
 Array
 (
-    [ArrayObject] => ArrayObject
+    [AppendIterator] => AppendIterator
     [ArrayIterator] => ArrayIterator
+    [ArrayObject] => ArrayObject
+    [BadFunctionCallException] => BadFunctionCallException
+    [BadMethodCallException] => BadMethodCallException
     [CachingIterator] => CachingIterator
-    [RecursiveCachingIterator] => RecursiveCachingIterator
+    [CallbackFilterIterator] => CallbackFilterIterator
     [DirectoryIterator] => DirectoryIterator
-    [FilterIterator] => FilterIterator
-    [LimitIterator] => LimitIterator
-    [ParentIterator] => ParentIterator
-    [RecursiveDirectoryIterator] => RecursiveDirectoryIterator
-    [RecursiveIterator] => RecursiveIterator
-    [RecursiveIteratorIterator] => RecursiveIteratorIterator
-    [SeekableIterator] => SeekableIterator
-    [SimpleXMLIterator] => SimpleXMLIterator
+    ...
 )
 ]]>
     </screen>
