@@ -12,8 +12,8 @@
    <methodparam><type>string</type><parameter>s</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   Determines if a point on the ristretto255 curve,
-   in canonical form, on the main subgroup, and that the point doesn't have a small order.
+   Determines whether a string is the canonical encoding of a point of the ristretto255 group.
+   The identity element is a valid point.
    Available as of libsodium 1.0.18.
   </simpara>
 
@@ -37,7 +37,16 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns &true; if <parameter>s</parameter> is on the ristretto255 curve, &false; otherwise.
+   Returns &true; if <parameter>s</parameter> is the canonical encoding of a ristretto255 point, &false; otherwise.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If <parameter>s</parameter> is not exactly
+   <link linkend="constant.sodium-crypto-core-ristretto255-bytes"><constant>SODIUM_CRYPTO_CORE_RISTRETTO255_BYTES</constant></link>
+   (32) bytes long, a <classname>SodiumException</classname> will be thrown.
   </simpara>
  </refsect1>
 
