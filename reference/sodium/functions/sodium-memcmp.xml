@@ -63,7 +63,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>SodiumException</classname> if <parameter>string1</parameter>
+   Throws a <exceptionname>SodiumException</exceptionname> if <parameter>string1</parameter>
    and <parameter>string2</parameter> do not have the same length.
   </simpara>
  </refsect1>
