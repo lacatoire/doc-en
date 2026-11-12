@@ -19,12 +19,18 @@
    This function is the opposite of <function>htmlspecialchars</function>. It
    converts special HTML entities back to characters.
   </para>
-  <para>
+  <simpara>
    The converted entities are: <literal>&amp;amp;</literal>,
    <literal>&amp;quot;</literal> (when <constant>ENT_NOQUOTES</constant> is not set),
    <literal>&amp;#039;</literal> (when <constant>ENT_QUOTES</constant> is set),
    <literal>&amp;lt;</literal> and <literal>&amp;gt;</literal>.
-  </para>
+   The decimal and hexadecimal numeric forms of these characters, such as
+   <literal>&amp;#60;</literal>, <literal>&amp;#x3C;</literal>,
+   <literal>&amp;#34;</literal> and <literal>&amp;#x27;</literal>, are converted as well,
+   subject to the same quote flags.
+   <literal>&amp;apos;</literal> is converted only when <constant>ENT_HTML401</constant>
+   is not in effect.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -70,8 +76,7 @@
           <row>
            <entry><constant>ENT_SUBSTITUTE</constant></entry>
            <entry>
-            Replace invalid code unit sequences with a Unicode Replacement Character
-            U+FFFD (UTF-8) or &amp;#xFFFD; (otherwise) instead of returning an empty string.
+            Has no effect, as this function does not validate its input.
            </entry>
           </row>
           <row>
