@@ -14,7 +14,13 @@
    <methodparam><type>int</type><parameter>block_size</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   Right-pad a string to a desired length. Timing-safe.
+   Right-pad a string to a multiple of <parameter>block_size</parameter>.
+   Timing-safe.
+  </simpara>
+  <simpara>
+   At least one byte is always appended: a <literal>0x80</literal> byte followed
+   by zero bytes (ISO/IEC 7816-4 padding). A string whose length is already a
+   multiple of <parameter>block_size</parameter> therefore gets a whole extra block.
   </simpara>
 
  </refsect1>
@@ -34,7 +40,9 @@
     <term><parameter>block_size</parameter></term>
     <listitem>
      <simpara>
-      The string will be padded until it is an even multiple of the block size.
+      The string will be padded until its length is the next multiple of the
+      block size above the length of <parameter>string</parameter>.
+      Must be greater than 0.
      </simpara>
     </listitem>
    </varlistentry>
@@ -45,6 +53,14 @@
   &reftitle.returnvalues;
   <simpara>
    Padded string.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>SodiumException</exceptionname> if <parameter>block_size</parameter>
+   is less than 1.
   </simpara>
  </refsect1>
 
