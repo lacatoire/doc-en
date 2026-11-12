@@ -19,7 +19,93 @@
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>authz_id</parameter><initializer>&null;</initializer></methodparam>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>props</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  &warn.undocumented.func;
+  <simpara>
+   Binds to the LDAP directory using <acronym>SASL</acronym> authentication.
+   Use <function>ldap_bind</function> for a simple bind.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term><parameter>ldap</parameter></term>
+     <listitem>
+      <simpara>
+       &ldap.parameter.ldap;
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>dn</parameter></term>
+     <listitem>
+      <simpara>
+       The bind <acronym>DN</acronym>.
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>password</parameter></term>
+     <listitem>
+      <simpara>
+       The password used as credential for the bind.
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>mech</parameter></term>
+     <listitem>
+      <simpara>
+       The <acronym>SASL</acronym> mechanism name, for example
+       <literal>DIGEST-MD5</literal>. If &null;, the value of the
+       <constant>LDAP_OPT_X_SASL_MECH</constant> connection option is used.
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>realm</parameter></term>
+     <listitem>
+      <simpara>
+       The <acronym>SASL</acronym> realm. If &null;, the value of the
+       <constant>LDAP_OPT_X_SASL_REALM</constant> connection option is used.
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>authc_id</parameter></term>
+     <listitem>
+      <simpara>
+       The authentication identity. If &null;, the value of the
+       <constant>LDAP_OPT_X_SASL_AUTHCID</constant> connection option is used.
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>authz_id</parameter></term>
+     <listitem>
+      <simpara>
+       The authorization identity. If &null;, the value of the
+       <constant>LDAP_OPT_X_SASL_AUTHZID</constant> connection option is used.
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>props</parameter></term>
+     <listitem>
+      <simpara>
+       A <acronym>SASL</acronym> security properties string. If not &null;,
+       it is applied to the connection as the
+       <constant>LDAP_OPT_X_SASL_SECPROPS</constant> option before binding.
+      </simpara>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+  <simpara>
+   The connection options mentioned above can be set with
+   <function>ldap_set_option</function>.
+  </simpara>
  </refsect1>
  
  <refsect1 role="returnvalues">
@@ -27,6 +113,21 @@
   <para>
    &return.success;
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If the bind fails, an <constant>E_WARNING</constant> level error is emitted
+   with the message <literal>Unable to bind to server</literal> followed by
+   the <acronym>LDAP</acronym> error description, and &false; is returned.
+  </simpara>
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if a string
+   argument contains a null byte. An <exceptionname>Error</exceptionname>
+   is thrown if the <parameter>ldap</parameter> connection has already been
+   closed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -65,6 +166,15 @@
     otherwise this function will be undefined.
    </simpara>
   </note>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>ldap_bind</function></member>
+   <member><function>ldap_connect</function></member>
+   <member><function>ldap_set_option</function></member>
+  </simplelist>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
