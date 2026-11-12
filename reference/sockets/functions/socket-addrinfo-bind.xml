@@ -37,6 +37,9 @@
   &reftitle.returnvalues;
   <para>
    Returns a <classname>Socket</classname> instance on success or &false; on failure.
+   The <classname>Socket</classname> created is destroyed on failure, so the error code can only be retrieved
+   by calling <function>socket_last_error</function> without argument. This code may be passed to
+   <function>socket_strerror</function> to get a textual explanation of the error.
   </para>
  </refsect1>
 
