@@ -1,43 +1,65 @@
+<p align="center"><a href="https://www.php.net/docs.php" target="_blank">
+    <img src="https://www.php.net/images/logos/new-php-logo.svg" alt="PHP" width="140">
+</a></p>
 
-# PHP Documentation
+<h3 align="center">
+  The PHP Manual (English)
+</h3>
 
-Please refer to the
-[contribution guidelines](https://github.com/php/doc-base/blob/master/docs/contributing.md)
-and the [README file](https://github.com/php/doc-base/blob/master/README.md)
-within the [doc-base repository](https://github.com/php/doc-base)
-for details on how to contribute to PHP's documentation.
+<p align="center">
+  <a href="https://www.php.net/docs.php">Read the manual</a>
+  <span> | </span>
+  <a href="https://github.com/php/doc-base/blob/master/docs/contributing.md">Contributing</a>
+  <span> | </span>
+  <a href="https://github.com/php/doc-base/blob/master/docs/overview.md">Documentation pipeline</a>
+  <span> | </span>
+  <a href="#translations">Translations</a>
+</p>
 
-The PHP manual is available at [php.net/docs](https://php.net/docs).
+<p align="center">
+  <a href="https://github.com/php/doc-en/actions/workflows/integrate.yaml"><img src="https://github.com/php/doc-en/actions/workflows/integrate.yaml/badge.svg" alt="Integrate"></a>
+  <a href="https://github.com/php/doc-en/actions/workflows/docbook-cs.yaml"><img src="https://github.com/php/doc-en/actions/workflows/docbook-cs.yaml/badge.svg" alt="DocBook Lint"></a>
+</p>
 
-## Creating this setup
+This repository contains the source of the English PHP manual, published on
+[php.net](https://www.php.net/docs.php).
 
-For information related to creating this setup,
-see the [contribution guidelines](https://github.com/php/doc-base/blob/master/docs/contributing.md)
-or [this page](https://doc.php.net/tutorial/local-setup.php) on our documentation website.
+> [!IMPORTANT]
+> Third-party extensions (distributed via PECL or PIE) are moving to
+> [php/doc-extensions](https://github.com/php/doc-extensions). Pull requests
+> that touch an extension carrying a `MOVING_TO_DOC_EXTENSIONS_DO_NOT_CHANGE_HERE.md`
+> notice under `reference/` fail the "Migrated Extensions" check and must be
+> opened against `php/doc-extensions` instead.
 
-## Building With make and Docker
+Build the documentation locally
+-------------------------------
 
-- Install Docker (https://docs.docker.com/get-docker/)
-- Rebuild the documentation using `make`
-- Open output/php-chunked-xhtml/ in your browser.
+This is not needed for contributing, but it is useful to check how your changes
+render.
 
-If the `doc-base` or `phd` repositories are available in directories to the
-adjacent to this directory, those will be used for building.
+1. Install [Docker](https://docs.docker.com/get-docker/).
+2. Rebuild the documentation with `make`.
+3. Open `output/php-chunked-xhtml/` in your browser.
 
-To force the Docker image used for building to itself be rebuilt, you can run
-`make -B build`, otherwise the `Makefile` will only build it if does not
-already exist.
+```bash
+make
+```
 
-You can also build the `web` version of the documentation with `make php`
-and the output will be placed in output/php-web
+If the `doc-base` or `phd` repositories are available in directories adjacent
+to this one, they are used for building.
 
-## Translations
+> [!NOTE]
+> The Docker image is only built if it does not already exist. To force a
+> rebuild, run `make -B build`.
 
-For the translations of this documentation, see:
+You can also build the `web` version of the documentation with `make php`; the
+output is placed in `output/php-web`.
+
+Translations
+------------
 
 - [Brazilian Portuguese](https://github.com/php/doc-pt_br) (doc-pt_br)
 - [Chinese (Simplified)](https://github.com/php/doc-zh) (doc-zh)
-- [English](https://github.com/php/doc-en) (doc-en)
 - [French](https://github.com/php/doc-fr) (doc-fr)
 - [German](https://github.com/php/doc-de) (doc-de)
 - [Italian](https://github.com/php/doc-it) (doc-it)
@@ -48,8 +70,3 @@ For the translations of this documentation, see:
 - [Spanish](https://github.com/php/doc-es) (doc-es)
 - [Turkish](https://github.com/php/doc-tr) (doc-tr)
 - [Ukrainian](https://github.com/php/doc-uk) (doc-uk)
-
-## Documentation pipeline
-
-For more information on the various repositories that make up PHP's documentation pipeline,
-see this [overview](https://github.com/php/doc-base/blob/master/docs/overview.md).
