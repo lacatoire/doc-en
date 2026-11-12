@@ -50,6 +50,10 @@
    Returns the soundex key as a &string; with four characters.
    If at least one letter is contained in <parameter>string</parameter>, the returned
    string starts with a letter. Otherwise <literal>"0000"</literal> is returned.
+   Only the ASCII letters <literal>A</literal> to <literal>Z</literal> and
+   <literal>a</literal> to <literal>z</literal> count: any other byte, such as an
+   accented letter, is skipped, so <literal>soundex("Éric")</literal> is
+   <literal>"R200"</literal>.
   </para>
  </refsect1>
 
