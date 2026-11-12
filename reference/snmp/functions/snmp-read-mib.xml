@@ -20,8 +20,10 @@
    can be used.
   </simpara>
   <simpara>
-   The order in which the MIBs are loaded does matter as the underlying Net-SNMP
-   library will print warnings if referenced objects cannot be resolved.
+   The order in which the MIBs are loaded does matter: a MIB must be loaded after
+   the MIBs it imports. A missing import is not reported, no message is printed
+   and the function still returns &true;. The error only comes later, when an object
+   of the MIB is used, and loading the missing MIB afterwards does not repair it.
   </simpara>
 
  </refsect1>
@@ -31,7 +33,12 @@
   <variablelist>
    <varlistentry>
     <term><parameter>filename</parameter></term>
-    <listitem><simpara>The filename of the <acronym>MIB</acronym>.</simpara></listitem>
+    <listitem>
+     <simpara>
+      The path of the <acronym>MIB</acronym> file, relative to the current working directory of the process.
+      A module name or a <literal>file://</literal> URL is not accepted.
+     </simpara>
+    </listitem>
    </varlistentry>
   </variablelist>
  </refsect1>
@@ -40,6 +47,19 @@
   &reftitle.returnvalues;
   <simpara>
    &return.success;
+  </simpara>
+  <simpara>
+   &true; does not mean that the MIB has been loaded. It is returned when the file can be opened and starts with a label,
+   including for a file that is not a MIB, for a MIB with a syntax error (nothing of the module is loaded)
+   and for a MIB whose imports are not loaded. If the file cannot be opened, or is empty,
+   an <constant>E_WARNING</constant> is emitted and &false; is returned.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <classname>ValueError</classname> if <parameter>filename</parameter> contains any null bytes.
   </simpara>
  </refsect1>
 
