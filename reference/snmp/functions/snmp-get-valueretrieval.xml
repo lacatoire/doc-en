@@ -25,9 +25,11 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   OR-ed combination of constants ( <constant>SNMP_VALUE_LIBRARY</constant> or
-   <constant>SNMP_VALUE_PLAIN</constant> ) with
-   possible SNMP_VALUE_OBJECT set.
+   One of <literal>0</literal> (<constant>SNMP_VALUE_LIBRARY</constant>, the default),
+   <constant>SNMP_VALUE_PLAIN</constant>, <constant>SNMP_VALUE_OBJECT</constant>,
+   or <constant>SNMP_VALUE_PLAIN</constant> | <constant>SNMP_VALUE_OBJECT</constant>.
+   <constant>SNMP_VALUE_LIBRARY</constant> is not a bit: it is the value when
+   <constant>SNMP_VALUE_PLAIN</constant> is not set.
   </simpara>
  </refsect1>
 
