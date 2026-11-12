@@ -16,6 +16,19 @@
    <function>imagecreate</function> to a true color image, like 
    <function>imagecreatetruecolor</function>.
   </para>
+  <note>
+   <simpara>
+    Unlike an image created by <function>imagecreatetruecolor</function>,
+    the converted image has alpha blending turned off and alpha saving turned
+    on. Call <function>imagealphablending</function> with &true; to enable
+    alpha blending again before drawing semi-transparent shapes.
+   </simpara>
+   <simpara>
+    If the palette image had a transparent color, its pixels become fully
+    transparent black pixels, and <function>imagecolortransparent</function>
+    then returns an ARGB color value instead of a palette index.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="parameters">
