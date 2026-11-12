@@ -48,7 +48,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>SodiumException</classname> if the variable does not hold
+   Throws a <exceptionname>SodiumException</exceptionname> if the variable does not hold
    a string.
   </simpara>
  </refsect1>
