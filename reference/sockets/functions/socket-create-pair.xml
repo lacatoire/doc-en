@@ -24,62 +24,64 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>domain</parameter></term>
-     <listitem>
-      <para>
-       The <parameter>domain</parameter> parameter specifies the protocol
-       family to be used by the socket. See <function>socket_create</function>
-       for the full list.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>type</parameter></term>
-     <listitem>
-      <para>
-       The <parameter>type</parameter> parameter selects the type of communication
-       to be used by the socket. See <function>socket_create</function> for the 
-       full list.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>protocol</parameter></term>
-     <listitem>
-      <para>
-       The <parameter>protocol</parameter> parameter sets the specific
-       protocol within the specified <parameter>domain</parameter> to be used
-       when communicating on the returned socket. The proper value can be retrieved by
-       name by using <function>getprotobyname</function>. If
-       the desired protocol is TCP, or UDP the corresponding constants
-       <constant>SOL_TCP</constant>, and <constant>SOL_UDP</constant>
-       can also be used.
-      </para>
-      <para>
-       See <function>socket_create</function> for the full list of supported 
-       protocols.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>pair</parameter></term>
-     <listitem>
-      <para>
-       Reference to an array in which the two <classname>Socket</classname> instances will be inserted.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>domain</parameter></term>
+    <listitem>
+     <para>
+      The <parameter>domain</parameter> parameter specifies the protocol
+      family to be used by the socket: <constant>AF_UNIX</constant>,
+      <constant>AF_INET6</constant> or <constant>AF_INET</constant>. On Linux, only
+      <constant>AF_UNIX</constant> works, and on Windows only <constant>AF_INET</constant>:
+      the other families fail with an error from the system.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>type</parameter></term>
+    <listitem>
+     <para>
+      The <parameter>type</parameter> parameter selects the type of communication
+      to be used by the socket, for example <constant>SOCK_STREAM</constant>,
+      <constant>SOCK_DGRAM</constant> or <constant>SOCK_SEQPACKET</constant>
+      (<constant>AF_UNIX</constant>).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>protocol</parameter></term>
+    <listitem>
+     <para>
+      The <parameter>protocol</parameter> parameter sets the specific
+      protocol within the specified <parameter>domain</parameter> to be used
+      when communicating on the returned socket. On Linux, it must be
+      <literal>0</literal>: another value, such as <constant>SOL_TCP</constant>,
+      fails with "Protocol not supported".
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>pair</parameter></term>
+    <listitem>
+     <para>
+      Reference to an array in which the two <classname>Socket</classname> instances will be inserted.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
    &return.success;
+  </para>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   A <exceptionname>ValueError</exceptionname> is thrown if <parameter>domain</parameter> is not
+   <constant>AF_UNIX</constant>, <constant>AF_INET6</constant> or <constant>AF_INET</constant>.
   </para>
  </refsect1>
 
