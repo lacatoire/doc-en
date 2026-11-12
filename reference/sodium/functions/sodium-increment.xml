@@ -40,6 +40,17 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     If <parameter>string</parameter> is not a string, a <classname>SodiumException</classname> will be thrown.
+    </simpara>
+   </listitem>
+  </itemizedlist>
+ </refsect1>
+
 
 </refentry>
 <!-- Keep this comment at the end of the file

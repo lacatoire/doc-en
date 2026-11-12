@@ -27,8 +27,9 @@
     <term><parameter>string1</parameter></term>
     <listitem>
      <simpara>
-      String representing an arbitrary-length unsigned integer in little-endian byte order.
+      String representing an unsigned integer in little-endian byte order. It must have the same length as <parameter>string2</parameter>.
       This parameter is passed by reference and will hold the sum of the two parameters.
+      The carry out of the last byte is dropped: the sum is taken modulo 256 to the power of the length of the strings.
      </simpara>
     </listitem>
    </varlistentry>
@@ -36,7 +37,7 @@
     <term><parameter>string2</parameter></term>
     <listitem>
      <simpara>
-      String representing an arbitrary-length unsigned integer in little-endian byte order.
+      String representing an unsigned integer in little-endian byte order, with the same length as <parameter>string1</parameter>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -48,6 +49,22 @@
   <simpara>
    &return.void;
   </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     If <parameter>string1</parameter> is not a string, a <classname>SodiumException</classname> will be thrown.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     If <parameter>string1</parameter> and <parameter>string2</parameter> do not have the same length, a <classname>SodiumException</classname> will be thrown and <parameter>string1</parameter> is left unchanged.
+    </simpara>
+   </listitem>
+  </itemizedlist>
  </refsect1>
 
 
