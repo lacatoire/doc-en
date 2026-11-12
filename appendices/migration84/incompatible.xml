@@ -32,6 +32,14 @@
     <function>die</function> now consistently result in a
     <exceptionname>TypeError</exceptionname> being thrown.
    </simpara>
+
+   <simpara>
+    They can also be called with named arguments, as in
+    <literal>exit(status: 7)</literal>. A call without argument now uses the
+    default <parameter>status</parameter> of <literal>0</literal>, and
+    therefore resets an exit code set by an earlier call, for instance in a
+    shutdown function or a destructor.
+   </simpara>
   </sect3>
 
   <sect3 xml:id="migration84.incompatible.core.recursion-comparison">
