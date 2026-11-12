@@ -13,44 +13,144 @@
    <methodparam><type>array</type><parameter role="reference">message</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>flags</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
-  <para>
-  </para>
-  &warn.undocumented.func;
+  <simpara>
+   The function <function>socket_recvmsg</function> receives a message from the socket
+   <parameter>socket</parameter>, using the <literal>recvmsg()</literal> system call,
+   and replaces <parameter>message</parameter> with a description of what was received.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <para>
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>message</parameter></term>
-     <listitem>
-      <para>
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>flags</parameter></term>
-     <listitem>
-      <para>
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <simpara>
+      A <classname>Socket</classname> instance created with <function>socket_create</function>,
+      <function>socket_accept</function> or <function>socket_create_pair</function>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>message</parameter></term>
+    <listitem>
+     <simpara>
+      An array, passed by reference, which describes the buffers to prepare. It may contain the following
+      elements:
+     </simpara>
+     <variablelist>
+      <varlistentry>
+       <term><varname>name</varname></term>
+       <listitem>
+        <simpara>
+         An array, which may be empty. Only its optional <varname>family</varname> key is read: it selects the
+         address family used to receive the address of the sender, which defaults to the family of
+         <parameter>socket</parameter>. Without this element, the <varname>name</varname> element of the
+         result is &null;.
+        </simpara>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term><varname>buffer_size</varname></term>
+       <listitem>
+        <simpara>
+         The size in bytes of the buffer that receives the data, up to <literal>104857600</literal>.
+         It defaults to <literal>8192</literal>. A message longer than the buffer is truncated.
+        </simpara>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term><varname>controllen</varname></term>
+       <listitem>
+        <simpara>
+         The size in bytes of the buffer that receives the ancillary data. This element is required, and must be
+         greater than <literal>0</literal>. <function>socket_cmsg_space</function> computes the size
+         needed for a given ancillary message.
+        </simpara>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+     <simpara>
+      On success, <parameter>message</parameter> is replaced by an array with exactly the keys described in the
+      return values section, so the array cannot be reused as it is for another call. On failure it is left
+      unchanged.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>flags</parameter></term>
+    <listitem>
+     <simpara>
+      A combination of the <literal>MSG_*</literal> flags of <literal>recvmsg()</literal>, joined with the
+      binary OR (<literal>|</literal>) operator, for example <constant>MSG_PEEK</constant>,
+      <constant>MSG_DONTWAIT</constant>, <constant>MSG_WAITALL</constant>, <constant>MSG_TRUNC</constant>
+      or <constant>MSG_CMSG_CLOEXEC</constant>. They depend on the platform.
+      With <constant>MSG_TRUNC</constant>, the return value is the real length of a datagram, even when it is
+      longer than the buffer.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-  </para>
+  <simpara>
+   Returns the number of bytes received, or &false; on failure, in which case an <constant>E_WARNING</constant>
+   is emitted. On success, <parameter>message</parameter> is an array with the following keys:
+  </simpara>
+  <variablelist>
+   <varlistentry>
+    <term><varname>name</varname></term>
+    <listitem>
+     <simpara>
+      The address of the sender, as an array (<varname>family</varname>, <varname>addr</varname> and
+      <varname>port</varname> for <constant>AF_INET</constant>), or &null; if the <varname>name</varname>
+      element was not given.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><varname>control</varname></term>
+    <listitem>
+     <simpara>
+      The list of ancillary data messages received, each an array with the keys
+      <varname>level</varname>, <varname>type</varname> and <varname>data</varname>. The supported messages
+      are <constant>IPV6_PKTINFO</constant>, <constant>IPV6_HOPLIMIT</constant>,
+      <constant>IPV6_TCLASS</constant>, <constant>SCM_CREDENTIALS</constant> and
+      <constant>SCM_RIGHTS</constant>, whose file descriptors are received as <classname>Socket</classname>
+      instances or stream resources.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><varname>iov</varname></term>
+    <listitem>
+     <simpara>
+      A list with one string: the data received.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><varname>flags</varname></term>
+    <listitem>
+     <simpara>
+      The flags of the received message, for example <constant>MSG_TRUNC</constant> when the data was
+      truncated and <constant>MSG_CTRUNC</constant> when the ancillary data was.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if <parameter>flags</parameter> is outside the range of
+   an <type>int</type>. An <classname>Error</classname> is thrown if <parameter>socket</parameter> has already been
+   closed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -64,20 +164,81 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.0.21, 8.1.8</entry>
+      <entry>
+       A <parameter>flags</parameter> outside the range of an <type>int</type> now throws a
+       <exceptionname>ValueError</exceptionname>; the value was silently truncated before.
+      </entry>
+     </row>
      &sockets.changelog.socket-param;
     </tbody>
    </tgroup>
   </informaltable>
  </refsect1>
 
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <example>
+   <title>Receiving a datagram and the address of its sender</title>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$server = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+socket_bind($server, '127.0.0.1', 0);
+socket_getsockname($server, $address, $port);
+$client = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+socket_sendto($client, 'Hello world', 11, 0, $address, $port);
+
+$message = ['name' => [], 'buffer_size' => 64, 'controllen' => socket_cmsg_space(SOL_SOCKET, SCM_RIGHTS, 1)];
+$received = socket_recvmsg($server, $message, 0);
+echo "received: $received bytes, {$message['iov'][0]}\n";
+echo "from: {$message['name']['addr']}\n";
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+received: 11 bytes, Hello world
+from: 127.0.0.1
+]]>
+   </screen>
+  </example>
+  <example>
+   <title>Detecting a truncated datagram</title>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$server = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+socket_bind($server, '127.0.0.1', 0);
+socket_getsockname($server, $address, $port);
+$client = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+socket_sendto($client, 'abcdefghij', 10, 0, $address, $port);
+
+$message = ['name' => [], 'buffer_size' => 3, 'controllen' => 64];
+var_dump(socket_recvmsg($server, $message, MSG_TRUNC));
+var_dump($message['iov'][0], ($message['flags'] & MSG_TRUNC) === MSG_TRUNC);
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+int(10)
+string(3) "abc"
+bool(true)
+]]>
+   </screen>
+  </example>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>socket_sendmsg</function></member>
-    <member><function>socket_cmsg_space</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>socket_sendmsg</function></member>
+   <member><function>socket_cmsg_space</function></member>
+   <member><function>socket_recv</function></member>
+   <member><function>socket_recvfrom</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
