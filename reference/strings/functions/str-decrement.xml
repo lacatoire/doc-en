@@ -55,6 +55,9 @@
    A <classname>ValueError</classname> is thrown if
    <parameter>string</parameter> cannot be decremented.
    For example, <literal>"A"</literal> or <literal>"0"</literal>.
+   Every string starting with <literal>"0"</literal> is rejected, even when a
+   predecessor exists, such as <literal>"01"</literal> or <literal>"0a"</literal>,
+   whereas <literal>"10"</literal> is decremented to <literal>"9"</literal>.
   </para>
  </refsect1>
 
