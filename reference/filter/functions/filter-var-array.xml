@@ -102,6 +102,27 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if the
+   <parameter>options</parameter> &array; contains a key that is not a
+   &string;.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if the
+   <parameter>options</parameter> &array; contains an empty key, or if the
+   flags of an entry contain both
+   <constant>FILTER_NULL_ON_FAILURE</constant> and
+   <constant>FILTER_THROW_ON_FAILURE</constant>.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>Filter\FilterFailedException</exceptionname>
+   if the filter of an entry fails and the
+   <constant>FILTER_THROW_ON_FAILURE</constant> flag is used.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
