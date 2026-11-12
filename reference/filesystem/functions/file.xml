@@ -72,7 +72,8 @@
          </term>
          <listitem>
           <simpara>
-           Skip empty lines.
+           Skip empty lines. This flag has no effect unless
+           <constant>FILE_IGNORE_NEW_LINES</constant> is also set.
           </simpara>
          </listitem>
         </varlistentry>
