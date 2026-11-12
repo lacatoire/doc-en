@@ -12,9 +12,12 @@
    <type>void</type><methodname>curl_reset</methodname>
    <methodparam><type>CurlHandle</type><parameter>handle</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    This function re-initializes all options set on the given cURL handle to the default values.
-  </para>
+   It does not change the live connections, the caches or the cookies kept in
+   the handle; use <constant>CURLOPT_COOKIELIST</constant> with
+   <literal>"ALL"</literal> to clear the cookies.
+  </simpara>
 
  </refsect1>
 
@@ -32,6 +35,14 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if it is called from a
+   callback of <parameter>handle</parameter> while a transfer is running.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -43,6 +54,14 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       An <exceptionname>Error</exceptionname> is now thrown if called from a
+       callback of <parameter>handle</parameter>; previously, an
+       <constant>E_WARNING</constant> was emitted.
+      </entry>
+     </row>
      &curl.changelog.handle-param;
     </tbody>
    </tgroup>
@@ -82,6 +101,14 @@ curl_exec($ch); // the previously set user-agent will be not sent, it has been r
    <para>
     <function>curl_reset</function> also resets the URL given as the <function>curl_init</function> parameter.
    </para>
+  </note>
+  <note>
+   <simpara>
+    Resetting a handle that is attached to a <classname>CurlMultiHandle</classname>
+    while its transfer is running abandons the transfer silently:
+    <function>curl_multi_info_read</function> then reports the
+    <literal>CURLE_GOT_NOTHING</literal> error for that handle.
+   </simpara>
   </note>
  </refsect1>
 
