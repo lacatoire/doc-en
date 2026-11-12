@@ -23,7 +23,7 @@
     This encryption is unauthenticated, and does not prevent chosen-ciphertext attacks.
     Make sure to combine the ciphertext with a Message Authentication Code,
     for example with <function>sodium_crypto_aead_xchacha20poly1305_ietf_encrypt</function> function,
-    or <function>sodium_crypto_auth</function>.
+    or <function>sodium_crypto_auth</function>, in both cases with a key different from the one used here.
    </simpara>
   </caution>
 
@@ -44,7 +44,7 @@
     <term><parameter>nonce</parameter></term>
     <listitem>
      <simpara>
-      24-byte nonce.
+      24-byte nonce. It must only be used once per message with a given key.
      </simpara>
     </listitem>
    </varlistentry>
