@@ -36,10 +36,26 @@
        one-dimensional structure, or an array of arrays (which in
        turn may contain other arrays).
       </para>
-      <para>
-       If <parameter>data</parameter> is an object, then only public
-       properties will be incorporated into the result.
-      </para>
+      <simpara>
+       If <parameter>data</parameter> is an object, then only the properties
+       accessible from the calling scope will be incorporated into the result:
+       public properties from the outside, and also protected and private
+       properties when called from inside the class (protected ones
+       also from a subclass).
+      </simpara>
+      <simpara>
+       Values of &null; and resources are skipped. &false; is converted to
+       <literal>0</literal> and &true; to <literal>1</literal>. Floating point
+       values are converted to strings using the
+       <link linkend="ini.precision">precision</link> INI setting.
+      </simpara>
+      <simpara>
+       As of PHP 8.4.0, passing an enum as <parameter>data</parameter> throws a
+       <exceptionname>TypeError</exceptionname>, and an unbacked enum nested in
+       <parameter>data</parameter> throws a
+       <exceptionname>ValueError</exceptionname>. Backed enums are converted to
+       their backing value.
+      </simpara>
       <note>
        <simpara>
         The <link linkend="object.tostring">__toString()</link> magic method is
@@ -92,6 +108,9 @@
        according to <link xlink:href="&url.rfc;3986">RFC 3986</link>, and
        spaces will be percent encoded (<literal>%20</literal>).
       </para>
+      <simpara>
+       Any other value is treated as <constant>PHP_QUERY_RFC1738</constant>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
