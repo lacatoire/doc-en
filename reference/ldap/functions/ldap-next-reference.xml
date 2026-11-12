@@ -13,7 +13,77 @@
    <methodparam><type>LDAP\Connection</type><parameter>ldap</parameter></methodparam>
    <methodparam><type>LDAP\ResultEntry</type><parameter>entry</parameter></methodparam>
   </methodsynopsis>
-  &warn.undocumented.func;
+  <simpara>
+   Retrieves the next reference message of a search result, following the
+   one returned by <function>ldap_first_reference</function> or by a previous
+   call to <function>ldap_next_reference</function>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term><parameter>ldap</parameter></term>
+     <listitem>
+      <simpara>
+       &ldap.parameter.ldap;
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>entry</parameter></term>
+     <listitem>
+      <simpara>
+       An <classname>LDAP\ResultEntry</classname> instance, as returned by
+       <function>ldap_first_reference</function> or by a previous call to
+       <function>ldap_next_reference</function>.
+      </simpara>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   Returns an <classname>LDAP\ResultEntry</classname> instance for the next
+   reference of the same result, which can be passed to
+   <function>ldap_parse_reference</function>. Returns &false; if there are no
+   more references.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     &ldap.changelog.ldap-object;
+     &ldap.changelog.entry-object;
+     &ldap.changelog.return-result-object;
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>ldap_first_reference</function></member>
+    <member><function>ldap_parse_reference</function></member>
+    <member><function>ldap_next_entry</function></member>
+   </simplelist>
+  </para>
  </refsect1>
 
 </refentry>
