@@ -16,7 +16,7 @@
    <methodparam><type>int</type><parameter>flags</parameter></methodparam>
   </methodsynopsis>
   <para>
-   The function <function>socket_send</function> sends
+   The function <function>socket_send</function> sends at most
    <parameter>length</parameter> bytes to the socket
    <parameter>socket</parameter> from <parameter>data</parameter>.
   </para>
@@ -24,85 +24,118 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <para>
-       A <classname>Socket</classname> instance created with <function>socket_create</function>
-       or <function>socket_accept</function>.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>data</parameter></term>
-     <listitem>
-      <para>
-       A buffer containing the data that will be sent to the remote host.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>length</parameter></term>
-     <listitem>
-      <para>
-       The number of bytes that will be sent to the remote host from 
-       <parameter>data</parameter>.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>flags</parameter></term>
-     <listitem>
-      <para>
-       The value of <parameter>flags</parameter> can be any combination of 
-       the following flags, joined with the binary OR (<literal>|</literal>)
-       operator.
-       <table>
-        <title>Possible values for <parameter>flags</parameter></title>
-        <tgroup cols="2">
-         <tbody>
-          <row>
-           <entry><constant>MSG_OOB</constant></entry>
-           <entry>
-            Send OOB (out-of-band) data.
-           </entry>
-          </row>
-          <row>
-           <entry><constant>MSG_EOR</constant></entry>
-           <entry>
-            Indicate a record mark. The sent data completes the record.
-           </entry>
-          </row>
-          <row>
-           <entry><constant>MSG_EOF</constant></entry>
-           <entry>
-            Close the sender side of the socket and include an appropriate
-            notification of this at the end of the sent data. The sent data
-            completes the transaction.
-           </entry>
-          </row>
-          <row>
-           <entry><constant>MSG_DONTROUTE</constant></entry>
-           <entry>
-            Bypass routing, use direct interface.
-           </entry>
-          </row>
-         </tbody>
-        </tgroup>
-       </table>
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <para>
+      A <classname>Socket</classname> instance created with <function>socket_create</function>
+      or <function>socket_accept</function>.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>data</parameter></term>
+    <listitem>
+     <para>
+      A buffer containing the data that will be sent to the remote host.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>length</parameter></term>
+    <listitem>
+     <para>
+      The maximum number of bytes that will be sent to the remote host from 
+      <parameter>data</parameter>. If it is greater than the length of
+      <parameter>data</parameter>, it is silently reduced to it. It must not be negative.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>flags</parameter></term>
+    <listitem>
+     <para>
+      The value of <parameter>flags</parameter> can be any combination of 
+      the following flags, joined with the binary OR (<literal>|</literal>)
+      operator.
+      <table>
+       <title>Possible values for <parameter>flags</parameter></title>
+       <tgroup cols="2">
+        <tbody>
+         <row>
+          <entry><constant>MSG_OOB</constant></entry>
+          <entry>
+           Send OOB (out-of-band) data.
+          </entry>
+         </row>
+         <row>
+          <entry><constant>MSG_EOR</constant></entry>
+          <entry>
+           Indicate a record mark. The sent data completes the record.
+          </entry>
+         </row>
+         <row>
+          <entry><constant>MSG_EOF</constant></entry>
+          <entry>
+           Close the sender side of the socket and include an appropriate
+           notification of this at the end of the sent data. The sent data
+           completes the transaction. This is the meaning on BSD systems: on Linux
+           the flag is accepted and has no effect.
+          </entry>
+         </row>
+         <row>
+          <entry><constant>MSG_DONTROUTE</constant></entry>
+          <entry>
+           Bypass routing, use direct interface.
+          </entry>
+         </row>
+         <row>
+          <entry><constant>MSG_DONTWAIT</constant></entry>
+          <entry>
+           Send without blocking, even on a blocking socket.
+          </entry>
+         </row>
+         <row>
+          <entry><constant>MSG_NOSIGNAL</constant></entry>
+          <entry>
+           Do not generate a <literal>SIGPIPE</literal> signal when the peer has closed the connection.
+          </entry>
+         </row>
+         <row>
+          <entry><constant>MSG_MORE</constant></entry>
+          <entry>
+           More data will follow, so the sending can be delayed.
+          </entry>
+         </row>
+        </tbody>
+       </tgroup>
+      </table>
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
    <function>socket_send</function> returns the number of bytes sent, or &false; on error. 
+   The number of bytes sent can be lower than <parameter>length</parameter>, for example on a non-blocking
+   socket, with <constant>MSG_DONTWAIT</constant>, with a send timeout or after a signal: a loop must be
+   used to send the rest of <parameter>data</parameter>.
+  </para>
+  <para>
+   When nothing can be sent, &false; is returned, without any warning for <constant>SOCKET_EAGAIN</constant>
+   and with an <constant>E_WARNING</constant> for the other errors. The error code can be retrieved with
+   <function>socket_last_error</function> and passed to <function>socket_strerror</function>
+   to get a textual explanation.
+  </para>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   If <parameter>length</parameter> is negative, a <exceptionname>ValueError</exceptionname> is thrown.
   </para>
  </refsect1>
 
@@ -118,6 +151,12 @@
     </thead>
     <tbody>
      &sockets.changelog.socket-param;
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       A negative <parameter>length</parameter> now throws a <exceptionname>ValueError</exceptionname>.
+      </entry>
+     </row>
     </tbody>
    </tgroup>
   </informaltable>
@@ -125,11 +164,11 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>socket_sendto</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>socket_sendto</function></member>
+   <member><function>socket_write</function></member>
+   <member><function>socket_last_error</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
