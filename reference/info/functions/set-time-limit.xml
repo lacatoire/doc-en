@@ -16,7 +16,7 @@
    Set the number of seconds a script is allowed to run. If this is reached,
    the script returns a fatal error. The default limit is 30 seconds or, if
    it exists, the <literal>max_execution_time</literal> value defined in the
-   &php.ini;.
+   &php.ini;. The default of the CLI SAPI is <literal>0</literal>: no limit.
   </para>
   <para>
    When called, <function>set_time_limit</function> restarts the timeout
@@ -29,19 +29,20 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>seconds</parameter></term>
-     <listitem>
-      <para>
-       The maximum execution time, in seconds. If set to zero, no time limit
-       is imposed.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>seconds</parameter></term>
+    <listitem>
+     <para>
+      The maximum execution time, in seconds. If set to zero, no time limit
+      is imposed. A negative value, or a value above <literal>999999999</literal>, also means
+      no limit on most platforms, while <function>ini_get</function> reports the value given.
+      A <type>float</type> with a fractional part is truncated, with an
+      <constant>E_DEPRECATED</constant> as of PHP 8.1.0.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -62,19 +63,19 @@
     calls using <function>system</function>, stream operations, database
     queries, etc. is not included when determining the maximum time that the
     script has been running.
-    This is not true on Windows where the measured time is real.
+    This is not true on Windows, where the measured time is real, nor on thread safe (ZTS)
+    builds for Linux and FreeBSD, which use a real-time timer as of PHP 8.3.0.
+    Other Linux builds measure the CPU time of the process.
    </para>
   </note>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><link linkend="ini.max-execution-time">max_execution_time</link></member>
-    <member><link linkend="ini.max-input-time">max_input_time</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><link linkend="ini.max-execution-time">max_execution_time</link></member>
+   <member><link linkend="ini.max-input-time">max_input_time</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
