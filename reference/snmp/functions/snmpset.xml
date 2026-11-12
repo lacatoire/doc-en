@@ -144,7 +144,7 @@
 <?php
   snmpset("localhost", "public", 'FOO-MIB::bar.42', 'b', '0 1 2 3 4');
 // or
-  snmpset("localhost", "public", 'FOO-MIB::bar.42', 'x', 'F0');
+  snmpset("localhost", "public", 'FOO-MIB::bar.42', 'x', 'F8');
 ?>
  ]]>
     </programlisting>

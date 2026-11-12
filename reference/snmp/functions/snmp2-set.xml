@@ -143,7 +143,7 @@
 <?php
   snmp2_set("localhost", "public", 'FOO-MIB::bar.42', 'b', '0 1 2 3 4');
 // or
-  snmp2_set("localhost", "public", 'FOO-MIB::bar.42', 'x', 'F0');
+  snmp2_set("localhost", "public", 'FOO-MIB::bar.42', 'x', 'F8');
 ?>
  ]]>
     </programlisting>

@@ -115,7 +115,7 @@
   $session = new SNMP(SNMP::VERSION_2C, "127.0.0.1", "private");
   $session->set('FOO-MIB::bar.42', 'b', '0 1 2 3 4');
 // or
-  $session->set('FOO-MIB::bar.42', 'x', 'F0');
+  $session->set('FOO-MIB::bar.42', 'x', 'F8');
 ?>
  ]]>
     </programlisting>
