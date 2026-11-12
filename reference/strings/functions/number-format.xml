@@ -35,16 +35,16 @@
     <varlistentry>
      <term><parameter>decimals</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Sets the number of decimal digits.
        If <literal>0</literal>, the <parameter>decimal_separator</parameter> is
        omitted from the return value.
        As of PHP 8.3.0, when the value is negative, <parameter>num</parameter>
-       is rounded to <parameter>decimals</parameter> significant digits before
-       the decimal point.
+       is rounded to the left of the decimal point, e.g. a value of
+       <literal>-2</literal> rounds to hundreds.
        Prior to PHP 8.3.0, negative values were ignored and handled the
        same as <literal>0</literal>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -152,8 +152,7 @@ echo number_format($number, 2, '.', ''), PHP_EOL;
    <title>A negative value for <parameter>decimals</parameter></title>
    <simpara>
     As of PHP 8.3.0, a negative value for <parameter>decimals</parameter>
-    is used to round the number of significant digits before the decimal
-    point.
+    is used to round to the left of the decimal point.
    </simpara>
    <programlisting role="php">
 <![CDATA[
