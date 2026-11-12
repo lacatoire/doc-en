@@ -98,7 +98,10 @@
           <row>
            <entry><literal>U</literal></entry>
            <entry>Seconds since the Unix Epoch - January 1 1970 00:00:00 UTC -
-            this is the same as <function>time</function></entry>
+            this is the same as <function>time</function>, but the value is
+            truncated to a 32-bit signed integer, so it is wrong for
+            timestamps after 2038-01-19 03:14:07 UTC or before
+            1901-12-13 20:45:52 UTC</entry>
           </row>
           <row>
            <entry><literal>w</literal></entry>
@@ -148,6 +151,16 @@
    as they can't start with a "0", <function>idate</function> may return
    fewer digits than you would expect. See the example below.
   </para>
+  <note>
+   <simpara>
+    <function>idate</function> uses <literal>-1</literal> internally to
+    signal an unrecognized format character. In PHP versions affected by this,
+    a legitimate result of <literal>-1</literal> (for example
+    <literal>Y</literal> or <literal>y</literal> for the year <literal>-1</literal>)
+    is therefore reported as a failure: a warning is emitted and &false; is
+    returned.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="errors">
