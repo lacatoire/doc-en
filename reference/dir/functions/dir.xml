@@ -46,6 +46,7 @@
   <para>
    Returns an instance of <classname>Directory</classname>, or &false; in case of error.
   </para>
+  &fs.emits.warning.on.failure;
  </refsect1>
 
  <refsect1 role="changelog">
