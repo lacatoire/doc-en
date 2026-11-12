@@ -34,8 +34,11 @@
     <varlistentry>
      <term><parameter>values</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The values to substitute for the conversion specifications in
+       <parameter>format</parameter>, in order. Values in excess of those used
+       by <parameter>format</parameter> are ignored.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
