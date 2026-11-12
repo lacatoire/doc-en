@@ -12,11 +12,13 @@
    <type>bool</type><methodname>session_start</methodname>
    <methodparam choice="opt"><type>array</type><parameter>options</parameter><initializer>[]</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>session_start</function> creates a session or resumes the
    current one based on a session identifier passed via a GET or POST
-   request, or passed via a cookie.
-  </para>
+   request, or passed via a cookie. A GET or POST identifier is only used when
+   <link linkend="ini.session.use-only-cookies">session.use_only_cookies</link>
+   is disabled; it is enabled by default.
+  </simpara>
   <para>
    When <function>session_start</function> is called or when a session auto starts,
    PHP will call the open and read session save handlers.  These will either be a built-in
@@ -56,6 +58,13 @@
       <link linkend="session.configuration">session configuration directives</link>.
       The keys should not include the <literal>session.</literal> prefix.
      </para>
+     <simpara>
+      The options are not restored when the session ends, and remain set for
+      the rest of the request. If a directive cannot be changed, an
+      <constant>E_WARNING</constant> is raised and the previous value is kept,
+      but the session is still started. If a session is already active, the
+      options are ignored.
+     </simpara>
      <para>
       In addition to the normal set of configuration directives, a
       <literal>read_and_close</literal> option may also be provided. If set to
@@ -63,6 +72,12 @@
       being read, thereby avoiding unnecessary locking if the session data
       won't be changed.
      </para>
+     <simpara>
+      After a session started with <literal>read_and_close</literal>,
+      <varname>$_SESSION</varname> can still be read, but changes are not saved
+      and <function>session_status</function> returns
+      <constant>PHP_SESSION_NONE</constant>.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -70,9 +85,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    This function returns &true; if a session was successfully started,
-   otherwise &false;.
+   otherwise &false;. It also returns &true;, with an
+   <constant>E_NOTICE</constant>, if a session is already active.
   </para>
  </refsect1>
 
@@ -83,9 +99,14 @@
    <parameter>options</parameter> has any non-string key.
   </simpara>
   <simpara>
+   As of PHP 8.0.0, throws a <exceptionname>TypeError</exceptionname> if the
+   value of any option is not of type <type>string</type>, <type>int</type> or
+   <type>bool</type>. Previously, an <constant>E_WARNING</constant> was raised
+   and the option was ignored.
+  </simpara>
+  <simpara>
    As of PHP 8.5.0, throws a <exceptionname>TypeError</exceptionname> if the
-   <literal>read_and_close</literal> option is not of type <type>string</type>,
-   <type>int</type> or <type>bool</type>, or if its value cannot be interpreted
+   value of the <literal>read_and_close</literal> option cannot be interpreted
    as an <type>int</type>.
   </simpara>
  </refsect1>
@@ -109,15 +130,23 @@
         <parameter>options</parameter> array has non-string keys, and a
         <exceptionname>TypeError</exceptionname> if the
         <literal>read_and_close</literal> value is not compatible with
-        <type>int</type>.
+        <type>int</type>. A negative <literal>read_and_close</literal> value no
+        longer closes the session.
+       </entry>
+      </row>
+      <row>
+       <entry>8.0.0</entry>
+       <entry>
+        Now throws a <exceptionname>TypeError</exceptionname> if the value of
+        an option is not of type <type>string</type>, <type>int</type> or
+        <type>bool</type>, instead of raising an <constant>E_WARNING</constant>.
        </entry>
       </row>
       <row>
        <entry>7.1.0</entry>
        <entry>
-        <function>session_start</function> now returns &false; and no longer
-        initializes <varname>$_SESSION</varname> when it failed to start the
-        session.
+        <function>session_start</function> now returns &false; instead of
+        &true; when it failed to start the session.
        </entry>
       </row>
      </tbody>
