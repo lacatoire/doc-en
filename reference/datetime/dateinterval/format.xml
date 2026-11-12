@@ -19,127 +19,125 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>format</parameter></term>
-     <listitem>
-      <para>
-       <table>
-        <title>
-         The following characters are recognized in the
-         <parameter>format</parameter> parameter string.
-         Each format character must be prefixed by a percent sign
-         (<literal>%</literal>).
-        </title>
-        <tgroup cols="3">
-         <thead>
-          <row>
-           <entry><parameter>format</parameter> character</entry>
-           <entry>Description</entry>
-           <entry>Example values</entry>
-          </row>
-         </thead>
-         <tbody>
-          <row>
-           <entry><literal>%</literal></entry>
-           <entry>Literal <literal>%</literal></entry>
-           <entry><literal>%</literal></entry>
-          </row>
-          <row>
-           <entry><literal>Y</literal></entry>
-           <entry>Years, numeric, at least 2 digits with leading 0</entry>
-           <entry><literal>01</literal>, <literal>03</literal></entry>
-          </row>
-          <row>
-           <entry><literal>y</literal></entry>
-           <entry>Years, numeric</entry>
-           <entry><literal>1</literal>, <literal>3</literal></entry>
-          </row>
-          <row>
-           <entry><literal>M</literal></entry>
-           <entry>Months, numeric, at least 2 digits with leading 0</entry>
-           <entry><literal>01</literal>, <literal>03</literal>, <literal>12</literal></entry>
-          </row>
-          <row>
-           <entry><literal>m</literal></entry>
-           <entry>Months, numeric</entry>
-           <entry><literal>1</literal>, <literal>3</literal>, <literal>12</literal></entry>
-          </row>
-          <row>
-           <entry><literal>D</literal></entry>
-           <entry>Days, numeric, at least 2 digits with leading 0</entry>
-           <entry><literal>01</literal>, <literal>03</literal>, <literal>31</literal></entry>
-          </row>
-          <row>
-           <entry><literal>d</literal></entry>
-           <entry>Days, numeric</entry>
-           <entry><literal>1</literal>, <literal>3</literal>, <literal>31</literal></entry>
-          </row>
-          <row>
-           <entry><literal>a</literal></entry>
-           <entry>Total number of days as a result of a <methodname>DateTime::diff</methodname> or <literal>(unknown)</literal> otherwise</entry>
-           <entry><literal>4</literal>, <literal>18</literal>, <literal>8123</literal></entry>
-          </row>
-          <row>
-           <entry><literal>H</literal></entry>
-           <entry>Hours, numeric, at least 2 digits with leading 0</entry>
-           <entry><literal>01</literal>, <literal>03</literal>, <literal>23</literal></entry>
-          </row>
-          <row>
-           <entry><literal>h</literal></entry>
-           <entry>Hours, numeric</entry>
-           <entry><literal>1</literal>, <literal>3</literal>, <literal>23</literal></entry>
-          </row>
-          <row>
-           <entry><literal>I</literal></entry>
-           <entry>Minutes, numeric, at least 2 digits with leading 0</entry>
-           <entry><literal>01</literal>, <literal>03</literal>, <literal>59</literal></entry>
-          </row>
-          <row>
-           <entry><literal>i</literal></entry>
-           <entry>Minutes, numeric</entry>
-           <entry><literal>1</literal>, <literal>3</literal>, <literal>59</literal></entry>
-          </row>
-          <row>
-           <entry><literal>S</literal></entry>
-           <entry>Seconds, numeric, at least 2 digits with leading 0</entry>
-           <entry><literal>01</literal>, <literal>03</literal>, <literal>57</literal></entry>
-          </row>
-          <row>
-           <entry><literal>s</literal></entry>
-           <entry>Seconds, numeric</entry>
-           <entry><literal>1</literal>, <literal>3</literal>, <literal>57</literal></entry>
-          </row>
-          <row>
-           <entry><literal>F</literal></entry>
-           <entry>Microseconds, numeric, at least 6 digits with leading
-           0</entry>
-           <entry><literal>007701</literal>, <literal>052738</literal>, <literal>428291</literal></entry>
-          </row>
-          <row>
-           <entry><literal>f</literal></entry>
-           <entry>Microseconds, numeric</entry>
-           <entry><literal>7701</literal>, <literal>52738</literal>, <literal>428291</literal></entry>
-          </row>
-          <row>
-           <entry><literal>R</literal></entry>
-           <entry>Sign "<literal>-</literal>" when negative, "<literal>+</literal>" when positive</entry>
-           <entry><literal>-</literal>, <literal>+</literal></entry>
-          </row>
-          <row>
-           <entry><literal>r</literal></entry>
-           <entry>Sign "<literal>-</literal>" when negative, empty when positive</entry>
-           <entry><literal>-</literal>, <literal/></entry>
-          </row>
-         </tbody>
-        </tgroup>
-       </table>
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>format</parameter></term>
+    <listitem>
+     <para>
+      <table>
+       <title>
+        The following characters are recognized in the
+        <parameter>format</parameter> parameter string.
+        Each format character must be prefixed by a percent sign
+        (<literal>%</literal>).
+       </title>
+       <tgroup cols="3">
+        <thead>
+         <row>
+          <entry><parameter>format</parameter> character</entry>
+          <entry>Description</entry>
+          <entry>Example values</entry>
+         </row>
+        </thead>
+        <tbody>
+         <row>
+          <entry><literal>%</literal></entry>
+          <entry>Literal <literal>%</literal></entry>
+          <entry><literal>%</literal></entry>
+         </row>
+         <row>
+          <entry><literal>Y</literal></entry>
+          <entry>Years, numeric, at least 2 digits with leading 0</entry>
+          <entry><literal>01</literal>, <literal>03</literal></entry>
+         </row>
+         <row>
+          <entry><literal>y</literal></entry>
+          <entry>Years, numeric</entry>
+          <entry><literal>1</literal>, <literal>3</literal></entry>
+         </row>
+         <row>
+          <entry><literal>M</literal></entry>
+          <entry>Months, numeric, at least 2 digits with leading 0</entry>
+          <entry><literal>01</literal>, <literal>03</literal>, <literal>12</literal></entry>
+         </row>
+         <row>
+          <entry><literal>m</literal></entry>
+          <entry>Months, numeric</entry>
+          <entry><literal>1</literal>, <literal>3</literal>, <literal>12</literal></entry>
+         </row>
+         <row>
+          <entry><literal>D</literal></entry>
+          <entry>Days, numeric, at least 2 digits with leading 0</entry>
+          <entry><literal>01</literal>, <literal>03</literal>, <literal>31</literal></entry>
+         </row>
+         <row>
+          <entry><literal>d</literal></entry>
+          <entry>Days, numeric</entry>
+          <entry><literal>1</literal>, <literal>3</literal>, <literal>31</literal></entry>
+         </row>
+         <row>
+          <entry><literal>a</literal></entry>
+          <entry>Total number of days as a result of a <methodname>DateTime::diff</methodname> or <literal>(unknown)</literal> otherwise</entry>
+          <entry><literal>4</literal>, <literal>18</literal>, <literal>8123</literal></entry>
+         </row>
+         <row>
+          <entry><literal>H</literal></entry>
+          <entry>Hours, numeric, at least 2 digits with leading 0</entry>
+          <entry><literal>01</literal>, <literal>03</literal>, <literal>23</literal></entry>
+         </row>
+         <row>
+          <entry><literal>h</literal></entry>
+          <entry>Hours, numeric</entry>
+          <entry><literal>1</literal>, <literal>3</literal>, <literal>23</literal></entry>
+         </row>
+         <row>
+          <entry><literal>I</literal></entry>
+          <entry>Minutes, numeric, at least 2 digits with leading 0</entry>
+          <entry><literal>01</literal>, <literal>03</literal>, <literal>59</literal></entry>
+         </row>
+         <row>
+          <entry><literal>i</literal></entry>
+          <entry>Minutes, numeric</entry>
+          <entry><literal>1</literal>, <literal>3</literal>, <literal>59</literal></entry>
+         </row>
+         <row>
+          <entry><literal>S</literal></entry>
+          <entry>Seconds, numeric, at least 2 digits with leading 0</entry>
+          <entry><literal>01</literal>, <literal>03</literal>, <literal>57</literal></entry>
+         </row>
+         <row>
+          <entry><literal>s</literal></entry>
+          <entry>Seconds, numeric</entry>
+          <entry><literal>1</literal>, <literal>3</literal>, <literal>57</literal></entry>
+         </row>
+         <row>
+          <entry><literal>F</literal></entry>
+          <entry>Microseconds, numeric, at least 6 digits with leading
+          0</entry>
+          <entry><literal>007701</literal>, <literal>052738</literal>, <literal>428291</literal></entry>
+         </row>
+         <row>
+          <entry><literal>f</literal></entry>
+          <entry>Microseconds, numeric</entry>
+          <entry><literal>7701</literal>, <literal>52738</literal>, <literal>428291</literal></entry>
+         </row>
+         <row>
+          <entry><literal>R</literal></entry>
+          <entry>Sign "<literal>-</literal>" when negative, "<literal>+</literal>" when positive</entry>
+          <entry><literal>-</literal>, <literal>+</literal></entry>
+         </row>
+         <row>
+          <entry><literal>r</literal></entry>
+          <entry>Sign "<literal>-</literal>" when negative, empty when positive</entry>
+          <entry><literal>-</literal>, <literal/></entry>
+         </row>
+        </tbody>
+       </tgroup>
+      </table>
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -147,6 +145,15 @@
   <para>
    Returns the formatted interval.
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If the object has not been correctly initialized (for example, by a class
+   extending <classname>DateInterval</classname> without calling the parent
+   constructor), a <exceptionname>DateObjectError</exceptionname> is thrown.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -161,6 +168,14 @@
       </row>
      </thead>
      <tbody>
+      <row>
+       <entry>8.3.0</entry>
+       <entry>
+        A <exceptionname>DateObjectError</exceptionname> is now thrown for an
+        object that has not been correctly initialized. Previously, an
+        <exceptionname>Error</exceptionname> was thrown.
+       </entry>
+      </row>
       <row>
        <entry>7.2.12</entry>
        <entry>The <literal>F</literal> and <literal>f</literal> format
@@ -179,50 +194,45 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><classname>DateInterval</classname> example</title>
-    <programlisting role="php">
-     <![CDATA[
+  <example>
+   <title><classname>DateInterval</classname> example</title>
+   <programlisting role="php">
+    <![CDATA[
 <?php
 $interval = new DateInterval('P2Y4DT6H8M');
 echo $interval->format('%d days');
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen role="php">
-     <![CDATA[
+   </programlisting>
+   &example.outputs;
+   <screen role="php">
+    <![CDATA[
 4 days
 ]]>
-    </screen>
-   </example>
-  </para>
-  <para>
-   <example>
-    <title><classname>DateInterval</classname> and carry over points</title>
-    <programlisting role="php">
-     <![CDATA[
+   </screen>
+  </example>
+  <example>
+   <title><classname>DateInterval</classname> and carry over points</title>
+   <programlisting role="php">
+    <![CDATA[
 <?php
 $interval = new DateInterval('P32D');
 echo $interval->format('%d days');
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen role="php">
-     <![CDATA[
+   </programlisting>
+   &example.outputs;
+   <screen role="php">
+    <![CDATA[
 32 days
 ]]>
-    </screen>
-   </example>
-  </para>
-  <para>
-   <example>
-    <title>
-     <classname>DateInterval</classname> and
-     <methodname>DateTime::diff</methodname> with the %a and %d modifiers
-    </title>
-    <programlisting role="php">
-     <![CDATA[
+   </screen>
+  </example>
+  <example>
+   <title>
+    <classname>DateInterval</classname> and
+    <methodname>DateTime::diff</methodname> with the %a and %d modifiers
+   </title>
+   <programlisting role="php">
+    <![CDATA[
 <?php
 $january = new DateTime('2010-01-01');
 $february = new DateTime('2010-02-01');
@@ -235,16 +245,15 @@ echo $interval->format('%a total days')."\n";
 // month.
 echo $interval->format('%m month, %d days');
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen role="php">
-     <![CDATA[
+   </programlisting>
+   &example.outputs;
+   <screen role="php">
+    <![CDATA[
 31 total days
 1 month, 0 days
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
  
  <refsect1 role="notes">
@@ -257,6 +266,14 @@ echo $interval->format('%m month, %d days');
     which could be interpreted as anything from <literal>"1 month and 4 days"</literal> 
     to <literal>"1 month and 1 day"</literal>.
    </para>
+  </note>
+  <note>
+   <simpara>
+    An unrecognized character after the <literal>%</literal> is printed as is,
+    including the <literal>%</literal> (<literal>%Q</literal> stays
+    <literal>%Q</literal>), and a <literal>%</literal> at the very end of the
+    format string is dropped.
+   </simpara>
   </note>
  </refsect1>
 
