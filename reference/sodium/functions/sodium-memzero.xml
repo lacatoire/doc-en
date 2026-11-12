@@ -13,7 +13,13 @@
    <methodparam><modifier role="attribute">#[\SensitiveParameter]</modifier><type>string</type><parameter role="reference">string</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   <function>sodium_memzero</function> zeroes out the string that is passed by reference.
+   <function>sodium_memzero</function> zeroes out the string that is passed by reference,
+   then sets the variable to &null;.
+  </simpara>
+  <simpara>
+   The bytes are only overwritten when no other variable or constant holds the
+   same string. Otherwise the string is left untouched, without any
+   diagnostic, and only the variable passed is set to &null;.
   </simpara>
 
  </refsect1>
@@ -25,7 +31,7 @@
     <term><parameter>string</parameter></term>
     <listitem>
      <simpara>
-      String.
+      The string to zero out. It must be a variable holding a string.
      </simpara>
     </listitem>
    </varlistentry>
@@ -36,6 +42,14 @@
   &reftitle.returnvalues;
   <simpara>
    &return.void;
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>SodiumException</exceptionname> if the variable does not hold
+   a string.
   </simpara>
  </refsect1>
 
