@@ -69,7 +69,8 @@
     </listitem>
     <listitem>
      <simpara>
-      3 - a string containing all unique characters is returned.
+      3 - a string containing all byte-values with a frequency greater than
+      zero, each once, in ascending order, is returned.
      </simpara>
     </listitem>
     <listitem>
@@ -103,7 +104,9 @@
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Prior to this version, the function returned &false; on failure.
+       Now throws a <exceptionname>ValueError</exceptionname> if <parameter>mode</parameter>
+       is not between <literal>0</literal> and <literal>4</literal>;
+       previously, &false; was returned.
       </entry>
      </row>
     </tbody>
