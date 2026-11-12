@@ -91,6 +91,17 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>operation</parameter> is not
+   <constant>LOCK_SH</constant>, <constant>LOCK_EX</constant>, or
+   <constant>LOCK_UN</constant>, optionally combined with
+   <constant>LOCK_NB</constant>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
