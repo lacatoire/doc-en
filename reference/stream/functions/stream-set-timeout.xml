@@ -42,7 +42,9 @@
      <term><parameter>seconds</parameter></term>
      <listitem>
       <para>
-       The seconds part of the timeout to be set.
+       The seconds part of the timeout to be set. A negative value, or a value above 2147482,
+       means no timeout: reads wait until data is available. <literal>0</literal> (with no microseconds)
+       means no wait at all.
       </para>
      </listitem>
     </varlistentry>
@@ -50,7 +52,8 @@
      <term><parameter>microseconds</parameter></term>
      <listitem>
       <para>
-       The microseconds part of the timeout to be set.
+       The microseconds part of the timeout to be set. The resolution of the timeout is one millisecond:
+       a value below 1000 is rounded down.
       </para>
      </listitem>
     </varlistentry>
@@ -62,6 +65,8 @@
   &reftitle.returnvalues;
   <para>
    &return.success;
+   &false; is returned for streams that have no timeout, such as plain files and the
+   <literal>php://memory</literal>, <literal>php://temp</literal> and <literal>php://output</literal> streams, or pipes.
   </para>
  </refsect1>
 
@@ -120,6 +125,8 @@ if (!$fp) {
   <simplelist>
    <member><function>fsockopen</function></member>
    <member><function>fopen</function></member>
+   <member><function>stream_set_blocking</function></member>
+   <member><function>stream_get_meta_data</function></member>
   </simplelist>
  </refsect1>
 </refentry>
