@@ -52,6 +52,17 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     If <parameter>string</parameter> is not a valid hexadecimal string, a <classname>SodiumException</classname> will be thrown instead of returning &false; as <function>hex2bin</function> does.
+    </simpara>
+   </listitem>
+  </itemizedlist>
+ </refsect1>
+
 </refentry>
 <!-- Keep this comment at the end of the file
 Local variables:
