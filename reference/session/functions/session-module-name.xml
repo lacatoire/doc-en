@@ -12,11 +12,11 @@
    <type class="union"><type>string</type><type>false</type></type><methodname>session_module_name</methodname>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>module</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   <function>session_module_name</function> gets the name of the current
+  <simpara>
+   <function>session_module_name</function> gets or sets the name of the current
    session module, which is also known as
    <link linkend="ini.session.save-handler">session.save_handler</link>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -26,13 +26,14 @@
     <varlistentry>
      <term><parameter>module</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If <parameter>module</parameter> is specified and not &null;, that module will be
-       used instead.
+       used instead. <function>session_module_name</function> needs to be called
+       before <function>session_start</function> for that purpose.
        Passing <literal>"user"</literal> to this parameter is forbidden. Instead
        <function>session_set_save_handler</function> has to be called to set a user
        defined session handler.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -41,9 +42,29 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the name of the current session module, &return.falseforfailure;.
-  </para>
+   When <parameter>module</parameter> is specified, the name of the module
+   that was in use before the call is returned.
+   An empty string is returned if <link linkend="ini.session.save-handler">session.save_handler</link>
+   was set to a module that does not exist.
+   <literal>"user"</literal> is returned once
+   <function>session_set_save_handler</function> has been called.
+  </simpara>
+  <simpara>
+   &false; is returned, and an <constant>E_WARNING</constant> is raised, if
+   <parameter>module</parameter> is specified and a session is active, headers
+   have already been sent, or no module with that name exists.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>module</parameter> is <literal>"user"</literal>
+   (case insensitive).
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -61,18 +82,44 @@
       <entry>8.0.0</entry>
       <entry>
        <parameter>module</parameter> is nullable now.
+       A <exceptionname>ValueError</exceptionname> is now thrown if
+       <parameter>module</parameter> is <literal>"user"</literal>;
+       formerly, a recoverable fatal error was raised.
       </entry>
      </row>
      <row>
       <entry>7.2.0</entry>
       <entry>
-       It is now explicitly forbidden to set the module name to
-       <literal>"user"</literal>. Formerly, this has been silently ignored.
+       Setting the module name to <literal>"user"</literal> raises a
+       recoverable fatal error. Formerly, the module was switched to
+       <literal>"user"</literal>, which made the next
+       <function>session_start</function> fail.
+      </entry>
+     </row>
+     <row>
+      <entry>7.2.0</entry>
+      <entry>
+       &false; is now returned, with an <constant>E_WARNING</constant>, when
+       <parameter>module</parameter> is specified and a session is active or
+       headers have already been sent.
       </entry>
      </row>
     </tbody>
    </tgroup>
   </informaltable>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>session_set_save_handler</function></member>
+    <member>
+     The <link linkend="ini.session.save-handler">session.save_handler</link>
+     configuration directive
+    </member>
+   </simplelist>
+  </para>
  </refsect1>
 
 </refentry>
