@@ -26,74 +26,76 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>read</parameter></term>
-     <listitem>
-      <para>
-       The sockets listed in the <parameter>read</parameter> array will be
-       watched to see if characters become available for reading (more
-       precisely, to see if a read will not block - in particular, a socket
-       is also ready on end-of-file, in which case a
-       <function>socket_read</function> will return a zero length string).
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>write</parameter></term>
-     <listitem>
-      <para>
-       The sockets listed in the <parameter>write</parameter> array will be
-       watched to see if a write will not block.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>except</parameter></term>
-     <listitem>
-      <para>
-       The sockets listed in the <parameter>except</parameter> array will be
-       watched for exceptions.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>seconds</parameter></term>
-     <listitem>
-      <simpara>
-       The <parameter>seconds</parameter> and <parameter>microseconds</parameter>
-       together form the <literal>timeout</literal> parameter. The
-       <literal>timeout</literal> is an upper bound on the amount of time
-       elapsed before <function>socket_select</function> returns.
-       <parameter>seconds</parameter> may be zero, causing
-       <function>socket_select</function> to return immediately. This is useful
-       for polling. If <parameter>seconds</parameter> is &null; (no timeout),
-       <function>socket_select</function> can block indefinitely.
-      </simpara>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>microseconds</parameter></term>
-     <listitem>
-      <simpara>
-       See <parameter>seconds</parameter> description.
-      </simpara>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>read</parameter></term>
+    <listitem>
+     <para>
+      The sockets listed in the <parameter>read</parameter> array will be
+      watched to see if characters become available for reading (more
+      precisely, to see if a read will not block - in particular, a socket
+      is also ready on end-of-file, in which case a
+      <function>socket_read</function> will return a zero length string).
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>write</parameter></term>
+    <listitem>
+     <para>
+      The sockets listed in the <parameter>write</parameter> array will be
+      watched to see if a write will not block.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>except</parameter></term>
+    <listitem>
+     <para>
+      The sockets listed in the <parameter>except</parameter> array will be
+      watched for exceptions.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>seconds</parameter></term>
+    <listitem>
+     <simpara>
+      The <parameter>seconds</parameter> and <parameter>microseconds</parameter>
+      together form the <literal>timeout</literal> parameter. The
+      <literal>timeout</literal> is an upper bound on the amount of time
+      elapsed before <function>socket_select</function> returns.
+      <parameter>seconds</parameter> may be zero, causing
+      <function>socket_select</function> to return immediately. This is useful
+      for polling. If <parameter>seconds</parameter> is &null; (no timeout),
+      <function>socket_select</function> can block indefinitely, and
+      <parameter>microseconds</parameter> is ignored.
+      A negative <parameter>seconds</parameter> or <parameter>microseconds</parameter>
+      emits an <constant>E_WARNING</constant> and makes the function return &false;.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>microseconds</parameter></term>
+    <listitem>
+     <simpara>
+      See <parameter>seconds</parameter> description.
+      A value above <literal>999999</literal> is added to <parameter>seconds</parameter>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
   <warning>
    <simpara>
     On exit, the arrays are modified to indicate which socket
-    actually changed status.
+    actually changed status. If the timeout expires, all the arrays become empty.
     The original keys of the &array;s are preserved.
    </simpara>
   </warning>
   <simpara>
    The three arrays all have to be passed, but an array that is of no
    interest can be an empty &array; or &null;; at least one of them must be
-   a non-empty &array;. They are passed
+   a non-empty &array;. The elements must be open <classname>Socket</classname> objects. They are passed
    <emphasis>by reference</emphasis> and are modified once
    <function>socket_select</function> returns.
   </simpara>
@@ -109,9 +111,11 @@
      <programlisting role="php">
 <![CDATA[
 <?php
+socket_create_pair(AF_UNIX, SOCK_STREAM, 0, $pair);
+$r = [$pair[0]];
+$w = NULL;
 $e = NULL;
 socket_select($r, $w, $e, 0);
-?>
 ]]>
      </programlisting>
     </example>
@@ -123,10 +127,15 @@ socket_select($r, $w, $e, 0);
   &reftitle.returnvalues;
   <simpara>
    On success <function>socket_select</function> returns the number of
-   sockets contained in the modified arrays, which may be zero if
-   the timeout expires before anything interesting happens. On error &false;
-   is returned. The error code can be retrieved with
-   <function>socket_last_error</function>.
+   ready sockets, added over the three arrays, which may be zero if
+   the timeout expires before anything interesting happens. A socket listed
+   several times in the same array is counted once, and the array keeps
+   all its ready elements. On error &false; is returned.
+   The error code can be retrieved with
+   <function>socket_last_error</function>, except when the descriptor of
+   a socket is not lower than <literal>FD_SETSIZE</literal>: an
+   <constant>E_WARNING</constant> is emitted and &false; is returned,
+   without any error code, and a single such socket makes the whole call fail.
   </simpara>
   <note>
    <para>
@@ -138,12 +147,14 @@ socket_select($r, $w, $e, 0);
      <programlisting role="php">
 <![CDATA[
 <?php
+socket_create_pair(AF_UNIX, SOCK_STREAM, 0, $pair);
+$r = [$pair[0]];
+$w = NULL;
 $e = NULL;
 if (false === socket_select($r, $w, $e, 0)) {
     echo "socket_select() failed, reason: " .
         socket_strerror(socket_last_error()) . "\n";
 }
-?>
 ]]>
      </programlisting>
     </example>
@@ -151,14 +162,58 @@ if (false === socket_select($r, $w, $e, 0)) {
   </note>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   A <exceptionname>ValueError</exceptionname> is thrown if none of the three arguments is a non-empty
+   array. A <exceptionname>TypeError</exceptionname> is thrown if an element of an array is not an open
+   <classname>Socket</classname> object.
+  </para>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.0.25, 8.1.12</entry>
+      <entry>
+       &false; is now returned when the descriptor of a socket is not lower than <literal>FD_SETSIZE</literal>.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       The elements of the arrays are <classname>Socket</classname> objects now, and an element that is not
+       a socket throws a <exceptionname>TypeError</exceptionname> instead of being ignored.
+       Passing no non-empty array throws a <exceptionname>ValueError</exceptionname> instead of emitting an
+       <constant>E_WARNING</constant> and returning &false;.
+       <parameter>seconds</parameter> is nullable now.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>socket_select</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>socket_select</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
+socket_create_pair(AF_UNIX, SOCK_STREAM, 0, $pair);
+[$socket1, $socket2] = $pair;
+socket_write($socket2, 'x');
+
 /* Prepare the read array */
 $read   = array($socket1, $socket2);
 $write  = NULL;
@@ -170,11 +225,9 @@ if ($num_changed_sockets === false) {
 } else if ($num_changed_sockets > 0) {
     /* At least at one of the sockets something interesting happened */
 }
-?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="notes">
