@@ -19,7 +19,7 @@
   <para>
    Calendar information is returned as an array containing the
    elements <literal>calname</literal>, <literal>calsymbol</literal>,
-   <literal>month</literal>, <literal>abbrevmonth</literal> and
+   <literal>months</literal>, <literal>abbrevmonths</literal> and
    <literal>maxdaysinmonth</literal>. The names of the different calendars 
    which can be used as <parameter>calendar</parameter> are as follows:
    <itemizedlist>
@@ -70,8 +70,14 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-  </para>
+  <simpara>
+   Returns an array with the elements <literal>months</literal> and
+   <literal>abbrevmonths</literal> (the full and abbreviated month names,
+   indexed from <literal>1</literal>), <literal>maxdaysinmonth</literal>,
+   <literal>calname</literal> and <literal>calsymbol</literal>.
+   If <parameter>calendar</parameter> is <literal>-1</literal>, an array of
+   such arrays is returned, indexed by calendar ID.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
