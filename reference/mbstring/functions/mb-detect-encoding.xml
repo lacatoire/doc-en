@@ -175,8 +175,8 @@ string(5) "ASCII"
     <programlisting role="php">
      <![CDATA[
 <?php
-// 'áéóú' encoded in ISO-8859-1
-$str = "\xE1\xE9\xF3\xFA";
+// A valid two-byte UTF-8 sequence followed by a stray continuation byte
+$str = "\xD6\x8A\x8A";
 
 // The string is not valid ASCII or UTF-8, but UTF-8 is considered a closer match
 var_dump(mb_detect_encoding($str, ['ASCII', 'UTF-8'], false));
