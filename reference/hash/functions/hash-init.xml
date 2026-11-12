@@ -61,8 +61,11 @@
      <listitem>
       <para>
        An array of options for the various hashing algorithms.
-       Currently, only the <literal>"seed"</literal> parameter is
-       supported by the MurmurHash variants.
+       The <literal>"seed"</literal> option, an <type>int</type>, is supported by the
+       MurmurHash and xxHash variants, and the <literal>"secret"</literal> option,
+       a <type>string</type> of at least 136 bytes, by <literal>xxh3</literal>
+       and <literal>xxh128</literal>.
+       Passing an option of another type emits an <constant>E_DEPRECATED</constant>.
       </para>
      </listitem>
     </varlistentry>

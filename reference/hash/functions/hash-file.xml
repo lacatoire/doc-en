@@ -52,8 +52,11 @@
      <listitem>
       <para>
        An array of options for the various hashing algorithms.
-       Currently, only the <literal>"seed"</literal> parameter is
-       supported by the MurmurHash variants.
+       The <literal>"seed"</literal> option, an <type>int</type>, is supported by the
+       MurmurHash and xxHash variants, and the <literal>"secret"</literal> option,
+       a <type>string</type> of at least 136 bytes, by <literal>xxh3</literal>
+       and <literal>xxh128</literal>.
+       Passing an option of another type emits an <constant>E_DEPRECATED</constant>.
       </para>
      </listitem>
     </varlistentry>
@@ -70,6 +73,19 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> exception if
+   <parameter>algo</parameter> is unknown.
+  </simpara>
+  <simpara>
+   Passing an option of the wrong type in <parameter>options</parameter>, such as a
+   <literal>"seed"</literal> that is not an <type>int</type>, emits an
+   <constant>E_DEPRECATED</constant>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <para>
@@ -82,6 +98,13 @@
       </row>
      </thead>
      <tbody>
+      <row>
+       <entry>8.4.0</entry>
+       <entry>
+        Passing an option of the wrong type in <parameter>options</parameter>
+        is now deprecated.
+       </entry>
+      </row>
       <row>
        <entry>8.1.0</entry>
        <entry>The <parameter>options</parameter> parameter has been added.</entry>
