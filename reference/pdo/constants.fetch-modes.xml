@@ -387,11 +387,11 @@ print_r($row);
 <![CDATA[
 Array
 (
-    [id] => 104,
-    [0] => 104,
-    [name] => Chris,
-    [1] => Chris,
-    [country] => Ukraine,
+    [userid] => 104
+    [0] => 104
+    [name] => Chris
+    [1] => Chris
+    [country] => Ukraine
     [2] => Ukraine
 )
 ]]>
@@ -423,9 +423,9 @@ $stmt = $pdo->query(
     "SELECT users.*, referrer.name
      FROM users
      LEFT JOIN users AS referrer ON users.referred_by = referrer.userid
-     WHERE userid = 109"
+     WHERE users.userid = 109"
 );
-$row = $stmt->fetch(\PDO::FETCH_NUM);
+$row = $stmt->fetch(\PDO::FETCH_NAMED);
 print_r($row);
 ]]>
    </programlisting>
@@ -440,8 +440,9 @@ Array
             [0] => Toni
             [1] => Chris
         )
+
     [country] => Germany
-    [referred_by] = 104
+    [referred_by] => 104
 )
 ]]>
    </screen>
