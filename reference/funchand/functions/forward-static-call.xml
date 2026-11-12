@@ -58,6 +58,18 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if called outside of a class
+   method context.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>callback</parameter> is not a valid callback.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
