@@ -31,7 +31,9 @@
     <term><parameter>subkey_length</parameter></term>
     <listitem>
      <simpara>
-      Length of the key to return (in bytes)
+      Length of the key to return (in bytes), between
+      <link linkend="constant.sodium-crypto-kdf-bytes-min"><constant>SODIUM_CRYPTO_KDF_BYTES_MIN</constant></link> (16) and
+      <link linkend="constant.sodium-crypto-kdf-bytes-max"><constant>SODIUM_CRYPTO_KDF_BYTES_MAX</constant></link> (64).
      </simpara>
     </listitem>
    </varlistentry>
@@ -39,7 +41,7 @@
     <term><parameter>subkey_id</parameter></term>
     <listitem>
      <simpara>
-      Return the Nth subkey from a given root key. Useful for seeking.
+      Return the Nth subkey from a given root key. Useful for seeking. It must be 0 or greater.
      </simpara>
     </listitem>
    </varlistentry>
@@ -47,7 +49,8 @@
     <term><parameter>context</parameter></term>
     <listitem>
      <simpara>
-      Application-specific context.
+      Application-specific context, exactly
+      <link linkend="constant.sodium-crypto-kdf-contextbytes"><constant>SODIUM_CRYPTO_KDF_CONTEXTBYTES</constant></link> (8) bytes long.
      </simpara>
     </listitem>
    </varlistentry>
@@ -55,7 +58,8 @@
     <term><parameter>key</parameter></term>
     <listitem>
      <simpara>
-      The root key from which the subkey is derived.
+      The root key from which the subkey is derived, exactly
+      <link linkend="constant.sodium-crypto-kdf-keybytes"><constant>SODIUM_CRYPTO_KDF_KEYBYTES</constant></link> (32) bytes long.
      </simpara>
     </listitem>
    </varlistentry>
@@ -67,6 +71,27 @@
   <simpara>
    A string of pseudorandom (raw binary) bytes.
   </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     If <parameter>subkey_length</parameter> is outside the range described above, a <classname>SodiumException</classname> will be thrown.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     If <parameter>subkey_id</parameter> is negative, a <classname>SodiumException</classname> will be thrown.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     If <parameter>context</parameter> or <parameter>key</parameter> does not have the length described above, a <classname>SodiumException</classname> will be thrown.
+    </simpara>
+   </listitem>
+  </itemizedlist>
  </refsect1>
 
 
