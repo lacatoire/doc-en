@@ -44,9 +44,9 @@
     <varlistentry>
      <term><parameter>enable</parameter></term>
      <listitem>
-      <para>
-       Whether to save the alpha channel or not. Defaults to &false;. 
-      </para>
+      <simpara>
+       Whether to save the alpha channel or not. Newly created images do not save it until this is set to &true;.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
