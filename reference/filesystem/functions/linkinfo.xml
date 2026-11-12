@@ -15,11 +15,14 @@
   <para>
    Gets information about a link.  
   </para>
-  <para>
-   This function is used to verify if a link (pointed to by
-   <parameter>path</parameter>) really exists (using the same method as the
-   S_ISLNK macro defined in <filename>stat.h</filename>).
-  </para>
+  <simpara>
+   This function calls <literal>lstat</literal> on <parameter>path</parameter>
+   and returns the <literal>st_dev</literal> field. It does not check that
+   <parameter>path</parameter> is a link: any existing path, whether a regular
+   file, a directory, a symbolic link or a broken symbolic link, gives the
+   device number. Use <function>is_link</function> to test whether a path is
+   a link.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -40,12 +43,16 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    <function>linkinfo</function> returns the <literal>st_dev</literal> field
    of the Unix C stat structure returned by the <literal>lstat</literal>
-   system call. Returns a non-negative integer on success, -1 in case the link was not found, 
-   or &false; if an open.base_dir violation occurs.
-  </para>
+   system call. This is the device number of the path itself, not of the
+   target of a symbolic link, and it is returned for any existing path.
+   Returns -1 and raises an <constant>E_WARNING</constant> if
+   <literal>lstat</literal> fails, for example when the path does not exist,
+   which does not mean that the path is not a link.
+   Returns &false; if an open.base_dir violation occurs.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -73,6 +80,7 @@ echo linkinfo('/vmlinuz'); // 835
     <member><function>symlink</function></member>
     <member><function>link</function></member>
     <member><function>readlink</function></member>
+    <member><function>is_link</function></member>
    </simplelist>
   </para>
  </refsect1>
