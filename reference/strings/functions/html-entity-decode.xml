@@ -72,8 +72,7 @@
           <row>
            <entry><constant>ENT_SUBSTITUTE</constant></entry>
            <entry>
-            Replace invalid code unit sequences with a Unicode Replacement Character
-            U+FFFD (UTF-8) or &amp;#xFFFD; (otherwise) instead of returning an empty string.
+            Has no effect, as this function does not validate its input.
            </entry>
           </row>
           <row>
@@ -179,13 +178,15 @@ echo $b, PHP_EOL; // I'll "walk" the <b>dog</b> now
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
+   <simpara>
     You might wonder why trim(html_entity_decode('&amp;nbsp;')); doesn't
     reduce the string to an empty string, that's because the '&amp;nbsp;'
     entity is not ASCII code 32 (which is stripped by
-    <function>trim</function>) but ASCII code 160 (0xa0) in the default ISO
-    8859-1 encoding.
-   </para>
+    <function>trim</function>) but the character U+00A0, which is the
+    two-byte sequence <literal>0xC2 0xA0</literal> in the default
+    <literal>UTF-8</literal> encoding (<literal>0xA0</literal> in
+    <literal>ISO-8859-1</literal>, when that encoding is passed explicitly).
+   </simpara>
   </note>
  </refsect1>
 
