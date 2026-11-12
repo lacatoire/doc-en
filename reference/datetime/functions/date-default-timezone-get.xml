@@ -59,19 +59,14 @@
 date_default_timezone_set('Europe/London');
 
 if (date_default_timezone_get()) {
-    echo 'date_default_timezone_set: ' . date_default_timezone_get() . "\n";
-}
-
-if (ini_get('date.timezone')) {
-    echo 'date.timezone: ' . ini_get('date.timezone');
+    echo 'date_default_timezone_set: ' . date_default_timezone_get();
 }
 ]]>
     </programlisting>
-    &example.outputs.similar;
+    &example.outputs;
     <screen>
 <![CDATA[
 date_default_timezone_set: Europe/London
-date.timezone: Europe/London
 ]]>
     </screen>
    </example>
