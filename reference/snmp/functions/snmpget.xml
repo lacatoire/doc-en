@@ -21,6 +21,11 @@
    value of an <acronym>SNMP</acronym> object specified by the
    <parameter>object_id</parameter>.
   </simpara>
+  <simpara>
+   This function uses <acronym>SNMP</acronym>v1.
+   Objects of type Counter64, such as <literal>ifHCInOctets</literal>, cannot be read with it:
+   use <function>snmp2_get</function> or <function>snmp3_get</function> instead.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -74,6 +79,10 @@
   <simpara>
    Returns <acronym>SNMP</acronym> object value on success or &false; on error.
   </simpara>
+  <simpara>
+   The format of the returned values depends on the settings made with
+   <function>snmp_set_quick_print</function> and <function>snmp_set_valueretrieval</function>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -119,6 +128,12 @@ $syscontact = snmpget("127.0.0.1", "public", "system.SysContact.0");
   &reftitle.seealso;
   <simplelist>
    <member><function>snmpset</function></member>
+   <member><function>snmpgetnext</function></member>
+   <member><function>snmpwalk</function></member>
+   <member><function>snmp_set_quick_print</function></member>
+   <member><function>snmp_set_enum_print</function></member>
+   <member><function>snmp_set_valueretrieval</function></member>
+   <member><function>snmp_set_oid_output_format</function></member>
   </simplelist>
  </refsect1>
 

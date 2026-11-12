@@ -23,6 +23,9 @@
    <function>snmpset</function> is used to set the value of an <acronym>SNMP</acronym> object
    specified by the <parameter>object_id</parameter>.
   </simpara>
+  <simpara>
+   This function uses <acronym>SNMP</acronym>v1.
+  </simpara>
 
  </refsect1>
 

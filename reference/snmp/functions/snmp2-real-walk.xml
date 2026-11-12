@@ -21,6 +21,9 @@
    of <acronym>SNMP</acronym> objects starting from <parameter>object_id</parameter>
    and return not only their values but also their object ids.
   </simpara>
+  <simpara>
+   This function uses <acronym>SNMP</acronym>v2c.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -76,6 +79,11 @@
    Returns an associative array of the <acronym>SNMP</acronym> object ids and their values on success or &false; on error.
    In case of an error, an E_WARNING message is shown.
   </simpara>
+  <simpara>
+   The format of the returned values depends on the settings made with
+   <function>snmp_set_quick_print</function> and <function>snmp_set_valueretrieval</function>,
+   and the format of the object ids used as keys on <function>snmp_set_oid_output_format</function>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -110,6 +118,10 @@
   &reftitle.seealso;
   <simplelist>
    <member><function>snmp2_walk</function></member>
+   <member><function>snmp_set_quick_print</function></member>
+   <member><function>snmp_set_enum_print</function></member>
+   <member><function>snmp_set_valueretrieval</function></member>
+   <member><function>snmp_set_oid_output_format</function></member>
   </simplelist>
  </refsect1>
 

@@ -20,6 +20,9 @@
    <function>snmpwalk</function> function is used to read all the values from
    an <acronym>SNMP</acronym> agent specified by the <parameter>hostname</parameter>.
   </simpara>
+  <simpara>
+   This function uses <acronym>SNMP</acronym>v1.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -78,6 +81,10 @@
    Returns an array of <acronym>SNMP</acronym> object values starting from the
    <parameter>object_id</parameter> as root or &false; on error.
   </simpara>
+  <simpara>
+   The format of the returned values depends on the settings made with
+   <function>snmp_set_quick_print</function> and <function>snmp_set_valueretrieval</function>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -108,6 +115,10 @@ foreach ($a as $val) {
   &reftitle.seealso;
   <simplelist>
    <member><function>snmprealwalk</function></member>
+   <member><function>snmp_set_quick_print</function></member>
+   <member><function>snmp_set_enum_print</function></member>
+   <member><function>snmp_set_valueretrieval</function></member>
+   <member><function>snmp_set_oid_output_format</function></member>
   </simplelist>
  </refsect1>
 
