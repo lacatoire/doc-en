@@ -89,6 +89,19 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>encoding</parameter>
+   is not a valid encoding name.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>length</parameter>
+   is greater than the length of <parameter>string</parameter> and either
+   <parameter>pad_string</parameter> is empty or <parameter>pad_type</parameter> is not
+   <constant>STR_PAD_LEFT</constant>, <constant>STR_PAD_RIGHT</constant> or <constant>STR_PAD_BOTH</constant>.
+  </simpara>
+ </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
@@ -108,6 +121,16 @@ var_dump(mb_str_pad("🎉", 3, "祝", STR_PAD_LEFT));   // string(10) "祝祝�
     </programlisting>
    </example>
   </para>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>str_pad</function></member>
+   <member><function>mb_strlen</function></member>
+   <member><function>mb_strwidth</function></member>
+   <member><function>mb_strimwidth</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
