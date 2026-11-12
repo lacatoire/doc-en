@@ -13,11 +13,12 @@
    <methodparam><modifier role="attribute">#[\SensitiveParameter]</modifier><type>string</type><parameter>seed</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   Clamps the seed to form a secret key, derives the public key, and returns the two as a keypair.
+   Uses the seed to derive the public key, and returns a keypair whose secret key is the seed followed by the public key.
   </simpara>
   <simpara>
-   The <literal>*_seed_keypair</literal> functions are ideal for generating a keypair from a
-   password and salt. Use the result as a <parameter>seed</parameter> to generate the desired keys.
+   The same <parameter>seed</parameter> always gives the same keypair. The seed is not salted nor stretched:
+   to generate a keypair from a password, derive a 32-byte seed from it first, for example with
+   <function>sodium_crypto_pwhash</function>.
   </simpara>
 
  </refsect1>
