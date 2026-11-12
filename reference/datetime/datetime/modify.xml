@@ -173,6 +173,16 @@ echo $date->format('Y-m-d H:i') . "\n";
   </example>
  </refsect1>
 
+ <refsect1 role="notes">
+  &reftitle.notes;
+  <note>
+   <simpara>
+    A timezone in <parameter>modifier</parameter> is ignored: the object keeps
+    its timezone, unlike when the same string is passed to the constructor.
+   </simpara>
+  </note>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
