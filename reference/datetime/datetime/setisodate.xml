@@ -76,6 +76,109 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If the object has not been correctly initialized (for example, by a class
+   extending <classname>DateTime</classname> without calling the parent
+   constructor), a <exceptionname>DateObjectError</exceptionname> is thrown.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.3.0</entry>
+      <entry>
+       A <exceptionname>DateObjectError</exceptionname> is now thrown for an
+       object that has not been correctly initialized. Previously, an
+       <exceptionname>Error</exceptionname> was thrown.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </refsect1>
+
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <example>
+   <title><function>DateTime::setISODate</function> example</title>
+   <simpara>&style.oop;</simpara>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$date = new DateTime();
+$date->setISODate(2008, 2);
+echo $date->format('Y-m-d') . "\n";
+
+$date->setISODate(2008, 2, 7);
+echo $date->format('Y-m-d') . "\n";
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+2008-01-07
+2008-01-13
+]]>
+   </screen>
+   <simpara>&style.procedural;</simpara>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$date = date_create();
+date_isodate_set($date, 2008, 2);
+echo date_format($date, 'Y-m-d') . "\n";
+
+date_isodate_set($date, 2008, 2, 7);
+echo date_format($date, 'Y-m-d') . "\n";
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+2008-01-07
+2008-01-13
+]]>
+   </screen>
+  </example>
+  <example>
+   <title>Values exceeding ranges are added to their parent values</title>
+   <programlisting role="php">
+<![CDATA[
+<?php
+$date = new DateTime();
+$date->setISODate(2008, 2, 7);
+echo $date->format('Y-m-d') . "\n";
+
+$date->setISODate(2008, 2, 8);
+echo $date->format('Y-m-d') . "\n";
+
+$date->setISODate(2008, 53, 7);
+echo $date->format('Y-m-d') . "\n";
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+2008-01-13
+2008-01-14
+2009-01-04
+]]>
+   </screen>
+  </example>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
