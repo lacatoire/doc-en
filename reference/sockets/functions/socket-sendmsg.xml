@@ -22,170 +22,176 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <simpara>
-       A <classname>Socket</classname> instance created with <function>socket_create</function>,
-       <function>socket_accept</function> or <function>socket_create_pair</function>.
-      </simpara>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>message</parameter></term>
-     <listitem>
-      <simpara>
-       An associative array which may contain the following elements. All of them
-       are optional, and unrecognized keys are silently ignored. In particular
-       there is no <varname>flags</varname> element when sending; that key only
-       appears in the array filled in by <function>socket_recvmsg</function>.
-      </simpara>
-      <variablelist>
-       <varlistentry>
-        <term><varname>name</varname></term>
-        <listitem>
-         <simpara>
-          The address of the remote host, as an array. Its keys are
-          <varname>addr</varname> and <varname>port</varname> for
-          <constant>AF_INET</constant>; <varname>addr</varname>,
-          <varname>port</varname>, <varname>flowinfo</varname> and
-          <varname>scope_id</varname> for <constant>AF_INET6</constant>; and
-          <varname>path</varname> for <constant>AF_UNIX</constant>.
-          <varname>addr</varname> accepts an IP address or a host name, which is
-          then resolved. An optional <varname>family</varname> key selects the
-          address family explicitly; if omitted, the family of
-          <parameter>socket</parameter> is used. A family the socket does not
-          support makes the call fail.
-         </simpara>
-        </listitem>
-       </varlistentry>
-       <varlistentry>
-        <term><varname>iov</varname></term>
-        <listitem>
-         <simpara>
-          A list of buffers holding the data to send, which are sent in order as a
-          single message. Array keys are ignored and the values are converted to
-          string. When this key is missing or empty, no data is sent and the
-          function returns <literal>0</literal>.
-         </simpara>
-        </listitem>
-       </varlistentry>
-       <varlistentry>
-        <term><varname>control</varname></term>
-        <listitem>
-         <simpara>
-          A list of ancillary data messages. Each is an array with the keys
-          <varname>level</varname>, <varname>type</varname> and
-          <varname>data</varname>. Only the pairs below are supported, and their
-          availability depends on the platform.
-         </simpara>
-         <table>
-          <title>Supported ancillary data</title>
-          <tgroup cols="3">
-           <thead>
-            <row>
-             <entry><varname>level</varname></entry>
-             <entry><varname>type</varname></entry>
-             <entry><varname>data</varname></entry>
-            </row>
-           </thead>
-           <tbody>
-            <row>
-             <entry><constant>SOL_SOCKET</constant></entry>
-             <entry><constant>SCM_RIGHTS</constant></entry>
-             <entry>
-              A non-empty list of <classname>Socket</classname> instances or
-              stream resources, whose file descriptors are sent to the receiving
-              process.
-             </entry>
-            </row>
-            <row>
-             <entry><constant>SOL_SOCKET</constant></entry>
-             <entry><constant>SCM_CREDENTIALS</constant></entry>
-             <entry>
-              An array with the keys <varname>pid</varname>,
-              <varname>uid</varname> and <varname>gid</varname>. Named
-              <constant>SCM_CREDS</constant> or <constant>SCM_CREDS2</constant>
-              on some systems.
-             </entry>
-            </row>
-            <row>
-             <entry><constant>IPPROTO_IPV6</constant></entry>
-             <entry><constant>IPV6_PKTINFO</constant></entry>
-             <entry>
-              An array with the keys <varname>addr</varname> and
-              <varname>ifindex</varname>.
-             </entry>
-            </row>
-            <row>
-             <entry><constant>IPPROTO_IPV6</constant></entry>
-             <entry><constant>IPV6_HOPLIMIT</constant></entry>
-             <entry>An <type>int</type>.</entry>
-            </row>
-            <row>
-             <entry><constant>IPPROTO_IPV6</constant></entry>
-             <entry><constant>IPV6_TCLASS</constant></entry>
-             <entry>An <type>int</type>.</entry>
-            </row>
-           </tbody>
-          </tgroup>
-         </table>
-        </listitem>
-       </varlistentry>
-      </variablelist>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>flags</parameter></term>
-     <listitem>
-      <para>
-       The value of <parameter>flags</parameter> can be any combination of the
-       following flags, joined with the binary OR (<literal>|</literal>) operator.
-       <table>
-        <title>Possible values for <parameter>flags</parameter></title>
-        <tgroup cols="2">
-         <tbody>
-          <row>
-           <entry><constant>MSG_OOB</constant></entry>
-           <entry>
-            Send OOB (out-of-band) data.
-           </entry>
-          </row>
-          <row>
-           <entry><constant>MSG_EOR</constant></entry>
-           <entry>
-            Indicate a record mark. The sent data completes the record.
-           </entry>
-          </row>
-          <row>
-           <entry><constant>MSG_DONTWAIT</constant></entry>
-           <entry>
-            With this flag set, the function returns even if it would normally
-            have blocked.
-           </entry>
-          </row>
-          <row>
-           <entry><constant>MSG_DONTROUTE</constant></entry>
-           <entry>
-            Bypass routing, use direct interface.
-           </entry>
-          </row>
-         </tbody>
-        </tgroup>
-       </table>
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <simpara>
+      A <classname>Socket</classname> instance created with <function>socket_create</function>,
+      <function>socket_accept</function> or <function>socket_create_pair</function>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>message</parameter></term>
+    <listitem>
+     <simpara>
+      An associative array which may contain the following elements. All of them
+      are optional, and unrecognized keys are silently ignored. In particular
+      there is no <varname>flags</varname> element when sending; that key only
+      appears in the array filled in by <function>socket_recvmsg</function>.
+     </simpara>
+     <variablelist>
+      <varlistentry>
+       <term><varname>name</varname></term>
+       <listitem>
+        <simpara>
+         The address of the remote host, as an array. Its keys are
+         <varname>addr</varname> and <varname>port</varname> for
+         <constant>AF_INET</constant>; <varname>addr</varname>,
+         <varname>port</varname>, <varname>flowinfo</varname> and
+         <varname>scope_id</varname> for <constant>AF_INET6</constant>; and
+         <varname>path</varname> for <constant>AF_UNIX</constant>.
+         <varname>addr</varname> accepts an IP address or a host name, which is
+         then resolved. An optional <varname>family</varname> key selects the
+         address family explicitly; if omitted, the family of
+         <parameter>socket</parameter> is used. A family the socket does not
+         support makes the call fail.
+        </simpara>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term><varname>iov</varname></term>
+       <listitem>
+        <simpara>
+         A list of buffers holding the data to send, which are sent in order as a
+         single message. Array keys are ignored and the values are converted to
+         string. When this key is missing or empty, no data is sent and the
+         function returns <literal>0</literal>.
+        </simpara>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term><varname>control</varname></term>
+       <listitem>
+        <simpara>
+         A list of ancillary data messages. Each is an array with the keys
+         <varname>level</varname>, <varname>type</varname> and
+         <varname>data</varname>. Only the pairs below are supported, and their
+         availability depends on the platform.
+        </simpara>
+        <table>
+         <title>Supported ancillary data</title>
+         <tgroup cols="3">
+          <thead>
+           <row>
+            <entry><varname>level</varname></entry>
+            <entry><varname>type</varname></entry>
+            <entry><varname>data</varname></entry>
+           </row>
+          </thead>
+          <tbody>
+           <row>
+            <entry><constant>SOL_SOCKET</constant></entry>
+            <entry><constant>SCM_RIGHTS</constant></entry>
+            <entry>
+             A non-empty list of <classname>Socket</classname> instances or
+             stream resources, whose file descriptors are sent to the receiving
+             process.
+            </entry>
+           </row>
+           <row>
+            <entry><constant>SOL_SOCKET</constant></entry>
+            <entry><constant>SCM_CREDENTIALS</constant></entry>
+            <entry>
+             An array with the keys <varname>pid</varname>,
+             <varname>uid</varname> and <varname>gid</varname>. Named
+             <constant>SCM_CREDS</constant> or <constant>SCM_CREDS2</constant>
+             on some systems.
+            </entry>
+           </row>
+           <row>
+            <entry><constant>IPPROTO_IPV6</constant></entry>
+            <entry><constant>IPV6_PKTINFO</constant></entry>
+            <entry>
+             An array with the keys <varname>addr</varname> and
+             <varname>ifindex</varname>.
+            </entry>
+           </row>
+           <row>
+            <entry><constant>IPPROTO_IPV6</constant></entry>
+            <entry><constant>IPV6_HOPLIMIT</constant></entry>
+            <entry>An <type>int</type>.</entry>
+           </row>
+           <row>
+            <entry><constant>IPPROTO_IPV6</constant></entry>
+            <entry><constant>IPV6_TCLASS</constant></entry>
+            <entry>An <type>int</type>.</entry>
+           </row>
+          </tbody>
+         </tgroup>
+        </table>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>flags</parameter></term>
+    <listitem>
+     <para>
+      The value of <parameter>flags</parameter> can be any combination of the
+      following flags, joined with the binary OR (<literal>|</literal>) operator.
+      <table>
+       <title>Possible values for <parameter>flags</parameter></title>
+       <tgroup cols="2">
+        <tbody>
+         <row>
+          <entry><constant>MSG_OOB</constant></entry>
+          <entry>
+           Send OOB (out-of-band) data.
+          </entry>
+         </row>
+         <row>
+          <entry><constant>MSG_EOR</constant></entry>
+          <entry>
+           Indicate a record mark. The sent data completes the record.
+          </entry>
+         </row>
+         <row>
+          <entry><constant>MSG_DONTWAIT</constant></entry>
+          <entry>
+           With this flag set, the function returns even if it would normally
+           have blocked.
+          </entry>
+         </row>
+         <row>
+          <entry><constant>MSG_DONTROUTE</constant></entry>
+          <entry>
+           Bypass routing, use direct interface.
+          </entry>
+         </row>
+        </tbody>
+       </tgroup>
+      </table>
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
    Returns the number of bytes sent, &return.falseforfailure;.
+  </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   A <exceptionname>ValueError</exceptionname> is thrown if <parameter>flags</parameter> is outside the range of an <type>int</type>.
+   An <classname>Error</classname> is thrown if <parameter>socket</parameter> has already been closed.
   </para>
  </refsect1>
 
@@ -200,6 +206,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.0.21, 8.1.8</entry>
+      <entry>
+       A <parameter>flags</parameter> outside the range of an <type>int</type> now throws a
+       <exceptionname>ValueError</exceptionname>; the value was silently truncated before.
+      </entry>
+     </row>
      &sockets.changelog.socket-param;
     </tbody>
    </tgroup>
@@ -282,12 +295,10 @@ first line: <?php
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>socket_recvmsg</function></member>
-    <member><function>socket_cmsg_space</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>socket_recvmsg</function></member>
+   <member><function>socket_cmsg_space</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
