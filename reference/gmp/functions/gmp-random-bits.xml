@@ -18,8 +18,8 @@
    <literal>2<superscript>$bits</superscript> - 1</literal>.
   </para>
   <simpara>
-   <parameter>bits</parameter> must be greater than 0,
-   and the maximum value is restricted by available memory.
+   <parameter>bits</parameter> must be greater than 0 and, on 64-bit
+   platforms, at most <literal>2147483647</literal>.
   </simpara>
   &caution.cryptographically-insecure;
  </refsect1>
@@ -31,9 +31,10 @@
     <varlistentry>
      <term><parameter>bits</parameter></term>
      <listitem>
-      <para>
-       The number of bits to generate.
-      </para>
+      <simpara>
+       The number of bits to generate, between <literal>1</literal> and
+       <literal>2147483647</literal> on 64-bit platforms.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -49,10 +50,11 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   If <parameter>bits</parameter> is less than <literal>1</literal>,
+  <simpara>
+   If <parameter>bits</parameter> is less than <literal>1</literal> or, on
+   64-bit platforms, greater than <literal>2147483647</literal>,
    a <exceptionname>ValueError</exceptionname> will be thrown.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
