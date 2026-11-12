@@ -32,39 +32,37 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>constant_name</parameter></term>
-     <listitem>
-      <para>
-       The constant name.
-      </para>
-      <note>
-       <simpara>
-        <function>defined</function> takes the name as an ordinary
-        <type>string</type> and does not resolve it against the current
-        <link linkend="language.namespaces.dynamic">namespace</link>: the name
-        is looked up in the global namespace, so an unqualified name may
-        silently report on a different constant from the one the same bare
-        identifier would refer to.
-        To check whether a constant declared in a namespace is defined, the
-        namespace must be part of the name, as in
-        <literal>defined('My\Namespace\MYCONST')</literal> or
-        <literal>defined(__NAMESPACE__ . '\MYCONST')</literal>.
-        Because the name is a plain string, aliases introduced by
-        <literal>use</literal> statements and the
-        <literal>namespace\</literal> prefix are not applied to it.
-        In a double-quoted string the namespace separators must be escaped,
-        as in <literal>"My\\Namespace\\MYCONST"</literal>.
-        The namespace part of the name is case-insensitive, the constant name
-        is not.
-       </simpara>
-      </note>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>constant_name</parameter></term>
+    <listitem>
+     <simpara>
+      The constant name.
+     </simpara>
+     <note>
+      <simpara>
+       <function>defined</function> takes the name as an ordinary
+       <type>string</type> and does not resolve it against the current
+       <link linkend="language.namespaces.dynamic">namespace</link>: the name
+       is looked up in the global namespace, so an unqualified name may
+       silently report on a different constant from the one the same bare
+       identifier would refer to.
+       To check whether a constant declared in a namespace is defined, the
+       namespace must be part of the name, as in
+       <literal>defined('My\Namespace\MYCONST')</literal> or
+       <literal>defined(__NAMESPACE__ . '\MYCONST')</literal>.
+       Because the name is a plain string, aliases introduced by
+       <literal>use</literal> statements and the
+       <literal>namespace\</literal> prefix are not applied to it.
+       In a double-quoted string the namespace separators must be escaped,
+       as in <literal>"My\\Namespace\\MYCONST"</literal>.
+       The namespace part of the name is case-insensitive, the constant name
+       is not.
+      </simpara>
+     </note>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -73,14 +71,20 @@
    Returns &true; if the named constant given by <parameter>constant_name</parameter>
    has been defined, &false; otherwise.
   </para>
+  <simpara>
+   A class constant that exists but is not accessible from the calling scope,
+   such as a private constant used from outside its class, is reported as not
+   defined, like a constant that does not exist. <function>constant</function>
+   throws an <exceptionname>Error</exceptionname> with a different message in
+   each case.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Checking Constants</title>
-    <programlisting role="php">
+  <example>
+   <title>Checking Constants</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 
@@ -104,11 +108,11 @@ var_dump(defined('foo::test')); // bool(true)
 
 ?>
 ]]>
-    </programlisting>
-   </example>
-   <example>
-    <title>Checking Enum Cases (as of PHP 8.1.0)</title>
-    <programlisting role="php">
+   </programlisting>
+  </example>
+  <example>
+   <title>Checking Enum Cases (as of PHP 8.1.0)</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 
@@ -124,22 +128,19 @@ var_dump(defined('Suit::Hearts')); // bool(true)
 
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>define</function></member>
-    <member><function>constant</function></member>
-    <member><function>get_defined_constants</function></member>
-    <member><function>function_exists</function></member>
-    <member>The section on <link linkend="language.constants">Constants</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>define</function></member>
+   <member><function>constant</function></member>
+   <member><function>get_defined_constants</function></member>
+   <member><function>function_exists</function></member>
+   <member>The section on <link linkend="language.constants">Constants</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
