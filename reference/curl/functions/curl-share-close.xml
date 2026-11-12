@@ -18,9 +18,11 @@
    <methodparam><type>CurlShareHandle</type><parameter>share_handle</parameter></methodparam>
   </methodsynopsis>
   &note.resource-migration-8.0-dead-function;
-  <para>
-   Closes a cURL share handle and frees all resources.
-  </para>
+  <simpara>
+   This function has no effect as of PHP 8.0.0: the share handle remains
+   usable and is freed when the <classname>CurlShareHandle</classname> object
+   is destroyed.
+  </simpara>
 
  </refsect1>
 
