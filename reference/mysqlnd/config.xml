@@ -21,7 +21,7 @@
      <row>
       <entry><link linkend="ini.mysqlnd.collect-statistics">mysqlnd.collect_statistics</link></entry>
       <entry>"1"</entry>
-      <entry><constant>INI_SYSTEM</constant></entry>
+      <entry><constant>INI_ALL</constant></entry>
       <entry/>
      </row>
      <row>
@@ -60,13 +60,13 @@
      <row>
       <entry><link linkend="ini.mysqlnd.net-cmd-buffer-size">mysqlnd.net_cmd_buffer_size</link></entry>
       <entry>"4096"</entry>
-      <entry><constant>INI_SYSTEM</constant></entry>
+      <entry><constant>INI_ALL</constant></entry>
       <entry/>
      </row>
      <row>
       <entry><link linkend="ini.mysqlnd.net-read-buffer-size">mysqlnd.net_read_buffer_size</link></entry>
       <entry>"32768"</entry>
-      <entry><constant>INI_SYSTEM</constant></entry>
+      <entry><constant>INI_ALL</constant></entry>
       <entry/>
      </row>
      <row>
