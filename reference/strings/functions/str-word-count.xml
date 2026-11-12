@@ -24,20 +24,20 @@
    <parameter>format</parameter>. The possible value for the 
    <parameter>format</parameter> and the resultant outputs are listed below.
   </para>
-  <para>
+  <simpara>
    For the purpose of this function, 'word' is defined as a locale dependent
    string containing alphabetic characters, which also may contain
    &quot;'&quot; and &quot;-&quot; characters.
    Note that multibyte locales are not supported.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    A first &quot;'&quot; or &quot;-&quot; and a last &quot;-&quot; are dropped only at
    the start and at the end of <parameter>string</parameter>, not at the start
    or the end of each word: <literal>"foo -bar"</literal> contains
    <literal>"-bar"</literal>, and a run made only of &quot;'&quot; and &quot;-&quot;
    characters, such as <literal>"--"</literal> in <literal>"foo -- bar"</literal>, counts as a word.
    Characters listed in <parameter>characters</parameter> are not dropped.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
