@@ -33,11 +33,13 @@
     <varlistentry>
      <term><parameter>quality</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        <parameter>quality</parameter> ranges from 0 (worst
        quality, smaller file) to 100 (best quality, biggest file).
        If <literal>-1</literal> is provided, the default value <literal>80</literal> is used.
-      </para>
+       Any value of <constant>IMG_WEBP_LOSSLESS</constant> (<literal>101</literal>)
+       or more selects lossless encoding.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
