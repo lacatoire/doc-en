@@ -14,7 +14,7 @@
   </methodsynopsis>
   <para>
    The <function>socket_set_block</function> function removes the 
-   <constant>O_NONBLOCK</constant> flag on the socket specified by the 
+   <literal>O_NONBLOCK</literal> flag on the socket specified by the 
    <parameter>socket</parameter> parameter.
   </para>
   <para>
@@ -82,7 +82,7 @@ socket_accept($socket);
     </programlisting>
     <para>
      This example creates a listening socket on all interfaces on port 1223 and
-     sets the socket to <constant>O_BLOCK</constant> mode. 
+     sets the socket to blocking mode.
      <function>socket_accept</function> will hang until there is a connection
      to accept.
     </para>
