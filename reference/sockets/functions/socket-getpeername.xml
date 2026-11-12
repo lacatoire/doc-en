@@ -22,57 +22,63 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <para>
-       A <classname>Socket</classname> instance created with <function>socket_create</function>
-       or <function>socket_accept</function>.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>address</parameter></term>
-     <listitem>
-      <para>
-       If the given socket is of type <constant>AF_INET</constant> or
-       <constant>AF_INET6</constant>, <function>socket_getpeername</function>
-       will return the peers (remote) <emphasis>IP address</emphasis> in
-       appropriate notation (e.g. <literal>127.0.0.1</literal> or
-       <literal>fe80::1</literal>) in the <parameter>address</parameter>
-       parameter and, if the optional <parameter>port</parameter> parameter is
-       present, also the associated port.
-      </para>
-      <para>
-       If the given socket is of type <constant>AF_UNIX</constant>,
-       <function>socket_getpeername</function> will return the Unix filesystem
-       path (e.g. <literal>/var/run/daemon.sock</literal>) in the
-       <parameter>address</parameter> parameter.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>port</parameter></term>
-     <listitem>
-      <para>
-       If given, this will hold the port associated to
-       <parameter>address</parameter>.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <para>
+      A <classname>Socket</classname> instance created with <function>socket_create</function>
+      or <function>socket_accept</function>.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>address</parameter></term>
+    <listitem>
+     <para>
+      If the given socket is of type <constant>AF_INET</constant> or
+      <constant>AF_INET6</constant>, <function>socket_getpeername</function>
+      will return the peers (remote) <emphasis>IP address</emphasis> in
+      appropriate notation (e.g. <literal>127.0.0.1</literal> or
+      <literal>fe80::1</literal>) in the <parameter>address</parameter>
+      parameter and, if the optional <parameter>port</parameter> parameter is
+      present, also the associated port.
+     </para>
+     <para>
+      If the given socket is of type <constant>AF_UNIX</constant>,
+      <function>socket_getpeername</function> will return the Unix filesystem
+      path (e.g. <literal>/var/run/daemon.sock</literal>) in the
+      <parameter>address</parameter> parameter. It is an empty string when the peer
+      has no name, for example with <function>socket_create_pair</function>, or when the
+      name is in the abstract namespace.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>port</parameter></term>
+    <listitem>
+     <para>
+      If given, this will hold the port associated to
+      <parameter>address</parameter>. It is not written for an <constant>AF_UNIX</constant> socket.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   &return.success; <function>socket_getpeername</function> may also return
-   &false; if the socket type is not any of <constant>AF_INET</constant>,
-   <constant>AF_INET6</constant>, or <constant>AF_UNIX</constant>, in which
-   case the last socket error code is <emphasis>not</emphasis> updated.
+   &return.success; &false; is returned, with an <constant>E_WARNING</constant>, when the
+   underlying call fails, for example on a socket that is not connected such as a listening
+   server socket (<constant>SOCKET_ENOTCONN</constant>), and the last socket error code is updated.
+  </para>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   A <exceptionname>ValueError</exceptionname> is thrown if the socket family is not
+   <constant>AF_UNIX</constant>, <constant>AF_INET</constant> or <constant>AF_INET6</constant>.
   </para>
  </refsect1>
 
@@ -88,6 +94,13 @@
     </thead>
     <tbody>
      &sockets.changelog.socket-param;
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       A <exceptionname>ValueError</exceptionname> is now thrown when the socket family is not supported;
+       previously an <constant>E_WARNING</constant> was emitted and &false; was returned.
+      </entry>
+     </row>
     </tbody>
    </tgroup>
   </informaltable>
@@ -98,10 +111,9 @@
   <note>
    <para>
     <function>socket_getpeername</function> should not be used with
-    <constant>AF_UNIX</constant> sockets created with <function>socket_accept</function>.
-    Only sockets created with <function>socket_connect</function> or a primary
-    server socket following a call to <function>socket_bind</function> will return
-    meaningful values.
+    <constant>AF_UNIX</constant> sockets created with <function>socket_accept</function>:
+    the client of such a socket usually has no name.
+    Only connected sockets return meaningful values.
    </para>
   </note>
   <note>
@@ -115,13 +127,11 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>socket_getsockname</function></member>
-    <member><function>socket_last_error</function></member>
-    <member><function>socket_strerror</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>socket_getsockname</function></member>
+   <member><function>socket_last_error</function></member>
+   <member><function>socket_strerror</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
