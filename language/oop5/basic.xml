@@ -398,7 +398,7 @@ echo new DateTime()->format('Y'), PHP_EOL;
 ]]>
     </screen>
    </example>
-   <para>
+   <simpara>
     As of PHP 8.4.0, the surrounding parentheses may be omitted, provided the
     constructor argument list is written explicitly, even when it is empty:
     <code>new Foo()->bar()</code> is valid, whereas <code>new Foo->bar()</code>
@@ -407,7 +407,7 @@ echo new DateTime()->format('Y'), PHP_EOL;
     classes can be dereferenced even without an argument list. A
     <literal>new</literal> expression is not a valid write target:
     <code>new Foo()->prop = 1</code> is a fatal error.
-   </para>
+   </simpara>
 
    <note>
     <simpara>
