@@ -50,6 +50,27 @@
    web server environment (but only when no previous response status has been
    set).
   </para>
+  <simpara>
+   &false; will also be returned if <parameter>response_code</parameter> is
+   provided and the headers have already been sent.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If <parameter>response_code</parameter> is provided and the headers have
+   already been sent, an <constant>E_WARNING</constant> level error is emitted
+   and &false; is returned.
+  </simpara>
+  <simpara>
+   If <parameter>response_code</parameter> is provided after the status line
+   was set with <function>header</function> (for example
+   <literal>header("HTTP/1.1 418 I'm a teapot")</literal>), an
+   <constant>E_WARNING</constant> level error is emitted because the call has
+   no effect on that status line. The value returned by a subsequent call
+   without arguments is nevertheless updated.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
