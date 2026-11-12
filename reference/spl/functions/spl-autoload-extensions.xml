@@ -67,6 +67,8 @@
        <entry>8.0.0</entry>
        <entry>
         <parameter>file_extensions</parameter> is now nullable.
+        Previously, passing &null; was converted to an empty string and reset
+        the list of extensions; now it only returns the current list.
        </entry>
       </row>
      </tbody>
