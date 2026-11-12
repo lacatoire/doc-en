@@ -55,18 +55,33 @@
   <simpara>
    If only two parameters were passed to this function, the values parsed will
    be returned as an <type>array</type>. Otherwise, if optional parameters are passed,
-   the function will return the number of assigned values. The optional parameters
-   must be passed by reference.
+   the function will return the number of conversions performed, including
+   those suppressed with <literal>*</literal> and those made by
+   <literal>n</literal>. The optional parameters must be passed by reference.
   </simpara>
   <simpara>
-   If there are more substrings expected in the <parameter>format</parameter>
-   than there are available within <parameter>string</parameter>,
-   &null; will be returned.
+   If the input <parameter>string</parameter> ends before the first conversion
+   is complete, &null; is returned when only two parameters were passed.
+   If it ends or stops matching later, the values that could not be parsed
+   are &null; in the returned <type>array</type>.
   </simpara>
   <simpara>
    When optional parameters are used and the end of the input
    <parameter>string</parameter> is reached before any value has been
    parsed, <literal>-1</literal> is returned.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>format</parameter> contains an unsupported conversion character,
+   an unmatched <literal>[</literal>, both <literal>%</literal> and
+   <literal>%n$</literal> conversion specifiers, a <literal>%n$</literal>
+   specifier that is repeated or out of range, or if the number of
+   <parameter>vars</parameter> does not match the number of conversion
+   specifiers.
   </simpara>
  </refsect1>
 
