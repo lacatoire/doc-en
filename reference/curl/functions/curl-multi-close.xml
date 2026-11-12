@@ -16,9 +16,15 @@
    Removes all <classname>CurlHandle</classname>s attached to the <classname>CurlMultiHandle</classname>,
    as if <function>curl_multi_remove_handle</function> was called for each of them.
   </para>
-  <para>
+  <simpara>
    Prior to PHP 8.0.0 this function also closed the cURL multi handle resource, making it unusable.
-  </para>
+  </simpara>
+  <simpara>
+   An <constant>E_WARNING</constant> is emitted for an attached handle whose
+   <constant>CURLOPT_STDERR</constant>, <constant>CURLOPT_INFILE</constant>,
+   <constant>CURLOPT_WRITEHEADER</constant> or <constant>CURLOPT_FILE</constant>
+   stream has been closed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -48,6 +54,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       This function no longer closes the multi handle, which stays usable
+       afterwards.
+      </entry>
+     </row>
      &curl.changelog.multi-handle-param;
     </tbody>
    </tgroup>
