@@ -18,6 +18,9 @@
   <simpara>
    Verify then decrypt a message with AEGIS-256.
   </simpara>
+  <simpara>
+   Only available if PHP was built against libsodium 1.0.19 or later.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -27,7 +30,8 @@
     <term><parameter>ciphertext</parameter></term>
     <listitem>
      <simpara>
-      Must be in the format provided by <function>sodium_crypto_aead_aegis256_encrypt</function>.
+      Must be in the format provided by <function>sodium_crypto_aead_aegis256_encrypt</function>
+      (ciphertext and tag, concatenated).
      </simpara>
     </listitem>
    </varlistentry>
@@ -44,7 +48,7 @@
     <term><parameter>nonce</parameter></term>
     <listitem>
      <simpara>
-      A number that must be only used once, per message.
+      A number that must be only used once, per message. 32 bytes long.
      </simpara>
     </listitem>
    </varlistentry>
@@ -63,6 +67,17 @@
   &reftitle.returnvalues;
   <simpara>
    Returns the plaintext on success, &return.falseforfailure;.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>SodiumException</exceptionname> if
+   <parameter>nonce</parameter> is not
+   <constant>SODIUM_CRYPTO_AEAD_AEGIS256_NPUBBYTES</constant> bytes long or
+   <parameter>key</parameter> is not
+   <constant>SODIUM_CRYPTO_AEAD_AEGIS256_KEYBYTES</constant> bytes long.
   </simpara>
  </refsect1>
 
