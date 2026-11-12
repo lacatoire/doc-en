@@ -29,6 +29,26 @@
       The codepage of the <parameter>subject</parameter> string.
       Either the codepage name or identifier.
      </para>
+     <simpara>
+      An <type>int</type> is a Windows codepage identifier, such as
+      <literal>1251</literal> or <literal>65001</literal>, from the table of
+      codepages known to PHP. <literal>0</literal> stands for the ANSI
+      codepage and <literal>1</literal> for the OEM codepage of the system.
+      An identifier that is not in the table, such as the UTF-16 and UTF-32
+      codepages (<literal>1200</literal>, <literal>1201</literal>,
+      <literal>12000</literal> and <literal>12001</literal>), throws a
+      <exceptionname>ValueError</exceptionname>.
+     </simpara>
+     <simpara>
+      A <type>string</type> is always read as a codepage name, never as an
+      identifier: <literal>"cp1251"</literal> is accepted, but
+      <literal>"1251"</literal> is not an identifier. The name is compared,
+      ignoring case, with the names and aliases of the same table as the
+      <link linkend="ini.input-encoding">input_encoding</link> and
+      <link linkend="ini.output-encoding">output_encoding</link> settings.
+      An empty string means UTF-8. A name that is not in the table does not
+      throw: it is treated as the ANSI codepage of the system.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
@@ -38,6 +58,26 @@
       The codepage to convert the <parameter>subject</parameter> string to.
       Either the codepage name or identifier.
      </para>
+     <simpara>
+      An <type>int</type> is a Windows codepage identifier, such as
+      <literal>1251</literal> or <literal>65001</literal>, from the table of
+      codepages known to PHP. <literal>0</literal> stands for the ANSI
+      codepage and <literal>1</literal> for the OEM codepage of the system.
+      An identifier that is not in the table, such as the UTF-16 and UTF-32
+      codepages (<literal>1200</literal>, <literal>1201</literal>,
+      <literal>12000</literal> and <literal>12001</literal>), throws a
+      <exceptionname>ValueError</exceptionname>.
+     </simpara>
+     <simpara>
+      A <type>string</type> is always read as a codepage name, never as an
+      identifier: <literal>"cp1251"</literal> is accepted, but
+      <literal>"1251"</literal> is not an identifier. The name is compared,
+      ignoring case, with the names and aliases of the same table as the
+      <link linkend="ini.input-encoding">input_encoding</link> and
+      <link linkend="ini.output-encoding">output_encoding</link> settings.
+      An empty string means UTF-8. A name that is not in the table does not
+      throw: it is treated as the ANSI codepage of the system.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
