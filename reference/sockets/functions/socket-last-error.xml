@@ -26,29 +26,32 @@
   <para>
    If no error had occurred, or the error had been cleared with
    <function>socket_clear_error</function>, the function returns <literal>0</literal>.
+   A successful call does not reset the code: it stays until another call fails or
+   <function>socket_clear_error</function> is called. The code of a <classname>Socket</classname>
+   and the global code are independent.
   </para>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <para>
-       A <classname>Socket</classname> instance created with <function>socket_create</function>.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <para>
+      A <classname>Socket</classname> instance created with <function>socket_create</function>.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   This function returns a socket error code.
+   This function returns a socket error code: a positive system error number, or
+   a negative code when a host name could not be resolved (for example <literal>-10001</literal>
+   for an unknown host), which <function>socket_strerror</function> accepts.
   </para>
  </refsect1>
 
@@ -77,10 +80,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>socket_last_error</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>socket_last_error</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $socket = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
@@ -91,11 +93,9 @@ if ($socket === false) {
     
     die("Couldn't create socket: [$errorcode] $errormsg");
 }
-?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="notes">
@@ -106,6 +106,14 @@ if ($socket === false) {
     <function>socket_clear_error</function> for this purpose.
    </para>
   </note>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>socket_clear_error</function></member>
+   <member><function>socket_strerror</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
