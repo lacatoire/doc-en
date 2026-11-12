@@ -13,12 +13,15 @@
    <methodparam><type>LDAP\Connection</type><parameter>ldap</parameter></methodparam>
    <methodparam><type>LDAP\ResultEntry</type><parameter>entry</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   Retrieves the attributes in an entry. The first call to
-   <function>ldap_next_attribute</function> is made with the
-   <parameter>entry</parameter> returned from
-   <function>ldap_first_attribute</function>.
-  </para>
+  <simpara>
+   Retrieves the attributes in an entry. The <parameter>entry</parameter>
+   is the one obtained from <function>ldap_first_entry</function> or
+   <function>ldap_next_entry</function>, and must be the same one passed to
+   <function>ldap_first_attribute</function>, which stores the iteration
+   state in it. Call <function>ldap_first_attribute</function> first to
+   retrieve the first attribute, then call
+   <function>ldap_next_attribute</function> for the following ones.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -47,10 +50,14 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the next attribute in an entry on success and &false; on
-   error.
-  </para>
+   error or when there are no more attributes. Reaching the end of the
+   iteration returns &false; without any diagnostic. Calling this function
+   before <function>ldap_first_attribute</function>, or after the end of the
+   iteration was reached, emits an <constant>E_WARNING</constant> and
+   returns &false;.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
