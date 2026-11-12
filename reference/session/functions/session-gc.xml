@@ -51,6 +51,17 @@
   <simpara>
    <function>session_gc</function> returns the number of deleted session
    entries on success, &return.falseforfailure;.
+   An <constant>E_WARNING</constant> is also raised, and &false; is returned,
+   when there is no active session.
+  </simpara>
+  <simpara>
+   &false; is also returned, without any message, when a user-defined
+   <methodname>SessionHandlerInterface::gc</methodname> returns &false;,
+   a negative integer, or any value other than an integer or &true;
+   (such as &null;, a string, a float or an array).
+   An integer is used as the number of deleted entries, and &true; counts as
+   <literal>1</literal>. <literal>0</literal> means that the garbage collector
+   ran and deleted nothing.
   </simpara>
   <note>
    <simpara>
@@ -117,6 +128,8 @@ if (file_exists($gc_time)) {
    <member><function>session_start</function></member>
    <member><function>session_destroy</function></member>
    <member><link linkend="ini.session.gc-probability">session.gc_probability</link></member>
+   <member><link linkend="ini.session.gc-divisor">session.gc_divisor</link></member>
+   <member><link linkend="ini.session.gc-maxlifetime">session.gc_maxlifetime</link></member>
   </simplelist>
  </refsect1>
 </refentry>
