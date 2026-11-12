@@ -3,7 +3,7 @@
 <refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.snmpwalk">
  <refnamediv>
   <refname>snmpwalk</refname>
-  <refpurpose>Fetch all the <acronym>SNMP</acronym> objects from an agent</refpurpose>
+  <refpurpose>Fetch the <acronym>SNMP</acronym> objects below an object id from an agent</refpurpose>
  </refnamediv>
  <refsect1 role="description">
   &reftitle.description;
@@ -17,7 +17,7 @@
   </methodsynopsis>
 
   <simpara>
-   <function>snmpwalk</function> function is used to read all the values from
+   <function>snmpwalk</function> function is used to read all the values below <parameter>object_id</parameter> from
    an <acronym>SNMP</acronym> agent specified by the <parameter>hostname</parameter>.
   </simpara>
  </refsect1>
@@ -29,7 +29,8 @@
     <term><parameter>hostname</parameter></term>
     <listitem>
      <simpara>
-      The SNMP agent (server).
+      The hostname of the <acronym>SNMP</acronym> agent (server), optionally followed by a port,
+      as in <literal>127.0.0.1:161</literal>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -45,13 +46,14 @@
     <term><parameter>object_id</parameter></term>
     <listitem>
      <simpara>
-      If &null;, <parameter>object_id</parameter> is taken as the root of
-      the <acronym>SNMP</acronym> objects tree and all objects under that tree are returned as
-      an array.
+      The root of the subtree to read: all the <acronym>SNMP</acronym> objects below
+      <parameter>object_id</parameter> are returned. An empty string stands for
+      <literal>.1.3.6.1.2.1</literal> (mib-2), which is only a part of the whole tree.
+      &null; does the same, but is deprecated.
      </simpara>
      <simpara>
-      If <parameter>object_id</parameter> is specified, all the <acronym>SNMP</acronym> objects
-      below that <parameter>object_id</parameter> are returned.
+      An array with a single element is accepted. An array with several elements is not, as a walk
+      reads a single subtree: an <constant>E_WARNING</constant> is emitted and &false; is returned.
      </simpara>
     </listitem>
    </varlistentry>
@@ -59,14 +61,17 @@
     <term><parameter>timeout</parameter></term>
     <listitem>
      <simpara>
-      The number of microseconds until the first timeout.
+      The number of microseconds until the first timeout. The default, <literal>-1</literal>, selects the
+      Net-SNMP library default: the <literal>timeout</literal> and <literal>retries</literal> settings of
+      <filename>snmp.conf</filename> if present, otherwise one second and 5 retries.
      </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>retries</parameter></term>
     <listitem>
-     <simpara>The number of times to retry if timeouts occur.</simpara>
+     <simpara>The number of times to retry if timeouts occur. The default, <literal>-1</literal>, selects the
+      Net-SNMP library default, see <parameter>timeout</parameter>.</simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -78,6 +83,49 @@
    Returns an array of <acronym>SNMP</acronym> object values starting from the
    <parameter>object_id</parameter> as root or &false; on error.
   </simpara>
+  <simpara>
+   The array is a list indexed from <literal>0</literal>.
+   &false; is returned, with an <constant>E_WARNING</constant>, if the subtree does not exist or is empty,
+   for example "No Such Object" or "No more variables left in this MIB View".
+   It is also returned on an error or a timeout during the walk, in which case the entries already received are discarded.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <classname>ValueError</classname> if <parameter>hostname</parameter> contains a null byte,
+   is 128 bytes long or longer, or has a port outside the range 0 to 65535,
+   if <parameter>community</parameter> is empty or contains a null byte,
+   if <parameter>timeout</parameter> is lower than <literal>-1</literal>,
+   if <parameter>retries</parameter> is lower than <literal>-1</literal> or too large,
+   or if <parameter>object_id</parameter> is an empty array.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> when the hostname
+       length is equal to or greater than 128 bytes, when the port is
+       negative or greater than 65535, or when the timeout or retries values
+       are lower than -1 or too large.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="examples">
@@ -87,21 +135,25 @@
    <programlisting role="php">
 <![CDATA[
 <?php
-$a = snmpwalk("127.0.0.1", "public", "");
+$a = snmpwalk("127.0.0.1", "public", ".1.3.6.1.2.1.2.2.1.2");
 
-foreach ($a as $val) {
-    echo "$val\n";
+if ($a === false) {
+    echo "snmpwalk failed\n";
+} else {
+    foreach ($a as $val) {
+        echo "$val\n";
+    }
 }
-
-?>
 ]]>
    </programlisting>
+   &example.outputs.similar;
+   <screen>
+<![CDATA[
+STRING: "lo"
+STRING: "eth0"
+]]>
+   </screen>
   </example>
-  <simpara>
-   Above function call would return all the <acronym>SNMP</acronym> objects from the
-   <acronym>SNMP</acronym> agent running on localhost. One can step through the values
-   with a loop
-  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
