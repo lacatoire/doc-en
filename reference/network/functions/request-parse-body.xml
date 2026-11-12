@@ -58,6 +58,12 @@
       to override the following global &php.ini; settings for parsing of the
       request body.
      </simpara>
+     <simpara>
+      Each value is an <type>int</type> or a <type>string</type> in the ini
+      shorthand notation, such as <literal>'10M'</literal>. The keys are matched
+      case-insensitively, and a key that is absent falls back to the &php.ini;
+      directive of the same name.
+     </simpara>
      <itemizedlist>
       <listitem><simpara><literal>max_file_uploads</literal></simpara></listitem>
       <listitem><simpara><literal>max_input_vars</literal></simpara></listitem>
@@ -85,6 +91,10 @@
    When the request body is invalid,
    according to the <literal>Content-Type</literal> header,
    a <exceptionname>RequestParseBodyException</exceptionname> is thrown.
+   It is also thrown when the request has no <literal>Content-Type</literal>
+   header, or one that is not supported: only
+   <literal>application/x-www-form-urlencoded</literal> and
+   <literal>multipart/form-data</literal> are.
   </simpara>
   <simpara>
    A <exceptionname>ValueError</exceptionname> is thrown when
@@ -128,6 +138,17 @@ assert_logged_in();
 ]]>
    </programlisting>
   </example>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><classname>RequestParseBodyException</classname></member>
+   <member><link linkend="ini.enable-post-data-reading">enable_post_data_reading</link></member>
+   <member><link linkend="ini.post-max-size">post_max_size</link></member>
+   <member><varname>$_POST</varname></member>
+   <member><varname>$_FILES</varname></member>
+  </simplelist>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file
