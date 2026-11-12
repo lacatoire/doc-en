@@ -258,8 +258,12 @@
     including <link linkend="language.enumerations">enumerations</link> (8.1),
     <link linkend="language.fibers">fibers</link> (8.1),
     <link linkend="language.oop5.basic.class.readonly">readonly classes</link> (8.2),
-    Disjunctive Normal Form (DNF) Types (8.2), and typed class
-    constants (8.3).
+    Disjunctive Normal Form (DNF) Types (8.2), typed class
+    constants (8.3),
+    <link linkend="language.oop5.property-hooks">property hooks</link> (8.4),
+    <link linkend="language.oop5.visibility-members-aviz">asymmetric property visibility</link> (8.4),
+    <link linkend="language.oop5.lazy-objects">lazy objects</link> (8.4),
+    and the <link linkend="language.operators.functional">pipe operator</link> (8.5).
    </para>
   </sect2>
  </sect1>

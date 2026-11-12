@@ -118,7 +118,13 @@ fwrite($fp, "This is a test.\n");
     second parameter of the <function>strip_tags</function> function,
     or as an array of tag names.
    </simpara>
-   &warn.deprecated.feature-7-3-0;
+   <warning>
+    <simpara>
+     This feature has been <emphasis>DEPRECATED</emphasis> as of PHP 7.3.0, and
+     <emphasis>REMOVED</emphasis> as of PHP 8.0.0. Relying on this feature
+     is highly discouraged.
+    </simpara>
+   </warning>
    <example>
     <title>string.strip_tags</title>
     <programlisting role="php">
@@ -211,7 +217,7 @@ fclose($fp);
     <literal>convert.base64-encode</literal>, <literal>convert.quoted-printable-encode</literal>
     also supports boolean arguments <parameter>binary</parameter> and
     <parameter>force-encode-first</parameter>.
-    <literal>convert.base64-decode</literal> only supports the
+    <literal>convert.quoted-printable-decode</literal> only supports the
     <parameter>line-break-chars</parameter> parameter as a type-hint
     for stripping from the encoded payload.
    </simpara>
@@ -576,6 +582,12 @@ The compressed file is 1488 bytes long.
   <section xml:id="filters.encryption.mcrypt">
    <title>mcrypt.* and mdecrypt.*</title>
    &warn.deprecated.feature-7-1-0;
+   <warning>
+    <simpara>
+     These filters have been moved to PECL, together with the
+     <link linkend="book.mcrypt">mcrypt extension</link>, as of PHP 7.2.0.
+    </simpara>
+   </warning>
 
    <simpara>
     <literal>mcrypt.*</literal> and <literal>mdecrypt.*</literal>
