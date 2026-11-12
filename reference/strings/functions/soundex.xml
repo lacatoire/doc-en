@@ -46,7 +46,7 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the soundex key as a &string; with four characters.
    If at least one letter is contained in <parameter>string</parameter>, the returned
    string starts with a letter. Otherwise <literal>"0000"</literal> is returned.
@@ -54,7 +54,7 @@
    <literal>a</literal> to <literal>z</literal> count: any other byte, such as an
    accented letter, is skipped, so <literal>soundex("Éric")</literal> is
    <literal>"R200"</literal>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
