@@ -13,7 +13,82 @@
    <methodparam><type>LDAP\Connection</type><parameter>ldap</parameter></methodparam>
    <methodparam><type class="union"><type>callable</type><type>null</type></type><parameter>callback</parameter></methodparam>
   </methodsynopsis>
-  &warn.undocumented.func;
+  <simpara>
+   Sets a callback that is called when a referral has to be chased on a new
+   connection and the client must bind again. The callback is used for
+   referrals returned by <function>ldap_search</function> and similar calls,
+   after the connection has been bound with <function>ldap_bind</function>.
+   Referral chasing is controlled by the <constant>LDAP_OPT_REFERRALS</constant>
+   option, see <function>ldap_set_option</function>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term><parameter>ldap</parameter></term>
+     <listitem>
+      <simpara>
+       &ldap.parameter.ldap;
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>callback</parameter></term>
+     <listitem>
+      <para>
+       <simpara>
+        A <type>callable</type> with the following signature:
+       </simpara>
+       <methodsynopsis>
+        <type>int</type><methodname><replaceable>callback</replaceable></methodname>
+        <methodparam><type>LDAP\Connection</type><parameter>ldap</parameter></methodparam>
+        <methodparam><type>string</type><parameter>referral</parameter></methodparam>
+       </methodsynopsis>
+       <variablelist>
+        <varlistentry>
+         <term><parameter>ldap</parameter></term>
+         <listitem>
+          <simpara>
+           The <classname>LDAP\Connection</classname> instance.
+          </simpara>
+         </listitem>
+        </varlistentry>
+        <varlistentry>
+         <term><parameter>referral</parameter></term>
+         <listitem>
+          <simpara>
+           The URL of the referral being chased.
+          </simpara>
+         </listitem>
+        </varlistentry>
+       </variablelist>
+       <simpara>
+        The return value is converted to an integer and used as the LDAP
+        result code; <literal>0</literal> (<constant>LDAP_SUCCESS</constant>)
+        lets the referral chase continue.
+       </simpara>
+       <simpara>
+        Passing &null; unregisters the current callback.
+       </simpara>
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   Always returns &true;.
+  </simpara>
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if the connection has
+   already been closed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -37,6 +112,17 @@
     </tbody>
    </tgroup>
   </informaltable>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>ldap_set_option</function></member>
+    <member><function>ldap_bind</function></member>
+    <member><function>ldap_connect</function></member>
+   </simplelist>
+  </para>
  </refsect1>
 
 </refentry>
