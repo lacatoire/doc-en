@@ -12,10 +12,15 @@
    <type class="union"><type>string</type><type>bool</type></type><methodname>mb_http_output</methodname>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>encoding</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Set/Get the HTTP output character encoding.
-   Output after this function is called will be converted from the set internal encoding to <parameter>encoding</parameter>.
-  </para>
+   This function only stores the encoding; it does not convert anything itself.
+   The conversion from the internal encoding to <parameter>encoding</parameter>
+   is performed by <function>mb_output_handler</function>, for example when
+   it is registered with <function>ob_start</function>, and only for the content
+   types listed in <link linkend="ini.mbstring.http-output-conv-mimetypes">mbstring.http_output_conv_mimetypes</link>.
+   Without an output handler, the output is sent unchanged.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -35,6 +40,10 @@
        <function>mb_http_output</function> returns the current HTTP output
        character encoding.
       </para>
+      <simpara>
+       The special value <literal>pass</literal> is accepted and disables the
+       conversion done by <function>mb_output_handler</function>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
