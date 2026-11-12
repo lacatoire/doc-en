@@ -97,9 +97,20 @@
    <literal>multipart/form-data</literal> are.
   </simpara>
   <simpara>
+   With a <literal>multipart/form-data</literal> body, exceeding one of the
+   limits listed in <parameter>options</parameter> also throws a
+   <exceptionname>RequestParseBodyException</exceptionname>.
+   With an <literal>application/x-www-form-urlencoded</literal> body,
+   exceeding <literal>post_max_size</literal> or
+   <literal>max_input_vars</literal> emits an
+   <constant>E_WARNING</constant> instead.
+  </simpara>
+  <simpara>
    A <exceptionname>ValueError</exceptionname> is thrown when
    <parameter>options</parameter> contains invalid keys,
    or invalid values for the corresponding key.
+   A <type>string</type> value that is not a valid quantity emits an
+   <constant>E_WARNING</constant>.
   </simpara>
  </refsect1>
 
