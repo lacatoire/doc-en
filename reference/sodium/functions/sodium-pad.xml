@@ -59,7 +59,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>SodiumException</classname> if <parameter>block_size</parameter>
+   Throws a <exceptionname>SodiumException</exceptionname> if <parameter>block_size</parameter>
    is less than 1.
   </simpara>
  </refsect1>
