@@ -42,10 +42,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>curl_errno</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>curl_strerror</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 // Create a curl handle with a misspelled protocol in URL
@@ -61,27 +60,24 @@ if($errno = curl_errno($ch)) {
 }
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen>
+   </programlisting>
+   &example.outputs;
+   <screen>
 <![CDATA[
 cURL error (1):
  Unsupported protocol
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>curl_errno</function></member>
-    <member><function>curl_error</function></member>
-    <member><link xlink:href="&url.curl.error;">Curl error codes</link></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>curl_errno</function></member>
+   <member><function>curl_error</function></member>
+   <member><link xlink:href="&url.curl.error;">Curl error codes</link></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
