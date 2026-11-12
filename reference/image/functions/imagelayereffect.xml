@@ -31,7 +31,7 @@
          <term><constant>IMG_EFFECT_REPLACE</constant></term>
          <listitem>
           <simpara>
-           Use pixel replacement (equivalent of passing &true; to
+           Use pixel replacement (equivalent of passing &false; to
            <function>imagealphablending</function>)
           </simpara>
          </listitem>
@@ -40,7 +40,7 @@
          <term><constant>IMG_EFFECT_ALPHABLEND</constant></term>
          <listitem>
           <simpara>
-           Use normal pixel blending (equivalent of passing &false; to
+           Use normal pixel blending (equivalent of passing &true; to
            <function>imagealphablending</function>)
           </simpara>
          </listitem>
