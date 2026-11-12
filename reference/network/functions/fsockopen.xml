@@ -123,6 +123,11 @@
    Throws <constant>E_WARNING</constant> if <parameter>hostname</parameter> is
    not a valid domain.
   </para>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>timeout</parameter> is neither <literal>-1</literal> nor
+   between <literal>0</literal> and the maximum supported value.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog"><!-- {{{ -->
