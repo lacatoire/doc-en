@@ -104,9 +104,9 @@ echo "B: ", bin2hex($b->engine->generate()), "\n";
    &example.outputs;
    <screen>
 <![CDATA[
-A: 1e9f3107d56653d0
-B: a156c0086dd79d44
+A: f69395f787ce788e
 B: 1e9f3107d56653d0
+B: f69395f787ce788e
 ]]>
    </screen>
   </example>
