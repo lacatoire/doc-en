@@ -210,6 +210,18 @@
     <simpara>
      Disable network access when loading documents
     </simpara>
+    <caution>
+     <simpara>
+      This only filters the <literal>http://</literal> and <literal>ftp://</literal>
+      locations that libxml itself recognizes. A location handled by a PHP
+      stream wrapper, such as <literal>php://filter</literal>, is still
+      fetched, and <methodname>DOMDocument::load</methodname> does not apply the
+      option to the file it loads. To block network access, use
+      <constant>LIBXML_NO_XXE</constant> (only available in Libxml &gt;= 2.13.0,
+      as of PHP 8.4.0), disable <link linkend="ini.allow-url-fopen">allow_url_fopen</link>,
+      or use <function>libxml_set_external_entity_loader</function>.
+     </simpara>
+    </caution>
    </listitem>
   </varlistentry>
   <varlistentry xml:id="constant.libxml-nowarning">
@@ -410,9 +422,9 @@
      Create default/fixed value nodes during XSD schema validation
     </simpara>
     <note>
-     <para>
-      Only available in Libxml &gt;= 2.6.14 (as of PHP &gt;= 5.5.2)
-     </para>
+     <simpara>
+      Only available if libxml was built with schema support.
+     </simpara>
     </note>
    </listitem>
   </varlistentry>
