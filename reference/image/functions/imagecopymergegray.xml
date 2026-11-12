@@ -98,9 +98,9 @@
      <term><parameter>pct</parameter></term>
      <listitem>
       <simpara>
-        The <parameter>src_image</parameter> will be changed to grayscale according 
-        to <parameter>pct</parameter> where 0 is fully grayscale and 100 is 
-        unchanged. When <parameter>pct</parameter> = 100 this function behaves 
+        The destination pixels are converted to grayscale and <parameter>src_image</parameter>
+        is merged into them according to <parameter>pct</parameter>, where 0 keeps only
+        the grayscale destination and 100 copies the source as is. When <parameter>pct</parameter> = 100 this function behaves 
         identically to <function>imagecopy</function> for palette images, except for
         ignoring alpha components, while
         it implements alpha transparency for true colour images.
