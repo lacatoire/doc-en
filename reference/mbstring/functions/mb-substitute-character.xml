@@ -18,13 +18,23 @@
    encoding. Invalid characters may be substituted <literal>"none"</literal> (no output),
    <type>string</type> or <type>int</type> value (Unicode character code value).
   </para>
-  <para>
+  <simpara>
    This setting affects <function>mb_convert_encoding</function>,
    <function>mb_convert_variables</function>,
    <function>mb_output_handler</function>,
    <function>mb_scrub</function>,
-   and <function>mb_send_mail</function>.
-  </para>
+   <function>mb_send_mail</function>,
+   <function>mb_substr</function>,
+   <function>mb_strimwidth</function>,
+   <function>mb_convert_case</function>,
+   <function>mb_strtoupper</function>,
+   <function>mb_strtolower</function>,
+   <function>mb_ucfirst</function>,
+   <function>mb_lcfirst</function>,
+   <function>mb_convert_kana</function>,
+   <function>mb_encode_numericentity</function>
+   and <function>mb_decode_numericentity</function>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -57,6 +67,13 @@
         </listitem>
        </itemizedlist>
       </para>
+      <note>
+       <simpara>
+        <literal>"long"</literal> and <literal>"entity"</literal> only apply
+        to valid characters that do not exist in the output encoding.
+        Invalid input bytes are replaced by <literal>?</literal> in these modes.
+       </simpara>
+      </note>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -65,12 +82,23 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   If <parameter>substitute_character</parameter> is set, it returns &true; for success,
-   otherwise returns &false;. 
+  <simpara>
+   If <parameter>substitute_character</parameter> is set, it returns &true; for success.
    If <parameter>substitute_character</parameter> is not set, it returns the current
    setting.
-  </para>
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>substitute_character</parameter> is a <type>string</type>
+   other than <literal>"none"</literal>, <literal>"long"</literal> or
+   <literal>"entity"</literal> (including a numeric string such as
+   <literal>"63"</literal>), or if it is an <type>int</type> that is not a valid
+   Unicode code point.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
