@@ -4,7 +4,7 @@
  <refnamediv>
   <refname>snmp_set_enum_print</refname>
   <refpurpose>
-   Return all values that are enums with their enum value instead of the raw integer
+   Print enum values as the raw integer instead of their label
   </refpurpose>
  </refnamediv>
  <refsect1 role="description">
@@ -14,8 +14,8 @@
    <methodparam><type>bool</type><parameter>enable</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   This function toggles if snmpwalk/snmpget etc. should automatically lookup enum values
-   in the MIB and return them together with their human readable string.
+   This function toggles whether snmpwalk/snmpget etc. return enum values as the raw integer
+   or together with their label from the MIB. It has no effect with <constant>SNMP_VALUE_PLAIN</constant>.
   </simpara>
  </refsect1>
 
@@ -26,7 +26,9 @@
     <term><parameter>enable</parameter></term>
     <listitem>
      <simpara>
-      As the value is interpreted as boolean by the Net-SNMP library, it can only be "0" or "1".
+      When &true;, enum values are returned as the raw integer, for example <literal>INTEGER: 1</literal>.
+      When &false;, they are returned with their label, for example <literal>INTEGER: forwarding(1)</literal>.
+      Any scalar value is coerced to a <type>bool</type>.
      </simpara>
     </listitem>
    </varlistentry>
