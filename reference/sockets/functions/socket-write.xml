@@ -29,6 +29,8 @@
      <term><parameter>socket</parameter></term>
      <listitem>
       <para>
+       A <classname>Socket</classname> instance created with <function>socket_create</function>
+       or <function>socket_accept</function>.
       </para>
      </listitem>
     </varlistentry>
@@ -48,6 +50,7 @@
        alternate length of bytes written to the socket. If this length is
        greater than <parameter>data</parameter>'s length,
        it is silently truncated to the length of <parameter>data</parameter>.
+       It must not be negative.
       </para>
      </listitem>
     </varlistentry>
@@ -63,6 +66,8 @@
    <function>socket_last_error</function>. This code may be passed to
    <function>socket_strerror</function> to get a textual explanation of the
    error.
+   On a non-blocking socket whose buffer is full, &false; is returned without any warning,
+   and <function>socket_last_error</function> returns <constant>SOCKET_EAGAIN</constant>.
   </para>
   <note>
    <para>
@@ -74,6 +79,12 @@
   </note>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   If <parameter>length</parameter> is negative, a <exceptionname>ValueError</exceptionname> is thrown.
+  </para>
+ </refsect1>
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -90,6 +101,7 @@
       <entry>8.0.0</entry>
       <entry>
        <parameter>length</parameter> is nullable now.
+       A negative <parameter>length</parameter> now throws a <exceptionname>ValueError</exceptionname>.
       </entry>
      </row>
     </tbody>
