@@ -13,15 +13,15 @@
    <methodparam choice="opt"><type>bool</type><parameter>throw</parameter><initializer>&true;</initializer></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>prepend</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Register a function with the autoload queue. If the queue
-   is not yet activated it will be activated.  
-  </para>
-  <para>
-   If there must be multiple autoload functions, <function>spl_autoload_register</function> 
+   is not yet activated it will be activated.
+  </simpara>
+  <simpara>
+   If there must be multiple autoload functions, <function>spl_autoload_register</function>
    allows for this. It effectively creates a queue of autoload functions, and
    runs through each of them in the order they are defined.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">

@@ -11,10 +11,10 @@
    <type>void</type><methodname>spl_autoload_call</methodname>
    <methodparam><type>string</type><parameter>class</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    This function can be used to manually search for a class, interface, trait, or enumeration
    using the registered autoloaders.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
