@@ -3,7 +3,7 @@
 <refentry xml:id="function.spl-autoload-register" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>spl_autoload_register</refname>
-  <refpurpose>Register given function as __autoload() implementation</refpurpose>
+  <refpurpose>Register given function as autoloader</refpurpose>
  </refnamediv>
  <refsect1 role="description">
   &reftitle.description;
@@ -13,24 +13,15 @@
    <methodparam choice="opt"><type>bool</type><parameter>throw</parameter><initializer>&true;</initializer></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>prepend</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   Register a function with the spl provided __autoload queue. If the queue
-   is not yet activated it will be activated.  
-  </para>
-  <para>
-   If your code has an existing <function>__autoload</function> function then
-   this function must be explicitly registered on the __autoload queue. This
-   is because <function>spl_autoload_register</function> will effectively
-   replace the engine cache for the <function>__autoload</function> function
-   by either <function>spl_autoload</function> or
-   <function>spl_autoload_call</function>.
-  </para>
-  <para>
-   If there must be multiple autoload functions, <function>spl_autoload_register</function> 
+  <simpara>
+   Register a function with the autoload queue. If the queue
+   is not yet activated it will be activated.
+  </simpara>
+  <simpara>
+   If there must be multiple autoload functions, <function>spl_autoload_register</function>
    allows for this. It effectively creates a queue of autoload functions, and
-   runs through each of them in the order they are defined. By contrast, 
-   <function>__autoload</function> may only be defined once.
-  </para>
+   runs through each of them in the order they are defined.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -210,7 +201,9 @@ string(26) "AbsoluteName\WithNamespace"
   &reftitle.seealso;
   <para>
    <simplelist>
-    <member><function>__autoload</function></member>
+    <member><function>spl_autoload_unregister</function></member>
+    <member><function>spl_autoload_functions</function></member>
+    <member><function>spl_autoload_call</function></member>
    </simplelist>
   </para>
  </refsect1>

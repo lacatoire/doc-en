@@ -11,11 +11,11 @@
    <type>string</type><methodname>spl_autoload_extensions</methodname>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>file_extensions</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    This function can modify and check the file extensions that the built in
-   <function>__autoload</function> fallback function <function>spl_autoload</function> 
+   default autoloader <function>spl_autoload</function>
    will be using.
-  </para>
+  </simpara>
   <note>
     <simpara>
       There should not be a space between the defined file extensions.
