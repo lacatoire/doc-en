@@ -26,6 +26,7 @@
    has been made non-blocking using
    <function>socket_set_nonblock</function> and there are no pending
    connections, &false; will be returned without raising a warning.
+   The <classname>Socket</classname> returned for a connection is non-blocking too.
   </simpara>
   <para>
    The <classname>Socket</classname> instance returned by
@@ -38,18 +39,16 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <para>
-       A <classname>Socket</classname> instance created with <function>socket_create</function>.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <para>
+      A <classname>Socket</classname> instance created with <function>socket_create</function>.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -89,15 +88,14 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>socket_connect</function></member>
-    <member><function>socket_listen</function></member>
-    <member><function>socket_create</function></member>
-    <member><function>socket_bind</function></member>
-    <member><function>socket_strerror</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>socket_connect</function></member>
+   <member><function>socket_listen</function></member>
+   <member><function>socket_create</function></member>
+   <member><function>socket_bind</function></member>
+   <member><function>socket_last_error</function></member>
+   <member><function>socket_strerror</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
