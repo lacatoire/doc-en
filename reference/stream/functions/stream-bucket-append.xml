@@ -16,8 +16,49 @@
    <methodparam><type>StreamBucket</type><parameter>bucket</parameter></methodparam>
   </methodsynopsis>
 
-  &warn.undocumented.func;
+  <simpara>
+   Appends <parameter>bucket</parameter> to the end of
+   <parameter>brigade</parameter>. It is typically called from
+   <methodname>php_user_filter::filter</methodname> to pass data on to the
+   next filter.
+  </simpara>
+  <simpara>
+   The current value of the <varname>data</varname> property of
+   <parameter>bucket</parameter> is copied into the bucket first.
+   A bucket that is already part of a brigade is moved, not duplicated.
+  </simpara>
+ </refsect1>
 
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <variablelist>
+   <varlistentry>
+    <term><parameter>brigade</parameter></term>
+    <listitem>
+     <simpara>
+      The bucket brigade to append to, one of the two brigades passed to
+      <methodname>php_user_filter::filter</methodname>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>bucket</parameter></term>
+    <listitem>
+     <simpara>
+      The bucket to append, as returned by
+      <function>stream_bucket_make_writeable</function> or
+      <function>stream_bucket_new</function>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </refsect1>
+
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   &return.void;
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -38,6 +79,56 @@
     </tbody>
    </tgroup>
   </informaltable>
+ </refsect1>
+
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <example>
+   <title><function>stream_bucket_append</function> example</title>
+   <programlisting role="php">
+<![CDATA[
+<?php
+class upper_filter extends php_user_filter
+{
+    public function filter($in, $out, &$consumed, bool $closing): int
+    {
+        while ($bucket = stream_bucket_make_writeable($in)) {
+            $bucket->data = strtoupper($bucket->data);
+            $consumed += $bucket->dataLength;
+            stream_bucket_append($out, $bucket);
+        }
+
+        return PSFS_PASS_ON;
+    }
+}
+
+stream_filter_register('upper', 'upper_filter');
+
+$stream = fopen('php://memory', 'w+');
+stream_filter_append($stream, 'upper', STREAM_FILTER_WRITE);
+fwrite($stream, "hello\n");
+rewind($stream);
+echo stream_get_contents($stream);
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+HELLO
+]]>
+   </screen>
+  </example>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>stream_bucket_prepend</function></member>
+   <member><function>stream_bucket_make_writeable</function></member>
+   <member><function>stream_bucket_new</function></member>
+   <member><methodname>php_user_filter::filter</methodname></member>
+   <member><classname>StreamBucket</classname></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
