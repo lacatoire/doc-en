@@ -34,6 +34,9 @@
     <listitem>
      <simpara>
       The hostname of the <acronym>SNMP</acronym> agent (server).
+      A port can be given after a colon, as in
+      <literal>127.0.0.1:1161</literal>. An IPv6 address must be enclosed in
+      square brackets when a port is given, as in <literal>[::1]:1161</literal>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -74,7 +77,12 @@
     <term><parameter>timeout</parameter></term>
     <listitem>
      <simpara>
-      The number of microseconds until the first timeout.
+      The number of microseconds to wait for an answer at each attempt.
+      As every retry waits that long again, a call can last up to
+      <parameter>timeout</parameter> multiplied by
+      <parameter>retries</parameter> plus one.
+      <literal>-1</literal> uses the default of the
+      <productname>Net-SNMP</productname> library, which is one second.
      </simpara>
     </listitem>
    </varlistentry>
@@ -83,6 +91,8 @@
     <listitem>
      <simpara>
       The number of times to retry if timeouts occur.
+      <literal>-1</literal> uses the default of the
+      <productname>Net-SNMP</productname> library, which is five retries.
      </simpara>
     </listitem>
    </varlistentry>
@@ -100,6 +110,47 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if:
+  </simpara>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <parameter>hostname</parameter> contains null bytes, is 128 bytes or
+     longer, or has a port that is not between 0 and 65535.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>community</parameter> is empty or contains null bytes.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>object_id</parameter> is an empty array.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>type</parameter> is not a single character.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>timeout</parameter> is lower than <literal>-1</literal>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>retries</parameter> is lower than <literal>-1</literal> or
+     greater than <literal>2147483647</literal>.
+    </simpara>
+   </listitem>
+  </itemizedlist>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -115,9 +166,10 @@
       <entry>8.5.0</entry>
       <entry>
        Now throws a <exceptionname>ValueError</exceptionname> when the hostname
-   length is equal to or greater than 128 bytes, when the port is
-       negative or greater than 65535, or when the timeout or retries values
-       are lower than -1 or too large.
+       contains null bytes or is 128 bytes or longer, when the port is not
+       between 0 and 65535, when the community is empty or contains null
+       bytes, when the timeout is lower than -1, or when the retries value is
+       lower than -1 or greater than 2147483647.
       </entry>
      </row>
     </tbody>
