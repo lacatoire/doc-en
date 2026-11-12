@@ -16,8 +16,9 @@
    <function>session_encode</function> returns a serialized string of the
    contents of the current session data stored in the $_SESSION superglobal.
   </para>
-  <para>
+  <simpara>
    By default, the serialization method used is internal to PHP, and is not the same as <function>serialize</function>.
+   With <literal>php_serialize</literal>, the result is the same as <code>serialize($_SESSION)</code>.
    The serialization method can be set using <link linkend="ini.session.serialize-handler">session.serialize_handler</link>.
   </para>
  </refsect1>
@@ -32,25 +33,66 @@
   <para>
    Returns the contents of the current session encoded, &return.falseforfailure;.
   </para>
+  <simpara>
+   &false; is returned, with an <constant>E_WARNING</constant>, when
+   <varname>$_SESSION</varname> is not an array, or when the
+   <literal>php</literal> handler finds a key containing <literal>|</literal>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       An <constant>E_WARNING</constant> is now emitted, instead of silently
+       returning &false;, when a key contains <literal>|</literal> with the
+       <literal>php</literal> handler.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       The diagnostic for a skipped integer key is now an
+       <constant>E_WARNING</constant> instead of an <constant>E_NOTICE</constant>.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="notes">
   &reftitle.notes;
   <warning>
-   <para>
-    Must call <function>session_start</function> before using <function>session_encode</function>.
-   </para>
+   <simpara>
+    <varname>$_SESSION</varname> must be an array, which is normally set up by
+    <function>session_start</function>.
+   </simpara>
   </warning>
+  <simpara>
+   With the <literal>php</literal> and <literal>php_binary</literal> handlers,
+   integer keys are skipped, with an <constant>E_WARNING</constant>. The
+   <literal>php_binary</literal> handler also silently skips keys longer than
+   127 bytes.
+  </simpara>
  </refsect1> 
  
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
+  <simplelist>
     <member><function>session_decode</function></member>
     <member><link linkend="ini.session.serialize-handler">session.serialize_handler</link></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
