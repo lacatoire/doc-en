@@ -153,8 +153,8 @@
   <para>
   The value of <literal>mode</literal> contains information read by several functions. 
   When written in octal, starting from the right, the first three digits are returned by
-  <function>chmod</function>. The next digit is ignored by PHP. The next two digits indicate
-  the file type:
+  <function>chmod</function>. The next digit holds the setuid, setgid and sticky bits.
+  The next two digits indicate the file type:
    <table>
     <title><literal>mode</literal> file types</title>
     <tgroup cols="2">
@@ -208,7 +208,8 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <para>
-   Upon failure, an <constant>E_WARNING</constant> is emitted.
+   Upon failure, an <constant>E_WARNING</constant> is emitted, except for an empty
+   <parameter>filename</parameter>, for which &false; is returned without any diagnostic.
   </para>
  </refsect1>
 
