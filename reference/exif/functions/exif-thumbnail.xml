@@ -22,12 +22,6 @@
    If you want to deliver thumbnails through this function, you should send
    the mimetype information using the <function>header</function> function.
   </simpara>
-  <simpara>
-   It is possible that <function>exif_thumbnail</function> cannot create an
-   image but can determine its size. In this case, the return value is
-   &false; but <parameter>width</parameter> and <parameter>height</parameter>
-   are set.
-  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
@@ -73,6 +67,17 @@
   <simpara>
    Returns the embedded thumbnail, or &false; if the image contains no
    thumbnail.
+  </simpara>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>file</parameter>
+   is an empty string, or if it contains any null bytes.
+  </simpara>
+  <simpara>
+   An <constant>E_WARNING</constant> level error is emitted if the file
+   cannot be opened, in which case &false; is returned.
   </simpara>
  </refsect1>
 
