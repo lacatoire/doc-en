@@ -10,7 +10,7 @@
   &reftitle.intro;
   <warning>
    <simpara>
-    This extension is <emphasis>DEPRECATED</emphasis> and <emphasis>UNBUNDLED</emphasis> as of PHP 8.4.0.
+    This extension is <emphasis>UNBUNDLED</emphasis> as of PHP 8.4.0.
    </simpara>
   </warning>
   <para>
