@@ -29,6 +29,12 @@
      <entry>Added in PHP 8.2.4</entry>
     </row>
     <row>
+     <entry><link linkend="ini.mail.cr_lf_mode">mail.cr_lf_mode</link></entry>
+     <entry>"crlf"</entry>
+     <entry><constant>INI_SYSTEM</constant>|<constant>INI_PERDIR</constant></entry>
+     <entry>Available as of PHP 8.5.0</entry>
+    </row>
+    <row>
      <entry><link linkend="ini.mail.log">mail.log</link></entry>
      <entry>NULL</entry>
      <entry><constant>INI_SYSTEM</constant>|<constant>INI_PERDIR</constant></entry>
@@ -113,6 +119,58 @@
      for certain non-compliant Mail Transfer Agents (MTAs) that fail to correctly process CRLF
      (Carriage Return + Line Feed) as a line separator in email headers and message content.
     </para>
+   </listitem>
+  </varlistentry>
+
+  <varlistentry xml:id="ini.mail.cr_lf_mode">
+   <term>
+    <parameter>mail.cr_lf_mode</parameter>
+    <type>string</type>
+   </term>
+   <listitem>
+    <simpara>
+     Controls the line separator used by <function>mail</function> after the
+     <literal>To</literal> and <literal>Subject</literal> lines, the additional
+     headers and the blank line which ends the headers, and optionally the
+     line endings of the message body.
+     The following values are accepted:
+    </simpara>
+    <itemizedlist>
+     <listitem>
+      <simpara>
+       <literal>crlf</literal> (default): headers are terminated by
+       <literal>\r\n</literal> and the message body is left unchanged.
+       If <link linkend="ini.mail.mixed_lf_and_crlf">mail.mixed_lf_and_crlf</link>
+       is enabled, headers are terminated by <literal>\n</literal> instead.
+      </simpara>
+     </listitem>
+     <listitem>
+      <simpara>
+       <literal>lf</literal>: headers are terminated by <literal>\n</literal>
+       and every <literal>\r\n</literal> in the message body is converted to
+       <literal>\n</literal>.
+      </simpara>
+     </listitem>
+     <listitem>
+      <simpara>
+       <literal>mixed</literal>: headers are terminated by <literal>\n</literal>
+       and the message body is left unchanged.
+      </simpara>
+     </listitem>
+     <listitem>
+      <simpara>
+       <literal>os</literal>: headers are terminated by <literal>\r\n</literal>
+       on Windows and by <literal>\n</literal> on other platforms, and the
+       message body is left unchanged.
+      </simpara>
+     </listitem>
+    </itemizedlist>
+    <simpara>
+     Any other value is rejected with a fatal error at startup:
+     <computeroutput>Invalid value "bogus" for mail.cr_lf_mode. Must be one of: "crlf", "lf", "mixed", "os"</computeroutput>.
+     When this setting is not <literal>crlf</literal>, it takes precedence over
+     <link linkend="ini.mail.mixed_lf_and_crlf">mail.mixed_lf_and_crlf</link>.
+    </simpara>
    </listitem>
   </varlistentry>
 
