@@ -180,11 +180,109 @@
     </listitem>
     <listitem>
      <simpara>
+      "http_version"
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "protocol"
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "ssl_verifyresult"
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "scheme"
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "appconnect_time_us"
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "connect_time_us"
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "namelookup_time_us"
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "pretransfer_time_us"
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "redirect_time_us"
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "starttransfer_time_us"
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "total_time_us"
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "effective_method" (Available as of PHP 8.2.0)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "capath" (Available as of PHP 8.3.0)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "cainfo" (Available as of PHP 8.3.0)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "queue_time_us" (Available as of PHP 8.5.0)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "used_proxy" (Available as of PHP 8.5.0)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "httpauth_used" (Available as of PHP 8.5.0)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "proxyauth_used" (Available as of PHP 8.5.0)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      "conn_id" (Available as of PHP 8.5.0)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
       "posttransfer_time_us" (Available as of PHP 8.4.0 and cURL 8.10.0)
      </simpara>
     </listitem>
    </itemizedlist>
    Note that private data is not included in the associative array and must be retrieved individually with the <constant>CURLINFO_PRIVATE</constant> option.
+   A string value that is not available is an empty <type>string</type> in the
+   array, except for <literal>"content_type"</literal> which is &null;, whereas
+   the same information returned through <parameter>option</parameter> is &false;.
   </para>
  </refsect1>
 
@@ -201,6 +299,16 @@
      </thead>
      <tbody>
       <row>
+       <entry>8.5.0</entry>
+       <entry>
+        Introduced <constant>CURLINFO_CONN_ID</constant>,
+        <constant>CURLINFO_QUEUE_TIME_T</constant>,
+        <constant>CURLINFO_USED_PROXY</constant>,
+        <constant>CURLINFO_HTTPAUTH_USED</constant>,
+        <constant>CURLINFO_PROXYAUTH_USED</constant>.
+       </entry>
+      </row>
+      <row>
        <entry>8.4.0</entry>
        <entry>
         Introduced <constant>CURLINFO_POSTTRANSFER_TIME_T</constant> constant and <literal>posttransfer_time_us</literal> (Curl 8.10.0 or later).
@@ -216,7 +324,8 @@
       <row>
        <entry>8.2.0</entry>
        <entry>
-        Introduced <constant>CURLINFO_PROXY_ERROR</constant>,
+        Introduced <constant>CURLINFO_EFFECTIVE_METHOD</constant>,
+        <constant>CURLINFO_PROXY_ERROR</constant>,
         <constant>CURLINFO_REFERER</constant>,
         <constant>CURLINFO_RETRY_AFTER</constant>.
        </entry>
@@ -313,11 +422,13 @@ if (!curl_errno($ch)) {
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
+   <simpara>
     Information gathered by this function is kept if the handle is re-used. This means
     that unless a statistic is overridden internally by this function, the previous info
-    is returned.
-   </para>
+    is returned. A transfer that fails resets the statistics: for example
+    <literal>"http_code"</literal> is <literal>0</literal> and
+    <literal>"primary_ip"</literal> is empty afterwards.
+   </simpara>
   </note>
  </refsect1>
 </refentry>
