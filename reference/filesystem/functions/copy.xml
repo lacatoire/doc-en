@@ -65,9 +65,16 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+  </simpara>
+  <simpara>
+   &false; is also returned, without any error, when <parameter>from</parameter>
+   and <parameter>to</parameter> refer to the same file (the same path, a hard
+   link or a symbolic link), and the file is left untouched. If either of them
+   is a directory, an <constant>E_WARNING</constant> is emitted and &false; is
+   returned.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
