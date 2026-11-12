@@ -29,13 +29,13 @@
     <varlistentry>
      <term><parameter>callback</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The autoload function being unregistered. A <classname>Closure</classname>
        is matched by identity: the same <classname>Closure</classname> object
        that was registered has to be passed, and another closure with the same
        code, such as a second <literal>function ($class) {}</literal>, removes
        nothing, in which case &false; is returned.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
