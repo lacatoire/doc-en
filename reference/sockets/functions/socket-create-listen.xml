@@ -16,7 +16,8 @@
   <para>
    <function>socket_create_listen</function> creates a new <classname>Socket</classname> instance of
    type <constant>AF_INET</constant> listening on <emphasis>all</emphasis>
-   local interfaces on the given port waiting for new connections.
+   local interfaces on the given port waiting for new connections. On Windows,
+   it only listens on <literal>127.0.0.1</literal>.
   </para>
   <para>
    This function is meant to ease the task of creating a new socket which
@@ -32,7 +33,7 @@
      <term><parameter>port</parameter></term>
      <listitem>
       <para>
-       The port on which to listen on all interfaces.
+       The port on which to listen on all interfaces (on <literal>127.0.0.1</literal> only on Windows).
       </para>
      </listitem>
     </varlistentry>
@@ -107,6 +108,7 @@
     If you want to create a socket which only listens on a certain
     interface you need to use <function>socket_create</function>,
     <function>socket_bind</function> and <function>socket_listen</function>.
+    The same applies to listen on all interfaces on Windows.
    </para>
   </note>
  </refsect1>
