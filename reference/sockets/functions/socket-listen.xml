@@ -17,7 +17,10 @@
    After the socket <parameter>socket</parameter> has been created
    using <function>socket_create</function> and bound to a name with
    <function>socket_bind</function>, it may be told to listen for incoming
-   connections on <parameter>socket</parameter>.
+   connections on <parameter>socket</parameter>. For <constant>AF_INET</constant>
+   and <constant>AF_INET6</constant> sockets, binding is optional: otherwise the system
+   binds the wildcard address and an ephemeral port. An <constant>AF_UNIX</constant>
+   socket that is not bound fails to listen.
   </para>
   <para>
    <function>socket_listen</function> is applicable only to sockets of
@@ -28,42 +31,44 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <para>
+      A <classname>Socket</classname> instance created with <function>socket_create</function>
+      or <function>socket_addrinfo_bind</function>
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>backlog</parameter></term>
+    <listitem>
+     <para>
+      A maximum of <parameter>backlog</parameter> incoming connections will be
+      queued for processing. If a connection request arrives with the queue
+      full the client may receive an error with an indication of
+      <literal>ECONNREFUSED</literal>, or, if the underlying protocol supports
+      retransmission, the request may be ignored so that retries may succeed.
+      The default is <literal>0</literal>. On Linux, the queue holds
+      <parameter>backlog</parameter> + 1 established connections, so the default
+      queues one, and a negative value gives the maximum of the system.
+     </para>
+     <note>
       <para>
-       A <classname>Socket</classname> instance created with <function>socket_create</function>
-       or <function>socket_addrinfo_bind</function>
+       The maximum number passed to the <parameter>backlog</parameter>
+       parameter highly depends on the underlying platform. On Linux, it is
+       silently truncated to the value of <literal>/proc/sys/net/core/somaxconn</literal>,
+       which can be changed at run time. On win32, if
+       passed <constant>SOMAXCONN</constant>, the underlying service provider
+       responsible for the socket will set the backlog to a maximum
+       <emphasis>reasonable</emphasis> value. There is no standard provision to
+       find out the actual backlog value on this platform.
       </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>backlog</parameter></term>
-     <listitem>
-      <para>
-       A maximum of <parameter>backlog</parameter> incoming connections will be
-       queued for processing. If a connection request arrives with the queue
-       full the client may receive an error with an indication of
-       <literal>ECONNREFUSED</literal>, or, if the underlying protocol supports
-       retransmission, the request may be ignored so that retries may succeed.
-      </para>
-      <note>
-       <para>
-        The maximum number passed to the <parameter>backlog</parameter>
-        parameter highly depends on the underlying platform. On Linux, it is
-        silently truncated to <constant>SOMAXCONN</constant>. On win32, if
-        passed <constant>SOMAXCONN</constant>, the underlying service provider
-        responsible for the socket will set the backlog to a maximum
-        <emphasis>reasonable</emphasis> value. There is no standard provision to
-        find out the actual backlog value on this platform.
-       </para>
-      </note>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+     </note>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -95,16 +100,16 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>socket_accept</function></member>
-    <member><function>socket_bind</function></member>
-    <member><function>socket_connect</function></member>
-    <member><function>socket_create</function></member>
-    <member><function>socket_strerror</function></member>
-    <member><function>socket_addrinfo_bind</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>socket_accept</function></member>
+   <member><function>socket_bind</function></member>
+   <member><function>socket_connect</function></member>
+   <member><function>socket_create</function></member>
+   <member><function>socket_strerror</function></member>
+   <member><function>socket_addrinfo_bind</function></member>
+   <member><function>socket_create_listen</function></member>
+   <member><function>stream_socket_server</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
