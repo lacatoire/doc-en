@@ -24,6 +24,10 @@
    0. Second character position is 1.
    Unlike <function>mb_strrpos</function>,
    <function>mb_strripos</function> is case-insensitive.
+   <function>mb_strripos</function> uses simple case folding
+   (like <constant>MB_CASE_FOLD_SIMPLE</constant> of <function>mb_convert_case</function>),
+   so characters whose full case folding is several characters,
+   such as "ß" (which folds to "ss"), do not match their expansion.
   </simpara>
  </refsect1>
  <refsect1 role="parameters">
@@ -82,8 +86,9 @@
    <listitem>
     <simpara>
      If <parameter>offset</parameter> is greater than the length of
-     <parameter>haystack</parameter>, a
-     <classname>ValueError</classname> will be thrown.
+     <parameter>haystack</parameter>, or if a negative <parameter>offset</parameter>
+     is less than minus the length of <parameter>haystack</parameter>, a
+     <exceptionname>ValueError</exceptionname> will be thrown.
     </simpara>
    </listitem>
   </itemizedlist>
