@@ -18,16 +18,18 @@
    <function>session_name</function> will update the session name and return
    the <emphasis>old</emphasis> session name.
   </para>
-  <para>
+  <simpara>
    If a new session <parameter>name</parameter> is
    supplied, <function>session_name</function> modifies the HTTP cookie
    (and outputs the content when <link linkend="ini.session.use-trans-sid">session.use_trans_sid</link> is
-   enabled). Once the HTTP cookie has been
-   sent, calling <function>session_name</function> raises an <constant>E_WARNING</constant>.
+   enabled). If a session is active or the headers have already been sent
+   (any output that is not buffered), calling <function>session_name</function>
+   with a <parameter>name</parameter> raises an <constant>E_WARNING</constant>
+   and returns &false;.
    <function>session_name</function> must be called
    before <function>session_start</function> for the session to work
    properly.
-  </para>
+  </simpara>
   <para>
    The session name is reset to the default value stored in
    <literal>session.name</literal> at request startup time. Thus, you need to
@@ -38,7 +40,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>name</parameter></term>
@@ -51,32 +52,45 @@
        If <parameter>name</parameter> is specified and not &null;, the name of the current
        session is changed to its value.
       </para>
-      <para>
-       <warning>
-        <para>
-         The session name can't consist of digits only, at least one letter
-         must be present. Otherwise a new session id is generated every time.
-        </para>
-       </warning>
-      </para>
+      <warning>
+       <simpara>
+        A name that is empty, numeric (such as <literal>123</literal> or
+        <literal>1e3</literal>), contains a NUL byte or contains any of the
+        characters <literal>=,;.[</literal>, space, tab, carriage return,
+        line feed, vertical tab or form feed is refused with an
+        <constant>E_WARNING</constant>, and the current session name
+        is left unchanged.
+       </simpara>
+      </warning>
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the name of the current session. If <parameter>name</parameter> is given
    and function updates the session name, name of the <emphasis>old</emphasis> session
    is returned, &return.falseforfailure;.
-  </para>
+   If <parameter>name</parameter> is refused, an <constant>E_WARNING</constant>
+   is raised and the old session name is returned.
+   &false; is returned, with an <constant>E_WARNING</constant>, when
+   <parameter>name</parameter> is given and a session is active or the headers
+   have already been sent.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>name</parameter> contains a NUL byte.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
   &reftitle.changelog;
-  <para>
    <informaltable>
     <tgroup cols="2">
      <thead>
@@ -86,6 +100,22 @@
       </row>
      </thead>
      <tbody>
+      <row>
+       <entry>8.4.4, 8.3.17</entry>
+       <entry>
+        A <parameter>name</parameter> that is empty, numeric or contains a
+        forbidden character is now refused by <function>session_name</function>
+        itself; previously the failure only occurred when the session was started.
+       </entry>
+      </row>
+      <row>
+       <entry>8.4.0</entry>
+       <entry>
+        A <exceptionname>ValueError</exceptionname> is now thrown when
+        <parameter>name</parameter> contains a NUL byte; previously an
+        <constant>E_WARNING</constant> was raised.
+       </entry>
+      </row>
       <row>
        <entry>8.0.0</entry>
        <entry>
@@ -99,14 +129,13 @@
         previously it only checked cookie status. Therefore,
         older <function>session_name</function> allows to
         call <function>session_name</function>
-        after <function>session_start</function> which may crash PHP
-        and may result in misbehaviors.
+        after <function>session_start</function>, which changes the name
+        of the active session.
        </entry>
       </row>
      </tbody>
     </tgroup>
    </informaltable>
-  </para>
  </refsect1>
 
  <refsect1 role="examples">
