@@ -24,11 +24,12 @@
    <varlistentry>
     <term><parameter>kind</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The kind of operating system codepage to get,
-      either <literal>'ansi'</literal> or <literal>'oem'</literal>.
+      either <literal>'ansi'</literal> or <literal>'oem'</literal>
+      (case-insensitive).
       Any other value refers to the current codepage of the process.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -43,12 +44,25 @@
    the current <acronym>OEM</acronym> code page of the operating system is returned.
    Otherwise, the current codepage of the process is returned.
   </para>
+  <simpara>
+   The current codepage of the process is the encoding PHP uses when converting
+   strings such as paths, arguments, and environment variables.
+   It is set at startup from the <link linkend="ini.internal-encoding">internal_encoding</link>
+   and <link linkend="ini.default-charset">default_charset</link> INI settings
+   (<literal>65001</literal>, UTF-8, by default),
+   and is changed by <function>sapi_windows_cp_set</function>
+   as well as by later changes to these INI settings, such as
+   <function>ini_set</function>.
+   It is not the codepage of the console.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
    <member><function>sapi_windows_cp_set</function></member>
+   <member><function>sapi_windows_cp_conv</function></member>
+   <member><function>sapi_windows_cp_is_utf8</function></member>
   </simplelist>
  </refsect1>
 
