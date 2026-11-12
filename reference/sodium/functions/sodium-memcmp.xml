@@ -23,6 +23,11 @@
    calculation that's timing-sensitive, and worried about timing leaks with bool-to-int
    conversions, <function>sodium_memcmp</function> is an ideal replacement.
   </simpara>
+  <simpara>
+   Unlike <function>hash_equals</function>, which returns &false; for strings of
+   different lengths, <function>sodium_memcmp</function> requires both strings
+   to have the same length.
+  </simpara>
 
  </refsect1>
 
@@ -52,6 +57,14 @@
   &reftitle.returnvalues;
   <simpara>
    Returns <literal>0</literal> if both strings are equal; <literal>-1</literal> otherwise.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <classname>SodiumException</classname> if <parameter>string1</parameter>
+   and <parameter>string2</parameter> do not have the same length.
   </simpara>
  </refsect1>
 
