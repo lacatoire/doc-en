@@ -36,8 +36,31 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   Returns an array containing the fields in the <literal>addrinfo</literal> structure.
+   Returns an array containing the fields in the <literal>addrinfo</literal> structure,
+   with the following keys:
   </para>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <literal>ai_flags</literal> (int), <literal>ai_family</literal> (int),
+     <literal>ai_socktype</literal> (int) and <literal>ai_protocol</literal> (int).
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>ai_canonname</literal> (string) - only present when the resolver provides it,
+     for example with <constant>AI_CANONNAME</constant> in the flags of
+     <function>socket_addrinfo_lookup</function>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>ai_addr</literal> (array) - the address: <literal>sin_port</literal> (int) and
+     <literal>sin_addr</literal> (string) for <constant>AF_INET</constant>, <literal>sin6_port</literal> (int)
+     and <literal>sin6_addr</literal> (string) for <constant>AF_INET6</constant>.
+    </simpara>
+   </listitem>
+  </itemizedlist>
  </refsect1>
 
  <refsect1 role="changelog">
