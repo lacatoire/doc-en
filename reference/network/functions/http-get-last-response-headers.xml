@@ -32,6 +32,21 @@
    <link linkend="wrappers.http">HTTP wrapper</link>.
    If there are none, &null; is returned instead.
   </simpara>
+  <simpara>
+   When the request follows redirects, the array contains the headers of
+   every response in the chain, one after the other: for a redirection
+   followed by a final response, the status line and headers of the
+   <literal>302 Found</literal> response come first, followed by the status
+   line and headers of the <literal>200 OK</literal> response.
+  </simpara>
+  <simpara>
+   Starting a new <acronym>HTTP</acronym> request replaces the stored headers,
+   even if the request fails to connect, in which case &null; is returned.
+   Reading a stream with another wrapper, such as <literal>data://</literal>,
+   leaves the previous headers in place.
+   Use <function>http_clear_last_response_headers</function> to discard them
+   explicitly.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -39,7 +54,8 @@
   <example xml:id="function.http-get-last-response-headers.example.basic">
    <title><function>http_get_last_response_headers</function> example</title>
    <simpara>
-    Description.
+    Reads a page with <function>file_get_contents</function> and then
+    inspects the headers of the response.
    </simpara>
    <programlisting role="php">
 <![CDATA[
@@ -91,6 +107,9 @@ array(14) {
   &reftitle.seealso;
   <simplelist>
    <member><function>http_clear_last_response_headers</function></member>
+   <member><function>file_get_contents</function></member>
+   <member><function>stream_context_create</function></member>
+   <member><link linkend="reserved.variables.httpresponseheader">$http_response_header</link></member>
   </simplelist>
  </refsect1>
 
