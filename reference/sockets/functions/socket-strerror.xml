@@ -36,7 +36,10 @@
      <listitem>
       <para>
        A valid socket error number, likely produced by 
-       <function>socket_last_error</function>.
+       <function>socket_last_error</function>. It must fit in an <type>int</type>.
+       The negative codes set by <function>socket_connect</function> and
+       <function>socket_bind</function> when a host name cannot be resolved
+       (for example <literal>-10001</literal>, <literal>Unknown host</literal>) are accepted.
       </para>
      </listitem>
     </varlistentry>
@@ -52,6 +55,35 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   If <parameter>error_code</parameter> is outside the range of an <type>int</type>,
+   a <exceptionname>ValueError</exceptionname> is thrown.
+  </para>
+ </refsect1>
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.2.25, 8.3.13</entry>
+      <entry>
+       An <parameter>error_code</parameter> outside the range of an <type>int</type> now throws a
+       <exceptionname>ValueError</exceptionname>; it was silently truncated before.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
+ </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
@@ -92,6 +124,7 @@ socket_bind() failed: reason: Permission denied
     <member><function>socket_connect</function></member>
     <member><function>socket_listen</function></member>
     <member><function>socket_create</function></member>
+    <member><function>socket_last_error</function></member>
    </simplelist>
   </para>
  </refsect1>
