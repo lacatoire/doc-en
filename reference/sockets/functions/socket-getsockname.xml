@@ -17,65 +17,74 @@
   <note>
    <simpara>
     <function>socket_getsockname</function> should not be used with
-    <constant>AF_UNIX</constant> sockets created with <function>socket_connect</function>.
-    Only sockets created with <function>socket_accept</function> or a primary
-    server socket following a call to <function>socket_bind</function> will return
-    meaningful values.
+    <constant>AF_UNIX</constant> sockets created with <function>socket_connect</function>:
+    the name of a socket that is not bound is an empty string.
    </simpara>
   </note>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>socket</parameter></term>
-     <listitem>
-      <para>
-       A <classname>Socket</classname> instance created with <function>socket_create</function>
-       or <function>socket_accept</function>.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>address</parameter></term>
-     <listitem>
-      <para>
-       If the given socket is of type <constant>AF_INET</constant>
-       or <constant>AF_INET6</constant>, <function>socket_getsockname</function>
-       will return the local <emphasis>IP address</emphasis> in appropriate notation (e.g.
-       <literal>127.0.0.1</literal> or <literal>fe80::1</literal>) in the
-       <parameter>address</parameter> parameter and, if the optional
-       <parameter>port</parameter> parameter is present, also the associated port.
-      </para>
-      <para>
-       If the given socket is of type <constant>AF_UNIX</constant>,
-       <function>socket_getsockname</function> will return the Unix filesystem
-       path (e.g. <literal>/var/run/daemon.sock</literal>) in the
-       <parameter>address</parameter> parameter.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>port</parameter></term>
-     <listitem>
-      <para>
-       If provided, this will hold the associated port.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>socket</parameter></term>
+    <listitem>
+     <para>
+      A <classname>Socket</classname> instance created with <function>socket_create</function>
+      or <function>socket_accept</function>.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>address</parameter></term>
+    <listitem>
+     <para>
+      If the given socket is of type <constant>AF_INET</constant>
+      or <constant>AF_INET6</constant>, <function>socket_getsockname</function>
+      will return the local <emphasis>IP address</emphasis> in appropriate notation (e.g.
+      <literal>127.0.0.1</literal> or <literal>fe80::1</literal>) in the
+      <parameter>address</parameter> parameter and, if the optional
+      <parameter>port</parameter> parameter is present, also the associated port.
+     </para>
+     <para>
+      If the given socket is of type <constant>AF_UNIX</constant>,
+      <function>socket_getsockname</function> will return the Unix filesystem
+      path (e.g. <literal>/var/run/daemon.sock</literal>) in the
+      <parameter>address</parameter> parameter.
+     </para>
+     <para>
+      If the given socket is of type <constant>AF_PACKET</constant>,
+      <function>socket_getsockname</function> will return the name of the
+      interface (e.g. <literal>lo</literal>) in the <parameter>address</parameter> parameter.
+     </para>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>port</parameter></term>
+    <listitem>
+     <para>
+      If provided, this will hold the associated port, or the index of the interface for an
+      <constant>AF_PACKET</constant> socket. It is not written for an <constant>AF_UNIX</constant> socket.
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   &return.success; <function>socket_getsockname</function> may also return
-   &false; if the socket type is not any of <constant>AF_INET</constant>,
-   <constant>AF_INET6</constant>, or <constant>AF_UNIX</constant>, in which
-   case the last socket error code is <emphasis>not</emphasis> updated.
+   &return.success; &false; is returned when the underlying call fails, and the last socket
+   error code is updated.
+  </para>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <para>
+   A <exceptionname>ValueError</exceptionname> is thrown if the socket family is not
+   <constant>AF_UNIX</constant>, <constant>AF_PACKET</constant>, <constant>AF_INET</constant> or
+   <constant>AF_INET6</constant>. An <classname>Error</classname> is thrown for an
+   <constant>AF_PACKET</constant> socket that is not bound to an interface.
   </para>
  </refsect1>
 
@@ -98,6 +107,13 @@
       </entry>
      </row>
      &sockets.changelog.socket-param;
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       A <exceptionname>ValueError</exceptionname> is now thrown when the socket family is not supported;
+       previously an <constant>E_WARNING</constant> was emitted and &false; was returned.
+      </entry>
+     </row>
     </tbody>
    </tgroup>
   </informaltable>
