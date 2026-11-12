@@ -149,6 +149,21 @@ echo $newDate2->format('Y-m-d') . "\n";
   </example>
  </refsect1>
 
+ <refsect1 role="notes">
+  &reftitle.notes;
+  <note>
+   <simpara>
+    When the subtraction crosses a transition of the time zone, such as the
+    start or the end of daylight saving time, the result depends on where
+    <parameter>interval</parameter> comes from: an interval created from an
+    ISO 8601 string subtracts the elapsed time in wall clock units, while an
+    interval returned by <methodname>DateTime::diff</methodname> is subtracted
+    in civil units. The same nominal interval can therefore give results one
+    hour apart.
+   </simpara>
+  </note>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
