@@ -12,10 +12,11 @@
    <type class="union"><type>string</type><type>false</type></type><methodname>session_save_path</methodname>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>path</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   <function>session_save_path</function> returns the path of the current
-   directory used to save session data. 
-  </para>
+  <simpara>
+   <function>session_save_path</function> returns the value of the
+   <link linkend="ini.session.save-path">session.save_path</link>
+   configuration directive, and optionally changes it. 
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -25,11 +26,20 @@
     <varlistentry>
      <term><parameter>path</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Session data path. If specified and not &null;, the path to which data is saved will
        be changed. <function>session_save_path</function> needs to be called
        before <function>session_start</function> for that purpose.
-      </para>
+      </simpara>
+      <simpara>
+       The value has the same format as the
+       <link linkend="ini.session.save-path">session.save_path</link>
+       configuration directive, and may be of the form
+       <literal>N;MODE;path</literal>, where <literal>N</literal> is the
+       number of directory levels and <literal>MODE</literal> the octal
+       file mode. An empty string makes the default files handler use the
+       system temporary directory.
+      </simpara>
       <para>
        <note>
         <para>
@@ -46,9 +56,23 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the path of the current directory used for data storage, &return.falseforfailure;.
-  </para>
+  <simpara>
+   Returns the value of <literal>session.save_path</literal> as it was before
+   the call, exactly as it was set, including any <literal>N;MODE;</literal>
+   prefix. This is an empty string if no path has been configured. If
+   <parameter>path</parameter> is given, it is the previous value, not the new one.
+   Returns &false; if <parameter>path</parameter> is given and a session is
+   active or headers have already been sent; an <constant>E_WARNING</constant> is emitted
+   and the path is not changed.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>path</parameter> contains a null byte.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -66,6 +90,17 @@
       <entry>8.0.0</entry>
       <entry>
        <parameter>path</parameter> is nullable now.
+       A null byte in <parameter>path</parameter> now throws a
+       <exceptionname>ValueError</exceptionname>; previously an
+       <constant>E_WARNING</constant> was raised and &false; was returned.
+      </entry>
+     </row>
+     <row>
+      <entry>7.2.0</entry>
+      <entry>
+       Changing the path when a session is active or when headers have
+       already been sent now emits an <constant>E_WARNING</constant> and
+       returns &false;.
       </entry>
      </row>
     </tbody>

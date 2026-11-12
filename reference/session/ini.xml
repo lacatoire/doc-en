@@ -297,7 +297,7 @@
      the number of directory levels your session files will be spread
      around in.  For example, setting to <literal>'5;/tmp'</literal>
      may end up creating a session file and location like
-     <literal>/tmp/4/b/1/e/3/sess_4b1e384ad74619bd212e236e52a5a174If
+     <literal>/tmp/4/b/1/e/3/sess_4b1e384ad74619bd212e236e52a5a174
      </literal>.  In order to use <literal>N</literal> you must create all of these
      directories before use.  A small shell script exists in
      <filename>ext/session</filename> to do this, it's called
@@ -320,7 +320,7 @@
     <warning>
      <para>
       If this is set to a world-readable directory, such as
-      <filename>/tmp</filename> (the default), other users on the
+      <filename>/tmp</filename> (used when the directive is empty), other users on the
       server may be able to hijack sessions by getting the list of
       files in that directory.
      </para>
