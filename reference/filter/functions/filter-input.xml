@@ -60,6 +60,27 @@
    it returns &false; if the variable is not set
    and &null; if the filter fails.
   </simpara>
+  <simpara>
+   If the <constant>FILTER_THROW_ON_FAILURE</constant> flag is used,
+   a <exceptionname>Filter\FilterFailedException</exceptionname> is thrown
+   on failure instead.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>options</parameter> contains both
+   <constant>FILTER_NULL_ON_FAILURE</constant> and
+   <constant>FILTER_THROW_ON_FAILURE</constant>.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>Filter\FilterFailedException</exceptionname>
+   if the <constant>FILTER_THROW_ON_FAILURE</constant> flag is used and
+   the <parameter>var_name</parameter> variable is not set, or its value
+   does not satisfy the filter.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
