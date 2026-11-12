@@ -27,7 +27,7 @@
     <term><parameter>hash</parameter></term>
     <listitem>
      <simpara>
-      &password.parameter.hash;
+      A hash created by <function>sodium_crypto_pwhash_str</function>.
      </simpara>
     </listitem>
    </varlistentry>
