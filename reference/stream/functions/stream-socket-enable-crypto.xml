@@ -94,12 +94,12 @@
     <varlistentry>
      <term><parameter>session_stream</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        An SSL enabled stream whose session is reused by the handshake
        (session resumption). If it is not an SSL enabled stream, an
        <constant>E_WARNING</constant> is emitted and the handshake continues
        without it.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -108,7 +108,7 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns &true; on success, &false; if negotiation has failed or
    <literal>0</literal> if there isn't enough data and you should try again
    (only for non-blocking sockets). When disabling cryptography on an active
@@ -116,7 +116,7 @@
    the call is repeated. On a stream that does not support cryptography, such
    as <literal>php://memory</literal>, an <constant>E_WARNING</constant> is
    emitted and &true; is returned.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">

@@ -14,10 +14,10 @@
    <methodparam choice="opt"><type>int</type><parameter>flags</parameter><initializer>0</initializer></methodparam>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter role="reference">address</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>stream_socket_recvfrom</function> receives
    up to <parameter>length</parameter> bytes of data from a socket.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -27,19 +27,19 @@
     <varlistentry>
      <term><parameter>socket</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The socket to read from: a bound UDP socket, an accepted connection or
        one end of a socket pair, for example.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>length</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The maximum number of bytes to receive from the <parameter>socket</parameter>.
        Fewer bytes are returned if less data is pending.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -75,13 +75,13 @@
     <varlistentry>
      <term><parameter>address</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If <parameter>address</parameter> is provided it will be populated with
        the address of the remote socket. It is an empty string for a socket that
        has no peer address, such as an accepted TCP connection or a Unix stream
        socket pair, and at end of file. It is reset to &null; at the start of
        every call, even if the call returns &false; or throws.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -90,14 +90,14 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the read data, as a string. An empty string is returned at the end
    of a stream socket, on each call. &false; is returned, without any
    warning, if no data is pending on a non-blocking socket, if no urgent data
    is available with <constant>STREAM_OOB</constant>, and if
    <parameter>socket</parameter> is not a socket stream (such as
    <literal>php://memory</literal> or a plain file).
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -187,7 +187,7 @@ Data: 'hello'
    </para>
   </note>
   <note>
-   <para>
+   <simpara>
     <function>stream_socket_recvfrom</function> reads straight from the
     socket: it does not wait for data, so <function>stream_set_timeout</function>
     and <link linkend="ini.default-socket-timeout">default_socket_timeout</link>
@@ -196,7 +196,7 @@ Data: 'hello'
     buffer by buffer-based stream functions (like <function>fread</function> or
     <function>stream_get_line</function>) is not seen, and a read filter such as
     <literal>string.toupper</literal> is not applied.
-   </para>
+   </simpara>
   </note>
  </refsect1>
 
