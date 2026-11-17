@@ -111,6 +111,7 @@ fclose($fp);
 class VariableStream {
     var $position;
     var $varname;
+    public $context;
 
     function stream_open($path, $mode, $options, &$opened_path)
     {
