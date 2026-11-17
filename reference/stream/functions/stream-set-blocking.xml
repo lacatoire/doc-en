@@ -16,10 +16,12 @@
   <para>
    Sets blocking or non-blocking mode on a <parameter>stream</parameter>.
   </para>
-  <para>
+  <simpara>
    This function works for any stream that supports non-blocking mode
-   (currently, regular files and socket streams).
-  </para>
+   (currently, regular files, socket streams, pipes such as those of
+   <function>popen</function> and <function>proc_open</function>,
+   <constant>STDIN</constant>, FIFOs, and user-space stream wrappers).
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -47,6 +49,15 @@
        while in blocking mode it will wait for data to become available
        on the stream.
       </para>
+      <simpara>
+       When no data is available in non-blocking mode,
+       <function>fread</function> returns an empty string,
+       <function>fgets</function> returns &false; and <function>feof</function>
+       stays &false;. Data that is already in the read buffer is still
+       returned first. The <literal>blocked</literal> and
+       <literal>unread_bytes</literal> entries of
+       <function>stream_get_meta_data</function> show the current state.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -55,9 +66,16 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+   &true; is also returned for streams that have no blocking mode, such as
+   <literal>php://memory</literal>, <literal>php://temp</literal>, <literal>php://output</literal>,
+   <literal>php://input</literal>, <literal>data://</literal> streams and directory handles:
+   the call then has no effect. &false; is returned if the mode cannot be
+   changed on the descriptor, or if the
+   <methodname>streamWrapper::stream_set_option</methodname> method of a
+   user-space wrapper returns a falsy value or is missing.
+  </simpara>
  </refsect1>
 
  <refsect1 role="notes">
@@ -66,12 +84,28 @@
    <para>On Windows, this has no affect on local files. Non-blocking IO for local files is not supported on Windows.
    </para>
   </note>
+  <note>
+   <simpara>
+    The mode belongs to the file description, which is shared with the process that started PHP.
+    After <literal>stream_set_blocking(STDIN, false)</literal>, standard input stays non-blocking when the script ends,
+    and a program reading from it afterwards can fail with "Resource temporarily unavailable".
+   </simpara>
+  </note>
+  <note>
+   <simpara>
+    A <classname>Socket</classname> object is not accepted: use <function>socket_set_block</function>
+    or <function>socket_set_nonblock</function> instead.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
    <member><function>stream_select</function></member>
+   <member><function>stream_set_timeout</function></member>
+   <member><function>socket_set_block</function></member>
+   <member><function>socket_set_nonblock</function></member>
   </simplelist>
  </refsect1>
 </refentry>
