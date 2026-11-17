@@ -31,7 +31,7 @@
     </listitem>
     <listitem>
      <simpara>
-      a packet becomes available or the <link linkend="function.socket-set-timeout">
+      a packet becomes available or the <link linkend="function.stream-set-timeout">
       socket timeout</link> occurs (for network streams)
      </simpara>
     </listitem>
