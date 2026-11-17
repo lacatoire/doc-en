@@ -54,6 +54,15 @@
    is registered under <parameter>protocol</parameter>.
   </simpara>
  </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>stream_wrapper_register</function></member>
+   <member><function>stream_wrapper_restore</function></member>
+   <member><function>stream_get_wrappers</function></member>
+  </simplelist>
+ </refsect1>
 </refentry>
 
 

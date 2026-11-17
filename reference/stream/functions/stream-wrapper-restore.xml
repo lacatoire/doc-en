@@ -45,6 +45,15 @@
    a user-defined one, a name in the wrong case, or an empty string.
   </simpara>
  </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>stream_wrapper_register</function></member>
+   <member><function>stream_wrapper_unregister</function></member>
+   <member><function>stream_get_wrappers</function></member>
+  </simplelist>
+ </refsect1>
 </refentry>
 
 
