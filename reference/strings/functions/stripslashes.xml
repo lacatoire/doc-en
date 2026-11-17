@@ -15,12 +15,12 @@
   <para>
    Un-quotes a quoted string.
   </para>
-  <para>
+  <simpara>
    <function>stripslashes</function> only undoes escaping added by
    <function>addslashes</function> and similar functions. Any other backslash
    is removed as well, so it corrupts data that was never escaped:
    <literal>C:\temp\new</literal> becomes <literal>C:tempnew</literal>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -41,7 +41,7 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a string with backslashes stripped off.
    (<literal>\'</literal> becomes <literal>'</literal> and so on.)
    Double backslashes (<literal>\\</literal>) are made into a single
@@ -50,7 +50,7 @@
    followed by any other character becomes that character
    (<literal>\n</literal> becomes <literal>n</literal>), and a single
    backslash at the end of the string is removed.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
