@@ -35,11 +35,13 @@
     <varlistentry>
      <term><parameter>timeout</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Override the default socket accept timeout. Time should be given in
        seconds. By default, <link linkend="ini.default-socket-timeout">default_socket_timeout</link>
-       is used.
-      </para>
+       is used. A negative value makes the call wait indefinitely, and
+       <literal>0</literal> only checks once for a pending connection and fails
+       at once otherwise.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -63,10 +65,22 @@
 
  <refsect1 role="returnvalues"><!-- {{{ -->
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a stream to the accepted socket connection&return.falseforfailure;.
-  </para>
+   If no connection arrives in time, an <constant>E_WARNING</constant>
+   (<literal>Accept failed</literal>) is emitted and &false; is returned.
+  </simpara>
  </refsect1><!-- }}} -->
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>timeout</parameter> is not a finite value
+   (<constant>NAN</constant>, <constant>INF</constant> or
+   <constant>-INF</constant>).
+  </simpara>
+ </refsect1>
 
  <refsect1 role="changelog">
   &reftitle.changelog;
@@ -79,6 +93,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.2.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if
+       <parameter>timeout</parameter> is not a finite value.
+      </entry>
+     </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
@@ -99,6 +120,16 @@
     <function>stream_socket_sendto</function>.
    </para>
  </warning>
+  <note>
+   <simpara>
+    With an <literal>ssl://</literal> or <literal>tls://</literal> server, the
+    TLS handshake runs inside the call. It is bounded by the timeout of the
+    listening stream (see <function>stream_set_timeout</function>), not by the
+    <parameter>timeout</parameter> argument: a client that stays silent keeps
+    the call blocked for the timeout of the listening stream, which then emits
+    <constant>E_WARNING</constant> messages and returns &false;.
+   </simpara>
+  </note>
  </refsect1><!-- }}} -->
  
  <refsect1 role="seealso"><!-- {{{ -->
@@ -109,12 +140,12 @@
     <member><function>stream_socket_get_name</function></member>
     <member><function>stream_set_blocking</function></member>
     <member><function>stream_set_timeout</function></member>
+    <member><function>stream_socket_client</function></member>
+    <member><function>stream_select</function></member>
     <member><function>fgets</function></member>
-    <member><function>fgetss</function></member>
     <member><function>fwrite</function></member>
     <member><function>fclose</function></member>
     <member><function>feof</function></member>
-    <member><xref linkend="ref.curl"/></member>
    </simplelist>
   </para>
  </refsect1><!-- }}} -->
