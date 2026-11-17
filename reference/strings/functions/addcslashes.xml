@@ -76,7 +76,7 @@ echo addcslashes("zoo['.']", 'z..A');
         </programlisting>
        </example>
       </para>
-      <para>
+      <simpara>
        Be careful if you choose to escape characters 0 to 7, a, b, f, n, r, t
        and v. They will be converted to \0 to \7, \a, \b, \f, \n, \r, \t and \v,
        which are predefined escape sequences in C, and the character
@@ -88,7 +88,7 @@ echo addcslashes("zoo['.']", 'z..A');
        with these characters defined in <parameter>characters</parameter>.
        <function>stripcslashes</function> reads them the same way, so it does
        not restore these characters.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
