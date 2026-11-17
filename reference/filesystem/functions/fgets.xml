@@ -104,6 +104,7 @@ if ($fp) {
     <member><function>fread</function></member>
     <member><function>fgetc</function></member>
     <member><function>stream_get_line</function></member>
+    <member><function>stream_get_contents</function></member>
     <member><function>fopen</function></member>
     <member><function>popen</function></member>
     <member><function>fsockopen</function></member>
