@@ -43,35 +43,32 @@
     <varlistentry>
      <term><parameter>flags</parameter></term>
      <listitem>
-      <para>
-       The value of <parameter>flags</parameter> can be any combination
-       of the following:
-       <table>
-        <title>possible values for <parameter>flags</parameter></title>
-        <tgroup cols="2">
-         <tbody>
-          <row>
-           <entry><constant>STREAM_OOB</constant></entry>
-           <entry>
-            Process OOB (out-of-band) data.
-           </entry>
-          </row>
-         </tbody>
-        </tgroup>
-       </table>
-      </para>
+      <simpara>
+       Only <constant>STREAM_OOB</constant> (send out-of-band data) is
+       used. Any other bit, such as <constant>STREAM_PEEK</constant>, is
+       silently ignored. <constant>STREAM_OOB</constant> is not supported on
+       a UDP socket, where the function returns <literal>-1</literal>. Over
+       TCP, only the last byte of the data is urgent.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>address</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The address specified when the socket stream was created will be used
        unless an alternate address is specified in <parameter>address</parameter>.
-      </para>
-      <para>
-       If specified, it must be in dotted quad (or [ipv6]) format.
-      </para>
+       A UDP server socket created with <function>stream_socket_server</function>
+       has no such address: without <parameter>address</parameter>, the function
+       returns <literal>-1</literal> and emits an <constant>E_WARNING</constant>.
+       On a connected TCP socket, an alternate address is accepted and ignored.
+      </simpara>
+      <simpara>
+       If specified, it must be an address followed by a colon and the port,
+       such as <literal>127.0.0.1:9000</literal>; the address may be in square
+       brackets, and IPv4 shorthand forms such as <literal>127.1</literal> are
+       accepted. The port is mandatory, and any text after it is ignored.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -80,9 +77,12 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns a result code, as an integer,&return.falseforfailure;.
-  </para>
+  <simpara>
+   Returns the number of bytes sent, as an integer,&return.falseforfailure;.
+   The number can be smaller than the length of <parameter>data</parameter>,
+   since the function does not loop until everything is sent. It is
+   <literal>-1</literal> if the send fails.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -93,22 +93,55 @@
     <programlisting role="php">
 <![CDATA[
 <?php
-/* Open a socket to port 1234 on localhost */
-$socket = stream_socket_client('tcp://127.0.0.1:1234');
 
-/* Send ordinary data via ordinary channels. */
-fwrite($socket, "Normal data transmit.");
+// Open a server socket on a free port of localhost, and connect to it
+$server = stream_socket_server('tcp://127.0.0.1:0');
+$socket = stream_socket_client('tcp://' . stream_socket_get_name($server, false));
+$peer = stream_socket_accept($server);
 
-/* Send more data out of band. */
-stream_socket_sendto($socket, "Out of Band data.", STREAM_OOB);
+// Send ordinary data via ordinary channels
+fwrite($socket, 'Normal data transmit.');
 
-/* Close it up */
+// Send one byte of out-of-band data
+echo stream_socket_sendto($socket, '!', STREAM_OOB), "\n";
+
+echo "OOB: '" . stream_socket_recvfrom($peer, 10, STREAM_OOB) . "'\n";
+echo "Data: '" . stream_socket_recvfrom($peer, 100) . "'\n";
+
+// Close it up
 fclose($socket);
-?>
+fclose($peer);
+fclose($server);
 ]]>
     </programlisting>
+    &example.outputs;
+    <screen>
+<![CDATA[
+1
+OOB: '!'
+Data: 'Normal data transmit.'
+]]>
+    </screen>
    </example>
   </para>
+ </refsect1>
+
+ <refsect1 role="notes">
+  &reftitle.notes;
+  <note>
+   <simpara>
+    <function>stream_socket_sendto</function> writes straight to the socket,
+    like <function>stream_socket_recvfrom</function> reads from it: it does not
+    wait, so <function>stream_set_timeout</function> and
+    <link linkend="ini.default-socket-timeout">default_socket_timeout</link> do
+    not apply and a blocking send on a full buffer may block indefinitely,
+    whereas <function>fwrite</function> returns &false; after the timeout. Write
+    filters are not applied, and on a stream with encryption enabled the data is
+    sent unencrypted. Sending out-of-band data or data to an address on a
+    filtered stream emits an <constant>E_WARNING</constant> and returns
+    <literal>-1</literal>.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="seealso">
