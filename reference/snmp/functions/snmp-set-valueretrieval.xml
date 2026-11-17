@@ -66,7 +66,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>ValueError</classname> if <parameter>method</parameter> is not a bitmask of
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>method</parameter> is not a bitmask of
    <constant>SNMP_VALUE_LIBRARY</constant>, <constant>SNMP_VALUE_PLAIN</constant>, and <constant>SNMP_VALUE_OBJECT</constant>.
   </simpara>
  </refsect1>
@@ -86,7 +86,7 @@
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Throws a <classname>ValueError</classname> if <parameter>method</parameter> is invalid,
+       Throws a <exceptionname>ValueError</exceptionname> if <parameter>method</parameter> is invalid,
        instead of emitting an <constant>E_WARNING</constant> and returning &false;.
       </entry>
      </row>
