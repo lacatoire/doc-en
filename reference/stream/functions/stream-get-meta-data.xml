@@ -23,10 +23,11 @@
     <varlistentry>
      <term><parameter>stream</parameter></term>
      <listitem>
-      <para>
-       The stream can be any stream created by <function>fopen</function>,
-       <function>fsockopen</function> <function>pfsockopen</function> and <function>stream_socket_client</function>.
-      </para>
+      <simpara>
+       Any open stream resource, such as a stream created by <function>fopen</function>,
+       <function>fsockopen</function>, <function>pfsockopen</function> or <function>stream_socket_client</function>,
+       a directory handle, or a <function>popen</function> pipe.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -40,11 +41,11 @@
   </simpara>
   <itemizedlist>
    <listitem>
-    <para>
-     <literal>timed_out</literal> (bool) - &true; if the stream
-     timed out while waiting for data on the last call to
-     <function>fread</function> or <function>fgets</function>.
-    </para>
+    <simpara>
+     <literal>timed_out</literal> (bool) - &true; if a read or a write on the
+     stream timed out while waiting. It is always &false; for streams without a
+     timeout, such as files and memory streams.
+    </simpara>
    </listitem>
    <listitem>
     <para>
@@ -53,13 +54,15 @@
     </para>
    </listitem>
    <listitem>
-    <para>
-     <literal>eof</literal> (bool) - &true; if the stream has reached
-     end-of-file.  Note that for socket streams this member can be &true;
-     even when <literal>unread_bytes</literal> is non-zero.  To
+    <simpara>
+     <literal>eof</literal> (bool) - the raw end-of-file flag of the stream.
+     It can be &true; even when <literal>unread_bytes</literal> is non-zero,
+     for example when a read filter is attached, and on a socket whose peer
+     has closed the connection it stays &false; until a read reaches the end,
+     whereas <function>feof</function> already returns &true;. To
      determine if there is more data to be read, use
      <function>feof</function> instead of reading this item.
-    </para>
+    </simpara>
     <note>
      <simpara>
       <literal>timed_out</literal>, <literal>blocked</literal> and <literal>eof</literal>
@@ -135,10 +138,15 @@
     </simpara>
    </listitem>
    <listitem>
-    <para>
+    <simpara>
      <literal>crypto</literal> (array) - the TLS connection metadata for this
-     stream. (Note: Only provided when the resource's stream uses TLS.)
-    </para>
+     stream, with the <literal>protocol</literal>, <literal>cipher_name</literal>,
+     <literal>cipher_bits</literal> and <literal>cipher_version</literal> items,
+     plus <literal>alpn_protocol</literal> when ALPN was negotiated. It is only
+     provided while the stream uses TLS: it is absent before
+     <function>stream_socket_enable_crypto</function> enables encryption and
+     after it disables it.
+    </simpara>
    </listitem>
   </itemizedlist>
  </refsect1>
@@ -310,9 +318,10 @@ array(9) {
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>This function does NOT work on sockets created by the <link
-     linkend="ref.sockets">Socket extension</link>.
-   </para>
+   <simpara>A <classname>Socket</classname> object created by the <link
+     linkend="ref.sockets">Socket extension</link> is not a stream resource and is
+     rejected: use the stream returned by <function>socket_export_stream</function>.
+   </simpara>
   </note>
  </refsect1>
 
@@ -320,6 +329,9 @@ array(9) {
   &reftitle.seealso;
   <simplelist>
    <member><function>get_headers</function></member>
+   <member><function>stream_set_timeout</function></member>
+   <member><function>stream_set_blocking</function></member>
+   <member><function>feof</function></member>
    <member><link linkend="reserved.variables.httpresponseheader">$http_response_header</link></member>
   </simplelist>
  </refsect1>
