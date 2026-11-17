@@ -28,23 +28,23 @@
    <varlistentry>
     <term><parameter>socket</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       A <classname>Socket</classname> instance created with <function>socket_create</function>
       or <function>socket_accept</function>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>length</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The maximum number of bytes read is specified by the
       <parameter>length</parameter> parameter. With <constant>PHP_NORMAL_READ</constant>,
       reading also stops after a <literal>\r</literal> or a <literal>\n</literal>
       (see the <parameter>mode</parameter> parameter below). A
       <parameter>length</parameter> of 0 or less returns &false;, without any warning or
       error code.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
@@ -74,21 +74,21 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    <function>socket_read</function> returns the data as a string on success,
    or &false; on error. The error code can be retrieved with
    <function>socket_last_error</function>. This code may be passed to
    <function>socket_strerror</function> to get a textual representation of
    the error.
-  </para>
+  </simpara>
   <note>
-   <para>
+   <simpara>
     <function>socket_read</function> returns a zero length string ("")
     when there is no more data to read. With <constant>PHP_BINARY_READ</constant>
     this is also the result once the remote host has closed the connection and the
     pending data has been read, whereas <constant>PHP_NORMAL_READ</constant> returns
     &false; and emits an <constant>E_WARNING</constant> in that case.
-   </para>
+   </simpara>
   </note>
  </refsect1>
 
