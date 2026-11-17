@@ -175,8 +175,8 @@
           </row>
           <row>
            <entry><literal>%G</literal></entry>
-           <entry>The full four-digit version of %g</entry>
-           <entry>Example: <literal>2008</literal> for the week of January 3, 2009</entry>
+           <entry>The four-digit ISO-8601:1988 week-numbering year, which is the full version of %g. It is not the calendar year given by %Y</entry>
+           <entry>Example: <literal>2004</literal> for January 2, 2005 (week 53 of 2004)</entry>
           </row>
           <row>
            <entry><literal>%y</literal></entry>
@@ -352,6 +352,9 @@
        <simpara>
         <emphasis>macOS and musl only:</emphasis> The <literal>%P</literal> modifier 
         is not supported in the macOS implementation of this function.
+        On musl, <literal>%k</literal> and <literal>%l</literal> are not
+        supported either, and <literal>%Z</literal> returns &false; when the
+        time zone abbreviation is empty.
        </simpara>
       </warning>
      </listitem>
@@ -371,9 +374,11 @@
    local time if no timestamp is given.  Month and weekday names and
    other language-dependent strings respect the current locale set
    with <function>setlocale</function>.
-   The function returns &false; if <parameter>format</parameter> is empty, contains unsupported
-   conversion specifiers, or if the length of the returned string would be greater than
-   <literal>4095</literal>.
+   The function returns &false; if <parameter>format</parameter> is empty, if
+   the length of the returned string would be greater than
+   <literal>4095</literal>, or if the C library reports a failure or produces
+   an empty result. Whether an unsupported conversion specifier causes this
+   depends on the C library: see the Errors section.
   </para>
  </refsect1>
 
@@ -384,9 +389,10 @@
    As the output is dependent upon the underlying C library, some conversion
    specifiers are not supported. On Windows, supplying unknown conversion
    specifiers will result in 5 <constant>E_WARNING</constant> messages and
-   return &false;. On other operating systems you may not get any
+   return &false;. With glibc you may not get any
    <constant>E_WARNING</constant> messages and the output may contain the
-   conversion specifiers unconverted.
+   conversion specifiers unconverted, whereas musl returns &false;, also for
+   a lone <literal>%</literal>.
   </para>
  </refsect1>
 
