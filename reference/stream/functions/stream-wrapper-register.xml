@@ -13,7 +13,7 @@
    <methodparam><type>string</type><parameter>class</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>flags</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Allows you to implement your own protocol handlers and streams for use
    with most filesystem functions (such as <function>fopen</function>,
    <function>file_exists</function>, <function>scandir</function>,
@@ -23,7 +23,7 @@
    <function>link</function>, <function>disk_free_space</function>,
    <function>tempnam</function> and <function>glob</function> never reach the
    wrapper.
-  </para>
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="parameters">
@@ -37,14 +37,14 @@
        The wrapper name to be registered.
        Valid protocol names must contain alphanumerics, dots (.), plusses (+), or hyphens (-) only.
       </para>
-      <para>
+      <simpara>
        The name is case-sensitive: a wrapper registered as <literal>MyWrap</literal>
        is only reached through <literal>MyWrap://</literal>, and
        <literal>HTTP</literal> can be registered even though <literal>http</literal>
        already exists. A name of one character, or an empty name, can be registered
        but is never reached, since a scheme needs at least two characters to be
        recognized.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -53,15 +53,15 @@
       <para>
        The classname which implements the <parameter>protocol</parameter>.
       </para>
-      <para>
+      <simpara>
        The class is autoloaded at registration time, but is not otherwise
        validated: an interface, a trait or an abstract class is accepted, and
        opening a stream then fails. A new instance is created for each
        operation, not only when a stream is opened. If the class declares a
        typed <literal>$context</literal> property, a
-       <classname>TypeError</classname> is thrown when a stream is opened,
+       <exceptionname>TypeError</exceptionname> is thrown when a stream is opened,
        since the property receives a resource.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -72,7 +72,7 @@
        <parameter>protocol</parameter> is a URL protocol. Default is 0, local
        stream.
       </para>
-      <para>
+      <simpara>
        A wrapper registered with <constant>STREAM_IS_URL</constant> is
        subject to <link linkend="ini.allow-url-fopen">allow_url_fopen</link>
        (for <function>fopen</function>, <function>file_get_contents</function>
@@ -81,7 +81,7 @@
        <function>include</function>), and <function>stream_is_local</function>
        returns &false; for it. Only the lowest bit of <parameter>flags</parameter>
        is used: other values are accepted and otherwise ignored.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -93,12 +93,12 @@
   <para>
    &return.success;
   </para>
-  <para>
+  <simpara>
    <function>stream_wrapper_register</function> will return &false; if the
    <parameter>protocol</parameter> already has a handler, or if it is not a
    valid scheme name, in which case an <constant>E_WARNING</constant> is
    emitted.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">

@@ -38,9 +38,9 @@
     <varlistentry>
      <term><parameter>protocol</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The wrapper name, without <literal>://</literal>. It is case-sensitive.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -48,11 +48,11 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
    &false; is returned, with an <constant>E_WARNING</constant>, if no wrapper
    is registered under <parameter>protocol</parameter>.
-  </para>
+  </simpara>
  </refsect1>
 </refentry>
 
