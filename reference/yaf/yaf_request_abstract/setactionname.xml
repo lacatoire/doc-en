@@ -71,7 +71,7 @@ class RestRouter extends Yaf_Route_Interface
         return false;
     }
 
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }
 ?>]]>
    </programlisting>
