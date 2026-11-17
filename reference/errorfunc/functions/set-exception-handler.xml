@@ -14,13 +14,13 @@
    <type class="union"><type>callable</type><type>null</type></type><methodname>set_exception_handler</methodname>
    <methodparam><type class="union"><type>callable</type><type>null</type></type><parameter>callback</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Sets the default exception handler if an exception is not caught within a
    try/catch block. Execution of the script will stop after the
    <parameter>callback</parameter> is called, but the shutdown functions and the
    destructors still run. The exit status of the process is <literal>0</literal> once the
    handler returned, and <literal>255</literal> when there is no handler.
-  </para>
+  </simpara>
 
   <note>
    <simpara>
@@ -55,24 +55,24 @@
    <varlistentry>
     <term><parameter>callback</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The function to be called when an uncaught exception occurs.
       This handler function needs to accept one parameter,
-      which will be the <classname>Throwable</classname> object that was thrown.
-      Both <classname>Error</classname> and <classname>Exception</classname>
-      implement the <classname>Throwable</classname> interface.
+      which will be the <exceptionname>Throwable</exceptionname> object that was thrown.
+      Both <exceptionname>Error</exceptionname> and <exceptionname>Exception</exceptionname>
+      implement the <exceptionname>Throwable</exceptionname> interface.
       This is the handler signature:
-     </para>
+     </simpara>
      <para>
       <methodsynopsis>
        <type>void</type><methodname><replaceable>handler</replaceable></methodname>
        <methodparam><type>Throwable</type><parameter>ex</parameter></methodparam>
       </methodsynopsis>
      </para>
-     <para>
+     <simpara>
       The return value of the handler is ignored.
       &null; may be passed instead, to reset this handler to its default state.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -80,17 +80,17 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the previously defined exception handler, or &null; if no previous
    handler was defined.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    Throws a <exceptionname>TypeError</exceptionname> if <parameter>callback</parameter> is not
    a valid callback or &null;.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
