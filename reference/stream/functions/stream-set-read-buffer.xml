@@ -38,6 +38,16 @@
       with <function>fread</function> are completed before other processes are
       allowed to read from that input stream.
      </para>
+     <simpara>
+      Only <function>fread</function> and <function>fgetc</function> honor a
+      size of <literal>0</literal>: <function>fgets</function> and
+      <function>stream_get_line</function> still read ahead. A read filter on
+      the stream overrides it, data that is already buffered is kept, and a
+      later non-zero size switches the buffering back on. For a user-space
+      stream wrapper, the call is only forwarded to
+      <methodname>streamWrapper::stream_set_option</methodname>, so reads are
+      not unbuffered.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -45,10 +55,15 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns 0 on success, or another value if the request
-   cannot be honored.
-  </para>
+  <simpara>
+   Returns <literal>0</literal> on success, or <literal>-1</literal> if the
+   request cannot be honored, which only happens when the
+   <methodname>streamWrapper::stream_set_option</methodname> method of a
+   user-space wrapper returns &false; or is missing. Many streams
+   (<literal>php://memory</literal>, <literal>php://temp</literal>, directory
+   handles) do nothing and still return <literal>0</literal>, so
+   <literal>0</literal> does not mean that the buffering changed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
