@@ -8,7 +8,7 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <type>resource</type><methodname>stream_filter_append</methodname>
+   <type class="union"><type>resource</type><type>false</type></type><methodname>stream_filter_append</methodname>
    <methodparam><type>resource</type><parameter>stream</parameter></methodparam>
    <methodparam><type>string</type><parameter>filter_name</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>mode</parameter></methodparam>
@@ -43,7 +43,7 @@
     <varlistentry>
      <term><parameter>mode</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        By default, <function>stream_filter_append</function> will
        attach the filter to the <literal>read filter chain</literal>
        if the file was opened for reading (i.e. File Mode:
@@ -55,12 +55,27 @@
        <constant>STREAM_FILTER_WRITE</constant>, and/or
        <constant>STREAM_FILTER_ALL</constant> can also be passed to the
        <parameter>mode</parameter> parameter to override this behavior.
-      </para>
+       Bits other than <constant>STREAM_FILTER_READ</constant> and
+       <constant>STREAM_FILTER_WRITE</constant> are ignored.
+      </simpara>
+      <simpara>
+       A stream opened with the <literal>x</literal> or <literal>c</literal>
+       mode (without <literal>+</literal>) matches none of the modes above:
+       when <parameter>mode</parameter> is omitted, the function returns
+       &false; without any diagnostic and attaches no filter.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>params</parameter></term>
      <listitem>
+      <simpara>
+       The parameters passed as is to the filter: a user filter finds them in
+       <literal>$this->params</literal>, whereas the built-in
+       <literal>convert.*</literal> and <literal>zlib.*</literal> filters read an
+       array. An explicit &null; is not the same as omitting the parameter: the
+       <literal>convert.*</literal> filters then fail to be created.
+      </simpara>
       <para>
        This filter will be added with the specified 
        <parameter>params</parameter> to the <emphasis>end</emphasis> of
@@ -76,16 +91,19 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a resource on success or &false; on failure. The resource can be
    used to refer to this filter instance during a call to
-   <function>stream_filter_remove</function>.
-  </para>
+   <function>stream_filter_remove</function>. When the filter is attached to
+   both chains, only the write chain instance is returned, so
+   <function>stream_filter_remove</function> leaves the read filter in place.
+  </simpara>
 
   <simpara>
    &false; is returned, and an <constant>E_WARNING</constant> is emitted, if
    <parameter>filter_name</parameter> cannot be located or the filter cannot be
-   created.
+   created, for example because the <parameter>params</parameter> are refused or
+   <methodname>php_user_filter::onCreate</methodname> returns &false;.
   </simpara>
  </refsect1>
 
@@ -192,12 +210,21 @@ Guvf vf n grfg
     <constant>STREAM_FILTER_WRITE</constant> to get both filter resources.
    </simpara>
   </note>
+  <note>
+   <simpara>
+    A filter that keeps a state, such as <literal>convert.base64-encode</literal>,
+    keeps it across <function>fseek</function> and <function>rewind</function>,
+    so the data read or written afterwards is wrong. A stateless filter such as
+    <literal>string.rot13</literal> is not affected.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
    <member><function>stream_filter_register</function></member>
+   <member><function>stream_filter_remove</function></member>
    <member><function>stream_filter_prepend</function></member>
    <member><function>stream_get_filters</function></member>
   </simplelist>

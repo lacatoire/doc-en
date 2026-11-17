@@ -11,13 +11,23 @@
    <type>bool</type><methodname>stream_filter_remove</methodname>
    <methodparam><type>resource</type><parameter>stream_filter</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Removes a stream filter previously added to a stream with
    <function>stream_filter_prepend</function> or
    <function>stream_filter_append</function>.  Any data remaining in the
    filter's internal buffer will be flushed through to the next filter before
-   removing it.
-  </para>
+   removing it. On a write chain the flushed data is written to the stream, on
+   a read chain it is added to the read buffer, and the filters after it
+   receive it as normal data. Data already in the read buffer stays filtered.
+  </simpara>
+  <simpara>
+   With <constant>STREAM_FILTER_ALL</constant> (or the default mode on a
+   <literal>r+</literal> or <literal>w+</literal> stream),
+   <function>stream_filter_append</function> and
+   <function>stream_filter_prepend</function> return the write chain instance
+   only: removing it leaves the read chain filter in place, and it cannot be
+   removed before the stream is closed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -38,21 +48,35 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+   &false; is only returned with an <constant>E_WARNING</constant>: when
+   called from the chain of the filter itself (<literal>Cannot remove filter
+   while it is being applied</literal>), or when the final flush fails (the
+   filter then stays attached). After a successful call the filter resource is
+   closed.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>stream_filter</parameter> is not a valid stream filter resource,
+   for example when the filter was already removed, when the stream was closed,
+   or when another type of resource is passed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Dynamically refiltering a stream</title>
-    <programlisting role="php">
+  <example>
+   <title>Dynamically refiltering a stream</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 /* Open a test file for reading and writing */
-$fp = fopen("test.txt", "rw");
+$fp = fopen("test.txt", "w+");
 
 $rot13_filter = stream_filter_append($fp, "string.rot13", STREAM_FILTER_WRITE);
 fwrite($fp, "This is ");
@@ -62,19 +86,15 @@ fwrite($fp, "a test\n");
 rewind($fp);
 fpassthru($fp);
 fclose($fp);
-
-?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen>
+   </programlisting>
+   &example.outputs;
+   <screen>
 <![CDATA[
 Guvf vf a test
 ]]>
-    </screen>
-   </example>
-   
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
