@@ -82,7 +82,7 @@
   <listitem>
    <simpara>
     If <parameter>offset</parameter> is greater than the length of
-    <parameter>haystack</parameter>, a
+    <parameter>haystack</parameter> or less than minus that length, a
     <classname>ValueError</classname> will be thrown.
    </simpara>
   </listitem>
@@ -102,6 +102,13 @@
     </thead>
     <tbody>
      &mbstring.changelog.needle-empty;
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if <parameter>offset</parameter>
+       is out of range. Previously, an <constant>E_WARNING</constant> was raised and &false; was returned.
+      </entry>
+     </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
