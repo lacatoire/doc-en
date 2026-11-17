@@ -13,11 +13,11 @@
    <methodparam><type>Socket</type><parameter>socket</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>mode</parameter><initializer>2</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    The <function>socket_shutdown</function> function allows you to stop
    incoming, outgoing or all data (the default) from being sent through the
    <parameter>socket</parameter>.
-  </para>
+  </simpara>
   <note>
    <para>
     The associated buffer, or buffers, may or may not be emptied.
@@ -68,9 +68,9 @@
         </tgroup>
        </table>
       </para>
-      <para>
+      <simpara>
        The <constant>SHUT_*</constant> constants are available as of PHP 8.5.0; the integer values can be used before.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -79,18 +79,18 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
    If the socket is not connected, an <constant>E_WARNING</constant> is emitted, &false; is returned,
    and <function>socket_last_error</function> returns <constant>SOCKET_ENOTCONN</constant>.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    If <parameter>mode</parameter> is not <constant>SHUT_RD</constant>, <constant>SHUT_WR</constant>
    or <constant>SHUT_RDWR</constant>, a <exceptionname>ValueError</exceptionname> is thrown.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
