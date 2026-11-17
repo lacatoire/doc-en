@@ -13,7 +13,7 @@
    <methodparam choice="opt"><type class="union"><type>int</type><type>null</type></type><parameter>length</parameter><initializer>&null;</initializer></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>offset</parameter><initializer>-1</initializer></methodparam>
   </methodsynopsis>
-  <simpara> 
+  <simpara>
    Similar to <function>file_get_contents</function>, except that
    <function>stream_get_contents</function> operates on an already open
    stream resource and starts at its current position unless
