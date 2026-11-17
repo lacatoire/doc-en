@@ -29,11 +29,11 @@
     <varlistentry>
      <term><parameter>stream</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        An open socket stream (opened with <function>stream_socket_client</function>,
        for example). Other streams, such as plain files or
        <literal>php://memory</literal>, are not sockets and cannot be shut down.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -53,12 +53,12 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
    &false; is returned, without any error being raised, if
    <parameter>stream</parameter> is not a socket stream, or if the underlying
    <literal>shutdown(2)</literal> call fails.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
