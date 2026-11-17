@@ -30,6 +30,18 @@
       <para>
        The filter name to be registered.
       </para>
+      <simpara>
+       Only a trailing <literal>.*</literal> after a dot-separated prefix is a
+       wildcard: <literal>a.*</literal> matches <literal>a.b</literal> and
+       <literal>a.b.c</literal>, but not <literal>a</literal>. The longest
+       registered prefix wins, and an exact name wins over a wildcard. If the
+       filter found this way cannot be created, for example because
+       <methodname>php_user_filter::onCreate</methodname> returns &false;, no
+       shorter user wildcard is tried: the call to
+       <function>stream_filter_append</function> fails. Only a built-in
+       wildcard such as <literal>convert.*</literal> is tried after a failed
+       user filter.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -45,6 +57,11 @@
        exactly as described in <classname>php_user_filter</classname> - doing
        otherwise will lead to undefined behaviour.
       </para>
+      <simpara>
+       The class is not checked when the filter is registered: a class that
+       does not exist is accepted, and the failure only comes when the filter
+       is created.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -56,10 +73,15 @@
   <para>
    &return.success;
   </para>
-  <para>
+  <simpara>
    <function>stream_filter_register</function> will return &false; if the
-   <parameter>filter_name</parameter> is already defined.
-  </para>
+   <parameter>filter_name</parameter> is already defined, including when it
+   collides with a built-in filter such as <literal>string.rot13</literal>,
+   <literal>convert.*</literal>, <literal>zlib.*</literal>,
+   <literal>dechunk</literal> or <literal>consumed</literal>. A name such as
+   <literal>string.*</literal> or <literal>STRING.ROT13</literal> does not
+   collide and is accepted.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -111,7 +133,7 @@
 
 /* Define our filter class */
 class strtoupper_filter extends php_user_filter {
-  function filter($in, $out, &$consumed, $closing)
+  function filter($in, $out, &$consumed, bool $closing): int
   {
     while ($bucket = stream_bucket_make_writeable($in)) {
       $bucket->data = strtoupper($bucket->data);
@@ -140,8 +162,6 @@ fclose($fp);
 /* Read the contents back out
  */
 readfile("foo-bar.txt");
-
-?>
 ]]>
     </programlisting>
     &example.outputs;
@@ -165,7 +185,7 @@ EASY AS 123
 class string_filter extends php_user_filter {
   var $mode;
 
-  function filter($in, $out, &$consumed, $closing)
+  function filter($in, $out, &$consumed, bool $closing): int
   {
     while ($bucket = stream_bucket_make_writeable($in)) {
       if ($this->mode == 1) {
@@ -180,7 +200,7 @@ class string_filter extends php_user_filter {
     return PSFS_PASS_ON;
   }
 
-  function onCreate()
+  function onCreate(): bool
   {
     if ($this->filtername == 'str.toupper') {
       $this->mode = 1;
@@ -188,7 +208,7 @@ class string_filter extends php_user_filter {
       $this->mode = 0;
     } else {
       /* Some other str.* filter was asked for,
-         report failure so that PHP will keep looking */
+         report failure: the filter cannot be created */
       return false;
     }
 
@@ -215,7 +235,6 @@ fclose($fp);
 /* Read the contents back out
  */
 readfile("foo-bar.txt");
-?>
 ]]>
     </programlisting>
     &example.outputs;
@@ -237,6 +256,8 @@ EASY AS 123
     <member><function>stream_wrapper_register</function></member>
     <member><function>stream_filter_append</function></member>
     <member><function>stream_filter_prepend</function></member>
+    <member><function>stream_filter_remove</function></member>
+    <member><function>stream_get_filters</function></member>
    </simplelist>
   </para>
  </refsect1>

@@ -23,46 +23,54 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns an indexed array containing the name of all stream filters
-   available.
-  </para>
+  <simpara>
+   Returns an indexed array with the names of the registered stream filters.
+   An entry ending in <literal>.*</literal> is a pattern covering a family of
+   filters, not a name to pass as is to
+   <function>stream_filter_append</function>. The list depends on the loaded
+   extensions, is in registration order, and includes the filters registered
+   with <function>stream_filter_register</function> in the current request.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Using <function>stream_get_filters</function></title>
-    <programlisting role="php">
+  <example>
+   <title>Using <function>stream_get_filters</function></title>
+   <programlisting role="php">
 <![CDATA[
 <?php
-$streamlist = stream_get_filters();
-print_r($streamlist);
-?>
+$filters = stream_get_filters();
+print_r($filters);
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
-Array (
-  [0] => string.rot13
-  [1] => string.toupper
-  [2] => string.tolower
-  [3] => string.base64
-  [4] => string.quoted-printable
+Array
+(
+    [0] => zlib.*
+    [1] => convert.iconv.*
+    [2] => string.rot13
+    [3] => string.toupper
+    [4] => string.tolower
+    [5] => convert.*
+    [6] => consumed
+    [7] => dechunk
 )
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
   
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
    <member><function>stream_filter_register</function></member>
+   <member><function>stream_filter_append</function></member>
+   <member><function>stream_filter_prepend</function></member>
    <member><function>stream_get_wrappers</function></member>
+   <member><function>stream_get_transports</function></member>
   </simplelist>
  </refsect1>
 
