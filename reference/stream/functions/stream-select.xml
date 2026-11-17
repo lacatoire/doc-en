@@ -124,13 +124,27 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    On success <function>stream_select</function> returns the number of
-   stream resources contained in the modified arrays, which may be zero if
-   the timeout expires before anything interesting happens. On error &false;
+   ready streams in the modified arrays, which may be zero if
+   the timeout expires before anything interesting happens. It counts
+   descriptors, not array elements: a stream listed several times is counted
+   once, while the modified array still contains every element. On error &false;
    is returned and a warning raised (this can happen if the system call is
    interrupted by an incoming signal).
-  </para>
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if no usable stream array
+   is passed (the arrays are empty or &null;, or none of their elements is a
+   selectable stream), if <parameter>seconds</parameter> or
+   <parameter>microseconds</parameter> is negative, or if
+   <parameter>seconds</parameter> is &null; and
+   <parameter>microseconds</parameter> is not.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -147,7 +161,18 @@
      <row>
       <entry>8.1.0</entry>
       <entry>
-       <parameter>microseconds</parameter> is now nullable.
+       <parameter>microseconds</parameter> is now nullable, and a
+       <exceptionname>ValueError</exceptionname> is thrown if it is not &null;
+       while <parameter>seconds</parameter> is &null;.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if no usable
+       stream array is passed or if <parameter>seconds</parameter> or
+       <parameter>microseconds</parameter> is negative. Previously, an
+       <constant>E_WARNING</constant> was raised and &false; was returned.
       </entry>
      </row>
     </tbody>
@@ -197,6 +222,8 @@ if (false === ($num_changed_streams = stream_select($read, $write, $except, 0)))
     <programlisting role="php">
 <![CDATA[
 <?php
+$r = array($stream1);
+$w = NULL;
 $e = NULL;
 stream_select($r, $w, $e, 0);
 ?>
@@ -212,6 +239,8 @@ stream_select($r, $w, $e, 0);
    <programlisting role="php">
 <![CDATA[
 <?php
+$r = array($stream1);
+$w = NULL;
 $e = NULL;
 if (false === stream_select($r, $w, $e, 0)) {
     echo "stream_select() failed\n";
@@ -230,8 +259,13 @@ if (false === stream_select($r, $w, $e, 0)) {
   </note>
   <note>
    <simpara>
-    Some streams (like <literal>zlib</literal>) cannot be selected by this
-    function.
+    Some streams cannot be selected by this function: <literal>zlib</literal>
+    streams, <literal>php://memory</literal>, streams with a filter attached,
+    and user-space wrapper streams without a
+    <methodname>streamWrapper::stream_cast</methodname> method. Such a stream
+    is dropped from the array after an <constant>E_WARNING</constant>, and a
+    <exceptionname>ValueError</exceptionname> is thrown if no selectable stream
+    is left.
    </simpara>
   </note>
   <note>
