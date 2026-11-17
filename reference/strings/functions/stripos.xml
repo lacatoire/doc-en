@@ -48,11 +48,11 @@
     <varlistentry>
      <term><parameter>offset</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If specified, search will start this number of bytes counted from
        the beginning of the string. If the offset is negative, the search will start
        this number of bytes counted from the end of the string.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
