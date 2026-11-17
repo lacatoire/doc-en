@@ -16,7 +16,12 @@
    Returns the floating point result of raising
    <parameter>num</parameter> to the power of <parameter>exponent</parameter>.
    If <parameter>num</parameter> is zero and <parameter>exponent</parameter>
-   is less than zero, then <constant>INF</constant> is returned.
+   is less than zero, then <constant>INF</constant> is returned, or
+   <literal>-INF</literal> if <parameter>num</parameter> is <literal>-0.0</literal>
+   and <parameter>exponent</parameter> is a negative odd integer.
+   Unlike <function>pow</function> and the <literal>**</literal> operator, it does
+   not emit the <constant>E_DEPRECATED</constant> of PHP 8.4.0 for a zero base
+   and a negative exponent.
   </simpara>
  </refsect1>
 

@@ -76,6 +76,14 @@
   before processing. For floating-point modulo, see
   <function>fmod</function>.
  </simpara>
+ <simpara>
+  As of PHP 8.4.0, raising <literal>0</literal> to a negative exponent with
+  <literal>**</literal> is deprecated, as it is the equivalent of a division by
+  zero: an <constant>E_DEPRECATED</constant> is emitted and <constant>INF</constant>
+  is still returned. A <literal>-0.0</literal> base is deprecated as well, whereas
+  a <literal>-0.0</literal> exponent is not. Use <function>fpow</function> for
+  IEEE 754 semantics without the diagnostic.
+ </simpara>
  <para>
   The result of the modulo operator <literal>%</literal> has the same sign
   as the dividend — that is, the result of <code>$a % $b</code>
@@ -108,6 +116,8 @@ int(-2)
   <para>
    <simplelist>
     <member><link linkend="ref.math">Math functions</link></member>
+    <member><function>pow</function></member>
+    <member><function>fpow</function></member>
    </simplelist>
   </para>
  </sect2>
