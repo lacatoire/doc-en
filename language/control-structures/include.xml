@@ -21,7 +21,7 @@
   <constant>E_WARNING</constant> if
   it cannot find a file; this is different behavior from
   <function>require</function>, which will produce a fatal error (an
-  <classname>Error</classname> exception since PHP 8.0.0).
+  <exceptionname>Error</exceptionname> exception since PHP 8.0.0).
  </simpara>
  <simpara>
   Note that both <literal>include</literal> and <literal>require</literal>
