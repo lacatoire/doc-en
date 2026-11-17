@@ -39,17 +39,23 @@
 <?php
 $xportlist = stream_get_transports();
 print_r($xportlist);
-?>
 ]]>
     </programlisting>
     &example.outputs.similar;
     <screen>
 <![CDATA[
-Array (
-  [0] => tcp
-  [1] => udp
-  [2] => unix
-  [3] => udg
+Array
+(
+    [0] => tcp
+    [1] => udp
+    [2] => unix
+    [3] => udg
+    [4] => ssl
+    [5] => tls
+    [6] => tlsv1.0
+    [7] => tlsv1.1
+    [8] => tlsv1.2
+    [9] => tlsv1.3
 )
 ]]>
     </screen>
@@ -62,6 +68,10 @@ Array (
   <simplelist>
    <member><function>stream_get_filters</function></member>
    <member><function>stream_get_wrappers</function></member>
+   <member><function>stream_socket_client</function></member>
+   <member><function>stream_socket_server</function></member>
+   <member><function>fsockopen</function></member>
+   <member><xref linkend="transports"/></member>
   </simplelist>
  </refsect1>
 </refentry>
