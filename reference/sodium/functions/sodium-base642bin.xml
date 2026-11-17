@@ -84,12 +84,12 @@
   <itemizedlist>
    <listitem>
     <simpara>
-     If <parameter>id</parameter> is not one of the <constant>SODIUM_BASE64_VARIANT_*</constant> constants, a <classname>SodiumException</classname> will be thrown.
+     If <parameter>id</parameter> is not one of the <constant>SODIUM_BASE64_VARIANT_*</constant> constants, a <exceptionname>SodiumException</exceptionname> will be thrown.
     </simpara>
    </listitem>
    <listitem>
     <simpara>
-     If <parameter>string</parameter> is not a valid base64 string for the variant, a <classname>SodiumException</classname> will be thrown instead of returning &false; as <function>base64_decode</function> does.
+     If <parameter>string</parameter> is not a valid base64 string for the variant, a <exceptionname>SodiumException</exceptionname> will be thrown instead of returning &false; as <function>base64_decode</function> does.
     </simpara>
    </listitem>
   </itemizedlist>

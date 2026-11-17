@@ -69,7 +69,7 @@
   <itemizedlist>
    <listitem>
     <simpara>
-     If <parameter>id</parameter> is not one of the <constant>SODIUM_BASE64_VARIANT_*</constant> constants, a <classname>SodiumException</classname> will be thrown.
+     If <parameter>id</parameter> is not one of the <constant>SODIUM_BASE64_VARIANT_*</constant> constants, a <exceptionname>SodiumException</exceptionname> will be thrown.
     </simpara>
    </listitem>
   </itemizedlist>

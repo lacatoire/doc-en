@@ -57,7 +57,7 @@
   <itemizedlist>
    <listitem>
     <simpara>
-     If <parameter>string</parameter> is not a valid hexadecimal string, a <classname>SodiumException</classname> will be thrown instead of returning &false; as <function>hex2bin</function> does.
+     If <parameter>string</parameter> is not a valid hexadecimal string, a <exceptionname>SodiumException</exceptionname> will be thrown instead of returning &false; as <function>hex2bin</function> does.
     </simpara>
    </listitem>
   </itemizedlist>
