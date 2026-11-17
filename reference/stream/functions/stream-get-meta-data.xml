@@ -35,9 +35,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    The result array contains the following items. Some of them depend on the stream, as described below.
-  </para>
+  </simpara>
   <itemizedlist>
    <listitem>
     <para>
@@ -85,13 +85,13 @@
     </para>
    </listitem>
    <listitem>
-    <para>
+    <simpara>
      <literal>wrapper_type</literal> (string) - a label describing
      the protocol wrapper implementation layered over the stream.
      See <xref linkend="wrappers"/> for more information about wrappers.
      It is not present for sockets, nor for the streams of <function>popen</function>
      and <function>proc_open</function>.
-    </para>
+    </simpara>
    </listitem>
    <listitem>
     <para>
@@ -124,15 +124,15 @@
     </para>
    </listitem>
    <listitem>
-    <para>
+    <simpara>
      <literal>uri</literal> (string) - the URI/filename associated with this
      stream. It is not present for directory handles, nor for the streams of
      <function>popen</function> and <function>proc_open</function>.
-    </para>
-    <para>
+    </simpara>
+    <simpara>
      A <literal>data:</literal> stream also has the <literal>mediatype</literal> and
      <literal>base64</literal> items, and the parameters of the URI.
-    </para>
+    </simpara>
    </listitem>
    <listitem>
     <para>
