@@ -49,9 +49,9 @@
      <term><parameter>offset</parameter></term>
      <listitem>
       <para>
-       If specified, search will start this number of characters counted from
+       If specified, search will start this number of bytes counted from
        the beginning of the string. If the offset is negative, the search will start
-       this number of characters counted from the end of the string.
+       this number of bytes counted from the end of the string.
       </para>
      </listitem>
     </varlistentry>
@@ -78,7 +78,7 @@
    <listitem>
     <simpara>
      If <parameter>offset</parameter> is greater than the length of
-     <parameter>haystack</parameter>, a
+     <parameter>haystack</parameter> or less than minus that length, a
      <classname>ValueError</classname> will be thrown.
     </simpara>
    </listitem>
@@ -101,7 +101,16 @@
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Passing an &integer; as <parameter>needle</parameter> is no longer supported.
+       An &integer; passed as <parameter>needle</parameter> is no longer used as the
+       ordinal value of a character. It is converted to a string, or a
+       <exceptionname>TypeError</exceptionname> is thrown if <literal>strict_types</literal> is enabled.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if <parameter>offset</parameter>
+       is out of range. Previously, an <constant>E_WARNING</constant> was raised and &false; was returned.
       </entry>
      </row>
      <row>
