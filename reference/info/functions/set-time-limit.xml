@@ -12,12 +12,12 @@
    <type>bool</type><methodname>set_time_limit</methodname>
    <methodparam><type>int</type><parameter>seconds</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Set the number of seconds a script is allowed to run. If this is reached,
    the script returns a fatal error. The default limit is 30 seconds or, if
    it exists, the <literal>max_execution_time</literal> value defined in the
    &php.ini;. The default of the CLI SAPI is <literal>0</literal>: no limit.
-  </para>
+  </simpara>
   <para>
    When called, <function>set_time_limit</function> restarts the timeout
    counter from zero. In other words, if the timeout is the default 30
@@ -33,13 +33,13 @@
    <varlistentry>
     <term><parameter>seconds</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The maximum execution time, in seconds. If set to zero, no time limit
       is imposed. A negative value, or a value above <literal>999999999</literal>, also means
       no limit on most platforms, while <function>ini_get</function> reports the value given.
       A <type>float</type> with a fractional part is truncated, with an
       <constant>E_DEPRECATED</constant> as of PHP 8.1.0.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -55,7 +55,7 @@
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
+   <simpara>
     The <function>set_time_limit</function> function and the configuration 
     directive <link linkend="ini.max-execution-time">max_execution_time</link>
     only affect the execution time of the script itself.  Any time spent on
@@ -66,7 +66,7 @@
     This is not true on Windows, where the measured time is real, nor on thread safe (ZTS)
     builds for Linux and FreeBSD, which use a real-time timer as of PHP 8.3.0.
     Other Linux builds measure the CPU time of the process.
-   </para>
+   </simpara>
   </note>
  </refsect1>
 
