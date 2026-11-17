@@ -43,32 +43,32 @@
     <varlistentry>
      <term><parameter>flags</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Only <constant>STREAM_OOB</constant> (send out-of-band data) is
        used. Any other bit, such as <constant>STREAM_PEEK</constant>, is
        silently ignored. <constant>STREAM_OOB</constant> is not supported on
        a UDP socket, where the function returns <literal>-1</literal>. Over
        TCP, only the last byte of the data is urgent.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>address</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The address specified when the socket stream was created will be used
        unless an alternate address is specified in <parameter>address</parameter>.
        A UDP server socket created with <function>stream_socket_server</function>
        has no such address: without <parameter>address</parameter>, the function
        returns <literal>-1</literal> and emits an <constant>E_WARNING</constant>.
        On a connected TCP socket, an alternate address is accepted and ignored.
-      </para>
-      <para>
+      </simpara>
+      <simpara>
        If specified, it must be an address followed by a colon and the port,
        such as <literal>127.0.0.1:9000</literal>; the address may be in square
        brackets, and IPv4 shorthand forms such as <literal>127.1</literal> are
        accepted. The port is mandatory, and any text after it is ignored.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -77,12 +77,12 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the number of bytes sent, as an integer,&return.falseforfailure;.
    The number can be smaller than the length of <parameter>data</parameter>,
    since the function does not loop until everything is sent. It is
    <literal>-1</literal> if the send fails.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -129,7 +129,7 @@ Data: 'Normal data transmit.'
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
+   <simpara>
     <function>stream_socket_sendto</function> writes straight to the socket,
     like <function>stream_socket_recvfrom</function> reads from it: it does not
     wait, so <function>stream_set_timeout</function> and
@@ -140,7 +140,7 @@ Data: 'Normal data transmit.'
     sent unencrypted. Sending out-of-band data or data to an address on a
     filtered stream emits an <constant>E_WARNING</constant> and returns
     <literal>-1</literal>.
-   </para>
+   </simpara>
   </note>
  </refsect1>
 
