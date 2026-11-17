@@ -34,13 +34,13 @@
     <varlistentry>
      <term><parameter>error_code</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        A valid socket error number, likely produced by 
        <function>socket_last_error</function>. It must fit in an <type>int</type>.
        The negative codes set by <function>socket_connect</function> and
        <function>socket_bind</function> when a host name cannot be resolved
        (for example <literal>-10001</literal>, <literal>Unknown host</literal>) are accepted.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -57,10 +57,10 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    If <parameter>error_code</parameter> is outside the range of an <type>int</type>,
    a <exceptionname>ValueError</exceptionname> is thrown.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="changelog">
   &reftitle.changelog;
