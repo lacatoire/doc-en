@@ -59,7 +59,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>ValueError</classname> if <parameter>format</parameter> is not one of the
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>format</parameter> is not one of the
    <constant>SNMP_OID_OUTPUT_*</constant> constants.
   </simpara>
  </refsect1>
@@ -79,7 +79,7 @@
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Throws a <classname>ValueError</classname> if <parameter>format</parameter> is invalid,
+       Throws a <exceptionname>ValueError</exceptionname> if <parameter>format</parameter> is invalid,
        instead of emitting an <constant>E_WARNING</constant> and returning &false;.
       </entry>
      </row>
