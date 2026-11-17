@@ -27,38 +27,38 @@
    <varlistentry>
     <term><parameter>socket</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       A <classname>Socket</classname> instance created with
       <function>socket_create</function>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>address</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The <parameter>address</parameter> parameter is either an IPv4 address
       in dotted-quad notation (e.g. <literal>127.0.0.1</literal>) or a host name
       (e.g. <literal>localhost</literal>), which is resolved, if
-      <parameter>socket</parameter> is <constant>AF_INET</constant>, a valid 
-      IPv6 address (e.g. <literal>::1</literal>) if IPv6 support is enabled and 
+      <parameter>socket</parameter> is <constant>AF_INET</constant>, a valid
+      IPv6 address (e.g. <literal>::1</literal>) if IPv6 support is enabled and
       <parameter>socket</parameter> is <constant>AF_INET6</constant>
       or the pathname of a Unix domain socket, if the socket family is
       <constant>AF_UNIX</constant>. When a host name cannot be resolved, the function
       returns &false; and <function>socket_last_error</function> returns <literal>-10001</literal>
       (<function>socket_strerror</function> gives "Unknown host").
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>port</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The <parameter>port</parameter> parameter is only used and is mandatory
-      when connecting to an <constant>AF_INET</constant> or an 
+      when connecting to an <constant>AF_INET</constant> or an
       <constant>AF_INET6</constant> socket, and designates
       the port on the remote host to which a connection should be made.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -73,7 +73,7 @@
    error.
   </para>
   <note>
-   <para>
+   <simpara>
     If the socket is non-blocking and the connection cannot be completed at once, as is usual
     for TCP, this function returns &false; with the error <literal>Operation now in progress</literal>
     (<constant>SOCKET_EINPROGRESS</constant>), without any warning. A connection of a
@@ -81,7 +81,7 @@
     To finish a pending connection, wait for the socket to become writable with
     <function>socket_select</function>, then read the <constant>SO_ERROR</constant> option with
     <function>socket_get_option</function>: it is <literal>0</literal> when the connection succeeded.
-   </para>
+   </simpara>
   </note>
  </refsect1>
 
