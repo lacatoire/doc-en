@@ -43,9 +43,9 @@
    <varlistentry>
     <term><parameter>socket</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       A <classname>Socket</classname> instance created with <function>socket_create</function>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
