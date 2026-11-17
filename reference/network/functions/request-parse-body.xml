@@ -154,7 +154,7 @@ assert_logged_in();
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
-   <member><classname>RequestParseBodyException</classname></member>
+   <member><exceptionname>RequestParseBodyException</exceptionname></member>
    <member><link linkend="ini.enable-post-data-reading">enable_post_data_reading</link></member>
    <member><link linkend="ini.post-max-size">post_max_size</link></member>
    <member><varname>$_POST</varname></member>
