@@ -17,7 +17,9 @@
    (<function>fopen</function>, <function>file_get_contents</function>, etc...)
    are called without a context parameter.  Options for the default context
    can optionally be specified with this function using the same syntax as
-   <function>stream_context_create</function>.
+   <function>stream_context_create</function>. As with
+   <function>stream_context_set_default</function>, the options are merged
+   into the existing default context.
   </simpara>
  </refsect1>
 

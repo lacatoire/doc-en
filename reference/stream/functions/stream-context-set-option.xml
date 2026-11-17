@@ -28,6 +28,12 @@
     Sets an option on the specified context.  <parameter>value</parameter>
     is set to <parameter>option_name</parameter> for <parameter>wrapper_or_options</parameter>
   </simpara>
+  <simpara>
+   On a stream that already carries the default context, such as a socket
+   opened without a context, the option is written into the default context,
+   and outlives the stream. Any other stream, such as a plain file, gets a
+   private context and leaves the default one untouched.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters"><!-- {{{ -->

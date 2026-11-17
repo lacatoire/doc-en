@@ -13,7 +13,12 @@
    <methodparam><type>resource</type><parameter>stream_or_context</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   Returns an array of options on the specified stream or context.
+   Returns an array of options on the specified stream or context. A stream
+   only returns options if it carries the context it was opened with, which is
+   the case of <literal>http</literal>, <literal>ftp</literal> and socket
+   streams. For any other stream, such as a plain file, <literal>php://</literal>
+   or <literal>data:</literal> streams, directory handles and pipes, the result
+   is an empty array.
   </simpara>
  </refsect1>
  
@@ -24,9 +29,10 @@
     <varlistentry>
      <term><parameter>stream_or_context</parameter></term>
      <listitem>
-      <para>
-       The <type>stream</type> or <type>context</type> to get options from
-      </para>
+      <simpara>
+       The <type>stream</type> or <type>context</type> to get options from.
+       A stream that does not carry a context gets a new, empty one attached.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
