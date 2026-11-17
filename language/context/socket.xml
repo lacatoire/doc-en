@@ -46,6 +46,12 @@
        Used to  limit  the  number  of  outstanding  connections  in  the
        socket's  listen  queue.
       </para>
+      <simpara>
+       Defaults to <literal>32</literal>. The value is not validated: the
+       queue accepts the value plus one connection (so <literal>0</literal>
+       allows a single pending connection), and the operating system may cap it,
+       for example by <literal>net.core.somaxconn</literal> on Linux.
+      </simpara>
       <note>
        <para>
         This is only applicable to <function>stream_socket_server</function>.
