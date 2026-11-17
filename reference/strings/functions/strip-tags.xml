@@ -13,11 +13,10 @@
    <methodparam><type>string</type><parameter>string</parameter></methodparam>
    <methodparam choice="opt"><type class="union"><type>array</type><type>string</type><type>null</type></type><parameter>allowed_tags</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    This function tries to return a string with all NULL bytes, HTML and PHP tags stripped
-   from a given <parameter>string</parameter>.  It uses the same tag stripping
-   state machine as the <function>fgetss</function> function.
-  </para>
+   from a given <parameter>string</parameter>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -155,21 +154,18 @@ Test paragraph. Other text
    </para>
   </warning>
   <warning>
-   <para>
-    This function does not modify any attributes on the tags that you allow
-    using <parameter>allowed_tags</parameter>, including the
+   <simpara>
+    This function does not filter or validate the attributes of the tags that
+    you allow using <parameter>allowed_tags</parameter>, including the
     <literal>style</literal> and <literal>onmouseover</literal> attributes
     that a mischievous user may abuse when posting text that will be shown
-    to other users.
-   </para>
+    to other users. The text of an allowed tag may still be altered: nested
+    <literal>&lt;</literal> and <literal>&gt;</literal> characters and NULL
+    bytes inside it are removed, even within a quoted attribute value, so
+    <literal>&lt;b title="a&gt;b"&gt;</literal> becomes
+    <literal>&lt;b title="ab"&gt;</literal>.
+   </simpara>
   </warning>
-  <note>
-   <para>
-    Tag names within the input HTML that are greater than 1023 bytes in length
-    will be treated as though they are invalid, regardless of the
-    <parameter>allowed_tags</parameter> parameter.
-   </para>
-  </note>
  </refsect1>
 
  <refsect1 role="seealso">
