@@ -148,7 +148,7 @@
   &reftitle.errors;
   <simpara>
    A <exceptionname>ValueError</exceptionname> is thrown if <parameter>flags</parameter> is outside the range of
-   an <type>int</type>. An <classname>Error</classname> is thrown if <parameter>socket</parameter> has already been
+   an <type>int</type>. An <exceptionname>Error</exceptionname> is thrown if <parameter>socket</parameter> has already been
    closed.
   </simpara>
  </refsect1>
