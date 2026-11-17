@@ -54,12 +54,12 @@
     <varlistentry>
      <term><parameter>option</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The available socket options are the same as those for the
        <function>socket_get_option</function> function, plus the ones that only
        <function>socket_set_option</function> handles, listed with the form of
        <parameter>value</parameter> below.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
