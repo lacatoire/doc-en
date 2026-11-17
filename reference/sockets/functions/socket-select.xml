@@ -30,31 +30,31 @@
    <varlistentry>
     <term><parameter>read</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The sockets listed in the <parameter>read</parameter> array will be
       watched to see if characters become available for reading (more
       precisely, to see if a read will not block - in particular, a socket
       is also ready on end-of-file, in which case a
       <function>socket_read</function> will return a zero length string).
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>write</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The sockets listed in the <parameter>write</parameter> array will be
       watched to see if a write will not block.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>except</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The sockets listed in the <parameter>except</parameter> array will be
       watched for exceptions.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
@@ -164,11 +164,11 @@ if (false === socket_select($r, $w, $e, 0)) {
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    A <exceptionname>ValueError</exceptionname> is thrown if none of the three arguments is a non-empty
    array. A <exceptionname>TypeError</exceptionname> is thrown if an element of an array is not an open
    <classname>Socket</classname> object.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
