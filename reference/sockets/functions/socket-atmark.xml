@@ -23,9 +23,9 @@
    <varlistentry>
     <term><parameter>socket</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       A <classname>Socket</classname> instance created with <function>socket_create</function>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -33,11 +33,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns &true; if <parameter>socket</parameter> is at the out-of-band mark, and &false; if
    it is not. &false; is also returned, with an <constant>E_WARNING</constant>, when the check fails,
    for example on a socket that does not support out-of-band data, such as a datagram socket.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -92,10 +92,10 @@ Received normal data: (14) Not so urgent.
 Received normal data: (0)
 ]]>
    </screen>
-   <para>
+   <simpara>
     The mark is read only once: on Linux, <function>socket_atmark</function> still returns &true;
     after the urgent byte was read.
-   </para>
+   </simpara>
   </example>
  </refsect1>
 
