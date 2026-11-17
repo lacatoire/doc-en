@@ -202,7 +202,7 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    A <exceptionname>ValueError</exceptionname> is thrown if <parameter>domain</parameter>
    is not one of <constant>AF_UNIX</constant>, <constant>AF_PACKET</constant>,
    <constant>AF_INET6</constant> or <constant>AF_INET</constant>, or if
@@ -212,7 +212,7 @@
    <constant>SOCK_CLOEXEC</constant> and <constant>SOCK_NONBLOCK</constant>.
    If the system does not support the requested combination, &false; is returned and an
    <constant>E_WARNING</constant> is emitted.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
