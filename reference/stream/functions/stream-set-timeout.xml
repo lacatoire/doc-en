@@ -19,11 +19,21 @@
    expressed in the sum of <parameter>seconds</parameter> and
    <parameter>microseconds</parameter>. 
   </para>
-  <para>
+  <simpara>
+   The timeout applies to each wait for data to read and for room to write,
+   not to a whole read or write. A new socket stream starts with the value of
+   <link linkend="ini.default-socket-timeout">default_socket_timeout</link> at
+   the time it was created: changing the setting later does not affect open
+   streams, and an accepted socket takes the current timeout of its listening
+   socket.
+  </simpara>
+  <simpara>
    When the stream times out, the 'timed_out' key of the array returned by
-   <function>stream_get_meta_data</function> is set to &true;, although no
-   error/warning is generated.
-  </para>
+   <function>stream_get_meta_data</function> is set to &true;. A read timeout
+   generates no error or warning, whereas a write timeout on a socket emits an
+   <constant>E_NOTICE</constant> and <function>fwrite</function> returns
+   &false; or a short count.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -41,20 +51,22 @@
     <varlistentry>
      <term><parameter>seconds</parameter></term>
      <listitem>
-      <para>
-       The seconds part of the timeout to be set. A negative value, or a value above 2147482,
+      <simpara>
+       The seconds part of the timeout to be set. It is added to
+       <parameter>microseconds</parameter>, which carry into the seconds when
+       above 999999. A negative value, or a value above 2147482,
        means no timeout: reads wait until data is available. <literal>0</literal> (with no microseconds)
        means no wait at all.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>microseconds</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The microseconds part of the timeout to be set. The resolution of the timeout is one millisecond:
        a value below 1000 is rounded down.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -63,11 +75,14 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
    &false; is returned for streams that have no timeout, such as plain files and the
-   <literal>php://memory</literal>, <literal>php://temp</literal> and <literal>php://output</literal> streams, or pipes.
-  </para>
+   <literal>php://memory</literal>, <literal>php://temp</literal>, <literal>php://output</literal>,
+   <literal>php://input</literal> and <literal>data:</literal> streams, directory handles, or pipes
+   (from <function>popen</function> and <function>proc_open</function>, and <constant>STDIN</constant>
+   unless it is a socket), without any error. It returns &true; for TCP, UDP and Unix domain sockets.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -107,11 +122,14 @@ if (!$fp) {
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
+   <simpara>
     This function doesn't work with advanced operations like
     <function>stream_socket_recvfrom</function>, use
     <function>stream_select</function> with timeout parameter instead.
-   </para>
+    The timeout is not used by <function>stream_select</function>,
+    <function>stream_socket_accept</function> or when connecting, and a
+    non-blocking stream ignores it.
+   </simpara>
   </note>
   <para>
    This function was previously called as
@@ -127,6 +145,9 @@ if (!$fp) {
    <member><function>fopen</function></member>
    <member><function>stream_set_blocking</function></member>
    <member><function>stream_get_meta_data</function></member>
+   <member><function>stream_select</function></member>
+   <member><function>stream_socket_client</function></member>
+   <member><link linkend="ini.default-socket-timeout">default_socket_timeout</link></member>
   </simplelist>
  </refsect1>
 </refentry>
