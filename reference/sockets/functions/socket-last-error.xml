@@ -23,13 +23,13 @@
    be fed to <function>socket_strerror</function> which returns a string
    describing the given error code.
   </para>
-  <para>
+  <simpara>
    If no error had occurred, or the error had been cleared with
    <function>socket_clear_error</function>, the function returns <literal>0</literal>.
    A successful call does not reset the code: it stays until another call fails or
    <function>socket_clear_error</function> is called. The code of a <classname>Socket</classname>
    and the global code are independent.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -38,9 +38,9 @@
    <varlistentry>
     <term><parameter>socket</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       A <classname>Socket</classname> instance created with <function>socket_create</function>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -48,11 +48,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    This function returns a socket error code: a positive system error number, or
    a negative code when a host name could not be resolved (for example <literal>-10001</literal>
    for an unknown host), which <function>socket_strerror</function> accepts.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
