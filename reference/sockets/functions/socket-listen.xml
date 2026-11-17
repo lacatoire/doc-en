@@ -13,7 +13,7 @@
    <methodparam><type>Socket</type><parameter>socket</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>backlog</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    After the socket <parameter>socket</parameter> has been created
    using <function>socket_create</function> and bound to a name with
    <function>socket_bind</function>, it may be told to listen for incoming
@@ -21,7 +21,7 @@
    and <constant>AF_INET6</constant> sockets, binding is optional: otherwise the system
    binds the wildcard address and an ephemeral port. An <constant>AF_UNIX</constant>
    socket that is not bound fails to listen.
-  </para>
+  </simpara>
   <para>
    <function>socket_listen</function> is applicable only to sockets of
    type <constant>SOCK_STREAM</constant> or
@@ -35,16 +35,16 @@
    <varlistentry>
     <term><parameter>socket</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       A <classname>Socket</classname> instance created with <function>socket_create</function>
       or <function>socket_addrinfo_bind</function>
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>backlog</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       A maximum of <parameter>backlog</parameter> incoming connections will be
       queued for processing. If a connection request arrives with the queue
       full the client may receive an error with an indication of
@@ -53,9 +53,9 @@
       The default is <literal>0</literal>. On Linux, the queue holds
       <parameter>backlog</parameter> + 1 established connections, so the default
       queues one, and a negative value gives the maximum of the system.
-     </para>
+     </simpara>
      <note>
-      <para>
+      <simpara>
        The maximum number passed to the <parameter>backlog</parameter>
        parameter highly depends on the underlying platform. On Linux, it is
        silently truncated to the value of <literal>/proc/sys/net/core/somaxconn</literal>,
@@ -64,7 +64,7 @@
        responsible for the socket will set the backlog to a maximum
        <emphasis>reasonable</emphasis> value. There is no standard provision to
        find out the actual backlog value on this platform.
-      </para>
+      </simpara>
      </note>
     </listitem>
    </varlistentry>
