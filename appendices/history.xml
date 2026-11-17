@@ -253,7 +253,7 @@
     operator (<literal>?-></literal>)</link>, a new optimizing JIT compiler,
     and improvements in the type system, error handling, and consistency.
    </para>
-   <para>
+   <simpara>
     Later releases of the PHP 8 series introduced new language features
     including <link linkend="language.enumerations">enumerations</link> (8.1),
     <link linkend="language.fibers">fibers</link> (8.1),
@@ -264,7 +264,7 @@
     <link linkend="language.oop5.visibility-members-aviz">asymmetric property visibility</link> (8.4),
     <link linkend="language.oop5.lazy-objects">lazy objects</link> (8.4),
     and the <link linkend="language.operators.functional">pipe operator</link> (8.5).
-   </para>
+   </simpara>
   </sect2>
  </sect1>
  
