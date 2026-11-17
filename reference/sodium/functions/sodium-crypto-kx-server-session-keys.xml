@@ -59,14 +59,14 @@
     <simpara>
      If <parameter>server_key_pair</parameter> is not exactly
      <link linkend="constant.sodium-crypto-kx-keypairbytes"><constant>SODIUM_CRYPTO_KX_KEYPAIRBYTES</constant></link>
-     (64) bytes long, a <classname>SodiumException</classname> will be thrown.
+     (64) bytes long, a <exceptionname>SodiumException</exceptionname> will be thrown.
     </simpara>
    </listitem>
    <listitem>
     <simpara>
      If <parameter>client_key</parameter> is not exactly
      <link linkend="constant.sodium-crypto-kx-publickeybytes"><constant>SODIUM_CRYPTO_KX_PUBLICKEYBYTES</constant></link>
-     (32) bytes long, a <classname>SodiumException</classname> will be thrown.
+     (32) bytes long, a <exceptionname>SodiumException</exceptionname> will be thrown.
     </simpara>
    </listitem>
   </itemizedlist>
