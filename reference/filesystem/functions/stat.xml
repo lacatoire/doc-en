@@ -207,10 +207,10 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    Upon failure, an <constant>E_WARNING</constant> is emitted, except for an empty
    <parameter>filename</parameter>, for which &false; is returned without any diagnostic.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
