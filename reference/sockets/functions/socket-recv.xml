@@ -15,14 +15,14 @@
    <methodparam><type>int</type><parameter>length</parameter></methodparam>
    <methodparam><type>int</type><parameter>flags</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    The <function>socket_recv</function> function receives
    <parameter>length</parameter> bytes of data in <parameter>data</parameter> from
    <parameter>socket</parameter>. <function>socket_recv</function> can
    be used to gather data from connected sockets and from bound datagram sockets. Additionally, one or
    more flags can be specified to modify the behaviour of the
    function.
-  </para>
+  </simpara>
   <para>
    <parameter>data</parameter> is passed by reference, so it must be
    specified as a variable in the argument list. Data read from
@@ -37,45 +37,45 @@
    <varlistentry>
     <term><parameter>socket</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The <parameter>socket</parameter> must be a <classname>Socket</classname> instance previously
       created by <function>socket_create</function>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
    <varlistentry>
     <term><parameter>data</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The data received will be fetched to the variable specified with
       <parameter>data</parameter>. If an error occurs, if the
       connection is reset, if the end of the stream is reached, or if no data is
       available, <parameter>data</parameter> will be set to &null;, except when
       <parameter>length</parameter> is not greater than 0: <parameter>data</parameter>
       is then left unchanged.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
    <varlistentry>
     <term><parameter>length</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       Up to <parameter>length</parameter> bytes will be fetched from remote host.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
    <varlistentry>
     <term><parameter>flags</parameter></term>
     <listitem>
-     <para>
-      The value of <parameter>flags</parameter> can be any combination of 
+     <simpara>
+      The value of <parameter>flags</parameter> can be any combination of
       the following flags, joined with the binary OR (<literal>|</literal>)
       operator.
-     </para>
-     
+     </simpara>
+
      <table>
       <title>Possible values for <parameter>flags</parameter></title>
       <tgroup cols="2">
@@ -117,18 +117,18 @@
        </tbody>
       </tgroup>
      </table>
-     <para>
+     <simpara>
       The table is not exhaustive: the platform may define other flags, such as
       <constant>MSG_TRUNC</constant> or <constant>MSG_ERRQUEUE</constant>.
-     </para>
+     </simpara>
     </listitem>
-   </varlistentry>    
+   </varlistentry>
   </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    <function>socket_recv</function> returns the number of bytes received,
    or &false; if there was an error. The actual error code can be retrieved by 
    calling <function>socket_last_error</function>. This error code may be
@@ -136,11 +136,11 @@
    of the error. No error code is set when <parameter>length</parameter> is not
    greater than 0, and a non-blocking socket, <constant>MSG_DONTWAIT</constant> or
    a receive timeout give &false; with <constant>SOCKET_EAGAIN</constant> and no warning.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    At the end of the stream of a connection-oriented socket, or for an empty datagram,
    <literal>0</literal> is returned and <parameter>data</parameter> is set to &null;.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -164,11 +164,11 @@
   &reftitle.examples;
   <example>
    <title><function>socket_recv</function> example</title>
-   <para>
+   <simpara>
     This example is a simple rewrite of the second example from
     <xref linkend="sockets.examples"/> to
     use <function>socket_recv</function>.
-   </para>
+   </simpara>
    <programlisting role="php">
 <![CDATA[
 <?php
