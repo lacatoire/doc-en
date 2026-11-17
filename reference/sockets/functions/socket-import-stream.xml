@@ -12,9 +12,9 @@
    <type class="union"><type>Socket</type><type>false</type></type><methodname>socket_import_stream</methodname>
    <methodparam><type>resource</type><parameter>stream</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Imports a stream that encapsulates a socket into a <classname>Socket</classname> instance.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -23,9 +23,9 @@
    <varlistentry>
     <term><parameter>stream</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The stream resource to import.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -33,19 +33,19 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a <classname>Socket</classname> instance, or &false; on failure.
    When the stream is not a socket (a plain file, <literal>php://memory</literal>,
    a directory handle, ...) or has a read filter, an <constant>E_WARNING</constant> is emitted
    and &false; is returned.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    If data was already buffered in the stream, a <classname>Socket</classname> is returned
    with an <constant>E_WARNING</constant> saying that the buffered data was lost:
    <function>socket_recv</function> no longer sees it.
    The <classname>Socket</classname> and the stream share the same file descriptor,
    and the read buffer of the stream is switched off.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
