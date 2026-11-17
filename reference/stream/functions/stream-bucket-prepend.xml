@@ -27,10 +27,11 @@
    <varlistentry>
     <term><parameter>brigade</parameter></term>
     <listitem>
-     <para>
-      <parameter>brigade</parameter> is a resource pointing to a <literal>bucket brigade</literal>
-      which contains one or more <literal>bucket</literal> objects.
-     </para>
+     <simpara>
+      <parameter>brigade</parameter> is a resource pointing to a <literal>bucket brigade</literal>,
+      which can be empty, such as the <literal>$out</literal> brigade on entry to
+      <methodname>php_user_filter::filter</methodname>.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
@@ -72,33 +73,51 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>stream_bucket_prepend</function> examples</title>
-    <programlisting role="php">
+  <example>
+   <title><function>stream_bucket_prepend</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 
-class foo extends php_user_filter {
-  protected $calls = 0;
-  public function filter($in, $out, &$consumed, $closing) {
-    while ($bucket = stream_bucket_make_writeable($in)) {
-      $consumed += $bucket->datalen;
-      if ($this->calls++ == 2) {
-        // This bucket will appear again before any other bucket.
-        stream_bucket_prepend($in, $bucket);
-      }
+class header_filter extends php_user_filter
+{
+    private bool $headerSent = false;
+
+    public function filter($in, $out, &$consumed, bool $closing): int
+    {
+        while ($bucket = stream_bucket_make_writeable($in)) {
+            $consumed += $bucket->datalen;
+            stream_bucket_append($out, $bucket);
+
+            if (!$this->headerSent) {
+                $this->headerSent = true;
+                // The header bucket is placed before the buckets already in $out
+                stream_bucket_prepend($out, stream_bucket_new($this->stream, "Header\n"));
+            }
+        }
+
+        return PSFS_PASS_ON;
     }
-    return PSFS_FEED_ME;
-  }
 }
-stream_filter_register('test', 'foo');
-print  file_get_contents('php://filter/read=test/resource=foo');
-?>
+
+stream_filter_register('header', 'header_filter');
+
+$fp = fopen('php://memory', 'w+');
+stream_filter_append($fp, 'header', STREAM_FILTER_WRITE);
+fwrite($fp, "Body\n");
+rewind($fp);
+
+echo stream_get_contents($fp);
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+Header
+Body
+]]>
+   </screen>
+  </example>
  </refsect1>
 </refentry>
 <!-- Keep this comment at the end of the file

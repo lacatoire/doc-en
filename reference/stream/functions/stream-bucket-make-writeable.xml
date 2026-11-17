@@ -15,10 +15,14 @@
    <type class="union"><type>StreamBucket</type><type>null</type></type><methodname>stream_bucket_make_writeable</methodname>
    <methodparam><type>resource</type><parameter>brigade</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   This function is called whenever there is the need to access and operate on the content contains in a brigade. It is
+  <simpara>
+   This function is called whenever there is the need to access and operate on the content contained in a brigade. It is
    typically called from <methodname>php_user_filter::filter</methodname>.
-  </para>
+   Each call takes the first bucket of the brigade and removes it from the
+   brigade: the data is lost unless the bucket is passed to
+   <function>stream_bucket_append</function> or
+   <function>stream_bucket_prepend</function>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -28,9 +32,11 @@
     <varlistentry>
      <term><parameter>brigade</parameter></term>
      <listitem>
-      <para>
-       The brigade to return a bucket object from.
-      </para>
+      <simpara>
+       The brigade to return a bucket object from, which must be the
+       <literal>$in</literal> or <literal>$out</literal> resource received by
+       <methodname>php_user_filter::filter</methodname>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -39,9 +45,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns a bucket object or &null;.
-  </para>
+  <simpara>
+   Returns a <classname>StreamBucket</classname> object, or &null; if the
+   brigade is empty.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -70,6 +77,9 @@
    <simplelist>
     <member><function>stream_bucket_append</function></member>
     <member><function>stream_bucket_prepend</function></member>
+    <member><function>stream_bucket_new</function></member>
+    <member><methodname>php_user_filter::filter</methodname></member>
+    <member><function>stream_filter_register</function></member>
    </simplelist>
   </para>
  </refsect1>
