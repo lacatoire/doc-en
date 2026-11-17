@@ -60,8 +60,8 @@
        <simplelist>
         <member><constant>STREAM_OPTION_BLOCKING</constant>: This option is not set.</member>
         <member><constant>STREAM_OPTION_READ_TIMEOUT</constant>: the timeout in microseconds.</member>
-        <member><constant>STREAM_OPTION_READ_BUFFER</constant>: the requested buffer size.</member>
-        <member><constant>STREAM_OPTION_WRITE_BUFFER</constant>: the requested buffer size.</member>
+        <member><constant>STREAM_OPTION_READ_BUFFER</constant>: the requested buffer size, or <literal>8192</literal> (the default buffer size) if <function>stream_set_read_buffer</function> was called with <literal>0</literal>. A negative size is passed unchanged.</member>
+        <member><constant>STREAM_OPTION_WRITE_BUFFER</constant>: the requested buffer size, or <literal>8192</literal> (the default buffer size) if <function>stream_set_write_buffer</function> was called with <literal>0</literal>. A negative size is passed unchanged.</member>
        </simplelist>
       </para>
      </listitem>
