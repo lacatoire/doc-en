@@ -59,7 +59,7 @@
   <itemizedlist>
    <listitem>
     <simpara>
-     If <parameter>string1</parameter> and <parameter>string2</parameter> do not have the same length, a <classname>SodiumException</classname> will be thrown.
+     If <parameter>string1</parameter> and <parameter>string2</parameter> do not have the same length, a <exceptionname>SodiumException</exceptionname> will be thrown.
     </simpara>
    </listitem>
   </itemizedlist>
