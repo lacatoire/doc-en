@@ -60,7 +60,9 @@
        <parameter>from</parameter>, counted from the start of the stream,
        at which to start copying: <parameter>from</parameter> is first moved
        to that position, as with <function>fseek</function> and
-       <constant>SEEK_SET</constant>.
+       <constant>SEEK_SET</constant>. If <parameter>from</parameter> cannot
+       seek (a pipe or a socket), the call emits <constant>E_WARNING</constant>
+       messages, copies nothing and returns &false;.
        If <literal>0</literal> (the default) or negative, no seek is
        performed and copying starts at the current position in
        <parameter>from</parameter>.
@@ -73,9 +75,12 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the total count of bytes copied,&return.falseforfailure;.
-  </para>
+  <simpara>
+   Returns the total count of bytes copied,&return.falseforfailure;. On failure,
+   <parameter>to</parameter> may already contain data and
+   <parameter>from</parameter> may have advanced past data that never reached
+   <parameter>to</parameter>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
