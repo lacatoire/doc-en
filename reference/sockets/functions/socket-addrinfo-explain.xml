@@ -35,10 +35,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns an array containing the fields in the <literal>addrinfo</literal> structure,
    with the following keys:
-  </para>
+  </simpara>
   <itemizedlist>
    <listitem>
     <simpara>
