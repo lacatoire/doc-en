@@ -59,7 +59,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>ValueError</classname> if <parameter>filename</parameter> contains any null bytes.
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>filename</parameter> contains any null bytes.
   </simpara>
  </refsect1>
 
