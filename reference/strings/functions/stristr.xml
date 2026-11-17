@@ -38,12 +38,12 @@
       <para>
        The string to search for.
       </para>
-      <para>
+      <simpara>
        Passing an empty string as <parameter>needle</parameter> matches at
        the start of <parameter>haystack</parameter>:
        <function>stristr</function> returns all of <parameter>haystack</parameter>,
        or an empty string if <parameter>before_needle</parameter> is &true;.
-      </para>
+      </simpara>
       &strings.parameter.needle.non-string;
      </listitem>
     </varlistentry>
@@ -59,13 +59,13 @@
     </varlistentry>
    </variablelist>
   </para>
-  <para>
+  <simpara>
    <parameter>needle</parameter> and <parameter>haystack</parameter>
    are examined in a case-insensitive manner. As of PHP 8.2.0, only ASCII
    letters are folded and other bytes are compared by their byte value, so
    <literal>É</literal> does not match <literal>é</literal>. Use
    <function>mb_stristr</function> for multibyte strings.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="returnvalues">
