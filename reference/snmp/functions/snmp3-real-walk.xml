@@ -154,7 +154,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>ValueError</classname> if <parameter>hostname</parameter> contains a null byte,
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>hostname</parameter> contains a null byte,
    is 128 bytes long or longer, or has a port outside the range 0 to 65535,
    if <parameter>security_name</parameter> is empty or contains a null byte,
    if <parameter>security_level</parameter>, <parameter>auth_protocol</parameter> or <parameter>privacy_protocol</parameter> is not valid,

@@ -98,7 +98,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>ValueError</classname> if <parameter>hostname</parameter> contains a null byte,
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>hostname</parameter> contains a null byte,
    is 128 bytes long or longer, or has a port outside the range 0 to 65535,
    if <parameter>community</parameter> is empty or contains a null byte,
    if <parameter>timeout</parameter> is lower than <literal>-1</literal>,
