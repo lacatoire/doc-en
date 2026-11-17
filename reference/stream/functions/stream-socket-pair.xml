@@ -34,13 +34,13 @@
        <constant>STREAM_PF_INET6</constant> or
        <constant>STREAM_PF_UNIX</constant>
       </para>
-      <para>
+      <simpara>
        The values are passed straight to <literal>socketpair(2)</literal>. On
        Linux, only <constant>STREAM_PF_UNIX</constant> works:
        <constant>STREAM_PF_INET</constant> and
        <constant>STREAM_PF_INET6</constant> fail with
        <literal>Operation not supported</literal>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -54,14 +54,14 @@
        <constant>STREAM_SOCK_SEQPACKET</constant> or
        <constant>STREAM_SOCK_STREAM</constant>
       </para>
-      <para>
+      <simpara>
        On Linux, <constant>STREAM_SOCK_STREAM</constant>,
        <constant>STREAM_SOCK_DGRAM</constant> and
        <constant>STREAM_SOCK_SEQPACKET</constant> can be used with
        <constant>STREAM_PF_UNIX</constant>, whereas
        <constant>STREAM_SOCK_RDM</constant> fails with
        <literal>Protocol not supported</literal>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -74,7 +74,7 @@
        <constant>STREAM_IPPROTO_TCP</constant> or
        <constant>STREAM_IPPROTO_UDP</constant>       
       </para>
-      <para>
+      <simpara>
        On Linux, <constant>STREAM_PF_UNIX</constant> accepts
        <constant>STREAM_IPPROTO_IP</constant>, which should be used.
        <constant>STREAM_IPPROTO_TCP</constant>,
@@ -83,7 +83,7 @@
        <literal>Protocol not supported</literal>.
        <constant>STREAM_IPPROTO_ICMP</constant> only works because its value
        is the same as <constant>STREAM_PF_UNIX</constant>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -109,11 +109,11 @@
   <para>
    <example>
     <title>A <function>stream_socket_pair</function> example</title>
-    <para>
+    <simpara>
      This example shows that what is written to one socket of the pair is read
      from the other one. The same pair is commonly used between two processes,
      for example after <function>pcntl_fork</function>.
-    </para>
+    </simpara>
     <programlisting role="php">
 <![CDATA[
 <?php
