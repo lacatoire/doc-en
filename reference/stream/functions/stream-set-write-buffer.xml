@@ -48,9 +48,16 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns 0 on success, or another value if the request cannot be honored.
-  </para>
+  <simpara>
+   Returns <literal>0</literal> on success, or <literal>-1</literal> if the
+   request cannot be honored. A stream opened with <function>fopen</function>
+   (a plain file), <function>tmpfile</function>, <literal>php://memory</literal>,
+   a socket or a directory handle always gives <literal>-1</literal>, whereas
+   <function>popen</function> streams, <constant>STDIN</constant>,
+   <constant>STDOUT</constant>, <constant>STDERR</constant> and user-space
+   wrappers whose <methodname>streamWrapper::stream_set_option</methodname>
+   returns &true; give <literal>0</literal>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -65,17 +72,23 @@
     <programlisting role="php">
 <![CDATA[
 <?php
-$fp = fopen($file, "w");
-if ($fp) {
-  if (stream_set_write_buffer($fp, 0) !== 0) {
-      // changing the buffering failed
-  }
-  fwrite($fp, $output);
-  fclose($fp);
+
+$process = popen('cat', 'w');
+if ($process) {
+    if (stream_set_write_buffer($process, 0) !== 0) {
+        echo "Changing the buffering failed\n";
+    }
+    fwrite($process, "Written without buffering\n");
+    pclose($process);
 }
-?>
 ]]>
     </programlisting>
+    &example.outputs;
+    <screen>
+<![CDATA[
+Written without buffering
+]]>
+    </screen>
    </example>
   </para>
  </refsect1>
@@ -85,6 +98,8 @@ if ($fp) {
   <simplelist>
    <member><function>fopen</function></member>
    <member><function>fwrite</function></member>
+   <member><function>stream_set_read_buffer</function></member>
+   <member><function>stream_set_chunk_size</function></member>
   </simplelist>
  </refsect1>
 
