@@ -16,9 +16,10 @@
    Un-quotes a quoted string.
   </para>
   <para>
-   <function>stripslashes</function> can be used if you aren't inserting
-   this data into a place (such as a database) that requires escaping.
-   For example, if you're simply outputting data straight from an HTML form.
+   <function>stripslashes</function> only undoes escaping added by
+   <function>addslashes</function> and similar functions. Any other backslash
+   is removed as well, so it corrupts data that was never escaped:
+   <literal>C:\temp\new</literal> becomes <literal>C:tempnew</literal>.
   </para>
  </refsect1>
 
@@ -45,6 +46,10 @@
    (<literal>\'</literal> becomes <literal>'</literal> and so on.)
    Double backslashes (<literal>\\</literal>) are made into a single
    backslash (<literal>\</literal>).
+   A backslash followed by <literal>0</literal> becomes a NUL byte, a backslash
+   followed by any other character becomes that character
+   (<literal>\n</literal> becomes <literal>n</literal>), and a single
+   backslash at the end of the string is removed.
   </para>
  </refsect1>
 
