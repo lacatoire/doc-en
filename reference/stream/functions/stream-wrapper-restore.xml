@@ -13,7 +13,9 @@
   </methodsynopsis>
   <para>
    Restores a built-in wrapper previously unregistered with
-   <function>stream_wrapper_unregister</function>.
+   <function>stream_wrapper_unregister</function>. It also reverts a
+   user-defined wrapper registered over a built-in name with
+   <function>stream_wrapper_register</function>.
   </para>
  </refsect1>
  <refsect1 role="parameters">
@@ -24,6 +26,8 @@
      <term><parameter>protocol</parameter></term>
      <listitem>
       <para>
+       The name of the built-in wrapper, without <literal>://</literal>. It is
+       case-sensitive.
       </para>
      </listitem>
     </varlistentry>
@@ -34,6 +38,11 @@
   &reftitle.returnvalues;
   <para>
    &return.success;
+   &true; is also returned, with an <constant>E_NOTICE</constant>, if the
+   wrapper was never changed. &false; is returned, with an
+   <constant>E_WARNING</constant>, if <parameter>protocol</parameter> is not
+   the name of a built-in wrapper, for example a wrapper that only exists as
+   a user-defined one, a name in the wrong case, or an empty string.
   </para>
  </refsect1>
 </refentry>
