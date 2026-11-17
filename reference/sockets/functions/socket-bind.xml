@@ -14,14 +14,14 @@
    <methodparam><type>string</type><parameter>address</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>port</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Binds the name given in <parameter>address</parameter> to the socket
    described by <parameter>socket</parameter>. This chooses the local address
    and port: without it, the system binds the socket itself when
    <function>socket_connect</function> or <function>socket_listen</function>
    is called. For an <constant>AF_UNIX</constant> socket, it has to be done
    before <function>socket_listen</function>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -44,10 +44,10 @@
        <parameter>address</parameter> is an IP in dotted-quad notation
        (e.g. <literal>127.0.0.1</literal>).
       </para>
-      <para>
+      <simpara>
        If the socket is of the <constant>AF_INET6</constant> family, the
        <parameter>address</parameter> is an IPv6 address (e.g. <literal>::1</literal>).
-      </para>
+      </simpara>
       <para>
        If the socket is of the <constant>AF_UNIX</constant> family, the
        <parameter>address</parameter> is the path of a
@@ -58,11 +58,11 @@
     <varlistentry>
      <term><parameter>port</parameter> (Optional)</term>
      <listitem>
-      <para>
+      <simpara>
        The <parameter>port</parameter> parameter is only used when
        binding an <constant>AF_INET</constant> or <constant>AF_INET6</constant> socket, and designates
        the port on which to listen for connections.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -144,11 +144,11 @@ socket_close($sock);
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
+   <simpara>
     To choose the local address or port of an outgoing connection, this function
     must be used on the socket before <function>socket_connect</function>:
     it fails once the socket is connected.
-   </para>
+   </simpara>
   </note>
  </refsect1>
 
