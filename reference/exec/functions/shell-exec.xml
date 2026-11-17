@@ -32,9 +32,9 @@
    <varlistentry>
     <term><parameter>command</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The command that will be executed.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -55,10 +55,10 @@
    </para>
   </note>
   <note>
-   <para>
+   <simpara>
     Only the standard output of the command is captured: its standard error stream goes to
     the one of the PHP process, unless the command redirects it, for example with <literal>2&gt;&amp;1</literal>.
-   </para>
+   </simpara>
   </note>
  </refsect1>
 
@@ -68,10 +68,10 @@
    An <constant>E_WARNING</constant> level error is generated
    when the pipe cannot be established.
   </para>
-  <para>
-   Throws a <classname>ValueError</classname> if <parameter>command</parameter>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>command</parameter>
    is empty or contains null bytes.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="changelog">
   &reftitle.changelog;
@@ -88,7 +88,7 @@
       <entry>8.0.0</entry>
       <entry>
        If <parameter>command</parameter> is empty or contains null bytes,
-       <function>shell_exec</function> now throws a <classname>ValueError</classname>.
+       <function>shell_exec</function> now throws a <exceptionname>ValueError</exceptionname>.
       </entry>
      </row>
     </tbody>
