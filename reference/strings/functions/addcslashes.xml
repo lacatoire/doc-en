@@ -77,13 +77,17 @@ echo addcslashes("zoo['.']", 'z..A');
        </example>
       </para>
       <para>
-       Be careful if you choose to escape characters 0, a, b, f, n, r, t and
-       v. They will be converted to \0, \a, \b, \f, \n, \r, \t and \v, all of
-       which are predefined escape sequences in C. Many of these sequences are
+       Be careful if you choose to escape characters 0 to 7, a, b, f, n, r, t
+       and v. They will be converted to \0 to \7, \a, \b, \f, \n, \r, \t and \v,
+       which are predefined escape sequences in C, and the character
+       <literal>x</literal> followed by hexadecimal digits forms the escape
+       sequence <literal>\x</literal>. Many of these sequences are
        also defined in other C-derived languages, including PHP, meaning that
        you may not get the desired result if you use the output of
        <function>addcslashes</function> to generate code in those languages
        with these characters defined in <parameter>characters</parameter>.
+       <function>stripcslashes</function> reads them the same way, so it does
+       not restore these characters.
       </para>
      </listitem>
     </varlistentry>
