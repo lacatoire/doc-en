@@ -13,10 +13,10 @@
    <methodparam><type>string</type><parameter>string</parameter></methodparam>
    <methodparam choice="opt"><type class="union"><type>array</type><type>string</type><type>null</type></type><parameter>allowed_tags</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    This function tries to return a string with all NULL bytes, HTML and PHP tags stripped
    from a given <parameter>string</parameter>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -154,7 +154,7 @@ Test paragraph. Other text
    </para>
   </warning>
   <warning>
-   <para>
+   <simpara>
     This function does not filter or validate the attributes of the tags that
     you allow using <parameter>allowed_tags</parameter>, including the
     <literal>style</literal> and <literal>onmouseover</literal> attributes
@@ -164,7 +164,7 @@ Test paragraph. Other text
     bytes inside it are removed, even within a quoted attribute value, so
     <literal>&lt;b title="a&gt;b"&gt;</literal> becomes
     <literal>&lt;b title="ab"&gt;</literal>.
-   </para>
+   </simpara>
   </warning>
  </refsect1>
 
