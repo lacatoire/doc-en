@@ -25,14 +25,14 @@
    <methodparam choice="opt"><type>string</type><parameter>value</parameter><initializer>""</initializer></methodparam>
    <methodparam choice="opt"><type>array</type><parameter>options</parameter><initializer>[]</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    <function>setrawcookie</function> is exactly the same as
    <function>setcookie</function> except that the cookie value will not be
    automatically urlencoded when sent to the browser. For this reason, a
    <parameter>value</parameter> containing <literal>,</literal>, <literal>;</literal>,
    a space, a tab or a line break is refused, whereas <function>setcookie</function>
    accepts it because it urlencodes it.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -52,13 +52,13 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>value</parameter> contains
    <literal>,</literal>, <literal>;</literal>, a space, <literal>\t</literal>, <literal>\r</literal>,
    <literal>\n</literal>, <literal>\013</literal> or <literal>\014</literal>. The other
    <exceptionname>ValueError</exceptionname> and <exceptionname>ArgumentCountError</exceptionname>
    cases are those of <function>setcookie</function>.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="changelog">
   &reftitle.changelog;
