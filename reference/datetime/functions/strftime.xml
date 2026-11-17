@@ -368,7 +368,7 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a string formatted according <parameter>format</parameter>
    using the given <parameter>timestamp</parameter> or the current
    local time if no timestamp is given.  Month and weekday names and
@@ -379,13 +379,13 @@
    <literal>4095</literal>, or if the C library reports a failure or produces
    an empty result. Whether an unsupported conversion specifier causes this
    depends on the C library: see the Errors section.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
   &reftitle.errors;
   &date.timezone.errors.description;
-  <para>
+  <simpara>
    As the output is dependent upon the underlying C library, some conversion
    specifiers are not supported. On Windows, supplying unknown conversion
    specifiers will result in 5 <constant>E_WARNING</constant> messages and
@@ -393,7 +393,7 @@
    <constant>E_WARNING</constant> messages and the output may contain the
    conversion specifiers unconverted, whereas musl returns &false;, also for
    a lone <literal>%</literal>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
