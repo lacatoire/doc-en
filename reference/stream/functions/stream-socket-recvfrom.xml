@@ -15,8 +15,8 @@
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter role="reference">address</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
   <para>
-   <function>stream_socket_recvfrom</function> accepts
-   data from a remote socket up to <parameter>length</parameter> bytes.
+   <function>stream_socket_recvfrom</function> receives
+   up to <parameter>length</parameter> bytes of data from a socket.
   </para>
  </refsect1>
 
@@ -28,7 +28,8 @@
      <term><parameter>socket</parameter></term>
      <listitem>
       <para>
-       The remote socket.
+       The socket to read from: a bound UDP socket, an accepted connection or
+       one end of a socket pair, for example.
       </para>
      </listitem>
     </varlistentry>
@@ -36,7 +37,8 @@
      <term><parameter>length</parameter></term>
      <listitem>
       <para>
-       The number of bytes to receive from the <parameter>socket</parameter>.
+       The maximum number of bytes to receive from the <parameter>socket</parameter>.
+       Fewer bytes are returned if less data is pending.
       </para>
      </listitem>
     </varlistentry>
@@ -59,10 +61,9 @@
           <row>
            <entry><constant>STREAM_PEEK</constant></entry>
            <entry>
-            Retrieve data from the socket, but do not consume the buffer.
-            Subsequent calls to <function>fread</function> or
-            <function>stream_socket_recvfrom</function> will see
-            the same data.
+            Retrieve data from the socket, but do not consume it.
+            Subsequent calls to <function>stream_socket_recvfrom</function>
+            will see the same data.
            </entry>
           </row>
          </tbody>
@@ -76,7 +77,10 @@
      <listitem>
       <para>
        If <parameter>address</parameter> is provided it will be populated with
-       the address of the remote socket.
+       the address of the remote socket. It is an empty string for a socket that
+       has no peer address, such as an accepted TCP connection or a Unix stream
+       socket pair, and at end of file. It is reset to &null; at the start of
+       every call, even if the call returns &false; or throws.
       </para>
      </listitem>
     </varlistentry>
@@ -87,7 +91,12 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   Returns the read data, as a string,&return.falseforfailure;.
+   Returns the read data, as a string. An empty string is returned at the end
+   of a stream socket, on each call. &false; is returned, without any
+   warning, if no data is pending on a non-blocking socket, if no urgent data
+   is available with <constant>STREAM_OOB</constant>, and if
+   <parameter>socket</parameter> is not a socket stream (such as
+   <literal>php://memory</literal> or a plain file).
   </para>
  </refsect1>
 
@@ -129,27 +138,41 @@
     <programlisting role="php">
 <![CDATA[
 <?php
-/* Open a server socket to port 1234 on localhost */
-$server = stream_socket_server('tcp://127.0.0.1:1234');
 
-/* Accept a connection */
+// Open a server socket on a free port of localhost
+$server = stream_socket_server('tcp://127.0.0.1:0');
+$client = stream_socket_client('tcp://' . stream_socket_get_name($server, false));
+
+// Accept the connection
 $socket = stream_socket_accept($server);
 
-/* Grab a packet (1500 is a typical MTU size) of OOB data */
+// Send some normal data, then one byte of out-of-band data
+fwrite($client, 'hello');
+stream_socket_sendto($client, '!', STREAM_OOB);
+
+// Grab a packet (1500 is a typical MTU size) of OOB data
 echo "Received Out-Of-Band: '" . stream_socket_recvfrom($socket, 1500, STREAM_OOB) . "'\n";
 
-/* Take a peek at the normal in-band data, but don't consume it. */
+// Take a peek at the normal in-band data, but don't consume it
 echo "Data: '" . stream_socket_recvfrom($socket, 1500, STREAM_PEEK) . "'\n";
 
-/* Get the exact same packet again, but remove it from the buffer this time. */
+// Get the exact same packet again, but remove it from the buffer this time
 echo "Data: '" . stream_socket_recvfrom($socket, 1500) . "'\n";
 
-/* Close it up */
+// Close it up
 fclose($socket);
+fclose($client);
 fclose($server);
-?>
 ]]>
     </programlisting>
+    &example.outputs;
+    <screen>
+<![CDATA[
+Received Out-Of-Band: '!'
+Data: 'hello'
+Data: 'hello'
+]]>
+    </screen>
    </example>
   </para>
  </refsect1>
@@ -165,11 +188,15 @@ fclose($server);
   </note>
   <note>
    <para>
-    Calls to <function>stream_socket_recvfrom</function> on socket-based
-    streams, after calls to buffer-based stream functions (like
-    <function>fread</function> or <function>stream_get_line</function>) read
-    data directly from the socket and bypass the stream buffer.
-    </para>
+    <function>stream_socket_recvfrom</function> reads straight from the
+    socket: it does not wait for data, so <function>stream_set_timeout</function>
+    and <link linkend="ini.default-socket-timeout">default_socket_timeout</link>
+    do not apply and a blocking socket may block indefinitely. It also bypasses
+    the stream buffer and the read filters, so data already read into the
+    buffer by buffer-based stream functions (like <function>fread</function> or
+    <function>stream_get_line</function>) is not seen, and a read filter such as
+    <literal>string.toupper</literal> is not applied.
+   </para>
   </note>
  </refsect1>
 

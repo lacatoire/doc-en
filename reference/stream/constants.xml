@@ -152,11 +152,13 @@
    </term>
    <listitem>
     <simpara>
-     Retrieve data from the socket, but do not consume the buffer.
+     Retrieve data from the socket, but do not consume it.
     </simpara>
     <simpara>
-     Subsequent calls to <function>fread</function> or
-     <function>stream_socket_recvfrom</function> will see the same data.
+     Subsequent calls to <function>stream_socket_recvfrom</function> will see
+     the same data. The data is read straight from the socket, not from the
+     stream buffer, so it does not include data already buffered by
+     <function>fread</function>.
     </simpara>
     <note>
      <simpara>
@@ -357,7 +359,8 @@
    </term>
    <listitem>
     <simpara>
-     TLS 1.0, 1.1 or 1.2 on a server stream.
+     Any TLS version, including TLS 1.3, on a server stream. It has the same
+     value as <constant>STREAM_CRYPTO_METHOD_TLS_SERVER</constant>.
     </simpara>
    </listitem>
   </varlistentry>
@@ -730,8 +733,10 @@
       Additional authorization is required to access the specified resource.
      </simpara>
      <simpara>
-      Typical issued with <parameter>severity</parameter> level of
-      <constant>STREAM_NOTIFY_SEVERITY_ERR</constant>.
+      Issued with <parameter>severity</parameter> level of
+      <constant>STREAM_NOTIFY_SEVERITY_INFO</constant> when credentials are
+      sent, not when the server answers with a <literal>401</literal> status
+      (which is reported as <constant>STREAM_NOTIFY_FAILURE</constant>).
      </simpara>
     </listitem>
    </varlistentry>
@@ -795,7 +800,8 @@
     </term>
     <listitem>
      <simpara>
-      There is no more data available on the stream.
+      A read has reached the end of the stream, and there is no more data
+      available. <function>feof</function> does not send it.
       (First implemented as of PHP 8.3.0.)
      </simpara>
     </listitem>
@@ -822,7 +828,11 @@
     </term>
     <listitem>
      <simpara>
-      Authorization has been completed (with or without success).
+      Authorization has been completed. The http wrapper sends it, with
+      <parameter>severity</parameter> level
+      <constant>STREAM_NOTIFY_SEVERITY_ERR</constant>, only for a
+      <literal>403</literal> status. The ftp wrapper sends it for both a
+      successful and a failed login.
      </simpara>
     </listitem>
    </varlistentry>
@@ -1132,8 +1142,8 @@
     </term>
     <listitem>
      <simpara>
-      Set read file buffering on a stream.
-      <!-- TODO: Fix description -->
+      Set the read timeout on a stream. The seconds and microseconds are
+      passed as the two values.
      </simpara>
     </listitem>
    </varlistentry>
