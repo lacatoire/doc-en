@@ -71,7 +71,12 @@
       <para>
        Number of seconds until the <literal>connect()</literal> system call
        should timeout. By default, <link linkend="ini.default-socket-timeout">default_socket_timeout</link>
-       is used.
+       is used. As of PHP 8.1.0, a negative value is the same as &null;; before,
+       the call did not wait for any limit of its own. With <literal>0</literal>,
+       the call fails at once with error <literal>110</literal> unless the
+       connection is established instantly. For <literal>ssl://</literal>
+       and <literal>tls://</literal> addresses, the same value also bounds the
+       TLS handshake.
        <note>
         <simpara>
          This parameter only applies when not making asynchronous
@@ -99,6 +104,16 @@
        <constant>STREAM_CLIENT_ASYNC_CONNECT</constant> and
        <constant>STREAM_CLIENT_PERSISTENT</constant>.
       </para>
+      <simpara>
+       With <constant>STREAM_CLIENT_ASYNC_CONNECT</constant> on a
+       <literal>tcp://</literal> address, a stream is returned immediately,
+       even if the connection is refused, with <parameter>error_code</parameter>
+       <literal>0</literal> and an empty <parameter>error_message</parameter>:
+       the failure only appears later, as a failed write or an end of file. The
+       flag does not make an <literal>ssl://</literal> connection
+       asynchronous: the call blocks during the handshake, up to
+       <parameter>timeout</parameter>, and then fails.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -115,30 +130,39 @@
 
  <refsect1 role="returnvalues"><!-- {{{ -->
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    On success a stream resource is returned which may
    be used together with the other file functions (such as
-   <function>fgets</function>, <function>fgetss</function>,
+   <function>fgets</function>,
    <function>fwrite</function>, <function>fclose</function>, and
    <function>feof</function>), &false; on failure.
-  </para>
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="errors"><!-- {{{ -->
   &reftitle.errors;
-  <para>
+  <simpara>
    On failure the <parameter>error_code</parameter> and
    <parameter>error_message</parameter> arguments will be populated with the actual
    system level error that occurred in the system-level
    <literal>connect()</literal> call. If the value returned in
    <parameter>error_code</parameter> is <literal>0</literal> and the
-   function returned &false;, it is an indication that the error
-   occurred before the <literal>connect()</literal> call. This is
-   most likely due to a problem initializing the socket. Note that
+   function returned &false;, the error did not come from the
+   <literal>connect()</literal> call: the address could not be parsed, the
+   transport is unknown, the host name could not be resolved, or an
+   <literal>ssl://</literal> connection failed after the TCP connection
+   (certificate verification or handshake timeout). In these cases
+   <parameter>error_message</parameter> is a PHP message, or is empty. Note that
    the <parameter>error_code</parameter> and
    <parameter>error_message</parameter> arguments will always be passed by
    reference.
-  </para>
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>timeout</parameter> is not a finite value
+   (<constant>NAN</constant>, <constant>INF</constant> or
+   <constant>-INF</constant>).
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="changelog">
@@ -152,6 +176,19 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.2.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if
+       <parameter>timeout</parameter> is not a finite value.
+      </entry>
+     </row>
+     <row>
+      <entry>8.1.0</entry>
+      <entry>
+       A negative <parameter>timeout</parameter> is now the same as &null;.
+      </entry>
+     </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
@@ -241,7 +278,6 @@ if (!$fp) {
     <member><function>stream_set_timeout</function></member>
     <member><function>stream_select</function></member>
     <member><function>fgets</function></member>
-    <member><function>fgetss</function></member>
     <member><function>fwrite</function></member>
     <member><function>fclose</function></member>
     <member><function>feof</function></member>
