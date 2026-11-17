@@ -22,8 +22,9 @@
 
   <simpara>
    Once the crypto settings are established, cryptography can be turned
-   on and off dynamically by passing &true; or &false; in the
-   <parameter>enable</parameter> parameter.
+   on by passing &true; in the <parameter>enable</parameter> parameter, and
+   turned off by passing &false;. Disabling cryptography shuts the TLS session
+   down: enabling it again does not perform a new handshake, and fails.
   </simpara>
  </refsect1>
 
@@ -52,7 +53,17 @@
      <listitem>
       <para>
        Setup encryption on the stream.
-       Valid methods are
+       Valid methods are listed below. The <literal>CLIENT</literal> or
+       <literal>SERVER</literal> half of the value selects the role.
+       <constant>STREAM_CRYPTO_METHOD_SSLv2_CLIENT</constant>,
+       <constant>STREAM_CRYPTO_METHOD_SSLv3_CLIENT</constant>,
+       <constant>STREAM_CRYPTO_METHOD_SSLv2_SERVER</constant> and
+       <constant>STREAM_CRYPTO_METHOD_SSLv3_SERVER</constant> are accepted,
+       but SSL 2 and SSL 3 are not supported: they give a TLS 1.3 only
+       context. <constant>STREAM_CRYPTO_METHOD_SSLv23_CLIENT</constant> is
+       limited to TLS 1.2, whereas
+       <constant>STREAM_CRYPTO_METHOD_SSLv23_SERVER</constant> accepts any TLS
+       version, including TLS 1.3.
        <itemizedlist>
         <listitem><simpara><constant>STREAM_CRYPTO_METHOD_SSLv2_CLIENT</constant></simpara></listitem>
         <listitem><simpara><constant>STREAM_CRYPTO_METHOD_SSLv3_CLIENT</constant></simpara></listitem>
@@ -83,9 +94,12 @@
     <varlistentry>
      <term><parameter>session_stream</parameter></term>
      <listitem>
-      <para>
-       Seed the stream with settings from <parameter>session_stream</parameter>.
-      </para>
+      <simpara>
+       An SSL enabled stream whose session is reused by the handshake
+       (session resumption). If it is not an SSL enabled stream, an
+       <constant>E_WARNING</constant> is emitted and the handshake continues
+       without it.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -94,11 +108,15 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns &true; on success, &false; if negotiation has failed or
    <literal>0</literal> if there isn't enough data and you should try again
-   (only for non-blocking sockets).
-  </para>
+   (only for non-blocking sockets). When disabling cryptography on an active
+   TLS stream, &false; is returned after a successful shutdown, and again if
+   the call is repeated. On a stream that does not support cryptography, such
+   as <literal>php://memory</literal>, an <constant>E_WARNING</constant> is
+   emitted and &true; is returned.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -154,7 +172,9 @@ if (!$fp) {
 }
 
 /* Turn on encryption for login phase */
-stream_socket_enable_crypto($fp, true, STREAM_CRYPTO_METHOD_SSLv23_CLIENT);
+if (stream_socket_enable_crypto($fp, true, STREAM_CRYPTO_METHOD_TLS_CLIENT) !== true) {
+    die("Unable to enable encryption");
+}
 fwrite($fp, "USER god\r\n");
 fwrite($fp, "PASS secret\r\n");
 
@@ -166,7 +186,6 @@ while ($motd = fgets($fp)) {
 }
 
 fclose($fp);
-?>
 ]]>
     </programlisting>
     &example.outputs.similar;
