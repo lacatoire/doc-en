@@ -46,7 +46,7 @@
   <simpara>
    If <parameter>s</parameter> is not exactly
    <link linkend="constant.sodium-crypto-core-ristretto255-bytes"><constant>SODIUM_CRYPTO_CORE_RISTRETTO255_BYTES</constant></link>
-   (32) bytes long, a <classname>SodiumException</classname> will be thrown.
+   (32) bytes long, a <exceptionname>SodiumException</exceptionname> will be thrown.
   </simpara>
  </refsect1>
 
