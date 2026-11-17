@@ -17,64 +17,76 @@
   <para>
    Resolve <parameter>filename</parameter> against the include path according to the same rules as <function>fopen</function>/<function>include</function>.
   </para>
+  <simpara>
+   Names starting with <literal>./</literal> or <literal>../</literal>, absolute
+   names and <literal>file://</literal> URLs are not searched in the include
+   path. When nothing matches, the directory of the executing script is tried,
+   so the result depends on the calling file. Other URL schemes give &false;,
+   and an unregistered scheme also emits an <constant>E_WARNING</constant>.
+  </simpara>
+  <simpara>
+   The function also returns &false; for a name that <function>fopen</function>
+   with <parameter>use_include_path</parameter>,
+   <function>file_get_contents</function> with
+   <parameter>use_include_path</parameter> and <function>include</function>
+   still open from the current working directory.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>filename</parameter></term>
-     <listitem>
-      <para>
-       The filename to resolve.
-      </para>
-     </listitem>
-    </varlistentry>
-    <!--
-    <varlistentry>
-     <term><parameter>context</parameter></term>
-     <listitem>
-      <para>
-       A valid context resource created with <function>stream_context_create</function>.
-      </para>
-     </listitem>
-    </varlistentry>
-    -->
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>filename</parameter></term>
+    <listitem>
+     <simpara>
+      The filename to resolve.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns a <type>string</type> containing the resolved absolute filename, &return.falseforfailure;.
-  </para>
+  <simpara>
+   Returns a <type>string</type> containing the resolved absolute path of an
+   existing file or directory, &return.falseforfailure;. An empty name or
+   <literal>.</literal> gives the first entry of the include path.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>stream_resolve_include_path</function> example</title>
-    <para>
-     Basic usage example.
-    </para>
-    <programlisting role="php">
+  <example>
+   <title><function>stream_resolve_include_path</function> example</title>
+   <simpara>
+    Basic usage example.
+   </simpara>
+   <programlisting role="php">
 <![CDATA[
 <?php
 var_dump(stream_resolve_include_path("test.php"));
-?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 string(22) "/var/www/html/test.php"
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>set_include_path</function></member>
+   <member><function>get_include_path</function></member>
+   <member><function>realpath</function></member>
+   <member><function>fopen</function></member>
+   <member><xref linkend="function.include"/></member>
+  </simplelist>
  </refsect1>
 
  </refentry>
