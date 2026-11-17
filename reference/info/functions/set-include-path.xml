@@ -24,11 +24,11 @@
    <varlistentry>
     <term><parameter>include_path</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The new value for the <link
       linkend="ini.include-path">include_path</link>: a list of paths separated by
       <constant>PATH_SEPARATOR</constant>. It must not be empty.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -36,18 +36,18 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the old <link linkend="ini.include-path">include_path</link> on
    success&return.falseforfailure;. An empty <parameter>include_path</parameter> is refused:
    &false; is returned, without any diagnostic, and the include path is unchanged.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>include_path</parameter>
    contains null bytes.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -66,14 +66,14 @@ ini_set('include_path', '/usr/lib/pear');
   </example>
   <example>
    <title>Adding to the include path</title>
-   <para>
+   <simpara>
     Making use of the <constant>PATH_SEPARATOR</constant> constant, it is
     possible to extend the include path regardless of the operating system.
-   </para>
-   <para>
+   </simpara>
+   <simpara>
     In this example we add <filename>/usr/lib/pear</filename> to the end of
     the existing <literal>include_path</literal>.
-   </para>
+   </simpara>
    <programlisting role="php">
 <![CDATA[
 <?php
