@@ -29,20 +29,20 @@
    <varlistentry>
     <term><parameter>string</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The input string.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>binary</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       If the optional <parameter>binary</parameter> is set to &true;,
       then the sha1 digest is instead returned in raw binary format with a
       length of 20, otherwise the returned value is a 40-character
       hexadecimal number.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -50,10 +50,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the sha1 hash as a string: 40 lowercase hexadecimal characters, or 20 bytes of raw binary data
    when <parameter>binary</parameter> is &true;.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">

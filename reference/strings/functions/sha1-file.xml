@@ -26,19 +26,19 @@
    <varlistentry>
     <term><parameter>filename</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       The filename of the file to hash. Any readable stream wrapper can be used, such as
       <literal>data:</literal>, or <literal>http://</literal> when <link linkend="ini.allow-url-fopen">allow_url_fopen</link> is enabled.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>binary</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       When &true;, returns the digest in raw binary format with a length of
       20.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -46,18 +46,18 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a string on success: 40 lowercase hexadecimal characters, or 20 bytes of raw binary data
    when <parameter>binary</parameter> is &true;. &false; is returned otherwise, with an
    <constant>E_WARNING</constant>, when the file cannot be opened.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>filename</parameter>
    is empty or contains null bytes.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
