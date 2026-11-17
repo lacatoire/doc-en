@@ -34,6 +34,13 @@
        <constant>STREAM_PF_INET6</constant> or
        <constant>STREAM_PF_UNIX</constant>
       </para>
+      <simpara>
+       The values are passed straight to <literal>socketpair(2)</literal>. On
+       Linux, only <constant>STREAM_PF_UNIX</constant> works:
+       <constant>STREAM_PF_INET</constant> and
+       <constant>STREAM_PF_INET6</constant> fail with
+       <literal>Operation not supported</literal>.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -47,6 +54,14 @@
        <constant>STREAM_SOCK_SEQPACKET</constant> or
        <constant>STREAM_SOCK_STREAM</constant>
       </para>
+      <simpara>
+       On Linux, <constant>STREAM_SOCK_STREAM</constant>,
+       <constant>STREAM_SOCK_DGRAM</constant> and
+       <constant>STREAM_SOCK_SEQPACKET</constant> can be used with
+       <constant>STREAM_PF_UNIX</constant>, whereas
+       <constant>STREAM_SOCK_RDM</constant> fails with
+       <literal>Protocol not supported</literal>.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -59,6 +74,16 @@
        <constant>STREAM_IPPROTO_TCP</constant> or
        <constant>STREAM_IPPROTO_UDP</constant>       
       </para>
+      <simpara>
+       On Linux, <constant>STREAM_PF_UNIX</constant> accepts
+       <constant>STREAM_IPPROTO_IP</constant>, which should be used.
+       <constant>STREAM_IPPROTO_TCP</constant>,
+       <constant>STREAM_IPPROTO_UDP</constant> and
+       <constant>STREAM_IPPROTO_RAW</constant> fail with
+       <literal>Protocol not supported</literal>.
+       <constant>STREAM_IPPROTO_ICMP</constant> only works because its value
+       is the same as <constant>STREAM_PF_UNIX</constant>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -84,47 +109,32 @@
   <para>
    <example>
     <title>A <function>stream_socket_pair</function> example</title>
-    <para>
-     This example shows the basic usage of
-     <function>stream_socket_pair</function> in Inter-Process Communication.
-    </para>
+    <simpara>
+     This example shows that what is written to one socket of the pair is read
+     from the other one. The same pair is commonly used between two processes,
+     for example after <function>pcntl_fork</function>.
+    </simpara>
     <programlisting role="php">
 <![CDATA[
 <?php
 
 $sockets = stream_socket_pair(STREAM_PF_UNIX, STREAM_SOCK_STREAM, STREAM_IPPROTO_IP);
-$pid     = pcntl_fork();
 
-if ($pid == -1) {
-     die('could not fork');
+fwrite($sockets[0], "message from the first socket\n");
+echo fgets($sockets[1]);
 
-} else if ($pid) {
-     /* parent */
-    fclose($sockets[0]);
+fwrite($sockets[1], "reply from the second socket\n");
+echo fgets($sockets[0]);
 
-    fwrite($sockets[1], "child PID: $pid\n");
-    echo fgets($sockets[1]);
-
-    fclose($sockets[1]);
-
-} else {
-    /* child */
-    fclose($sockets[1]);
-
-    fwrite($sockets[0], "message from child\n");
-    echo fgets($sockets[0]);
-
-    fclose($sockets[0]);
-}
-
-?>
+fclose($sockets[0]);
+fclose($sockets[1]);
 ]]>
     </programlisting>
-    &example.outputs.similar;
+    &example.outputs;
     <screen>
 <![CDATA[
-child PID: 1378
-message from child
+message from the first socket
+reply from the second socket
 ]]>
     </screen>
    </example>
