@@ -12,11 +12,11 @@
    <type>bool</type><methodname>socket_set_block</methodname>
    <methodparam><type>Socket</type><parameter>socket</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    The <function>socket_set_block</function> function removes the 
-   <literal>O_NONBLOCK</literal> flag on the socket specified by the 
+   <literal>O_NONBLOCK</literal> flag on the socket specified by the
    <parameter>socket</parameter> parameter.
-  </para>
+  </simpara>
   <para>
    When an operation (e.g. receive, send, connect, accept, ...) is performed on 
    a blocking socket, the script will pause its execution until it receives
@@ -80,12 +80,12 @@ socket_accept($socket);
 ?>
 ]]>
     </programlisting>
-    <para>
+    <simpara>
      This example creates a listening socket on all interfaces on port 1223 and
      sets the socket to blocking mode.
      <function>socket_accept</function> will hang until there is a connection
      to accept.
-    </para>
+    </simpara>
    </example>
   </para>
  </refsect1>
