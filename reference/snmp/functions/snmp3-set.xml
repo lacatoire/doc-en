@@ -95,7 +95,7 @@
       array keys are ignored, and surplus elements are ignored. With fewer elements, an <constant>E_WARNING</constant>
       is emitted and &false; is returned before anything is sent. A string <parameter>type</parameter> or
       <parameter>value</parameter> is used for every object id. An array <parameter>type</parameter> or
-      <parameter>value</parameter> with a string <parameter>object_id</parameter> throws a <classname>TypeError</classname>.
+      <parameter>value</parameter> with a string <parameter>object_id</parameter> throws a <exceptionname>TypeError</exceptionname>.
      </simpara>
     </listitem>
    </varlistentry>
