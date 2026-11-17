@@ -26,16 +26,16 @@
    <varlistentry>
     <term><parameter>socket</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       A <classname>Socket</classname> instance created with <function>socket_create</function>
       or <function>socket_accept</function>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>address</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       If the given socket is of type <constant>AF_INET</constant> or
       <constant>AF_INET6</constant>, <function>socket_getpeername</function>
       will return the peers (remote) <emphasis>IP address</emphasis> in
@@ -43,24 +43,24 @@
       <literal>fe80::1</literal>) in the <parameter>address</parameter>
       parameter and, if the optional <parameter>port</parameter> parameter is
       present, also the associated port.
-     </para>
-     <para>
+     </simpara>
+     <simpara>
       If the given socket is of type <constant>AF_UNIX</constant>,
       <function>socket_getpeername</function> will return the Unix filesystem
       path (e.g. <literal>/var/run/daemon.sock</literal>) in the
       <parameter>address</parameter> parameter. It is an empty string when the peer
       has no name, for example with <function>socket_create_pair</function>, or when the
       name is in the abstract namespace.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>port</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       If given, this will hold the port associated to
       <parameter>address</parameter>. It is not written for an <constant>AF_UNIX</constant> socket.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -68,18 +68,18 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success; &false; is returned, with an <constant>E_WARNING</constant>, when the
    underlying call fails, for example on a socket that is not connected such as a listening
    server socket (<constant>SOCKET_ENOTCONN</constant>), and the last socket error code is updated.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    A <exceptionname>ValueError</exceptionname> is thrown if the socket family is not
    <constant>AF_UNIX</constant>, <constant>AF_INET</constant> or <constant>AF_INET6</constant>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -109,12 +109,12 @@
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
+   <simpara>
     <function>socket_getpeername</function> should not be used with
     <constant>AF_UNIX</constant> sockets created with <function>socket_accept</function>:
     the client of such a socket usually has no name.
     Only connected sockets return meaningful values.
-   </para>
+   </simpara>
   </note>
   <note>
    <para>
