@@ -144,10 +144,14 @@ $object = $reflector->newLazyGhost($initializer);
   <sect3 xml:id="migration84.new-features.core.rfc1867">
    <title>Parsing RFC1867 (multipart) requests in non-POST HTTP requests</title>
 
-   <!-- TODO: expand? -->
    <simpara>
     Added <function>request_parse_body</function> function that allows parsing
     RFC1867 (multipart) requests in non-POST HTTP requests.
+    It returns the parsed data without changing <varname>$_POST</varname> and
+    <varname>$_FILES</varname>, accepts an <parameter>options</parameter> array
+    that overrides the request parsing limits of &php.ini; for the call, and
+    throws a <exceptionname>RequestParseBodyException</exceptionname> on
+    failure.
    </simpara>
   </sect3>
 
