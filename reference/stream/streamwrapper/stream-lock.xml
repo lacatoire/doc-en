@@ -14,11 +14,15 @@
    <methodparam><type>int</type><parameter>operation</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   This method is called in response to <function>flock</function>, when
-   <function>file_put_contents</function> (when <parameter>flags</parameter>
-   contains <constant>LOCK_EX</constant>),
-   <function>stream_set_blocking</function> and when closing the stream
-   (<constant>LOCK_UN</constant>).
+   This method is called in response to <function>flock</function>, and by
+   <function>stream_supports_lock</function>, which calls it with an
+   <parameter>operation</parameter> of <literal>0</literal> and reports its
+   return value. It is not called by <function>stream_set_blocking</function>
+   (which calls <methodname>streamWrapper::stream_set_option</methodname>),
+   when closing the stream,
+   or by <function>file_put_contents</function> with
+   <constant>LOCK_EX</constant>, which fails for a path that is not a regular
+   file before the wrapper is used.
   </simpara>
  </refsect1>
 
