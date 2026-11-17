@@ -76,6 +76,7 @@ while (false !== ($char = fgetc($fp))) {
     <member><function>popen</function></member>
     <member><function>fsockopen</function></member>
     <member><function>fgets</function></member>
+    <member><function>stream_get_line</function></member>
    </simplelist>
   </para>
  </refsect1>

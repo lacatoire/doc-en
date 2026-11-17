@@ -187,6 +187,7 @@ fclose($handle);
     <member><function>fsockopen</function></member>
     <member><function>popen</function></member>
     <member><function>fgets</function></member>
+    <member><function>stream_get_line</function></member>
     <member><function>fgetss</function></member>
     <member><function>fscanf</function></member>
     <member><function>file</function></member>
