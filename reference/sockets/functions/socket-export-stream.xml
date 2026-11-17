@@ -12,9 +12,9 @@
    <type class="union"><type>resource</type><type>false</type></type><methodname>socket_export_stream</methodname>
    <methodparam><type>Socket</type><parameter>socket</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Closing the <classname>Socket</classname> with <function>socket_close</function> also closes the exported stream.
-  </para>
+  </simpara>
 
   &warn.undocumented.func;
 
