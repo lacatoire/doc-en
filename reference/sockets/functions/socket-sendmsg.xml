@@ -189,10 +189,10 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    A <exceptionname>ValueError</exceptionname> is thrown if <parameter>flags</parameter> is outside the range of an <type>int</type>.
-   An <classname>Error</classname> is thrown if <parameter>socket</parameter> has already been closed.
-  </para>
+   An <exceptionname>Error</exceptionname> is thrown if <parameter>socket</parameter> has already been closed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
