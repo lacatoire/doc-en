@@ -26,7 +26,7 @@
    error happens, or when triggering an error in response to certain conditions
    (using <function>trigger_error</function>).
   </para>
-  <para>
+  <simpara>
    It is important to remember that the standard PHP error handler is completely
    bypassed for the error types specified by <parameter>error_levels</parameter> 
    unless the callback function returns &false;.
@@ -39,15 +39,15 @@
    <link linkend="language.operators.errorcontrol">error control operator</link>
    (<literal>@</literal>), in which case <function>error_reporting</function>
    returns <literal>4437</literal>.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    Also note that it is the handler's responsibility to stop the
    script's execution if necessary by calling <function>exit</function>. If the error-handler
    function returns, script execution continues right after the point where
    the error was raised: the rest of the statement that caused the error is
    still executed.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    The following error types cannot be handled with a user defined
    function: <constant>E_ERROR</constant>, <constant>E_PARSE</constant>,
    <constant>E_CORE_ERROR</constant>, <constant>E_CORE_WARNING</constant>,
@@ -56,13 +56,13 @@
    Errors raised while compiling the file in which
    <function>set_error_handler</function> is called cannot be handled either,
    as the handler is not registered yet at that time.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    The handler is not active while it is running: an error raised inside the
    handler goes to the standard PHP error handler, and
    <function>set_error_handler</function> called from inside the handler
    returns &null; and replaces the running handler.
-  </para>
+  </simpara>
   <para>
    If errors occur before the script is executed (e.g. on file uploads) the 
    custom error handler cannot be called since it is not registered at that 
@@ -150,23 +150,23 @@
        </listitem>
       </varlistentry>
      </variablelist>
-     <para>
+     <simpara>
       If the function returns &false; then the normal error handler continues.
       Any other return value, including &null;, means that the error has been
       handled.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>error_levels</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       Can be used to mask the triggering of the
       <parameter>callback</parameter> function just like the <link linkend="ini.error-reporting">error_reporting</link> ini setting
       controls which errors are shown. Without this mask set the
       <parameter>callback</parameter> will be called for every error
       regardless to the setting of the <link linkend="ini.error-reporting">error_reporting</link> setting.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -230,10 +230,10 @@
   &reftitle.examples;
   <example>
    <title>Error handling with <function>set_error_handler</function> and <function>trigger_error</function></title>
-   <para>
+   <simpara>
     The example below shows the handling of internal exceptions by
     triggering errors and handling them with a user defined function:
-   </para>
+   </simpara>
    <programlisting role="php">
 <![CDATA[
 <?php
