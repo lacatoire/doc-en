@@ -15,11 +15,11 @@
    <methodparam><type>int</type><parameter>length</parameter></methodparam>
    <methodparam><type>int</type><parameter>flags</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    The function <function>socket_send</function> sends at most
    <parameter>length</parameter> bytes to the socket
    <parameter>socket</parameter> from <parameter>data</parameter>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -28,35 +28,35 @@
    <varlistentry>
     <term><parameter>socket</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       A <classname>Socket</classname> instance created with <function>socket_create</function>
       or <function>socket_accept</function>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>data</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       A buffer containing the data that will be sent to the remote host.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>length</parameter></term>
     <listitem>
-     <para>
-      The maximum number of bytes that will be sent to the remote host from 
+     <simpara>
+      The maximum number of bytes that will be sent to the remote host from
       <parameter>data</parameter>. If it is greater than the length of
       <parameter>data</parameter>, it is silently reduced to it. It must not be negative.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>flags</parameter></term>
     <listitem>
      <para>
-      The value of <parameter>flags</parameter> can be any combination of 
+      The value of <parameter>flags</parameter> can be any combination of
       the following flags, joined with the binary OR (<literal>|</literal>)
       operator.
       <table>
@@ -119,24 +119,24 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    <function>socket_send</function> returns the number of bytes sent, or &false; on error. 
    The number of bytes sent can be lower than <parameter>length</parameter>, for example on a non-blocking
    socket, with <constant>MSG_DONTWAIT</constant>, with a send timeout or after a signal: a loop must be
    used to send the rest of <parameter>data</parameter>.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    When nothing can be sent, &false; is returned, without any warning for <constant>SOCKET_EAGAIN</constant>
    and with an <constant>E_WARNING</constant> for the other errors. The error code can be retrieved with
    <function>socket_last_error</function> and passed to <function>socket_strerror</function>
    to get a textual explanation.
-  </para>
+  </simpara>
  </refsect1>
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    If <parameter>length</parameter> is negative, a <exceptionname>ValueError</exceptionname> is thrown.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
