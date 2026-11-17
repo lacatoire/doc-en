@@ -36,9 +36,13 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns an associate array containing all context options and parameters.
-  </para>
+  <simpara>
+   Returns an associative array with the <literal>options</literal> key, which
+   is always present, and the <literal>notification</literal> key, which is
+   only present when a user-space notification callback is set. A context, or
+   a stream with no context, that has no callback gives only
+   <literal>options</literal>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -61,6 +65,16 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       The <literal>notification</literal> callable is returned in its
+       normalized form: <literal>"STRLEN"</literal> is returned as
+       <literal>"strlen"</literal>, and <literal>"K::s"</literal> or
+       <literal>["K", "S"]</literal> as <literal>["K", "s"]</literal>. Previously,
+       the stored value was returned unchanged.
+      </entry>
+     </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
@@ -86,15 +100,16 @@
     <programlisting role="php">
 <![CDATA[
 <?php
+function stream_notification_callback() {}
+
 $ctx = stream_context_create();
 $params = array("notification" => "stream_notification_callback");
 stream_context_set_params($ctx, $params);
 
 var_dump(stream_context_get_params($ctx));
-?>
 ]]>
     </programlisting>
-    &example.outputs.similar;
+    &example.outputs;
     <screen>
 <![CDATA[
 array(2) {
