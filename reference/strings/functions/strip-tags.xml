@@ -15,8 +15,7 @@
   </methodsynopsis>
   <para>
    This function tries to return a string with all NULL bytes, HTML and PHP tags stripped
-   from a given <parameter>string</parameter>.  It uses the same tag stripping
-   state machine as the <function>fgetss</function> function.
+   from a given <parameter>string</parameter>.
   </para>
  </refsect1>
 
@@ -156,20 +155,17 @@ Test paragraph. Other text
   </warning>
   <warning>
    <para>
-    This function does not modify any attributes on the tags that you allow
-    using <parameter>allowed_tags</parameter>, including the
+    This function does not filter or validate the attributes of the tags that
+    you allow using <parameter>allowed_tags</parameter>, including the
     <literal>style</literal> and <literal>onmouseover</literal> attributes
     that a mischievous user may abuse when posting text that will be shown
-    to other users.
+    to other users. The text of an allowed tag may still be altered: nested
+    <literal>&lt;</literal> and <literal>&gt;</literal> characters and NULL
+    bytes inside it are removed, even within a quoted attribute value, so
+    <literal>&lt;b title="a&gt;b"&gt;</literal> becomes
+    <literal>&lt;b title="ab"&gt;</literal>.
    </para>
   </warning>
-  <note>
-   <para>
-    Tag names within the input HTML that are greater than 1023 bytes in length
-    will be treated as though they are invalid, regardless of the
-    <parameter>allowed_tags</parameter> parameter.
-   </para>
-  </note>
  </refsect1>
 
  <refsect1 role="seealso">
