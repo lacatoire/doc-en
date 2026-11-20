@@ -28,20 +28,15 @@
      <term><parameter>file</parameter></term>
      <listitem>
       <para>&gd.image.path;</para>
-      <note>
-       <para>
-        &null; is invalid if the <parameter>compressed</parameter> arguments is
-        not used.
-       </para>
-      </note>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>compressed</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Whether the BMP should be compressed with run-length encoding (RLE), or not.
-      </para>
+       This only applies to palette images; truecolor images are never compressed.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
