@@ -13,7 +13,8 @@
   </methodsynopsis>
   <simpara>
    Replaces the data associated with the watcher.
-   The watched events are left unchanged.
+   The watched events are left unchanged, and a one-shot watcher that has been
+   triggered is not re-armed.
   </simpara>
  </refsect1>
 
@@ -33,7 +34,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  &return.void;
+  <simpara>
+   &return.void;
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">

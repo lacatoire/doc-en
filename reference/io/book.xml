@@ -9,8 +9,8 @@
   <simpara>
    The classes of the <literal>Io</literal> namespace provide a polling
    <acronym>API</acronym>: a way to wait until one of many streams is ready
-   for reading or writing, using the most efficient mechanism of the
-   operating system.
+   for reading or writing, using the polling mechanism of the operating
+   system.
    It is intended for programs that handle many connections at once, such as
    servers and event loops.
   </simpara>

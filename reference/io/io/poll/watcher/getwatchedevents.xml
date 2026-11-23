@@ -16,7 +16,7 @@
    <methodname>Io\Poll\Context::add</methodname>,
    <methodname>Io\Poll\Watcher::modify</methodname> or
    <methodname>Io\Poll\Watcher::modifyEvents</methodname>.
-   They remain available after the watcher was removed.
+   They remain available after the watcher has been removed.
   </simpara>
  </refsect1>
 

@@ -31,7 +31,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  &return.void;
+  <simpara>
+   &return.void;
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">

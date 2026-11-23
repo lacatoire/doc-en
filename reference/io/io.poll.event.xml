@@ -35,6 +35,8 @@
       <enumitemdescription>
        Data is available for reading.
        For a listening socket, a connection is ready to be accepted.
+       This event is also reported when the end of the stream is reached, for
+       example when the peer closed a TCP connection.
       </enumitemdescription>
      </enumitem>
 
@@ -56,7 +58,8 @@
      <enumitem>
       <enumidentifier>HangUp</enumidentifier>
       <enumitemdescription>
-       The other end closed the connection.
+       The handle was hung up, for example because the other end of a pipe or
+       of a Unix domain socket pair was closed.
        This event is reported even if it was not requested.
       </enumitemdescription>
      </enumitem>
@@ -65,10 +68,8 @@
       <enumidentifier>ReadHangUp</enumidentifier>
       <enumitemdescription>
        The other end closed the connection or shut down its writing half.
-       This event is only reported if it was requested, and only by the
-       backends that can detect it:
-       <constant>Io\Poll\Backend::Epoll</constant> reports it,
-       <constant>Io\Poll\Backend::Poll</constant> does not.
+       This event is only reported if it was requested, and only by
+       <constant>Io\Poll\Backend::Epoll</constant>.
       </enumitemdescription>
      </enumitem>
 
@@ -122,7 +123,7 @@ fwrite($writer, 'pong');
 var_dump(count($context->wait(Duration::fromMilliseconds(10))));
 ]]>
     </programlisting>
-    &example.outputs;
+    &example.outputs.similar;
     <screen>
 <![CDATA[
 int(1)

@@ -9,7 +9,7 @@
    <simpara>
     The abstract base class of the exceptions thrown when an operation of the
     polling backend fails.
-    The exception code tells the reason of the failure and is one of the
+    The exception code tells the reason for the failure and is one of the
     constants of this class.
    </simpara>
   </section>
@@ -226,7 +226,7 @@
      <term><constant>Io\Poll\FailedPollOperationException::ERROR_NOSUPPORT</constant></term>
      <listitem>
       <simpara>
-       The operation is not supported by the backend.
+       The operation or the file descriptor is not supported by the backend.
       </simpara>
      </listitem>
     </varlistentry>
@@ -236,7 +236,7 @@
   <section xml:id="io-poll-failedpolloperationexception.examples">
    &reftitle.examples;
    <example xml:id="io-poll-failedpolloperationexception.examples.code">
-    <title>Inspecting the reason of a failed operation</title>
+    <title>Inspecting the reason for a failed operation</title>
     <programlisting role="php">
 <![CDATA[
 <?php

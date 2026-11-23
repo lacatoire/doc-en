@@ -20,7 +20,7 @@
   </simpara>
   <simpara>
    A watcher that uses <constant>Io\Poll\Event::OneShot</constant> stays
-   active after it was triggered.
+   active after it has been triggered.
   </simpara>
  </refsect1>
 

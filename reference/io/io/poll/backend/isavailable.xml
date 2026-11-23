@@ -12,8 +12,8 @@
    <void/>
   </methodsynopsis>
   <simpara>
-   Checks whether a <classname>Io\Poll\Context</classname> can be created with
-   this backend on the current platform.
+   Checks whether an <classname>Io\Poll\Context</classname> can be created
+   with this backend on the current platform.
   </simpara>
  </refsect1>
 

@@ -42,7 +42,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  &return.void;
+  <simpara>
+   &return.void;
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -60,8 +62,8 @@
    Throws an
    <exceptionname>Io\Poll\FailedWatcherModificationException</exceptionname>
    if the backend rejects the new events, for example when
-   <constant>Io\Poll\Event::EdgeTriggered</constant> is requested from a
-   backend that does not support it.
+   <constant>Io\Poll\Event::EdgeTriggered</constant> is requested from
+   <constant>Io\Poll\Backend::Poll</constant>.
   </simpara>
  </refsect1>
 

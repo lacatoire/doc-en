@@ -42,7 +42,7 @@
    &reftitle.seealso;
    <simplelist>
     <member><methodname>Io\Poll\Context::add</methodname></member>
-    <member><methodname>StreamPollHandle::isValid</methodname></member>
+    <member><classname>StreamPollHandle</classname></member>
    </simplelist>
   </section>
  </partintro>

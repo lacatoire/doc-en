@@ -12,7 +12,7 @@
    <void/>
   </methodsynopsis>
   <simpara>
-   Returns the backends a <classname>Io\Poll\Context</classname> can be
+   Returns the backends an <classname>Io\Poll\Context</classname> can be
    created with on the current platform.
   </simpara>
  </refsect1>

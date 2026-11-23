@@ -14,7 +14,8 @@
   <simpara>
    Creates a handle that allows <parameter>stream</parameter> to be watched by
    an <classname>Io\Poll\Context</classname>.
-   The handle keeps a reference to the stream, but does not keep it open.
+   The handle holds a reference to the stream, which therefore stays open
+   until <function>fclose</function> is called on it.
   </simpara>
  </refsect1>
 
