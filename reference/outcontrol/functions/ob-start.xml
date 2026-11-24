@@ -217,6 +217,20 @@
        warning bypasses the handler and is output directly.
       </entry>
      </row>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       The initial buffer size is now <literal>4096</literal> bytes when
+       <parameter>chunk_size</parameter> is <literal>1</literal>, and a
+       <parameter>chunk_size</parameter> that is already a multiple of
+       <literal>4096</literal> is no longer rounded up. Previously,
+       <literal>16384</literal> bytes were allocated for a
+       <parameter>chunk_size</parameter> of <literal>1</literal>, and
+       <literal>4096</literal> more bytes than a
+       <parameter>chunk_size</parameter> that was a multiple of
+       <literal>4096</literal>.
+      </entry>
+     </row>
     </tbody>
    </tgroup>
   </informaltable>
