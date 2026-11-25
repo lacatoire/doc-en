@@ -14,9 +14,9 @@
    <methodparam><type>string</type><parameter>link</parameter></methodparam>
   </methodsynopsis>
   <para>
-   <function>symlink</function> creates a symbolic link to the existing
+   <function>symlink</function> creates a symbolic link to
    <parameter>target</parameter> with the specified name
-   <parameter>link</parameter>.
+   <parameter>link</parameter>. The target does not need to exist.
   </para>
  </refsect1>
 
@@ -28,7 +28,9 @@
      <term><parameter>target</parameter></term>
      <listitem>
       <para>
-       Target of the link.
+       Target of the link. It is stored as given: a relative target is
+       relative to the directory of <parameter>link</parameter>, not to the
+       current working directory.
       </para>
      </listitem>
     </varlistentry>
