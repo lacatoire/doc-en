@@ -299,6 +299,9 @@
           <entry><literal>p</literal></entry>
           <entry>
            The same as <literal>P</literal>, but returns <literal>Z</literal> instead of <literal>+00:00</literal>
+           for the <literal>UTC</literal> timezone and for a <literal>+00:00</literal> offset;
+           other timezones with a zero offset, such as <literal>Europe/Lisbon</literal> in winter,
+           still return <literal>+00:00</literal>
            (available as of PHP 8.0.0)
           </entry>
           <entry>Examples: <literal>Z</literal> or <literal>+02:00</literal></entry>
@@ -306,7 +309,7 @@
          <row>
           <entry><literal>T</literal></entry>
           <entry>Timezone abbreviation, if known; otherwise the GMT offset.</entry>
-          <entry>Examples: <literal>EST</literal>, <literal>MDT</literal>, <literal>+05</literal></entry>
+          <entry>Examples: <literal>EST</literal>, <literal>MDT</literal>, <literal>GMT+0500</literal></entry>
          </row>
          <row>
           <entry><literal>Z</literal></entry>
@@ -338,11 +341,10 @@
        </tgroup>
       </table>
      </para>
-     <para>
+     <simpara>
       Unrecognized characters in the format string will be printed
-      as-is.  The <literal>Z</literal> format will always return
-      <literal>0</literal> when using <function>gmdate</function>.
-     </para>
+      as-is.
+     </simpara>
      <note>
       <para>
        Since this function only accepts <type>int</type> timestamps the
@@ -394,46 +396,43 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>DateTimeInterface::format</function> example</title>
-    <para>&style.oop;</para>
-    <programlisting role="php">
+  <example>
+   <title><function>DateTimeInterface::format</function> example</title>
+   <simpara>&style.oop;</simpara>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $date = new DateTimeImmutable('2000-01-01');
 echo $date->format('Y-m-d H:i:s');
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen>
+   </programlisting>
+   &example.outputs;
+   <screen>
 <![CDATA[
 2000-01-01 00:00:00
 ]]>
-    </screen>
-    <para>&style.procedural;</para>
-    <programlisting role="php">
+   </screen>
+   <simpara>&style.procedural;</simpara>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $date = date_create('2000-01-01');
 echo date_format($date, 'Y-m-d H:i:s');
 ?>
 ]]>
-    </programlisting>
-    &example.outputs;
-    <screen>
+   </programlisting>
+   &example.outputs;
+   <screen>
 <![CDATA[
 2000-01-01 00:00:00
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
 
-  <para>
-   <example>
-    <title>More examples</title>
-    <programlisting role="php">
+  <example>
+   <title>More examples</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 // set the default timezone to use.
@@ -453,9 +452,8 @@ echo $date->format('l jS \o\f F Y h:i:s A'), "\n";
 echo $date->format(DateTimeInterface::RFC2822), "\n";
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
   <para>
    You can prevent a recognized character in the format string from being
    expanded by escaping it with a preceding backslash. If the character with
