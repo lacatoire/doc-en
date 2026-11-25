@@ -30,10 +30,15 @@
        <function>curl_setopt</function> function.
       </para>
       <note>
-       <para>
-        The <literal>file</literal> protocol is disabled by cURL if
-        <link linkend="ini.open-basedir">open_basedir</link> is set.
-       </para>
+       <simpara>
+        If <link linkend="ini.open-basedir">open_basedir</link> is set, PHP
+        removes the <literal>file</literal> protocol from
+        <constant>CURLOPT_PROTOCOLS</constant> each time
+        <constant>CURLOPT_URL</constant> is set, including with
+        <function>curl_setopt</function>. No error occurs until
+        <function>curl_exec</function>, which fails with
+        <constant>CURLE_UNSUPPORTED_PROTOCOL</constant>.
+       </simpara>
       </note>
      </listitem>
     </varlistentry>

@@ -37,7 +37,10 @@
    <literal>stdout</literal> and returns &true;, &return.falseforfailure;.
    However, if the <constant>CURLOPT_RETURNTRANSFER</constant>
    option is <link linkend="function.curl-setopt">set</link>, it will return
-   the result on success, &false; on failure.
+   the result on success, &false; on failure. The result is an empty
+   <type>string</type>, not &false;, if the response body is empty.
+   <literal>stdout</literal> is the PHP output, so the result can be captured
+   with <function>ob_start</function>.
   </simpara>
   <simpara>
    If <constant>CURLOPT_FILE</constant> or
