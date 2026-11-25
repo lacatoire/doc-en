@@ -136,6 +136,28 @@ if (($timestamp = strtotime($str)) === false) {
     </programlisting>
    </example>
   </para>
+  <example>
+   <title>A time zone in <parameter>datetime</parameter></title>
+   <programlisting role="php">
+<![CDATA[
+<?php
+date_default_timezone_set('Europe/Paris');
+$baseTimestamp = 1700000000;
+
+var_dump(strtotime('now UTC', $baseTimestamp) - $baseTimestamp);
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+int(3600)
+]]>
+   </screen>
+   <simpara>
+    The base timestamp is read in the default time zone, then its wall clock
+    time is placed in the time zone named in the string.
+   </simpara>
+  </example>
  </refsect1>
 
  <refsect1 role="notes">
