@@ -177,6 +177,15 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   An <constant>E_WARNING</constant> is emitted, and &false; is returned,
+   if <parameter>pattern</parameter> or <parameter>filename</parameter>
+   is 4096 bytes or longer.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
