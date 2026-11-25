@@ -292,7 +292,7 @@
      handler, this is the path where the files are created. See also
      <function>session_save_path</function>. 
     </simpara>
-    <para>
+    <simpara>
      There is an optional <literal>N</literal> argument to this directive that determines 
      the number of directory levels your session files will be spread
      around in.  For example, setting to <literal>'5;/tmp'</literal>
@@ -309,7 +309,7 @@
      <literal>session.save_path</literal> in  
      "quotes" because the separator (<literal>;</literal>) is
      also used for comments in &php.ini;.
-    </para>
+    </simpara>
     <para>
      The file storage module creates files using mode 600 by default.
      This default can be changed with the optional <literal>MODE</literal> argument:
@@ -318,12 +318,12 @@
      Setting <literal>MODE</literal> does not affect the process umask.
     </para>
     <warning>
-     <para>
+     <simpara>
       If this is set to a world-readable directory, such as
       <filename>/tmp</filename> (used when the directive is empty), other users on the
       server may be able to hijack sessions by getting the list of
       files in that directory.
-     </para>
+     </simpara>
     </warning>
     <caution>
      <para>
