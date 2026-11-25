@@ -48,16 +48,20 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a <type>SimpleXMLElement</type> or &null; on failure.
-  </para>
+   An <constant>E_WARNING</constant> is emitted and &null; is returned if the
+   type of <parameter>node</parameter> cannot be imported, for example an
+   attribute or a text node.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <classname>TypeError</classname> when passed a
-   non-XML or non-HTML <parameter>node</parameter>.
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>node</parameter>
+   is not a <classname>DOMNode</classname> or <classname>SimpleXMLElement</classname>
+   object.
   </simpara>
   <simpara>
    Throws a <exceptionname>TypeError</exceptionname> if <parameter>class_name</parameter>
@@ -80,14 +84,6 @@
       <entry>8.4.0</entry>
       <entry>
        Added support for <classname>Dom\Document</classname>.
-      </entry>
-     </row>
-     <row>
-      <entry>8.4.0</entry>
-      <entry>
-       This function now throws a <classname>TypeError</classname> instead of
-       a <classname>ValueError</classname> when passed a
-       non-XML or non-HTML <parameter>node</parameter>.
       </entry>
      </row>
     </tbody>

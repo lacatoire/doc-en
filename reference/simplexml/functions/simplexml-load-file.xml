@@ -103,6 +103,10 @@
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>options</parameter>
    does not fit in an <type>int</type>.
   </simpara>
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>class_name</parameter>
+   is not <classname>SimpleXMLElement</classname> or a class derived from it.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -116,6 +120,15 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       A <exceptionname>TypeError</exceptionname> is now thrown if
+       <parameter>class_name</parameter> is not <classname>SimpleXMLElement</classname>
+       or a class derived from it; previously, an <constant>E_WARNING</constant>
+       was emitted.
+      </entry>
+     </row>
      <row>
       <entry>8.0.0</entry>
       <entry>

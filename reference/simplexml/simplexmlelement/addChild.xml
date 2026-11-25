@@ -58,10 +58,44 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    The <literal>addChild</literal> method returns a <type>SimpleXMLElement</type>
    object representing the child added to the XML node on success; &null; on failure.
-  </para>
+   An <constant>E_WARNING</constant> is emitted if the current node is an
+   attribute or is not a permanent member of the XML tree.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>qualifiedName</parameter> is empty.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       A <exceptionname>ValueError</exceptionname> is now thrown if
+       <parameter>qualifiedName</parameter> is empty; previously, an
+       <constant>E_WARNING</constant> was emitted.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="examples">

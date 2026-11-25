@@ -369,16 +369,6 @@
    </simpara>
   </sect3>
 
-  <sect3 xml:id="migration84.incompatible.new-warnings-exceptions.simplexml">
-   <title>SimpleXML</title>
-
-   <simpara>
-    Calling <function>simplexml_import_dom</function> with a non-XML object
-    now throws a <exceptionname>TypeError</exceptionname> instead of a
-    <exceptionname>ValueError</exceptionname>.
-   </simpara>
-  </sect3>
-
   <sect3 xml:id="migration84.incompatible.new-warnings-exceptions.standard">
    <title>Standard</title>
 
