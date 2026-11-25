@@ -422,6 +422,16 @@ string(3) "foo"
     </para>
    </note>
 
+   <note>
+    <simpara>
+     As of PHP 8.5.0, using &null; as the <parameter>key</parameter> in
+     <literal>$array[key]</literal>, such as <literal>$array[null]</literal>,
+     is deprecated; an empty string should be used instead. The same
+     deprecation applies when <parameter>key</parameter> is &null; in a call
+     to <function>array_key_exists</function>.
+    </simpara>
+   </note>
+
    <example>
     <title>Array dereferencing</title>
     <programlisting role="php">
