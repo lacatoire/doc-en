@@ -3,7 +3,7 @@
 <refentry xml:id="function.mb-parse-str" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>mb_parse_str</refname>
-  <refpurpose>Parse GET/POST/COOKIE data and set global variable</refpurpose>
+  <refpurpose>Parse GET/POST/COOKIE data</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -13,14 +13,13 @@
    <methodparam><type>string</type><parameter>string</parameter></methodparam>
    <methodparam><type>array</type><parameter role="reference">result</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   Parses GET/POST/COOKIE data and
-   sets global variables. Since PHP does not provide raw POST/COOKIE
+  <simpara>
+   Parses GET/POST/COOKIE data. Since PHP does not provide raw POST/COOKIE
    data, it can only be used for GET data for now. It parses URL
    encoded data, detects encoding, converts coding to internal
-   encoding and set values to the <parameter>result</parameter> <type>array</type> or
-   global variables.
-  </para>
+   encoding and sets the values in the <parameter>result</parameter> <type>array</type>.
+   No global variables are registered.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -52,6 +51,11 @@
   <para>
    &return.success;
   </para>
+  <simpara>
+   Returns &false; if <parameter>string</parameter> is empty, or if the number of
+   input variables exceeds the <link linkend="ini.max-input-vars">max_input_vars</link>
+   limit, in which case an <constant>E_WARNING</constant> is also raised.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
