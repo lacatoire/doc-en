@@ -13,9 +13,10 @@
    <methodparam><type>array</type><parameter>haystack</parameter></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>strict</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   Searches for <parameter>needle</parameter> in <parameter>haystack</parameter>.
-  </para>
+  <simpara>
+   Searches for <parameter>needle</parameter> in <parameter>haystack</parameter> using loose comparison
+   unless <parameter>strict</parameter> is set.
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
@@ -55,6 +56,25 @@
        <parameter>needle</parameter> in the <parameter>haystack</parameter>,
        and objects must be the same instance.
       </para>
+      <note>
+       <simpara>
+        Prior to PHP 8.0.0, a non-numeric <type>string</type>
+        <parameter>needle</parameter> would loosely match a
+        <parameter>haystack</parameter> value of <literal>0</literal>, and
+        vice versa. As of PHP 8.0.0, the number is converted to a
+        <type>string</type> and the two are compared as strings, so only a
+        numeric <type>string</type> of the same value still matches.
+       </simpara>
+       <simpara>
+        Non-strict mode nonetheless uses
+        <link linkend="types.comparisions-loose">loose comparison</link>, so
+        values of different types can still compare as equal: &true; matches
+        any truthy <type>string</type>, and &false; matches both
+        <literal>""</literal> and <literal>"0"</literal>. Unless the types of
+        all values involved are known with certainty, always pass
+        <parameter>strict</parameter> to force an identity comparison.
+       </simpara>
+      </note>
      </listitem>
     </varlistentry>
    </variablelist>
