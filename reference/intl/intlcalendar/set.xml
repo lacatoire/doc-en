@@ -154,7 +154,6 @@
      </row>
     </thead>
     <tbody>
-     &return.type.true;
      <row>
       <entry>8.4.0</entry>
       <entry>
@@ -166,6 +165,7 @@
        the number of arguments passed.
       </entry>
      </row>
+     &return.type.true.83;
     </tbody>
    </tgroup>
   </informaltable>
