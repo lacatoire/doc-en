@@ -12,11 +12,28 @@
    <type>string</type><methodname>stripcslashes</methodname>
    <methodparam><type>string</type><parameter>string</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Returns a string with backslashes stripped off. Recognizes
-   C-like <literal>\n</literal>, <literal>\r</literal> ..., octal
-   and hexadecimal representation.
-  </para>
+   <literal>\n</literal>, <literal>\r</literal>, <literal>\a</literal>,
+   <literal>\t</literal>, <literal>\v</literal>, <literal>\b</literal>,
+   <literal>\f</literal> and <literal>\\</literal>, <literal>\x</literal>
+   followed by one or two hexadecimal digits, and a backslash followed by
+   one to three octal digits (the value is truncated to one byte, so
+   <literal>\400</literal> gives a NUL byte). Any other escaped character is
+   returned without its backslash, and a single backslash at the end of the
+   string is kept.
+  </simpara>
+  <warning>
+   <simpara>
+    This function is not a general inverse of <function>addcslashes</function>:
+    a character listed in <parameter>characters</parameter> is escaped as a
+    backslash followed by the character itself, which
+    <function>stripcslashes</function> may read as an escape sequence. For
+    example, <literal>addcslashes('a', 'a')</literal> gives
+    <literal>\a</literal>, which <function>stripcslashes</function> turns into
+    the BEL character.
+   </simpara>
+  </warning>
  </refsect1>
 
  <refsect1 role="parameters">
