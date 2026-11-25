@@ -114,7 +114,7 @@ string(1) "@"
    <listitem>
     <simpara>
      <parameter>session.sid_length</parameter> - defines the length of the
-     session ID, defaulting to 32 characters for backwards compatibility)
+     session ID, defaulting to 32 characters for backwards compatibility
     </simpara>
    </listitem>
    <listitem>

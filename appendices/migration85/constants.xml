@@ -59,19 +59,6 @@
   </simplelist>
  </sect2>
 
- <sect2 xml:id="migration85.constants.intl">
-  <title>Intl</title>
-
-  <simplelist>
-   <member>
-    <constant>DECIMAL_COMPACT_SHORT</constant>
-   </member>
-   <member>
-    <constant>DECIMAL_COMPACT_LONG</constant>
-   </member>
-  </simplelist>
- </sect2>
-
  <sect2 xml:id="migration85.constants.openssl">
   <title>OpenSSL</title>
 
