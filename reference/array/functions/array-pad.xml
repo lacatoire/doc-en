@@ -42,18 +42,19 @@
     <varlistentry>
      <term><parameter>length</parameter></term>
      <listitem>
-      <para>
-       New size of the array.
-      </para>
+      <simpara>
+       New size of the array, or the negative of that size to pad on the
+       left instead of the right.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>value</parameter></term>
      <listitem>
-      <para>
-       Value to pad if <parameter>array</parameter> is less than
-       <parameter>length</parameter>.
-      </para>
+      <simpara>
+       Value to pad if <parameter>array</parameter> is less than the
+       absolute value of <parameter>length</parameter>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -62,15 +63,18 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a copy of the <parameter>array</parameter> padded to size specified
    by <parameter>length</parameter> with value 
    <parameter>value</parameter>. If <parameter>length</parameter> is 
    positive then the array is padded on the right, if it's negative then 
    on the left. If the absolute value of <parameter>length</parameter> is less
    than or equal to the length of the <parameter>array</parameter> then no
-   padding takes place.
-  </para>
+   padding takes place. When padding does take place, integer keys are
+   renumbered from <literal>0</literal>; string keys are preserved. When no
+   padding takes place, <parameter>array</parameter> is returned as is,
+   keys included.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -90,6 +94,15 @@
        <entry>
         Prior to 8.3, only 1048576 elements could be added at once.
         Now it is limited only by the maximum size of an array instead.
+       </entry>
+      </row>
+      <row>
+       <entry>8.0.0</entry>
+       <entry>
+        <parameter>length</parameter> being out of range now throws a
+        <exceptionname>ValueError</exceptionname>; previously, an error of
+        level <constant>E_WARNING</constant> was raised and the function
+        returned &false;.
        </entry>
       </row>
      </tbody>
