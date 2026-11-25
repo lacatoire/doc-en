@@ -34,6 +34,21 @@
       </para>
      </listitem>
     </varlistentry>
+    <varlistentry xml:id="context.params.options">
+     <term>
+      <parameter>options</parameter>
+      <type>array</type>
+     </term>
+     <listitem>
+      <simpara>
+       Context options, in the format
+       <literal>$arr['wrapper']['option'] = $value</literal>. When passed to
+       <function>stream_context_create</function>, they are merged with the
+       <parameter>options</parameter> argument per option, and the values of
+       this parameter win.
+      </simpara>
+     </listitem>
+    </varlistentry>
    </variablelist>
   </para>
  </refsect1>

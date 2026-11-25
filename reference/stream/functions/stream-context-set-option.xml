@@ -9,9 +9,9 @@
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
-   <type>bool</type><methodname>stream_context_set_option</methodname>
-   <methodparam><type>resource</type><parameter>stream_or_context</parameter></methodparam>
-   <methodparam><type>string</type><parameter>wrapper</parameter></methodparam>
+   <type>true</type><methodname>stream_context_set_option</methodname>
+   <methodparam><type>resource</type><parameter>context</parameter></methodparam>
+   <methodparam><type>string</type><parameter>wrapper_or_options</parameter></methodparam>
    <methodparam><type>string</type><parameter>option_name</parameter></methodparam>
    <methodparam><type>mixed</type><parameter>value</parameter></methodparam>
   </methodsynopsis>
@@ -19,14 +19,20 @@
    The following alternative signature is deprecated as of PHP 8.4.0,
    use <function>stream_context_set_options</function> instead.
    <methodsynopsis>
-    <type>bool</type><methodname>stream_context_set_option</methodname>
-    <methodparam><type>resource</type><parameter>stream_or_context</parameter></methodparam>
-    <methodparam><type>array</type><parameter>options</parameter></methodparam>
+    <type>true</type><methodname>stream_context_set_option</methodname>
+    <methodparam><type>resource</type><parameter>context</parameter></methodparam>
+    <methodparam><type>array</type><parameter>wrapper_or_options</parameter></methodparam>
    </methodsynopsis>
   </para>
   <simpara>
     Sets an option on the specified context.  <parameter>value</parameter>
-    is set to <parameter>option</parameter> for <parameter>wrapper</parameter>
+    is set to <parameter>option_name</parameter> for <parameter>wrapper_or_options</parameter>
+  </simpara>
+  <simpara>
+   On a stream that already carries the default context, such as a socket
+   opened without a context, the option is written into the default context,
+   and outlives the stream. Any other stream, such as a plain file, gets a
+   private context and leaves the default one untouched.
   </simpara>
  </refsect1>
 
@@ -35,7 +41,7 @@
   <para>
    <variablelist>
     <varlistentry>
-     <term><parameter>stream_or_context</parameter></term>
+     <term><parameter>context</parameter></term>
      <listitem>
       <para>
        The stream or context resource to apply the options to.
@@ -43,13 +49,24 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><parameter>wrapper</parameter></term>
+     <term><parameter>wrapper_or_options</parameter></term>
      <listitem>
       <para>
        The name of the wrapper (which may be different than the protocol).
        Refer to <link linkend="context">context options and parameters</link>
        for a listing of stream options.
      </para>
+     <simpara>
+      With the deprecated alternative signature, an array of the options to
+      set for <parameter>context</parameter> instead.
+     </simpara>
+      <note>
+       <simpara>
+        The array must be an associative
+        array of associative arrays in the format
+        <literal>$arr['wrapper']['option'] = $value</literal>.
+       </simpara>
+      </note>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -68,34 +85,15 @@
       </para>
      </listitem>
     </varlistentry>
-    <varlistentry>
-     <term><parameter>options</parameter></term>
-     <listitem>
-      <para>
-       The options to set for <parameter>stream_or_context</parameter>.
-      </para>
-      <note>
-       <para>
-        <parameter>options</parameter> must be an associative
-        array of associative arrays in the format
-        <literal>$arr['wrapper']['option'] = $value</literal>.
-       </para>
-       <para>
-       Refer to <link linkend="context">context options and parameters</link>
-       for a listing of stream options.
-       </para>
-      </note>
-     </listitem>
-    </varlistentry>
    </variablelist>
   </para>
  </refsect1><!-- }}} -->
  
  <refsect1 role="returnvalues"><!-- {{{ -->
   &reftitle.returnvalues;
-  <para>
-   &return.success;
-  </para>
+  <simpara>
+   &return.true.always;
+  </simpara>
  </refsect1><!-- }}} -->
 
  <refsect1 role="errors"><!-- {{{ -->
@@ -130,6 +128,12 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       The return type is &true; now; previously, it was <type>bool</type>.
+      </entry>
+     </row>
      <row>
       <entry>8.4.0</entry>
       <entry>

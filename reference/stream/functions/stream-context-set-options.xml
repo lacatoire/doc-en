@@ -12,9 +12,18 @@
    <methodparam><type>resource</type><parameter>context</parameter></methodparam>
    <methodparam><type>array</type><parameter>options</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   Sets options on the specified context.
-  </para>
+  <simpara>
+   Sets options on the specified context. The options are merged into the
+   existing ones per option name: a value that is replaced is overwritten as a
+   whole, &null; is stored rather than removing the option, and
+   <literal>[]</literal> changes nothing.
+  </simpara>
+  <simpara>
+   On a stream that already carries the default context, such as a socket
+   opened without a context, the options are written into the default context,
+   and outlive the stream. Any other stream, such as a plain file, gets a
+   private context and leaves the default one untouched.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -54,9 +63,31 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   &return.success;
-  </para>
+  <simpara>
+   &return.true.always;
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       The return type is &true; now; previously, it was <type>bool</type>.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="errors">

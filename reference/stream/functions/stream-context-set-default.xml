@@ -18,6 +18,14 @@
    are called without a context parameter. Uses the same syntax as
    <function>stream_context_create</function>.
   </simpara>
+  <simpara>
+   The options are merged into the existing default context, per option name:
+   a value that is replaced is overwritten as a whole, <literal>[]</literal>
+   changes nothing, and an option can only be removed from the default context
+   by overwriting it with &null;. A context passed explicitly replaces the
+   default context completely, and <function>stream_context_create</function>
+   does not start from the default options.
+  </simpara>
  </refsect1>
  
  <refsect1 role="parameters"><!-- {{{ -->
