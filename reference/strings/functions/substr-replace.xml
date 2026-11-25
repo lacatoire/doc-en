@@ -98,6 +98,15 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>string</parameter>
+   is a string and <parameter>offset</parameter> or <parameter>length</parameter>
+   is an array.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <para>
@@ -110,6 +119,16 @@
       </row>
      </thead>
      <tbody>
+      <row>
+       <entry>8.0.0</entry>
+       <entry>
+        Now throws a <exceptionname>TypeError</exceptionname> if
+        <parameter>string</parameter> is a string and <parameter>offset</parameter>
+        or <parameter>length</parameter> is an array. Previously, an
+        <constant>E_WARNING</constant> was emitted and <parameter>string</parameter>
+        was returned unchanged.
+       </entry>
+      </row>
       <row>
        <entry>8.0.0</entry>
        <entry>
