@@ -3,7 +3,7 @@
 <refentry xml:id="function.apache-get-version" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>apache_get_version</refname>
-  <refpurpose>Fetch Apache version</refpurpose>
+  <refpurpose>Fetch the Apache server identification string</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -12,9 +12,16 @@
    <type class="union"><type>string</type><type>false</type></type><methodname>apache_get_version</methodname>
    <void/>
   </methodsynopsis>
-  <para>
-   Fetch the Apache version.
-  </para>
+  <simpara>
+   Fetch the server identification string sent in the
+   <literal>Server</literal> response header, the same string
+   available in
+   <link linkend="reserved.variables.server"><varname>$_SERVER['SERVER_SOFTWARE']</varname></link>.
+   Its content is controlled by the httpd
+   <literal>ServerTokens</literal> directive and may or may not
+   include the Apache version, or PHP's own version if
+   <link linkend="ini.expose-php">expose_php</link> is enabled.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -24,9 +31,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the Apache version on success&return.falseforfailure;.
-  </para>
+  <simpara>
+   Returns the server identification string on success
+   &return.falseforfailure;. The version, if present at all, may be
+   truncated by <literal>ServerTokens</literal>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
