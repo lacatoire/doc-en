@@ -592,7 +592,7 @@
     </term>
     <listitem>
      <simpara>
-      The maximum number of files that can be open at once in a process.
+      The maximum number of files that a process can have open at any time.
       Used as a <parameter>name</parameter> value for <function>posix_sysconf</function>.
       Available as of PHP 8.5.0.
      </simpara>
