@@ -27,6 +27,14 @@
   <para>
    Returns the current script's inode as an integer, or &false; on error.
   </para>
+  <note>
+   <simpara>
+    The inode number is only guaranteed to be unique on a single filesystem,
+    and the device is not returned. Use <function>stat</function> to obtain
+    both the <literal>dev</literal> and <literal>ino</literal> values when
+    checking whether two paths refer to the same file.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="seealso">

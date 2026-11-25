@@ -67,6 +67,16 @@ if (getmyinode() == fileinode($filename)) {
  <refsect1 role="notes">
   &reftitle.notes;
   &note.clearstatcache;
+  <note>
+   <simpara>
+    An inode number is only guaranteed to be unique on a single filesystem.
+    Two files on different filesystems, such as separate mounts, can have the
+    same inode number, so comparing inode numbers alone is not a reliable way
+    to check whether two paths refer to the same file. Compare the
+    <literal>dev</literal> and <literal>ino</literal> values returned by
+    <function>stat</function> instead.
+   </simpara>
+  </note>
   &tip.fopen-wrapper.stat;
  </refsect1>
 
