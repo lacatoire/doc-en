@@ -27,14 +27,18 @@
      <term><parameter>n</parameter></term>
      <listitem>
       &gmp.parameter;
+      <simpara>
+       May be negative.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>k</parameter></term>
      <listitem>
-      <para>
+      <simpara>
 
-      </para>
+       The number of elements to choose. Must not be negative.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -43,9 +47,12 @@
 
   <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the binomial coefficient C(n, k).
-  </para>
+  <simpara>
+   Returns the binomial coefficient C(n, k) as a <classname>GMP</classname> number.
+   If <parameter>n</parameter> is negative, the result is computed using the
+   identity C(n, k) = (-1)<superscript>k</superscript> * C(k - n - 1, k),
+   so it is negative when <parameter>k</parameter> is odd.
+  </simpara>
  </refsect1>
  
  <refsect1 role="errors">
@@ -53,6 +60,30 @@
   <para>
    Throws <classname>ValueError</classname> if <parameter>k</parameter> is negative.
    Prior to PHP 8.0.0, <constant>E_WARNING</constant> was issued instead.
+  </para>
+ </refsect1>
+
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <para>
+   <example xml:id="function.gmp-binomial.example.basic">
+    <title><function>gmp_binomial</function> example</title>
+    <programlisting role="php">
+<![CDATA[
+<?php
+echo gmp_binomial(10, 5), "\n";
+echo gmp_binomial(-10, 3), "\n";
+?>
+]]>
+    </programlisting>
+    &example.outputs;
+    <screen>
+<![CDATA[
+252
+-220
+]]>
+    </screen>
+   </example>
   </para>
  </refsect1>
 
@@ -76,6 +107,15 @@
     </tbody>
    </tgroup>
   </informaltable>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>gmp_fact</function></member>
+   </simplelist>
+  </para>
  </refsect1>
 
 </refentry>
