@@ -65,11 +65,14 @@
    cookies are accepted is to set one with <function>setcookie</function>,
    reload, and check for the value.
   </para>
-  <para>
+  <simpara>
     Returns &false; when no information can be retrieved, such as when the
     <link linkend="ini.browscap">browscap</link> configuration setting in 
-    &php.ini; has not been set.
-  </para>
+    &php.ini; has not been set, or when <parameter>user_agent</parameter> is
+    &null; and the <literal>HTTP_USER_AGENT</literal> entry of
+    <varname>$_SERVER</varname> is not set. In both cases, an
+    <constant>E_WARNING</constant> is also emitted.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
