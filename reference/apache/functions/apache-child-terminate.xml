@@ -21,9 +21,11 @@
    been run as memory will usually only be freed internally but not
    given back to the operating system. 
   </para>
-  <para>
-   Works in the Apache, and FastCGI webservers.
-  </para>
+  <simpara>
+   This function is provided by the CGI <acronym>SAPI</acronym> only, where it
+   has an effect when running in FastCGI mode. It is not available with the
+   Apache 2 handler <acronym>SAPI</acronym>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
