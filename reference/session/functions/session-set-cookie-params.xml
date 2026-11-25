@@ -35,7 +35,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>lifetime_or_options</parameter></term>
@@ -53,10 +52,11 @@
        The values have the same meaning as described for the parameters with the
        same name. The value of the <literal>samesite</literal> element should be
        either <literal>Lax</literal> or <literal>Strict</literal>.
-       If any of the allowed options are not given, their default values are the
-       same as the default values of the explicit parameters. If the
-       <literal>samesite</literal> element is omitted, no SameSite cookie
-       attribute is set.
+       A key which is not given leaves the current value unchanged, including
+       <literal>samesite</literal>. A key given with the value &null; resets
+       its field to the empty or &false; value.
+       The <literal>partitioned</literal> entry requires <literal>secure</literal>
+       to be &true;, otherwise <function>session_start</function> fails.
       </simpara>
      </listitem>
     </varlistentry>
@@ -100,7 +100,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -108,6 +107,27 @@
   <para>
    &return.success;
   </para>
+  <simpara>
+   &false; is returned, with an <constant>E_WARNING</constant>, if
+   <link linkend="ini.session.use-cookies">session.use_cookies</link> is disabled,
+   if a session is active, or if headers were already sent.
+   &false; is also returned, without a message, if <literal>lifetime</literal>
+   is negative or if an ini setting cannot be changed; the values processed
+   before the failing one remain applied.
+   An unrecognized key in the array raises an <constant>E_WARNING</constant>
+   and is ignored.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>lifetime_or_options</parameter> is an &array; and
+   <parameter>path</parameter>, <parameter>domain</parameter>,
+   <parameter>secure</parameter> or <parameter>httponly</parameter> is not &null;,
+   or if the array has no valid key.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -134,6 +154,17 @@
        <entry>
         <parameter>path</parameter>, <parameter>domain</parameter>,
         <parameter>secure</parameter> and <parameter>httponly</parameter> are nullable now.
+        &null; leaves the current value unchanged; previously it set
+        <parameter>path</parameter> and <parameter>domain</parameter> to an empty string.
+       </entry>
+      </row>
+      <row>
+       <entry>8.0.0</entry>
+       <entry>
+        A <exceptionname>ValueError</exceptionname> is now thrown instead of
+        emitting an <constant>E_WARNING</constant> and returning &false;
+        when <parameter>lifetime_or_options</parameter> is an &array; and
+        another argument is not &null;, or when the array has no valid key.
        </entry>
       </row>
       <row>
@@ -158,7 +189,6 @@
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member>
      <link linkend="ini.session.cookie-lifetime">session.cookie_lifetime</link>
@@ -183,7 +213,6 @@
     </member>
     <member><function>session_get_cookie_params</function></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
