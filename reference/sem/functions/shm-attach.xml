@@ -37,7 +37,8 @@
     <term><parameter>key</parameter></term>
     <listitem>
      <simpara>
-      A numeric shared memory segment ID
+      The System V IPC key of the shared memory segment, as given to
+      <literal>shmget()</literal>; <function>ftok</function> can generate one.
      </simpara>
     </listitem>
    </varlistentry>
@@ -45,9 +46,11 @@
     <term><parameter>size</parameter></term>
     <listitem>
      <simpara>
-      The memory size. If not provided, default to the
-      <literal>sysvshm.init_mem</literal> in the &php.ini;, otherwise 10000
-      bytes.
+      The memory size of the whole segment, which includes a 40-byte header
+      (on 64-bit platforms): the data area is smaller by that size, and a size
+      below it fails when the segment does not exist yet. If not provided,
+      default to the <literal>sysvshm.init_mem</literal> in the &php.ini;,
+      otherwise 10000 bytes.
      </simpara>
     </listitem>
    </varlistentry>
@@ -55,7 +58,8 @@
     <term><parameter>permissions</parameter></term>
     <listitem>
      <simpara>
-      The optional permission bits. Default to 0666.
+      The optional permission bits, used only when the segment is created.
+      Default to 0666, which lets every local user read and write the segment.
      </simpara>
     </listitem>
    </varlistentry>
@@ -66,6 +70,24 @@
   &reftitle.returnvalues;
   <simpara>
    Returns a <classname>SysvSharedMemory</classname> instance on success, &return.falseforfailure;.
+   An <constant>E_WARNING</constant> is emitted on failure, for example if
+   <parameter>size</parameter> is too small to create the segment, if the system
+   cannot allocate it, or if another process created it between the lookup and
+   the creation.
+  </simpara>
+  <simpara>
+   The segment is not removed when the object is destroyed or when the process
+   ends: use <function>shm_remove</function>. If the segment already exists but
+   was not created by this function, its first bytes are overwritten with the
+   header of the extension.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>size</parameter> is lower than <literal>1</literal>.
   </simpara>
  </refsect1>
 
@@ -80,6 +102,14 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       A <exceptionname>ValueError</exceptionname> is now thrown if
+       <parameter>size</parameter> is lower than <literal>1</literal>;
+       previously, an <constant>E_WARNING</constant> was emitted.
+      </entry>
+     </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
@@ -102,6 +132,7 @@
   &reftitle.seealso;
   <simplelist>
    <member><function>shm_detach</function></member>
+   <member><function>shm_remove</function></member>
    <member><function>ftok</function></member>
   </simplelist>
  </refsect1>
