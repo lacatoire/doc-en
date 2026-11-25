@@ -191,22 +191,22 @@ class Connection
    <void/>
   </methodsynopsis>
 
-  <para>
+  <simpara>
    <function>serialize</function> checks if the class has a function with
    the magic name <link linkend="object.sleep">__sleep()</link>. If so, that function is
    executed prior to any serialization. It can clean up the object
    and is supposed to return an array with the names of all variables
    of that object that should be serialized.
    If the method doesn't return anything then &null; is serialized and
-   <constant>E_NOTICE</constant> is issued.
-  </para>
+   <constant>E_WARNING</constant> is issued.
+  </simpara>
   <note>
-   <para>
+   <simpara>
     It is not possible for <link linkend="object.sleep">__sleep()</link> to return names of
     private properties in parent classes. Doing this will result in an
-    <constant>E_NOTICE</constant> level error.
+    <constant>E_WARNING</constant> level error.
     Use <link linkend="object.serialize">__serialize()</link> instead.
-   </para>
+   </simpara>
   </note>
   <note>
    <para>
