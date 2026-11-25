@@ -84,30 +84,29 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>Unfiltered <function>get_resources</function></title>
-    <programlisting role="php">
+  <example>
+   <title>Unfiltered <function>get_resources</function></title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $fp = tmpfile();
 var_dump(get_resources());
 ?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 array(1) {
   [1]=>
   resource(1) of type (stream)
 }
 ]]>
-    </screen>
-   </example>
-   <example>
-    <title>Filtered <function>get_resources</function></title>
-    <programlisting role="php">
+   </screen>
+  </example>
+  <example>
+   <title>Filtered <function>get_resources</function></title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $fp = tmpfile();
@@ -115,9 +114,9 @@ var_dump(get_resources('stream'));
 var_dump(get_resources('curl'));
 ?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 array(1) {
   [1]=>
@@ -126,9 +125,8 @@ array(1) {
 array(0) {
 }
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
