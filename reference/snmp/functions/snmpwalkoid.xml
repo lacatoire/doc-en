@@ -24,9 +24,8 @@
   </simpara>
 
   <simpara>
-   The existence of <function>snmpwalkoid</function> and
-   <function>snmpwalk</function> has historical reasons.  Both
-   functions are provided for backward compatibility.
+   <function>snmpwalkoid</function> is an alias of
+   <function>snmprealwalk</function>, provided for backward compatibility.
    Use <function>snmprealwalk</function> instead.
   </simpara>
  </refsect1>
