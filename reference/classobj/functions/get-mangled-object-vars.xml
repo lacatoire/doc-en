@@ -89,14 +89,14 @@ var_dump(get_mangled_object_vars($arrayObject));
     <screen>
 <![CDATA[
 array(6) {
-  ["Bprivate"]=>
-  int(4)
   ["public"]=>
   int(1)
   ["*protected"]=>
   int(2)
   ["Aprivate"]=>
   int(3)
+  ["Bprivate"]=>
+  int(4)
   ["dynamic"]=>
   int(5)
   [6]=>
@@ -121,6 +121,7 @@ array(2) {
    <simplelist>
     <member><function>get_class_vars</function></member>
     <member><function>get_object_vars</function></member>
+    <member><function>get_class</function></member>
    </simplelist>
   </para>
  </refsect1>
