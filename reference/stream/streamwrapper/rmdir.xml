@@ -41,9 +41,12 @@
     <varlistentry>
      <term><parameter>options</parameter></term>
      <listitem>
-      <para>
-       A bitwise mask of values, such as <constant>STREAM_MKDIR_RECURSIVE</constant>.
-      </para>
+      <simpara>
+       Always <constant>STREAM_REPORT_ERRORS</constant> (<literal>8</literal>),
+       which indicates that the wrapper is responsible for reporting errors.
+       Unlike <methodname>streamWrapper::mkdir</methodname>, no other flags
+       are passed.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
