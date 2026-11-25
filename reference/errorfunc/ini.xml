@@ -177,10 +177,10 @@
       <function>error_reporting</function> function. See also the
       <link linkend="ini.display-errors">display_errors</link> directive.
      </para>
-     <para>
+     <simpara>
       The default value is <constant>E_ALL</constant>.
-     </para>
-     <para>
+     </simpara>
+     <simpara>
       Prior to PHP 8.0.0, the default value was:
       <userinput><constant>E_ALL</constant> &amp;
        ~<constant>E_NOTICE</constant> &amp;
@@ -189,10 +189,10 @@
       This means diagnostics of level <constant>E_NOTICE</constant>,
       <constant>E_STRICT</constant> and <constant>E_DEPRECATED</constant>
       were not shown.
-     </para>
+     </simpara>
      <note>
       <title>PHP Constants outside of PHP</title>
-      <para>
+      <simpara>
        Using PHP Constants outside of PHP, like in <filename>httpd.conf</filename>,
        will have no useful meaning so in such cases the <type>int</type> values 
        are required. And since error levels will be added over time, the maximum
@@ -201,7 +201,7 @@
        fields from now and well into the future, a numeric value like
        <literal>2147483647</literal> (includes all errors, not just
        <constant>E_ALL</constant>).
-      </para>
+      </simpara>
      </note>
     </listitem>
    </varlistentry>
@@ -262,11 +262,11 @@
       </simpara>
      </note>
      <note>
-      <para>
+      <simpara>
        Although display_errors may be set at runtime (with <function>ini_set</function>),
        it won't have any effect if the script has fatal errors.
        This is because the desired runtime action does not get executed.
-      </para>
+      </simpara>
      </note>
     </listitem>
    </varlistentry>
@@ -277,11 +277,11 @@
      <type>bool</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Even when display_errors is on, errors that occur during PHP's startup
       sequence are not displayed. It's strongly recommended to keep
       display_startup_errors off, except for debugging.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -291,16 +291,16 @@
      <type>bool</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Tells whether script error messages should be logged to the
       server's error log or <link linkend="ini.error-log">error_log</link>.
       This option is thus server-specific.
-     </para>
+     </simpara>
      <note>
-      <para>
+      <simpara>
        You're strongly advised to use error logging in place of
        error displaying on production web sites.
-      </para>
+      </simpara>
      </note>
     </listitem>
    </varlistentry>
@@ -311,7 +311,7 @@
      <type>int</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Set the maximum length of log_errors in bytes. In
       <link linkend="ini.error-log">error_log</link> information about
       the source is added. The default is 1024 and 0 allows to not apply
@@ -319,7 +319,7 @@
       This length is applied to logged errors, displayed errors and also to
       <varname>$php_errormsg</varname>, but not to explicitly called functions
       such as <function>error_log</function>.
-     </para>
+     </simpara>
 
      &ini.shorthandbytes;
 
@@ -332,12 +332,12 @@
      <type>bool</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Do not log repeated messages. Repeated errors must occur in the same
       file on the same line unless
       <link linkend="ini.ignore-repeated-source">ignore_repeated_source</link>
       is set true.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -347,11 +347,11 @@
      <type>bool</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Ignore source of message when ignoring repeated messages. When this setting
       is On you will not log errors with repeated messages from different files or
       sourcelines.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -381,10 +381,10 @@
      <type>bool</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       If enabled, the last error message will always be present in the
       variable <varname>$php_errormsg</varname>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -394,17 +394,17 @@
      <type>bool</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       If enabled, error messages will include HTML tags. The format for HTML
       errors produces clickable messages that direct the user to a page
       describing the error or function in causing the error. These references
       are affected by
       <link linkend="ini.docref-root">docref_root</link> and
       <link linkend="ini.docref-ext">docref_ext</link>.
-     </para>
-     <para>
+     </simpara>
+     <simpara>
       If disabled, error message will be solely plain text.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -414,10 +414,10 @@
      <type>bool</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       If enabled, turns off normal error reporting and formats errors as
       XML-RPC error message.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -427,9 +427,9 @@
      <type>int</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Used as the value of the XML-RPC faultCode element.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -439,7 +439,7 @@
      <type>string</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       The new error format contains a reference to a page describing the error or 
       function causing the error. In case of manual pages you can download the 
       manual in your language and set this ini directive to the URL of your local
@@ -451,17 +451,17 @@
       <userinput>docref_root=http://manual/en/</userinput> or
       <userinput>docref_root="http://landonize.it/?how=url&amp;theme=classic&amp;filter=Landon
       &amp;url=http%3A%2F%2Fwww.php.net%2F"</userinput>
-     </para>
-     <para>
+     </simpara>
+     <simpara>
       Most of the time you want the docref_root value to end with a slash <literal>"/"</literal>.
       But see the second example above which does not have nor need it.
-     </para>
+     </simpara>
      <note>
-      <para>
+      <simpara>
        This is a feature to support your development since it makes it easy to 
        lookup a function description. However it should never be used on 
        production systems (e.g. systems connected to the internet).
-      </para>
+      </simpara>
      </note>
     </listitem>
    </varlistentry>
@@ -472,13 +472,13 @@
      <type>string</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       See <link linkend="ini.docref-root">docref_root</link>.
-     </para>
+     </simpara>
      <note>
-      <para>
+      <simpara>
        The value of docref_ext must begin with a dot <literal>"."</literal>.
-      </para>
+      </simpara>
      </note>
     </listitem>
    </varlistentry>
@@ -489,11 +489,11 @@
      <type>string</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       String to output before an error message.
       Only used when the error message is displayed on screen. The main purpose
       is to be able to prepend additional HTML markup to the error message.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -503,11 +503,11 @@
      <type>string</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       String to output after an error message.
       Only used when the error message is displayed on screen. The main purpose
       is to be able to append additional HTML markup to the error message.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -517,7 +517,7 @@
      <type>string</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Name of the file where script errors should be logged. The file should
       be writable by the web server's user. If the
       special value <literal>syslog</literal> is used, the errors
@@ -528,7 +528,7 @@
       For example, it is an error log in Apache or <literal>stderr</literal>
       in CLI.
       See also <function>error_log</function>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -538,10 +538,10 @@
      <type>int</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       File mode for the file described set in
       <link linkend="ini.error-log">error_log</link>.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -551,10 +551,11 @@
      <type>string</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Specifies what type of program is logging the message.
-      Only effective if <link linkend="ini.error-log">error_log</link> is set to "syslog".
-     </para>
+      Used when <link linkend="ini.error-log">error_log</link> is set to "syslog",
+      and by <function>syslog</function> when <function>openlog</function> was not called.
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -571,12 +572,12 @@
       <itemizedlist>
        <listitem>
         <simpara><literal>all</literal> – the logged string will be split 
-         at newline characters, and all characters are passed unaltered
+         at newline characters, and all characters are passed unaltered, except DEL (<literal>0x7f</literal>), which is escaped
         </simpara>
        </listitem>
        <listitem>
         <simpara><literal>ascii</literal> – the logged string will be split 
-         at newline characters, and any non-printable 7-bit ASCII characters will be escaped
+         at newline characters, and any character that is not printable 7-bit ASCII, including bytes from <literal>0x80</literal> up, will be escaped
         </simpara>
        </listitem>
        <listitem>
@@ -593,9 +594,9 @@
       This setting will affect logging via <link linkend="ini.error-log">error_log</link> set to "syslog" and calls to <function>syslog</function>.
      </para>
      <note>
-      <para>
+      <simpara>
        The <literal>raw</literal> filter type is available as of PHP 7.3.8 and PHP 7.4.0.
-      </para>
+      </simpara>
      </note>
      <simpara>
       This directive is not supported on Windows.
@@ -609,10 +610,11 @@
      <type>string</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Specifies the ident string which is prepended to every message.
-      Only effective if <link linkend="ini.error-log">error_log</link> is set to "syslog".
-     </para>
+      Used when <link linkend="ini.error-log">error_log</link> is set to "syslog",
+      and by <function>syslog</function> when <function>openlog</function> was not called.
+     </simpara>
     </listitem>
    </varlistentry>
 
