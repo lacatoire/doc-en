@@ -27,18 +27,18 @@
      <term><parameter>num1</parameter></term>
      <listitem>
       &gmp.parameter; 
-      <para>
-       It should be positive.
-      </para>
+      <simpara>
+       It should be non-negative.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>num2</parameter></term>
      <listitem>
       &gmp.parameter; 
-      <para>
-       It should be positive.
-      </para>
+      <simpara>
+       It should be non-negative.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -47,9 +47,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    The hamming distance between <parameter>num1</parameter> and <parameter>num2</parameter>, as an <type>int</type>.
-  </para>
+   If the operands have opposite signs, <literal>-1</literal> is returned.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
