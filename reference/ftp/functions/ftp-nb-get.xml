@@ -81,10 +81,8 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
+  &ext.ftp.mode-valueerror;
   <simpara>
-   A <exceptionname>ValueError</exceptionname> is thrown if
-   <parameter>mode</parameter> is not <constant>FTP_ASCII</constant> or
-   <constant>FTP_BINARY</constant>.
    An <exceptionname>Error</exceptionname> is thrown if another transfer is
    already in progress on the <parameter>ftp</parameter> connection.
   </simpara>
@@ -102,6 +100,7 @@
     </thead>
     <tbody>
      &ftp.changelog.ftp-param;
+     &ext.ftp.changelog.mode-valueerror;
      <row>
       <entry>7.3.0</entry>
       <entry>
