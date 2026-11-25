@@ -93,6 +93,13 @@ is_numeric($integer);          // true
 ?>
 ]]>
     </programlisting>
+    <simpara>
+     As of PHP 8.1.0, passing an <type>int</type> to
+     <function>ctype_digit</function> is deprecated and emits an
+     <constant>E_DEPRECATED</constant>. In a future version it will be
+     interpreted as a string, so the <function>ctype_digit</function> result
+     above will change to &true;.
+    </simpara>
    </example>
   </para>
  </refsect1>
