@@ -54,7 +54,7 @@
      <term><parameter>attribute</parameter></term>
      <listitem>
       <simpara>
-       The name of the attribute whose values are to be retrieved.
+       The attribute name, for example <literal>"cn"</literal>.
       </simpara>
      </listitem>
     </varlistentry>
@@ -134,11 +134,11 @@ for ($i=0; $i < $values["count"]; $i++) {
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>ldap_get_values_len</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>ldap_get_values_len</function></member>
+   <member><function>ldap_get_attributes</function></member>
+   <member><function>ldap_first_attribute</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
