@@ -15,12 +15,13 @@
    <methodparam><type>string</type><parameter>modulus</parameter></methodparam>
    <methodparam choice="opt"><type class="union"><type>int</type><type>null</type></type><parameter>scale</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Use the fast-exponentiation method to raise 
    <parameter>num</parameter> to the power
    <parameter>exponent</parameter> with respect to the modulus
-   <parameter>modulus</parameter>.
-  </para>
+   <parameter>modulus</parameter>. The result has the same sign as
+   <parameter>num</parameter>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">

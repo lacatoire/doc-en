@@ -45,7 +45,7 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <para>
-   This function throws a <classname>ValueError</classname> in the following cases:
+   This function throws a <exceptionname>ValueError</exceptionname> in the following cases:
    <simplelist>
     <member><parameter>num</parameter> is not a well-formed BCMath numeric string</member>
     <member><parameter>num</parameter> is less than <literal>0</literal></member>
@@ -69,7 +69,7 @@
       <entry>8.0.0</entry>
       <entry>
        If <parameter>num</parameter> is not a well-formed BCMath numeric string,
-       or less than <literal>0</literal>, a <classname>ValueError</classname> is thrown.
+       or less than <literal>0</literal>, a <exceptionname>ValueError</exceptionname> is thrown.
        Previously, <constant>E_WARNING</constant> was raised instead.
       </entry>
      </row>
