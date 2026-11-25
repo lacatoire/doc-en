@@ -19,7 +19,15 @@
    <function>curl_multi_exec</function> or until the timeout strikes
    (whichever comes first).
   </para>
-
+  <note>
+   <simpara>
+    The function returns immediately, without waiting for the
+    <parameter>timeout</parameter>, when libcurl has no file descriptor to wait
+    on, for example with an empty multi handle. A loop around
+    <function>curl_multi_exec</function> must not rely on this function
+    alone to pause, or it may consume CPU in a busy loop.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -41,20 +49,23 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    On success, returns the number of active descriptors contained in
    the descriptor sets. This may be <literal>0</literal> if there was no activity on any
    of the descriptors. On failure, this function will
    return <literal>-1</literal> on a select failure (from the
-   underlying <literal>select()</literal> system call).
-  </para>
+   underlying <literal>select()</literal> system call), or when it is called
+   from a callback of one of the handles of <parameter>multi_handle</parameter>
+   while a transfer is running; <function>curl_multi_errno</function> then
+   returns <literal>8</literal> (<literal>CURLM_RECURSIVE_API_CALL</literal>).
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>timeout</parameter>
-   is less than <literal>0</literal> or greater than <constant>PHP_INT_MAX</constant>.
+   is less than <literal>0</literal> or greater than <literal>2147483.647</literal>.
   </simpara>
  </refsect1>
 
@@ -73,7 +84,17 @@
       <entry>8.4.0</entry>
       <entry>
        Now throws a <exceptionname>ValueError</exceptionname> if <parameter>timeout</parameter>
-       is less than <literal>0</literal> or greater than <constant>PHP_INT_MAX</constant>.
+       is less than <literal>0</literal> or greater than <literal>2147483.647</literal>.
+       Previously, an <constant>E_WARNING</constant> was emitted and
+       <literal>-1</literal> was returned.
+      </entry>
+     </row>
+     <row>
+      <entry>8.3.12</entry>
+      <entry>
+       An <constant>E_WARNING</constant> is now emitted and <literal>-1</literal>
+       is returned if <parameter>timeout</parameter> is less than
+       <literal>0</literal> or greater than <literal>2147483.647</literal>.
       </entry>
      </row>
      &curl.changelog.multi-handle-param;
@@ -87,6 +108,8 @@
   <para>
    <simplelist>
     <member><function>curl_multi_init</function></member>
+    <member><function>curl_multi_exec</function></member>
+    <member><function>curl_multi_errno</function></member>
    </simplelist>
   </para>
  </refsect1>
