@@ -51,6 +51,20 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>filename</parameter> is empty, or if
+   <parameter>project_id</parameter> is not a single character.
+  </simpara>
+  <simpara>
+   An <constant>E_WARNING</constant> level error is generated if the
+   underlying <literal>ftok(3)</literal> call fails, for example when
+   <parameter>filename</parameter> does not exist.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
