@@ -223,10 +223,12 @@ array(5) {
 // append two elements to $input
 array_push($input, $x, $y);
 array_splice($input, count($input), 0, array($x, $y));
+// for a list; array_splice() renumbers integer keys, array_push() does not
 
 // remove the last element of $input
 array_pop($input);
 array_splice($input, -1);
+// for a list; array_splice() renumbers integer keys, array_pop() does not
 
 // remove the first element of $input
 array_shift($input);
