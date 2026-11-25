@@ -33,7 +33,7 @@
     <term><parameter>nonce</parameter></term>
     <listitem>
      <simpara>
-      24-byte nonce.
+      24-byte nonce. It must only be used once per message with a given key.
      </simpara>
     </listitem>
    </varlistentry>
