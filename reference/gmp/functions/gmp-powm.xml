@@ -37,9 +37,9 @@
     <varlistentry>
      <term><parameter>exponent</parameter></term>
      <listitem>
-      <para>
-       The positive power to raise the <parameter>num</parameter>.
-      </para>
+      <simpara>
+       The non-negative power to raise the <parameter>num</parameter> to.
+      </simpara>
       &gmp.parameter; 
      </listitem>
     </varlistentry>
@@ -58,15 +58,18 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   The new (raised) number, as a GMP number.
-  </para>
+  <simpara>
+   The new (raised) number, as a GMP number. The result is always between
+   0 and |<parameter>modulus</parameter>| - 1, whatever the sign of
+   <parameter>modulus</parameter>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if <parameter>exponent</parameter> is negative.
+   This is checked before <parameter>modulus</parameter>.
   </simpara>
   <simpara>
    Throws a <exceptionname>DivisionByZeroError</exceptionname> if <parameter>modulus</parameter>
