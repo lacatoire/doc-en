@@ -16,6 +16,15 @@
   <simpara>
    Unpad a padded string. Timing-safe.
   </simpara>
+  <simpara>
+   Only the last <parameter>block_size</parameter> bytes of
+   <parameter>string</parameter> are inspected, and the length of
+   <parameter>string</parameter> is not required to be a multiple of
+   <parameter>block_size</parameter>. A string that
+   <function>sodium_pad</function> could not have produced may therefore be
+   accepted, and <parameter>block_size</parameter> only limits how many
+   trailing zero bytes can be skipped.
+  </simpara>
 
  </refsect1>
 
@@ -45,6 +54,15 @@
   &reftitle.returnvalues;
   <simpara>
    Unpadded string.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>SodiumException</exceptionname> if <parameter>block_size</parameter>
+   is less than 1, if <parameter>string</parameter> is shorter than
+   <parameter>block_size</parameter>, or if the padding is invalid.
   </simpara>
  </refsect1>
 
