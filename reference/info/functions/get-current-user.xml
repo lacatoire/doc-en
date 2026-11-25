@@ -27,6 +27,11 @@
   <para>
    Returns the username as a string.
   </para>
+  <simpara>
+   If there is no underlying script file to determine ownership from (for
+   example, code run via the <option>-r</option> command line option or from
+   stdin), an empty string is returned.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
