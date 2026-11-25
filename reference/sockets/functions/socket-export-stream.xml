@@ -12,12 +12,17 @@
    <type class="union"><type>resource</type><type>false</type></type><methodname>socket_export_stream</methodname>
    <methodparam><type>Socket</type><parameter>socket</parameter></methodparam>
   </methodsynopsis>
-  <para>
-
-  </para>
-
-  &warn.undocumented.func;
-
+  <simpara>
+   Exports a <classname>Socket</classname> into a stream that encapsulates the socket,
+   so that the stream functions, such as <function>fread</function> and <function>fwrite</function>,
+   can be used on it. Calling the function again for the same <parameter>socket</parameter>
+   returns the same stream.
+  </simpara>
+  <simpara>
+   The <classname>Socket</classname> and the stream share the same file descriptor. Closing the stream
+   closes the descriptor, and the <classname>Socket</classname> can no longer be used. The descriptor is released
+   when both the <classname>Socket</classname> and the stream are gone.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -26,9 +31,10 @@
    <varlistentry>
     <term><parameter>socket</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+      A <classname>Socket</classname> instance created with <function>socket_create</function>,
+      <function>socket_accept</function> or <function>socket_create_pair</function>.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -36,9 +42,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Return resource&return.falseforfailure;.
-  </para>
+  <simpara>
+   Returns a stream resource&return.falseforfailure;.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -57,6 +63,42 @@
    </tgroup>
   </informaltable>
  </refsect1>
+
+ <refsect1 role="examples">
+  &reftitle.examples;
+  <example>
+   <title><function>socket_export_stream</function> example</title>
+   <programlisting role="php">
+<![CDATA[
+<?php
+socket_create_pair(AF_UNIX, SOCK_STREAM, 0, $pair);
+
+$stream = socket_export_stream($pair[0]);
+var_dump(socket_export_stream($pair[0]) === $stream);
+
+fwrite($stream, 'Hello');
+echo socket_read($pair[1], 5), PHP_EOL;
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+bool(true)
+Hello
+]]>
+   </screen>
+  </example>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>socket_import_stream</function></member>
+   <member><function>socket_create_pair</function></member>
+   <member><function>stream_socket_pair</function></member>
+  </simplelist>
+ </refsect1>
+
 </refentry>
 <!-- Keep this comment at the end of the file
 Local variables:
