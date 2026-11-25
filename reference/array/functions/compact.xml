@@ -58,10 +58,15 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
+  <simpara>
    <function>compact</function> issues an <constant>E_WARNING</constant> level error if a given string
    refers to an unset variable.
-  </para>
+  </simpara>
+  <simpara>
+   It also issues an <constant>E_WARNING</constant> level error, and skips the
+   value, if an argument or an element of an array argument is neither a
+   string nor an array.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog"><!-- {{{ -->
