@@ -40,6 +40,7 @@
    Returns the total number of bytes as a float
    &return.falseforfailure;.
   </para>
+  &fs.emits.warning.on.failure;
  </refsect1>
 
  <refsect1 role="examples">
