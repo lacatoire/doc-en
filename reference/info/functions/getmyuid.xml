@@ -13,7 +13,9 @@
    <void/>
   </methodsynopsis>
   <simpara>
-   Gets the user ID of the current script.
+   Gets the user ID of the owner of the current script file. This is not
+   necessarily the user ID of the process running the script, which
+   <function>posix_getuid</function> returns.
   </simpara>
  </refsect1>
 
@@ -24,9 +26,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the user ID of the current script, or &false; on error.
-  </para>
+  <simpara>
+   Returns the user ID of the owner of the current script file, or &false; on error.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
@@ -38,6 +40,7 @@
     <member><function>get_current_user</function></member>
     <member><function>getmyinode</function></member>
     <member><function>getlastmod</function></member>
+    <member><function>posix_getuid</function></member>
    </simplelist>
   </para>
  </refsect1>
