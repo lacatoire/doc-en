@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.readline-completion-function">
+<refentry xml:id="function.readline-completion-function" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>readline_completion_function</refname>
   <refpurpose>Registers a completion function</refpurpose>
@@ -25,8 +25,10 @@
     <term><parameter>callback</parameter></term>
     <listitem>
      <simpara>
-      You must supply the name of an existing function which accepts a
-      partial command line and returns an array of possible matches.
+      A <type>callable</type> invoked with three arguments: the
+      <type>string</type> being completed, and the <type>int</type> start and
+      end positions of that string within the current line buffer. It must
+      return an <type>array</type> of possible matches.
      </simpara>
     </listitem>
    </varlistentry>
