@@ -69,7 +69,9 @@
      <literal>"NULL"</literal>
     </member>
     <member>
-     <literal>"unknown type"</literal>
+     <literal>"unknown type"</literal> (only for a value of a type
+     unknown to the engine, which no current PHP type produces; closed
+     resources returned it before PHP 7.2.0)
     </member>
    </simplelist>
   </para>
@@ -91,7 +93,7 @@
        <entry>7.2.0</entry>
        <entry>
         Closed resources are now reported as <literal>'resource (closed)'</literal>.
-        Previously the returned value for closed resources were <literal>'unknown type'</literal>.
+        Previously the returned value for closed resources was <literal>'unknown type'</literal>.
        </entry>
       </row>
      </tbody>
