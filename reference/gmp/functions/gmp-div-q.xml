@@ -88,7 +88,8 @@
   &reftitle.errors;
   <simpara>
    Throws a <exceptionname>DivisionByZeroError</exceptionname> if
-   <parameter>num2</parameter> is zero.
+   <parameter>num2</parameter> is <literal>0</literal>.
+   Prior to PHP 8.0.0, an <constant>E_WARNING</constant> was raised instead.
   </simpara>
   <simpara>
    Throws a <exceptionname>ValueError</exceptionname> if
