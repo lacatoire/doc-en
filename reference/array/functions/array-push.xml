@@ -71,6 +71,15 @@ $array[] = $var;
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if the next integer key is
+   already occupied, which happens when the array contains the key
+   <constant>PHP_INT_MAX</constant>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <para>
@@ -83,6 +92,14 @@ $array[] = $var;
       </row>
      </thead>
      <tbody>
+      <row>
+       <entry>8.0.0</entry>
+       <entry>
+        An <exceptionname>Error</exceptionname> is now thrown if the next
+        integer key is already occupied; previously, an
+        <constant>E_WARNING</constant> was emitted.
+       </entry>
+      </row>
       <row>
        <entry>7.3.0</entry>
        <entry>
