@@ -17,10 +17,15 @@
    <methodparam choice="opt"><type>string</type><parameter>enclosure</parameter><initializer>"\""</initializer></methodparam>
    <methodparam choice="opt"><type>string</type><parameter>escape</parameter><initializer>"\\"</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Parses a string input for fields in <acronym>CSV</acronym> format
    and returns an array containing the fields read.
-  </para>
+   The string is parsed as a single record: a newline outside of an enclosure
+   is not a record separator and ends up in a field, except for the line ending
+   at the very end of the string, which is dropped.
+   To read several records, use <function>fgetcsv</function> or
+   <methodname>SplFileObject::fgetcsv</methodname>.
+  </simpara>
   <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('function.fgetcsv')/db:refsect1[@role='description']//db:note/.)"/>
  </refsect1>
 
