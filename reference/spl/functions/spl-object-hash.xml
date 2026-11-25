@@ -99,12 +99,18 @@ $storage[$id] = $object;
    </para>
   </note>
   <note>
-   <para>
+   <simpara>
     Object hashes should be compared for identity with <code>===</code> and
     <code>!==</code>, because the returned hash could be a
     <link linkend="language.types.numeric-strings">numeric string</link>.
     For example: <literal>0000000000000e600000000000000000</literal>.
-   </para>
+    Two hashes of different objects can be equal with <code>==</code>: both
+    <literal>000000000000000e0000000000000000</literal> and
+    <literal>00000000000000e00000000000000000</literal> are numeric strings of
+    value zero. <function>in_array</function> and <function>array_search</function>
+    therefore need their <parameter>strict</parameter> parameter set to &true;
+    to search hashes.
+   </simpara>
   </note>
  </refsect1> 
  <refsect1 role="seealso">
