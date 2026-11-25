@@ -32,11 +32,13 @@
  <refsect1 role="notes">
   &reftitle.notes;
   <warning>
-   <para>
+   <simpara>
     Process IDs are not unique, thus they are a weak entropy
     source. We recommend against relying on pids in
-    security-dependent contexts.
-   </para>
+    security-dependent contexts. When an unpredictable value is required,
+    use <function>random_int</function> or <function>random_bytes</function>
+    instead.
+   </simpara>
   </warning>
  </refsect1>
 
