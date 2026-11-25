@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- $Revision$ -->
 <refentry xml:id="function.ldap-exop-sync" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>ldap_exop_sync</refname>
-  <refpurpose>Performs an extended operation synchronously</refpurpose>
+  <refpurpose>Performs an extended operation</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -21,12 +20,6 @@
    Performs an extended operation on the specified <parameter>ldap</parameter> with
    <parameter>request_oid</parameter> the <acronym>OID</acronym> of the operation and
    <parameter>request_data</parameter> the data.
-  </simpara>
-  <simpara>
-   Unlike <function>ldap_exop</function>, the operation is always performed
-   synchronously: the function waits for the server response, which is made
-   available through <parameter>response_data</parameter> and
-   <parameter>response_oid</parameter>.
   </simpara>
  </refsect1>
 
@@ -75,8 +68,9 @@
     <term><parameter>response_data</parameter></term>
     <listitem>
      <simpara>
-      Will be filled with the extended operation response data,
-      or with an empty string if the operation returns no data.
+      Will be filled with the extended operation response data if provided.
+      If not provided <function>ldap_parse_exop</function> may be used on the
+      result object later to get this data.
      </simpara>
     </listitem>
    </varlistentry>
@@ -84,10 +78,8 @@
     <term><parameter>response_oid</parameter></term>
     <listitem>
      <simpara>
-      Will be filled with the response <acronym>OID</acronym> if the server
-      returns one, and with an empty string otherwise.
-      The response <acronym>OID</acronym> is only requested from the server
-      when this argument is passed.
+      Will be filled with the response <acronym>OID</acronym> if provided,
+      usually equal to the request <acronym>OID</acronym>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -98,18 +90,9 @@
   &reftitle.returnvalues;
   <simpara>
    Returns &true; on success or &false; on error.
-   Unlike <function>ldap_exop</function>, this function always performs the
-   operation synchronously, so it never returns an
-   <classname>LDAP\Result</classname> instance.
+   The operation is always performed synchronously,
+   so no result object is returned.
   </simpara>
-  <note>
-   <simpara>
-    The declared return type also allows <classname>LDAP\Result</classname>,
-    as for <function>ldap_exop</function>, but this function always performs
-    the operation synchronously and never returns an
-    <classname>LDAP\Result</classname> instance.
-   </simpara>
-  </note>
  </refsect1>
 
  <refsect1 role="seealso">
