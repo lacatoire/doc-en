@@ -136,6 +136,10 @@ $text = str_replace("\n.", "\n..", $text);
        this can be used to set the envelope sender address when using
        sendmail with the <literal>-f</literal> sendmail option.
       </para>
+      <simpara>
+       If the <link linkend="ini.mail.force_extra_parameters">mail.force_extra_parameters</link>
+       configuration setting is set, its value is used instead of this parameter.
+      </simpara>
       <para>
        This parameter is escaped by <function>escapeshellcmd</function> internally
        to prevent command execution. <function>escapeshellcmd</function> prevents
@@ -185,6 +189,25 @@ $text = str_replace("\n.", "\n..", $text);
       </row>
      </thead>
      <tbody>
+      <row>
+       <entry>8.5.0</entry>
+       <entry>
+        When using the sendmail transport, the actual sendmail error is now
+        reported, and unexpected termination of the sendmail process is
+        detected. In such cases, an <constant>E_WARNING</constant> is emitted
+        and &false; is returned.
+        Previously, these errors were silently ignored.
+       </entry>
+      </row>
+      <row>
+       <entry>8.0.0</entry>
+       <entry>
+        All headers, including those in the <parameter>additional_headers</parameter>
+        parameter, are now separated by CRLF (<literal>\r\n</literal>), as required by
+        <link xlink:href="&url.rfc;5322">RFC 5322</link>, rather than a possible mixture
+        of CRLF and bare LF (<literal>\n</literal>).
+       </entry>
+      </row>
       <row>
        <entry>7.2.0</entry>
        <entry>
