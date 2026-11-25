@@ -158,6 +158,15 @@ path/Zend/README.md
     This function isn't available on some systems (e.g. old Sun OS).
    </simpara>
   </note>
+  <note>
+   <simpara>
+    The pattern syntax of <function>glob</function> is not identical to that of
+    <function>fnmatch</function>. In particular, brace expansion
+    (<literal>{a,b}</literal>, enabled by the <constant>GLOB_BRACE</constant>
+    flag) is not supported by <function>fnmatch</function>, which matches
+    braces literally.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="seealso">
