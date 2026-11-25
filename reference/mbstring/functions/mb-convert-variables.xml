@@ -45,9 +45,11 @@
      <term><parameter>from_encoding</parameter></term>
      <listitem>
       <simpara>
-       The current encoding of the variables. Multiple encodings may be
-       specified as an <type>array</type> or comma separated <type>string</type>,
-       in which case the encoding is detected among the listed encodings.
+       The current encoding of the variables. It is a required parameter.
+       Multiple encodings may be specified as an <type>array</type> or comma
+       separated <type>string</type>, in which case the encoding is detected
+       among the listed encodings from the strings of all the variables
+       together, and the detected encoding is returned.
        <literal>"auto"</literal> is expanded according to the
        <link linkend="ini.mbstring.language">mbstring.language</link> INI setting.
       </simpara>
@@ -56,12 +58,17 @@
     <varlistentry>
      <term><parameter>var</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        <parameter>var</parameter> is the reference to the
        variable being converted. String, Array and Object are accepted.
        <function>mb_convert_variables</function> assumes all parameters
        have the same encoding.
-      </para>
+       Strings held in an array or in an object property are converted in place.
+       A reference stored in an array is replaced by the converted string;
+       the variable it referred to keeps its previous value.
+       If a variable contains a recursive reference, an
+       <constant>E_WARNING</constant> is raised and &false; is returned.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
