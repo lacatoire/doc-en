@@ -149,6 +149,24 @@
      <row>
       <entry>8.4.0</entry>
       <entry>
+       <parameter>mode</parameter> now also accepts a
+       <enumname>RoundingMode</enumname> instance.
+      </entry>
+     </row>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       The internal "pre-rounding" has been removed, and the maximum precision
+       handled has been extended by one digit, so some results differ from
+       earlier versions. For example, <code>round(0.49999999999999994)</code>
+       now returns <literal>0.0</literal> instead of <literal>1.0</literal>.
+       See the <link linkend="migration84.other-changes">other changes</link>
+       of the migration guide.
+      </entry>
+     </row>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
        Four new rounding modes have been added.
       </entry>
      </row>
