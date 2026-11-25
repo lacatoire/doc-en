@@ -16,8 +16,10 @@
    <function>session_destroy</function> destroys all of the data associated
    with the current session. It does not unset any of the global variables
    associated with the session, or unset the session cookie.
-   To use the session variables again, <function>session_start</function> has
-   to be called.
+   The session is closed, but the session ID is still held by the client:
+   if <link linkend="ini.session.use-strict-mode">session.use_strict_mode</link>
+   is disabled, a later call to <function>session_start</function> takes
+   that ID again and starts an empty session.
   </simpara>
   <note>
    <simpara>
@@ -25,20 +27,20 @@
      code. Cleanup $_SESSION array rather than destroying session data.
    </simpara>
   </note>
-  <para>
+  <simpara>
    In order to kill the session altogether, the
-   session ID must also be unset. If a cookie is used to propagate the
+   session ID held by the client must also be discarded. If a cookie is used to propagate the
    session ID (default behavior), then the session cookie must be deleted.
    <function>setcookie</function> may be used for that.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    When <link linkend="ini.session.use-strict-mode">session.use_strict_mode</link>
-   is enabled. You do not have to remove obsolete session ID cookie because
-   session module will not accept session ID cookie when there is no
-   data associated to the session ID and set new session ID cookie.
+   is enabled, you do not have to remove the obsolete session ID cookie because
+   the session module will not accept a session ID for which no session
+   exists in the storage, and sets a new session ID cookie.
    Enabling <link linkend="ini.session.use-strict-mode">session.use_strict_mode</link>
    is recommended for all sites.
-  </para>
+  </simpara>
   <warning>
    <para>
     Immediate session deletion may cause unwanted results. When there is
@@ -66,9 +68,12 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+   An <constant>E_WARNING</constant> is raised and &false; is returned if no
+   session is active, or if the save handler fails to destroy the session. In
+   the latter case the session is closed anyway.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -110,6 +115,8 @@ session_destroy();
   <para>
    <simplelist>
     <member><link linkend="ini.session.use-strict-mode">session.use_strict_mode</link></member>
+    <member><function>session_start</function></member>
+    <member><function>session_unset</function></member>
     <member><function>session_reset</function></member>
     <member><function>session_regenerate_id</function></member>
     <member><function>unset</function></member>
