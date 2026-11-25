@@ -42,7 +42,8 @@
      <term><parameter>word_size</parameter></term>
      <listitem>
       <simpara>
-       The number of bytes per word in the output. The total length of
+       The number of bytes per word in the output, at least
+       <literal>1</literal>. The total length of
        the returned string will be a multiple of this value.
        Default value: <literal>1</literal>.
       </simpara>
@@ -74,6 +75,39 @@
    Returns a string containing the binary representation of the
    GMP number. The string is empty if the number is zero.
   </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if:
+  </simpara>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <parameter>word_size</parameter> is less than <literal>1</literal>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>word_size</parameter> is too large for <parameter>num</parameter>.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>flags</parameter> contains several word order options
+     (<constant>GMP_MSW_FIRST</constant> and
+     <constant>GMP_LSW_FIRST</constant>).
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <parameter>flags</parameter> contains several endian options
+     (<constant>GMP_LITTLE_ENDIAN</constant> and
+     <constant>GMP_BIG_ENDIAN</constant>).
+    </simpara>
+   </listitem>
+  </itemizedlist>
  </refsect1>
 
  <refsect1 role="changelog">
