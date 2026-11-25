@@ -35,7 +35,9 @@
     <term><parameter>secret_key</parameter></term>
     <listitem>
      <simpara>
-      Secret key. See <function>sodium_crypto_sign_secretkey</function>
+      Secret key, 64 bytes long: the 32-byte seed followed by the public key.
+      Use it as returned by <function>sodium_crypto_sign_secretkey</function>
+      rather than reassembling it, as the public key it contains is not checked against the seed.
      </simpara>
     </listitem>
    </varlistentry>
@@ -45,7 +47,8 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Cryptographic signature.
+   Cryptographic signature, always <constant>SODIUM_CRYPTO_SIGN_BYTES</constant> (64) bytes long.
+   This is the length <function>sodium_crypto_sign_verify_detached</function> requires.
   </simpara>
  </refsect1>
 

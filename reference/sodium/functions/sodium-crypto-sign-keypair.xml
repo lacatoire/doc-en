@@ -14,6 +14,8 @@
   </methodsynopsis>
   <simpara>
    Generate a random Ed25519 keypair as one string.
+   To get the secret key out of this unified keypair string, see <function>sodium_crypto_sign_secretkey</function>.
+   To get the public key out of this unified keypair string, see <function>sodium_crypto_sign_publickey</function>.
   </simpara>
 
  </refsect1>
