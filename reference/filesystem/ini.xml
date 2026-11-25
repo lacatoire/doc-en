@@ -90,15 +90,15 @@
      <type>bool</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       This option allows the use of URL-aware fopen wrappers with the following 
       functions: <function>include</function>, <function>include_once</function>, 
       <function>require</function>, <function>require_once</function>.
-     </para>
+     </simpara>
      <note>
-      <para>
+      <simpara>
        This setting requires allow_url_fopen to be on. 
-      </para>
+      </simpara>
      </note>
     </listitem>
    </varlistentry>
@@ -109,9 +109,9 @@
      <type>string</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Define the user agent for PHP to send.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -121,10 +121,10 @@
      <type>int</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       Default timeout (in seconds) for socket based streams.
       Specifying a negative value means an infinite timeout.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 
@@ -134,11 +134,11 @@
      <type>string</type>
     </term>
     <listitem>
-     <para>
+     <simpara>
       The email address to be used on unauthenticated FTP connections and
       as the value of From header for HTTP connections, when using the ftp
       and http wrappers, respectively.
-     </para>
+     </simpara>
     </listitem>
    </varlistentry>
 

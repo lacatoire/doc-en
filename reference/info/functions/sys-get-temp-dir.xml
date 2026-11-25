@@ -12,12 +12,12 @@
    <type>string</type><methodname>sys_get_temp_dir</methodname>
    <void/>
   </methodsynopsis>
-  <para>
+  <simpara>
    Returns the path of the directory PHP stores temporary files in by
    default. The value comes from the <link linkend="ini.sys-temp-dir">sys_temp_dir</link>
    INI setting if it is set, then from the <literal>TMPDIR</literal>
    environment variable, then from the system default.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -27,9 +27,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the path of the temporary directory.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
