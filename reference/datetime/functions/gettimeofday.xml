@@ -12,11 +12,15 @@
    <type class="union"><type>array</type><type>float</type></type><methodname>gettimeofday</methodname>
    <methodparam choice="opt"><type>bool</type><parameter>as_float</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   This is an interface to gettimeofday(2). It returns an
-   associative array containing the data returned from the system
-   call.
-  </para>
+  <simpara>
+   This is an interface to gettimeofday(2). The <literal>sec</literal> and
+   <literal>usec</literal> values come from the system call, whereas
+   <literal>minuteswest</literal> and <literal>dsttime</literal> are derived
+   from the timezone configured for PHP (see
+   <function>date_default_timezone_set</function> and
+   <function>date_default_timezone_get</function>). For a float timestamp,
+   see also <function>microtime</function>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
