@@ -3,7 +3,7 @@
 <refentry xml:id="function.spl-autoload-functions" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>spl_autoload_functions</refname>
-  <refpurpose>Return all registered __autoload() functions</refpurpose>
+  <refpurpose>Return all registered autoloaders</refpurpose>
  </refnamediv>
  <refsect1 role="description">
   &reftitle.description;
@@ -11,9 +11,9 @@
    <type>array</type><methodname>spl_autoload_functions</methodname>
    <void/>
   </methodsynopsis>
-  <para>
-   Get all registered __autoload() functions.
-  </para>
+  <simpara>
+   Get all registered autoloaders.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -23,11 +23,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   An <type>array</type> of all registered __autoload functions.
+  <simpara>
+   An <type>array</type> of all registered autoloaders.
    If no function is registered, or the autoload queue is not activated,
    then the return value will be an empty array.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">

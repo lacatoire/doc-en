@@ -3,7 +3,7 @@
 <refentry xml:id="function.spl-autoload" xmlns="http://docbook.org/ns/docbook">
  <refnamediv>
   <refname>spl_autoload</refname>
-  <refpurpose>Default implementation for __autoload()</refpurpose>
+  <refpurpose>Default implementation for autoloading</refpurpose>
  </refnamediv>
  <refsect1 role="description">
   &reftitle.description;
@@ -12,13 +12,12 @@
    <methodparam><type>string</type><parameter>class</parameter></methodparam>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>file_extensions</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   This function is intended to be used as a default implementation for
-   <function>__autoload</function>. If nothing else is specified and
-   <function>spl_autoload_register</function> is
-   called without any parameters then <function>spl_autoload</function> will be used for any
-   later call to <function>__autoload</function>. 
-  </para>
+  <simpara>
+   This function is intended to be used as a default autoloader. If nothing
+   else is specified and <function>spl_autoload_register</function> is
+   called without any parameters then <function>spl_autoload</function> will be
+   registered as an autoloader.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
