@@ -43,7 +43,10 @@
 
      <enumitem>
       <enumidentifier>Utility</enumidentifier>
-      <enumitemdescription>Pcntl\QosClass::Utility description</enumitemdescription>
+      <enumitemdescription>
+      Runs the process at a lower priority, intended for long-running work the
+      user is aware of but is not actively waiting on.
+     </enumitemdescription>
      </enumitem>
 
      <enumitem>

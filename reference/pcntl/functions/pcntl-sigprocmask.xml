@@ -44,9 +44,12 @@
     <varlistentry>
      <term><parameter>signals</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        List of signals.
-      </para>
+       Each value must be a signal number between <literal>1</literal> and
+       <constant>NSIG</constant> - 1. It must not be empty, unless
+       <parameter>mode</parameter> is <constant>SIG_SETMASK</constant>.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -67,6 +70,25 @@
   <para>
    &return.success;
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>mode</parameter> is not one of <constant>SIG_BLOCK</constant>,
+   <constant>SIG_UNBLOCK</constant> or <constant>SIG_SETMASK</constant>.
+  </simpara>
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>signals</parameter> is empty and <parameter>mode</parameter> is not <constant>SIG_SETMASK</constant>, or if one of its values is not
+   between <literal>1</literal> and <constant>NSIG</constant> - 1.
+  </simpara>
+  <simpara>
+   A <exceptionname>TypeError</exceptionname> is thrown if one of the values
+   of <parameter>signals</parameter> cannot be interpreted as an
+   <type>int</type>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">

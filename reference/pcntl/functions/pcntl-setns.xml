@@ -53,6 +53,24 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown when
+   <parameter>process_id</parameter> is not a valid process, or when the
+   process is no longer available.
+  </simpara>
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown when
+   <parameter>nstype</parameter> is not a valid namespace type.
+  </simpara>
+  <simpara>
+   For any other failure, such as reaching the per-process limit of file
+   descriptors or lacking the capability required to join the namespace,
+   an <constant>E_WARNING</constant> is emitted and &false; is returned.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
