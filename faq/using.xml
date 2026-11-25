@@ -47,8 +47,8 @@
       PHP offers many <link linkend="language.variables.predefined">
       predefined variables</link>, like the superglobal <varname>$_POST</varname>.
       You may loop through <varname>$_POST</varname>
-      as it's an associate array of all POSTed values.  For example, let's
-      simply loop through it with &foreach;,
+      as it's an associative array of all POSTed values.  For example, let's
+      simply loop through it with &foreach;, 
       check for <function>empty</function> values,
       and print them out.
       <programlisting role="php">
@@ -93,11 +93,11 @@ if (empty($empty)) {
     <answer>
      <simpara>
       Assuming this is for a database, use the escaping mechanism that
-      comes with the database. For example, use
+      comes with the database. For example, use 
       <function>mysqli_real_escape_string</function> with MySQL and
-      <function>pg_escape_string</function> with PostgreSQL. There is
+      <function>pg_escape_string</function> with PostgreSQL. There are
       also the generic <function>addslashes</function> and
-      <function>stripslashes</function> functions, that are more
+      <function>stripslashes</function> functions that are more
       common with older PHP code.
      </simpara>
      <simpara>
@@ -184,8 +184,8 @@ echo "myfunc($variable) = " . myfunc($variable);
       and the <link linkend="ref.session">session
       functions</link> need to add headers to the output stream but headers
       can only be sent before all other content.  There can be no output
-      before using these functions, output such as HTML.  The function
-      <function>headers_sent</function> will check if your script has already
+      before using these functions, output such as HTML.  The function 
+      <function>headers_sent</function> will check whether your script has already
       sent headers and see also the <link linkend="ref.outcontrol">Output Control
       functions</link>.
      </simpara>
@@ -255,17 +255,17 @@ foreach ($headers as $name => $content) {
     </question>
     <answer>
      <simpara>
-      You have to change the <literal>Go to Internet Information
+      You have to go to <literal>Internet Information
       Services</literal>. Locate your PHP file and go to its properties.
-      Go to the <literal>File Security</literal> tab, <literal>Edit -&lt;
+      Go to the <literal>File Security</literal> tab, <literal>Edit -&gt;
       Anonymous access and authentication control</literal>.
      </simpara>
      <simpara>
       You can fix the problem either by unticking <literal>Anonymous
-      Access</literal> and leaving <literal>Integrated Window
+      Access</literal> and leaving <literal>Integrated Windows
       Authentication</literal> ticked, or, by ticking <literal>Anonymous
-      Access</literal> and editing the user as he may not have the access
-      right.
+      Access</literal> and editing the user, as it may not have the access
+      rights.
      </simpara>
     </answer>
    </qandaentry>
@@ -294,7 +294,7 @@ foreach ($headers as $name => $content) {
    <qandaentry xml:id="faq.using.variables">
     <question>
      <simpara>
-      Where can I find a complete list of variables are available to me
+      Where can I find a complete list of variables that are available to me
       in PHP?
      </simpara>
     </question>
@@ -303,11 +303,11 @@ foreach ($headers as $name => $content) {
       Read the manual page on <link linkend="language.variables.predefined">
       predefined variables</link> as it includes a partial list of predefined
       variables available to your script.  A complete list of available
-      variables (and much more information) can be seen by calling the
-      <function>phpinfo</function> function.  Be sure to read the manual
-      section on <link linkend="language.variables.external">variables from
-      outside of PHP</link> as it describes common scenarios for
-      external variables, like from a HTML form, a Cookie, and the URL.
+      variables (and much more information) can be seen by calling the 
+      <function>phpinfo</function> function.  Be sure to read the manual 
+      section on <link linkend="language.variables.external">variables from 
+      outside of PHP</link> as it describes common scenarios for 
+      external variables, like those from an HTML form, a Cookie, and the URL.
      </simpara>
     </answer>
    </qandaentry>
@@ -342,9 +342,9 @@ foreach ($headers as $name => $content) {
      <simpara>
       The available options are K (for Kilobytes), M (for Megabytes) and G (for
       Gigabytes), and are all case-insensitive.
-      Anything else assumes bytes. <literal>1M</literal> equals one Megabyte or
+      Anything else assumes bytes. <literal>1M</literal> equals one megabyte or
       <literal>1048576</literal> bytes. <literal>1K</literal> equals one
-      Kilobyte or <literal>1024</literal> bytes. These shorthand notations may
+      kilobyte or <literal>1024</literal> bytes. These shorthand notations may
       be used in &php.ini; and in the <function>ini_set</function> function.
       Note that the numeric value is cast to <type>int</type>;
       for instance, <literal>0.5M</literal> is interpreted as <literal>0</literal>.
