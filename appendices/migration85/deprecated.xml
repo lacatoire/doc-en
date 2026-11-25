@@ -428,6 +428,8 @@
    Instead if this is needed, one should iterate over the return value of
    <function>spl_autoload_functions</function> and call
    <function>spl_autoload_unregister</function> on each value.
+   The loop has to run in a scope that can access the methods registered
+   as autoloaders, as the returned callables do not carry their scope.
    <!-- RFC: https://wiki.php.net/rfc/deprecations_php_8_5#deprecate_passing_spl_autoload_call_to_spl_autoload_unregister -->
   </simpara>
 

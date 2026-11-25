@@ -64,6 +64,8 @@
        deprecated. Instead iterate over the return value of
        <function>spl_autoload_functions</function> and call
        <function>spl_autoload_unregister</function> on each value.
+       The loop has to run in a scope that can access the methods registered
+       as autoloaders, as the returned callables do not carry their scope.
       </entry>
      </row>
     </tbody>
