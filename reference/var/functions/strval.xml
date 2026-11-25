@@ -37,9 +37,11 @@
       <para>
        <parameter>value</parameter> may be any scalar type, <type>null</type>,
        or an <type>object</type> that implements the <link linkend="object.tostring">__toString()</link>
-       method. You cannot use <function>strval</function> on arrays or on
-       objects that do not implement the
-       <link linkend="object.tostring">__toString()</link> method.
+       method. An <type>array</type> is converted to the string
+       <literal>"Array"</literal> and an <constant>E_WARNING</constant> is
+       emitted. Using <function>strval</function> on an object that does not
+       implement the <link linkend="object.tostring">__toString()</link>
+       method throws an <classname>Error</classname>.
       </para>
      </listitem>
     </varlistentry>
