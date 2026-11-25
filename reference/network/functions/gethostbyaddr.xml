@@ -21,18 +21,16 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>ip</parameter></term>
-     <listitem>
-      <para>
-       The host IP address.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>ip</parameter></term>
+    <listitem>
+     <simpara>
+      The host IP address.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -45,10 +43,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title>A simple <function>gethostbyaddr</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title>A simple <function>gethostbyaddr</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
@@ -56,19 +53,17 @@ $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
 echo $hostname;
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>gethostbyname</function></member>
-    <member><function>gethostbynamel</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>gethostbyname</function></member>
+   <member><function>gethostbynamel</function></member>
+   <member><function>gethostname</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
