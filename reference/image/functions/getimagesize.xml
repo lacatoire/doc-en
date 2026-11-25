@@ -139,8 +139,8 @@
    the type of the image.
   </para>
   <simpara>
-   Index 3 is a text string with the correct 
-   <literal>height="yyy" width="xxx"</literal> string that can be used
+   Index 3 is a text string with the correct
+   <literal>width="xxx" height="yyy"</literal> string that can be used
    directly in an <acronym>IMG</acronym> tag. It is omitted if the width or
    the height is not expressed in pixels.
   </simpara>
