@@ -25,9 +25,10 @@
     <varlistentry>
      <term><parameter>socket</parameter></term>
      <listitem>
-      <para>
-       The socket to get the name of.
-      </para>
+      <simpara>
+       The socket to get the name of. Other streams, such as plain files or
+       <literal>php://memory</literal>, have no name.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -45,9 +46,17 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   The name of the socket,&return.falseforfailure;.
-  </para>
+  <simpara>
+   The name of the socket, as <literal>ip:port</literal>,
+   <literal>[ipv6]:port</literal> (an IPv4 peer of a dual-stack listener is
+   shown as <literal>[::ffff:127.0.0.1]:port</literal>) or, for a Unix domain
+   socket, the path of its file.
+   &false; is returned, without any warning, if the socket has no name to
+   report: an unnamed Unix domain socket (the local name of a client, or a
+   socket from <function>stream_socket_pair</function>), an abstract-namespace
+   Unix domain socket, the remote name of a listening or unconnected socket,
+   or a stream that is not a socket.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
