@@ -73,11 +73,11 @@
     <varlistentry>
      <term><parameter>encoding</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If <parameter>encoding</parameter> parameter is omitted or &null;,
-       <parameter>string</parameter> are assumed to be encoded in
+       <parameter>string</parameter> is assumed to be encoded in
        <link linkend="iconv.configuration">iconv.internal_encoding</link>.
-      </para>
+      </simpara>
       <para>
        Note that <parameter>offset</parameter> and <parameter>length</parameter>
        parameters are always deemed to represent offsets that are

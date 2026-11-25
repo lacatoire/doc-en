@@ -5,7 +5,7 @@
   <refname>iconv_mime_decode</refname>
   <refpurpose>Decodes a <literal>MIME</literal> header field</refpurpose>
  </refnamediv>
- 
+
  <refsect1 role="description">
   &reftitle.description;
   <methodsynopsis>
@@ -65,7 +65,7 @@
            <entry>2</entry>
            <entry>ICONV_MIME_DECODE_CONTINUE_ON_ERROR</entry>
            <entry>
-            If set, <function>iconv_mime_decode_headers</function>
+            If set, <function>iconv_mime_decode</function>
             attempts to ignore any grammatical errors and continue to process
             a given header.
            </entry>
