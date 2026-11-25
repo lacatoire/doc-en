@@ -28,7 +28,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>month</parameter></term>
@@ -55,24 +54,22 @@
      </listitem>
     </varlistentry>  
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    The julian day for the given french revolution date as an integer.
-  </para>
+   Dates outside the valid range return <literal>0</literal>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>jdtofrench</function></member> 
     <member><function>cal_to_jd</function></member>
    </simplelist>
-  </para>
  </refsect1>
 </refentry>
 
