@@ -4294,7 +4294,7 @@
       <type>int</type>
      </term>
      <listitem>
-      <simpara>For programmatic determination of Ideographic Description Sequences. Available as of PHP 8.4.0.</simpara>
+      <simpara>For programmatic determination of Ideographic Description Sequences. Available as of PHP 8.4.0 and ICU 74.</simpara>
      </listitem>
     </varlistentry>
 
@@ -4304,7 +4304,7 @@
       <type>int</type>
      </term>
      <listitem>
-      <simpara>Used in mathematical identifier profile in UAX 31. Available as of PHP 8.4.0.</simpara>
+      <simpara>Used in mathematical identifier profile in UAX 31. Available as of PHP 8.4.0 and ICU 74.</simpara>
      </listitem>
     </varlistentry>
 
@@ -4314,7 +4314,7 @@
       <type>int</type>
      </term>
      <listitem>
-      <simpara>Used in mathematical identifier profile in UAX 31. Available as of PHP 8.4.0.</simpara>
+      <simpara>Used in mathematical identifier profile in UAX 31. Available as of PHP 8.4.0 and ICU 74.</simpara>
      </listitem>
     </varlistentry>
 
