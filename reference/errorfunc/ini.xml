@@ -553,7 +553,8 @@
     <listitem>
      <para>
       Specifies what type of program is logging the message.
-      Only effective if <link linkend="ini.error-log">error_log</link> is set to "syslog".
+      Used when <link linkend="ini.error-log">error_log</link> is set to "syslog",
+      and by <function>syslog</function> when <function>openlog</function> was not called.
      </para>
     </listitem>
    </varlistentry>
@@ -571,12 +572,12 @@
       <itemizedlist>
        <listitem>
         <simpara><literal>all</literal> – the logged string will be split 
-         at newline characters, and all characters are passed unaltered
+         at newline characters, and all characters are passed unaltered, except DEL (<literal>0x7f</literal>), which is escaped
         </simpara>
        </listitem>
        <listitem>
         <simpara><literal>ascii</literal> – the logged string will be split 
-         at newline characters, and any non-printable 7-bit ASCII characters will be escaped
+         at newline characters, and any character that is not printable 7-bit ASCII, including bytes from <literal>0x80</literal> up, will be escaped
         </simpara>
        </listitem>
        <listitem>
@@ -611,7 +612,8 @@
     <listitem>
      <para>
       Specifies the ident string which is prepended to every message.
-      Only effective if <link linkend="ini.error-log">error_log</link> is set to "syslog".
+      Used when <link linkend="ini.error-log">error_log</link> is set to "syslog",
+      and by <function>syslog</function> when <function>openlog</function> was not called.
      </para>
     </listitem>
    </varlistentry>
