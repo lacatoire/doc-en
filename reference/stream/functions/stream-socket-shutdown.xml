@@ -29,10 +29,11 @@
     <varlistentry>
      <term><parameter>stream</parameter></term>
      <listitem>
-      <para>
-       An open stream (opened with <function>stream_socket_client</function>,
-       for example)
-      </para>
+      <simpara>
+       An open socket stream (opened with <function>stream_socket_client</function>,
+       for example). Other streams, such as plain files or
+       <literal>php://memory</literal>, are not sockets and cannot be shut down.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -52,9 +53,12 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+   &false; is returned, without any error being raised, if
+   <parameter>stream</parameter> is not a socket stream, or if the underlying
+   <literal>shutdown(2)</literal> call fails.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -114,8 +118,8 @@ var_dump(fputs($client, "hello")); // doesn't work now
 <![CDATA[
 int(5)
 
-Notice: fputs(): send of 5 bytes failed with errno=32 Broken pipe in test.php on line 9
-int(0)
+Notice: fputs(): Send of 5 bytes failed with errno=32 Broken pipe in test.php on line 9
+bool(false)
 ]]>
     </screen>
    </example>
