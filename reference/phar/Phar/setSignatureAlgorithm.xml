@@ -15,12 +15,13 @@
   </methodsynopsis>
   &phar.write;
 
-  <para>
+  <simpara>
    set the signature algorithm for a phar and apply it.  The
    signature algorithm must be one of <constant>Phar::MD5</constant>,
    <constant>Phar::SHA1</constant>, <constant>Phar::SHA256</constant>,
-   <constant>Phar::SHA512</constant>, or <constant>Phar::OPENSSL</constant>.
-  </para>
+   <constant>Phar::SHA512</constant>, <constant>Phar::OPENSSL</constant>,
+   <constant>Phar::OPENSSL_SHA256</constant>, or <constant>Phar::OPENSSL_SHA512</constant>.
+  </simpara>
   <simpara>
    Note that all executable phar archives have a signature created
    automatically, <literal>SHA256</literal> by default (<literal>SHA1</literal> prior to
@@ -38,11 +39,12 @@
     <varlistentry>
      <term><parameter>algo</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        One of <constant>Phar::MD5</constant>,
    <constant>Phar::SHA1</constant>, <constant>Phar::SHA256</constant>,
-   <constant>Phar::SHA512</constant>, or <constant>Phar::OPENSSL</constant>
-      </para>
+   <constant>Phar::SHA512</constant>, <constant>Phar::OPENSSL</constant>,
+   <constant>Phar::OPENSSL_SHA256</constant>, or <constant>Phar::OPENSSL_SHA512</constant>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -54,7 +56,6 @@
        <programlisting role="php">
         <![CDATA[
 <?php
-$p = new Phar('archive.phar');
 $private = openssl_get_privatekey(file_get_contents('private.pem'));
 $pkey = '';
 openssl_pkey_export($private, $pkey);

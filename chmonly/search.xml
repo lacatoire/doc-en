@@ -14,17 +14,17 @@
    to previous results, match similar words, or search topic titles only.
   </para>
   
-  <para>
+  <simpara>
    The usage of the search feature is fairly straightforward. Click on
    the search tab, type in the desired words and press ENTER (or click
    on "List Topics"). Then you'll receive a list of matches from the
-   PHP Manual (and the notes). You can use the button with a right
+   PHP Manual. You can use the button with a right
    arrow on it to add boolean operators to your search (or you can type
    them in). As you see the results, you can use the column headings
    (Title, Location and Rank) to sort the topic list. The default order
    is by Rank. You can also adjust some parameters at the bottom of this
    tab.
-  </para>
+  </simpara>
 
   <simpara>
    The words found are highlighted on the current page in the Topic pane

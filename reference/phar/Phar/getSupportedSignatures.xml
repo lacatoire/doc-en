@@ -26,10 +26,11 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns an array containing any of <literal>MD5</literal>, <literal>SHA-1</literal>,
-   <literal>SHA-256</literal>, <literal>SHA-512</literal>, or <literal>OpenSSL</literal>.
-  </para>
+   <literal>SHA-256</literal>, <literal>SHA-512</literal>, <literal>OpenSSL</literal>,
+   <literal>OpenSSL_SHA256</literal>, or <literal>OpenSSL_SHA512</literal>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">

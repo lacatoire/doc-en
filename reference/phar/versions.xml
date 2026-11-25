@@ -83,6 +83,8 @@
  <function name="phardata::offsetunset" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL phar &gt;= 2.0.0"/>
  <function name="phardata::setalias" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL phar &gt;= 2.0.0"/>
  <function name="phardata::setdefaultstub" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL phar &gt;= 2.0.0"/>
+ <function name="phardata::setmetadata" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL phar &gt;= 2.0.0"/>
+ <function name="phardata::setsignaturealgorithm" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL phar &gt;= 2.0.0"/>
  <function name="phardata::setstub" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL phar &gt;= 2.0.0"/>
 
  <function name="pharexception" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL phar &gt;= 1.0.0"/>
