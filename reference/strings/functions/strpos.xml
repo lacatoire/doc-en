@@ -41,7 +41,9 @@
       <simpara>
        Passing an empty string as <parameter>needle</parameter> matches at
        every position. <function>strpos</function> returns
-       <parameter>offset</parameter> when it is specified, or
+       <parameter>offset</parameter> when it is specified and not negative,
+       the length of <parameter>haystack</parameter> plus
+       <parameter>offset</parameter> when it is negative, or
        <literal>0</literal> otherwise.
       </simpara>
       &strings.parameter.needle.non-string;
