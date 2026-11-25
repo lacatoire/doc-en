@@ -25,9 +25,9 @@
     <varlistentry>
      <term><parameter>context</parameter></term>
      <listitem>
-      <simpara>
-       The stream or context to apply the parameters to.
-      </simpara>
+      <para>
+       The stream or context to apply the parameters too.
+      </para>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -52,12 +52,9 @@
            <literal>notification</literal>
           </entry>
           <entry>
-           Any callable, called with six arguments whenever a stream triggers a notification.
-           The <link linkend="wrappers.http">http://</link>, https:// and
-           <link linkend="wrappers.ftp">ftp://</link> stream wrappers send all
-           notifications; other stream types such as <literal>tcp://</literal>
-           only send <constant>STREAM_NOTIFY_COMPLETED</constant>, when a read
-           reaches the end of the stream.
+           Name of user-defined callback function to be called whenever a stream triggers a notification.
+           Only supported for <link linkend="wrappers.http">http://</link> and
+           <link linkend="wrappers.ftp">ftp://</link> stream wrappers.
           </entry>
          </row>
          <row>
@@ -79,8 +76,33 @@
 
  <refsect1 role="returnvalues"><!-- {{{ -->
   &reftitle.returnvalues;
+  <para>
+   &return.success;
+  </para>
+ </refsect1><!-- }}} -->
+
+ <refsect1 role="errors"><!-- {{{ -->
+  &reftitle.errors;
   <simpara>
-   &return.true.always;
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>context</parameter> is not a valid stream or
+   stream context <type>resource</type>.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if the
+   <literal>options</literal> entry of <parameter>params</parameter>
+   is not of the form <literal>$arr['wrapper']['option'] = $value</literal>,
+   that is, if one of its elements is not an array or has an integer key.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if the
+   <literal>options</literal> entry of <parameter>params</parameter>
+   is not an array.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if the
+   <literal>notification</literal> entry of <parameter>params</parameter>
+   is not a valid callback.
   </simpara>
  </refsect1><!-- }}} -->
 
@@ -96,9 +118,30 @@
     </thead>
     <tbody>
      <row>
-      <entry>8.4.0</entry>
+      <entry>8.5.0</entry>
       <entry>
-       The return type is &true; now; previously, it was <type>bool</type>.
+       Now throws a <exceptionname>TypeError</exceptionname> if the
+       <literal>notification</literal> entry of <parameter>params</parameter>
+       is not a valid callback.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Now throws a <exceptionname>TypeError</exceptionname> if
+       <parameter>context</parameter> is not a valid stream or
+       stream context <type>resource</type>.
+       Previously, an <constant>E_WARNING</constant> was raised and &false; was returned.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if the
+       <literal>options</literal> entry of <parameter>params</parameter>
+       is not of the expected form, and a <exceptionname>TypeError</exceptionname>
+       if it is not an array.
+       Previously, an <constant>E_WARNING</constant> was raised.
       </entry>
      </row>
     </tbody>
@@ -110,9 +153,6 @@
   &reftitle.seealso;
   <simplelist>
    <member><function>stream_notification_callback</function></member>
-   <member><function>stream_context_get_params</function></member>
-   <member><function>stream_context_create</function></member>
-   <member><function>stream_context_set_option</function></member>
   </simplelist>
  </refsect1><!-- }}} -->
 
