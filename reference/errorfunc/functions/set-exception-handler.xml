@@ -35,11 +35,12 @@
     rather than the one that was active before it.
    </simpara>
    <simpara>
-    The running handler is re-installed automatically when it returns, but only
-    if no exception handler is active at that point. As soon as the handler calls
-    <function>set_exception_handler</function> or
-    <function>restore_exception_handler</function>, this automatic restoration is
-    skipped and the active handler is whatever the handler itself left in place.
+    When the handler returns and no exception handler is active, the entry on
+    top of the handler stack becomes active. This is the handler that has just
+    finished only if the calls to
+    <function>set_exception_handler</function> and
+    <function>restore_exception_handler</function> made by the handler balance
+    each other; otherwise it is whichever handler the stack leaves on top.
    </simpara>
    <simpara>
     Modifying the exception handler from within itself is therefore discouraged.
