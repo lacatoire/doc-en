@@ -69,14 +69,30 @@
       </keycombo>
       events.
      </para>
+     <simpara>
+      The handler does not run at the moment of the event: it runs at the next
+      interruption point of the engine, so a blocking call such as
+      <function>sleep</function> or <function>stream_select</function> finishes
+      first. Events received while the handler is pending or running are merged
+      into a single call. While a handler is set, <literal>CTRL+C</literal> no
+      longer terminates the process.
+     </simpara>
     </listitem>
    </varlistentry>
    <varlistentry>
     <term><parameter>add</parameter></term>
     <listitem>
-     <para>
+     <simpara>
       If &true;, the handler is set. If &false;, the handler is removed.
-     </para>
+     </simpara>
+     <simpara>
+      When <parameter>handler</parameter> is &null;, <parameter>add</parameter>
+      controls whether the process ignores <literal>CTRL+C</literal>
+      (&true;) or processes it normally again (&false;); in both cases any
+      callback set earlier is discarded. The handler's native routine is only
+      removed by a call with a callable and <parameter>add</parameter> set to
+      &false;.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -87,6 +103,18 @@
   <para>
    &return.success;
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if the function is called
+   outside the <literal>cli</literal> SAPIs, or, on thread-safe builds, if it
+   is not called from the main thread.
+   An <constant>E_WARNING</constant> is raised, and &false; returned, when the
+   handler cannot be attached or, with <parameter>add</parameter> set to
+   &false;, when it was not set beforehand.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
