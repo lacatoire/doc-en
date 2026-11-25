@@ -51,12 +51,11 @@
     <varlistentry>
      <term><parameter>result_code</parameter></term>
      <listitem>
-      <para>
-       If the <parameter>result_code</parameter> argument is present
-       along with the <parameter>output</parameter> argument, then the
-       return status of the executed command will be written to this
+      <simpara>
+       If the <parameter>result_code</parameter> argument is present,
+       the return status of the executed command will be written to this
        variable.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>

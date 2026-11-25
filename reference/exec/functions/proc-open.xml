@@ -108,6 +108,20 @@
          Note that anything else than <literal>w</literal> is treated like <literal>r</literal>.
         </member>
         <member>
+         An array whose first element is <literal>socket</literal>, to pass one
+         end of a socket pair to the process (available as of PHP 8.0.0).
+        </member>
+        <member>
+         An array whose first element is <literal>redirect</literal> and whose
+         second element is the number of another descriptor, to redirect this
+         descriptor to the same target as that one, for example
+         <literal>[2 =&gt; ['redirect', 1]]</literal> (available as of PHP 7.4.0).
+        </member>
+        <member>
+         An array containing only <literal>null</literal>, to discard the data
+         written by the process on this descriptor (available as of PHP 7.4.0).
+        </member>
+        <member>
          A stream resource representing a real file descriptor (e.g. opened file,
          a socket, <constant>STDIN</constant>).
         </member>
