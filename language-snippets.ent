@@ -1427,8 +1427,11 @@ Furthermore, these timezones may be removed from the IANA timezone database at a
 </simpara>'>
 
 <!ENTITY date.timezone.errors.description '<simpara xmlns="http://docbook.org/ns/docbook">
-Every call to a date/time function will generate an <constant>E_WARNING</constant>
-if the time zone is not valid. See also <function>date_default_timezone_set</function></simpara>'>
+If the <literal>date.timezone</literal> INI setting is not a valid time zone, an
+<constant>E_WARNING</constant> is emitted when it is set, at startup or with
+<function>ini_set</function>, and UTC is used. Prior to PHP 8.2.0, every call
+to a date/time function emitted an <constant>E_WARNING</constant> instead.
+See also <function>date_default_timezone_set</function></simpara>'>
 
 <!ENTITY date.timestamp.description '
 <varlistentry xmlns="http://docbook.org/ns/docbook"><term><parameter>timestamp</parameter></term><listitem><simpara>
