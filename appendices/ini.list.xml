@@ -155,12 +155,6 @@
        <entry><constant>INI_ALL</constant></entry>
        <entry></entry>
       </row>
-      <row>
-       <entry><link linkend="ini.child-terminate">child_terminate</link></entry>
-       <entry><literal>"0"</literal></entry>
-       <entry><constant>INI_ALL</constant></entry>
-       <entry></entry>
-      </row>
       <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('readline.configuration.list')/*)"/>
       <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('features.commandline.ini.list')/*)"/>
       <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('com.configuration.list')/*)"/>
