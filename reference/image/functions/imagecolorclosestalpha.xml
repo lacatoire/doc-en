@@ -61,9 +61,13 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the index of the closest color in the palette.
-  </para>
+   -1 is returned if the palette of the image has no color, for example when no
+   color has been allocated yet or all of them have been deallocated.
+   For a truecolor image, the function does not return a palette index but the
+   color value of the requested color itself.
+  </simpara>
  </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
