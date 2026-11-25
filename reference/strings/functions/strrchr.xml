@@ -39,7 +39,8 @@
       <para>
        If <parameter>needle</parameter> contains more than one character,
        only the first is used. This behavior is different from that of
-       <function>strstr</function>.
+       <function>strstr</function>. An empty <parameter>needle</parameter>
+       is searched for as a NUL byte.
       </para>
       &strings.parameter.needle.non-string;
      </listitem>
@@ -83,7 +84,6 @@
        The <parameter>before_needle</parameter> parameter was added.
       </entry>
      </row>
-     &strings.changelog.needle-empty;
      <row>
       <entry>8.0.0</entry>
       <entry>
