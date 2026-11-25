@@ -28,9 +28,13 @@
     <varlistentry>
      <term><parameter>string</parameter></term>
      <listitem>
-      <para>
-       A Hebrew input string.
-      </para>
+      <simpara>
+       A Hebrew input string, encoded in ISO-8859-8. Text in another
+       encoding, such as UTF-8, must first be converted with
+       <function>mb_convert_encoding</function> or <function>iconv</function>.
+       Strings in other encodings are returned unchanged, without any error
+       or warning.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -40,6 +44,10 @@
        This optional parameter indicates maximum number of characters per
        line that will be returned.
       </para>
+      <simpara>
+       The default value <literal>0</literal> disables line wrapping. With a
+       negative value, a line break is inserted between every word.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
