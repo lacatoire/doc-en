@@ -45,11 +45,13 @@
      <term><parameter>from_encoding</parameter></term>
      <listitem>
       <simpara>
-       The encoding of the variables to convert. It is a required parameter.
-       If it is an <type>array</type>
-       or a comma separated <type>string</type> of several encodings, the
-       encoding is detected from the strings of all the variables together,
-       and the detected encoding is returned.
+       The current encoding of the variables. It is a required parameter.
+       Multiple encodings may be specified as an <type>array</type> or comma
+       separated <type>string</type>, in which case the encoding is detected
+       among the listed encodings from the strings of all the variables
+       together, and the detected encoding is returned.
+       <literal>"auto"</literal> is expanded according to the
+       <link linkend="ini.mbstring.language">mbstring.language</link> INI setting.
       </simpara>
      </listitem>
     </varlistentry>
