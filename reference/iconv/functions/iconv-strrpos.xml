@@ -59,11 +59,12 @@
     </varlistentry>
    </variablelist>
   </para>
-  <para>
+  <simpara>
    If <parameter>haystack</parameter> or <parameter>needle</parameter> is
-   not a string, it is converted to a string and applied as the ordinal
-   value of a character.
-  </para>
+   not a string, it is converted to a string. For example, the integer
+   <literal>98</literal> is searched as the text "98", not as the
+   character with the ordinal value 98.
+  </simpara>
  </refsect1>
 
  <refsect1 role="returnvalues">
@@ -76,6 +77,11 @@
    If <parameter>needle</parameter> is not found,
    <function>iconv_strrpos</function> will return &false;.
   </para>
+  <simpara>
+   If <parameter>needle</parameter> is an empty string,
+   <function>iconv_strrpos</function> always returns &false;, unlike
+   <function>strrpos</function>.
+  </simpara>
   &return.falseproblem;
  </refsect1>
 
