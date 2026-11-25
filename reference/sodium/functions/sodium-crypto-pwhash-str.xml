@@ -55,7 +55,8 @@ Uses a CPU- and memory-hard hash algorithm along with a randomly-generated salt,
    Returns the hashed password.
   </simpara>
   <simpara>
-   In order to produce the same password hash from the same password, the same values for <parameter>opslimit</parameter> and <parameter>memlimit</parameter> must be used. These are embedded within the generated hash, so
+   A new random salt is generated on every call, so the same password never produces the same hash.
+   The values of <parameter>opslimit</parameter> and <parameter>memlimit</parameter> are embedded within the generated hash, so
    everything that's needed to verify the hash is included. This allows
    the <function>sodium_crypto_pwhash_str_verify</function> function to verify the hash without
    needing separate storage for the other parameters.
@@ -93,8 +94,7 @@ $argon2id$v=19$m=65536,t=2,p=1$oWIfdaXwWwhVmovOBc2NAQ$EbsZ+JnZyyavkafS0hoc4HdaOB
     Hashes are calculated using the Argon2ID algorithm,
     providing resistance to both GPU and side-channel attacks.
     In contrast to the <function>password_hash</function> function,
-    there is no salt parameter (a salt is generated automatically),
-    and the <parameter>opslimit</parameter> and
+    the <parameter>opslimit</parameter> and
     <parameter>memlimit</parameter> parameters are not optional.
    </simpara>
   </note>
