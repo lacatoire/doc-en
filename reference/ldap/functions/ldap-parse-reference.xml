@@ -14,7 +14,85 @@
    <methodparam><type>LDAP\ResultEntry</type><parameter>entry</parameter></methodparam>
    <methodparam><type>array</type><parameter role="reference">referrals</parameter></methodparam>
   </methodsynopsis>
-  &warn.undocumented.func;
+  <simpara>
+   Extracts the referral URLs from a reference message returned by
+   <function>ldap_first_reference</function> or
+   <function>ldap_next_reference</function>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term><parameter>ldap</parameter></term>
+     <listitem>
+      <simpara>
+       &ldap.parameter.ldap;
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>entry</parameter></term>
+     <listitem>
+      <simpara>
+       An <classname>LDAP\ResultEntry</classname> instance representing a
+       reference message, as returned by <function>ldap_first_reference</function>
+       or <function>ldap_next_reference</function>.
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>referrals</parameter></term>
+     <listitem>
+      <simpara>
+       A reference to a variable that will be set to an <type>array</type>
+       of the referral URLs contained in the reference. Any previous value of
+       the variable is replaced by the array.
+      </simpara>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   &return.success;
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <para>
+   <informaltable>
+    <tgroup cols="2">
+     <thead>
+      <row>
+       <entry>&Version;</entry>
+       <entry>&Description;</entry>
+      </row>
+     </thead>
+     <tbody>
+      &ldap.changelog.ldap-object;
+      &ldap.changelog.entry-object;
+     </tbody>
+    </tgroup>
+   </informaltable>
+  </para>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>ldap_first_reference</function></member>
+    <member><function>ldap_next_reference</function></member>
+    <member><function>ldap_parse_result</function></member>
+   </simplelist>
+  </para>
  </refsect1>
 
 </refentry>
