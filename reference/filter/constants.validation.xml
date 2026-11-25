@@ -170,7 +170,9 @@
       <term><literal>decimal</literal></term>
       <listitem>
        <simpara>
-        <!-- TODO -->
+        The character used as the decimal separator, <literal>.</literal> by
+        default. It must be exactly one character long, otherwise a
+        <exceptionname>ValueError</exceptionname> is thrown.
        </simpara>
       </listitem>
      </varlistentry>
