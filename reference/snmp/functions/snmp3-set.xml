@@ -32,6 +32,9 @@
    values are ignored when <parameter>security_level</parameter> does not use
    them.
   </simpara>
+  <simpara>
+   This function uses <acronym>SNMP</acronym>v3.
+  </simpara>
 
  </refsect1>
 
