@@ -28,6 +28,13 @@
        The file pointer must be valid, and must point to a file successfully
        opened by <function>fopen</function> or <function>fsockopen</function>.
       </para>
+      <note>
+       <simpara>
+        A directory handle returned by <function>opendir</function> is accepted
+        as a resource, but cannot be closed with <function>fclose</function>.
+        Use <function>closedir</function> instead.
+       </simpara>
+      </note>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -39,6 +46,19 @@
   <para>
    &return.success;
   </para>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   If <parameter>stream</parameter> is a directory handle returned by
+   <function>opendir</function>, an <constant>E_WARNING</constant> level error
+   is emitted and &false; is returned.
+  </simpara>
+  <simpara>
+   If <parameter>stream</parameter> has already been closed, a
+   <exceptionname>TypeError</exceptionname> is thrown.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
