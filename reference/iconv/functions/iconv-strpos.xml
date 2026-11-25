@@ -87,6 +87,11 @@
    If <parameter>needle</parameter> is not found,
    <function>iconv_strpos</function> will return &false;.
   </para>
+  <simpara>
+   If <parameter>needle</parameter> is an empty string,
+   <function>iconv_strpos</function> always returns &false;, unlike
+   <function>strpos</function>.
+  </simpara>
   &return.falseproblem;
  </refsect1>
 
