@@ -58,7 +58,8 @@
       <entry>
        Calling <function>get_parent_class</function> without an argument now emits an
        <constant>E_DEPRECATED</constant> warning;
-       previously, calling this function inside a class returned the name of that class.
+       previously, calling this function inside a class returned the name of
+       that class's parent, without a deprecation notice.
       </entry>
      </row>
      <row>
