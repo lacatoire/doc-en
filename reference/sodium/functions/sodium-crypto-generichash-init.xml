@@ -34,7 +34,7 @@
     <term><parameter>length</parameter></term>
     <listitem>
      <simpara>
-      The expected output length of the hash function.
+      The expected output length of the hash function. The same length must be given to <function>sodium_crypto_generichash_final</function>.
      </simpara>
     </listitem>
    </varlistentry>

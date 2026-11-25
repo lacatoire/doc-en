@@ -34,7 +34,8 @@
     <term><parameter>length</parameter></term>
     <listitem>
      <simpara>
-      Output length.
+      Output length. It must be the length given to <function>sodium_crypto_generichash_init</function>: the length is part of what is hashed,
+      so a different value does not throw, but the result is not what <function>sodium_crypto_generichash</function> returns for that length.
      </simpara>
     </listitem>
    </varlistentry>
