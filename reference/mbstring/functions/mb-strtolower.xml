@@ -13,10 +13,10 @@
    <methodparam><type>string</type><parameter>string</parameter></methodparam>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>encoding</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Returns <parameter>string</parameter>
    with all alphabetic characters converted to lowercase.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -43,9 +43,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    <parameter>string</parameter> with all alphabetic characters converted to lowercase.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -113,15 +113,15 @@ echo $str; // Prints τάχιστη αλώπηξ βαφής ψημένη γη, �
 
  <refsect1 role="notes">
   &reftitle.notes;
-  <para>
+  <simpara>
    'Alphabetic' is determined by the Unicode character properties.
    Thus the behaviour of this function is not affected by locale settings and it can convert
    any characters that have 'alphabetic' property, such as a-umlaut (ä).
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    For more information about the Unicode properties, please see <link
    xlink:href="&url.unicode.reports;">&url.unicode.reports;</link>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">

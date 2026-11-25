@@ -14,10 +14,10 @@
    <methodparam><type>int</type><parameter>mode</parameter></methodparam>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>encoding</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Performs case folding on a <type>string</type>, converted in the way specified by
    <parameter>mode</parameter>.
-  </para>
+  </simpara>
  </refsect1>
  
  <refsect1 role="parameters">
@@ -35,7 +35,7 @@
     <varlistentry>
      <term><parameter>mode</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The mode of the conversion. It can be one of 
        <constant>MB_CASE_UPPER</constant>, 
        <constant>MB_CASE_LOWER</constant>, 
@@ -45,7 +45,7 @@
        <constant>MB_CASE_LOWER_SIMPLE</constant>,
        <constant>MB_CASE_TITLE_SIMPLE</constant>,
        <constant>MB_CASE_FOLD_SIMPLE</constant>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -60,10 +60,10 @@
  
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    A case folded version of <parameter>string</parameter> converted in the
    way specified by <parameter>mode</parameter>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -151,16 +151,16 @@ echo $str, PHP_EOL;
 
  <refsect1 role="notes">
   &reftitle.notes;
-  <para>
+  <simpara>
    Case folding is performed on the basis of the Unicode character
    properties. Thus the behaviour of this function is not affected
    by locale settings and it can convert any characters that have
    'alphabetic' property, such a-umlaut (ä).
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    For more information about the Unicode properties, please see <link
    xlink:href="&url.unicode.reports;">&url.unicode.reports;</link>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
