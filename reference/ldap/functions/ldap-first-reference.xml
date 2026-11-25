@@ -13,7 +13,45 @@
    <methodparam><type>LDAP\Connection</type><parameter>ldap</parameter></methodparam>
    <methodparam><type>LDAP\Result</type><parameter>result</parameter></methodparam>
   </methodsynopsis>
-  &warn.undocumented.func;
+  <simpara>
+   Returns the first reference message of a search result. The returned
+   <classname>LDAP\ResultEntry</classname> instance is then supplied to
+   <function>ldap_next_reference</function> to get successive references
+   from the result, or to <function>ldap_parse_reference</function> to
+   extract the referral URLs.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term><parameter>ldap</parameter></term>
+     <listitem>
+      <simpara>
+       &ldap.parameter.ldap;
+      </simpara>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>result</parameter></term>
+     <listitem>
+      <simpara>
+       &ldap.parameter.result;
+      </simpara>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   Returns an <classname>LDAP\ResultEntry</classname> instance,
+   or &false; if the result contains no reference.
+  </simpara>
  </refsect1>
 
 </refentry>
