@@ -23,9 +23,9 @@
    <varlistentry>
     <term><parameter>value</parameter></term>
     <listitem>
-     <para>
-      The scalar value being converted to a <type>bool</type>.
-     </para>
+     <simpara>
+      The value being converted to a <type>bool</type>.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
