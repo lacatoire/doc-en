@@ -23,9 +23,14 @@
    <varlistentry>
     <term><parameter>error_code</parameter></term>
     <listitem>
-     <para>
-      One of the <link xlink:href="&url.curl.error;">cURL error codes</link> constants.
-     </para>
+     <simpara>
+      A cURL share error code, such as the one returned by
+      <function>curl_share_errno</function>. The extension defines no
+      <literal>CURLSHE_<replaceable>*</replaceable></literal> constants for
+      these codes, which are the numbers <literal>0</literal> to
+      <literal>5</literal>; see the
+      <link xlink:href="&url.curl.error;">cURL error codes</link>.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
