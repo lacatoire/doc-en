@@ -17,8 +17,6 @@
   <simpara>
    Calculate (<parameter>num</parameter> raised into power
    <parameter>exponent</parameter>) modulo <parameter>modulus</parameter>.
-   A negative <parameter>exponent</parameter> is not allowed and throws a
-   <exceptionname>ValueError</exceptionname>.
   </simpara>
  </refsect1>
 
@@ -70,13 +68,15 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   Throws a <exceptionname>ValueError</exceptionname> if
-   <parameter>exponent</parameter> is negative. This is checked before
-   <parameter>modulus</parameter>.
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>exponent</parameter> is negative.
+   This is checked before <parameter>modulus</parameter>.
   </simpara>
   <simpara>
-   Throws a <exceptionname>DivisionByZeroError</exceptionname> if
-   <parameter>modulus</parameter> is zero.
+   Throws a <exceptionname>DivisionByZeroError</exceptionname> if <parameter>modulus</parameter>
+   is <literal>0</literal>.
+  </simpara>
+  <simpara>
+   Prior to PHP 8.0.0, an <constant>E_WARNING</constant> was raised instead.
   </simpara>
  </refsect1>
 
