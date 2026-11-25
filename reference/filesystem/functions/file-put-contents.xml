@@ -43,10 +43,13 @@
     <varlistentry>
      <term><parameter>data</parameter></term>
      <listitem>
-      <para>
-       The data to write. Can be either a <type>string</type>, an
-       <type>array</type> or a <type>stream</type> resource.
-      </para>
+      <simpara>
+       The data to write. Can be a <type>string</type>, an
+       <type>array</type>, a <type>stream</type> resource, or an object
+       implementing <interfacename>Stringable</interfacename>.
+       Values of type <type>int</type>, <type>float</type>, <type>bool</type>
+       and &null; are converted to a <type>string</type> before being written.
+      </simpara>
       <para>
        If <parameter>data</parameter> is a <type>stream</type> resource, the
        remaining buffer of that stream will be copied to the specified file.
@@ -135,6 +138,35 @@
    &false; on failure.
   </para>
   &return.falseproblem;
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>filename</parameter> contains null bytes.
+  </simpara>
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if
+   <parameter>data</parameter> is a resource that is not a valid stream
+   (for example a closed one), or if <parameter>context</parameter> is
+   neither a resource nor &null;.
+  </simpara>
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if
+   <parameter>data</parameter> is an object that cannot be converted to a
+   <type>string</type>, or if it is an <type>array</type> containing such an
+   object.
+  </simpara>
+  <simpara>
+   An <constant>E_WARNING</constant> level error is generated if
+   <constant>LOCK_EX</constant> is set and <parameter>filename</parameter>
+   is not a regular file, such as a <literal>php://memory</literal> stream.
+  </simpara>
+  <simpara>
+   An <constant>E_NOTICE</constant> level error is generated if writing to
+   the file fails, for example when the disk is full.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
