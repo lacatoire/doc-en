@@ -35,6 +35,19 @@
     more information.
    </para>
   </caution>
+  <warning>
+   <simpara>
+    This function does not add quotes around the result; they must be added
+    by the caller. If the <literal>NO_BACKSLASH_ESCAPES</literal> SQL mode is
+    enabled on the connection, only the single quote
+    (<literal>'</literal>) is escaped, so a value placed between double quotes
+    (<literal>"</literal>) can terminate the string and allow SQL injection.
+    Use <link linkend="mysqli.quickstart.prepared-statements">prepared
+    statements</link> instead. If that is not possible, use
+    <methodname>mysqli::quote_string</methodname>, which always wraps the
+    result in single quotes.
+   </simpara>
+  </warning>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -48,12 +61,14 @@
       <para>
        The string to be escaped.
       </para>
-      <para>
+      <simpara>
        Characters encoded are <literal>NUL (ASCII 0)</literal>,
        <literal>\n</literal>, <literal>\r</literal>, <literal>\</literal>,
        <literal>'</literal>, <literal>"</literal>, and
        <keycombo action='simul'><keycap>CTRL</keycap><keycap>Z</keycap></keycombo>.
-      </para>
+       If the <literal>NO_BACKSLASH_ESCAPES</literal> SQL mode is enabled on
+       the connection, only <literal>'</literal> is encoded, by doubling it.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -126,11 +141,10 @@ Fatal error: Uncaught mysqli_sql_exception: You have an error in your SQL syntax
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>mysqli_set_charset</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>mysqli_set_charset</function></member>
+   <member><function>mysqli_quote_string</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
