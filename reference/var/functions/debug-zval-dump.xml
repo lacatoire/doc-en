@@ -116,8 +116,10 @@ string(11) "Hello World" refcount(3)
       Tracking variables which have been assigned or passed by reference (see
       <link linkend="language.references">References Explained</link>). This
       refcount is stored on a separate reference zval, pointing to the zval
-      for the current value. This additional zval is not currently shown by
-      <function>debug_zval_dump</function>.
+      for the current value. This additional zval is not shown by
+      <function>debug_zval_dump</function> for a variable passed directly, but
+      it is shown as <literal>reference refcount(N) { ... }</literal> when a
+      reference is nested inside a dumped array or object.
      </member>
     </simplelist>
    </para>
@@ -131,7 +133,8 @@ string(11) "Hello World" refcount(3)
    </para>
    <para>
     The parameter passing also prevents <function>debug_zval_dump</function>
-    showing variables which have been assigned by reference. To illustrate,
+    showing a variable which has been assigned by reference, when it is passed
+    directly. To illustrate,
     consider a slightly modified version of the above example:
 
     <informalexample>
