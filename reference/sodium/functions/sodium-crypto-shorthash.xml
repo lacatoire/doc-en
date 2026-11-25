@@ -39,7 +39,8 @@
     <term><parameter>key</parameter></term>
     <listitem>
      <simpara>
-      The hash key.
+      The hash key, <constant>SODIUM_CRYPTO_SHORTHASH_KEYBYTES</constant> (16) bytes long.
+      It can be generated with <function>sodium_crypto_shorthash_keygen</function>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -49,7 +50,7 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-
+   The hash, as <constant>SODIUM_CRYPTO_SHORTHASH_BYTES</constant> (8) raw bytes.
   </simpara>
  </refsect1>
 
