@@ -37,9 +37,10 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
-  <para>
-   Generates a warning if called from outside of a user-defined function.
-  </para>
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if called from outside of a
+   user-defined function.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
