@@ -62,7 +62,8 @@ MIIBCgK...</literal>)
      <listitem>
       <simpara>
        <type>int</type> - one of these <link linkend="openssl.signature-algos">Digest Algorithms</link>,
-       or <literal>0</literal> for signature algorithms that do not accept a digest algorithm as a parameter.
+       or <literal>0</literal> for signature algorithms that do not accept a digest algorithm as a parameter,
+       such as Ed25519 and Ed448 keys.
        This value of <literal>0</literal> is only available when PHP is compiled with OpenSSL 3.0+.
       </simpara>
       <para>
@@ -116,6 +117,13 @@ MIIBCgK...</literal>)
       <entry>8.5.0</entry>
       <entry>
        The optional parameter <parameter>padding</parameter> has been added.
+      </entry>
+     </row>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       Ed25519 and Ed448 keys are now supported, with an <parameter>algorithm</parameter>
+       of <literal>0</literal>.
       </entry>
      </row>
      <row>
