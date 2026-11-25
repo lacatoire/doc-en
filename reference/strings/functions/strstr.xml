@@ -14,23 +14,23 @@
    <methodparam><type>string</type><parameter>needle</parameter></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>before_needle</parameter><initializer>&false;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Returns part of <parameter>haystack</parameter> string starting from and including the first
    occurrence of <parameter>needle</parameter> to the end of
    <parameter>haystack</parameter>.
-  </para>
+  </simpara>
   <note>
-   <para>
+   <simpara>
     This function is case-sensitive. For case-insensitive searches, use
     <function>stristr</function>.
-   </para>
+   </simpara>
   </note>
   <note>
-   <para>
+   <simpara>
     If it is only required to determine if a particular <parameter>needle</parameter>
     occurs within <parameter>haystack</parameter>, the faster and less memory
     intensive <function>str_contains</function> function should be used instead.
-   </para>
+   </simpara>
   </note>
  </refsect1>
 
@@ -49,26 +49,26 @@
     <varlistentry>
      <term><parameter>needle</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The string to search for.
-      </para>
-      <para>
+      </simpara>
+      <simpara>
        An empty <parameter>needle</parameter> matches at the start of
        <parameter>haystack</parameter>: the result is the whole
        <parameter>haystack</parameter>, or an empty string if
        <parameter>before_needle</parameter> is &true;.
-      </para>
+      </simpara>
       &strings.parameter.needle.non-string;
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>before_needle</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If &true;, <function>strstr</function> returns
        the part of the <parameter>haystack</parameter> before the first
        occurrence of the <parameter>needle</parameter> (excluding the needle).
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -77,10 +77,10 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the portion of string, or &false; if <parameter>needle</parameter>
    is not found.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
