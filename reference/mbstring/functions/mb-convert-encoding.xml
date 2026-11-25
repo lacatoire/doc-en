@@ -98,11 +98,15 @@
      <row>
       <entry>8.2.0</entry>
       <entry>
-       <function>mb_convert_encoding</function> will no longer return
-       the following non text encodings:
-       <literal>"Base64"</literal>, <literal>"QPrint"</literal>,
-       <literal>"UUencode"</literal>, <literal>"HTML entities"</literal>,
-       <literal>"7 bit"</literal> and <literal>"8 bit"</literal>.
+       Handling of the <literal>"Base64"</literal>, <literal>"QPrint"</literal>,
+       <literal>"HTML entities"</literal> and <literal>"UUencode"</literal>
+       encodings is now deprecated, and an <constant>E_DEPRECATED</constant> is emitted when one
+       of them is used as <parameter>to_encoding</parameter>.
+       Use <function>base64_encode</function>,
+       <function>quoted_printable_encode</function>,
+       <function>htmlentities</function> (or
+       <function>mb_encode_numericentity</function>) and
+       <function>convert_uuencode</function> instead, respectively.
       </entry>
      </row>
      <row>
