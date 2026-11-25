@@ -70,7 +70,7 @@ echo $a."\n";
          &example.outputs;
          <screen>
 <![CDATA[
-Warning: Parameter 1 to increment() expected to be a reference, value given in …
+Warning: increment(): Argument #1 ($var) must be passed by reference, value given in …
 0
 1
 2
