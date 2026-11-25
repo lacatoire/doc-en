@@ -452,8 +452,14 @@
     <varlistentry xml:id="soapclient.props.httpurl">
      <term><varname>httpurl</varname></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       A <classname>Soap\Url</classname> object, or &null; if no
+       URL is in use.
+       As of PHP 8.4.0, this property is a <classname>Soap\Url</classname> object;
+       previously it was a <literal>soap_url</literal> <type>resource</type>.
+       Code using <function>is_resource</function> to check this property
+       must be updated to check for &null; instead.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="soapclient.props.location">
@@ -466,8 +472,14 @@
     <varlistentry xml:id="soapclient.props.sdl">
      <term><varname>sdl</varname></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       A <classname>Soap\Sdl</classname> object, or &null; if no
+       WSDL is in use.
+       As of PHP 8.4.0, this property is a <classname>Soap\Sdl</classname> object;
+       previously it was a <literal>soap_sdl</literal> <type>resource</type>.
+       Code using <function>is_resource</function> to check this property
+       must be updated to check for &null; instead.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="soapclient.props.style">

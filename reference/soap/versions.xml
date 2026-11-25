@@ -6,7 +6,7 @@
  <function name="use_soap_error_handler" from="PHP 5, PHP 7, PHP 8"/>
  <function name="is_soap_fault" from="PHP 5, PHP 7, PHP 8"/>
 
- <!-- Methods -->
+ <!-- Classes -->
  <function name="soap\sdl" from="PHP 8 &gt;= 8.4.0"/>
 
  <function name="soap\url" from="PHP 8 &gt;= 8.4.0"/>

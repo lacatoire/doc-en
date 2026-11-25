@@ -12,8 +12,43 @@
    <methodparam><type>Dba\Connection</type><parameter>dba</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   <function>dba_sync</function> synchronizes the database. This will probably
-   trigger a physical write to the disk, if supported.
+   <function>dba_sync</function> synchronizes the database, when the handler
+   supports it.
+  </simpara>
+  <simpara>
+   Only the following handlers trigger a physical write to the disk:
+  </simpara>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <literal>gdbm</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>db2</literal>, <literal>db3</literal> and <literal>db4</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>qdbm</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>tcadb</literal>
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <literal>lmdb</literal>; on failure, an <constant>E_WARNING</constant> with the
+     underlying error message is emitted
+    </simpara>
+   </listitem>
+  </itemizedlist>
+  <simpara>
+   On every other handler, <function>dba_sync</function> does nothing and
+   returns &true;.
   </simpara>
  </refsect1>
  <refsect1 role="parameters">
@@ -36,6 +71,11 @@
   </simpara>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &dba.errors.connection-closed;
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -48,6 +88,7 @@
     </thead>
     <tbody>
      &dba.changelog.dba-object;
+     &dba.changelog.dba-closed;
     </tbody>
    </tgroup>
   </informaltable>

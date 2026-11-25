@@ -768,9 +768,13 @@
     <varlistentry xml:id="numberformatter.constants.round-away-from-zero">
      <term>
       <constant>NumberFormatter::ROUND_AWAY_FROM_ZERO</constant>
+      <type>int</type>
      </term>
      <listitem>
-      <simpara>&Alias; <constant>NumberFormatter::ROUND_UP</constant>.</simpara>
+      <simpara>
+       &Alias; <constant>NumberFormatter::ROUND_UP</constant>.
+       Available as of PHP 8.4.0.
+      </simpara>
      </listitem>
     </varlistentry>
 
@@ -834,10 +838,14 @@
     <varlistentry xml:id="numberformatter.constants.round-halfodd">
      <term>
       <constant>NumberFormatter::ROUND_HALFODD</constant>
+      <type>int</type>
      </term>
      <listitem>
       <simpara>
-       Rounding mode to round towards the "odd neighbor".
+       Rounding mode to round towards the "nearest neighbor" unless both
+       neighbors are equidistant, in which case, round towards the odd
+       neighbor.
+       Available as of PHP 8.4.0 and ICU 69.
       </simpara>
      </listitem>
     </varlistentry>
@@ -858,9 +866,13 @@
     <varlistentry xml:id="numberformatter.constants.round-toward-zero">
      <term>
       <constant>NumberFormatter::ROUND_TOWARD_ZERO</constant>
+      <type>int</type>
      </term>
      <listitem>
-      <simpara>&Alias; <constant>NumberFormatter::ROUND_DOWN</constant>.</simpara>
+      <simpara>
+       &Alias; <constant>NumberFormatter::ROUND_DOWN</constant>.
+       Available as of PHP 8.4.0.
+      </simpara>
      </listitem>
     </varlistentry>
 

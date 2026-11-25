@@ -36,6 +36,13 @@
       &true;. With <literal>inifile</literal>, use the <parameter>skip</parameter>
       parameter of <function>dba_fetch</function> to read it.
      </simpara>
+     <note>
+      <simpara>
+       When working with inifiles this function accepts arrays as keys
+       where index 0 is the group and index 1 is the value name. See:
+       <function>dba_key_split</function>.
+      </simpara>
+     </note>
     </listitem>
    </varlistentry>
    <varlistentry>
@@ -65,6 +72,7 @@
 
  <refsect1 role="errors">
   &reftitle.errors;
+  &dba.errors.connection-closed;
   <simpara>
    If <parameter>dba</parameter> was opened read-only (mode <literal>r</literal>),
    an <constant>E_WARNING</constant> is raised and &false; is returned.
@@ -83,6 +91,7 @@
     </thead>
     <tbody>
      &dba.changelog.dba-object;
+     &dba.changelog.dba-closed;
     </tbody>
    </tgroup>
   </informaltable>
