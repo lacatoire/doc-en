@@ -38,10 +38,9 @@
     <function>curl_multi_exec</function>, this function returns
     <literal>''</literal> (the empty string) until
     <function>curl_multi_info_read</function> has returned the message for
-    that handle. To retrieve the error string for each individual handle,
-    pass the <literal>result</literal> key returned by
-    <function>curl_multi_info_read</function> to
-    <function>curl_strerror</function>.
+    that handle; it then returns the detailed message of the error. The
+    error code for each individual handle is the <literal>result</literal>
+    key returned by <function>curl_multi_info_read</function>.
    </simpara>
   </note>
  </refsect1>
