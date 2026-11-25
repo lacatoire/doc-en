@@ -83,7 +83,7 @@ echo $dom->saveXml();
   &reftitle.seealso;
   <simplelist>
    <member><methodname>Dom\HTMLDocument::saveXmlFile</methodname></member>
-   <member><methodname>Dom\XMLDocument::saveHtml</methodname></member>
+   <member><methodname>Dom\HTMLDocument::saveHtml</methodname></member>
   </simplelist>
  </refsect1>
 

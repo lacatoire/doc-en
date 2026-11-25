@@ -129,7 +129,7 @@
 
  <function name="domnamespacenode" from="PHP 5, PHP 7, PHP 8"/>
  <function name="domnamespacenode::__sleep" from="PHP 8 &gt;= 8.1.25"/>
- <function name="domnamespacenode::__wakeup" from="PHP 8 PHP 8 &gt;= 8.1.25"/>
+ <function name="domnamespacenode::__wakeup" from="PHP 8 &gt;= 8.1.25"/>
 
  <function name="domnode" from="PHP 5, PHP 7, PHP 8"/>
  <function name="domnode::appendchild" from="PHP 5, PHP 7, PHP 8"/>
@@ -154,7 +154,7 @@
  <function name="domnode::removechild" from="PHP 5, PHP 7, PHP 8"/>
  <function name="domnode::replacechild" from="PHP 5, PHP 7, PHP 8"/>
  <function name="domnode::__sleep" from="PHP 8 &gt;= 8.1.25"/>
- <function name="domnode::__wakeup" from="PHP 8 PHP 8 &gt;= 8.1.25"/>
+ <function name="domnode::__wakeup" from="PHP 8 &gt;= 8.1.25"/>
 
  <function name="domnodelist" from="PHP 5, PHP 7, PHP 8"/>
  <function name="domnodelist::count" from="PHP 7 &gt;= 7.2.0, PHP 8"/>
@@ -243,6 +243,14 @@
  <function name="dom\htmldocument::savehtmlfile" from="PHP 8 &gt;= 8.4.0"/>
  <function name="dom\htmldocument::savexml" from="PHP 8 &gt;= 8.4.0"/>
  <function name="dom\htmldocument::savexmlfile" from="PHP 8 &gt;= 8.4.0"/>
+ <function name="dom\xmldocument::createempty" from="PHP 8 &gt;= 8.4.0"/>
+ <function name="dom\xmldocument::createentityreference" from="PHP 8 &gt;= 8.4.0"/>
+ <function name="dom\xmldocument::createfromfile" from="PHP 8 &gt;= 8.4.0"/>
+ <function name="dom\xmldocument::createfromstring" from="PHP 8 &gt;= 8.4.0"/>
+ <function name="dom\xmldocument::savexml" from="PHP 8 &gt;= 8.4.0"/>
+ <function name="dom\xmldocument::savexmlfile" from="PHP 8 &gt;= 8.4.0"/>
+ <function name="dom\xmldocument::validate" from="PHP 8 &gt;= 8.4.0"/>
+ <function name="dom\xmldocument::xinclude" from="PHP 8 &gt;= 8.4.0"/>
 
  <function name="dom\parentnode::append" from="PHP 8 &gt;= 8.4.0"/>
  <function name="dom\parentnode::prepend" from="PHP 8 &gt;= 8.4.0"/>
