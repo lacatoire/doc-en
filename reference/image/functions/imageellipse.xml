@@ -44,17 +44,21 @@
     <varlistentry>
      <term><parameter>width</parameter></term>
      <listitem>
-      <para>
-       The ellipse width.
-      </para>
+      <simpara>
+       The ellipse width. The drawn ellipse covers
+       <code>2 * floor(width / 2) + 1</code> pixels, so an even value
+       gives an ellipse one pixel larger.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>height</parameter></term>
      <listitem>
-      <para>
-       The ellipse height.
-      </para>
+      <simpara>
+       The ellipse height. The drawn ellipse covers
+       <code>2 * floor(height / 2) + 1</code> pixels, so an even value
+       gives an ellipse one pixel larger.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
