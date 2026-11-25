@@ -36,10 +36,16 @@
    Returns the name of the parent class of the class of which
    <parameter>object_or_class</parameter> is an instance or the name.
   </para>
-  <para>
-   If the object does not have a parent or the given class does not exist,
-   &false; will be returned.
-  </para>
+  <simpara>
+   If the object or class does not have a parent, &false; will be returned.
+  </simpara>
+ </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>object_or_class</parameter> is
+   neither an object nor the name of an existing class.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
