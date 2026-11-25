@@ -34,11 +34,15 @@
     <varlistentry>
      <term><parameter>binary_string</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The binary string to convert.
        Any invalid characters in <parameter>binary_string</parameter> are silently ignored.
        As of PHP 7.4.0 supplying any invalid characters is deprecated.
-      </para>
+       A leading <literal>0b</literal> or <literal>0B</literal> prefix, and leading or trailing
+       whitespace (such as spaces, tabs and newlines), are accepted and are not
+       treated as invalid characters.
+       Whitespace between the prefix and the digits is treated as invalid characters.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
