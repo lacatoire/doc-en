@@ -52,15 +52,17 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   If <parameter>size</parameter> is less than <literal>1</literal>,
-   a <classname>ValueError</classname> will be thrown.
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>size</parameter> is not between <literal>1</literal> and
+   <constant>PHP_INT_MAX</constant>, capped at the platform's
+   <literal>INT_MAX</literal>.
   </simpara>
  </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
-   <title><function>pg_result_memory_size</function> example</title>
+   <title><function>pg_set_chunked_rows_size</function> example</title>
    <programlisting role="php">
 <![CDATA[
 <?php
