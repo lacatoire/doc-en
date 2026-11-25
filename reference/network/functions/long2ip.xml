@@ -29,6 +29,13 @@
       <para>
        A proper address representation in long integer.
       </para>
+      <simpara>
+       Values outside the range 0 to 4294967295 are not rejected: the value is
+       reduced modulo 2**32 (two's complement for negative integers), so only
+       its low 32 bits are used. For example, <literal>-1</literal> and
+       <literal>4294967296</literal> give <literal>255.255.255.255</literal>
+       and <literal>0.0.0.0</literal> respectively.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
