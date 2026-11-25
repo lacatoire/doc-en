@@ -44,18 +44,17 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>get_loaded_extensions</function> Example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>get_loaded_extensions</function> Example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 print_r(get_loaded_extensions());
 ?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 Array
 (
@@ -93,9 +92,8 @@ Array
     [31] => Zend OPcache
 )
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
