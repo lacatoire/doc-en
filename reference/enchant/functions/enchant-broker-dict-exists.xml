@@ -24,7 +24,7 @@
     <term><parameter>tag</parameter></term>
     <listitem>
      <simpara>
-      non-empty tag in the LOCALE format, ex: us_US, ch_DE, etc.
+      non-empty tag in the LOCALE format, ex: en_US, de_DE, etc.
      </simpara>
     </listitem>
    </varlistentry>
