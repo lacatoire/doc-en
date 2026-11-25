@@ -23,9 +23,10 @@
    <varlistentry>
     <term><parameter>codepage</parameter></term>
     <listitem>
-     <para>
-      A codepage identifier.
-     </para>
+     <simpara>
+      A codepage identifier. It must be a valid codepage for Windows and be
+      known to PHP; the current codepage is left unchanged otherwise.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -33,9 +34,23 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+   &false; is also returned, without any warning, when Windows accepts the
+   identifier but PHP does not know it, as the current codepage is then left
+   unchanged.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>codepage</parameter> is negative or greater than
+   <constant>UINT_MAX</constant>.
+   An <constant>E_WARNING</constant> is emitted if the identifier is not valid
+   for Windows.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
