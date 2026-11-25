@@ -18,17 +18,14 @@
    is set (1), the <acronym>SNMP</acronym> library will return 'quick printed' values.  This
    means that just the value will be printed.  When <parameter>enable</parameter> is not
    enabled (default) the NET-<acronym>SNMP</acronym> library prints extra information
-   including the type of the value (i.e. IpAddress or OID).  Additionally,
-   if quick_print is not enabled, the library prints additional hex values
-   for all strings of three characters or less.
+   including the type of the value (i.e. IpAddress or OID).
   </simpara>
   <simpara>
    By default the NET-<acronym>SNMP</acronym> library returns verbose values, quick_print is
    used to return only the value.
   </simpara>
   <simpara>
-   Currently strings are still returned with extra quotes, this will be
-   corrected in a later release.
+   Strings are returned enclosed in double quotes.
   </simpara>
  </refsect1>
 
@@ -39,6 +36,9 @@
     <term><parameter>enable</parameter></term>
     <listitem>
      <simpara>
+      Whether to return only the value (&true;), or the value preceded by its type (&false;, the default).
+      It has no effect when <function>snmp_set_valueretrieval</function> is set to <constant>SNMP_VALUE_PLAIN</constant>,
+      and with <constant>SNMP_VALUE_OBJECT</constant> it only changes the <literal>value</literal> property, not <literal>type</literal>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -92,8 +92,8 @@ echo "$a\n";
    &example.outputs.similar;
    <screen>
 <![CDATA[
-'Timeticks: (0) 0:00:00.00'
-'0:00:00.00'
+Timeticks: (0) 0:00:00.00
+0:0:00:00.00
 ]]>
    </screen>
   </example>
