@@ -226,16 +226,12 @@
    <varlistentry xml:id="pdo.constants.attr-autocommit">
     <term>
      <constant>PDO::ATTR_AUTOCOMMIT</constant>
-     (<type>bool</type>)
+     (<type>int</type>)
     </term>
     <listitem>
      <simpara>
       If this value is &false;, PDO attempts to disable autocommit so that the
       connection begins a transaction.
-     </simpara>
-     <simpara>
-      As of PHP 8.4.0 this constant is typed as <type>bool</type>; previously,
-      it was typed as <type>int</type>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -498,19 +494,15 @@
    <varlistentry xml:id="pdo.constants.attr-emulate-prepares">
     <term>
      <constant>PDO::ATTR_EMULATE_PREPARES</constant>
-     (<type>bool</type>)
+     (<type>int</type>)
     </term>
     <listitem>
      <simpara>
-        Whether to enable or disable emulation of prepared statements. Some drivers
-        either do not support native prepared statements or have only limited
-        support for them. When set to &true;, PDO always emulates prepared
-        statements; when set to &false;, it uses the driver's native prepared
-        statements.
-     </simpara>
-     <simpara>
-      As of PHP 8.4.0 this constant is typed as <type>bool</type>; previously,
-      it was typed as <type>int</type>.
+      Whether to enable or disable emulation of prepared statements. Some drivers
+      either do not support native prepared statements or have only limited
+      support for them. When set to &true;, PDO always emulates prepared
+      statements; when set to &false;, it uses the driver's native prepared
+      statements.
      </simpara>
     </listitem>
    </varlistentry>
@@ -750,6 +742,108 @@
        Specifies that a function created with <methodname>PDO::sqliteCreateFunction</methodname>
        is deterministic, i.e. it always returns the same result given the same inputs within
        a single SQL statement. (Available as of PHP 7.1.4.)
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="pdo.constants.sqlite-attr-extended-result-codes">
+    <term>
+     <constant>PDO::SQLITE_ATTR_EXTENDED_RESULT_CODES</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <warning>
+      <simpara>
+       This constant has been <emphasis>DEPRECATED</emphasis> as of PHP 8.5.0.
+       Use <constant>Pdo\Sqlite::ATTR_EXTENDED_RESULT_CODES</constant> instead.
+      </simpara>
+     </warning>
+     <simpara>
+      &Alias; <constant>Pdo\Sqlite::ATTR_EXTENDED_RESULT_CODES</constant>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="pdo.constants.sqlite-attr-open-flags">
+    <term>
+     <constant>PDO::SQLITE_ATTR_OPEN_FLAGS</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <warning>
+      <simpara>
+       This constant has been <emphasis>DEPRECATED</emphasis> as of PHP 8.5.0.
+       Use <constant>Pdo\Sqlite::ATTR_OPEN_FLAGS</constant> instead.
+      </simpara>
+     </warning>
+     <simpara>
+      &Alias; <constant>Pdo\Sqlite::ATTR_OPEN_FLAGS</constant>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="pdo.constants.sqlite-attr-readonly-statement">
+    <term>
+     <constant>PDO::SQLITE_ATTR_READONLY_STATEMENT</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <warning>
+      <simpara>
+       This constant has been <emphasis>DEPRECATED</emphasis> as of PHP 8.5.0.
+       Use <constant>Pdo\Sqlite::ATTR_READONLY_STATEMENT</constant> instead.
+      </simpara>
+     </warning>
+     <simpara>
+      &Alias; <constant>Pdo\Sqlite::ATTR_READONLY_STATEMENT</constant>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="pdo.constants.sqlite-open-readonly">
+    <term>
+     <constant>PDO::SQLITE_OPEN_READONLY</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <warning>
+      <simpara>
+       This constant has been <emphasis>DEPRECATED</emphasis> as of PHP 8.5.0.
+       Use <constant>Pdo\Sqlite::OPEN_READONLY</constant> instead.
+      </simpara>
+     </warning>
+     <simpara>
+      &Alias; <constant>Pdo\Sqlite::OPEN_READONLY</constant>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="pdo.constants.sqlite-open-readwrite">
+    <term>
+     <constant>PDO::SQLITE_OPEN_READWRITE</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <warning>
+      <simpara>
+       This constant has been <emphasis>DEPRECATED</emphasis> as of PHP 8.5.0.
+       Use <constant>Pdo\Sqlite::OPEN_READWRITE</constant> instead.
+      </simpara>
+     </warning>
+     <simpara>
+      &Alias; <constant>Pdo\Sqlite::OPEN_READWRITE</constant>.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry xml:id="pdo.constants.sqlite-open-create">
+    <term>
+     <constant>PDO::SQLITE_OPEN_CREATE</constant>
+     (<type>int</type>)
+    </term>
+    <listitem>
+     <warning>
+      <simpara>
+       This constant has been <emphasis>DEPRECATED</emphasis> as of PHP 8.5.0.
+       Use <constant>Pdo\Sqlite::OPEN_CREATE</constant> instead.
+      </simpara>
+     </warning>
+     <simpara>
+      &Alias; <constant>Pdo\Sqlite::OPEN_CREATE</constant>.
      </simpara>
     </listitem>
    </varlistentry>
