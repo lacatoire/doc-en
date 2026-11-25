@@ -30,9 +30,24 @@
  
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Return the content of a cURL handle if <constant>CURLOPT_RETURNTRANSFER</constant> is set or &null; if not set.
-  </para>
+   The content is an empty <type>string</type> when no data has been received
+   yet, and it includes the response headers if <constant>CURLOPT_HEADER</constant>
+   is set.
+  </simpara>
+  <simpara>
+   After a multi transfer that fails partway, the bytes received so far are
+   returned: check the <literal>result</literal> key of
+   <function>curl_multi_info_read</function> to know whether the transfer
+   completed. After a failed <function>curl_exec</function>, the content is an
+   empty string.
+  </simpara>
+  <simpara>
+   The content is not cleared by <function>curl_multi_remove_handle</function>
+   or <function>curl_multi_close</function>: it can be read until the handle is
+   added to a multi handle or executed again.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -57,6 +72,9 @@
   <para>
    <simplelist>
     <member><function>curl_multi_init</function></member>
+    <member><function>curl_multi_exec</function></member>
+    <member><function>curl_multi_info_read</function></member>
+    <member><function>curl_exec</function></member>
    </simplelist>
   </para>
  </refsect1>
