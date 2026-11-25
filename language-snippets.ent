@@ -4188,12 +4188,12 @@ local: {
 
 <!ENTITY strings.parameter.needle.non-string '
  <simpara xmlns="http://docbook.org/ns/docbook">
-  Prior to PHP 8.0.0, if <parameter>needle</parameter> is not a string, it is converted
-  to an integer and applied as the ordinal value of a character.
-  This behavior is deprecated as of PHP 7.3.0, and relying on it is highly
-  discouraged. Depending on the intended behavior, the
-  <parameter>needle</parameter> should either be explicitly cast to string,
-  or an explicit call to <function>chr</function> should be performed.
+  If <parameter>needle</parameter> is not a string, it is converted to a string,
+  unless <literal>strict_types</literal> is enabled, in which case a
+  <exceptionname>TypeError</exceptionname> is thrown. Prior to PHP 8.0.0,
+  it was converted to an integer and applied as the ordinal value of a
+  character. If that behavior is still needed, call <function>chr</function>
+  explicitly.
  </simpara>
 '>
 
