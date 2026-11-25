@@ -77,6 +77,13 @@
    </tgroup>
   </informaltable>
  </refsect1>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if <parameter>max_length</parameter>
+   is negative.
+  </simpara>
+ </refsect1>
  <refsect1 role="examples">
   &reftitle.examples;
   <para>

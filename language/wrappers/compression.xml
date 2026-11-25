@@ -109,6 +109,14 @@
     </tgroup>
    </table>
   </para>
+  <note>
+   <simpara>
+    As of PHP 8.5.0, <function>flock</function> is supported on zlib streams
+    (those opened with <function>gzopen</function> or through the
+    <filename>compress.zlib://</filename> wrapper). In earlier versions,
+    locking operations on these streams had no effect.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="seealso">
