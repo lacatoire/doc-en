@@ -20,7 +20,7 @@
    <methodparam><type>string</type><parameter>string</parameter></methodparam>
    <methodparam><type>array</type><parameter>replace_pairs</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    If given three arguments, this function returns a copy of
    <parameter>string</parameter> where all occurrences of each (single-byte)
    character in <parameter>from</parameter> have been translated to the
@@ -28,28 +28,28 @@
    occurrence of <literal>$from[$n]</literal> has been replaced with
    <literal>$to[$n]</literal>, where <literal>$n</literal> is a valid
    offset in both arguments.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    If <parameter>from</parameter> and <parameter>to</parameter> have
    different lengths, the extra characters in the longer of the two
    are ignored. The length of <parameter>string</parameter> will be the same as
    the return value's.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    If given two arguments, the second should be an <type>array</type> in the
    form <literal>array('from' =&gt; 'to', ...)</literal>. The return value is
    a <type>string</type> where all the occurrences of the array keys have been
    replaced by the corresponding values. The longest keys will be tried first.
    Once a substring has been replaced, its new value will not be searched
    again.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    In this case, the keys and the values may have any length; an empty key is
    ignored with an <constant>E_WARNING</constant>. Additionally, the length of
    the return value may differ from that of <parameter>string</parameter>.
    However, this function will be the most efficient when all the keys have the
    same size.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -67,32 +67,32 @@
     <varlistentry>
      <term><parameter>from</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The <type>string</type> being translated to <parameter>to</parameter>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>to</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The <type>string</type> replacing <parameter>from</parameter>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>replace_pairs</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The <parameter>replace_pairs</parameter> parameter may be used instead of 
        <parameter>to</parameter> and <parameter>from</parameter>, in which case it's an
        <type>array</type> in the form <literal>array('from' =&gt; 'to', ...)</literal>. 
-      </para>
-      <para>
+      </simpara>
+      <simpara>
        If <parameter>replace_pairs</parameter> contains a key which is an empty
        <type>string</type> (<literal>""</literal>), the element is ignored;
        as of PHP 8.0.0 <constant>E_WARNING</constant> is raised in this case.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -101,9 +101,9 @@
  
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns the translated <type>string</type>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -130,12 +130,12 @@ Hello, world!
     </screen>
    </example>
   </para>
-  <para>
+  <simpara>
    The next example shows the behavior of <function>strtr</function> when
    called with only two arguments. Note the preference of the replacements
    (<literal>"h"</literal> is not picked because there are longer matches)
    and how replaced text was not searched again.
-  </para>
+  </simpara>
   <example>
    <title><function>strtr</function> example with two arguments</title>
     <programlisting role="php">
@@ -153,11 +153,11 @@ hello all, I said hi
 ]]>
     </screen>
   </example>
-  <para>
+  <simpara>
    The two modes of behavior are substantially different. With three arguments,
    <function>strtr</function> will replace bytes; with two, it may replace
    longer substrings.
-  </para>
+  </simpara>
   <example>
    <title><function>strtr</function> behavior comparison</title>
     <programlisting role="php">
