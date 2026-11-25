@@ -329,6 +329,11 @@ xmlns="http://docbook.org/ns/docbook"><simpara>This function has been
 <emphasis>DEPRECATED</emphasis> as of PHP 8.5.0. Relying on this function
 is highly discouraged.</simpara></warning>'>
 
+<!ENTITY warn.deprecated.function-8-6-0 '<warning
+xmlns="http://docbook.org/ns/docbook"><simpara>This function has been
+<emphasis>DEPRECATED</emphasis> as of PHP 8.6.0. Relying on this function
+is highly discouraged.</simpara></warning>'>
+
 <!ENTITY removed.php.future 'This deprecated feature <emphasis xmlns="http://docbook.org/ns/docbook">will</emphasis>
 certainly be <emphasis xmlns="http://docbook.org/ns/docbook">removed</emphasis> in the future.'>
 
@@ -480,6 +485,8 @@ is highly discouraged.</simpara></warning>
 <!ENTITY example.outputs.84.similar '<simpara xmlns="http://docbook.org/ns/docbook">Output of the above example in PHP 8.4 is similar to:</simpara>'>
 
 <!ENTITY example.outputs.85.similar '<simpara xmlns="http://docbook.org/ns/docbook">Output of the above example in PHP 8.5 is similar to:</simpara>'>
+
+<!ENTITY example.outputs.86.similar '<simpara xmlns="http://docbook.org/ns/docbook">Output of the above example in PHP 8.6 is similar to:</simpara>'>
 
 <!ENTITY example.outputs.32bit '<simpara xmlns="http://docbook.org/ns/docbook">Output of the above example on 32 bit machines:</simpara>'>
 
@@ -646,6 +653,13 @@ searched for within the <link xmlns="http://docbook.org/ns/docbook" linkend="ini
  </entry>
 </row>'>
 
+<!ENTITY return.type.true.83 '<row xmlns="http://docbook.org/ns/docbook">
+ <entry>8.3.0</entry>
+ <entry>
+  The return type is &true; now; previously, it was <type>bool</type>.
+ </entry>
+</row>'>
+
 <!ENTITY return.type.true.84 '<row xmlns="http://docbook.org/ns/docbook">
  <entry>8.4.0</entry>
  <entry>
@@ -754,7 +768,7 @@ such as <function>imagecreatetruecolor</function>.</simpara></listitem></varlist
 
 <!ENTITY gd.font.description '<varlistentry xmlns="http://docbook.org/ns/docbook"><term>
 <parameter>font</parameter></term><listitem><simpara>Can be 1, 2, 3, 4, 5 for built-in
-fonts in latin2 encoding (where higher numbers corresponding to larger fonts) or <classname>GdFont</classname> instance,
+fonts in latin2 encoding (where higher numbers correspond to larger fonts) or <classname>GdFont</classname> instance,
 returned by <function>imageloadfont</function>.</simpara></listitem></varlistentry>'>
 
 <!ENTITY gd.changelog.gdfont-instance '<row xmlns="http://docbook.org/ns/docbook">
@@ -1085,7 +1099,7 @@ Passing untrusted data to this parameter is <emphasis>insecure</emphasis>, unles
 
 <!ENTITY intl.locale-len.return '<simpara xmlns="http://docbook.org/ns/docbook">Returns &null; when the length of <parameter>locale</parameter> exceeds <constant>INTL_MAX_LOCALE_LEN</constant>.</simpara>'>
 
-<!ENTITY intl.property.parameter '<simpara xmlns="http://docbook.org/ns/docbook">The Unicode property to lookup (see the <literal>IntlChar::PROPERTY_*</literal> constants).</simpara>'>
+<!ENTITY intl.property.parameter '<simpara xmlns="http://docbook.org/ns/docbook">The Unicode property to lookup (see the <constant>IntlChar::PROPERTY_<replaceable>*</replaceable></constant> constants).</simpara>'>
 
 <!ENTITY intl.property.example 'Testing different properties'>
 
@@ -1413,7 +1427,7 @@ Furthermore, these timezones may be removed from the IANA timezone database at a
 </simpara>'>
 
 <!ENTITY date.timezone.errors.description '<simpara xmlns="http://docbook.org/ns/docbook">
-Every call to a date/time function will generate a <constant>E_WARNING</constant>
+Every call to a date/time function will generate an <constant>E_WARNING</constant>
 if the time zone is not valid. See also <function>date_default_timezone_set</function></simpara>'>
 
 <!ENTITY date.timestamp.description '
@@ -1861,7 +1875,7 @@ PHP 5.3 (PECL OCI8 1.3.4) introduced the
 <constant>OCI_CRED_EXT</constant> mode value. This tells Oracle to use
 External or OS authentication, which must be configured in the
 database.  The <constant>OCI_CRED_EXT</constant> flag can only be used
-with username of &quot;/&quot; and a empty password.
+with username of &quot;/&quot; and an empty password.
 <link linkend="ini.oci8.privileged-connect">oci8.privileged_connect</link>
 may be <literal>On</literal> or <literal>Off</literal>.
 </simpara>
@@ -2125,7 +2139,7 @@ Net-SNMP library.</simpara>'>
 support for this extension. You do not need to load any additional
 extensions in order to use these functions.</simpara>'>
 
-<!-- These are here as helpers for manual consistency and brievety-->
+<!-- These are here as helpers for manual consistency and brevity-->
 
 <!ENTITY sqlsafemode '<link xmlns="http://docbook.org/ns/docbook" linkend="ini.sql.safe-mode">SQL safe mode</link>'>
 
@@ -2563,8 +2577,33 @@ to be references, then they must be references in the passed argument list.'>
   Filter the results to include only <classname>ReflectionAttribute</classname>
   instances for attributes matching this class name.
  </simpara>
+ <simpara>
+  Unless <constant>ReflectionAttribute::IS_INSTANCEOF</constant> is passed in
+  <parameter>flags</parameter>, no attribute class is autoloaded. The name is
+  compared case-insensitively with the fully qualified class name of each
+  attribute, and the class is not checked for existence.
+ </simpara>
 </listitem>
 </varlistentry>'>
+
+<!ENTITY reflection.getattributes.is-instanceof.note '<note xmlns="http://docbook.org/ns/docbook">
+ <simpara>
+  When <constant>ReflectionAttribute::IS_INSTANCEOF</constant> is used, the
+  class name specified by <parameter>name</parameter> is autoloaded before
+  any attribute is examined. If it cannot be loaded, the error or exception
+  thrown while loading it is propagated. If the class does not exist, an
+  <exceptionname>Error</exceptionname> is thrown.
+ </simpara>
+ <simpara>
+  PHP also autoloads the class of every attribute declared on the element
+  being reflected, including attributes that do not match the filter, because
+  it uses <literal>instanceof</literal> to filter them. An attribute whose class
+  does not exist is ignored. If an error or exception is thrown while loading
+  an attribute class, for example because a parent class is missing or its
+  file contains a syntax error, it is propagated, even if the attribute does
+  not match the filter.
+ </simpara>
+</note>'>
 
 <!ENTITY reflection.getattributes.param.flags '<varlistentry xmlns="http://docbook.org/ns/docbook">
 <term><parameter>flags</parameter></term>
@@ -2581,6 +2620,7 @@ to be references, then they must be references in the passed argument list.'>
   The only other option available, is to use <constant>ReflectionAttribute::IS_INSTANCEOF</constant>,
   which will instead use <literal>instanceof</literal> for filtering.
  </simpara>
+ &reflection.getattributes.is-instanceof.note;
 </listitem>
 </varlistentry>'>
 
@@ -2634,7 +2674,7 @@ to be references, then they must be references in the passed argument list.'>
 </simpara>
 '>
 <!ENTITY snmp.set.type.values.equal.note '<simpara xmlns="http://docbook.org/ns/docbook">
- If the MIB-Files are loaded by into the MIB Tree with "snmp_read_mib" or by specifying it in the libsnmp config, &apos;=&apos; may be used as
+ If the MIB-Files are loaded into the MIB Tree with "snmp_read_mib" or by specifying it in the libsnmp config, &apos;=&apos; may be used as
  the <parameter>type</parameter> parameter for all object ids as the type can then be automatically read from the MIB.
 </simpara>
 '>
@@ -2661,11 +2701,9 @@ to be references, then they must be references in the passed argument list.'>
 <!ENTITY snmp.methods.exceptions_enable.refsect '<refsect1 role="errors" xmlns="http://docbook.org/ns/docbook">
 &reftitle.errors;
 <simpara>
- This method does not throw any exceptions by default.
- To enable throwing an SNMPException exception when some of library errors occur
- the SNMP class parameter <parameter>exceptions_enabled</parameter>
- should be set to a corresponding value. See <link linkend="snmp.props.exceptions-enabled">
- <parameter>SNMP::$exceptions_enabled</parameter> explanation</link> for more details.
+ Throws an <exceptionname>SNMPException</exceptionname> if a library error occurs
+ and its type is included in the <property>SNMP::$exceptions_enabled</property> bitmask.
+ Otherwise, emits an <constant>E_WARNING</constant>.
 </simpara>
 </refsect1>
 '>
@@ -3591,6 +3629,12 @@ local: {
       character <literal>0x0B</literal>, a vertical tab.
      </simpara>
     </listitem>
+    <listitem>
+     <simpara>
+      <literal>"\f"</literal>: <acronym>ASCII</acronym> <acronym>FF</acronym>
+      character <literal>0x0C</literal>, a form feed (as of PHP 8.6.0).
+     </simpara>
+    </listitem>
    </itemizedlist>
 '>
 
@@ -3818,7 +3862,7 @@ local: {
         <entry><literal>+</literal></entry>
         <entry>
          Prefix positive numbers with a plus sign
-         <literal>+</literal>; Default only negative
+         <literal>+</literal>. By default only negative numbers
          are prefixed with a negative sign.
         </entry>
        </row>
@@ -3929,7 +3973,7 @@ local: {
        <entry><literal>c</literal></entry>
        <entry>
         The argument is treated as an integer and presented
-        as the character with that ASCII.
+        as the character with that ASCII value.
        </entry>
       </row>
       <row>
@@ -4056,7 +4100,7 @@ local: {
   </warning>
 
   <para>
-   Variables will be co-erced to a suitable type for the specifier:
+   Variables will be coerced to a suitable type for the specifier:
    <table>
     <title>Type Handling</title>
     <tgroup cols="2">
@@ -4192,6 +4236,13 @@ local: {
     </thead>
     <tbody>
      <row>
+      <entry>8.5.0</entry>
+      <entry>
+       A formatter that does not specify a precision now correctly treats
+       it as a precision of <literal>0</literal>, instead of incorrectly resetting the precision.
+      </entry>
+     </row>
+     <row>
       <entry>8.0.0</entry>
       <entry>
        This function no longer returns &false; on failure.
@@ -4200,29 +4251,29 @@ local: {
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Throw a <classname>ValueError</classname> if the number of arguments is zero;
-       previously this function emitted a <constant>E_WARNING</constant> instead.
+       Throws a <exceptionname>ValueError</exceptionname> if the number of arguments is zero;
+       previously this function emitted an <constant>E_WARNING</constant> instead.
       </entry>
      </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Throw a <classname>ValueError</classname> if <literal>[width]</literal> is less than zero or bigger than <constant>PHP_INT_MAX</constant>;
-       previously this function emitted a <constant>E_WARNING</constant> instead.
+       Throws a <exceptionname>ValueError</exceptionname> if <literal>[width]</literal> is less than zero or bigger than <constant>PHP_INT_MAX</constant>;
+       previously this function emitted an <constant>E_WARNING</constant> instead.
       </entry>
      </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Throw a <classname>ValueError</classname> if <literal>[precision]</literal> is less than zero or bigger than <constant>PHP_INT_MAX</constant>;
-       previously this function emitted a <constant>E_WARNING</constant> instead.
+       Throws a <exceptionname>ValueError</exceptionname> if <literal>[precision]</literal> is less than zero or bigger than <constant>PHP_INT_MAX</constant>;
+       previously this function emitted an <constant>E_WARNING</constant> instead.
       </entry>
      </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Throw a <classname>ArgumentCountError</classname> when less arguments are given than required;
-       previously this function emitted a <constant>E_WARNING</constant> instead.
+       Throws an <exceptionname>ArgumentCountError</exceptionname> when fewer arguments are given than required;
+       previously this function emitted an <constant>E_WARNING</constant> instead.
       </entry>
      </row>
     </tbody>
@@ -4241,6 +4292,13 @@ local: {
     </thead>
     <tbody>
      <row>
+      <entry>8.5.0</entry>
+      <entry>
+       A formatter that does not specify a precision now correctly treats
+       it as a precision of <literal>0</literal>, instead of incorrectly resetting the precision.
+      </entry>
+     </row>
+     <row>
       <entry>8.0.0</entry>
       <entry>
        This function no longer returns &false; on failure.
@@ -4249,29 +4307,29 @@ local: {
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Throw a <classname>ValueError</classname> if the number of arguments is zero;
-       previously this function emitted a <constant>E_WARNING</constant> instead.
+       Throws a <exceptionname>ValueError</exceptionname> if the number of arguments is zero;
+       previously this function emitted an <constant>E_WARNING</constant> instead.
       </entry>
      </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Throw a <classname>ValueError</classname> if <literal>[width]</literal> is less than zero or bigger than <constant>PHP_INT_MAX</constant>;
-       previously this function emitted a <constant>E_WARNING</constant> instead.
+       Throws a <exceptionname>ValueError</exceptionname> if <literal>[width]</literal> is less than zero or bigger than <constant>PHP_INT_MAX</constant>;
+       previously this function emitted an <constant>E_WARNING</constant> instead.
       </entry>
      </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
        Throw a <classname>ValueError</classname> if <literal>[precision]</literal> is less than zero or bigger than <constant>PHP_INT_MAX</constant>;
-       previously this function emitted a <constant>E_WARNING</constant> instead.
+       previously this function emitted an <constant>E_WARNING</constant> instead.
       </entry>
      </row>
      <row>
       <entry>8.0.0</entry>
       <entry>
-       Throw a <classname>ValueError</classname> when less arguments are given than required;
-       previously this function emitted a <constant>E_WARNING</constant> instead.
+       Throws a <exceptionname>ValueError</exceptionname> when fewer arguments are given than required;
+       previously this function emitted an <constant>E_WARNING</constant> instead.
       </entry>
      </row>
     </tbody>
@@ -4282,38 +4340,38 @@ local: {
 <!ENTITY strings.errors.sprintf '
   <simpara xmlns="http://docbook.org/ns/docbook">
    As of PHP 8.0.0, a <classname>ValueError</classname> is thrown if the number of arguments is zero.
-   Prior to PHP 8.0.0, a <constant>E_WARNING</constant> was emitted instead.
+   Prior to PHP 8.0.0, an <constant>E_WARNING</constant> was emitted instead.
   </simpara>
   <simpara xmlns="http://docbook.org/ns/docbook">
    As of PHP 8.0.0, a <classname>ValueError</classname> is thrown if <literal>[width]</literal> is less than zero or bigger than <constant>PHP_INT_MAX</constant>.
-   Prior to PHP 8.0.0, a <constant>E_WARNING</constant> was emitted instead.
+   Prior to PHP 8.0.0, an <constant>E_WARNING</constant> was emitted instead.
   </simpara>
   <simpara xmlns="http://docbook.org/ns/docbook">
    As of PHP 8.0.0, a <classname>ValueError</classname> is thrown if <literal>[precision]</literal> is less than zero or bigger than <constant>PHP_INT_MAX</constant>.
-   Prior to PHP 8.0.0, a <constant>E_WARNING</constant> was emitted instead.
+   Prior to PHP 8.0.0, an <constant>E_WARNING</constant> was emitted instead.
   </simpara>
   <simpara xmlns="http://docbook.org/ns/docbook">
-   As of PHP 8.0.0, a <classname>ArgumentCountError</classname> is thrown when less arguments are given than required.
-   Prior to PHP 8.0.0, &false; was returned and a <constant>E_WARNING</constant> emitted instead.
+   As of PHP 8.0.0, an <classname>ArgumentCountError</classname> is thrown when less arguments are given than required.
+   Prior to PHP 8.0.0, &false; was returned and an <constant>E_WARNING</constant> emitted instead.
   </simpara>
 '>
 
 <!ENTITY strings.errors.vsprintf '
   <simpara xmlns="http://docbook.org/ns/docbook">
    As of PHP 8.0.0, a <classname>ValueError</classname> is thrown if the number of arguments is zero.
-   Prior to PHP 8.0.0, a <constant>E_WARNING</constant> was emitted instead.
+   Prior to PHP 8.0.0, an <constant>E_WARNING</constant> was emitted instead.
   </simpara>
   <simpara xmlns="http://docbook.org/ns/docbook">
    As of PHP 8.0.0, a <classname>ValueError</classname> is thrown if <literal>[width]</literal> is less than zero or bigger than <constant>PHP_INT_MAX</constant>.
-   Prior to PHP 8.0.0, a <constant>E_WARNING</constant> was emitted instead.
+   Prior to PHP 8.0.0, an <constant>E_WARNING</constant> was emitted instead.
   </simpara>
   <simpara xmlns="http://docbook.org/ns/docbook">
    As of PHP 8.0.0, a <classname>ValueError</classname> is thrown if <literal>[precision]</literal> is less than zero or bigger than <constant>PHP_INT_MAX</constant>.
-   Prior to PHP 8.0.0, a <constant>E_WARNING</constant> was emitted instead.
+   Prior to PHP 8.0.0, an <constant>E_WARNING</constant> was emitted instead.
   </simpara>
   <simpara xmlns="http://docbook.org/ns/docbook">
    As of PHP 8.0.0, a <classname>ValueError</classname> is thrown when less arguments are given than required.
-   Prior to PHP 8.0.0, &false; was returned and a <constant>E_WARNING</constant> emitted instead.
+   Prior to PHP 8.0.0, &false; was returned and an <constant>E_WARNING</constant> emitted instead.
   </simpara>
 '>
 
