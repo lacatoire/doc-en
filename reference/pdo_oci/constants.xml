@@ -65,6 +65,22 @@
    </listitem>
   </varlistentry>
 
+  <varlistentry xml:id="pdo.constants.oci-attr-call-timeout">
+   <term>
+    <constant>PDO::OCI_ATTR_CALL_TIMEOUT</constant>
+     (<type>int</type>)
+   </term>
+   <listitem>
+    <simpara>
+     Provides a way to specify the timeout, in milliseconds, of each round
+     trip to the database. It requires Oracle Client 18c or later.
+    </simpara>
+    <simpara>
+     &version.exists.asof; 8.0.0
+    </simpara>
+   </listitem>
+  </varlistentry>
+
  </variablelist>
 </section>
 
