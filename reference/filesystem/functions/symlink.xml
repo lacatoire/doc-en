@@ -27,11 +27,11 @@
     <varlistentry>
      <term><parameter>target</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Target of the link. It is stored as given: a relative target is
        relative to the directory of <parameter>link</parameter>, not to the
        current working directory.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
