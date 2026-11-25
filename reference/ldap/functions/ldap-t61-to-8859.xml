@@ -12,7 +12,48 @@
    <type class="union"><type>string</type><type>false</type></type><methodname>ldap_t61_to_8859</methodname>
    <methodparam><type>string</type><parameter>value</parameter></methodparam>
   </methodsynopsis>
-  &warn.undocumented.func;
+  <simpara>
+   Translate <literal>t61</literal> characters to
+   <literal>ISO-8859-1</literal> characters.
+  </simpara>
+  <simpara>
+   This is the reverse of <function>ldap_8859_to_t61</function>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="parameters">
+  &reftitle.parameters;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term><parameter>value</parameter></term>
+     <listitem>
+      <simpara>
+       The text to be translated.
+      </simpara>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+
+ <refsect1 role="returnvalues">
+  &reftitle.returnvalues;
+  <simpara>
+   Return the <literal>ISO-8859-1</literal> translation of
+   <parameter>value</parameter>, &return.falseforfailure;.
+   <literal>false</literal> is also returned if
+   <parameter>value</parameter> is an empty string.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>ldap_8859_to_t61</function></member>
+   </simplelist>
+  </para>
  </refsect1>
 
 </refentry>
