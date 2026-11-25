@@ -4,7 +4,7 @@
 <refentry xml:id="function.sapi-windows-generate-ctrl-event" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
  <refnamediv>
   <refname>sapi_windows_generate_ctrl_event</refname>
-  <refpurpose>Send a CTRL event to another process</refpurpose>
+  <refpurpose>Send a CTRL event to a process group</refpurpose>
  </refnamediv>
 
  <refsect1 role="description">
@@ -14,9 +14,9 @@
    <methodparam><type>int</type><parameter>event</parameter></methodparam>
    <methodparam choice="opt"><type>int</type><parameter>pid</parameter><initializer>0</initializer></methodparam>
   </methodsynopsis>
-  <para>
-   Sends a CTRL event to another process in the same process group.
-  </para>
+  <simpara>
+   Sends a CTRL event to a process group that shares the console of the caller.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -35,10 +35,13 @@
    <varlistentry>
     <term><parameter>pid</parameter></term>
     <listitem>
-     <para>
-      The ID of the process to which to send the event to. If <literal>0</literal>
-      is given, the event is sent to all processes of the process group.
-     </para>
+     <simpara>
+      The identifier of the process group to which to send the event, which is
+      the process identifier of a process created with the
+      <literal>create_process_group</literal> option of <function>proc_open</function>.
+      If <literal>0</literal> is given, the event is sent to all processes that
+      share the console of the caller, including the caller itself.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -51,16 +54,25 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if the function is called
+   from a SAPI other than the CLI.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <example xml:id="sapi-windows-generate-ctrl-event.example.basic">
    <title>Basic <function>sapi_windows_generate_ctrl_event</function> Usage</title>
-   <para>
+   <simpara>
      This example shows how to pass along <literal>CTRL+BREAK</literal> events to a child
      process. In this case the child process echoes <literal>I'm still alive</literal>
-     every second, until the user presses <literal>CTRL+BREAK</literal>, what causes
-     only the child process to be terminated.
-   </para>
+     every second, until the user presses <literal>CTRL+BREAK</literal>. The handler
+     is called without a <parameter>pid</parameter>, so the event is sent to all processes
+     that share the console, including the parent.
+   </simpara>
    <programlisting role="php">
 <![CDATA[
 <?php
