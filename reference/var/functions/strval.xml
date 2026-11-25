@@ -34,7 +34,7 @@
       <para>
        The variable that is being converted to a <type>string</type>.
       </para>
-      <para>
+      <simpara>
        <parameter>value</parameter> may be any scalar type, <type>null</type>,
        or an <type>object</type> that implements the <link linkend="object.tostring">__toString()</link>
        method. An <type>array</type> is converted to the string
@@ -42,7 +42,7 @@
        emitted. Using <function>strval</function> on an object that does not
        implement the <link linkend="object.tostring">__toString()</link>
        method throws an <exceptionname>Error</exceptionname>.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -51,9 +51,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    The <type>string</type> value of <parameter>value</parameter>.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
