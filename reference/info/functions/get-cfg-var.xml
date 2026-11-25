@@ -15,10 +15,12 @@
   <para>
    Gets the value of a PHP configuration <parameter>option</parameter>.
   </para>
-  <para>
+  <simpara>
    This function will not return configuration information set when the PHP
    was compiled, or read from an Apache configuration file.
-  </para>
+   Values changed at runtime with <function>ini_set</function> are not
+   reflected either; use <function>ini_get</function> to get the current value.
+  </simpara>
   <para>
    To check whether the system is using a <link
    linkend="configuration.file">configuration file</link>, try retrieving the
