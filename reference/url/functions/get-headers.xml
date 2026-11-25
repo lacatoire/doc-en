@@ -96,10 +96,9 @@
 
  <refsect1 role="examples">
  &reftitle.examples;
-  <para>
-   <example>
-    <title><function>get_headers</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>get_headers</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $url = 'http://www.example.com';
@@ -109,9 +108,9 @@ print_r(get_headers($url));
 print_r(get_headers($url, true));
 ?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 Array
 (
@@ -139,11 +138,11 @@ Array
     [Content-Type] => text/html
 )
 ]]>
-    </screen>
-   </example>
-   <example>
-    <title><function>get_headers</function> using HEAD example</title>
-    <programlisting role="php">
+   </screen>
+  </example>
+  <example>
+   <title><function>get_headers</function> using HEAD example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 // By default get_headers uses a GET request to fetch the headers. If you
@@ -158,9 +157,8 @@ $context = stream_context_create(
 $headers = get_headers('http://example.com', false, $context);
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
+   </programlisting>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
