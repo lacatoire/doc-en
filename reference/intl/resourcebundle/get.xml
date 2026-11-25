@@ -101,10 +101,22 @@
       <entry>8.4.0</entry>
       <entry>
        <simpara>
+        The return type is now
+        <type class="union"><type>ResourceBundle</type><type>array</type><type>string</type><type>int</type><type>null</type></type>
+        instead of <type>mixed</type>, and <parameter>index</parameter> is now
+        declared as
+        <type class="union"><type>string</type><type>int</type></type>.
+       </simpara>
+      </entry>
+     </row>
+     <row>
+      <entry>8.4.0</entry>
+      <entry>
+       <simpara>
         A <exceptionname>TypeError</exceptionname> is thrown if
         the offset type is invalid.
         A <exceptionname>ValueError</exceptionname> is thrown if
-        if <parameter>index</parameter> is a <type>string</type>
+        <parameter>index</parameter> is a <type>string</type>
         and is empty or is a <type>int</type> and does not
         fit into a 32 bit integer type.
        </simpara>
