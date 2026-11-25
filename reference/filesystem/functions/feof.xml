@@ -74,8 +74,8 @@ while(!safe_feof($fp, $start) && (microtime(true) - $start) < $timeout)
   </warning>
   <warning>
    <para>
-    If the passed file pointer is not valid you may get an infinite loop, because
-    <function>feof</function> fails to return &true;.
+    If the passed file pointer is not valid, <function>feof</function> throws
+    a <exceptionname>TypeError</exceptionname>.
     <example>
      <title><function>feof</function> example with an invalid file pointer</title>
      <programlisting role="php">
@@ -84,7 +84,7 @@ while(!safe_feof($fp, $start) && (microtime(true) - $start) < $timeout)
 // if file can not be read or doesn't exist fopen function returns FALSE
 $file = @fopen("no_such_file", "r");
 
-// FALSE from fopen will issue warning and result in infinite loop here
+// FALSE from fopen will cause feof to throw a TypeError
 while (!feof($file)) {
 }
 
@@ -92,6 +92,12 @@ fclose($file);
 ?>
 ]]>
      </programlisting>
+     &example.outputs;
+     <screen>
+<![CDATA[
+Fatal error: Uncaught TypeError: feof(): Argument #1 ($stream) must be of type resource, false given
+]]>
+     </screen>
     </example>
    </para>
   </warning>
