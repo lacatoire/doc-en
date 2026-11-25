@@ -11,10 +11,9 @@
    <type>bool</type><methodname>ftp_close</methodname>
    <methodparam><type>FTP\Connection</type><parameter>ftp</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   <function>ftp_close</function> closes the given link identifier
-   and releases the <type>resource</type>.
-  </para>
+  <simpara>
+   <function>ftp_close</function> closes the given FTP connection.
+  </simpara>
   <note>
    <para>
     After calling this function, you can no longer use the FTP connection and
