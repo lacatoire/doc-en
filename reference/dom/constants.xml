@@ -497,8 +497,7 @@
    </varlistentry>
    <varlistentry xml:id="constant.dom-invalid-access-err">
     <term>
-     <constant>DOM_INVALID_ACCESS_ERR</constant>,
-     <constant>Dom\INVALID_ACCESS_ERR</constant>
+     <constant>DOM_INVALID_ACCESS_ERR</constant>
      (<type>int</type>)
     </term>
     <listitem>
