@@ -16,6 +16,25 @@
   <para>
    Registers <function>session_write_close</function> as a shutdown function.
   </para>
+  <simpara>
+   The shutdown functions run in the order of registration. A function
+   registered with <function>register_shutdown_function</function> before
+   this call still has an active session and its changes to
+   <varname>$_SESSION</varname> are written. A function registered after it
+   runs once the session is closed: <function>session_status</function>
+   returns <constant>PHP_SESSION_NONE</constant> and its changes to
+   <varname>$_SESSION</varname> are not saved.
+  </simpara>
+  <simpara>
+   Each call registers the shutdown function again. Only the first one
+   writes the session; the following ones do nothing, as the session is
+   already closed.
+  </simpara>
+  <simpara>
+   <function>session_set_save_handler</function> calls this function
+   by default, unless its <parameter>register_shutdown</parameter> parameter is
+   &false;.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -36,6 +55,15 @@
    Emits <constant>E_WARNING</constant> if registering the shutdown function
    fails.
   </para>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>session_write_close</function></member>
+   <member><function>session_set_save_handler</function></member>
+   <member><function>register_shutdown_function</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
