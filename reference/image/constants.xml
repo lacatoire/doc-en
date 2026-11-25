@@ -721,11 +721,8 @@
    <listitem>
     &gd.constants.type;
     <simpara>
-     (Available as of PHP 8.5.0)
-    </simpara>
-    <simpara>
-     SVG detection by <function>getimagesize</function> requires the
-     <link linkend="book.libxml">libxml</link> extension.
+     (Available as of PHP 8.5.0, only if the
+     <link linkend="book.libxml">libxml</link> extension is loaded)
     </simpara>
    </listitem>
   </varlistentry>

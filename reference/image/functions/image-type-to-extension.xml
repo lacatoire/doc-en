@@ -62,15 +62,9 @@
      <row>
       <entry>8.5.0</entry>
       <entry>
-       <constant>IMAGETYPE_HEIF</constant> is now handled, returning
-       <literal>.heif</literal>.
-      </entry>
-     </row>
-     <row>
-      <entry>8.5.0</entry>
-      <entry>
-       <constant>IMAGETYPE_SVG</constant> is now handled, returning
-       <literal>.svg</literal>.
+       Added support for <constant>IMAGETYPE_HEIF</constant> (<literal>.heif</literal>)
+       and, if the <link linkend="book.libxml">libxml</link> extension is
+       loaded, <constant>IMAGETYPE_SVG</constant> (<literal>.svg</literal>).
       </entry>
      </row>
     </tbody>
