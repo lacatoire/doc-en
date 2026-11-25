@@ -18,7 +18,7 @@
   </simpara>
   <simpara>
    Like <function>sodium_bin2hex</function>, <function>sodium_hex2bin</function>
-   is resistant to side-channel attacks while <function>hex2bin</function> is not.
+   is resistant to side-channel attacks.
   </simpara>
 
  </refsect1>
