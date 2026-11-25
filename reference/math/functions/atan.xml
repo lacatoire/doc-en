@@ -11,14 +11,18 @@
    <type>float</type><methodname>atan</methodname>
    <methodparam><type>float</type><parameter>num</parameter></methodparam>
   </methodsynopsis>
-  <para>
-   Returns the arc tangent of <parameter>num</parameter> in radians.
+  <simpara>
+   Returns the arc tangent of <parameter>num</parameter> in radians,
+   i.e. the value, in the range <literal>(-M_PI/2, M_PI/2)</literal>,
+   whose tangent is <parameter>num</parameter>.
    <function>atan</function> is the inverse function of
-   <function>tan</function>, which means that
-   <code>$num == tan(atan($num))</code> for every value of
-   <parameter>num</parameter> that is in
-   the domain of <function>atan</function>.
-  </para>
+   <function>tan</function> restricted to that range, which means that
+   <literal>atan(tan($y)) == $y</literal> for every value of
+   <parameter>y</parameter> in <literal>(-M_PI/2, M_PI/2)</literal>;
+   because of floating-point rounding, the reverse composition
+   <literal>tan(atan($num))</literal> is not guaranteed to equal
+   <parameter>num</parameter>.
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
@@ -46,6 +50,7 @@
   <para>
    <simplelist>
     <member><function>tan</function></member>
+    <member><function>atan2</function></member>
     <member><function>atanh</function></member>
     <member><function>asin</function></member>
     <member><function>acos</function></member>
