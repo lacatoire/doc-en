@@ -32,19 +32,27 @@
     <varlistentry>
      <term><parameter>chunk_size</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Chunk size.
-      </para>
+       The value is silently adjusted to the range 64 to 4096:
+       <literal>0</literal> and <literal>-1</literal> select the default of 128,
+       any other value below 64 is raised to 64, and any value above 4096
+       is lowered to 4096.
+       A value that does not fit in a C <type>int</type> raises an
+       <constant>E_WARNING</constant> and makes the function return &false;.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>mode</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Either <constant>IMG_GD2_RAW</constant> or 
        <constant>IMG_GD2_COMPRESSED</constant>. Default is 
        <constant>IMG_GD2_RAW</constant>.
-      </para>
+       Any other value is not rejected and produces compressed output,
+       as <constant>IMG_GD2_COMPRESSED</constant> does.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
