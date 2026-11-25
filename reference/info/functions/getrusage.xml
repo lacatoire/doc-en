@@ -25,10 +25,10 @@
     <varlistentry>
      <term><parameter>mode</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If <parameter>mode</parameter> is 1, getrusage will be called with
-       <constant>RUSAGE_CHILDREN</constant>.
-      </para>
+       <literal>RUSAGE_CHILDREN</literal>.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -90,26 +90,27 @@ echo $dat["ru_stime.tv_sec"];  // system time used (seconds)
      <member><literal>"ru_stime.tv_usec"</literal></member>
      <member><literal>"ru_utime.tv_sec"</literal></member>
      <member><literal>"ru_utime.tv_usec"</literal></member>
-     <member>
-      <literal>"ru_majflt"</literal> (only if <parameter>mode</parameter> is 
-      <constant>RUSAGE_SELF</constant>)
-     </member>
-     <member>
-      <literal>"ru_maxrss"</literal> (only if <parameter>mode</parameter> is 
-      <constant>RUSAGE_SELF</constant>)
-     </member>
+     <member><literal>"ru_majflt"</literal></member>
+     <member><literal>"ru_maxrss"</literal></member>
     </simplelist>
    </para>
    <simpara>
-    If <function>getrusage</function> is called with <parameter>mode</parameter>
-    set to <literal>1</literal> (<constant>RUSAGE_CHILDREN</constant>), then
-    resource usage for child processes are collected.
+    <literal>"ru_majflt"</literal> and <literal>"ru_maxrss"</literal> are always
+    present, but they are only populated (otherwise they are <literal>0</literal>)
+    if <parameter>mode</parameter> is <literal>0</literal>
+    (<literal>RUSAGE_SELF</literal>).
+   </simpara>
+   <simpara>
+    Windows has no API for child process resource usage. If
+    <function>getrusage</function> is called with <parameter>mode</parameter>
+    set to <literal>1</literal> (<literal>RUSAGE_CHILDREN</literal>), the
+    resource usage of the current thread is returned instead.
    </simpara>
   </note>
   <note>
-   <para>
-    on BeOS 2000, only the following members are returned:
-   </para>
+   <simpara>
+    on Haiku and BS2000, only the following members are returned:
+   </simpara>
    <para>
     <simplelist>
      <member><literal>"ru_stime.tv_sec"</literal></member>
