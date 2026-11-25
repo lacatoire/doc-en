@@ -16,6 +16,10 @@
   <para>
    Calculates bitwise AND of two GMP numbers.
   </para>
+  <simpara>
+   Negative numbers are treated as if they were represented in infinite
+   two's complement, so <literal>-1</literal> has all of its bits set.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -67,6 +71,37 @@ echo gmp_strval($and2) . "\n";
 ]]>
    </screen>
   </example>
+  <example>
+   <title><function>gmp_and</function> with negative numbers</title>
+   <programlisting role="php">
+<![CDATA[
+<?php
+echo gmp_strval(gmp_and(-1, "0x4")) . "\n";
+echo gmp_strval(gmp_and(-8, -3)) . "\n";
+echo gmp_strval(gmp_and(-8, "0xff")) . "\n";
+?>
+]]>
+   </programlisting>
+   &example.outputs;
+   <screen>
+<![CDATA[
+4
+-8
+248
+]]>
+   </screen>
+  </example>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>gmp_or</function></member>
+    <member><function>gmp_xor</function></member>
+    <member><function>gmp_com</function></member>
+   </simplelist>
+  </para>
  </refsect1>
 
 </refentry>
