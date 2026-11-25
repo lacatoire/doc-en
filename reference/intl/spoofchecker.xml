@@ -364,6 +364,15 @@
      </row>
     </thead>
     <tbody>
+      <row>
+       <entry>8.4.0</entry>
+       <entry>
+        Cloning a non-initialized instance, or a clone that fails at the
+        <acronym>ICU</acronym> level, now throws an
+        <exceptionname>Error</exceptionname>.
+        Formerly a fatal error was raised, which could not be caught.
+       </entry>
+      </row>
      <row>
       <entry>8.4.0</entry>
       <entry>

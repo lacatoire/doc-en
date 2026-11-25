@@ -11,20 +11,20 @@
   &reftitle.description;
   <para>&style.oop;</para>
    <methodsynopsis role="Transliterator">
-   <modifier>public</modifier> <type>string</type><methodname>Transliterator::getErrorMessage</methodname>
+   <modifier>public</modifier> <type class="union"><type>string</type><type>false</type></type><methodname>Transliterator::getErrorMessage</methodname>
    <void/>
   </methodsynopsis>
   <para>&style.procedural;</para>
   <methodsynopsis>
-   <type>string</type><methodname>transliterator_get_error_message</methodname>
+   <type class="union"><type>string</type><type>false</type></type><methodname>transliterator_get_error_message</methodname>
    <methodparam><type>Transliterator</type><parameter>transliterator</parameter></methodparam>
   </methodsynopsis>
   <para>
    Gets the last error message for this transliterator.
   </para>
-  
+
   &warn.undocumented.func;
- 
+
  </refsect1>
 
  <refsect1 role="parameters">
@@ -42,10 +42,32 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   The error message on success,
-   or &false; if none exists, or on failure.
-  </para>
+  <simpara>
+   The error message, or an empty string if no error has occurred.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       The return type no longer includes &false;.
+       Returning &false; was never actually possible.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="seealso">
