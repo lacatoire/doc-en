@@ -18,11 +18,12 @@
    <function>session_regenerate_id</function> will replace the current
    session id with a new one, and keep the current session information.
   </para>
-  <para>
+  <simpara>
    When <link linkend="ini.session.use-trans-sid">session.use_trans_sid</link>
    is enabled, output must be started after <function>session_regenerate_id</function>
-   call. Otherwise, old session ID is used.
-  </para>
+   call: output that was already sent makes the call fail, and the old
+   session ID is kept.
+  </simpara>
   <warning>
    <para>
     Currently, session_regenerate_id does not handle an unstable network well,
@@ -43,7 +44,6 @@
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>delete_old_session</parameter></term>
@@ -57,19 +57,62 @@
       </listitem>
      </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
+   &false; is also returned, with an <constant>E_WARNING</constant>, if no
+   session is active, if headers were already sent, or if the save handler
+   fails to destroy or write the old session; the session is then closed.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws an <exceptionname>Error</exceptionname> if the session cannot be opened,
+   if a new session ID cannot be created (also when it collides with an
+   existing one in strict mode), or if the new session cannot be read.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <para>
+   <informaltable>
+    <tgroup cols="2">
+     <thead>
+      <row>
+       <entry>&Version;</entry>
+       <entry>&Description;</entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry>7.2.0</entry>
+       <entry>
+        The call now fails if headers were already sent, regardless of the
+        <link linkend="ini.session.use-cookies">session.use_cookies</link>
+        setting.
+       </entry>
+      </row>
+      <row>
+       <entry>7.1.0</entry>
+       <entry>
+        Failures now throw an <exceptionname>Error</exceptionname> instead of raising
+        an <constant>E_RECOVERABLE_ERROR</constant>.
+       </entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </informaltable>
   </para>
  </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title>A <function>session_regenerate_id</function> example</title>
     <programlisting role="php">
@@ -110,14 +153,12 @@ print_r($_SESSION);
 ]]>
     </programlisting>
    </example>
-  </para>
 
-  <para>
+  <simpara>
    Current session module does not handle unstable network well. You should
    manage session ID to avoid lost session by session_regenerate_id.
-  </para>
+  </simpara>
 
-  <para>
    <example>
     <title>Avoiding lost session by <function>session_regenerate_id</function></title>
     <programlisting role="php">
@@ -160,6 +201,9 @@ function my_session_regenerate_id() {
     // Set destroy timestamp
     $_SESSION['destroyed'] = time();
     
+    // Keep the session data: the new session ID starts with an empty session
+    $session_data = $_SESSION;
+
     // Write and close current session;
     session_commit();
 
@@ -167,7 +211,7 @@ function my_session_regenerate_id() {
     session_id($new_session_id);
     ini_set('session.use_strict_mode', 0);
     session_start();
-    ini_set('session.use_strict_mode', 1);
+    $_SESSION = $session_data;
     
     // New session does not need them
     unset($_SESSION['destroyed']);
@@ -177,13 +221,11 @@ function my_session_regenerate_id() {
 ]]>
     </programlisting>
    </example>
-  </para>
 
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><function>session_id</function></member>
     <member><function>session_create_id</function></member>
@@ -192,7 +234,6 @@ function my_session_regenerate_id() {
     <member><function>session_reset</function></member>
     <member><function>session_name</function></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
