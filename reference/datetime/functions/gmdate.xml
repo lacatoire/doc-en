@@ -13,10 +13,13 @@
    <methodparam><type>string</type><parameter>format</parameter></methodparam>
    <methodparam choice="opt"><type class="union"><type>int</type><type>null</type></type><parameter>timestamp</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Identical to the <function>date</function> function except that
-   the time returned is Greenwich Mean Time (GMT). 
-  </para>
+   the time returned is Greenwich Mean Time (GMT).
+   GMT and UTC refer to the same time here, but the format characters differ:
+   <literal>T</literal> always returns <literal>GMT</literal>, whereas
+   <literal>e</literal> always returns <literal>UTC</literal>.
+  </simpara>
  </refsect1> 
 
  <refsect1 role="parameters">
@@ -80,15 +83,15 @@
 <?php
 date_default_timezone_set("Europe/Helsinki");
 
-echo date("M d Y H:i:s e", mktime(0, 0, 0, 1, 1, 1998)) . "\n";
-echo gmdate("M d Y H:i:s e", mktime(0, 0, 0, 1, 1, 1998));
+echo date("M d Y H:i:s e T", mktime(0, 0, 0, 1, 1, 1998)) . "\n";
+echo gmdate("M d Y H:i:s e T", mktime(0, 0, 0, 1, 1, 1998));
 ]]>
     </programlisting>
     &example.outputs;
     <screen>
 <![CDATA[
-Jan 01 1998 00:00:00 Europe/Helsinki
-Dec 31 1997 22:00:00 UTC
+Jan 01 1998 00:00:00 Europe/Helsinki EET
+Dec 31 1997 22:00:00 UTC GMT
 ]]>
     </screen>
    </example>
