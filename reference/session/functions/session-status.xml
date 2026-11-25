@@ -24,25 +24,42 @@
 
  <refsect1 role="returnvalues"><!-- {{{ -->
   &reftitle.returnvalues;
-  <para>
-   <itemizedlist>
-    <listitem>
-     <simpara><constant>PHP_SESSION_DISABLED</constant> if sessions are disabled.</simpara>
-    </listitem>
-    <listitem>
-     <simpara><constant>PHP_SESSION_NONE</constant> if sessions are enabled, but none exists.</simpara>
-    </listitem>
-    <listitem>
-     <simpara><constant>PHP_SESSION_ACTIVE</constant> if sessions are enabled, and one exists.</simpara>
-    </listitem>
-   </itemizedlist>
-  </para>
+  <itemizedlist>
+   <listitem>
+    <simpara>
+     <constant>PHP_SESSION_DISABLED</constant> (<literal>0</literal>) if the
+     <link linkend="ini.session.save-handler">session.save_handler</link> or
+     <link linkend="ini.session.serialize-handler">session.serialize_handler</link>
+     names a handler that is not registered. This is not permanent:
+     <function>session_start</function> checks both settings again.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <constant>PHP_SESSION_NONE</constant> (<literal>1</literal>) if no session
+     is started. It is also the status after <function>session_write_close</function>
+     or <function>session_abort</function>, although
+     <function>session_id</function> and <varname>$_SESSION</varname> are then
+     still filled.
+    </simpara>
+   </listitem>
+   <listitem>
+    <simpara>
+     <constant>PHP_SESSION_ACTIVE</constant> (<literal>2</literal>) if a
+     session is started. It is already the status inside the callbacks of a
+     session handler, such as <literal>open</literal> and <literal>read</literal>.
+    </simpara>
+   </listitem>
+  </itemizedlist>
  </refsect1><!-- }}} -->
  
  <refsect1 role="seealso"><!-- {{{ -->
   &reftitle.seealso;
   <simplelist>
    <member><function>session_start</function></member>
+   <member><function>session_write_close</function></member>
+   <member><function>session_destroy</function></member>
+   <member><function>session_abort</function></member>
   </simplelist>
  </refsect1><!-- }}} -->
 
