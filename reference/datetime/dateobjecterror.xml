@@ -12,11 +12,11 @@
     Thrown when one of the Date/Time classes has not been correctly
     initialised.
    </para>
-   <para>
-    Because Date/Time classes are not final, these classes can be inherit.
+   <simpara>
+    Because Date/Time classes are not final, these classes can be inherited.
     When the parent constructor is not called, this error is thrown. This is
     always a programming error.
-   </para>
+   </simpara>
   </section>
 <!-- }}} -->
 

@@ -152,8 +152,8 @@ foreach ($timezones as $tz) {
     <screen>
 <![CDATA[
 Europe/London
-DateTimeZone::__construct() [datetimezone.--construct]: Unknown or bad timezone (Mars/Phobos)
-DateTimeZone::__construct() [datetimezone.--construct]: Unknown or bad timezone (Jupiter/Europa)
+DateTimeZone::__construct(): Unknown or bad timezone (Mars/Phobos)
+DateTimeZone::__construct(): Unknown or bad timezone (Jupiter/Europa)
 ]]>
     </screen>
    </example>

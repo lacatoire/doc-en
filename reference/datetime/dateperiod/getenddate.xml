@@ -62,7 +62,7 @@ $start = $period->getEndDate();
 echo $start->format(DateTime::ISO8601);
 ]]>
    </programlisting>
-   &examples.outputs;
+   &example.outputs;
    <screen>
 <![CDATA[
 2016-05-20T00:00:00+0000

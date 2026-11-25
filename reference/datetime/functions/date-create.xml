@@ -26,9 +26,9 @@
  
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   See <link linkend="datetimeimmutable.construct">DateTimeImmutable::__construct</link>.
-  </para>
+  <simpara>
+   See <link linkend="datetime.construct">DateTime::__construct</link>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="returnvalues">
