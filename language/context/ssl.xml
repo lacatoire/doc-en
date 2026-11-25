@@ -330,6 +330,31 @@
      </simpara>
     </listitem>
    </varlistentry>
+   <varlistentry xml:id="context.ssl.crypto-method">
+    <term>
+     <parameter>crypto_method</parameter>
+     <type>int</type>
+    </term>
+    <listitem>
+     <simpara>
+      One of the <literal>STREAM_CRYPTO_METHOD_*</literal> constants, such as
+      <constant>STREAM_CRYPTO_METHOD_TLS_CLIENT</constant> or
+      <constant>STREAM_CRYPTO_METHOD_TLS_SERVER</constant>. It is used when
+      the stream is opened with an <literal>ssl://</literal> or
+      <literal>tls://</literal> transport, and by
+      <function>stream_socket_enable_crypto</function> when its
+      <parameter>crypto_method</parameter> parameter is omitted. The
+      <literal>CLIENT</literal> or <literal>SERVER</literal> half of the
+      value selects the role, and a server also needs
+      <link linkend="context.ssl.local-cert">local_cert</link>.
+     </simpara>
+     <simpara>
+      <function>stream_socket_enable_crypto</function> throws a
+      <exceptionname>ValueError</exceptionname> if both the parameter and
+      this option are missing.
+     </simpara>
+    </listitem>
+   </varlistentry>
   </variablelist>
  </refsect1>
 
