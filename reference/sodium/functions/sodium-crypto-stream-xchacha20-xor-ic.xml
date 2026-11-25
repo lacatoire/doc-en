@@ -53,7 +53,9 @@
     <term><parameter>counter</parameter></term>
     <listitem>
      <simpara>
-      The initial value of the block counter.
+      The initial value of the block counter. Each block is 64 bytes long, so a
+      counter of <parameter>n</parameter> starts the stream at byte 64 * <parameter>n</parameter>.
+      The value is converted to an unsigned 64-bit integer, so negative values wrap around.
      </simpara>
     </listitem>
    </varlistentry>
