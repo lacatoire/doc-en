@@ -19,10 +19,12 @@
    Creates a stream or datagram socket on the specified
    <parameter>address</parameter>.    
   </para>
-  <para>
+  <simpara>
    This function only creates a socket, to begin accepting connections
-   use <function>stream_socket_accept</function>.
-  </para>
+   use <function>stream_socket_accept</function>, which does not work with a
+   <literal>udp://</literal> server: use <function>stream_socket_recvfrom</function>
+   instead.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -36,14 +38,21 @@
        The type of socket created is determined by the transport specified
        using standard URL formatting: <literal>transport://target</literal>.
       </para>
-      <para>
-       For Internet Domain sockets (<constant>AF_INET</constant>) such as TCP and UDP, the
+      <simpara>
+       For Internet Domain sockets such as TCP and UDP, the
        <literal>target</literal> portion of the 
-       <parameter>remote_socket</parameter> parameter should consist of a
+       <parameter>address</parameter> parameter should consist of a
        hostname or IP address followed by a colon and a port number.  For
        Unix domain sockets, the <literal>target</literal> portion should
        point to the socket file on the filesystem.
-      </para>
+      </simpara>
+      <simpara>
+       The file of a <literal>unix://</literal> or <literal>udg://</literal>
+       server is never removed by PHP: it survives <function>fclose</function>
+       and the end of the request, and binding to the same path again fails
+       until the file is deleted. A path longer than the system limit (107
+       bytes on Linux) is truncated, with an <constant>E_NOTICE</constant>.
+      </simpara>
       <simpara>
        Depending on the environment, Unix domain sockets may not be available.
        A list of available transports can be retrieved using
@@ -55,18 +64,20 @@
     <varlistentry>
      <term><parameter>error_code</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If the optional <parameter>error_code</parameter> and <parameter>error_message</parameter>
-       arguments are present they will be set to indicate the actual system
-       level error that occurred in the system-level <literal>socket()</literal>,
-       <literal>bind()</literal>, and <literal>listen()</literal> calls. If
-       the value returned in <parameter>error_code</parameter> is 
-       <literal>0</literal> and the function returned &false;, it is an
-       indication that the error occurred before the <literal>bind()</literal>
-       call. This is most likely due to a problem initializing the socket. 
+       arguments are present they are set when the function fails.
+       <parameter>error_code</parameter> is always <literal>0</literal>: the
+       system error number of a failed <literal>bind()</literal> or
+       <literal>listen()</literal> is not reported, and
+       <parameter>error_message</parameter> is the only diagnostic. It is set
+       for a failed TCP <literal>bind()</literal> (for example
+       <literal>Address already in use</literal>), but can be empty, for
+       example for a failed <literal>listen()</literal> or for a Unix domain
+       socket.
        Note that the <parameter>error_code</parameter> and
        <parameter>error_message</parameter> arguments will always be passed by reference.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -80,23 +91,39 @@
     <varlistentry>
      <term><parameter>flags</parameter></term>
      <listitem>
-      <para>
-       A bitmask field which may be set to any combination of socket creation
-       flags.
-      </para>
+      <simpara>
+       A bitmask field which may be set to any combination of
+       <constant>STREAM_SERVER_BIND</constant> and
+       <constant>STREAM_SERVER_LISTEN</constant>. With <literal>0</literal> or
+       <constant>STREAM_SERVER_LISTEN</constant> alone, the socket is neither
+       bound nor listening, and with <constant>STREAM_SERVER_BIND</constant>
+       alone, a TCP socket is bound but does not listen, so connections are
+       refused.
+      </simpara>
       <note>
-       <para>
-        For UDP sockets, you must use <constant>STREAM_SERVER_BIND</constant> as
-        the <parameter>flags</parameter> parameter.
-       </para>
+       <simpara>
+        For UDP (<literal>udp://</literal>) and datagram Unix domain
+        (<literal>udg://</literal>) sockets, you must use
+        <constant>STREAM_SERVER_BIND</constant> alone as the
+        <parameter>flags</parameter> parameter: with the default value,
+        <function>stream_socket_server</function> returns &false;.
+       </simpara>
       </note>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>context</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       A stream context, or &null; to use the default context. The
+       <literal>socket</literal> context options
+       <literal>backlog</literal> and <literal>so_reuseport</literal> are
+       used by the server, see
+       <link linkend="context.socket">Socket context options</link>.
+       <literal>SO_REUSEADDR</literal> is always set: a second UDP server can
+       bind the same port, while a second TCP server cannot, unless
+       <literal>so_reuseport</literal> is enabled.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -142,7 +169,7 @@
 <?php
 $socket = stream_socket_server("tcp://0.0.0.0:8000", $errno, $errstr);
 if (!$socket) {
-  echo "$errstr ($errno)<br />\n";
+  echo "$errstr ($errno)\n";
 } else {
   while ($conn = stream_socket_accept($socket)) {
     fwrite($conn, 'The local time is ' . date('n/j/Y g:i a') . "\n");
@@ -150,14 +177,15 @@ if (!$socket) {
   }
   fclose($socket);
 }
-?>
 ]]>
     </programlisting>
    </example>
   </para>
   <para>
-   The example below shows how to act as a time server which can respond
-   to time queries as shown in an example on <function>stream_socket_client</function>.
+   The example below shows how to act as a time server which responds to
+   UDP queries sent to port 1113, such as the one of the example on
+   <function>stream_socket_client</function> once its port is changed to
+   <literal>1113</literal>.
    <note>
     <simpara>
      Most systems require root access to create a server socket on a port
@@ -179,9 +207,6 @@ do {
     echo "$peer\n";
     stream_socket_sendto($socket, date("D M j H:i:s Y\r\n"), 0, $peer);
 } while ($pkt !== false);
-
-?>
-
 ]]>
     </programlisting>
    </example>
@@ -199,12 +224,11 @@ do {
    <member><function>stream_socket_client</function></member>
    <member><function>stream_set_blocking</function></member>
    <member><function>stream_set_timeout</function></member>
+   <member><function>stream_socket_accept</function></member>
    <member><function>fgets</function></member>
-   <member><function>fgetss</function></member>
    <member><function>fwrite</function></member>
    <member><function>fclose</function></member>
    <member><function>feof</function></member>
-   <member><link linkend="ref.curl">Curl extension</link></member>
   </simplelist>
  </refsect1>
 </refentry>
