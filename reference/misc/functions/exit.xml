@@ -47,7 +47,8 @@
      <simpara>
       If <parameter>status</parameter> is a string,
       this function prints the <parameter>status</parameter> just before exiting.
-      The exit code returned by PHP is <literal>0</literal>.
+      The exit code is left unchanged: it is <literal>0</literal> unless an
+      earlier call to <function>exit</function> set another one.
      </simpara>
      <para>
       If <parameter>status</parameter> is an <type>int</type>,
@@ -216,6 +217,12 @@ exit;
     or <link linkend="functions.named-arguments">named arguments</link>.
    </simpara>
   </warning>
+  <simpara>
+   As of PHP 8.4.0, <function>exit</function> and <function>die</function> are
+   entries of the function table: <function>function_exists</function> returns
+   &true; for both, and the first-class callable syntax
+   <literal>exit(...)</literal> creates a <classname>Closure</classname>.
+  </simpara>
  </refsect1>
 
  <refsect1 role="seealso">
