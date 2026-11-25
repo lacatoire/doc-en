@@ -33,10 +33,11 @@
     <varlistentry>
      <term><parameter>total</parameter></term>
      <listitem>
-      <para>
-       An <type>int</type> indicating the total number of open links in
-       any state.
-      </para>
+      <simpara>
+       An <type>int</type> indicating the total number of open links,
+       including active persistent links. Cached (inactive) persistent
+       links are not counted.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
