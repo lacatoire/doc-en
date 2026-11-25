@@ -16,48 +16,52 @@
    <function>session_cache_expire</function> returns the current setting of
    <literal>session.cache_expire</literal>. 
   </para>
-  <para>
-   The cache expire is reset to the default value of 180 stored in
+  <simpara>
+   The cache expire is reset to the value configured in
    <link linkend="ini.session.cache-expire">session.cache_expire</link>
-   at request startup time. Thus,
+   (180 by default) at request startup time. Thus,
    you need to call <function>session_cache_expire</function> for every
    request (and before <function>session_start</function> is called).
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
    <variablelist>
     <varlistentry>
      <term><parameter>value</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        If <parameter>value</parameter> is given and not &null;, the current cache
-       expire is replaced with <parameter>value</parameter>.
-      </para>
-      <para>
+       expire is replaced with <parameter>value</parameter>, in minutes.
+      </simpara>
        <note>
         <simpara>
          Setting <parameter>value</parameter> is of value only, if
          <literal>session.cache_limiter</literal> is set to a value
-         <emphasis>different</emphasis> from <literal>nocache</literal>.
+         <emphasis>different</emphasis> from <literal>nocache</literal>
+         and from an empty string.
         </simpara>
        </note>
-      </para>
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns the current setting of <literal>session.cache_expire</literal>.
-   The value returned should be read in minutes, defaults to 180.
-   On failure to change the value, &false; is returned.
-  </para>
+  <simpara>
+   Returns the current setting of <literal>session.cache_expire</literal>,
+   in minutes. If <parameter>value</parameter> is given and not &null;,
+   the setting before the change is returned.
+  </simpara>
+  <simpara>
+   If a session is active and <parameter>value</parameter> is given, an
+   <constant>E_WARNING</constant> is raised and the current setting is
+   returned. If <parameter>value</parameter> is given and the headers have
+   already been sent, an <constant>E_WARNING</constant> is raised and &false;
+   is returned.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -72,6 +76,15 @@
     </thead>
     <tbody>
      <row>
+      <entry>7.2.0</entry>
+      <entry>
+       If <parameter>value</parameter> is given, an
+       <constant>E_WARNING</constant> is raised when a session is active
+       (the current setting is returned) or when the headers have already
+       been sent (&false; is returned). Previously, no check was done.
+      </entry>
+     </row>
+     <row>
       <entry>8.0.0</entry>
       <entry>
        <parameter>value</parameter> is nullable now.
@@ -84,7 +97,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title><function>session_cache_expire</function> example</title>
     <programlisting role="php">
@@ -110,18 +122,15 @@ echo "The cached session pages expire after $cache_expire minutes";
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
    <simplelist>
     <member><link linkend="ini.session.cache-expire">session.cache_expire</link></member>
     <member><link linkend="ini.session.cache-limiter">session.cache_limiter</link></member>
     <member><function>session_cache_limiter</function></member>
    </simplelist>
-  </para>
  </refsect1>
 
 </refentry>
