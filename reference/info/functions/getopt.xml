@@ -111,6 +111,14 @@
     that follows is discarded.
    </para>
   </note>
+  <note>
+   <simpara>
+    An option that is not declared in <parameter>short_options</parameter> or
+    <parameter>long_options</parameter> is silently ignored: it is not added to
+    the returned array and no error or warning is raised. Parsing continues
+    with the remaining arguments.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -266,6 +274,7 @@ $rest_index = null;
 $opts = getopt('a:b:', [], $rest_index);
 $pos_args = array_slice($argv, $rest_index);
 var_dump($pos_args);
+?>
 ]]>
     </programlisting>
     <programlisting role="shell">
