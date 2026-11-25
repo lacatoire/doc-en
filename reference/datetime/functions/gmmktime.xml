@@ -17,12 +17,12 @@
    <methodparam choice="opt"><type class="union"><type>int</type><type>null</type></type><parameter>day</parameter><initializer>&null;</initializer></methodparam>
    <methodparam choice="opt"><type class="union"><type>int</type><type>null</type></type><parameter>year</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Identical to <function>mktime</function> except the passed parameters represent a
    GMT date. The result does not depend on the default timezone set by
    <function>date_default_timezone_set</function> or the
    <link linkend="ini.date.timezone">date.timezone</link> INI setting.
-  </para>
+  </simpara>
   <para>
    Like <function>mktime</function>, optional arguments may be left out in
    order from right to left, with any omitted arguments being set to the
@@ -95,11 +95,11 @@
     <varlistentry>
      <term><parameter>year</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The number of the year, may be a two or four digit value,
        with values between 0-69 mapping to 2000-2069 and 70-100 to
        1970-2000.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
