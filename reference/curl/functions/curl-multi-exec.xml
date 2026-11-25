@@ -17,6 +17,11 @@
    Processes each of the handles in the stack.  This method can be called whether or not a handle
    needs to read or write data.
   </simpara>
+  <simpara>
+   The function returns immediately, whether or not a socket is ready.
+   A loop around it must wait with <function>curl_multi_select</function>
+   between two calls, otherwise it runs in a busy loop and consumes CPU.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -27,9 +32,10 @@
     <varlistentry>
      <term><parameter>still_running</parameter></term>
      <listitem>
-      <para>
-       A reference to a flag to tell whether the operations are still running.
-      </para>
+      <simpara>
+       A reference that receives the number of handles that are still running;
+       <literal>0</literal> means that all the transfers are done.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -139,13 +145,12 @@ curl_multi_close($mh);
 
  <refsect1 role="seealso">
   &reftitle.seealso;
-  <para>
-   <simplelist>
-    <member><function>curl_multi_init</function></member>
-    <member><function>curl_multi_select</function></member>
-    <member><function>curl_exec</function></member>
-   </simplelist>
-  </para>
+  <simplelist>
+   <member><function>curl_multi_init</function></member>
+   <member><function>curl_multi_select</function></member>
+   <member><function>curl_multi_info_read</function></member>
+   <member><function>curl_exec</function></member>
+  </simplelist>
  </refsect1>
 
 </refentry>
