@@ -142,23 +142,23 @@ array(1) {
 }
 array(1) {
   [0]=>
+  string(17) "Closure::__invoke"
+}
+array(1) {
+  [0]=>
+  string(17) "Closure::__invoke"
+}
+array(1) {
+  [0]=>
+  string(17) "Closure::__invoke"
+}
+array(1) {
+  [0]=>
   string(7) "print_r"
 }
 array(1) {
   [0]=>
   string(19) "userDefinedFunction"
-}
-array(1) {
-  [0]=>
-  string(17) "Closure::__invoke"
-}
-array(1) {
-  [0]=>
-  string(17) "Closure::__invoke"
-}
-array(1) {
-  [0]=>
-  string(17) "Closure::__invoke"
 }
 array(1) {
   [0]=>

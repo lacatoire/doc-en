@@ -441,7 +441,7 @@
    i.e. it is being turned off. This flag is also set
    when buffers are being turned off by PHP's shutdown process.
   </para>
-  <para>
+  <simpara>
    The following flags are set by a specific invocation of the handler:
    <constant>PHP_OUTPUT_HANDLER_FLUSH</constant> is set
    when the handler is invoked by calling <function>ob_flush</function>.
@@ -449,12 +449,12 @@
    or its alias <constant>PHP_OUTPUT_HANDLER_CONT</constant>
    is set when the size of its contents equals or exceeds the size of the buffer
    and the handler is invoked while the buffer is being automatically flushed.
-   <constant>PHP_OUTPUT_HANDLER_FLUSH</constant> is set
+   <constant>PHP_OUTPUT_HANDLER_CLEAN</constant> is set
    when the handler is invoked by calling <function>ob_clean</function>,
    <function>ob_end_clean</function> or <function>ob_get_clean</function>.
    When <function>ob_end_clean</function> or <function>ob_get_clean</function>
    is called, <constant>PHP_OUTPUT_HANDLER_FINAL</constant> is set as well.
-  </para>
+  </simpara>
   <note>
    <simpara>
     When <function>ob_end_flush</function> or <function>ob_get_flush</function>
