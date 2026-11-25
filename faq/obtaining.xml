@@ -73,11 +73,6 @@
        </listitem>
        <listitem>
         <simpara>
-         <link xlink:href="&url.ldap.bind9;">free LDAP server</link>.
-        </simpara>
-       </listitem>
-       <listitem>
-        <simpara>
          <link xlink:href="&url.sleepycat;">Berkeley DB2 (Unix/Win)</link> :
          &url.sleepycat;.
         </simpara>
@@ -94,23 +89,12 @@
        </listitem>
        <listitem>
         <simpara>
-         <link xlink:href="&url.msql;">mSQL* (Unix)</link>.
-        </simpara>
-       </listitem>
-       <listitem>
-        <simpara>
          <link xlink:href="&url.pgsql;">PostgreSQL (Unix)</link>.
         </simpara>
        </listitem>
        <listitem>
         <simpara>
          <link xlink:href="&url.imap;">IMAP* (Win/Unix)</link>.
-        </simpara>
-       </listitem>
-       <listitem>
-        <simpara>
-         <link xlink:href="&url.sybase;">Sybase-CT* (Linux, libc5)</link> : 
-         Available locally.
         </simpara>
        </listitem>
        <listitem>
@@ -135,12 +119,12 @@
        </listitem>
        <listitem>
         <simpara>
-         <link xlink:href="&url.mcrypt;">mcrypt</link>.
+         <link xlink:href="&url.mcrypt;">mcrypt</link> (moved to PECL as of PHP 7.2.0).
         </simpara>
        </listitem>
        <listitem>
         <simpara>
-         <link xlink:href="&url.mhash;">mhash</link>.
+         <link xlink:href="&url.mhash;">mhash</link> (legacy; superseded by the <link linkend="book.hash">Hash</link> extension).
         </simpara>
        </listitem>
        <listitem>
