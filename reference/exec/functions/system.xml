@@ -61,7 +61,9 @@
   &reftitle.returnvalues;
   <para>
    Returns the last line of the command output on success, and &false;
-   on failure.
+   if the command cannot be started. A command that fails still returns its
+   last output line, or an empty string, and its exit status is stored in
+   <parameter>result_code</parameter>.
   </para>
  </refsect1>
 
