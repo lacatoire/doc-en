@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xml:id="function.enchant-dict-store-replacement" xmlns="http://docbook.org/ns/docbook">
+<refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.enchant-dict-store-replacement">
  <refnamediv>
   <refname>enchant_dict_store_replacement</refname>
   <refpurpose>Add a correction for a word</refpurpose>
@@ -47,6 +47,11 @@
   <simpara>
    &return.void;
   </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &ext.enchant.dict-valueerror;
  </refsect1>
 
  <refsect1 role="changelog">

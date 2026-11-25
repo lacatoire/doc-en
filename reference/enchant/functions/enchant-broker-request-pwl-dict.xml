@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<refentry xml:id="function.enchant-broker-request-pwl-dict" xmlns="http://docbook.org/ns/docbook">
+<refentry xmlns="http://docbook.org/ns/docbook" xml:id="function.enchant-broker-request-pwl-dict">
  <refnamediv>
   <refname>enchant_broker_request_pwl_dict</refname>
   <refpurpose>Creates a dictionary using a PWL file</refpurpose>
@@ -36,8 +36,14 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <simpara>
-   Returns an <classname>EnchantDictionary</classname> object on success&return.falseforfailure;.
+   Returns an <classname>EnchantDictionary</classname> instance on
+   success&return.falseforfailure;.
   </simpara>
+ </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  &ext.enchant.broker-valueerror;
  </refsect1>
 
  <refsect1 role="changelog">

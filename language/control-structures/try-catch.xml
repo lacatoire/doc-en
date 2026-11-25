@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 <sect1 xml:id="control-structures.try-catch" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
- <title>Try...Catch</title>
+ <title>try...catch</title>
  <sect2 xml:id="control-structures.try" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>try</title>
   <?phpdoc print-version-for="try"?>
@@ -12,18 +12,14 @@
    &catch; or &finally; block.
   </simpara>
   <simpara>
-   When a <exceptionname>Throwable</exceptionname> error is thrown in a &try; block
+   When a <exceptionname>Throwable</exceptionname> error is thrown in a &try; block,
    PHP will attempt to find the first matching &catch; block to handle the
-   error. If none can be found, it will unwind the call stack until one is found or a global error handler is reached.
+   error. If none can be found, the call stack is unwound until a matching
+   &catch; block is found or the global scope is reached.
+   An uncaught object is then passed to the exception handler set with
+   <function>set_exception_handler</function>, if one is set; otherwise,
+   the script terminates with a fatal error.
   </simpara>
-  <note>
-   <simpara>
-    It's possible to add a handler for any uncaught
-    <exceptionname>Throwable</exceptionname> with
-    <function>set_exception_handler</function>.
-    This is similar to wrapping the entire code in a &try;-&catch; block.
-   </simpara>
-  </note>
  </sect2>
  <sect2 xml:id="control-structures.catch" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>catch</title>
@@ -32,7 +28,7 @@
    A &catch; block defines how to respond to a thrown <exceptionname>Throwable</exceptionname> error.
    It specifies one or more subclasses of <exceptionname>Throwable</exceptionname>
    (most commonly <exceptionname>Exception</exceptionname>) it can handle, and
-   optionally a variable to which to assign the exception.
+   optionally a variable to which the exception is assigned.
   </simpara>
   <simpara>
    The first &catch; block
@@ -40,6 +36,12 @@
    object will handle the error.
    Normal execution resumes after the &catch; block without entering any other matching &catch; blocks.
   </simpara>
+  <note>
+   <simpara>
+    It is <emphasis>not</emphasis> recommended to catch <exceptionname>Error</exceptionname>
+    objects, as they signal a programming error.
+   </simpara>
+  </note>
   <example>
    <title>Catching an Exception</title>
    <programlisting role="php">
@@ -67,8 +69,8 @@ Hello World
   <simpara>
    As of PHP 7.1.0, a &catch; block may specify a union of
    <exceptionname>Throwable</exceptionname> subclasses that the block should handle
-   using the pipe (<literal>|</literal>) character. This is useful for when
-   different exceptions from different class hierarchies are handled the same.
+   using the pipe (<literal>|</literal>) character. This is useful when
+   different exceptions from different class hierarchies are handled in the same way.
   </simpara>
   <example>
    <title>Catching a union of classes to handle</title>
@@ -105,8 +107,6 @@ string(11) "MyException"
   <simpara>
    Multiple &catch; blocks can be used to handle different classes of
    <exceptionname>Throwable</exceptionname> errors in different ways.
-   Normal execution (when no error is thrown within the &try; block) will
-   continue after that last &catch; block defined in sequence.
   </simpara>
   <example>
    <title>Multiple catch blocks</title>
@@ -126,7 +126,6 @@ try {
 
   <simpara>
    <exceptionname>Throwable</exceptionname>s can be &throw;n (or re-thrown) within a &catch; block.
-   If nothing is thrown, the execution resumes as normal.
   </simpara>
   <example>
    <title>Nested Exception</title>
@@ -164,7 +163,7 @@ string(4) "foo!"
   </example>
   <caution>
    <simpara>
-    Throwing an object inside a &catch; block will <emphasis>not</emphasis>
+    An object thrown inside a &catch; block will <emphasis>not</emphasis>
     be caught by an adjacent &catch; block.
    </simpara>
    <example>
@@ -178,9 +177,9 @@ class B extends Exception {}
 
 try {
     throw new A;
-} catch(A $e) {
+} catch (A $e) {
     throw new B;
-} catch(B) {
+} catch (B) {
     echo 'Hello';
 }
 
@@ -231,5 +230,10 @@ A SpecificException was thrown, but we don't care about the details.
 ]]>
    </screen>
   </example>
+  <simpara>
+   See the <link linkend="language.error-handling.throwable">error handling</link>
+   section for the <exceptionname>Throwable</exceptionname> hierarchy and
+   how to define custom exceptions.
+  </simpara>
  </sect2>
 </sect1>
