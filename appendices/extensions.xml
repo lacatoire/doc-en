@@ -419,7 +419,6 @@
    &extcat.state.deprecated;
 
    <itemizedlist>
-    <listitem><para><xref linkend="book.imap"/></para></listitem>
     <listitem><para><xref linkend="book.mysql"/></para></listitem>
     <listitem><para><xref linkend="book.recode"/></para></listitem>
     <listitem><para><xref linkend="book.stats"/></para></listitem>
