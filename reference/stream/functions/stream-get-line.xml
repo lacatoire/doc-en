@@ -22,54 +22,67 @@
    <emphasis>not</emphasis> included in the return value), or on <acronym>EOF</acronym>
    (whichever comes first).
   </para>
-  <para>
-   This function is nearly identical to <function>fgets</function> except in
-   that it allows end of line delimiters other than the standard \n, \r, and
-   \r\n, and does <emphasis>not</emphasis> return the delimiter itself.
-  </para>
+  <simpara>
+   Unlike <function>fgets</function>, which keeps the delimiter and returns at
+   most <literal>length - 1</literal> bytes, this function reads up to
+   <parameter>length</parameter> bytes, accepts any delimiter and does
+   <emphasis>not</emphasis> return the delimiter itself.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
   &reftitle.parameters;
-  <para>
-   <variablelist>
-    <varlistentry>
-     <term><parameter>stream</parameter></term>
-     <listitem>
-      <para>
-       A valid file handle.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>length</parameter></term>
-     <listitem>
-      <para>
-       The maximum number of bytes to read from the handle.
-       Negative values are not supported.
-       Zero (<literal>0</literal>) means the default socket chunk size,
-       i.e. <literal>8192</literal> bytes.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term><parameter>ending</parameter></term>
-     <listitem>
-      <para>
-       An optional string delimiter.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
-  </para>
+  <variablelist>
+   <varlistentry>
+    <term><parameter>stream</parameter></term>
+    <listitem>
+     <simpara>
+      A valid file handle.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>length</parameter></term>
+    <listitem>
+     <simpara>
+      The maximum number of bytes to read from the handle.
+      Negative values are not supported.
+      Zero (<literal>0</literal>) means the default socket chunk size,
+      i.e. <literal>8192</literal> bytes.
+     </simpara>
+     <simpara>
+      The delimiter is only searched for within the first
+      <parameter>length</parameter> bytes, so it has to lie entirely inside
+      them: a delimiter that is cut by the limit is returned partly as data,
+      and a delimiter longer than <parameter>length</parameter> is never found.
+      An empty string can be returned, so compare the result with &false;
+      strictly rather than testing it for truthiness.
+     </simpara>
+    </listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><parameter>ending</parameter></term>
+    <listitem>
+     <simpara>
+      An optional string delimiter. If empty (the default), no delimiter is
+      used and reading stops only after <parameter>length</parameter> bytes or
+      at the end of the stream.
+     </simpara>
+    </listitem>
+   </varlistentry>
+  </variablelist>
  </refsect1>
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a string of up to <parameter>length</parameter> bytes read from the file
    pointed to by <parameter>stream</parameter>,&return.falseforfailure;.
-  </para>
+   &false; is also returned at the end of the stream when nothing is left to
+   read, and, on a non-blocking or timed-out stream, when no complete record is
+   available yet: the data read so far stays buffered and is returned by a later
+   call.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -108,6 +121,7 @@
    <member><function>fread</function></member>
    <member><function>fgets</function></member>
    <member><function>fgetc</function></member>
+   <member><function>stream_get_contents</function></member>
   </simplelist>
  </refsect1>
 
