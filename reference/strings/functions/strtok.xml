@@ -100,7 +100,7 @@
       <row>
        <entry>8.3.0</entry>
        <entry>
-        Now emits <constant>E_WARNING</constant> when <parameter>token</parameter> is not provided.
+        Now emits an <constant>E_WARNING</constant> when starting a tokenization with only the <parameter>token</parameter> argument.
        </entry>
       </row>
      </tbody>
