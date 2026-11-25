@@ -98,8 +98,23 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   An <classname>Error</classname> if the class is internal or extends an
+   An <exceptionname>Error</exceptionname> if the class is internal or extends an
    internal class except <classname>stdClass</classname>.
+  </simpara>
+  <simpara>
+   An <exceptionname>Error</exceptionname> if the class cannot be instantiated, that is
+   an abstract class, an interface, an enum, or a trait.
+  </simpara>
+  <simpara>
+   A <exceptionname>ReflectionException</exceptionname> if
+   <parameter>options</parameter> contains invalid flags, or if
+   <constant>ReflectionClass::SKIP_DESTRUCTOR</constant> is passed; that flag is
+   only accepted by <methodname>ReflectionClass::resetAsLazyGhost</methodname>
+   and <methodname>ReflectionClass::resetAsLazyProxy</methodname>.
+  </simpara>
+  <simpara>
+   When the object is initialized, a <exceptionname>TypeError</exceptionname> if the
+   initializer returns a value other than &null;.
   </simpara>
  </refsect1>
 

@@ -119,7 +119,7 @@ dumpReflectionFunction(new ReflectionFunction($counter2));
 )
 
 
-===> The user-defined function '{closure}'
+===> The user-defined function '{closure:Z:\reflectcounter.php:18}'
      declared in Z:\reflectcounter.php
      lines 18 to 23
 ---> Documentation:

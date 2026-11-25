@@ -82,7 +82,34 @@
   </simpara>
  </refsect1>
 
- <xi:include xpointer="xmlns(db=http://docbook.org/ns/docbook) xpointer(id('reflectionclass.newlazyghost')/db:refsect1[@role='errors'])"/>
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   An <exceptionname>Error</exceptionname> if the class is internal or extends an
+   internal class except <classname>stdClass</classname>.
+  </simpara>
+  <simpara>
+   An <exceptionname>Error</exceptionname> if the class cannot be instantiated, that is
+   an abstract class, an interface, an enum, or a trait.
+  </simpara>
+  <simpara>
+   A <exceptionname>ReflectionException</exceptionname> if
+   <parameter>options</parameter> contains invalid flags, or if
+   <constant>ReflectionClass::SKIP_DESTRUCTOR</constant> is passed; that flag is
+   only accepted by <methodname>ReflectionClass::resetAsLazyGhost</methodname>
+   and <methodname>ReflectionClass::resetAsLazyProxy</methodname>.
+  </simpara>
+  <simpara>
+   When the object is initialized, a <exceptionname>TypeError</exceptionname> if
+   <parameter>factory</parameter> does not return an object, or returns an
+   instance of a class that is not compatible with the proxy class.
+  </simpara>
+  <simpara>
+   When the object is initialized, an <exceptionname>Error</exceptionname> if
+   <parameter>factory</parameter> returns a lazy object, including the proxy
+   itself.
+  </simpara>
+ </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
