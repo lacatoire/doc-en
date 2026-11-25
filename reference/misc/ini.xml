@@ -87,10 +87,6 @@
 
     <varlistentry xml:id="ini.syntax-highlighting">
      <term>
-      <parameter>highlight.bg</parameter>
-      <type>string</type>
-     </term>
-     <term>
       <parameter>highlight.comment</parameter>
       <type>string</type>
      </term>
