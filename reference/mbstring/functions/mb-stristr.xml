@@ -21,6 +21,10 @@
    and returns the portion of <parameter>haystack</parameter>.
    Unlike <function>mb_strstr</function>,
    <function>mb_stristr</function> is case-insensitive.
+   <function>mb_stristr</function> uses simple case folding
+   (like <constant>MB_CASE_FOLD_SIMPLE</constant> of <function>mb_convert_case</function>),
+   so characters whose full case folding is several characters,
+   such as "ß" (which folds to "ss"), do not match their expansion.
    If <parameter>needle</parameter> is not found, it returns &false;.
   </simpara>
  </refsect1>
