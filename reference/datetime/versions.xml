@@ -81,6 +81,7 @@
 
  <function name="dateinterval" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8"/>
  <function name="dateinterval::__construct" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8"/>
+ <function name="dateinterval::__wakeup" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8" deprecated="PHP 8.5.0"/>
  <function name="dateinterval::createfromdatestring" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8"/>
  <function name="dateinterval::format" from="PHP 5 &gt;= 5.3.0, PHP 7, PHP 8"/>
 
