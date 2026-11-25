@@ -105,10 +105,16 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns a <type>int</type> Unix timestamp on success, or &false; if the
    timestamp doesn't fit in a PHP integer.
-  </para>
+  </simpara>
+  <simpara>
+   On 64-bit builds, this overflow is not detected: a
+   <parameter>year</parameter> that is too large to be represented silently
+   wraps around to an incorrect integer, without a warning and without
+   returning &false;.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
