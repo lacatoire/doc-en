@@ -24,17 +24,9 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   An instance of an object implementing <classname>Iterator</classname> or
-   <classname>Traversable</classname>
-  </para>
- </refsect1>
-
- <refsect1 role="errors">
-  &reftitle.errors;
-  <para>
-   Throws an <classname>Exception</classname> on failure.
-  </para>
+  <simpara>
+   An <classname>Iterator</classname> over the map entries.
+  </simpara>
  </refsect1>
 
 </refentry>

@@ -15,9 +15,12 @@
   <para>
    Returns the value at specified offset.
   </para>
-  <para>
-   This method is executed when checking if offset is <function>empty</function>.
-  </para>
+  <simpara>
+   This method is executed when reading a value from an offset using array
+   access syntax (<literal>$obj[$offset]</literal>). It is also called by
+   <function>empty</function> to fetch the value being tested, but only when
+   <function>ArrayAccess::offsetExists</function> returns &true;.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">

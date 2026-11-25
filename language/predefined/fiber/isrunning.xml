@@ -12,6 +12,8 @@
    <void/>
   </methodsynopsis>
   <simpara>
+   Determines whether the fiber is currently running, that is, the code
+   within its callable is executing.
   </simpara>
  </refsect1>
 

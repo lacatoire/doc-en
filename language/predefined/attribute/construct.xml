@@ -23,8 +23,13 @@
    <variablelist>
     <varlistentry><term><parameter>flags</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       A bitmask of the <constant>Attribute::TARGET_*</constant> constants
+       specifying the kinds of declarations to which the attribute may be
+       applied, optionally combined with
+       <constant>Attribute::IS_REPEATABLE</constant>. This is the value of the
+       <property linkend="attribute.props.flags">flags</property> property.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>

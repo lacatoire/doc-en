@@ -24,16 +24,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   Returns <type>scalar</type> on success, or &null; on failure.
-  </para>
- </refsect1>
-
- <refsect1 role="errors">
-  &reftitle.errors;
-  <para>
-   Issues <constant>E_NOTICE</constant> on failure.
-  </para>
+  <simpara>
+   Returns the key of the current element. Can be of any type, but should be an
+   <type>int</type> or a <type>string</type> if the key is to be used as an
+   array offset (e.g. by <function>iterator_to_array</function>).
+  </simpara>
  </refsect1>
 
 </refentry>

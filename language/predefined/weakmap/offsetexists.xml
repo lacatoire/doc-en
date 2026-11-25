@@ -39,6 +39,14 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>TypeError</exceptionname> if <parameter>object</parameter>
+   is not an object.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
