@@ -14,9 +14,11 @@
    <methodparam choice="opt"><type>int</type><parameter>mode</parameter><initializer>0</initializer></methodparam>
    <methodparam choice="opt"><type class="union"><type>string</type><type>null</type></type><parameter>encoding</parameter><initializer>&null;</initializer></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Decodes a <literal>MIME</literal> header field.
-  </para>
+   Decoding stops at the first line break that is not followed by a space
+   or a tab; the rest of the string is silently ignored.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
