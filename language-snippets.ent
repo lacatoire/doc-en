@@ -4161,8 +4161,16 @@ local: {
          Function is not locale-aware.
         </member>
         <member>
-         <literal>F</literal>, <literal>g</literal>, <literal>G</literal> and
+         <literal>F</literal>, <literal>G</literal> and
          <literal>b</literal> are not supported.
+        </member>
+        <member>
+         The precision, the <literal>+</literal> and <literal>-</literal> flags
+         and custom padding characters are not supported, but a field width is.
+        </member>
+        <member>
+         <literal>[</literal> matches a set of characters, such as
+         <literal>[a-z]</literal>, or its complement with <literal>[^</literal>.
         </member>
         <member>
          <literal>D</literal> stands for decimal number.
