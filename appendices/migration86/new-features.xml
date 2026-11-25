@@ -10,7 +10,11 @@
 
    <simpara>
     <link linkend="language.oop5.properties.readonly-properties">Readonly
-    properties</link> may now declare default values.
+    properties</link>, including those of
+    <link linkend="language.oop5.basic.class.readonly">readonly classes</link>,
+    may now declare default values.
+    The default value counts as the initialization of the property, so the
+    property cannot be assigned again, not even from the constructor.
     <!-- RFC: https://wiki.php.net/rfc/readonly_property_defaults -->
    </simpara>
 
@@ -588,7 +592,8 @@ bool(true)
    </simplelist>
    It is controlled using the <literal>error_mode</literal>,
    <literal>error_store</literal> and <literal>error_handler</literal>
-   stream context options.
+   <link linkend="context.stream">stream context options</link>.
+   See <xref linkend="stream.errors"/> for an overview.
    <!-- RFC: https://wiki.php.net/rfc/stream_errors -->
   </para>
 
