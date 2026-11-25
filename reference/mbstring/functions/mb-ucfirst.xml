@@ -52,9 +52,7 @@
   &reftitle.notes;
   <note>
    <para>
-    By contrast to the standard case folding functions such as
-    <function>strtolower</function> and <function>strtoupper</function>,
-    case folding is performed on the basis of the Unicode character
+    Case folding is performed on the basis of the Unicode character
     properties. Thus the behaviour of this function is not affected
     by locale settings and it can convert any characters that have
     'alphabetic' property, such a-umlaut (ä).
