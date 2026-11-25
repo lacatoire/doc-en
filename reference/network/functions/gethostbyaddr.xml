@@ -41,6 +41,10 @@
    Returns the host name on success, the unmodified <parameter>ip</parameter>
    on failure, or &false; on malformed input.
   </para>
+  <simpara>
+   If <parameter>ip</parameter> is not a valid IPv4 or IPv6 address, an
+   <constant>E_WARNING</constant> level error is also emitted.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -67,6 +71,7 @@ echo $hostname;
    <simplelist>
     <member><function>gethostbyname</function></member>
     <member><function>gethostbynamel</function></member>
+    <member><function>gethostname</function></member>
    </simplelist>
   </para>
  </refsect1>
