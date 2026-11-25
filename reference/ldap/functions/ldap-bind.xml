@@ -43,15 +43,19 @@
     <varlistentry>
      <term><parameter>dn</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The distinguished name (DN) to bind with. If &null; or empty, an anonymous bind is attempted.
+       A <exceptionname>ValueError</exceptionname> is thrown if it contains a null byte.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
      <term><parameter>password</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The password associated with <parameter>dn</parameter>. If &null; or empty, an anonymous bind is attempted.
+       A <exceptionname>ValueError</exceptionname> is thrown if it contains a null byte.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
