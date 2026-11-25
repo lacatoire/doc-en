@@ -10,7 +10,11 @@
   <section xml:id="curlsharepersistenthandle.intro">
    &reftitle.intro;
    <simpara>
-    Represents a persistent cURL "share" handle.
+    Represents a persistent cURL "share" handle, created by
+    <function>curl_share_init_persistent</function>.
+    Unlike <classname>CurlShareHandle</classname> (created with
+    <function>curl_share_init</function>), this handle persists across requests.
+    Use <function>curl_share_setopt</function> to configure what data is shared.
    </simpara>
   </section>
   <!-- }}} -->
