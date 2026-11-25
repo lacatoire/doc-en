@@ -49,10 +49,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>get_resource_id</function> produces the same result as an <type>int</type> cast</title>
-    <programlisting role="php">
+  <example>
+   <title><function>get_resource_id</function> produces the same result as an <type>int</type> cast</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 $handle = fopen("php://stdout", "w");
@@ -63,16 +62,15 @@ echo get_resource_id($handle);
 
 ?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen role="php">
+   </programlisting>
+   &example.outputs.similar;
+   <screen role="php">
 <![CDATA[
 698
 698
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
@@ -80,6 +78,8 @@ echo get_resource_id($handle);
   <para>
    <simplelist>
     <member><function>get_resource_type</function></member>
+    <member><function>get_resources</function></member>
+    <member><function>is_resource</function></member>
    </simplelist>
   </para>
  </refsect1>
