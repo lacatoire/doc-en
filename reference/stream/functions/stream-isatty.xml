@@ -25,9 +25,9 @@
    <varlistentry>
     <term><parameter>stream</parameter></term>
     <listitem>
-     <para>
-      
-     </para>
+     <simpara>
+      The stream to check.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -35,35 +35,46 @@
  
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   &return.success;
-  </para>
+  <simpara>
+   Returns &true; if <parameter>stream</parameter> is connected to a terminal,
+   &false; otherwise. &false; is also returned for streams that have no file
+   descriptor (such as <literal>php://memory</literal>,
+   <literal>php://temp</literal> and <literal>php://output</literal>, or
+   directory handles), and for a terminal stream that has a stream filter
+   attached.
+  </simpara>
  </refsect1>
  
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>stream_isatty</function> example</title>
-    <para>
-     This command can be used to determine if a standard output / standard error stream is redirected to a file.
-    </para>
-    <programlisting role="sh">
-     php -r "var_export(stream_isatty(STDERR));"
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
-     true
-    </screen>
-    <programlisting role="sh">
-     php -r "var_export(stream_isatty(STDERR));" 2>output.txt
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
-     false
-    </screen>
-   </example>
-   </para>
+  <example>
+   <title><function>stream_isatty</function> example</title>
+   <simpara>
+    This command can be used to determine if the standard error stream is connected to a terminal.
+   </simpara>
+   <programlisting role="sh">
+    php -r "var_export(stream_isatty(STDERR));"
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
+    true
+   </screen>
+   <programlisting role="sh">
+    php -r "var_export(stream_isatty(STDERR));" 2>output.txt
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
+    false
+   </screen>
+  </example>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>posix_isatty</function></member>
+   <member><function>posix_ttyname</function></member>
+  </simplelist>
  </refsect1>
  
 </refentry>
