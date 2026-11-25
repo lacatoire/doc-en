@@ -44,9 +44,13 @@
    This function throws a <exceptionname>ValueError</exceptionname> in the following cases:
    <simplelist>
     <member><parameter>num</parameter> is not a well-formed BCMath numeric string.</member>
-    <member>An invalid <parameter>mode</parameter> is specified.</member>
    </simplelist>
   </para>
+  <simpara>
+   A <exceptionname>TypeError</exceptionname> is thrown if
+   <parameter>mode</parameter> is not a
+   <enumname>RoundingMode</enumname> case.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
