@@ -41,7 +41,7 @@
        <literal>"Array"</literal> and an <constant>E_WARNING</constant> is
        emitted. Using <function>strval</function> on an object that does not
        implement the <link linkend="object.tostring">__toString()</link>
-       method throws an <classname>Error</classname>.
+       method throws an <exceptionname>Error</exceptionname>.
       </para>
      </listitem>
     </varlistentry>
