@@ -61,6 +61,14 @@
   &strings.comparison.return;
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>length</parameter> is less than <literal>0</literal>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -73,6 +81,14 @@
     </thead>
     <tbody>
      &standard.changelog.binary-safe-string-comparison;
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       Now throws a <exceptionname>ValueError</exceptionname> if
+       <parameter>length</parameter> is negative.
+       Previously, an <constant>E_WARNING</constant> was raised and &false; was returned.
+      </entry>
+     </row>
     </tbody>
    </tgroup>
   </informaltable>
