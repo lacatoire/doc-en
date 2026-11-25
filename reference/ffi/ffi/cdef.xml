@@ -50,6 +50,12 @@
        attempt to lookup symbols declared in <parameter>code</parameter> in the normal global
        scope. Other systems will fail to resolve these symbols.
       </simpara>
+      <simpara>
+       As of PHP 8.5.0, symbol lookup without specifying <parameter>lib</parameter>
+       is also supported on Windows. Because symbols on Windows are not
+       necessarily unique, the wrong symbol may be resolved; this convenience
+       should not be relied upon in production.
+      </simpara>
      </note>
     </listitem>
    </varlistentry>
@@ -74,6 +80,13 @@
      </row>
     </thead>
     <tbody>
+     <row>
+      <entry>8.5.0</entry>
+      <entry>
+       On Windows, symbols can now be resolved without specifying
+       <parameter>lib</parameter>.
+      </entry>
+     </row>
      <row>
       <entry>8.3.0</entry>
       <entry>
