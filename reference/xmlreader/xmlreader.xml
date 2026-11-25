@@ -355,126 +355,180 @@
     <variablelist>
 
      <varlistentry xml:id="xmlreader.constants.none">
-      <term><constant>XMLReader::NONE</constant></term>
+      <term>
+       <constant>XMLReader::NONE</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>No node type</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.element">
-      <term><constant>XMLReader::ELEMENT</constant></term>
+      <term>
+       <constant>XMLReader::ELEMENT</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Start element</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.attribute">
-      <term><constant>XMLReader::ATTRIBUTE</constant></term>
+      <term>
+       <constant>XMLReader::ATTRIBUTE</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Attribute node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.text">
-      <term><constant>XMLReader::TEXT</constant></term>
+      <term>
+       <constant>XMLReader::TEXT</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Text node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.cdata">
-      <term><constant>XMLReader::CDATA</constant></term>
+      <term>
+       <constant>XMLReader::CDATA</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>CDATA node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.entity-ref">
-      <term><constant>XMLReader::ENTITY_REF</constant></term>
+      <term>
+       <constant>XMLReader::ENTITY_REF</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Entity Reference node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.entity">
-      <term><constant>XMLReader::ENTITY</constant></term>
+      <term>
+       <constant>XMLReader::ENTITY</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Entity Declaration node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.pi">
-      <term><constant>XMLReader::PI</constant></term>
+      <term>
+       <constant>XMLReader::PI</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Processing Instruction node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.comment">
-      <term><constant>XMLReader::COMMENT</constant></term>
+      <term>
+       <constant>XMLReader::COMMENT</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Comment node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.doc">
-      <term><constant>XMLReader::DOC</constant></term>
+      <term>
+       <constant>XMLReader::DOC</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Document node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.doc-type">
-      <term><constant>XMLReader::DOC_TYPE</constant></term>
+      <term>
+       <constant>XMLReader::DOC_TYPE</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Document Type node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.doc-fragment">
-      <term><constant>XMLReader::DOC_FRAGMENT</constant></term>
+      <term>
+       <constant>XMLReader::DOC_FRAGMENT</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Document Fragment node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.notation">
-      <term><constant>XMLReader::NOTATION</constant></term>
+      <term>
+       <constant>XMLReader::NOTATION</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Notation node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.whitespace">
-      <term><constant>XMLReader::WHITESPACE</constant></term>
+      <term>
+       <constant>XMLReader::WHITESPACE</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Whitespace node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.significant-whitespace">
-      <term><constant>XMLReader::SIGNIFICANT_WHITESPACE</constant></term>
+      <term>
+       <constant>XMLReader::SIGNIFICANT_WHITESPACE</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Significant Whitespace node</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.end-element">
-      <term><constant>XMLReader::END_ELEMENT</constant></term>
+      <term>
+       <constant>XMLReader::END_ELEMENT</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>End Element</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.end-entity">
-      <term><constant>XMLReader::END_ENTITY</constant></term>
+      <term>
+       <constant>XMLReader::END_ENTITY</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>End Entity</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.xml-declaration">
-      <term><constant>XMLReader::XML_DECLARATION</constant></term>
+      <term>
+       <constant>XMLReader::XML_DECLARATION</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>XML Declaration node</para>
       </listitem>
@@ -489,28 +543,40 @@
     <variablelist>
 
      <varlistentry xml:id="xmlreader.constants.loaddtd">
-      <term><constant>XMLReader::LOADDTD</constant></term>
+      <term>
+       <constant>XMLReader::LOADDTD</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Load DTD but do not validate</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.defaultattrs">
-      <term><constant>XMLReader::DEFAULTATTRS</constant></term>
+      <term>
+       <constant>XMLReader::DEFAULTATTRS</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Load DTD and default attributes but do not validate</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.validate">
-      <term><constant>XMLReader::VALIDATE</constant></term>
+      <term>
+       <constant>XMLReader::VALIDATE</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Load DTD and validate while parsing</para>
       </listitem>
      </varlistentry>
 
      <varlistentry xml:id="xmlreader.constants.subst-entities">
-      <term><constant>XMLReader::SUBST_ENTITIES</constant></term>
+      <term>
+       <constant>XMLReader::SUBST_ENTITIES</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>Substitute entities and expand references</para>
       </listitem>

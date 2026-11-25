@@ -81,7 +81,10 @@
     <variablelist>
 
      <varlistentry xml:id="spldoublylinkedlist.constants.it-mode-lifo">
-      <term><constant>SplDoublyLinkedList::IT_MODE_LIFO</constant></term>
+      <term>
+       <constant>SplDoublyLinkedList::IT_MODE_LIFO</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         The list will be iterated in a last in, first out order, like a stack.
@@ -90,7 +93,10 @@
      </varlistentry>
 
      <varlistentry xml:id="spldoublylinkedlist.constants.it-mode-fifo">
-      <term><constant>SplDoublyLinkedList::IT_MODE_FIFO</constant></term>
+      <term>
+       <constant>SplDoublyLinkedList::IT_MODE_FIFO</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         The list will be iterated in a first in, first out order, like a queue.
@@ -106,7 +112,10 @@
     <variablelist>
 
      <varlistentry xml:id="spldoublylinkedlist.constants.it-mode-delete">
-      <term><constant>SplDoublyLinkedList::IT_MODE_DELETE</constant></term>
+      <term>
+       <constant>SplDoublyLinkedList::IT_MODE_DELETE</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         Iteration will remove the iterated elements.
@@ -115,7 +124,10 @@
      </varlistentry>
 
      <varlistentry xml:id="spldoublylinkedlist.constants.it-mode-keep">
-      <term><constant>SplDoublyLinkedList::IT_MODE_KEEP</constant></term>
+      <term>
+       <constant>SplDoublyLinkedList::IT_MODE_KEEP</constant>
+       <type>int</type>
+      </term>
       <listitem>
        <para>
         Iteration will not remove the iterated elements.

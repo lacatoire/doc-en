@@ -81,25 +81,37 @@
    &reftitle.constants;
    <variablelist>
     <varlistentry xml:id="splfileobject.constants.drop-new-line">
-     <term><constant>SplFileObject::DROP_NEW_LINE</constant></term>
+     <term>
+      <constant>SplFileObject::DROP_NEW_LINE</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Drop newlines at the end of a line.</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="splfileobject.constants.read-ahead">
-     <term><constant>SplFileObject::READ_AHEAD</constant></term>
+     <term>
+      <constant>SplFileObject::READ_AHEAD</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Read on rewind/next.</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="splfileobject.constants.skip-empty">
-     <term><constant>SplFileObject::SKIP_EMPTY</constant></term>
+     <term>
+      <constant>SplFileObject::SKIP_EMPTY</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Skips empty lines in the file. This requires the <constant>READ_AHEAD</constant> flag be enabled, to work as expected.</para>
      </listitem>
     </varlistentry>
     <varlistentry xml:id="splfileobject.constants.read-csv">
-     <term><constant>SplFileObject::READ_CSV</constant></term>
+     <term>
+      <constant>SplFileObject::READ_CSV</constant>
+      <type>int</type>
+     </term>
      <listitem>
       <para>Read lines as CSV rows.</para>
      </listitem>
