@@ -271,7 +271,9 @@
    <listitem>
     <simpara>
      Return files as they appear in the directory (no sorting).
-     When this flag is not used, the pathnames are sorted alphabetically
+     When this flag is not used, the pathnames are sorted alphabetically.
+     With <constant>GLOB_BRACE</constant>, the sorting is applied separately to
+     the matches of each brace alternative, not to the combined result.
     </simpara>
    </listitem>
   </varlistentry>

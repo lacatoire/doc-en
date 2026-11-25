@@ -89,12 +89,15 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns an array containing the matched files/directories, an empty array
    if no file matched or &false; on error.
    Unless <literal>GLOB_NOSORT</literal> was used, the names will
-   be sorted alphanumerically.
-  </para>
+   be sorted alphanumerically. When <constant>GLOB_BRACE</constant> is used,
+   the names are sorted separately for each brace alternative, and the results
+   are concatenated in the order of the alternatives, so the combined array
+   is not globally sorted.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
