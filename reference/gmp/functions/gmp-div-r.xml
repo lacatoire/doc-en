@@ -69,9 +69,14 @@
   <simpara>
    Throws a <exceptionname>DivisionByZeroError</exceptionname> if
    <parameter>num2</parameter> is <literal>0</literal>.
+   Prior to PHP 8.0.0, an <constant>E_WARNING</constant> was raised instead.
   </simpara>
   <simpara>
-   Prior to PHP 8.0.0, an <constant>E_WARNING</constant> was raised instead.
+   Throws a <exceptionname>ValueError</exceptionname> if
+   <parameter>rounding_mode</parameter> is not one of
+   <constant>GMP_ROUND_ZERO</constant>,
+   <constant>GMP_ROUND_PLUSINF</constant> or
+   <constant>GMP_ROUND_MINUSINF</constant>.
   </simpara>
  </refsect1>
 
