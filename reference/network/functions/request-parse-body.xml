@@ -65,6 +65,11 @@
       <listitem><simpara><literal>post_max_size</literal></simpara></listitem>
       <listitem><simpara><literal>upload_max_filesize</literal></simpara></listitem>
      </itemizedlist>
+     <simpara>
+      Option names are case-insensitive. Each value must be an
+      <type>int</type> or a <type>string</type> in shorthand notation,
+      such as <literal>"1K"</literal>.
+     </simpara>
     </listitem>
    </varlistentry>
   </variablelist>
@@ -82,14 +87,29 @@
  <refsect1 role="errors">
   &reftitle.errors;
   <simpara>
-   When the request body is invalid,
-   according to the <literal>Content-Type</literal> header,
-   a <exceptionname>RequestParseBodyException</exceptionname> is thrown.
+   A <exceptionname>RequestParseBodyException</exceptionname> is thrown when
+   the request has no <literal>Content-Type</literal> header, when the
+   content type is not supported, when the
+   <literal>multipart/form-data</literal> boundary is missing, when the number
+   of uploaded files exceeds <literal>max_file_uploads</literal>, or when the
+   number of multipart body parts exceeds
+   <literal>max_multipart_body_parts</literal>.
+  </simpara>
+  <simpara>
+   Exceeding <literal>post_max_size</literal> or
+   <literal>max_input_vars</literal> does not throw an exception: an
+   <constant>E_WARNING</constant> is raised, and the returned data is empty
+   for <literal>post_max_size</literal>, or truncated for
+   <literal>max_input_vars</literal>. Exceeding
+   <literal>upload_max_filesize</literal> does not raise an error either:
+   the corresponding entry of the returned files array has its
+   <literal>error</literal> set to <constant>UPLOAD_ERR_INI_SIZE</constant>.
   </simpara>
   <simpara>
    A <exceptionname>ValueError</exceptionname> is thrown when
    <parameter>options</parameter> contains invalid keys,
-   or invalid values for the corresponding key.
+   or invalid values for the corresponding key, such as a
+   <type>float</type> or &null;.
   </simpara>
  </refsect1>
 
