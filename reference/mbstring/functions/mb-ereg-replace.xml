@@ -43,6 +43,53 @@
       <para>
        The replacement text.
       </para>
+      <para>
+       The following references are replaced:
+       <itemizedlist>
+        <listitem>
+         <simpara>
+          <literal>\0</literal> is the whole match, and <literal>\1</literal>
+          to <literal>\9</literal> are the numbered capturing groups. Only one
+          digit is read, so <literal>\10</literal> is group 1 followed by the
+          character <literal>0</literal>.
+          The <literal>$1</literal> and <literal>${1}</literal> forms are not
+          supported and are left as written.
+         </simpara>
+        </listitem>
+        <listitem>
+         <simpara>
+          <literal>\k&lt;name&gt;</literal> and <literal>\k'name'</literal>
+          are the named capturing groups, and <literal>\k&lt;1&gt;</literal>
+          is a numbered one.
+         </simpara>
+        </listitem>
+        <listitem>
+         <simpara>
+          A group that did not take part in the match is replaced by an empty
+          string. A reference to a group that does not exist is left as
+          written.
+         </simpara>
+        </listitem>
+        <listitem>
+         <simpara>
+          If <parameter>pattern</parameter> contains a named group, numbered
+          references such as <literal>\1</literal> and
+          <literal>\k&lt;1&gt;</literal> are not replaced and are left as
+          written; <literal>\0</literal> and <literal>\k&lt;name&gt;</literal>
+          still work.
+         </simpara>
+        </listitem>
+        <listitem>
+         <simpara>
+          A backslash followed by any other character, or at the end of the
+          string, is copied unchanged. <literal>\\</literal> is not an escape
+          sequence: <literal>\\1</literal> gives a backslash followed by the
+          content of group 1, so a literal <literal>\1</literal> cannot be
+          written.
+         </simpara>
+        </listitem>
+       </itemizedlist>
+      </para>
      </listitem>
     </varlistentry>
     <varlistentry>
