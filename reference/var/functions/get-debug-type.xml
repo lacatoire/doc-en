@@ -136,10 +136,9 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
-   <example>
-    <title><function>get_debug_type</function> example</title>
-    <programlisting role="php">
+  <example>
+   <title><function>get_debug_type</function> example</title>
+   <programlisting role="php">
 <![CDATA[
 <?php
 
@@ -172,9 +171,9 @@ echo get_debug_type(new class extends C implements A {}), PHP_EOL;
 
 ?>
 ]]>
-    </programlisting>
-    &example.outputs.similar;
-    <screen>
+   </programlisting>
+   &example.outputs.similar;
+   <screen>
 <![CDATA[
 null
 bool
@@ -191,9 +190,8 @@ Foo\A@anonymous
 Foo\C@anonymous
 Foo\C@anonymous
 ]]>
-    </screen>
-   </example>
-  </para>
+   </screen>
+  </example>
  </refsect1>
 
  <refsect1 role="seealso">
@@ -202,6 +200,7 @@ Foo\C@anonymous
    <simplelist>
     <member><function>gettype</function></member>
     <member><function>get_class</function></member>
+    <member><function>var_dump</function></member>
    </simplelist>
   </para>
  </refsect1>
