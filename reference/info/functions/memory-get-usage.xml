@@ -60,6 +60,14 @@
   <para>
    Returns the memory amount in bytes.
   </para>
+  <note>
+   <simpara>
+    When PHP's memory manager is disabled by setting the
+    <literal>USE_ZEND_ALLOC</literal> environment variable to <literal>0</literal>,
+    this function always returns <literal>0</literal>, whatever the value of
+    <parameter>real_usage</parameter>.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="examples">

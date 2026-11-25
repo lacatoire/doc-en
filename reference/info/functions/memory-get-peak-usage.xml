@@ -25,11 +25,14 @@
     <varlistentry>
      <term><parameter>real_usage</parameter></term>
      <listitem>
-      <para>
-       Set this to &true; to get the real size of memory allocated from
-       system. If not set or &false; only the memory used by
+      <simpara>
+       Set this to &true; to get the total amount of memory that PHP's memory
+       manager has reserved from the system, including pages that are not
+       currently in use. It is not the amount of memory the operating system
+       has given to the PHP process, which is typically much larger. If not
+       set or &false; only the memory used by
        <literal>emalloc()</literal> is reported.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -41,6 +44,14 @@
   <para>
    Returns the memory peak in bytes.
   </para>
+  <note>
+   <simpara>
+    When PHP's memory manager is disabled by setting the
+    <literal>USE_ZEND_ALLOC</literal> environment variable to <literal>0</literal>,
+    this function always returns <literal>0</literal>, whatever the value of
+    <parameter>real_usage</parameter>.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="seealso">

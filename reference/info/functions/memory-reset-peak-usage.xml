@@ -28,6 +28,14 @@
   <para>
    &return.void;
   </para>
+  <note>
+   <simpara>
+    When PHP's memory manager is disabled by setting the
+    <literal>USE_ZEND_ALLOC</literal> environment variable to <literal>0</literal>,
+    <function>memory_get_peak_usage</function> always returns
+    <literal>0</literal>, so calling this function has no observable effect.
+   </simpara>
+  </note>
  </refsect1>
 
  <refsect1 role="examples">
