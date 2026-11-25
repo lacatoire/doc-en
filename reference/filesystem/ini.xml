@@ -173,8 +173,12 @@
      <type>string</type>
     </term>
     <listitem>
-     <para>
-     </para>
+     <simpara>
+      The directory returned by <function>sys_get_temp_dir</function> and used
+      for temporary files. If empty, the <literal>TMPDIR</literal> environment
+      variable is used, then the system default, usually
+      <filename>/tmp</filename> on Unix.
+     </simpara>
     </listitem>
    </varlistentry>
 

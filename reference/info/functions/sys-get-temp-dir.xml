@@ -14,7 +14,9 @@
   </methodsynopsis>
   <para>
    Returns the path of the directory PHP stores temporary files in by
-   default.
+   default. The value comes from the <link linkend="ini.sys-temp-dir">sys_temp_dir</link>
+   INI setting if it is set, then from the <literal>TMPDIR</literal>
+   environment variable, then from the system default.
   </para>
  </refsect1>
 
