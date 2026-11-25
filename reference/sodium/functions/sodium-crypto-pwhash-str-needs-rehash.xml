@@ -56,6 +56,20 @@
    Returns &true; if the provided memlimit/opslimit do not match what's stored in the hash.
    Returns &false; if they match.
   </simpara>
+  <simpara>
+   Only the limits are compared: the algorithm and the parallelism are not, so an
+   Argon2i hash with matching limits returns &false;. A string that is not a valid
+   Argon2 hash returns &true;.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>sodium_crypto_pwhash_str</function></member>
+   <member><function>sodium_crypto_pwhash_str_verify</function></member>
+   <member><function>password_needs_rehash</function></member>
+  </simplelist>
  </refsect1>
 
 

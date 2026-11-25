@@ -104,6 +104,7 @@ $argon2id$v=19$m=65536,t=2,p=1$oWIfdaXwWwhVmovOBc2NAQ$EbsZ+JnZyyavkafS0hoc4HdaOB
   &reftitle.seealso;
   <simplelist>
    <member><function>sodium_crypto_pwhash_str_verify</function></member>
+   <member><function>sodium_crypto_pwhash_str_needs_rehash</function></member>
    <member><function>sodium_crypto_pwhash</function></member>
    <member><function>password_hash</function></member>
    <member><function>password_verify</function></member>
