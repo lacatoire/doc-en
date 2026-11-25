@@ -31,13 +31,14 @@
     <listitem>
      <simpara>
       <link linkend="ini.session.cookie-lifetime">"lifetime"</link> -  The
-      lifetime of the cookie in seconds.
+      lifetime of the cookie in seconds. 0 means the cookie lasts until the
+      browser is closed.
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      <link linkend="ini.session.cookie-path">"path"</link> -  The path where
-      information is stored.
+      <link linkend="ini.session.cookie-path">"path"</link> -  The path
+      attribute of the session cookie.
      </simpara>
     </listitem>
     <listitem>
@@ -67,7 +68,8 @@
     <listitem>
      <simpara>
       <link linkend="ini.session.cookie-samesite">"samesite"</link> - Controls
-      the cross-domain sending of the cookie.
+      the cross-domain sending of the cookie. An empty string means that no
+      SameSite attribute is sent.
      </simpara>
     </listitem>
    </itemizedlist>
