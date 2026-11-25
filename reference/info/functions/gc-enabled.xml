@@ -31,7 +31,6 @@
 
  <refsect1 role="examples">
   &reftitle.examples;
-  <para>
    <example>
     <title>A <function>gc_enabled</function> example</title>
     <programlisting role="php">
@@ -42,7 +41,6 @@ if(gc_enabled()) gc_collect_cycles();
 ]]>
     </programlisting>
    </example>
-  </para>
  </refsect1>
 
  <refsect1 role="seealso">
