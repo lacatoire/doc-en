@@ -33,7 +33,7 @@
     <term><parameter>length</parameter></term>
     <listitem>
      <simpara>
-      The length of the password hash to generate, in bytes.
+      The length of the password hash to generate, in bytes. It must be at least 16.
      </simpara>
     </listitem>
    </varlistentry>
@@ -41,7 +41,7 @@
     <term><parameter>password</parameter></term>
     <listitem>
      <simpara>
-      The password to generate a hash for.
+      The password to generate a hash for. An empty password emits an <constant>E_WARNING</constant> and is still hashed.
      </simpara>
     </listitem>
    </varlistentry>
@@ -49,7 +49,7 @@
     <term><parameter>salt</parameter></term>
     <listitem>
      <simpara>
-      A salt to add to the password before hashing. The salt should be unpredictable, ideally generated from a good random number source such as <function>random_bytes</function>, and have a length of at least <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_SALTBYTES</constant> bytes.
+      A salt to add to the password before hashing. The salt should be unpredictable, ideally generated from a good random number source such as <function>random_bytes</function>, and be exactly <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_SALTBYTES</constant> bytes long.
      </simpara>
     </listitem>
    </varlistentry>
@@ -57,7 +57,7 @@
     <term><parameter>opslimit</parameter></term>
     <listitem>
      <simpara>
-      Represents a maximum amount of computations to perform. Raising this number will make the function require more CPU cycles to compute a key. There are some constants available to set the operations limit to appropriate values depending on intended use, in order of strength: <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_OPSLIMIT_INTERACTIVE</constant> and <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_OPSLIMIT_SENSITIVE</constant>.
+      Represents a maximum amount of computations to perform. Raising this number will make the function require more CPU cycles to compute a key. There are some constants available to set the operations limit to appropriate values depending on intended use, in order of strength: <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_OPSLIMIT_INTERACTIVE</constant> and <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_OPSLIMIT_SENSITIVE</constant>. The value must be at least <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_OPSLIMIT_INTERACTIVE</constant>.
      </simpara>
     </listitem>
    </varlistentry>
@@ -65,7 +65,7 @@
     <term><parameter>memlimit</parameter></term>
     <listitem>
      <simpara>
-      The maximum amount of RAM that the function will use, in bytes. There are constants to help you choose an appropriate value, in order of size: <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_MEMLIMIT_INTERACTIVE</constant> and <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_MEMLIMIT_SENSITIVE</constant>. Typically these should be paired with the matching <parameter>opslimit</parameter> values.
+      The maximum amount of RAM that the function will use, in bytes. There are constants to help you choose an appropriate value, in order of size: <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_MEMLIMIT_INTERACTIVE</constant> and <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_MEMLIMIT_SENSITIVE</constant>. The value must be at least <constant>SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_MEMLIMIT_INTERACTIVE</constant>. Typically these should be paired with the matching <parameter>opslimit</parameter> values.
      </simpara>
     </listitem>
    </varlistentry>
