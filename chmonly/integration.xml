@@ -19,22 +19,22 @@
   </para>
   <simpara>
    The CHM is built using XSL style sheets from XML sources. A special
-   conversion script is run on the XSLT output, adding several cute
+   conversion script is run on the XSLT output, adding several useful
    features, and packing up the manual with the preferences files
    and skin examples.
   </simpara>
-  <para>
+  <simpara>
    If you never worked with CHMs, you can think of them as compressed
    files with OS supported access for files inside and some added search
-   and index support. However CHMs can only be viewed using the HTML Help
+   and index support. However, CHMs can only be viewed using the HTML Help
    Viewer, you can directly access files inside them using a special URL
    prefix, the CHM file name and the file you request from inside. As all
    the help content is stored in HTML files, you can show pages of the CHM
    in Internet Explorer.
-  </para>
+  </simpara>
   <simpara>
    Assume that you placed your <filename>php_manual_en.chm</filename> to
-   <filename>c:\phpmanual</filename> the index file in the manual (which
+   <filename>c:\phpmanual</filename>, the index file in the manual (which
    you see the first time) can be accessed with the following URL:
    <literal>mk:@MSITStore:C:\phpmanual\php_manual_en.chm::/_index.html</literal>.
    Here <literal>mk:@MSITStore:</literal> is the special "protocol", 
@@ -84,12 +84,12 @@
    help, and provide the IDE specified string as the parameter. An example
    for this is UltraEdit integration.
   </simpara>
-  <para>
+  <simpara>
    The index of the manual (accessible via the index tab on the navigation
-   pane) can also be used for integrational purposes. All the HTML pages
+   pane) can also be used for integration purposes. All the HTML pages
    are included in the index with their titles as index terms (including
    function description pages).
-  </para>
+  </simpara>
   <para>
    If you are a desktop application developer and would like to tightly
    integrate the CHM into your program (such as displaying the TOC tree
