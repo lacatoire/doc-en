@@ -86,6 +86,7 @@ This is an encoded string
     <member><function>base64_encode</function></member>
     <member><function>bin2hex</function></member>
     <member><function>hex2bin</function></member>
+    <member><function>sodium_base642bin</function></member>
     <member><link xlink:href="&url.rfc;2045">RFC 2045</link> section 6.8</member>
    </simplelist>
   </para>
