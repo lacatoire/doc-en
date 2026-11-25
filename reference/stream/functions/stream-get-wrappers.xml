@@ -11,9 +11,9 @@
    <type>array</type><methodname>stream_get_wrappers</methodname>
    <void/>
   </methodsynopsis>
-  <para>
-   Retrieve list of registered streams available on the running system.
-  </para>
+  <simpara>
+   Retrieve the list of registered stream wrappers.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
@@ -23,10 +23,18 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    Returns an indexed array containing the name of all stream wrappers
-   available on the running system.
-  </para>
+   registered in the current request. The list includes the wrappers added
+   with <function>stream_wrapper_register</function>, with the name as it was
+   registered, and does not include a wrapper removed with
+   <function>stream_wrapper_unregister</function>;
+   <function>stream_wrapper_restore</function> puts a built-in wrapper back at
+   the end of the list. It is reset at the end of the request, and it does not
+   change with <link linkend="ini.allow-url-fopen">allow_url_fopen</link>:
+   <literal>http</literal>, <literal>https</literal>, <literal>ftp</literal>,
+   <literal>ftps</literal> and <literal>data</literal> stay listed.
+  </simpara>
  </refsect1>
 
  <refsect1 role="examples">
@@ -46,12 +54,16 @@ print_r(stream_get_wrappers());
 <![CDATA[
 Array
 (
-    [0] => php
-    [1] => file
-    [2] => http
-    [3] => ftp
-    [4] => compress.bzip2
-    [5] => compress.zlib
+    [0] => https
+    [1] => ftps
+    [2] => compress.zlib
+    [3] => php
+    [4] => file
+    [5] => glob
+    [6] => data
+    [7] => http
+    [8] => ftp
+    [9] => phar
 )
 ]]>
     </screen>
@@ -80,6 +92,11 @@ if (in_array('compress.bzip2', stream_get_wrappers())) {
   &reftitle.seealso;
   <simplelist>
    <member><function>stream_wrapper_register</function></member>
+   <member><function>stream_wrapper_unregister</function></member>
+   <member><function>stream_wrapper_restore</function></member>
+   <member><function>stream_get_transports</function></member>
+   <member><function>stream_get_filters</function></member>
+   <member><xref linkend="wrappers"/></member>
   </simplelist>
  </refsect1>
 </refentry>

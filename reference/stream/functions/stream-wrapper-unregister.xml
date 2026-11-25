@@ -14,8 +14,21 @@
   <simpara>
    Allows you to disable an already defined stream wrapper. Once the wrapper
    has been disabled you may override it with a user-defined wrapper using
-   <function>stream_wrapper_register</function> or re-enable it later on with
-   <function>stream_wrapper_restore</function>.
+   <function>stream_wrapper_register</function> or, if it is a built-in
+   wrapper, re-enable it later on with
+   <function>stream_wrapper_restore</function>. A user-defined wrapper cannot
+   be restored: once unregistered, it is gone.
+  </simpara>
+  <simpara>
+   Unregistering a built-in wrapper affects the current request only, and
+   breaks everything that relies on it. After
+   <literal>stream_wrapper_unregister('file')</literal>,
+   <function>fopen</function>, <function>file_get_contents</function>,
+   <function>opendir</function>, <function>include</function> and
+   <classname>SplFileObject</classname> fail on plain paths, and
+   <function>file_exists</function> returns &false;, while
+   <function>glob</function> and <function>realpath</function> keep working.
+   A stream that was already open keeps working.
   </simpara>
  </refsect1>
  <refsect1 role="parameters">
@@ -25,8 +38,9 @@
     <varlistentry>
      <term><parameter>protocol</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The wrapper name, without <literal>://</literal>. It is case-sensitive.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -34,9 +48,20 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+   &false; is returned, with an <constant>E_WARNING</constant>, if no wrapper
+   is registered under <parameter>protocol</parameter>.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>stream_wrapper_register</function></member>
+   <member><function>stream_wrapper_restore</function></member>
+   <member><function>stream_get_wrappers</function></member>
+  </simplelist>
  </refsect1>
 </refentry>
 

@@ -11,10 +11,12 @@
    <type>bool</type><methodname>stream_wrapper_restore</methodname>
    <methodparam><type>string</type><parameter>protocol</parameter></methodparam>
   </methodsynopsis>
-  <para>
+  <simpara>
    Restores a built-in wrapper previously unregistered with
-   <function>stream_wrapper_unregister</function>.
-  </para>
+   <function>stream_wrapper_unregister</function>. It also reverts a
+   user-defined wrapper registered over a built-in name with
+   <function>stream_wrapper_register</function>.
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;
@@ -23,8 +25,10 @@
     <varlistentry>
      <term><parameter>protocol</parameter></term>
      <listitem>
-      <para>
-      </para>
+      <simpara>
+       The name of the built-in wrapper, without <literal>://</literal>. It is
+       case-sensitive.
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -32,9 +36,23 @@
  </refsect1>
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    &return.success;
-  </para>
+   &true; is also returned, with an <constant>E_NOTICE</constant>, if the
+   wrapper was never changed. &false; is returned, with an
+   <constant>E_WARNING</constant>, if <parameter>protocol</parameter> is not
+   the name of a built-in wrapper, for example a wrapper that only exists as
+   a user-defined one, a name in the wrong case, or an empty string.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <simplelist>
+   <member><function>stream_wrapper_register</function></member>
+   <member><function>stream_wrapper_unregister</function></member>
+   <member><function>stream_get_wrappers</function></member>
+  </simplelist>
  </refsect1>
 </refentry>
 
