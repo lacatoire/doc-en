@@ -31,9 +31,9 @@
     <varlistentry>
      <term><parameter>haystack</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        The string to search in.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
@@ -59,11 +59,11 @@
        The search is performed right to left, searching for the first
        occurrence of <parameter>needle</parameter> from the selected byte.
        <note>
-        <para>
+        <simpara>
          This is effectively looking for the last occurrence of
          <parameter>needle</parameter> at or before the last
          <parameter>offset</parameter> bytes.
-        </para>
+        </simpara>
        </note>
       </para>
      </listitem>
