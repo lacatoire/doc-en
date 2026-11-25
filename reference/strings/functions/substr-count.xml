@@ -63,7 +63,8 @@
       <simpara>
        The maximum length after the specified offset to search for the
        substring. A <exceptionname>ValueError</exceptionname> is thrown if the
-       offset plus the length is greater than the <parameter>haystack</parameter> length.
+       length is outside of the part of <parameter>haystack</parameter> that
+       follows <parameter>offset</parameter>.
        A negative length counts from the end of <parameter>haystack</parameter>.
       </simpara>
      </listitem>
