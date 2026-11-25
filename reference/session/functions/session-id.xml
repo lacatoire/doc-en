@@ -54,11 +54,11 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
+  <simpara>
    <function>session_id</function> returns the session id for the current
    session or the empty string (<literal>""</literal>) if there is no current
    session (no current session id exists).
-  </para>
+  </simpara>
   <simpara>
    When <parameter>id</parameter> is specified, the previous session id is
    returned, not the new one.
