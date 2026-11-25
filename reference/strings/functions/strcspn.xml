@@ -139,6 +139,14 @@
      <row>
       <entry>8.0.0</entry>
       <entry>
+       Now returns <literal>0</literal> instead of &false; when
+       <parameter>offset</parameter> is greater than the length of
+       <parameter>string</parameter>.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
        <parameter>length</parameter> is nullable now.
       </entry>
      </row>
