@@ -69,6 +69,15 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>mtime</parameter> is &null; while <parameter>atime</parameter>
+   is not.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <informaltable>
@@ -84,7 +93,9 @@
       <entry>8.0.0</entry>
       <entry>
        <parameter>mtime</parameter> and <parameter>atime</parameter>
-       are now nullable.
+       are now nullable. A <exceptionname>ValueError</exceptionname> is thrown
+       if <parameter>mtime</parameter> is &null; while
+       <parameter>atime</parameter> is not.
       </entry>
      </row>
     </tbody>
