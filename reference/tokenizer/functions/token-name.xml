@@ -34,7 +34,9 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   The symbolic name of the given <parameter>id</parameter>.
+   The symbolic name of the given <parameter>id</parameter>, or
+   <literal>"UNKNOWN"</literal> if <parameter>id</parameter> is not the value
+   of a named token, such as the code of a single-character token.
   </para>
  </refsect1>
  <refsect1 role="examples">
@@ -45,14 +47,21 @@
     <programlisting role="php">
 <![CDATA[
 <?php
-// 260 is the token value for the T_EVAL token
-echo token_name(260);        // -> "T_EVAL"
-
 // a token constant maps to its own name
-echo token_name(T_FUNCTION); // -> "T_FUNCTION"
+echo token_name(T_FUNCTION), PHP_EOL;
+
+// single-character tokens have no name
+echo token_name(ord(';')), PHP_EOL;
 ?>
 ]]>
     </programlisting>
+    &example.outputs;
+    <screen>
+<![CDATA[
+T_FUNCTION
+UNKNOWN
+]]>
+    </screen>
    </example>
   </para>
  </refsect1>
