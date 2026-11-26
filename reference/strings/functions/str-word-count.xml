@@ -76,10 +76,10 @@
     <varlistentry>
      <term><parameter>characters</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        A list of additional characters which will be considered as 'word'.
        With <literal>..</literal> it is possible to specify an incrementing range of characters.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
