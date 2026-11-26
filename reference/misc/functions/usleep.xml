@@ -15,6 +15,11 @@
   <para>
    Delays program execution for the given number of microseconds.
   </para>
+  <simpara>
+   If a signal interrupts the delay, <function>usleep</function> returns early
+   without reporting it.
+   <function>time_nanosleep</function> returns the time left in that case.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
