@@ -56,6 +56,16 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   When <constant>TOKEN_PARSE</constant> is set in <parameter>flags</parameter>,
+   a <exceptionname>ParseError</exceptionname> or a
+   <exceptionname>CompileError</exceptionname> is thrown if the parser
+   rejects <parameter>code</parameter>.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="examples">
   &reftitle.examples;
   <example>
