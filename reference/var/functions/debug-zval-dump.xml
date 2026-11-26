@@ -17,6 +17,11 @@
    This is mostly useful for understanding or debugging implementation details of the
    Zend Engine or PHP extensions.
   </para>
+  <simpara>
+   Floats are displayed with the precision set by
+   <link linkend="ini.serialize-precision">serialize_precision</link>,
+   not <link linkend="ini.precision">precision</link>.
+  </simpara>
  </refsect1>
  <refsect1 role="parameters">
   &reftitle.parameters;

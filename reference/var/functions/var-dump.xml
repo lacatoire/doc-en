@@ -24,6 +24,11 @@
    the output unless the object implements a
    <link linkend="language.oop5.magic.debuginfo">__debugInfo()</link> method.
   </simpara>
+  <simpara>
+   Floats are displayed with the precision set by
+   <link linkend="ini.serialize-precision">serialize_precision</link>,
+   not <link linkend="ini.precision">precision</link>.
+  </simpara>
   &tip.ob-capture;
  </refsect1>
 
