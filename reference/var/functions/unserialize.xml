@@ -138,7 +138,7 @@
   </simpara>
   <simpara>
    In case the passed string is not unserializeable, &false; is returned and
-   <constant>E_WARNING</constant> is issued.
+   an <constant>E_WARNING</constant> is issued.
    If the passed string has data left after the serialized value, the value
    is returned and an <constant>E_WARNING</constant> is issued.
   </simpara>
