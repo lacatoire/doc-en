@@ -96,8 +96,7 @@ printf("uniqid(): %s\r\n", uniqid());
  */
 printf("uniqid('php_'): %s\r\n", uniqid('php_'));
 
-/* We can also activate the more_entropy parameter, which is 
- * required on some systems, like Cygwin. This makes uniqid()
+/* We can also activate the more_entropy parameter. This makes uniqid()
  * produce a value like: 4b340550242239.64159797
  */
 printf("uniqid('', true): %s\r\n", uniqid('', true));
@@ -108,16 +107,6 @@ printf("uniqid('', true): %s\r\n", uniqid('', true));
   </para>
  </refsect1>
 
- <refsect1 role="notes">
-  &reftitle.notes;
-  <note>
-   <para>
-    Under Cygwin, the <parameter>more_entropy</parameter> must be set 
-    to &true; for this function to work.
-   </para>
-  </note>
-
- </refsect1>
  <refsect1 role="seealso">
   &reftitle.seealso;
   <simplelist>
