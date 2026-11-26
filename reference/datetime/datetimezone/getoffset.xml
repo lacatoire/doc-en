@@ -73,7 +73,7 @@ $dateTimeJapan = new DateTime("now", $dateTimeZoneJapan);
 // ($dateTimeZoneJapan).
 $timeOffset = $dateTimeZoneJapan->getOffset($dateTimeTaipei);
 
-// Should show int(32400) (for dates after Sat Sep 8 01:00:00 1951 JST).
+// Should show int(32400) (for dates after Sun Sep 9 00:00:00 1951 JST).
 var_dump($timeOffset);
 ]]>
     </programlisting>
