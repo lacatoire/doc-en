@@ -48,6 +48,7 @@
      <listitem>
       <para>
        The optional <parameter>separators</parameter> contains the word separator characters.
+       With <literal>..</literal> it is possible to specify an incrementing range of characters.
       </para>
      </listitem>
     </varlistentry>

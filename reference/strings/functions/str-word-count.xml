@@ -77,7 +77,8 @@
      <term><parameter>characters</parameter></term>
      <listitem>
       <para>
-       A list of additional characters which will be considered as 'word'
+       A list of additional characters which will be considered as 'word'.
+       With <literal>..</literal> it is possible to specify an incrementing range of characters.
       </para>
      </listitem>
     </varlistentry>
