@@ -36,7 +36,9 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   Array containing location information about timezone&return.falseforfailure;.
+   Array containing location information about timezone, or &false; if the
+   timezone is not a timezone identifier (type <literal>3</literal>), such as
+   a UTC offset or a timezone abbreviation.
   </para>
  </refsect1>
 
@@ -79,8 +81,12 @@ Array
    alpha-2 country code for each entry. The <literal>latitude</literal> and
    <literal>longitude</literal> elements the coordinates of the named city
    from the time zone identifier, and <literal>comments</literal> contain
-   (when not &false;) a hint of where in the given country this timezone
-   applies. This information is suitable to present to end-users.
+   a hint of where in the given country this timezone applies, or an empty
+   string when there is none. This information is suitable to present to
+   end-users. Identifiers without location data, such as
+   <literal>UTC</literal> or <literal>Europe/Kiev</literal>, return
+   <literal>??</literal>, <literal>-90</literal> and <literal>-180</literal>
+   as placeholders.
   </para>
  </refsect1>
 
