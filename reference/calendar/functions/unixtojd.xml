@@ -73,6 +73,7 @@
       <entry>8.0.0</entry>
       <entry>
        <parameter>timestamp</parameter> is nullable now.
+       Previously, <literal>0</literal> also meant the current day.
       </entry>
      </row>
     </tbody>
