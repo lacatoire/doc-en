@@ -50,7 +50,7 @@ $html = '<p>test</i>
 $tidy = tidy_parse_string($html);
 
 echo tidy_error_count($tidy) . "\n"; //1
-echo tidy_warning_count($tidy) . "\n"; //5
+echo tidy_warning_count($tidy) . "\n"; //6
 ?>
 ]]>
     </programlisting>
