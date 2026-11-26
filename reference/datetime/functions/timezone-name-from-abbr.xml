@@ -41,7 +41,7 @@
     <varlistentry>
      <term><parameter>isDST</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        Daylight saving time indicator. It is ignored when
        <parameter>abbr</parameter> exists. Otherwise the time zone is
        searched solely by the <parameter>utcOffset</parameter> and
@@ -50,7 +50,7 @@
        daylight saving in effect; if 0, then <parameter>utcOffset</parameter>
        is assumed to be an offset without daylight saving in effect. The
        default value of -1 matches no time zone in that search.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
    </variablelist>
