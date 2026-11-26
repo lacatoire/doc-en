@@ -41,13 +41,13 @@
     <varlistentry>
      <term><parameter>timezoneGroup</parameter></term>
      <listitem>
-      <para>
+      <simpara>
        One of the <classname>DateTimeZone</classname> class constants. The
        region constants can be combined with the bitwise OR operator, but
        <constant>DateTimeZone::PER_COUNTRY</constant> and
        <constant>DateTimeZone::ALL_WITH_BC</constant> must not be combined
        with other constants.
-      </para>
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
