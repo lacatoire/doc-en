@@ -32,11 +32,9 @@
     <varlistentry>
      <term><parameter>message</parameter></term>
      <listitem>
-      <para>
-       The designated error message for this error. It's limited to 1024 
-       bytes in length. Any additional characters beyond 1024 bytes will be 
-       truncated.
-      </para>
+      <simpara>
+       The designated error message for this error.
+      </simpara>
      </listitem>
     </varlistentry>
     <varlistentry>
