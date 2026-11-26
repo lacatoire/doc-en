@@ -69,6 +69,10 @@
    recognised as a valid timezone. Prior to PHP 8.3, this was an
    <exceptionname>Exception</exceptionname> instead.
   </para>
+  <simpara>
+   <function>timezone_open</function> does not throw: it emits an
+   <constant>E_WARNING</constant> and returns &false; instead.
+  </simpara>
  </refsect1>
 
  <refsect1 role="changelog">
@@ -86,9 +90,9 @@
       <row>
        <entry>8.3.0</entry>
        <entry>
-        Invalid values now return a
+        <methodname>DateTimeZone::__construct</methodname> now throws a
         <exceptionname>DateInvalidTimeZoneException</exceptionname> instead of
-        a generic <exceptionname>Exception</exceptionname>.
+        a generic <exceptionname>Exception</exceptionname> for invalid values.
        </entry>
       </row>
      </tbody>
@@ -152,8 +156,8 @@ foreach ($timezones as $tz) {
     <screen>
 <![CDATA[
 Europe/London
-DateTimeZone::__construct() [datetimezone.--construct]: Unknown or bad timezone (Mars/Phobos)
-DateTimeZone::__construct() [datetimezone.--construct]: Unknown or bad timezone (Jupiter/Europa)
+DateTimeZone::__construct(): Unknown or bad timezone (Mars/Phobos)
+DateTimeZone::__construct(): Unknown or bad timezone (Jupiter/Europa)
 ]]>
     </screen>
    </example>
