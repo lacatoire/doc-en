@@ -131,15 +131,17 @@
 
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
-  <para>
-   The converted value is returned, and can be a <type>bool</type>,
+  <simpara>
+   The converted value is returned, and can be &null;, a <type>bool</type>,
    <type>int</type>, <type>float</type>, <type>string</type>,
    <type>array</type> or <type>object</type>.
-  </para>
-  <para>
+  </simpara>
+  <simpara>
    In case the passed string is not unserializeable, &false; is returned and
-   <constant>E_WARNING</constant> is issued.
-  </para>
+   an <constant>E_WARNING</constant> is issued.
+   If the passed string has data left after the serialized value, the value
+   is returned and an <constant>E_WARNING</constant> is issued.
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
@@ -152,6 +154,11 @@
    <parameter>options</parameter> is neither an <type>array</type> of class names
    nor a <type>bool</type>, <function>unserialize</function> throws
    <exceptionname>TypeError</exceptionname> and <exceptionname>ValueError</exceptionname>.
+  </simpara>
+  <simpara>
+   If the <literal>max_depth</literal> element of <parameter>options</parameter>
+   is not an <type>int</type>, a <exceptionname>TypeError</exceptionname> is thrown.
+   If it is negative, a <exceptionname>ValueError</exceptionname> is thrown.
   </simpara>
  </refsect1>
 
@@ -194,6 +201,16 @@
        <entry>
         Now emits <constant>E_WARNING</constant> when the passed string is not unserializeable;
         previously <constant>E_NOTICE</constant> was emitted.
+       </entry>
+      </row>
+      <row>
+       <entry>8.0.0</entry>
+       <entry>
+        Now throws a <exceptionname>TypeError</exceptionname> if the
+        <literal>max_depth</literal> element of <parameter>options</parameter>
+        is not an <type>int</type>, and a <exceptionname>ValueError</exceptionname>
+        if it is negative; previously, an <constant>E_WARNING</constant> was emitted
+        and &false; was returned.
        </entry>
       </row>
       <row>
