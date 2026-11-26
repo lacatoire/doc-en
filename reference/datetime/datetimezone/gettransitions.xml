@@ -57,11 +57,11 @@
    contain any transitions, and calling this method on them will return
    &false;.
   </para>
-  <para>
+  <simpara>
    The first entry in the returned array is always at the time of
    <parameter>timestampBegin</parameter>, even when no transition happens
    then: it holds the offset in effect at that time.
-  </para>
+  </simpara>
   <para>
    <table>
     <title>Transition Array Structure</title>
