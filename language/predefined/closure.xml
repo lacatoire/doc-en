@@ -59,8 +59,10 @@
       <row>
        <entry>8.4.0</entry>
        <entry>
-        The output of <methodname>Closure::__debugInfo</methodname> now includes the
-        name, line, and file of the closure.
+        The debug output of a closure, as produced by <function>var_dump</function>,
+        now includes the name, file, and line of closures declared in code.
+        Closures created from a callable, such as <code>strlen(...)</code> or
+        <methodname>Closure::fromCallable</methodname>, are not affected.
        </entry>
       </row>
      </tbody>

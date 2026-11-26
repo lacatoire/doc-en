@@ -179,8 +179,10 @@ $object = $reflector->newLazyGhost($initializer);
 
    <!-- TODO: expand and examples? -->
    <simpara>
-    The output of <methodname>Closure::__debugInfo</methodname> now includes
-    the name, file, and line of the <classname>Closure</classname>.
+    The debug output of a <classname>Closure</classname>, as produced by
+    <function>var_dump</function>, now includes its name, file, and line.
+    This only applies to closures declared in code, not to closures created
+    from a callable.
    </simpara>
   </sect3>
 
