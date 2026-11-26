@@ -49,6 +49,34 @@
    If the specified <parameter>timestamp</parameter> is in the past, this
    function will generate a <constant>E_WARNING</constant>.
   </para>
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>timestamp</parameter> is negative, not finite, or greater than
+   18446744073.
+  </simpara>
+ </refsect1>
+
+ <refsect1 role="changelog">
+  &reftitle.changelog;
+  <informaltable>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>&Version;</entry>
+      <entry>&Description;</entry>
+     </row>
+    </thead>
+    <tbody>
+     <row>
+      <entry>8.2.22, 8.3.10, 8.4.0</entry>
+      <entry>
+       A <exceptionname>ValueError</exceptionname> is now thrown if
+       <parameter>timestamp</parameter> is negative, not finite, or too large.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </informaltable>
  </refsect1>
 
  <refsect1 role="examples">
