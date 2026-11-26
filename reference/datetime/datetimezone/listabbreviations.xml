@@ -44,7 +44,12 @@
  <refsect1 role="returnvalues">
   &reftitle.returnvalues;
   <para>
-   Returns the array of timezone abbreviations.
+   Returns the array of timezone abbreviations. Each key is a lowercase
+   abbreviation, and each value is a list of arrays with the keys
+   <literal>dst</literal> (whether daylight saving time is in effect),
+   <literal>offset</literal> (the offset from UTC in seconds, daylight saving
+   time included) and <literal>timezone_id</literal> (a timezone identifier,
+   or &null; for the single-letter military abbreviations).
   </para>
  </refsect1>
 
