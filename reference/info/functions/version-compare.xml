@@ -34,6 +34,15 @@
    with different levels like '4.1' and '4.1.2' can be compared but also any
    PHP specific version containing development state.
   </para>
+  <simpara>
+   A part matches a special version string when it starts with it: for example
+   <literal>preview</literal> and <literal>patch</literal> are handled as
+   <literal>p</literal>, and <literal>build</literal> as <literal>b</literal>.
+   <literal>#</literal> stands for any numeric part.
+   When one version has more parts than the other, an extra numeric part makes
+   it greater, so '8.5.0' is greater than '8.5', and an extra special version
+   string is compared to <literal>#</literal>, so '8.5-dev' is lower than '8.5'.
+  </simpara>
  </refsect1>
 
  <refsect1 role="parameters">
