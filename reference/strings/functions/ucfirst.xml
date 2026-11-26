@@ -90,6 +90,7 @@ echo ucfirst(strtolower($bar)), PHP_EOL; // Hello world!
     <member><function>strtoupper</function></member>
     <member><function>ucwords</function></member>
     <member><function>mb_convert_case</function></member>
+    <member><function>mb_ucfirst</function></member>
    </simplelist>
   </para>
  </refsect1>
