@@ -42,7 +42,11 @@
      <term><parameter>timezoneGroup</parameter></term>
      <listitem>
       <para>
-       One of the <classname>DateTimeZone</classname> class constants (or a combination).
+       One of the <classname>DateTimeZone</classname> class constants. The
+       region constants can be combined with the bitwise OR operator, but
+       <constant>DateTimeZone::PER_COUNTRY</constant> and
+       <constant>DateTimeZone::ALL_WITH_BC</constant> must not be combined
+       with other constants.
       </para>
      </listitem>
     </varlistentry>
@@ -73,6 +77,16 @@
    <parameter>timezoneGroup</parameter>.
   </para>
  </refsect1>
+
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>timezoneGroup</parameter> is
+   <constant>DateTimeZone::PER_COUNTRY</constant> and
+   <parameter>countryCode</parameter> is &null; or not two characters long.
+  </simpara>
+ </refsect1>
  
  <refsect1 role="changelog">
   &reftitle.changelog;
@@ -89,7 +103,11 @@
       <row>
        <entry>8.0.0</entry>
        <entry>
-        Prior to this version, &false; was returned on failure.
+        A <exceptionname>ValueError</exceptionname> is now thrown if
+        <parameter>timezoneGroup</parameter> is
+        <constant>DateTimeZone::PER_COUNTRY</constant> and
+        <parameter>countryCode</parameter> is invalid. Previously, an
+        <constant>E_NOTICE</constant> was emitted and &false; was returned.
        </entry>
       </row>
       <row>
@@ -221,8 +239,6 @@ foreach( $timezone_identifiers as $identifier ) {
 <![CDATA[
 Europe/Kyiv
 Europe/Simferopol
-Europe/Uzhgorod
-Europe/Zaporozhye
 ]]>
     </screen>
    </example>
