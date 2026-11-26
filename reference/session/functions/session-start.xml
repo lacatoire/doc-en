@@ -89,7 +89,7 @@
    This function returns &true; if a session was successfully started,
    otherwise &false;. It also returns &true;, with an
    <constant>E_NOTICE</constant>, if a session is already active.
-  </para>
+  </simpara>
  </refsect1>
 
  <refsect1 role="errors">
