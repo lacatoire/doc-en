@@ -57,11 +57,11 @@
    contain any transitions, and calling this method on them will return
    &false;.
   </para>
-  <para>
-   If <parameter>timestampBegin</parameter> is given, the first entry in the
-   returned array will contain a transition element at the time of
-   <parameter>timestampBegin</parameter>.
-  </para>
+  <simpara>
+   The first entry in the returned array is always at the time of
+   <parameter>timestampBegin</parameter>, even when no transition happens
+   then: it holds the offset in effect at that time.
+  </simpara>
   <para>
    <table>
     <title>Transition Array Structure</title>
@@ -82,9 +82,10 @@
       <row>
        <entry><literal>time</literal></entry>
        <entry><type>string</type></entry>
-       <entry><constant>DateTimeInterface::ISO8601_EXPANDED</constant> (PHP
+       <entry>Time string in the <literal>x-m-d\TH:i:sP</literal> format,
+       where the year has a sign only when it is below 0 or above 9999 (PHP
        8.2 and later), or <constant>DateTimeInterface::ISO8601</constant> (PHP
-       8.1 and lower) time string</entry>
+       8.1 and lower)</entry>
       </row>
       <row>
        <entry><literal>offset</literal></entry>
@@ -151,8 +152,8 @@ Array
 (
     [0] => Array
         (
-            [ts] => -2147483648
-            [time] => 1901-12-13T20:45:52+00:00
+            [ts] => -9223372036854775808
+            [time] => -292277022657-01-27T08:29:52+00:00
             [offset] => -75
             [isdst] =>
             [abbr] => LMT
@@ -160,7 +161,7 @@ Array
 
     [1] => Array
         (
-            [ts] => 442304971
+            [ts] => -3852662325
             [time] => 1847-12-01T00:01:15+00:00
             [offset] => 0
             [isdst] =>
