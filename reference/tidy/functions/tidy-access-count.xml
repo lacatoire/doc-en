@@ -73,12 +73,12 @@ echo tidy_access_count($tidy); //6
  <refsect1 role="notes">
   &reftitle.notes;
   <note>
-   <para>
+   <simpara>
     The <literal>accessibility-check</literal> option must be enabled when
     the document is parsed, or <function>tidy_access_count</function> will
     always return <literal>0</literal>. Calling
     <function>tidy_diagnose</function> is not required.
-   </para>
+   </simpara>
   </note>
  </refsect1>
  <refsect1 role="seealso">
