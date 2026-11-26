@@ -562,12 +562,15 @@ object(A)#2 (2) {
     <type>array</type><methodname>__debugInfo</methodname>
     <void/>
    </methodsynopsis>
-   <para>
-    This method is called by <function>var_dump</function> when dumping an
-    object to get the properties that should be shown. If the method isn't
-    defined on an object, then all public, protected and private properties
-    will be shown.
-   </para>
+   <simpara>
+    This method is called by <function>var_dump</function>,
+    <function>print_r</function> and <function>debug_zval_dump</function>
+    when dumping an object to get the properties that should be shown.
+    If the method isn't defined on an object, then all public, protected
+    and private properties will be shown.
+    <function>var_export</function> and casting the object to an
+    <type>array</type> do not call it.
+   </simpara>
    <simpara>
     As of PHP 8.5.0, returning &null; from <link linkend="object.debuginfo">__debugInfo()</link>
     is deprecated. Return an empty <type>array</type> instead.
