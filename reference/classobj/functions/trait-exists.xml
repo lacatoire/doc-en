@@ -13,9 +13,11 @@
    <methodparam><type>string</type><parameter>trait</parameter></methodparam>
    <methodparam choice="opt"><type>bool</type><parameter>autoload</parameter><initializer>&true;</initializer></methodparam>
   </methodsynopsis>
-  <para>
-
-  </para>
+  <simpara>
+   This function checks whether or not the given trait has been defined.
+   The name is matched case-insensitively. A class, an interface or an
+   enum with that name is not a trait, so &false; is returned for it.
+  </simpara>
 
  </refsect1>
 
