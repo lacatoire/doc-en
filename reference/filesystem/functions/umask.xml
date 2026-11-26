@@ -75,13 +75,9 @@
 <![CDATA[
 <?php
 $old = umask(0);
-chmod("/path/some_dir/some_file.txt", 0755);
+// The directory gets mode 0777; under the usual umask of 0022 it would get 0755
+mkdir("/path/some_dir", 0777);
 umask($old);
-
-// Checking
-if ($old != umask()) {
-    die('An error occurred while changing back the umask');
-}
 ?>
 ]]>
     </programlisting>
