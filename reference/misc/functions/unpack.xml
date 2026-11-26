@@ -18,26 +18,27 @@
    Unpacks from a binary string into an array according to the given
    <parameter>format</parameter>. 
   </para>
-  <para>
+  <simpara>
    The unpacked data is stored in an associative array. To
-   accomplish this you have to name the different format codes and
-   separate them by a slash /. If a repeater argument is present,
+   accomplish this you have to name the different format codes.
+   A name extends up to the next slash /, so the format codes must be
+   separated by a slash. If a repeater argument is present,
    then each of the array keys will have a sequence number behind
-   the given name.
-  </para>
+   the given name, except for the "a", "A", "Z", "h" and "H" codes,
+   where the repeater is the length of the string.
+  </simpara>
   <para>
-   Changes were made to bring this function into line with Perl:
+   The string codes behave as follows:
    <simplelist>
     <member>
-     The "a" code now retains trailing NULL bytes.
+     The "a" code retains trailing NULL bytes.
     </member>
     <member>
-     The "A" code now strips all trailing ASCII whitespace (spaces, tabs,
-     newlines, carriage returns, and NULL bytes).
+     The "A" code strips trailing NULL bytes, spaces, tabs, newlines and
+     carriage returns.
     </member>
     <member>
-     The "Z" code was added for NULL-padded strings, and removes trailing
-     NULL bytes.
+     The "Z" code stops at the first NULL byte.
     </member>
    </simplelist>
   </para>
@@ -83,6 +84,16 @@
   </para>
  </refsect1>
 
+ <refsect1 role="errors">
+  &reftitle.errors;
+  <simpara>
+   A <exceptionname>ValueError</exceptionname> is thrown if
+   <parameter>offset</parameter> is outside of <parameter>string</parameter>,
+   if <parameter>format</parameter> contains an unknown format code, or if a
+   64-bit format code is used on a 32-bit version of PHP.
+  </simpara>
+ </refsect1>
+
  <refsect1 role="changelog">
   &reftitle.changelog;
   <para>
@@ -95,6 +106,16 @@
       </row>
      </thead>
      <tbody>
+      <row>
+       <entry>8.0.0</entry>
+       <entry>
+        A <exceptionname>ValueError</exceptionname> is now thrown if
+        <parameter>offset</parameter> is outside of <parameter>string</parameter>,
+        if <parameter>format</parameter> contains an unknown format code, or if a
+        64-bit format code is used on a 32-bit version of PHP; previously, an
+        <constant>E_WARNING</constant> was emitted and &false; was returned.
+       </entry>
+      </row>
       <row>
        <entry>7.2.0</entry>
        <entry>
