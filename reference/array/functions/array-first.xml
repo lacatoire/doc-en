@@ -12,7 +12,8 @@
    <methodparam><type>array</type><parameter>array</parameter></methodparam>
   </methodsynopsis>
   <simpara>
-   Get the first value of the given <parameter>array</parameter>.
+   Get the first value of the given <parameter>array</parameter> without
+   affecting the internal array pointer.
   </simpara>
  </refsect1>
 
