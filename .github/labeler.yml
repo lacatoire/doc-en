@@ -1,0 +1,322 @@
+# Maps reference/ directories to the existing repository labels.
+
+"Extension: bcmath":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/bc/**/*
+
+"Extension: bz2":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/bzip2/**/*
+
+"Extension: calendar":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/calendar/**/*
+
+"Extension: com_dotnet":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/com/**/*
+
+"Extension: ctype":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/ctype/**/*
+
+"Extension: curl":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/curl/**/*
+
+"Extension: date":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/datetime/**/*
+
+"Extension: dba":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/dba/**/*
+
+"Extension: dom":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/dom/**/*
+
+"Extension: enchant":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/enchant/**/*
+
+"Extension: exif":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/exif/**/*
+
+"Extension: ffi":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/ffi/**/*
+
+"Extension: fileinfo":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/fileinfo/**/*
+
+"Extension: filter":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/filter/**/*
+
+"Extension: ftp":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/ftp/**/*
+
+"Extension: gd":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/image/**/*
+
+"Extension: gettext":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/gettext/**/*
+
+"Extension: gmp":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/gmp/**/*
+
+"Extension: hash":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/hash/**/*
+
+"Extension: iconv":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/iconv/**/*
+
+"Extension: imap":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/imap/**/*
+
+"Extension: intl":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/intl/**/*
+
+"Extension: json":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/json/**/*
+
+"Extension: ldap":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/ldap/**/*
+
+"Extension: libxml":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/libxml/**/*
+
+"Extension: mbstring":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/mbstring/**/*
+
+"Extension: mysqli":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/mysqli/**/*
+
+"Extension: oci8":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/oci8/**/*
+
+"Extension: opcache":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/opcache/**/*
+
+"Extension: openssl":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/openssl/**/*
+
+"Extension: pcntl":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/pcntl/**/*
+
+"Extension: pcre":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/pcre/**/*
+
+"Extension: pdo":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/pdo/**/*
+        - reference/pdo_dblib/**/*
+        - reference/pdo_firebird/**/*
+        - reference/pdo_mysql/**/*
+        - reference/pdo_oci/**/*
+        - reference/pdo_odbc/**/*
+        - reference/pdo_pgsql/**/*
+        - reference/pdo_sqlite/**/*
+
+"Extension: phar":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/phar/**/*
+
+"Extension: posix":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/posix/**/*
+
+"Extension: pspell":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/pspell/**/*
+
+"Extension: random":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/random/**/*
+
+"Extension: readline":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/readline/**/*
+
+"Extension: reflection":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/reflection/**/*
+
+"Extension: session":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/session/**/*
+
+"Extension: shmop":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/shmop/**/*
+
+"Extension: SimpleXml":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/simplexml/**/*
+
+"Extension: snmp":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/snmp/**/*
+
+"Extension: soap":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/soap/**/*
+
+"Extension: sockets":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/sockets/**/*
+
+"Extension: sodium":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/sodium/**/*
+
+"Extension: spl":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/spl/**/*
+
+"Extension: sqlite3":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/sqlite3/**/*
+
+"Extension: standard":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/array/**/*
+        - reference/dir/**/*
+        - reference/exec/**/*
+        - reference/filesystem/**/*
+        - reference/info/**/*
+        - reference/mail/**/*
+        - reference/math/**/*
+        - reference/misc/**/*
+        - reference/network/**/*
+        - reference/outcontrol/**/*
+        - reference/password/**/*
+        - reference/stream/**/*
+        - reference/strings/**/*
+        - reference/url/**/*
+        - reference/var/**/*
+
+"Extension: System V":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/sem/**/*
+
+"Extension: tidy":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/tidy/**/*
+
+"Extension: tokenizer":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/tokenizer/**/*
+
+"Extension: xml":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/xml/**/*
+
+"Extension: xml-reader":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/xmlreader/**/*
+
+"Extension: xml-writer":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/xmlwriter/**/*
+
+"Extension: xsl":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/xsl/**/*
+
+"Extension: zip":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/zip/**/*
+
+"Extension: zlib":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/zlib/**/*
+
+"SAPI: apache2handler":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/apache/**/*
+
+"SAPI: FPM":
+  - changed-files:
+      - any-glob-to-any-file:
+        - reference/fpm/**/*
