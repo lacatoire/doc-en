@@ -63,13 +63,15 @@
  <refsect1 role="notes">
   &reftitle.notes;
   <warning>
-   <para>
+   <simpara>
     The query string can be passed to the included file but
-    <varname>$_GET</varname> is copied from the parent script and only
-    <varname>$_SERVER['QUERY_STRING']</varname> is filled with the passed
-    query string. The query string may only be passed when using Apache 2.
+    <varname>$_GET</varname> is copied from the parent script. When the
+    requested file is a PHP script, <varname>$_SERVER</varname> is also the
+    one of the parent script if the parent script has used it, so the passed
+    query string is only reliably available through
+    <code>getenv('QUERY_STRING')</code>.
     The requested file will not be listed in the Apache access log.
-   </para>
+   </simpara>
   </warning>
   <note>
    <para>
