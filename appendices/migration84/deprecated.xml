@@ -11,7 +11,14 @@
 
    <simpara>
     A parameter's type is implicitly widened to accept <type>null</type>
-    if the default value for it is &null;.
+    if the default value for it is the literal &null;, unless the type already
+    accepts <type>null</type>, such as <type>mixed</type> or <type>?T</type>.
+    This is now deprecated, and an <constant>E_DEPRECATED</constant> is emitted
+    for functions, methods (including interface, abstract and trait methods),
+    closures and arrow functions, with union and intersection types as well:
+    <literal>f(): Implicitly marking parameter $c as nullable is deprecated, the explicit nullable type must be used instead</literal>.
+    A default that is a constant evaluating to &null; does not widen the type,
+    and a promoted constructor property with a &null; default is a fatal error.
    </simpara>
 
    <para>
